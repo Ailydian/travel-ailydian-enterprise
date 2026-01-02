@@ -98,7 +98,7 @@ const Custom500Page: React.FC = () => {
                     background: 'linear-gradient(135deg, var(--ac-1), var(--ac-2))',
                     boxShadow: '0 0 15px var(--ac-1)'
                   }}>
-                    <Globe className="w-6 h-6 text-lydian-text-inverse" />
+                    <Globe className="w-6 h-6 text-white" />
                   </div>
                   <span className="text-2xl font-bold neon-text-strong" style={{
                     color: 'var(--tx-1)',
@@ -109,16 +109,16 @@ const Custom500Page: React.FC = () => {
                 </Link>
 
                 <nav className="hidden md:flex items-center space-x-8">
-                  <Link href="/destinations" className="text-lydian-text-muted hover:text-lydian-primary transition-colors">
+                  <Link href="/destinations" className="text-gray-300 hover:text-blue-500 transition-colors">
                     Destinasyonlar
                   </Link>
-                  <Link href="/hotels" className="text-lydian-text-muted hover:text-lydian-primary transition-colors">
+                  <Link href="/hotels" className="text-gray-300 hover:text-blue-500 transition-colors">
                     Oteller
                   </Link>
-                  <Link href="/flights" className="text-lydian-text-muted hover:text-lydian-primary transition-colors">
+                  <Link href="/flights" className="text-gray-300 hover:text-blue-500 transition-colors">
                     Uçak Biletleri
                   </Link>
-                  <Link href="/activities" className="text-lydian-text-muted hover:text-lydian-primary transition-colors">
+                  <Link href="/activities" className="text-gray-300 hover:text-blue-500 transition-colors">
                     Aktiviteler
                   </Link>
                 </nav>
@@ -170,20 +170,20 @@ const Custom500Page: React.FC = () => {
                 transition={{ duration: 0.6, delay: 0.2 }}>
 
                 <div className="mb-8">
-                <h1 className="text-4xl md:text-5xl font-bold text-lydian-text-inverse mb-4">
+                <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
                   {t('errors.500.title')}
                 </h1>
-                <p className="text-xl text-lydian-text-dim mb-6 max-w-2xl mx-auto">
+                <p className="text-xl text-gray-400 mb-6 max-w-2xl mx-auto">
                   {t('errors.500.description')}
                 </p>
                 
                 {/* Status Info */}
                 <div className="bg-lydian-error-lighter border border-red-200 rounded-2xl p-6 max-w-md mx-auto mb-8">
                   <div className="flex items-center justify-center mb-4">
-                    <Wrench className="w-8 h-8 text-lydian-primary mr-3" />
+                    <Wrench className="w-8 h-8 text-blue-500 mr-3" />
                     <span className="text-lg font-semibold text-lydian-primary-active">Teknik Bakım</span>
                   </div>
-                  <p className="text-lydian-primary-dark text-sm">
+                  <p className="text-blue-600 text-sm">
                     Sunucularımız şu anda bakım altında. Lütfen birkaç dakika sonra tekrar deneyin.
                   </p>
                 </div>
@@ -200,7 +200,7 @@ const Custom500Page: React.FC = () => {
                 <button
                     onClick={handleRetry}
                     disabled={isRetrying}
-                    className={`inline-flex items-center px-8 py-4 bg-gradient-to-r from-lydian-primary to-orange-600 text-lydian-text-inverse rounded-2xl hover:shadow-lg hover:scale-105 transition-all duration-300 font-semibold ${
+                    className={`inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-orange-600 text-white rounded-2xl hover:shadow-lg hover:scale-105 transition-all duration-300 font-semibold ${
                     isRetrying ? 'opacity-75 cursor-not-allowed' : ''}`
                     }>
 
@@ -219,7 +219,7 @@ const Custom500Page: React.FC = () => {
 
                 <Link
                     href="/"
-                    className="inline-flex items-center px-8 py-4 bg-lydian-bg-hover text-lydian-text-muted border border-lydian-border-medium rounded-2xl hover:bg-lydian-glass-dark hover:shadow-lg hover:scale-105 transition-all duration-300 font-semibold">
+                    className="inline-flex items-center px-8 py-4 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl text-gray-300 border border-white/30 rounded-2xl hover:bg-gradient-to-br from-slate-900 via-black to-slate-800 hover:shadow-lg hover:scale-105 transition-all duration-300 font-semibold">
 
                   <Home className="w-5 h-5 mr-2" />
                   Ana Sayfaya Dön
@@ -227,7 +227,7 @@ const Custom500Page: React.FC = () => {
 
                 <button
                     onClick={handleGoBack}
-                    className="inline-flex items-center px-8 py-4 bg-lydian-bg-hover text-lydian-text-muted border border-lydian-border-medium rounded-2xl hover:bg-lydian-glass-dark hover:shadow-lg hover:scale-105 transition-all duration-300 font-semibold">
+                    className="inline-flex items-center px-8 py-4 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl text-gray-300 border border-white/30 rounded-2xl hover:bg-gradient-to-br from-slate-900 via-black to-slate-800 hover:shadow-lg hover:scale-105 transition-all duration-300 font-semibold">
 
                   <ArrowLeft className="w-5 h-5 mr-2" />
                   Geri Dön
@@ -242,43 +242,43 @@ const Custom500Page: React.FC = () => {
                 transition={{ duration: 0.6, delay: 0.6 }}>
 
                 <div className="max-w-2xl mx-auto">
-                <h2 className="text-2xl font-bold text-lydian-text-inverse mb-6 flex items-center justify-center">
-                  <Clock className="w-6 h-6 mr-2 text-lydian-primary" />
+                <h2 className="text-2xl font-bold text-white mb-6 flex items-center justify-center">
+                  <Clock className="w-6 h-6 mr-2 text-blue-500" />
                   Acil Durum İletişim
                 </h2>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="bg-lydian-bg-hover rounded-2xl shadow-lg p-6 border border-lydian-border">
+                  <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-2xl shadow-lg p-6 border border-white/20">
                     <div className="flex items-center mb-4">
                       <div className="w-12 h-12 bg-gradient-to-br from-red-100 to-orange-100 rounded-2xl flex items-center justify-center">
-                        <Mail className="w-6 h-6 text-lydian-primary" />
+                        <Mail className="w-6 h-6 text-blue-500" />
                       </div>
                       <div className="ml-4">
-                        <h3 className="font-bold text-lydian-text-inverse">E-posta Destek</h3>
-                        <p className="text-lydian-text-dim text-sm">Teknik sorunlar için</p>
+                        <h3 className="font-bold text-white">E-posta Destek</h3>
+                        <p className="text-gray-400 text-sm">Teknik sorunlar için</p>
                       </div>
                     </div>
                     <a
                         href="mailto:support@holiday.ailydian.com"
-                        className="text-lydian-primary hover:text-lydian-primary-dark font-medium text-sm">
+                        className="text-blue-500 hover:text-blue-600 font-medium text-sm">
 
                       support@holiday.ailydian.com
                     </a>
                   </div>
 
-                  <div className="bg-lydian-bg-hover rounded-2xl shadow-lg p-6 border border-lydian-border">
+                  <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-2xl shadow-lg p-6 border border-white/20">
                     <div className="flex items-center mb-4">
                       <div className="w-12 h-12 bg-gradient-to-br from-red-100 to-orange-100 rounded-2xl flex items-center justify-center">
-                        <Phone className="w-6 h-6 text-lydian-primary" />
+                        <Phone className="w-6 h-6 text-blue-500" />
                       </div>
                       <div className="ml-4">
-                        <h3 className="font-bold text-lydian-text-inverse">Telefon Destek</h3>
-                        <p className="text-lydian-text-dim text-sm">7/24 acil destek</p>
+                        <h3 className="font-bold text-white">Telefon Destek</h3>
+                        <p className="text-gray-400 text-sm">7/24 acil destek</p>
                       </div>
                     </div>
                     <a
                         href="tel:+902125550123"
-                        className="text-lydian-primary hover:text-lydian-primary-dark font-medium text-sm">
+                        className="text-blue-500 hover:text-blue-600 font-medium text-sm">
 
                       +90 212 555 01 23
                     </a>
@@ -286,34 +286,34 @@ const Custom500Page: React.FC = () => {
                 </div>
 
                 {/* Status Updates */}
-                <div className="mt-8 bg-lydian-glass-dark rounded-2xl p-6">
-                  <h3 className="text-lg font-bold text-lydian-text-inverse mb-4">Sistem Durumu</h3>
+                <div className="mt-8 bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-2xl p-6">
+                  <h3 className="text-lg font-bold text-white mb-4">Sistem Durumu</h3>
                   <div className="space-y-3 text-sm">
                     <div className="flex items-center justify-between">
-                      <span className="text-lydian-text-dim">Rezervasyon Sistemi</span>
-                      <span className="inline-flex items-center px-2 py-1 rounded-full text-xs bg-lydian-warning-light text-yellow-800">
-                        <div className="w-2 h-2 bg-lydian-warning-hover rounded-full mr-1 animate-pulse"></div>
+                      <span className="text-gray-400">Rezervasyon Sistemi</span>
+                      <span className="inline-flex items-center px-2 py-1 rounded-full text-xs bg-yellow-500-light text-yellow-800">
+                        <div className="w-2 h-2 bg-yellow-500-hover rounded-full mr-1 animate-pulse"></div>
                         Bakım
                       </span>
                     </div>
                     <div className="flex items-center justify-between">
-                      <span className="text-lydian-text-dim">Ödeme Sistemi</span>
-                      <span className="inline-flex items-center px-2 py-1 rounded-full text-xs bg-lydian-success-light text-green-800">
-                        <div className="w-2 h-2 bg-lydian-success rounded-full mr-1"></div>
+                      <span className="text-gray-400">Ödeme Sistemi</span>
+                      <span className="inline-flex items-center px-2 py-1 rounded-full text-xs bg-green-600-light text-green-800">
+                        <div className="w-2 h-2 bg-green-600 rounded-full mr-1"></div>
                         Aktif
                       </span>
                     </div>
                     <div className="flex items-center justify-between">
-                      <span className="text-lydian-text-dim">AI Asistan</span>
-                      <span className="inline-flex items-center px-2 py-1 rounded-full text-xs bg-lydian-success-light text-green-800">
-                        <div className="w-2 h-2 bg-lydian-success rounded-full mr-1"></div>
+                      <span className="text-gray-400">AI Asistan</span>
+                      <span className="inline-flex items-center px-2 py-1 rounded-full text-xs bg-green-600-light text-green-800">
+                        <div className="w-2 h-2 bg-green-600 rounded-full mr-1"></div>
                         Aktif
                       </span>
                     </div>
                   </div>
                 </div>
 
-                <p className="text-sm text-lydian-text-muted mt-6">
+                <p className="text-sm text-gray-300 mt-6">
                   Tahmini çözüm süresi: 15-30 dakika<br />
                   Son güncelleme: {new Date().toLocaleString('tr-TR')}
                 </p>
@@ -323,9 +323,9 @@ const Custom500Page: React.FC = () => {
           </main>
 
           {/* Footer */}
-          <footer className="bg-lydian-bg/80 backdrop-blur-md border-t border-lydian-border/50 py-6">
+          <footer className="bg-white/10 backdrop-blur-md border-t border-lydian-border/50 py-6">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="text-center text-lydian-text-dim">
+              <div className="text-center text-gray-400">
                 <p>&copy; 2025 Holiday.AILYDIAN. Tüm hakları saklıdır.</p>
                 <p className="mt-1 text-sm">AI Destekli Seyahat Platformu</p>
               </div>

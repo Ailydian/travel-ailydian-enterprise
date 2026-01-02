@@ -179,7 +179,11 @@
     "invalidCard": "Geçersiz kart numarası"
   },
   "errors": {
-    "404": "Sayfa bulunamadı",
+    "404": {
+      "title": "Sayfa Bulunamadı",
+      "description": "Aradığınız sayfa mevcut değil veya kaldırılmış olabilir. Popüler destinasyonlarımızı keşfetmeye ne dersiniz?",
+      "backHome": "Ana Sayfaya Dön"
+    },
     "500": "Sunucu hatası",
     "networkError": "Ağ bağlantısı hatası",
     "unknownError": "Bilinmeyen bir hata oluştu",

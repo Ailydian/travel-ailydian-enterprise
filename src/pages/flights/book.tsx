@@ -318,11 +318,11 @@ export default function FlightBooking() {
       <SimplifiedHeader />
 
       {/* Back Button */}
-      <div className="sticky top-16 z-40 bg-lydian-bg-hover border-b border-lydian-border-light/10 shadow-sm">
+      <div className="sticky top-16 z-40 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl border-b border-white/20/10 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 py-3">
           <button
             onClick={() => router.back()}
-            className="inline-flex items-center gap-2 text-lydian-text-muted hover:text-lydian-primary transition-colors">
+            className="inline-flex items-center gap-2 text-gray-300 hover:text-blue-500 transition-colors">
 
             <ArrowLeft className="w-4 h-4" />
             <span className="font-medium">Geri Dön</span>
@@ -336,7 +336,7 @@ export default function FlightBooking() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-lydian-bg-hover rounded-2xl shadow-lg p-6 mb-6">
+            className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-2xl shadow-lg p-6 mb-6">
 
             <div className="flex items-center justify-between">
               {steps.map((step, idx) => {
@@ -352,14 +352,14 @@ export default function FlightBooking() {
                         isCompleted ?
                         'bg-green-500 text-white' :
                         isActive ?
-                        'bg-lydian-primary text-white' :
-                        'bg-lydian-bg-surface-raised text-lydian-text-muted'}`
+                        'bg-gradient-to-r from-blue-600 to-purple-600 text-white' :
+                        'bg-lydian-bg-surface-raised text-gray-300'}`
                         }>
 
                         {isCompleted ? <Check className="w-6 h-6" /> : <Icon className="w-6 h-6" />}
                       </div>
                       <div className="text-xs mt-2 text-center max-w-[80px]">
-                        <div className={`font-medium ${isActive ? 'text-lydian-primary' : 'text-lydian-text-dim'}`}>
+                        <div className={`font-medium ${isActive ? 'text-lydian-primary' : 'text-gray-400'}`}>
                           {step.title}
                         </div>
                       </div>
@@ -388,66 +388,66 @@ export default function FlightBooking() {
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -20 }}
-                  className="bg-lydian-bg-hover rounded-2xl shadow-lg p-6">
+                  className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-2xl shadow-lg p-6">
 
-                    <h2 className="text-2xl font-bold text-lydian-text-inverse mb-6">Uçuş Detayları</h2>
+                    <h2 className="text-2xl font-bold text-white mb-6">Uçuş Detayları</h2>
 
                     <div className="border-2 border-blue-200 rounded-xl p-6 bg-gradient-to-br from-blue-50 to-indigo-50">
                       <div className="flex items-center justify-between mb-6">
                         <div>
-                          <h3 className="text-xl font-bold text-lydian-text-inverse">{flightData.airline}</h3>
-                          <p className="text-lydian-text-dim">{flightData.flightNumber}</p>
+                          <h3 className="text-xl font-bold text-white">{flightData.airline}</h3>
+                          <p className="text-gray-400">{flightData.flightNumber}</p>
                         </div>
-                        <div className="px-4 py-2 bg-lydian-success-light text-green-800 rounded-full font-semibold">
+                        <div className="px-4 py-2 bg-green-600-light text-green-800 rounded-full font-semibold">
                           Direkt
                         </div>
                       </div>
 
                       <div className="grid grid-cols-3 gap-4 items-center">
                         <div>
-                          <div className="text-3xl font-bold text-lydian-text-inverse mb-1">{flightData.departure.time}</div>
+                          <div className="text-3xl font-bold text-white mb-1">{flightData.departure.time}</div>
                           <div className="text-lg font-semibold">{flightData.from.code}</div>
-                          <div className="text-sm text-lydian-text-dim">{flightData.from.city}</div>
-                          <div className="text-xs text-lydian-text-muted mt-1">{flightData.departure.date}</div>
+                          <div className="text-sm text-gray-400">{flightData.from.city}</div>
+                          <div className="text-xs text-gray-300 mt-1">{flightData.departure.date}</div>
                         </div>
 
                         <div className="text-center">
                           <div className="flex items-center justify-center mb-2">
                             <div className="flex-1 h-0.5 bg-gray-300"></div>
-                            <Plane className="w-6 h-6 text-lydian-primary mx-2 transform rotate-90" />
+                            <Plane className="w-6 h-6 text-blue-500 mx-2 transform rotate-90" />
                             <div className="flex-1 h-0.5 bg-gray-300"></div>
                           </div>
-                          <div className="flex items-center justify-center gap-1 text-sm text-lydian-text-dim">
+                          <div className="flex items-center justify-center gap-1 text-sm text-gray-400">
                             <Clock className="w-4 h-4" />
                             {flightData.duration}
                           </div>
                         </div>
 
                         <div className="text-right">
-                          <div className="text-3xl font-bold text-lydian-text-inverse mb-1">{flightData.arrival.time}</div>
+                          <div className="text-3xl font-bold text-white mb-1">{flightData.arrival.time}</div>
                           <div className="text-lg font-semibold">{flightData.to.code}</div>
-                          <div className="text-sm text-lydian-text-dim">{flightData.to.city}</div>
-                          <div className="text-xs text-lydian-text-muted mt-1">{flightData.arrival.date}</div>
+                          <div className="text-sm text-gray-400">{flightData.to.city}</div>
+                          <div className="text-xs text-gray-300 mt-1">{flightData.arrival.date}</div>
                         </div>
                       </div>
 
                       <div className="mt-6 pt-6 border-t border-blue-200">
                         <div className="grid grid-cols-2 gap-4">
                           <div>
-                            <p className="text-sm text-lydian-text-dim mb-1">Ücret Sınıfı</p>
-                            <p className="font-semibold text-lydian-text-inverse capitalize">{flightData.fareClass}</p>
+                            <p className="text-sm text-gray-400 mb-1">Ücret Sınıfı</p>
+                            <p className="font-semibold text-white capitalize">{flightData.fareClass}</p>
                           </div>
                           <div>
-                            <p className="text-sm text-lydian-text-dim mb-1">Yolcu Sayısı</p>
-                            <p className="font-semibold text-lydian-text-inverse">{passengers.length} Kişi</p>
+                            <p className="text-sm text-gray-400 mb-1">Yolcu Sayısı</p>
+                            <p className="font-semibold text-white">{passengers.length} Kişi</p>
                           </div>
                         </div>
                       </div>
                     </div>
 
-                    <div className="mt-6 p-4 bg-lydian-warning-lighter border border-yellow-200 rounded-lg flex gap-3">
-                      <Info className="w-5 h-5 text-lydian-warning flex-shrink-0 mt-0.5" />
-                      <div className="text-sm text-lydian-text-muted">
+                    <div className="mt-6 p-4 bg-yellow-500-lighter border border-yellow-200 rounded-lg flex gap-3">
+                      <Info className="w-5 h-5 text-yellow-500 flex-shrink-0 mt-0.5" />
+                      <div className="text-sm text-gray-300">
                         <p className="font-medium mb-1">Önemli Bilgi</p>
                         <p>Lütfen tüm yolcu bilgilerinin kimlik belgenizdeki ile aynı olduğundan emin olun.</p>
                       </div>
@@ -462,20 +462,20 @@ export default function FlightBooking() {
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -20 }}
-                  className="bg-lydian-bg-hover rounded-2xl shadow-lg p-6">
+                  className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-2xl shadow-lg p-6">
 
-                    <h2 className="text-2xl font-bold text-lydian-text-inverse mb-6">Yolcu Bilgileri</h2>
+                    <h2 className="text-2xl font-bold text-white mb-6">Yolcu Bilgileri</h2>
 
                     <div className="space-y-6">
                       {passengers.map((passenger, idx) =>
-                    <div key={idx} className="border-2 border-lydian-border-light/10 rounded-xl p-6">
-                          <h3 className="font-bold text-lg text-lydian-text-inverse mb-4">
+                    <div key={idx} className="border-2 border-white/20/10 rounded-xl p-6">
+                          <h3 className="font-bold text-lg text-white mb-4">
                             Yolcu {idx + 1} - {passenger.type === 'adult' ? 'Yetişkin' : passenger.type === 'child' ? 'Çocuk' : 'Bebek'}
                           </h3>
 
                           <div className="grid md:grid-cols-2 gap-4">
                             <div>
-                              <label className="block text-sm font-medium text-lydian-text-muted mb-2">
+                              <label className="block text-sm font-medium text-gray-300 mb-2">
                                 Unvan *
                               </label>
                               <select
@@ -496,7 +496,7 @@ export default function FlightBooking() {
                             </div>
 
                             <div>
-                              <label className="block text-sm font-medium text-lydian-text-muted mb-2">
+                              <label className="block text-sm font-medium text-gray-300 mb-2">
                                 Ad *
                               </label>
                               <input
@@ -514,7 +514,7 @@ export default function FlightBooking() {
                             </div>
 
                             <div>
-                              <label className="block text-sm font-medium text-lydian-text-muted mb-2">
+                              <label className="block text-sm font-medium text-gray-300 mb-2">
                                 Soyad *
                               </label>
                               <input
@@ -532,7 +532,7 @@ export default function FlightBooking() {
                             </div>
 
                             <div>
-                              <label className="block text-sm font-medium text-lydian-text-muted mb-2">
+                              <label className="block text-sm font-medium text-gray-300 mb-2">
                                 Doğum Tarihi *
                               </label>
                               <input
@@ -549,7 +549,7 @@ export default function FlightBooking() {
                             </div>
 
                             <div>
-                              <label className="block text-sm font-medium text-lydian-text-muted mb-2">
+                              <label className="block text-sm font-medium text-gray-300 mb-2">
                                 Uyruk *
                               </label>
                               <select
@@ -567,14 +567,14 @@ export default function FlightBooking() {
                             </div>
 
                             <div>
-                              <label className="block text-sm font-medium text-lydian-text-muted mb-2">
+                              <label className="block text-sm font-medium text-gray-300 mb-2">
                                 Frequent Flyer No (Opsiyonel)
                               </label>
                               <input
                             type="text"
                             value={passenger.frequentFlyerNumber || ''}
                             onChange={(e) => updatePassenger(idx, 'frequentFlyerNumber', e.target.value)}
-                            className="w-full px-4 py-3 border border-lydian-border-light rounded-lg focus:ring-2 focus:ring-lydian-primary"
+                            className="w-full px-4 py-3 border border-white/20 rounded-lg focus:ring-2 focus:ring-lydian-primary"
                             placeholder="FF1234567" />
 
                             </div>
@@ -583,12 +583,12 @@ export default function FlightBooking() {
                     )}
 
                       {/* Lead Passenger Contact */}
-                      <div className="border-2 border-blue-200 rounded-xl p-6 bg-lydian-primary-lighter">
-                        <h3 className="font-bold text-lg text-lydian-text-inverse mb-4">İletişim Bilgileri</h3>
+                      <div className="border-2 border-blue-200 rounded-xl p-6 bg-blue-500/10er">
+                        <h3 className="font-bold text-lg text-white mb-4">İletişim Bilgileri</h3>
 
                         <div className="grid md:grid-cols-2 gap-4">
                           <div>
-                            <label className="block text-sm font-medium text-lydian-text-muted mb-2">
+                            <label className="block text-sm font-medium text-gray-300 mb-2">
                               <Mail className="w-4 h-4 inline mr-1" />
                               E-posta *
                             </label>
@@ -607,7 +607,7 @@ export default function FlightBooking() {
                           </div>
 
                           <div>
-                            <label className="block text-sm font-medium text-lydian-text-muted mb-2">
+                            <label className="block text-sm font-medium text-gray-300 mb-2">
                               <Phone className="w-4 h-4 inline mr-1" />
                               Telefon *
                             </label>
@@ -637,13 +637,13 @@ export default function FlightBooking() {
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -20 }}
-                  className="bg-lydian-bg-hover rounded-2xl shadow-lg p-6">
+                  className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-2xl shadow-lg p-6">
 
                     <div className="flex items-center justify-between mb-6">
-                      <h2 className="text-2xl font-bold text-lydian-text-inverse">Koltuk Seçimi</h2>
+                      <h2 className="text-2xl font-bold text-white">Koltuk Seçimi</h2>
                       <button
                       onClick={handleNext}
-                      className="text-sm text-lydian-primary hover:underline">
+                      className="text-sm text-blue-500 hover:underline">
 
                         Atla (Otomatik Atama)
                       </button>
@@ -652,11 +652,11 @@ export default function FlightBooking() {
                     <div className="mb-6">
                       <div className="flex items-center gap-4 text-sm">
                         <div className="flex items-center gap-2">
-                          <div className="w-8 h-8 bg-lydian-bg-active rounded"></div>
+                          <div className="w-8 h-8 bg-white/10 backdrop-blur-xl border border-white/20 rounded"></div>
                           <span>Müsait</span>
                         </div>
                         <div className="flex items-center gap-2">
-                          <div className="w-8 h-8 bg-lydian-primary rounded"></div>
+                          <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded"></div>
                           <span>Seçildi</span>
                         </div>
                         <div className="flex items-center gap-2">
@@ -673,7 +673,7 @@ export default function FlightBooking() {
                     {/* Aircraft Seat Map */}
                     <div className="bg-gradient-to-b from-blue-100 to-blue-50 rounded-xl p-6">
                       <div className="max-w-md mx-auto">
-                        <div className="text-center mb-4 text-sm font-medium text-lydian-text-muted">
+                        <div className="text-center mb-4 text-sm font-medium text-gray-300">
                           Uçak Önü ✈️
                         </div>
 
@@ -685,7 +685,7 @@ export default function FlightBooking() {
                           }
                           if (seat === 'EXIT') {
                             return (
-                              <div key={seatIdx} className="w-8 text-xs text-center text-lydian-success font-semibold">
+                              <div key={seatIdx} className="w-8 text-xs text-center text-green-500 font-semibold">
                                     EXIT
                                   </div>);
 
@@ -707,7 +707,7 @@ export default function FlightBooking() {
                               isTaken ?
                               'bg-gray-400 text-white cursor-not-allowed' :
                               isSelected ?
-                              'bg-lydian-primary text-white' :
+                              'bg-gradient-to-r from-blue-600 to-purple-600 text-white' :
                               isExtraLegroom ?
                               'bg-green-200 border-2 border-lydian-success hover:bg-green-300' :
                               'bg-lydian-bg-surface-raised hover:bg-gray-300'}`
@@ -720,19 +720,19 @@ export default function FlightBooking() {
                           </div>
                       )}
 
-                        <div className="text-center mt-4 text-sm font-medium text-lydian-text-muted">
+                        <div className="text-center mt-4 text-sm font-medium text-gray-300">
                           Uçak Arkası
                         </div>
                       </div>
                     </div>
 
                     {/* Selected Seats Summary */}
-                    <div className="mt-6 p-4 bg-lydian-primary-lighter rounded-lg">
-                      <h3 className="font-semibold text-lydian-text-inverse mb-2">Seçili Koltuklar</h3>
+                    <div className="mt-6 p-4 bg-blue-500/10er rounded-lg">
+                      <h3 className="font-semibold text-white mb-2">Seçili Koltuklar</h3>
                       <div className="space-y-1">
                         {passengers.map((passenger, idx) =>
                       <div key={idx} className="flex justify-between text-sm">
-                            <span className="text-lydian-text-muted">
+                            <span className="text-gray-300">
                               Yolcu {idx + 1} ({passenger.firstName || 'İsimsiz'})
                             </span>
                             <span className="font-semibold">
@@ -752,19 +752,19 @@ export default function FlightBooking() {
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -20 }}
-                  className="bg-lydian-bg-hover rounded-2xl shadow-lg p-6">
+                  className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-2xl shadow-lg p-6">
 
-                    <h2 className="text-2xl font-bold text-lydian-text-inverse mb-6">Bagaj Seçenekleri</h2>
+                    <h2 className="text-2xl font-bold text-white mb-6">Bagaj Seçenekleri</h2>
 
                     <div className="space-y-6">
                       {passengers.map((passenger, idx) =>
-                    <div key={idx} className="border-2 border-lydian-border-light/10 rounded-xl p-6">
-                          <h3 className="font-bold text-lg text-lydian-text-inverse mb-4">
+                    <div key={idx} className="border-2 border-white/20/10 rounded-xl p-6">
+                          <h3 className="font-bold text-lg text-white mb-4">
                             Yolcu {idx + 1} - {passenger.firstName || 'İsimsiz'} {passenger.lastName || ''}
                           </h3>
 
-                          <div className="mb-4 p-3 bg-lydian-success-lighter rounded-lg">
-                            <div className="flex items-center gap-2 text-lydian-success-text">
+                          <div className="mb-4 p-3 bg-green-600-lighter rounded-lg">
+                            <div className="flex items-center gap-2 text-green-500-text">
                               <Check className="w-5 h-5" />
                               <span className="font-medium">8 kg Kabin Bagajı Dahil</span>
                             </div>
@@ -777,22 +777,22 @@ export default function FlightBooking() {
                           onClick={() => updatePassenger(idx, 'baggage', { checked: option.weight })}
                           className={`w-full p-4 rounded-lg border-2 text-left transition-all ${
                           passenger.baggage.checked === option.weight ?
-                          'border-lydian-primary bg-blue-50' :
+                          'border-blue-500 bg-blue-50' :
                           'border-white/10 hover:border-white/20'}`
                           }>
 
                                 <div className="flex items-center justify-between">
                                   <div>
-                                    <p className="font-semibold text-lydian-text-inverse">{option.label}</p>
+                                    <p className="font-semibold text-white">{option.label}</p>
                                     {option.weight > 0 &&
-                              <p className="text-sm text-lydian-text-dim mt-1">{option.weight} kg bagaj hakkı</p>
+                              <p className="text-sm text-gray-400 mt-1">{option.weight} kg bagaj hakkı</p>
                               }
                                   </div>
                                   <div className="text-right">
                                     {option.price > 0 ?
-                              <p className="text-lg font-bold text-lydian-primary">+₺{option.price}</p> :
+                              <p className="text-lg font-bold text-blue-500">+₺{option.price}</p> :
 
-                              <p className="text-sm font-semibold text-lydian-success">Dahil</p>
+                              <p className="text-sm font-semibold text-green-500">Dahil</p>
                               }
                                   </div>
                                 </div>
@@ -803,9 +803,9 @@ export default function FlightBooking() {
                     )}
                     </div>
 
-                    <div className="mt-6 p-4 bg-lydian-warning-lighter border border-yellow-200 rounded-lg flex gap-3">
-                      <Info className="w-5 h-5 text-lydian-warning flex-shrink-0 mt-0.5" />
-                      <div className="text-sm text-lydian-text-muted">
+                    <div className="mt-6 p-4 bg-yellow-500-lighter border border-yellow-200 rounded-lg flex gap-3">
+                      <Info className="w-5 h-5 text-yellow-500 flex-shrink-0 mt-0.5" />
+                      <div className="text-sm text-gray-300">
                         <p className="font-medium mb-1">Bagaj Limitleri</p>
                         <p>Her bir bagaj maksimum 23 kg ağırlığında olabilir. Spor ekipmanları için ayrı ücretlendirme uygulanır.</p>
                       </div>
@@ -820,29 +820,29 @@ export default function FlightBooking() {
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -20 }}
-                  className="bg-lydian-bg-hover rounded-2xl shadow-lg p-6">
+                  className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-2xl shadow-lg p-6">
 
-                    <h2 className="text-2xl font-bold text-lydian-text-inverse mb-6">Ekstra Hizmetler</h2>
+                    <h2 className="text-2xl font-bold text-white mb-6">Ekstra Hizmetler</h2>
 
                     <div className="space-y-4">
                       {/* Travel Insurance */}
                       <button
                       onClick={() => setExtras((prev) => ({ ...prev, insurance: !prev.insurance }))}
                       className={`w-full p-6 rounded-xl border-2 text-left transition-all ${
-                      extras.insurance ? 'border-lydian-primary bg-blue-50' : 'border-white/10 hover:border-white/20'}`
+                      extras.insurance ? 'border-blue-500 bg-blue-50' : 'border-white/10 hover:border-white/20'}`
                       }>
 
                         <div className="flex items-start justify-between">
                           <div className="flex-1">
                             <div className="flex items-center gap-3 mb-2">
-                              <Shield className="w-6 h-6 text-lydian-primary" />
+                              <Shield className="w-6 h-6 text-blue-500" />
                               <h3 className="font-bold text-lg">Seyahat Sigortası</h3>
                             </div>
-                            <p className="text-sm text-lydian-text-dim">Uçuş iptali, bagaj kaybı ve tıbbi acil durumlar için kapsamlı koruma.</p>
+                            <p className="text-sm text-gray-400">Uçuş iptali, bagaj kaybı ve tıbbi acil durumlar için kapsamlı koruma.</p>
                           </div>
                           <div className="text-right ml-4">
-                            <p className="text-xl font-bold text-lydian-primary">₺75</p>
-                            <p className="text-xs text-lydian-text-muted">kişi başı</p>
+                            <p className="text-xl font-bold text-blue-500">₺75</p>
+                            <p className="text-xs text-gray-300">kişi başı</p>
                           </div>
                         </div>
                       </button>
@@ -851,20 +851,20 @@ export default function FlightBooking() {
                       <button
                       onClick={() => setExtras((prev) => ({ ...prev, priorityBoarding: !prev.priorityBoarding }))}
                       className={`w-full p-6 rounded-xl border-2 text-left transition-all ${
-                      extras.priorityBoarding ? 'border-lydian-primary bg-blue-50' : 'border-white/10 hover:border-white/20'}`
+                      extras.priorityBoarding ? 'border-blue-500 bg-blue-50' : 'border-white/10 hover:border-white/20'}`
                       }>
 
                         <div className="flex items-start justify-between">
                           <div className="flex-1">
                             <div className="flex items-center gap-3 mb-2">
-                              <Users className="w-6 h-6 text-lydian-primary" />
+                              <Users className="w-6 h-6 text-blue-500" />
                               <h3 className="font-bold text-lg">Öncelikli Boarding</h3>
                             </div>
-                            <p className="text-sm text-lydian-text-dim">Uçağa ilk binen yolcular arasında olun.</p>
+                            <p className="text-sm text-gray-400">Uçağa ilk binen yolcular arasında olun.</p>
                           </div>
                           <div className="text-right ml-4">
-                            <p className="text-xl font-bold text-lydian-primary">₺100</p>
-                            <p className="text-xs text-lydian-text-muted">tüm yolcular</p>
+                            <p className="text-xl font-bold text-blue-500">₺100</p>
+                            <p className="text-xs text-gray-300">tüm yolcular</p>
                           </div>
                         </div>
                       </button>
@@ -873,26 +873,26 @@ export default function FlightBooking() {
                       <button
                       onClick={() => setExtras((prev) => ({ ...prev, loungeAccess: !prev.loungeAccess }))}
                       className={`w-full p-6 rounded-xl border-2 text-left transition-all ${
-                      extras.loungeAccess ? 'border-lydian-primary bg-blue-50' : 'border-white/10 hover:border-white/20'}`
+                      extras.loungeAccess ? 'border-blue-500 bg-blue-50' : 'border-white/10 hover:border-white/20'}`
                       }>
 
                         <div className="flex items-start justify-between">
                           <div className="flex-1">
                             <div className="flex items-center gap-3 mb-2">
-                              <Coffee className="w-6 h-6 text-lydian-primary" />
+                              <Coffee className="w-6 h-6 text-blue-500" />
                               <h3 className="font-bold text-lg">Lounge Erişimi</h3>
                             </div>
-                            <p className="text-sm text-lydian-text-dim">Premium lounge'da uçuşunuzu bekleyin. Ücretsiz yiyecek ve içecek dahil.</p>
+                            <p className="text-sm text-gray-400">Premium lounge'da uçuşunuzu bekleyin. Ücretsiz yiyecek ve içecek dahil.</p>
                           </div>
                           <div className="text-right ml-4">
-                            <p className="text-xl font-bold text-lydian-primary">₺250</p>
-                            <p className="text-xs text-lydian-text-muted">tüm yolcular</p>
+                            <p className="text-xl font-bold text-blue-500">₺250</p>
+                            <p className="text-xs text-gray-300">tüm yolcular</p>
                           </div>
                         </div>
                       </button>
 
                       {/* Meals */}
-                      <div className="border-2 border-lydian-border-light/10 rounded-xl p-6">
+                      <div className="border-2 border-white/20/10 rounded-xl p-6">
                         <h3 className="font-bold text-lg mb-4">Özel Yemek Seçenekleri</h3>
                         <div className="grid md:grid-cols-2 gap-3">
                           {MEAL_OPTIONS.map((meal) =>
@@ -908,13 +908,13 @@ export default function FlightBooking() {
                           }}
                           className={`p-4 rounded-lg border-2 transition-all ${
                           extras.meals.includes(meal.id) ?
-                          'border-lydian-primary bg-blue-50' :
+                          'border-blue-500 bg-blue-50' :
                           'border-white/10 hover:border-white/20'}`
                           }>
 
                               <div className="flex items-center justify-between">
-                                <span className="font-medium text-lydian-text-inverse">{meal.label}</span>
-                                <span className="font-bold text-lydian-primary">₺{meal.price}</span>
+                                <span className="font-medium text-white">{meal.label}</span>
+                                <span className="font-bold text-blue-500">₺{meal.price}</span>
                               </div>
                             </button>
                         )}
@@ -931,28 +931,28 @@ export default function FlightBooking() {
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -20 }}
-                  className="bg-lydian-bg-hover rounded-2xl shadow-lg p-6">
+                  className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-2xl shadow-lg p-6">
 
-                    <h2 className="text-2xl font-bold text-lydian-text-inverse mb-6">Rezervasyon Özeti</h2>
+                    <h2 className="text-2xl font-bold text-white mb-6">Rezervasyon Özeti</h2>
 
                     {/* Flight Summary */}
-                    <div className="mb-6 p-4 bg-lydian-primary-lighter rounded-xl">
+                    <div className="mb-6 p-4 bg-blue-500/10er rounded-xl">
                       <h3 className="font-bold text-lg mb-3">Uçuş Bilgileri</h3>
                       <div className="grid md:grid-cols-2 gap-4 text-sm">
                         <div>
-                          <p className="text-lydian-text-dim">Havayolu</p>
+                          <p className="text-gray-400">Havayolu</p>
                           <p className="font-semibold">{flightData.airline} - {flightData.flightNumber}</p>
                         </div>
                         <div>
-                          <p className="text-lydian-text-dim">Güzergah</p>
+                          <p className="text-gray-400">Güzergah</p>
                           <p className="font-semibold">{flightData.from.code} → {flightData.to.code}</p>
                         </div>
                         <div>
-                          <p className="text-lydian-text-dim">Tarih & Saat</p>
+                          <p className="text-gray-400">Tarih & Saat</p>
                           <p className="font-semibold">{flightData.departure.date} - {flightData.departure.time}</p>
                         </div>
                         <div>
-                          <p className="text-lydian-text-dim">Sınıf</p>
+                          <p className="text-gray-400">Sınıf</p>
                           <p className="font-semibold capitalize">{flightData.fareClass}</p>
                         </div>
                       </div>
@@ -963,13 +963,13 @@ export default function FlightBooking() {
                       <h3 className="font-bold text-lg mb-3">Yolcular</h3>
                       <div className="space-y-3">
                         {passengers.map((passenger, idx) =>
-                      <div key={idx} className="p-4 bg-lydian-glass-dark rounded-lg">
+                      <div key={idx} className="p-4 bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-lg">
                             <div className="flex items-start justify-between">
                               <div>
                                 <p className="font-semibold">
                                   {passenger.title} {passenger.firstName} {passenger.lastName}
                                 </p>
-                                <p className="text-sm text-lydian-text-dim">
+                                <p className="text-sm text-gray-400">
                                   {passenger.type === 'adult' ? 'Yetişkin' : passenger.type === 'child' ? 'Çocuk' : 'Bebek'}
                                   {selectedSeats[idx] && ` • Koltuk: ${selectedSeats[idx]}`}
                                   {passenger.baggage.checked > 0 && ` • Bagaj: ${passenger.baggage.checked}kg`}
@@ -982,17 +982,17 @@ export default function FlightBooking() {
                     </div>
 
                     {/* Contact Info */}
-                    <div className="mb-6 p-4 bg-lydian-glass-dark rounded-lg">
+                    <div className="mb-6 p-4 bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-lg">
                       <h3 className="font-bold text-lg mb-3">İletişim Bilgileri</h3>
                       <div className="space-y-2 text-sm">
-                        <p><span className="text-lydian-text-dim">E-posta:</span> <span className="font-semibold">{leadPassenger.email}</span></p>
-                        <p><span className="text-lydian-text-dim">Telefon:</span> <span className="font-semibold">{leadPassenger.phone}</span></p>
+                        <p><span className="text-gray-400">E-posta:</span> <span className="font-semibold">{leadPassenger.email}</span></p>
+                        <p><span className="text-gray-400">Telefon:</span> <span className="font-semibold">{leadPassenger.phone}</span></p>
                       </div>
                     </div>
 
                     {/* Extras Summary */}
                     {(extras.insurance || extras.priorityBoarding || extras.loungeAccess || extras.meals.length > 0) &&
-                  <div className="mb-6 p-4 bg-lydian-success-lighter rounded-lg">
+                  <div className="mb-6 p-4 bg-green-600-lighter rounded-lg">
                         <h3 className="font-bold text-lg mb-3">Ek Hizmetler</h3>
                         <div className="space-y-2 text-sm">
                           {extras.insurance && <p>✓ Seyahat Sigortası</p>}
@@ -1013,11 +1013,11 @@ export default function FlightBooking() {
                           setTermsAccepted(e.target.checked);
                           setErrors((prev) => ({ ...prev, terms: '' }));
                         }}
-                        className="mt-1 w-5 h-5 text-lydian-primary rounded focus:ring-lydian-primary" />
+                        className="mt-1 w-5 h-5 text-blue-500 rounded focus:ring-lydian-primary" />
 
-                        <span className="text-sm text-lydian-text-muted">
-                          <Link href="/terms" className="text-lydian-primary hover:underline">Kullanım Şartlarını</Link> ve{' '}
-                          <Link href="/privacy" className="text-lydian-primary hover:underline">Gizlilik Politikasını</Link>{' '}
+                        <span className="text-sm text-gray-300">
+                          <Link href="/terms" className="text-blue-500 hover:underline">Kullanım Şartlarını</Link> ve{' '}
+                          <Link href="/privacy" className="text-blue-500 hover:underline">Gizlilik Politikasını</Link>{' '}
                           okudum ve kabul ediyorum.
                         </span>
                       </label>
@@ -1030,8 +1030,8 @@ export default function FlightBooking() {
                     </div>
 
                     <div className="p-4 bg-gradient-to-r from-green-50 to-blue-50 rounded-lg border border-green-200">
-                      <div className="flex items-center gap-3 text-sm text-lydian-text-muted">
-                        <Shield className="w-5 h-5 text-lydian-success" />
+                      <div className="flex items-center gap-3 text-sm text-gray-300">
+                        <Shield className="w-5 h-5 text-green-500" />
                         <p>Rezervasyonunuz blockchain teknolojisi ile güvence altına alınacaktır.</p>
                       </div>
                     </div>
@@ -1046,7 +1046,7 @@ export default function FlightBooking() {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={handlePrev}
-                  className="flex items-center gap-2 px-6 py-3 border-2 border-lydian-border-light rounded-xl font-semibold text-lydian-text-muted hover:border-lydian-border-heavy">
+                  className="flex items-center gap-2 px-6 py-3 border-2 border-white/20 rounded-xl font-semibold text-gray-300 hover:border-lydian-border-heavy">
 
                     <ChevronLeft className="w-5 h-5" />
                     Geri
@@ -1058,7 +1058,7 @@ export default function FlightBooking() {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={handleNext}
-                  className="ml-auto flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-lydian-primary to-lydian-secondary text-lydian-text-inverse rounded-xl font-semibold">
+                  className="ml-auto flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-700 text-white rounded-xl font-semibold">
 
                     Devam Et
                     <ChevronRight className="w-5 h-5" />
@@ -1068,7 +1068,7 @@ export default function FlightBooking() {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={handleCheckout}
-                  className="ml-auto flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-lydian-success to-green-700 text-lydian-text-inverse rounded-xl font-bold text-lg">
+                  className="ml-auto flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-lydian-success to-green-700 text-white rounded-xl font-bold text-lg">
 
                     Ödemeye Geç
                     <CreditCard className="w-5 h-5" />
@@ -1082,57 +1082,57 @@ export default function FlightBooking() {
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
-                className="bg-lydian-bg-hover rounded-2xl shadow-lg p-6 sticky top-24">
+                className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-2xl shadow-lg p-6 sticky top-24">
 
-                <h3 className="text-xl font-bold text-lydian-text-inverse mb-6">Fiyat Özeti</h3>
+                <h3 className="text-xl font-bold text-white mb-6">Fiyat Özeti</h3>
 
                 <div className="space-y-3 text-sm mb-6">
                   <div className="flex justify-between">
-                    <span className="text-lydian-text-dim">Temel Ücret</span>
+                    <span className="text-gray-400">Temel Ücret</span>
                     <span className="font-semibold">₺{prices.baseFare}</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-lydian-text-dim">Vergiler</span>
+                    <span className="text-gray-400">Vergiler</span>
                     <span className="font-semibold">₺{prices.taxes}</span>
                   </div>
                   {prices.seats > 0 &&
                   <div className="flex justify-between">
-                      <span className="text-lydian-text-dim">Koltuk Seçimi</span>
+                      <span className="text-gray-400">Koltuk Seçimi</span>
                       <span className="font-semibold">₺{prices.seats}</span>
                     </div>
                   }
                   {prices.baggage > 0 &&
                   <div className="flex justify-between">
-                      <span className="text-lydian-text-dim">Ek Bagaj</span>
+                      <span className="text-gray-400">Ek Bagaj</span>
                       <span className="font-semibold">₺{prices.baggage}</span>
                     </div>
                   }
                   {prices.extras > 0 &&
                   <div className="flex justify-between">
-                      <span className="text-lydian-text-dim">Ekstra Hizmetler</span>
+                      <span className="text-gray-400">Ekstra Hizmetler</span>
                       <span className="font-semibold">₺{prices.extras}</span>
                     </div>
                   }
                 </div>
 
-                <div className="border-t border-lydian-border-light/10 pt-4 mb-6">
+                <div className="border-t border-white/20/10 pt-4 mb-6">
                   <div className="flex justify-between items-center">
-                    <span className="font-bold text-lg text-lydian-text-inverse">Toplam</span>
-                    <span className="text-3xl font-bold text-lydian-primary">₺{prices.total}</span>
+                    <span className="font-bold text-lg text-white">Toplam</span>
+                    <span className="text-3xl font-bold text-blue-500">₺{prices.total}</span>
                   </div>
                 </div>
 
-                <div className="space-y-2 text-xs text-lydian-text-dim">
+                <div className="space-y-2 text-xs text-gray-400">
                   <div className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-lydian-success" />
+                    <Check className="w-4 h-4 text-green-500" />
                     <span>Blockchain güvenli</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-lydian-success" />
+                    <Check className="w-4 h-4 text-green-500" />
                     <span>Anında onay</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-lydian-success" />
+                    <Check className="w-4 h-4 text-green-500" />
                     <span>7/24 müşteri desteği</span>
                   </div>
                 </div>

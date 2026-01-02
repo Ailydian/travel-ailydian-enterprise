@@ -162,15 +162,15 @@ export default function AdminV2Layout({ children }: AdminV2LayoutProps) {
         className="fixed left-0 top-0 h-screen z-50"
       >
         {/* Glass Background with Blur */}
-        <div className="absolute inset-0 bg-lydian-glass-dark/40 backdrop-blur-2xl border-r border-lydian-border-light/20" />
+        <div className="absolute inset-0 bg-lydian-glass-dark/40 backdrop-blur-2xl border-r border-white/20/20" />
 
         {/* Gradient Overlay for Depth */}
-        <div className="absolute inset-0 bg-gradient-to-b from-lydian-primary/5 via-transparent to-lydian-accent/5 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-blue-600/5 via-transparent to-lydian-accent/5 pointer-events-none" />
 
         {/* Content */}
         <div className="relative h-full flex flex-col">
           {/* Header */}
-          <div className="h-20 flex items-center justify-between px-6 border-b border-lydian-border-light/10">
+          <div className="h-20 flex items-center justify-between px-6 border-b border-white/20/10">
             <AnimatePresence mode="wait">
               {sidebarOpen && (
                 <motion.div
@@ -180,12 +180,12 @@ export default function AdminV2Layout({ children }: AdminV2LayoutProps) {
                   transition={{ duration: 0.2 }}
                   className="flex items-center gap-3"
                 >
-                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-lydian-primary to-lydian-accent flex items-center justify-center shadow-lg">
-                    <Shield className="w-6 h-6 text-lydian-text-inverse" />
+                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-600 to-lydian-accent flex items-center justify-center shadow-lg">
+                    <Shield className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h1 className="text-lg font-bold text-lydian-text-inverse tracking-tight">AdminV2</h1>
-                    <p className="text-xs text-lydian-text-muted">Content Hub</p>
+                    <h1 className="text-lg font-bold text-white tracking-tight">AdminV2</h1>
+                    <p className="text-xs text-gray-300">Content Hub</p>
                   </div>
                 </motion.div>
               )}
@@ -198,9 +198,9 @@ export default function AdminV2Layout({ children }: AdminV2LayoutProps) {
               className="p-2 hover:bg-lydian-glass-light/50 rounded-lg transition-all"
             >
               {sidebarOpen ? (
-                <X className="w-5 h-5 text-lydian-text-inverse" />
+                <X className="w-5 h-5 text-white" />
               ) : (
-                <Menu className="w-5 h-5 text-lydian-text-inverse" />
+                <Menu className="w-5 h-5 text-white" />
               )}
             </motion.button>
           </div>
@@ -224,8 +224,8 @@ export default function AdminV2Layout({ children }: AdminV2LayoutProps) {
                       className={`
                         group relative flex items-center gap-3 px-3 py-3 rounded-xl transition-all duration-200
                         ${active
-                          ? 'bg-gradient-to-r from-lydian-primary/20 to-lydian-accent/20 text-lydian-text-inverse shadow-lg'
-                          : 'text-lydian-text-muted hover:bg-lydian-glass-light/30 hover:text-lydian-text-inverse'
+                          ? 'bg-gradient-to-r from-blue-600/20 to-lydian-accent/20 text-white shadow-lg'
+                          : 'text-gray-300 hover:bg-lydian-glass-light/30 hover:text-white'
                         }
                       `}
                     >
@@ -233,7 +233,7 @@ export default function AdminV2Layout({ children }: AdminV2LayoutProps) {
                       {active && (
                         <motion.div
                           layoutId="activeNav"
-                          className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-gradient-to-b from-lydian-primary to-lydian-accent rounded-r-full"
+                          className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-8 bg-gradient-to-b from-blue-600 to-lydian-accent rounded-r-full"
                           transition={{ type: 'spring', stiffness: 500, damping: 30 }}
                         />
                       )}
@@ -242,7 +242,7 @@ export default function AdminV2Layout({ children }: AdminV2LayoutProps) {
                       <div className={`relative ${active ? 'text-lydian-primary' : ''}`}>
                         <Icon className="w-5 h-5" />
                         {item.badge && (
-                          <span className="absolute -top-1 -right-1 w-4 h-4 bg-lydian-accent text-lydian-text-inverse text-[10px] font-bold rounded-full flex items-center justify-center">
+                          <span className="absolute -top-1 -right-1 w-4 h-4 bg-lydian-accent text-white text-[10px] font-bold rounded-full flex items-center justify-center">
                             {item.badge === 'AI' ? <Sparkles className="w-2.5 h-2.5" /> : item.badge}
                           </span>
                         )}
@@ -259,7 +259,7 @@ export default function AdminV2Layout({ children }: AdminV2LayoutProps) {
                           >
                             <div className="font-medium text-sm">{item.name}</div>
                             {item.description && (
-                              <div className="text-xs text-lydian-text-dim mt-0.5">{item.description}</div>
+                              <div className="text-xs text-gray-400 mt-0.5">{item.description}</div>
                             )}
                           </motion.div>
                         )}
@@ -277,7 +277,7 @@ export default function AdminV2Layout({ children }: AdminV2LayoutProps) {
           </nav>
 
           {/* User Profile */}
-          <div className="p-4 border-t border-lydian-border-light/10">
+          <div className="p-4 border-t border-white/20/10">
             {session?.user && (
               <div className="mb-3">
                 <AnimatePresence mode="wait">
@@ -288,21 +288,21 @@ export default function AdminV2Layout({ children }: AdminV2LayoutProps) {
                       exit={{ opacity: 0 }}
                       className="flex items-center gap-3 p-3 rounded-xl bg-lydian-glass-light/30 backdrop-blur-sm"
                     >
-                      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-lydian-primary to-lydian-accent flex items-center justify-center text-lydian-text-inverse font-bold">
+                      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-600 to-lydian-accent flex items-center justify-center text-white font-bold">
                         {session.user.name?.[0] || session.user.email?.[0] || 'A'}
                       </div>
                       <div className="flex-1 min-w-0">
-                        <p className="text-sm font-semibold text-lydian-text-inverse truncate">
+                        <p className="text-sm font-semibold text-white truncate">
                           {session.user.name || 'Admin'}
                         </p>
-                        <p className="text-xs text-lydian-text-muted truncate">{session.user.email}</p>
+                        <p className="text-xs text-gray-300 truncate">{session.user.email}</p>
                       </div>
                     </motion.div>
                   ) : (
                     <motion.div
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
-                      className="w-10 h-10 mx-auto rounded-full bg-gradient-to-br from-lydian-primary to-lydian-accent flex items-center justify-center text-lydian-text-inverse font-bold"
+                      className="w-10 h-10 mx-auto rounded-full bg-gradient-to-br from-blue-600 to-lydian-accent flex items-center justify-center text-white font-bold"
                     >
                       {session.user.name?.[0] || 'A'}
                     </motion.div>
@@ -335,7 +335,7 @@ export default function AdminV2Layout({ children }: AdminV2LayoutProps) {
           animate={{ y: 0, opacity: 1 }}
           className={`sticky top-0 z-40 transition-all duration-300 ${
             scrolled
-              ? 'bg-lydian-glass-dark/60 backdrop-blur-xl border-b border-lydian-border-light/20 shadow-lg'
+              ? 'bg-lydian-glass-dark/60 backdrop-blur-xl border-b border-white/20/20 shadow-lg'
               : 'bg-transparent'
           }`}
         >
@@ -343,11 +343,11 @@ export default function AdminV2Layout({ children }: AdminV2LayoutProps) {
             {/* Search Bar */}
             <div className="flex-1 max-w-xl">
               <div className="relative">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-lydian-text-muted" />
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-300" />
                 <input
                   type="text"
                   placeholder="Search anything..."
-                  className="w-full pl-10 pr-4 py-2.5 bg-lydian-glass-light/30 border border-lydian-border-light/20 rounded-xl text-lydian-text-inverse placeholder-lydian-text-muted focus:outline-none focus:ring-2 focus:ring-lydian-primary/50 focus:border-lydian-primary/50 transition-all"
+                  className="w-full pl-10 pr-4 py-2.5 bg-lydian-glass-light/30 border border-white/20/20 rounded-xl text-white placeholder-lydian-text-muted focus:outline-none focus:ring-2 focus:ring-lydian-primary/50 focus:border-blue-500/50 transition-all"
                 />
               </div>
             </div>
@@ -359,7 +359,7 @@ export default function AdminV2Layout({ children }: AdminV2LayoutProps) {
                 whileTap={{ scale: 0.95 }}
                 className="relative p-2.5 bg-lydian-glass-light/30 hover:bg-lydian-glass-light/50 rounded-xl transition-all"
               >
-                <Bell className="w-5 h-5 text-lydian-text-inverse" />
+                <Bell className="w-5 h-5 text-white" />
                 <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-lydian-accent rounded-full" />
               </motion.button>
 
@@ -368,7 +368,7 @@ export default function AdminV2Layout({ children }: AdminV2LayoutProps) {
                 whileTap={{ scale: 0.95 }}
                 className="p-2.5 bg-lydian-glass-light/30 hover:bg-lydian-glass-light/50 rounded-xl transition-all"
               >
-                <User className="w-5 h-5 text-lydian-text-inverse" />
+                <User className="w-5 h-5 text-white" />
               </motion.button>
             </div>
           </div>

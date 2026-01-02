@@ -143,7 +143,7 @@ const Bookings: React.FC = () => {
         };
       case 'COMPLETED':
         return {
-          color: 'bg-gradient-to-r from-blue-500/20 to-cyan-500/20 text-blue-400 border-lydian-primary/30',
+          color: 'bg-gradient-to-r from-blue-500/20 to-cyan-500/20 text-blue-400 border-blue-500/30',
           bgGlow: 'shadow-[0_0_20px_rgba(59,130,246,0.3)]',
           icon: <CheckCircle className="w-4 h-4" />,
           text: 'Tamamlandı'
@@ -229,7 +229,7 @@ const Bookings: React.FC = () => {
             <div className="animate-spin rounded-full h-16 w-16 border-4 border-white/10 border-t-[#667EEA] mx-auto"></div>
             <div className="absolute inset-0 rounded-full blur-xl bg-[#667EEA]/30 animate-pulse"></div>
           </div>
-          <p className="mt-6 text-lydian-text-inverse/60 font-medium">Yükleniyor...</p>
+          <p className="mt-6 text-white/60 font-medium">Yükleniyor...</p>
         </div>
       </div>);
 
@@ -261,7 +261,7 @@ const Bookings: React.FC = () => {
                 <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold bg-gradient-to-r from-white via-blue-100 to-purple-200 bg-clip-text text-transparent mb-1 sm:mb-2">
                   Rezervasyonlarım
                 </h1>
-                <p className="text-sm sm:text-base text-lydian-text-inverse/60">Tüm rezervasyonlarınızı tek yerden yönetin</p>
+                <p className="text-sm sm:text-base text-white/60">Tüm rezervasyonlarınızı tek yerden yönetin</p>
               </div>
               <FuturisticButton onClick={fetchBookings}
                 variant="gradient"
@@ -276,28 +276,28 @@ const Bookings: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-lydian-glass-dark backdrop-blur-xl border border-lydian-border-light rounded-2xl p-4 sm:p-6 mb-4 sm:mb-6 shadow-[0_8px_32px_0_rgba(102,126,234,0.15)]">
+            className="bg-gradient-to-br from-slate-900 via-black to-slate-800 backdrop-blur-xl border border-white/20 rounded-2xl p-4 sm:p-6 mb-4 sm:mb-6 shadow-[0_8px_32px_0_rgba(102,126,234,0.15)]">
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4">
               {/* Search */}
               <div className="relative group">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-lydian-text-inverse/40 w-4 h-4 sm:w-5 sm:h-5 group-focus-within:text-[#00BAFF] transition-colors" />
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white/40 w-4 h-4 sm:w-5 sm:h-5 group-focus-within:text-[#00BAFF] transition-colors" />
                 <input
                   type="text"
                   placeholder="Rezervasyon kodu ile ara..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-9 sm:pl-10 pr-3 sm:pr-4 py-2 sm:py-3 bg-lydian-bg/5 border border-white/10 rounded-xl text-sm sm:text-base text-lydian-text-inverse placeholder:text-lydian-text-inverse/40 focus:ring-2 focus:ring-[#00BAFF]/50 focus:border-[#00BAFF]/50 transition-all duration-300 hover:bg-lydian-bg/10" />
+                  className="w-full pl-9 sm:pl-10 pr-3 sm:pr-4 py-2 sm:py-3 bg-white/5 border border-white/10 rounded-xl text-sm sm:text-base text-white placeholder:text-white/40 focus:ring-2 focus:ring-[#00BAFF]/50 focus:border-[#00BAFF]/50 transition-all duration-300 hover:bg-lydian-bg/10" />
 
               </div>
 
               {/* Status Filter */}
               <div className="relative group">
-                <Filter className="absolute left-3 top-1/2 transform -translate-y-1/2 text-lydian-text-inverse/40 w-4 h-4 sm:w-5 sm:h-5 group-focus-within:text-[#667EEA] transition-colors" />
+                <Filter className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white/40 w-4 h-4 sm:w-5 sm:h-5 group-focus-within:text-[#667EEA] transition-colors" />
                 <select
                   value={filterStatus}
                   onChange={(e) => setFilterStatus(e.target.value)}
-                  className="w-full pl-9 sm:pl-10 pr-3 sm:pr-4 py-2 sm:py-3 bg-lydian-bg/5 border border-white/10 rounded-xl text-sm sm:text-base text-lydian-text-inverse focus:ring-2 focus:ring-[#667EEA]/50 focus:border-[#667EEA]/50 appearance-none transition-all duration-300 hover:bg-lydian-bg/10 cursor-pointer">
+                  className="w-full pl-9 sm:pl-10 pr-3 sm:pr-4 py-2 sm:py-3 bg-white/5 border border-white/10 rounded-xl text-sm sm:text-base text-white focus:ring-2 focus:ring-[#667EEA]/50 focus:border-[#667EEA]/50 appearance-none transition-all duration-300 hover:bg-lydian-bg/10 cursor-pointer">
 
                   <option value="all" className="bg-[#1a0b2e]">Tüm Durumlar</option>
                   <option value="confirmed" className="bg-[#1a0b2e]">Onaylandı</option>
@@ -309,11 +309,11 @@ const Bookings: React.FC = () => {
 
               {/* Type Filter */}
               <div className="relative group">
-                <Filter className="absolute left-3 top-1/2 transform -translate-y-1/2 text-lydian-text-inverse/40 w-4 h-4 sm:w-5 sm:h-5 group-focus-within:text-[#667EEA] transition-colors" />
+                <Filter className="absolute left-3 top-1/2 transform -translate-y-1/2 text-white/40 w-4 h-4 sm:w-5 sm:h-5 group-focus-within:text-[#667EEA] transition-colors" />
                 <select
                   value={filterType}
                   onChange={(e) => setFilterType(e.target.value)}
-                  className="w-full pl-9 sm:pl-10 pr-3 sm:pr-4 py-2 sm:py-3 bg-lydian-bg/5 border border-white/10 rounded-xl text-sm sm:text-base text-lydian-text-inverse focus:ring-2 focus:ring-[#667EEA]/50 focus:border-[#667EEA]/50 appearance-none transition-all duration-300 hover:bg-lydian-bg/10 cursor-pointer">
+                  className="w-full pl-9 sm:pl-10 pr-3 sm:pr-4 py-2 sm:py-3 bg-white/5 border border-white/10 rounded-xl text-sm sm:text-base text-white focus:ring-2 focus:ring-[#667EEA]/50 focus:border-[#667EEA]/50 appearance-none transition-all duration-300 hover:bg-lydian-bg/10 cursor-pointer">
 
                   <option value="all" className="bg-[#1a0b2e]">Tüm Tipler</option>
                   <option value="hotel" className="bg-[#1a0b2e]">Otel</option>
@@ -331,15 +331,15 @@ const Bookings: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="bg-lydian-glass-dark backdrop-blur-xl border border-lydian-border-light rounded-2xl shadow-[0_8px_32px_0_rgba(102,126,234,0.15)] p-12 text-center">
+            className="bg-gradient-to-br from-slate-900 via-black to-slate-800 backdrop-blur-xl border border-white/20 rounded-2xl shadow-[0_8px_32px_0_rgba(102,126,234,0.15)] p-12 text-center">
 
               <div className="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-[#667EEA]/20 to-[#00BAFF]/20 flex items-center justify-center">
-                <Package className="w-10 h-10 text-lydian-text-inverse/60" />
+                <Package className="w-10 h-10 text-white/60" />
               </div>
               <h3 className="text-xl font-semibold bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent mb-2">
                 Henüz Rezervasyon Yok
               </h3>
-              <p className="text-lydian-text-inverse/60 mb-8 max-w-md mx-auto">
+              <p className="text-white/60 mb-8 max-w-md mx-auto">
                 {searchQuery || filterStatus !== 'all' || filterType !== 'all' ?
               'Arama kriterlerine uygun rezervasyon bulunamadı.' :
               'Henüz hiç rezervasyon yapmadınız. Hemen keşfetmeye başlayın!'}
@@ -365,7 +365,7 @@ const Bookings: React.FC = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.05 }}
                   whileHover={{ scale: 1.01, y: -4 }}
-                  className="bg-lydian-glass-dark backdrop-blur-xl border border-lydian-border-light rounded-2xl shadow-[0_8px_32px_0_rgba(102,126,234,0.15)] hover:shadow-[0_12px_48px_0_rgba(102,126,234,0.25)] transition-all duration-300 overflow-hidden group">
+                  className="bg-gradient-to-br from-slate-900 via-black to-slate-800 backdrop-blur-xl border border-white/20 rounded-2xl shadow-[0_8px_32px_0_rgba(102,126,234,0.15)] hover:shadow-[0_12px_48px_0_rgba(102,126,234,0.25)] transition-all duration-300 overflow-hidden group">
 
                     {/* Gradient Border Glow on Hover */}
                     <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none bg-gradient-to-r from-[#667EEA]/20 via-[#00BAFF]/20 to-[#667EEA]/20" />
@@ -377,14 +377,14 @@ const Bookings: React.FC = () => {
                           <motion.div
                             whileHover={{ rotate: 360 }}
                             transition={{ duration: 0.6 }}
-                            className="p-2 sm:p-3 bg-gradient-to-br from-[#667EEA] to-[#00BAFF] text-lydian-text-inverse rounded-xl flex-shrink-0 shadow-lg">
+                            className="p-2 sm:p-3 bg-gradient-to-br from-[#667EEA] to-[#00BAFF] text-white rounded-xl flex-shrink-0 shadow-lg">
                             {getBookingIcon(booking.bookingType)}
                           </motion.div>
 
                           {/* Details */}
                           <div className="min-w-0 flex-1">
                             <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-2">
-                              <h3 className="text-base sm:text-lg font-semibold text-lydian-text-inverse line-clamp-1">
+                              <h3 className="text-base sm:text-lg font-semibold text-white line-clamp-1">
                                 {booking.bookingType.charAt(0).toUpperCase() + booking.bookingType.slice(1)} Rezervasyonu
                               </h3>
                               <span className={`inline-flex items-center gap-1 px-2 sm:px-3 py-1 rounded-full text-[10px] sm:text-xs font-medium border backdrop-blur-sm ${statusDisplay.color} ${statusDisplay.bgGlow} w-fit`}>
@@ -393,7 +393,7 @@ const Bookings: React.FC = () => {
                               </span>
                             </div>
 
-                            <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-xs sm:text-sm text-lydian-text-inverse/60">
+                            <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-xs sm:text-sm text-white/60">
                               <div className="flex items-center gap-1">
                                 <span className="font-medium">Rezervasyon No:</span>
                                 <span className="font-mono text-[#00BAFF] text-xs sm:text-sm font-semibold">{booking.bookingReference}</span>
@@ -424,7 +424,7 @@ const Bookings: React.FC = () => {
                             <DollarSign className="w-4 h-4 sm:w-5 sm:h-5 text-[#00BAFF]" />
                             {booking.totalAmount.toString()} {booking.currency}
                           </div>
-                          <p className="text-[10px] sm:text-xs text-lydian-text-inverse/40 mt-1">
+                          <p className="text-[10px] sm:text-xs text-white/40 mt-1">
                             Ödeme: <span className={`font-medium ${booking.paymentStatus === 'COMPLETED' ? 'text-green-400' : 'text-yellow-400'}`}>
                               {booking.paymentStatus === 'COMPLETED' ? 'Tamamlandı' : booking.paymentStatus === 'PENDING' ? 'Beklemede' : booking.paymentStatus}
                             </span>
@@ -434,8 +434,8 @@ const Bookings: React.FC = () => {
 
                       {/* Special Requests */}
                       {booking.specialRequests &&
-                    <div className="mb-4 p-3 bg-lydian-bg/5 backdrop-blur-sm border border-white/10 rounded-xl">
-                          <p className="text-sm text-lydian-text-inverse/80">
+                    <div className="mb-4 p-3 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl">
+                          <p className="text-sm text-white/80">
                             <span className="font-medium text-[#667EEA]">Özel İstekler:</span> {booking.specialRequests}
                           </p>
                         </div>
@@ -477,7 +477,7 @@ const Bookings: React.FC = () => {
                         }
                         </div>
 
-                        <div className="text-[10px] sm:text-xs text-lydian-text-inverse/40 sm:ml-auto">
+                        <div className="text-[10px] sm:text-xs text-white/40 sm:ml-auto">
                           Created: {new Date(booking.createdAt).toLocaleDateString('en-US')}
                         </div>
                       </div>
@@ -493,7 +493,7 @@ const Bookings: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="mt-6 sm:mt-8 bg-lydian-glass-dark backdrop-blur-xl border border-lydian-border-light rounded-2xl shadow-[0_8px_32px_0_rgba(102,126,234,0.15)] p-4 sm:p-6">
+            className="mt-6 sm:mt-8 bg-gradient-to-br from-slate-900 via-black to-slate-800 backdrop-blur-xl border border-white/20 rounded-2xl shadow-[0_8px_32px_0_rgba(102,126,234,0.15)] p-4 sm:p-6">
 
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
                 <motion.div
@@ -502,7 +502,7 @@ const Bookings: React.FC = () => {
                   <p className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-[#667EEA] to-[#00BAFF] bg-clip-text text-transparent">
                     {bookings.length}
                   </p>
-                  <p className="text-xs sm:text-sm text-lydian-text-inverse/60 mt-1">Toplam Rezervasyon</p>
+                  <p className="text-xs sm:text-sm text-white/60 mt-1">Toplam Rezervasyon</p>
                 </motion.div>
                 <motion.div
                   whileHover={{ scale: 1.05 }}
@@ -510,7 +510,7 @@ const Bookings: React.FC = () => {
                   <p className="text-2xl sm:text-3xl font-bold text-green-400">
                     {bookings.filter((b) => b.status.toUpperCase() === 'CONFIRMED').length}
                   </p>
-                  <p className="text-xs sm:text-sm text-lydian-text-inverse/60 mt-1">Onaylı</p>
+                  <p className="text-xs sm:text-sm text-white/60 mt-1">Onaylı</p>
                 </motion.div>
                 <motion.div
                   whileHover={{ scale: 1.05 }}
@@ -518,7 +518,7 @@ const Bookings: React.FC = () => {
                   <p className="text-2xl sm:text-3xl font-bold text-yellow-400">
                     {bookings.filter((b) => b.status.toUpperCase() === 'PENDING').length}
                   </p>
-                  <p className="text-xs sm:text-sm text-lydian-text-inverse/60 mt-1">Beklemede</p>
+                  <p className="text-xs sm:text-sm text-white/60 mt-1">Beklemede</p>
                 </motion.div>
                 <motion.div
                   whileHover={{ scale: 1.05 }}
@@ -526,7 +526,7 @@ const Bookings: React.FC = () => {
                   <p className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
                     {bookings.reduce((sum, b) => sum + Number(b.totalAmount), 0).toFixed(2)} TRY
                   </p>
-                  <p className="text-xs sm:text-sm text-lydian-text-inverse/60 mt-1">Toplam Harcama</p>
+                  <p className="text-xs sm:text-sm text-white/60 mt-1">Toplam Harcama</p>
                 </motion.div>
               </div>
             </motion.div>
@@ -540,7 +540,7 @@ const Bookings: React.FC = () => {
           <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="bg-lydian-glass-dark backdrop-blur-xl border border-lydian-border-light rounded-2xl shadow-[0_8px_32px_0_rgba(102,126,234,0.2)] max-w-md w-full p-6">
+          className="bg-gradient-to-br from-slate-900 via-black to-slate-800 backdrop-blur-xl border border-white/20 rounded-2xl shadow-[0_8px_32px_0_rgba(102,126,234,0.2)] max-w-md w-full p-6">
 
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-xl font-bold bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
@@ -552,7 +552,7 @@ const Bookings: React.FC = () => {
                 setBookingToCancel(null);
                 setCancelReason('');
               }}
-              className="p-2 hover:bg-lydian-bg/10 rounded-lg transition-colors text-lydian-text-inverse/60 hover:text-lydian-text-inverse">
+              className="p-2 hover:bg-lydian-bg/10 rounded-lg transition-colors text-white/60 hover:text-white">
 
                 <X className="w-5 h-5" />
               </button>
@@ -569,13 +569,13 @@ const Bookings: React.FC = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-lydian-text-inverse/80 mb-2">
+                <label className="block text-sm font-medium text-white/80 mb-2">
                   Cancellation Reason (Optional)
                 </label>
                 <textarea
                 value={cancelReason}
                 onChange={(e) => setCancelReason(e.target.value)}
-                className="w-full px-4 py-3 bg-lydian-bg/5 border border-white/10 rounded-xl text-lydian-text-inverse placeholder:text-lydian-text-inverse/40 focus:ring-2 focus:ring-[#667EEA]/50 focus:border-[#667EEA]/50 resize-none transition-all duration-300"
+                className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder:text-white/40 focus:ring-2 focus:ring-[#667EEA]/50 focus:border-[#667EEA]/50 resize-none transition-all duration-300"
                 rows={4}
                 placeholder="Please let us know why you're cancelling..." />
 
@@ -583,7 +583,7 @@ const Bookings: React.FC = () => {
             </div>
 
             <div className="bg-[#667EEA]/10 border border-[#667EEA]/30 rounded-xl p-4 mb-6 backdrop-blur-sm">
-              <p className="text-sm text-lydian-text-inverse/80">
+              <p className="text-sm text-white/80">
                 <strong className="text-[#00BAFF]">Refund Policy:</strong> Full refund of {bookingToCancel.totalAmount} {bookingToCancel.currency} will be processed within 5-7 business days to your original payment method.
               </p>
             </div>

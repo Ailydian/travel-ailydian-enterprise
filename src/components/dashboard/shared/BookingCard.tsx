@@ -122,13 +122,13 @@ export const BookingCard: React.FC<BookingCardProps> = ({
 
   if (loading) {
     return (
-      <div className="bg-lydian-glass-dark rounded-lg border border-lydian-border p-6">
+      <div className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-lg border border-white/20 p-6">
         <div className="flex items-start space-x-4">
-          <div className="h-12 w-12 rounded-full bg-lydian-bg-active animate-pulse" />
+          <div className="h-12 w-12 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 animate-pulse" />
           <div className="flex-1 space-y-3">
-            <div className="h-5 bg-lydian-bg-active rounded animate-pulse w-32" />
-            <div className="h-4 bg-lydian-bg-active rounded animate-pulse w-48" />
-            <div className="h-4 bg-lydian-bg-active rounded animate-pulse w-40" />
+            <div className="h-5 bg-white/10 backdrop-blur-xl border border-white/20 rounded animate-pulse w-32" />
+            <div className="h-4 bg-white/10 backdrop-blur-xl border border-white/20 rounded animate-pulse w-48" />
+            <div className="h-4 bg-white/10 backdrop-blur-xl border border-white/20 rounded animate-pulse w-40" />
           </div>
         </div>
       </div>);
@@ -145,7 +145,7 @@ export const BookingCard: React.FC<BookingCardProps> = ({
   );
 
   return (
-    <div className="bg-lydian-glass-dark rounded-lg border border-lydian-border hover:shadow-md transition-shadow duration-200">
+    <div className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-lg border border-white/20 hover:shadow-md transition-shadow duration-200">
       <div className="p-6">
         {/* Header Section */}
         <div className="flex items-start justify-between mb-4">
@@ -156,11 +156,11 @@ export const BookingCard: React.FC<BookingCardProps> = ({
               <img
                 src={guestAvatar}
                 alt={guestName}
-                className="h-12 w-12 rounded-full object-cover border-2 border-lydian-border-light" /> :
+                className="h-12 w-12 rounded-full object-cover border-2 border-white/20" /> :
 
 
-              <div className="h-12 w-12 rounded-full bg-lydian-primary-light flex items-center justify-center border-2 border-blue-200">
-                  <span className="text-lydian-primary font-semibold text-sm">
+              <div className="h-12 w-12 rounded-full bg-blue-500/10 flex items-center justify-center border-2 border-blue-200">
+                  <span className="text-blue-500 font-semibold text-sm">
                     {getInitials(guestName)}
                   </span>
                 </div>
@@ -169,15 +169,15 @@ export const BookingCard: React.FC<BookingCardProps> = ({
 
             {/* Guest and Property Info */}
             <div className="flex-1 min-w-0">
-              <h3 className="text-lg font-semibold text-lydian-text-inverse mb-1">
+              <h3 className="text-lg font-semibold text-white mb-1">
                 {guestName}
               </h3>
-              <div className="flex items-center text-sm text-lydian-text-dim mb-2">
+              <div className="flex items-center text-sm text-gray-400 mb-2">
                 <MapPin className="h-4 w-4 mr-1 flex-shrink-0" />
                 <span className="line-clamp-1">{propertyName}</span>
               </div>
               {guests &&
-              <div className="flex items-center text-xs text-lydian-text-muted">
+              <div className="flex items-center text-xs text-gray-300">
                   <User className="h-3 w-3 mr-1" />
                   <span>{guests} guest{guests !== 1 ? 's' : ''}</span>
                 </div>
@@ -202,30 +202,30 @@ export const BookingCard: React.FC<BookingCardProps> = ({
         }
 
         {/* Dates Section */}
-        <div className="bg-lydian-glass-dark rounded-lg p-4 mb-4">
+        <div className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-lg p-4 mb-4">
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <div className="flex items-center text-xs text-lydian-text-muted mb-1">
+              <div className="flex items-center text-xs text-gray-300 mb-1">
                 <Calendar className="h-3 w-3 mr-1" />
                 <span>Check-in</span>
               </div>
-              <div className="text-sm font-semibold text-lydian-text-inverse">
+              <div className="text-sm font-semibold text-white">
                 {formatDate(checkIn)}
               </div>
             </div>
             <div>
-              <div className="flex items-center text-xs text-lydian-text-muted mb-1">
+              <div className="flex items-center text-xs text-gray-300 mb-1">
                 <Calendar className="h-3 w-3 mr-1" />
                 <span>Check-out</span>
               </div>
-              <div className="text-sm font-semibold text-lydian-text-inverse">
+              <div className="text-sm font-semibold text-white">
                 {formatDate(checkOut)}
               </div>
             </div>
           </div>
           {calculatedNights > 0 &&
-          <div className="mt-2 pt-2 border-t border-lydian-border">
-              <span className="text-xs text-lydian-text-dim">
+          <div className="mt-2 pt-2 border-t border-white/20">
+              <span className="text-xs text-gray-400">
                 {calculatedNights} night{calculatedNights !== 1 ? 's' : ''}
               </span>
             </div>
@@ -233,12 +233,12 @@ export const BookingCard: React.FC<BookingCardProps> = ({
         </div>
 
         {/* Price Section */}
-        <div className="flex items-center justify-between mb-4 pb-4 border-b border-lydian-border">
-          <div className="flex items-center text-lydian-text-dim">
+        <div className="flex items-center justify-between mb-4 pb-4 border-b border-white/20">
+          <div className="flex items-center text-gray-400">
             <DollarSign className="h-4 w-4 mr-1" />
             <span className="text-sm">Total Price</span>
           </div>
-          <div className="text-xl font-bold text-lydian-text-inverse">
+          <div className="text-xl font-bold text-white">
             {currency}
             {price.toLocaleString()}
           </div>
@@ -249,7 +249,7 @@ export const BookingCard: React.FC<BookingCardProps> = ({
           {onViewDetails &&
           <button
             onClick={() => onViewDetails(id)}
-            className="px-4 py-2 bg-lydian-glass-dark-medium text-lydian-text-muted rounded-lg hover:bg-lydian-bg-active transition-colors text-sm font-medium focus:outline-none focus:ring-2 focus:ring-lydian-border-focus col-span-2">
+            className="px-4 py-2 bg-white/10 backdrop-blur-xl border border-white/20 text-gray-300 rounded-lg hover:bg-white/10 backdrop-blur-xl border border-white/20 transition-colors text-sm font-medium focus:outline-none focus:ring-2 focus:ring-lydian-border-focus col-span-2">
 
               View Details
             </button>
@@ -258,7 +258,7 @@ export const BookingCard: React.FC<BookingCardProps> = ({
           {status === 'pending' && onConfirm &&
           <button
             onClick={() => onConfirm(id)}
-            className="px-4 py-2 bg-lydian-success text-lydian-text-inverse rounded-lg hover:bg-lydian-success-hover transition-colors text-sm font-medium focus:outline-none focus:ring-2 focus:ring-green-500 flex items-center justify-center">
+            className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-600-hover transition-colors text-sm font-medium focus:outline-none focus:ring-2 focus:ring-green-500 flex items-center justify-center">
 
               <CheckCircle className="h-4 w-4 mr-1" />
               Confirm
@@ -268,7 +268,7 @@ export const BookingCard: React.FC<BookingCardProps> = ({
           {(status === 'pending' || status === 'confirmed') && onCancel &&
           <button
             onClick={() => onCancel(id)}
-            className={`px-4 py-2 bg-lydian-primary text-lydian-text-inverse rounded-lg hover:bg-lydian-primary-dark transition-colors text-sm font-medium focus:outline-none focus:ring-2 focus:ring-red-500 flex items-center justify-center ${
+            className={`px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:bg-gradient-to-r from-blue-700 to-purple-700 transition-colors text-sm font-medium focus:outline-none focus:ring-2 focus:ring-red-500 flex items-center justify-center ${
             status === 'pending' && onConfirm ? '' : 'col-span-2'}`
             }>
 
@@ -280,7 +280,7 @@ export const BookingCard: React.FC<BookingCardProps> = ({
           {onMessage &&
           <button
             onClick={() => onMessage(id)}
-            className={`px-4 py-2 bg-lydian-primary text-lydian-text-inverse rounded-lg hover:bg-lydian-primary-dark transition-colors text-sm font-medium focus:outline-none focus:ring-2 focus:ring-lydian-border-focus flex items-center justify-center ${
+            className={`px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:bg-gradient-to-r from-blue-700 to-purple-700 transition-colors text-sm font-medium focus:outline-none focus:ring-2 focus:ring-lydian-border-focus flex items-center justify-center ${
             status === 'pending' && (onConfirm || onCancel) ||
             status === 'confirmed' && onCancel ?
             '' :

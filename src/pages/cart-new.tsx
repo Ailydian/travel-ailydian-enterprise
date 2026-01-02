@@ -131,7 +131,7 @@ const CartPage: React.FC = () => {
       case 'tour':return 'bg-green-500';
       case 'restaurant':return 'bg-orange-500';
       case 'activity':return 'bg-pink-500';
-      default:return 'bg-lydian-bg/50';
+      default:return 'bg-white/50';
     }
   };
 
@@ -151,7 +151,7 @@ const CartPage: React.FC = () => {
       {/* Back Button */}
       <Link
         href="/"
-        className="fixed top-24 left-6 z-40 flex items-center gap-2 px-4 py-2 bg-lydian-bg/90 backdrop-blur-sm rounded-xl shadow-lg border border-lydian-border text-lydian-text-muted hover:bg-lydian-glass-dark hover:text-lydian-primary transition-all duration-200">
+        className="fixed top-24 left-6 z-40 flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-xl shadow-lg border border-white/20 text-gray-300 hover:bg-gradient-to-br from-slate-900 via-black to-slate-800 hover:text-blue-500 transition-all duration-200">
 
         <ArrowLeft className="w-4 h-4" />
         <span className="font-medium">Ana Sayfaya Dön</span>
@@ -166,17 +166,17 @@ const CartPage: React.FC = () => {
             className="text-center mb-8">
 
             <div className="flex items-center justify-center gap-3 mb-4">
-              <div className="w-12 h-12 bg-gradient-to-r from-lydian-primary to-lydian-secondary rounded-2xl flex items-center justify-center">
-                <ShoppingCart className="w-6 h-6 text-lydian-text-inverse" />
+              <div className="w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-700 rounded-2xl flex items-center justify-center">
+                <ShoppingCart className="w-6 h-6 text-white" />
               </div>
-              <h1 className="text-4xl font-bold bg-gradient-to-r from-lydian-primary to-lydian-secondary bg-clip-text text-transparent">
+              <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-700 bg-clip-text text-transparent">
                 Sepetim
               </h1>
-              <div className="px-3 py-1 bg-lydian-primary text-lydian-text-inverse rounded-full text-sm font-medium">
+              <div className="px-3 py-1 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full text-sm font-medium">
                 {state.totalItems} ürün
               </div>
             </div>
-            <p className="text-lydian-text-dim text-lg">Rezervasyonlarınızı gözden geçirin ve güvenli ödeme ile tamamlayın</p>
+            <p className="text-gray-400 text-lg">Rezervasyonlarınızı gözden geçirin ve güvenli ödeme ile tamamlayın</p>
           </motion.div>
 
           {/* Recently Removed Item Notification */}
@@ -186,17 +186,17 @@ const CartPage: React.FC = () => {
               initial={{ opacity: 0, y: -50 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -50 }}
-              className="fixed top-32 right-6 z-50 bg-lydian-bg-hover rounded-2xl shadow-xl border border-lydian-border p-4 max-w-sm">
+              className="fixed top-32 right-6 z-50 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-2xl shadow-xl border border-white/20 p-4 max-w-sm">
 
                 <div className="flex items-center gap-3">
                   <AlertCircle className="w-5 h-5 text-orange-500" />
                   <div className="flex-1">
-                    <p className="font-medium text-lydian-text-inverse">Ürün kaldırıldı</p>
-                    <p className="text-sm text-lydian-text-dim">{recentlyRemoved.title}</p>
+                    <p className="font-medium text-white">Ürün kaldırıldı</p>
+                    <p className="text-sm text-gray-400">{recentlyRemoved.title}</p>
                   </div>
                   <button
                   onClick={handleUndoRemove}
-                  className="px-3 py-1 bg-lydian-primary text-lydian-text-inverse rounded-lg text-sm font-medium hover:bg-lydian-dark transition-colors">
+                  className="px-3 py-1 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg text-sm font-medium hover:bg-lydian-dark transition-colors">
 
                     Geri Al
                   </button>
@@ -212,24 +212,24 @@ const CartPage: React.FC = () => {
             animate={{ opacity: 1, scale: 1 }}
             className="text-center py-16">
 
-              <div className="w-32 h-32 bg-lydian-glass-dark-medium rounded-full flex items-center justify-center mx-auto mb-8">
-                <ShoppingCart className="w-16 h-16 text-lydian-text-muted" />
+              <div className="w-32 h-32 bg-white/10 backdrop-blur-xl border border-white/20 rounded-full flex items-center justify-center mx-auto mb-8">
+                <ShoppingCart className="w-16 h-16 text-gray-300" />
               </div>
-              <h2 className="text-3xl font-bold text-lydian-text-inverse mb-4">Sepetiniz Boş</h2>
-              <p className="text-lydian-text-dim text-lg mb-8 max-w-md mx-auto">
+              <h2 className="text-3xl font-bold text-white mb-4">Sepetiniz Boş</h2>
+              <p className="text-gray-400 text-lg mb-8 max-w-md mx-auto">
 Türkiye&apos;nin en güzel destinasyonlarını ve benzersiz deneyimlerini keşfetmek için alışverişe başlayın!
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Link
                 href="/"
-                className="px-8 py-4 bg-gradient-to-r from-lydian-primary to-lydian-secondary text-lydian-text-inverse rounded-2xl font-semibold hover:shadow-lg transition-all duration-200 flex items-center gap-2">
+                className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-700 text-white rounded-2xl font-semibold hover:shadow-lg transition-all duration-200 flex items-center gap-2">
 
                   <Sparkles className="w-5 h-5" />
                   Keşfetmeye Başla
                 </Link>
                 <Link
                 href="/tours"
-                className="px-8 py-4 border-2 border-lydian-primary text-lydian-primary rounded-2xl font-semibold hover:bg-lydian-primary hover:text-lydian-text-inverse transition-all duration-200">
+                className="px-8 py-4 border-2 border-blue-500 text-blue-500 rounded-2xl font-semibold hover:bg-gradient-to-r from-blue-600 to-purple-600 hover:text-white transition-all duration-200">
 
                   Popüler Turlar
                 </Link>
@@ -241,10 +241,10 @@ Türkiye&apos;nin en güzel destinasyonlarını ve benzersiz deneyimlerini keşf
               <div className="xl:col-span-2 space-y-6">
                 {/* Clear Cart Button */}
                 <div className="flex justify-between items-center">
-                  <h2 className="text-xl font-bold text-lydian-text-inverse">Sepet Öğeleri ({state.totalItems})</h2>
+                  <h2 className="text-xl font-bold text-white">Sepet Öğeleri ({state.totalItems})</h2>
                   <button
                   onClick={handleClearCart}
-                  className="flex items-center gap-2 px-4 py-2 text-lydian-primary hover:text-lydian-primary-dark hover:bg-lydian-error-lighter rounded-lg transition-colors">
+                  className="flex items-center gap-2 px-4 py-2 text-blue-500 hover:text-blue-600 hover:bg-lydian-error-lighter rounded-lg transition-colors">
 
                     <Trash2 className="w-4 h-4" />
                     <span className="text-sm font-medium">Sepeti Temizle</span>
@@ -257,7 +257,7 @@ Türkiye&apos;nin en güzel destinasyonlarını ve benzersiz deneyimlerini keşf
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-lydian-bg-hover rounded-3xl shadow-lg border border-lydian-border-light overflow-hidden hover:shadow-xl transition-all duration-300">
+                className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-3xl shadow-lg border border-white/20 overflow-hidden hover:shadow-xl transition-all duration-300">
 
                     <div className="p-6">
                       <div className="flex gap-6">
@@ -268,11 +268,11 @@ Türkiye&apos;nin en güzel destinasyonlarını ve benzersiz deneyimlerini keşf
                         alt={item.title}
                         className="w-40 h-32 object-cover rounded-2xl" />
 
-                          <div className={`absolute -top-3 -left-3 w-10 h-10 ${getTypeColor(item.type)} rounded-full flex items-center justify-center text-lydian-text-inverse text-xl shadow-lg`}>
+                          <div className={`absolute -top-3 -left-3 w-10 h-10 ${getTypeColor(item.type)} rounded-full flex items-center justify-center text-white text-xl shadow-lg`}>
                             {getTypeIcon(item.type)}
                           </div>
                           {item.rating &&
-                      <div className="absolute -bottom-3 -right-3 bg-lydian-warning-hover text-lydian-text-inverse px-2 py-1 rounded-full text-sm font-bold flex items-center gap-1">
+                      <div className="absolute -bottom-3 -right-3 bg-yellow-500-hover text-white px-2 py-1 rounded-full text-sm font-bold flex items-center gap-1">
                               <Star className="w-3 h-3 fill-current" />
                               {item.rating}
                             </div>
@@ -283,8 +283,8 @@ Türkiye&apos;nin en güzel destinasyonlarını ve benzersiz deneyimlerini keşf
                         <div className="flex-1">
                           <div className="flex justify-between items-start mb-4">
                             <div className="flex-1">
-                              <h3 className="font-bold text-xl text-lydian-text-inverse mb-2 line-clamp-2">{item.title}</h3>
-                              <div className="flex flex-wrap items-center gap-4 text-sm text-lydian-text-dim mb-3">
+                              <h3 className="font-bold text-xl text-white mb-2 line-clamp-2">{item.title}</h3>
+                              <div className="flex flex-wrap items-center gap-4 text-sm text-gray-400 mb-3">
                                 {item.location &&
                             <div className="flex items-center gap-1">
                                     <MapPin className="w-4 h-4" />
@@ -305,7 +305,7 @@ Türkiye&apos;nin en güzel destinasyonlarını ve benzersiz deneyimlerini keşf
                             }
                               </div>
                               {item.description &&
-                          <p className="text-lydian-text-dim text-sm line-clamp-2 mb-3">{item.description}</p>
+                          <p className="text-gray-400 text-sm line-clamp-2 mb-3">{item.description}</p>
                           }
                             </div>
 
@@ -313,16 +313,16 @@ Türkiye&apos;nin en güzel destinasyonlarını ve benzersiz deneyimlerini keşf
                             <div className="flex items-center gap-2 ml-4">
                               <button
                             onClick={() => handleSaveForLater(item.id)}
-                            className="p-2 text-lydian-text-muted hover:text-lydian-error hover:bg-lydian-error-lighter rounded-xl transition-colors">
+                            className="p-2 text-gray-300 hover:text-lydian-error hover:bg-lydian-error-lighter rounded-xl transition-colors">
 
                                 <Heart className="w-5 h-5" />
                               </button>
-                              <button className="p-2 text-lydian-text-muted hover:text-lydian-primary hover:bg-lydian-primary-lighter rounded-xl transition-colors">
+                              <button className="p-2 text-gray-300 hover:text-blue-500 hover:bg-blue-500/10er rounded-xl transition-colors">
                                 <Share2 className="w-5 h-5" />
                               </button>
                               <button
                             onClick={() => handleRemoveItem(item)}
-                            className="p-2 text-lydian-text-muted hover:text-lydian-error hover:bg-lydian-error-lighter rounded-xl transition-colors">
+                            className="p-2 text-gray-300 hover:text-lydian-error hover:bg-lydian-error-lighter rounded-xl transition-colors">
 
                                 <Trash2 className="w-5 h-5" />
                               </button>
@@ -333,18 +333,18 @@ Türkiye&apos;nin en güzel destinasyonlarını ve benzersiz deneyimlerini keşf
                           <div className="flex items-center justify-between">
                             <div className="flex items-center gap-4">
                               {/* Quantity Controls */}
-                              <div className="flex items-center gap-3 bg-lydian-glass-dark rounded-2xl p-1">
+                              <div className="flex items-center gap-3 bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-2xl p-1">
                                 <button
                               onClick={() => updateQuantity(item.id, item.quantity - 1)}
                               disabled={item.quantity <= 1}
-                              className="w-10 h-10 flex items-center justify-center rounded-xl bg-lydian-bg-hover shadow-sm disabled:opacity-50 disabled:cursor-not-allowed hover:bg-lydian-glass-dark transition-colors">
+                              className="w-10 h-10 flex items-center justify-center rounded-xl bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl shadow-sm disabled:opacity-50 disabled:cursor-not-allowed hover:bg-gradient-to-br from-slate-900 via-black to-slate-800 transition-colors">
 
                                   <Minus className="w-4 h-4" />
                                 </button>
                                 <span className="w-8 text-center font-semibold">{item.quantity}</span>
                                 <button
                               onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                              className="w-10 h-10 flex items-center justify-center rounded-xl bg-lydian-bg-hover shadow-sm hover:bg-lydian-glass-dark transition-colors">
+                              className="w-10 h-10 flex items-center justify-center rounded-xl bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl shadow-sm hover:bg-gradient-to-br from-slate-900 via-black to-slate-800 transition-colors">
 
                                   <Plus className="w-4 h-4" />
                                 </button>
@@ -353,13 +353,13 @@ Türkiye&apos;nin en güzel destinasyonlarını ve benzersiz deneyimlerini keşf
                               {/* Special Features */}
                               <div className="flex items-center gap-2">
                                 {item.isRefundable &&
-                            <div className="px-3 py-1 bg-lydian-success-light text-lydian-success-text rounded-full text-xs font-medium">
+                            <div className="px-3 py-1 bg-green-600-light text-green-500-text rounded-full text-xs font-medium">
                                     <RefreshCw className="w-3 h-3 inline mr-1" />
                                     İptal Edilebilir
                                   </div>
                             }
                                 {item.cancellationPolicy &&
-                            <div className="px-3 py-1 bg-lydian-primary-light text-lydian-primary-dark rounded-full text-xs font-medium">
+                            <div className="px-3 py-1 bg-blue-500/10 text-blue-600 rounded-full text-xs font-medium">
                                     <Shield className="w-3 h-3 inline mr-1" />
                                     Güvenli
                                   </div>
@@ -371,15 +371,15 @@ Türkiye&apos;nin en güzel destinasyonlarını ve benzersiz deneyimlerini keşf
                             <div className="text-right">
                               <div className="flex items-center gap-2">
                                 {item.originalPrice && item.originalPrice > item.price &&
-                            <span className="text-lydian-text-muted line-through text-lg">
+                            <span className="text-gray-300 line-through text-lg">
                                     {item.currency === 'TRY' ? '₺' : item.currency}{item.originalPrice}
                                   </span>
                             }
-                                <span className="text-2xl font-bold text-lydian-primary">
+                                <span className="text-2xl font-bold text-blue-500">
                                   {item.currency === 'TRY' ? '₺' : item.currency}{(item.price * item.quantity).toLocaleString()}
                                 </span>
                               </div>
-                              <p className="text-sm text-lydian-text-muted">Toplam Fiyat</p>
+                              <p className="text-sm text-gray-300">Toplam Fiyat</p>
                             </div>
                           </div>
                         </div>
@@ -388,16 +388,16 @@ Türkiye&apos;nin en güzel destinasyonlarını ve benzersiz deneyimlerini keşf
 
                     {/* Bottom Info */}
                     {(item.cancellationPolicy || item.bookingDetails) &&
-                <div className="px-6 py-4 bg-lydian-glass-dark border-t border-lydian-border-light">
+                <div className="px-6 py-4 bg-gradient-to-br from-slate-900 via-black to-slate-800 border-t border-white/20">
                         <div className="flex items-center justify-between text-sm">
                           {item.cancellationPolicy &&
-                    <div className="flex items-center gap-2 text-lydian-text-dim">
+                    <div className="flex items-center gap-2 text-gray-400">
                               <Info className="w-4 h-4" />
                               {item.cancellationPolicy}
                             </div>
                     }
                           {item.provider &&
-                    <div className="text-lydian-text-muted">
+                    <div className="text-gray-300">
                               Sağlayıcı: {item.provider}
                             </div>
                     }
@@ -413,32 +413,32 @@ Türkiye&apos;nin en güzel destinasyonlarını ve benzersiz deneyimlerini keşf
                 <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
-                className="bg-lydian-bg-hover rounded-3xl shadow-xl border border-lydian-border-light overflow-hidden sticky top-8">
+                className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-3xl shadow-xl border border-white/20 overflow-hidden sticky top-8">
 
                   {/* Header */}
-                  <div className="p-6 border-b border-lydian-border-light">
-                    <h3 className="text-xl font-bold text-lydian-text-inverse mb-2">Sipariş Özeti</h3>
-                    <p className="text-lydian-text-dim">Fiyat detayları ve ödeme bilgileri</p>
+                  <div className="p-6 border-b border-white/20">
+                    <h3 className="text-xl font-bold text-white mb-2">Sipariş Özeti</h3>
+                    <p className="text-gray-400">Fiyat detayları ve ödeme bilgileri</p>
                   </div>
 
                   <div className="p-6 space-y-6">
                     {/* Discount Code */}
                     <div>
-                      <label className="block text-sm font-medium text-lydian-text-muted mb-3">İndirim Kodu</label>
+                      <label className="block text-sm font-medium text-gray-300 mb-3">İndirim Kodu</label>
                       <div className="flex gap-2">
                         <input
                         type="text"
                         value={discountCode}
                         onChange={(e) => setDiscountCode(e.target.value)}
                         placeholder="Kod girin"
-                        className="flex-1 px-4 py-3 border border-lydian-border rounded-xl focus:ring-2 focus:ring-lydian-primary focus:border-lydian-primary outline-none"
+                        className="flex-1 px-4 py-3 border border-white/20 rounded-xl focus:ring-2 focus:ring-lydian-primary focus:border-blue-500 outline-none"
                         onKeyPress={(e) => e.key === 'Enter' && handleApplyDiscount()} />
 
                         <motion.button
                         whileTap={{ scale: 0.95 }}
                         onClick={handleApplyDiscount}
                         disabled={isApplyingDiscount || !discountCode.trim()}
-                        className="px-6 py-3 bg-lydian-primary text-lydian-text-inverse rounded-xl font-medium disabled:opacity-50 disabled:cursor-not-allowed hover:bg-lydian-dark transition-colors flex items-center gap-2">
+                        className="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-medium disabled:opacity-50 disabled:cursor-not-allowed hover:bg-lydian-dark transition-colors flex items-center gap-2">
 
                           {isApplyingDiscount ?
                         <RefreshCw className="w-4 h-4 animate-spin" /> :
@@ -451,14 +451,14 @@ Türkiye&apos;nin en güzel destinasyonlarını ve benzersiz deneyimlerini keşf
                       
                       {/* Applied Discount */}
                       {state.discountCode &&
-                    <div className="mt-3 p-3 bg-lydian-success-lighter border border-green-200 rounded-xl flex items-center justify-between">
+                    <div className="mt-3 p-3 bg-green-600-lighter border border-green-200 rounded-xl flex items-center justify-between">
                           <div className="flex items-center gap-2">
-                            <CheckCircle className="w-4 h-4 text-lydian-success" />
-                            <span className="text-lydian-success-text font-medium">{state.discountCode}</span>
+                            <CheckCircle className="w-4 h-4 text-green-500" />
+                            <span className="text-green-500-text font-medium">{state.discountCode}</span>
                           </div>
                           <button
                         onClick={removeDiscount}
-                        className="text-lydian-success hover:text-lydian-success-text">
+                        className="text-green-500 hover:text-green-500-text">
 
                             <X className="w-4 h-4" />
                           </button>
@@ -467,13 +467,13 @@ Türkiye&apos;nin en güzel destinasyonlarını ve benzersiz deneyimlerini keşf
 
                       {/* Available Discount Codes */}
                       <div className="mt-3">
-                        <p className="text-xs text-lydian-text-muted mb-2">Mevcut kodlar:</p>
+                        <p className="text-xs text-gray-300 mb-2">Mevcut kodlar:</p>
                         <div className="flex flex-wrap gap-2">
                           {['WELCOME10', 'TURKEY15', 'HOLIDAY30'].map((code) =>
                         <button
                           key={code}
                           onClick={() => setDiscountCode(code)}
-                          className="px-2 py-1 bg-lydian-glass-dark-medium text-lydian-text-dim rounded text-xs hover:bg-lydian-bg-active transition-colors">
+                          className="px-2 py-1 bg-white/10 backdrop-blur-xl border border-white/20 text-gray-400 rounded text-xs hover:bg-white/10 backdrop-blur-xl border border-white/20 transition-colors">
 
                               {code}
                             </button>
@@ -484,48 +484,48 @@ Türkiye&apos;nin en güzel destinasyonlarını ve benzersiz deneyimlerini keşf
 
                     {/* Price Breakdown */}
                     <div className="space-y-3">
-                      <div className="flex justify-between text-lydian-text-dim">
+                      <div className="flex justify-between text-gray-400">
                         <span>Ara Toplam ({state.totalItems} ürün)</span>
                         <span>₺{state.totalPrice.toLocaleString()}</span>
                       </div>
                       
                       {state.discountAmount && state.discountAmount > 0 &&
-                    <div className="flex justify-between text-lydian-success">
+                    <div className="flex justify-between text-green-500">
                           <span>İndirim ({state.discountCode})</span>
                           <span>-₺{state.discountAmount.toLocaleString()}</span>
                         </div>
                     }
                       
                       {state.taxAmount &&
-                    <div className="flex justify-between text-lydian-text-dim">
+                    <div className="flex justify-between text-gray-400">
                           <span>KDV (%18)</span>
                           <span>₺{state.taxAmount.toLocaleString()}</span>
                         </div>
                     }
                       
-                      <div className="pt-3 border-t border-lydian-border">
+                      <div className="pt-3 border-t border-white/20">
                         <div className="flex justify-between items-center">
-                          <span className="text-xl font-bold text-lydian-text-inverse">Toplam</span>
-                          <span className="text-2xl font-bold text-lydian-primary">
+                          <span className="text-xl font-bold text-white">Toplam</span>
+                          <span className="text-2xl font-bold text-blue-500">
                             ₺{state.finalTotal.toLocaleString()}
                           </span>
                         </div>
-                        <p className="text-xs text-lydian-text-muted mt-1">KDV dahil</p>
+                        <p className="text-xs text-gray-300 mt-1">KDV dahil</p>
                       </div>
                     </div>
 
                     {/* Security Features */}
-                    <div className="space-y-3 pt-4 border-t border-lydian-border-light">
-                      <div className="flex items-center gap-2 text-sm text-lydian-text-dim">
-                        <Shield className="w-4 h-4 text-lydian-success" />
+                    <div className="space-y-3 pt-4 border-t border-white/20">
+                      <div className="flex items-center gap-2 text-sm text-gray-400">
+                        <Shield className="w-4 h-4 text-green-500" />
                         SSL ile güvenli ödeme
                       </div>
-                      <div className="flex items-center gap-2 text-sm text-lydian-text-dim">
-                        <CheckCircle className="w-4 h-4 text-lydian-success" />
+                      <div className="flex items-center gap-2 text-sm text-gray-400">
+                        <CheckCircle className="w-4 h-4 text-green-500" />
                         24/7 müşteri desteği
                       </div>
-                      <div className="flex items-center gap-2 text-sm text-lydian-text-dim">
-                        <Truck className="w-4 h-4 text-lydian-primary" />
+                      <div className="flex items-center gap-2 text-sm text-gray-400">
+                        <Truck className="w-4 h-4 text-blue-500" />
                         Ücretsiz rezervasyon iptali
                       </div>
                     </div>
@@ -535,7 +535,7 @@ Türkiye&apos;nin en güzel destinasyonlarını ve benzersiz deneyimlerini keşf
                       <motion.button
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
-                      className="w-full py-4 bg-gradient-to-r from-lydian-primary to-lydian-secondary text-lydian-text-inverse rounded-2xl font-bold text-lg hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-3">
+                      className="w-full py-4 bg-gradient-to-r from-blue-600 to-purple-700 text-white rounded-2xl font-bold text-lg hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-3">
 
                         <Lock className="w-5 h-5" />
                         Güvenli Ödemeye Geç
@@ -545,13 +545,13 @@ Türkiye&apos;nin en güzel destinasyonlarını ve benzersiz deneyimlerini keşf
 
                     {/* Payment Methods */}
                     <div>
-                      <p className="text-xs text-lydian-text-muted mb-2">Kabul edilen ödeme yöntemleri:</p>
+                      <p className="text-xs text-gray-300 mb-2">Kabul edilen ödeme yöntemleri:</p>
                       <div className="flex items-center gap-2">
-                        <div className="flex items-center gap-1 px-2 py-1 bg-lydian-glass-dark-medium rounded">
+                        <div className="flex items-center gap-1 px-2 py-1 bg-white/10 backdrop-blur-xl border border-white/20 rounded">
                           <CreditCard className="w-4 h-4" />
                           <span className="text-xs">Kredi Kartı</span>
                         </div>
-                        <div className="flex items-center gap-1 px-2 py-1 bg-lydian-glass-dark-medium rounded">
+                        <div className="flex items-center gap-1 px-2 py-1 bg-white/10 backdrop-blur-xl border border-white/20 rounded">
                           <Sparkles className="w-4 h-4" />
                           <span className="text-xs">Kripto</span>
                         </div>
@@ -578,27 +578,27 @@ Türkiye&apos;nin en güzel destinasyonlarını ve benzersiz deneyimlerini keşf
             initial={{ scale: 0.95, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.95, opacity: 0 }}
-            className="bg-lydian-bg-hover rounded-3xl p-8 max-w-md w-full">
+            className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-3xl p-8 max-w-md w-full">
 
               <div className="text-center">
                 <div className="w-16 h-16 bg-lydian-error-light rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Trash2 className="w-8 h-8 text-lydian-primary" />
+                  <Trash2 className="w-8 h-8 text-blue-500" />
                 </div>
-                <h3 className="text-xl font-bold text-lydian-text-inverse mb-2">Sepeti Temizle</h3>
-                <p className="text-lydian-text-dim mb-6">
+                <h3 className="text-xl font-bold text-white mb-2">Sepeti Temizle</h3>
+                <p className="text-gray-400 mb-6">
                   Tüm ürünleri sepetinizden kaldırmak istediğinizden emin misiniz?
                   Bu işlem geri alınamaz.
                 </p>
                 <div className="flex gap-3">
                   <button
                   onClick={() => setShowClearConfirm(false)}
-                  className="flex-1 px-4 py-3 border border-lydian-border text-lydian-text-muted rounded-xl font-medium hover:bg-lydian-glass-dark transition-colors">
+                  className="flex-1 px-4 py-3 border border-white/20 text-gray-300 rounded-xl font-medium hover:bg-gradient-to-br from-slate-900 via-black to-slate-800 transition-colors">
 
                     İptal
                   </button>
                   <button
                   onClick={confirmClearCart}
-                  className="flex-1 px-4 py-3 bg-lydian-primary text-lydian-text-inverse rounded-xl font-medium hover:bg-lydian-primary-dark transition-colors">
+                  className="flex-1 px-4 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-medium hover:bg-gradient-to-r from-blue-700 to-purple-700 transition-colors">
 
                     Temizle
                   </button>

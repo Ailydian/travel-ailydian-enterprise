@@ -34,7 +34,7 @@ const sizeStyles = {
 } as const;
 
 const stateStyles = {
-  default: 'border-lydian-border-medium focus:border-lydian-primary focus:ring-lydian-primary',
+  default: 'border-white/30 focus:border-blue-500 focus:ring-lydian-primary',
   success: 'border-green-500 focus:border-green-600 focus:ring-green-500',
   warning: 'border-yellow-500 focus:border-yellow-600 focus:ring-yellow-500',
   error: 'border-red-500 focus:border-red-600 focus:ring-red-500',
@@ -42,8 +42,8 @@ const stateStyles = {
 
 const stateTextColors = {
   default: 'text-lydian-text-secondary',
-  success: 'text-lydian-success',
-  warning: 'text-lydian-warning',
+  success: 'text-green-500',
+  warning: 'text-yellow-500',
   error: 'text-lydian-error',
 } as const;
 
@@ -93,7 +93,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           >
             {label}
             {required && (
-              <span className="text-lydian-secondary" aria-label="required">
+              <span className="text-purple-500" aria-label="required">
                 *
               </span>
             )}
@@ -102,7 +102,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
 
         <div className="relative flex items-center">
           {leftIcon && (
-            <div className="absolute left-3 pointer-events-none text-lydian-text-muted">
+            <div className="absolute left-3 pointer-events-none text-gray-300">
               {leftIcon}
             </div>
           )}
@@ -116,7 +116,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             className={`
               w-full rounded-lg border transition-all duration-200
               focus:outline-none focus:ring-2 focus:ring-opacity-50
-              disabled:bg-lydian-bg-surface-raised disabled:cursor-not-allowed disabled:text-lydian-text-muted
+              disabled:bg-lydian-bg-surface-raised disabled:cursor-not-allowed disabled:text-gray-300
               ${sizeStyles[size]}
               ${stateStyles[effectiveState]}
               ${leftIcon ? 'pl-10' : ''}
@@ -127,7 +127,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           />
 
           {rightIcon && (
-            <div className="absolute right-3 pointer-events-none text-lydian-text-muted">
+            <div className="absolute right-3 pointer-events-none text-gray-300">
               {rightIcon}
             </div>
           )}

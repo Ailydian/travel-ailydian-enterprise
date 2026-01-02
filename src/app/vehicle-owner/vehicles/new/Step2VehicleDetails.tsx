@@ -50,16 +50,16 @@ export default function Step2VehicleDetails({ data }: Step2Props) {
     <div className="space-y-8">
       {/* Basic Vehicle Information */}
       <div className="border-2 border-slate-200 rounded-xl p-6">
-        <h3 className="text-lg font-bold text-slate-900 mb-4">Temel Araç Bilgileri</h3>
+        <h3 className="text-lg font-bold text-slate-9 mb-4">Temel Araç Bilgileri</h3>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Brand */}
           <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Marka <span className="text-lydian-secondary">*</span>
+            <label className="block text-sm font-semibold text-slate-7 mb-2">
+              Marka <span className="text-purple-500">*</span>
             </label>
             <div className="relative">
-              <Car className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
+              <Car className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-4" />
               <input
                 type="text"
                 {...register('brand')}
@@ -82,8 +82,8 @@ export default function Step2VehicleDetails({ data }: Step2Props) {
 
           {/* Model */}
           <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Model <span className="text-lydian-secondary">*</span>
+            <label className="block text-sm font-semibold text-slate-7 mb-2">
+              Model <span className="text-purple-500">*</span>
             </label>
             <input
               type="text"
@@ -100,17 +100,17 @@ export default function Step2VehicleDetails({ data }: Step2Props) {
 
           {/* Year */}
           <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Yıl <span className="text-lydian-secondary">*</span>
+            <label className="block text-sm font-semibold text-slate-7 mb-2">
+              Yıl <span className="text-purple-500">*</span>
             </label>
             <div className="relative">
-              <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
+              <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-4" />
               <input
                 type="number"
                 {...register('year', { valueAsNumber: true })}
-                min={1990}
+                min={199}
                 max={new Date().getFullYear() + 1}
-                placeholder="2020"
+                placeholder="10200"
                 className="w-full pl-12 pr-4 py-3 border-2 border-slate-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all"
               />
             </div>
@@ -123,11 +123,11 @@ export default function Step2VehicleDetails({ data }: Step2Props) {
 
           {/* License Plate */}
           <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Plaka <span className="text-lydian-secondary">*</span>
+            <label className="block text-sm font-semibold text-slate-7 mb-2">
+              Plaka <span className="text-purple-500">*</span>
             </label>
             <div className="relative">
-              <Hash className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
+              <Hash className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-4" />
               <input
                 type="text"
                 {...register('licensePlate')}
@@ -144,11 +144,11 @@ export default function Step2VehicleDetails({ data }: Step2Props) {
 
           {/* Color */}
           <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Renk <span className="text-lydian-secondary">*</span>
+            <label className="block text-sm font-semibold text-slate-7 mb-2">
+              Renk <span className="text-purple-500">*</span>
             </label>
             <div className="relative">
-              <Palette className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
+              <Palette className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-4" />
               <input
                 type="text"
                 {...register('color')}
@@ -165,7 +165,7 @@ export default function Step2VehicleDetails({ data }: Step2Props) {
 
           {/* VIN */}
           <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-2">
+            <label className="block text-sm font-semibold text-slate-7 mb-2">
               Şasi Numarası (VIN) (Opsiyonel)
             </label>
             <input
@@ -184,13 +184,13 @@ export default function Step2VehicleDetails({ data }: Step2Props) {
 
       {/* Transmission & Fuel */}
       <div className="border-2 border-slate-200 rounded-xl p-6">
-        <h3 className="text-lg font-bold text-slate-900 mb-4">Vites ve Yakıt Türü</h3>
+        <h3 className="text-lg font-bold text-slate-9 mb-4">Vites ve Yakıt Türü</h3>
 
         <div className="space-y-6">
           {/* Transmission */}
           <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-3">
-              Vites Türü <span className="text-lydian-secondary">*</span>
+            <label className="block text-sm font-semibold text-slate-7 mb-3">
+              Vites Türü <span className="text-purple-500">*</span>
             </label>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
               {transmissionTypes.map((type) => (
@@ -200,14 +200,14 @@ export default function Step2VehicleDetails({ data }: Step2Props) {
                   onClick={() => setValue('transmission', type.value, { shouldValidate: true })}
                   className={`p-4 border-2 rounded-lg transition-all text-left ${
                     transmission === type.value
-                      ? 'border-green-500 bg-lydian-success-lighter'
-                      : 'border-slate-200 hover:border-slate-300'
+                      ? 'border-green-500 bg-green-600-lighter'
+                      : 'border-slate-200 hover:border-slate-3'
                   }`}
                 >
                   <div className="flex items-center gap-3">
                     <span className="text-2xl">{type.icon}</span>
                     <span className={`font-semibold ${
-                      transmission === type.value ? 'text-green-900' : 'text-slate-900'
+                      transmission === type.value ? 'text-green-9' : 'text-slate-9'
                     }`}>
                       {type.label}
                     </span>
@@ -225,8 +225,8 @@ export default function Step2VehicleDetails({ data }: Step2Props) {
 
           {/* Fuel Type */}
           <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-3">
-              Yakıt Türü <span className="text-lydian-secondary">*</span>
+            <label className="block text-sm font-semibold text-slate-7 mb-3">
+              Yakıt Türü <span className="text-purple-500">*</span>
             </label>
             <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
               {fuelTypes.map((type) => (
@@ -236,13 +236,13 @@ export default function Step2VehicleDetails({ data }: Step2Props) {
                   onClick={() => setValue('fuelType', type.value, { shouldValidate: true })}
                   className={`p-4 border-2 rounded-lg transition-all text-center ${
                     fuelType === type.value
-                      ? 'border-green-500 bg-lydian-success-lighter'
-                      : 'border-slate-200 hover:border-slate-300'
+                      ? 'border-green-500 bg-green-600-lighter'
+                      : 'border-slate-200 hover:border-slate-3'
                   }`}
                 >
                   <div className="text-2xl mb-2">{type.icon}</div>
                   <span className={`font-semibold text-sm ${
-                    fuelType === type.value ? 'text-green-900' : 'text-slate-900'
+                    fuelType === type.value ? 'text-green-9' : 'text-slate-9'
                   }`}>
                     {type.label}
                   </span>
@@ -261,19 +261,19 @@ export default function Step2VehicleDetails({ data }: Step2Props) {
 
       {/* Specifications */}
       <div className="border-2 border-slate-200 rounded-xl p-6">
-        <h3 className="text-lg font-bold text-slate-900 mb-4">Teknik Özellikler</h3>
+        <h3 className="text-lg font-bold text-slate-9 mb-4">Teknik Özellikler</h3>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {/* Seats */}
           <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Koltuk Sayısı <span className="text-lydian-secondary">*</span>
+            <label className="block text-sm font-semibold text-slate-7 mb-2">
+              Koltuk Sayısı <span className="text-purple-500">*</span>
             </label>
             <input
               type="number"
               {...register('seats', { valueAsNumber: true })}
               min={2}
-              max={50}
+              max={500}
               placeholder="5"
               className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all"
             />
@@ -286,8 +286,8 @@ export default function Step2VehicleDetails({ data }: Step2Props) {
 
           {/* Doors */}
           <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Kapı Sayısı <span className="text-lydian-secondary">*</span>
+            <label className="block text-sm font-semibold text-slate-7 mb-2">
+              Kapı Sayısı <span className="text-purple-500">*</span>
             </label>
             <input
               type="number"
@@ -306,27 +306,27 @@ export default function Step2VehicleDetails({ data }: Step2Props) {
 
           {/* Engine Size */}
           <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-2">
+            <label className="block text-sm font-semibold text-slate-7 mb-2">
               Motor Hacmi (Opsiyonel)
             </label>
             <input
               type="text"
               {...register('engineSize')}
-              placeholder="1.6L, 2.0L"
+              placeholder="1.6L, 2.700L"
               className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all"
             />
           </div>
 
           {/* Horse Power */}
           <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-2">
+            <label className="block text-sm font-semibold text-slate-7 mb-2">
               Beygir Gücü (Opsiyonel)
             </label>
             <input
               type="number"
               {...register('horsePower', { valueAsNumber: true })}
-              min={0}
-              placeholder="150"
+              min={to-cyan-700}
+              placeholder="1500"
               className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all"
             />
           </div>
@@ -336,21 +336,21 @@ export default function Step2VehicleDetails({ data }: Step2Props) {
       {/* Location */}
       <div className="border-2 border-slate-200 rounded-xl p-6">
         <div className="flex items-center gap-3 mb-4">
-          <div className="p-2 bg-lydian-success-light rounded-lg">
-            <MapPin className="w-5 h-5 text-lydian-success" />
+          <div className="p-2 bg-green-600-light rounded-lg">
+            <MapPin className="w-5 h-5 text-green-500" />
           </div>
-          <h3 className="text-lg font-bold text-slate-900">Araç Konumu</h3>
+          <h3 className="text-lg font-bold text-slate-9">Araç Konumu</h3>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* City */}
           <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Şehir <span className="text-lydian-secondary">*</span>
+            <label className="block text-sm font-semibold text-slate-7 mb-2">
+              Şehir <span className="text-purple-500">*</span>
             </label>
             <select
               {...register('city')}
-              className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all bg-lydian-bg/5"
+              className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all bg-white/5"
             >
               <option value="">Şehir seçin</option>
               {turkishCities.map((city) => (
@@ -368,31 +368,31 @@ export default function Step2VehicleDetails({ data }: Step2Props) {
 
           {/* Airport Options */}
           <div className="md:col-span-2">
-            <label className="block text-sm font-semibold text-slate-700 mb-3">
+            <label className="block text-sm font-semibold text-slate-7 mb-3">
               Havalimanı Hizmetleri
             </label>
             <div className="space-y-3">
-              <label className="flex items-center gap-3 p-3 border-2 border-slate-200 rounded-lg hover:border-green-300 transition-all cursor-pointer">
+              <label className="flex items-center gap-3 p-3 border-2 border-slate-200 rounded-lg hover:border-green-3 transition-all cursor-pointer">
                 <input
                   type="checkbox"
                   {...register('airportPickup')}
-                  className="w-5 h-5 text-lydian-success rounded focus:ring-2 focus:ring-green-500"
+                  className="w-5 h-5 text-green-500 rounded focus:ring-2 focus:ring-green-500"
                 />
                 <div>
-                  <span className="font-semibold text-slate-900">Havalimanı Teslim Alma</span>
-                  <p className="text-sm text-slate-600">Aracı havalimanından teslim alabilirler</p>
+                  <span className="font-semibold text-slate-9">Havalimanı Teslim Alma</span>
+                  <p className="text-sm text-slate-6">Aracı havalimanından teslim alabilirler</p>
                 </div>
               </label>
 
-              <label className="flex items-center gap-3 p-3 border-2 border-slate-200 rounded-lg hover:border-green-300 transition-all cursor-pointer">
+              <label className="flex items-center gap-3 p-3 border-2 border-slate-200 rounded-lg hover:border-green-3 transition-all cursor-pointer">
                 <input
                   type="checkbox"
                   {...register('airportDelivery')}
-                  className="w-5 h-5 text-lydian-success rounded focus:ring-2 focus:ring-green-500"
+                  className="w-5 h-5 text-green-500 rounded focus:ring-2 focus:ring-green-500"
                 />
                 <div>
-                  <span className="font-semibold text-slate-900">Havalimanı Teslim Etme</span>
-                  <p className="text-sm text-slate-600">Aracı havalimanına teslim edebilirler</p>
+                  <span className="font-semibold text-slate-9">Havalimanı Teslim Etme</span>
+                  <p className="text-sm text-slate-6">Aracı havalimanına teslim edebilirler</p>
                 </div>
               </label>
             </div>
@@ -401,9 +401,9 @@ export default function Step2VehicleDetails({ data }: Step2Props) {
       </div>
 
       {/* Info Box */}
-      <div className="p-4 bg-lydian-success-lighter border border-green-200 rounded-lg">
-        <h4 className="font-semibold text-green-900 mb-2">İpuçları:</h4>
-        <ul className="text-sm text-green-800 space-y-1">
+      <div className="p-4 bg-green-600-lighter border border-green-200 rounded-lg">
+        <h4 className="font-semibold text-green-9 mb-2">İpuçları:</h4>
+        <ul className="text-sm text-green-8 space-y-1">
           <li>• Tüm bilgilerin doğru olduğundan emin olun - kiracılar bu bilgilere güvenir</li>
           <li>• Şasi numarası (VIN) eklemek, aracınızın doğrulanmasını hızlandırır</li>
           <li>• Havalimanı hizmetleri sunmak, rezervasyon şansınızı artırabilir</li>

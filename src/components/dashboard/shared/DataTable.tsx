@@ -214,15 +214,15 @@ export function DataTable<T>({
   return (
     <div className={className}>
       {/* Desktop Table View */}
-      <div className="hidden md:block bg-lydian-glass-dark rounded-lg border border-lydian-border overflow-hidden">
+      <div className="hidden md:block bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-lg border border-white/20 overflow-hidden">
         <div className="overflow-x-auto">
           <table className="min-w-full divide-y divide-lydian-border">
-            <thead className="bg-lydian-glass-dark">
+            <thead className="bg-gradient-to-br from-slate-900 via-black to-slate-800">
               <tr>
                 {columns.map((column) =>
                 <th
                   key={column.key}
-                  className={`px-6 py-3 text-${column.align || 'left'} text-xs font-medium text-lydian-text-muted uppercase tracking-wider ${
+                  className={`px-6 py-3 text-${column.align || 'left'} text-xs font-medium text-gray-300 uppercase tracking-wider ${
                   column.width || ''} ${
                   column.sortable ? 'cursor-pointer select-none hover:bg-lydian-bg/10' : ''}`}
                   onClick={() => column.sortable && handleSort(column.key)}>
@@ -230,7 +230,7 @@ export function DataTable<T>({
                     <div className="flex items-center space-x-1">
                       <span>{column.label}</span>
                       {column.sortable &&
-                    <span className="text-lydian-text-muted">
+                    <span className="text-gray-300">
                           {sortKey === column.key ?
                       sortDirection === 'asc' ?
                       <ChevronUp className="h-4 w-4" /> :
@@ -246,21 +246,21 @@ export function DataTable<T>({
                   </th>
                 )}
                 {rowActions && rowActions.length > 0 &&
-                <th className="px-6 py-3 text-right text-xs font-medium text-lydian-text-muted uppercase tracking-wider">
+                <th className="px-6 py-3 text-right text-xs font-medium text-gray-300 uppercase tracking-wider">
                     Actions
                   </th>
                 }
               </tr>
             </thead>
-            <tbody className="bg-lydian-glass-dark divide-y divide-lydian-border">
+            <tbody className="bg-gradient-to-br from-slate-900 via-black to-slate-800 divide-y divide-lydian-border">
               {paginatedData.map((row) => {
                 const rowKey = keyExtractor(row);
                 return (
-                  <tr key={rowKey} className="hover:bg-lydian-glass-dark">
+                  <tr key={rowKey} className="hover:bg-gradient-to-br from-slate-900 via-black to-slate-800">
                     {columns.map((column) =>
                     <td
                       key={column.key}
-                      className={`px-6 py-4 whitespace-nowrap text-sm text-lydian-text-inverse text-${column.align || 'left'}`}>
+                      className={`px-6 py-4 whitespace-nowrap text-sm text-white text-${column.align || 'left'}`}>
 
                         {column.render ?
                       column.render(row) :
@@ -276,7 +276,7 @@ export function DataTable<T>({
                             openActionMenu === rowKey ? null : rowKey
                           )
                           }
-                          className="text-lydian-text-muted hover:text-lydian-text-dim focus:outline-none focus:ring-2 focus:ring-lydian-border-focus rounded p-1"
+                          className="text-gray-300 hover:text-gray-400 focus:outline-none focus:ring-2 focus:ring-lydian-border-focus rounded p-1"
                           aria-label="Row actions">
 
                             <MoreVertical className="h-5 w-5" />
@@ -288,7 +288,7 @@ export function DataTable<T>({
                             className="fixed inset-0 z-10"
                             onClick={() => setOpenActionMenu(null)} />
 
-                              <div className="absolute right-0 mt-2 w-48 bg-lydian-glass-dark rounded-lg shadow-lg border border-lydian-border py-1 z-20">
+                              <div className="absolute right-0 mt-2 w-48 bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-lg shadow-lg border border-white/20 py-1 z-20">
                                 {rowActions.
                             filter(
                               (action) =>
@@ -303,7 +303,7 @@ export function DataTable<T>({
                                     action.onClick(row);
                                     setOpenActionMenu(null);
                                   }}
-                                  className={`w-full px-4 py-2 text-left text-sm hover:bg-lydian-glass-dark-medium flex items-center space-x-2 ${
+                                  className={`w-full px-4 py-2 text-left text-sm hover:bg-white/10 backdrop-blur-xl border border-white/20 flex items-center space-x-2 ${
                                   action.danger ?
                                   'text-lydian-error' :
                                   'text-gray-200'}`
@@ -335,16 +335,16 @@ export function DataTable<T>({
           return (
             <div
               key={rowKey}
-              className="bg-lydian-glass-dark rounded-lg border border-lydian-border p-4">
+              className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-lg border border-white/20 p-4">
 
               {columns.
               filter((col) => !col.hideOnMobile).
               map((column) =>
               <div key={column.key} className="mb-3 last:mb-0">
-                    <div className="text-xs font-medium text-lydian-text-muted mb-1">
+                    <div className="text-xs font-medium text-gray-300 mb-1">
                       {column.label}
                     </div>
-                    <div className="text-sm text-lydian-text-inverse">
+                    <div className="text-sm text-white">
                       {column.render ?
                   column.render(row) :
                   (row as any)[column.key]}
@@ -352,7 +352,7 @@ export function DataTable<T>({
                   </div>
               )}
               {rowActions && rowActions.length > 0 &&
-              <div className="mt-4 pt-4 border-t border-lydian-border flex flex-wrap gap-2">
+              <div className="mt-4 pt-4 border-t border-white/20 flex flex-wrap gap-2">
                   {rowActions.
                 filter((action) => !action.show || action.show(row)).
                 map((action, index) => {
@@ -382,7 +382,7 @@ export function DataTable<T>({
       {/* Pagination */}
       {pagination && totalPages > 1 &&
       <div className="mt-6 flex items-center justify-between">
-          <div className="text-sm text-lydian-text-dim">
+          <div className="text-sm text-gray-400">
             Showing {(currentPage - 1) * itemsPerPage + 1} to{' '}
             {Math.min(currentPage * itemsPerPage, sortedData.length)} of{' '}
             {sortedData.length} results
@@ -391,7 +391,7 @@ export function DataTable<T>({
             <button
             onClick={() => handlePageChange(currentPage - 1)}
             disabled={currentPage === 1}
-            className="p-2 rounded-lg border border-lydian-border-medium hover:bg-lydian-glass-dark disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-lydian-border-focus"
+            className="p-2 rounded-lg border border-white/30 hover:bg-gradient-to-br from-slate-900 via-black to-slate-800 disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-lydian-border-focus"
             aria-label="Previous page">
 
               <ChevronLeft className="h-5 w-5" />
@@ -416,8 +416,8 @@ export function DataTable<T>({
                   onClick={() => handlePageChange(pageNum)}
                   className={`px-3 py-1.5 rounded-lg text-sm font-medium focus:outline-none focus:ring-2 focus:ring-lydian-border-focus ${
                   currentPage === pageNum ?
-                  'bg-lydian-primary text-white' :
-                  'bg-lydian-bg/5 border border-lydian-border-medium text-gray-200 hover:bg-lydian-bg/5'}`
+                  'bg-gradient-to-r from-blue-600 to-purple-600 text-white' :
+                  'bg-white/5 border border-white/30 text-gray-200 hover:bg-white/5'}`
                   }>
 
                     {pageNum}
@@ -429,7 +429,7 @@ export function DataTable<T>({
             <button
             onClick={() => handlePageChange(currentPage + 1)}
             disabled={currentPage === totalPages}
-            className="p-2 rounded-lg border border-lydian-border-medium hover:bg-lydian-glass-dark disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-lydian-border-focus"
+            className="p-2 rounded-lg border border-white/30 hover:bg-gradient-to-br from-slate-900 via-black to-slate-800 disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-lydian-border-focus"
             aria-label="Next page">
 
               <ChevronRight className="h-5 w-5" />

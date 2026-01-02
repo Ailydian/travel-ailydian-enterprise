@@ -105,7 +105,7 @@ export default function About() {
 
       <ModernHeader />
 
-      <main className="min-h-screen bg-lydian-glass-dark">
+      <main className="min-h-screen bg-gradient-to-br from-slate-900 via-black to-slate-800">
         {/* Hero Section with NeoHero */}
         <NeoHero
           title="AILYDIAN Holiday"
@@ -116,7 +116,7 @@ export default function About() {
           overlayOpacity={0.4}
           showFloatingElements={true}
         >
-          <p className="text-xl md:text-2xl text-lydian-text-inverse/90 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed">
             2010'dan beri seyahat deneyimlerini daha keyifli, güvenli ve erişilebilir hale getirmek için
             yapay zeka ve blockchain teknolojilerini kullanıyor, müşterilerimize benzersiz hizmetler sunuyoruz.
           </p>
@@ -140,7 +140,7 @@ export default function About() {
         </NeoHero>
 
         {/* Stats Section */}
-        <section className="py-20 bg-lydian-glass-dark backdrop-blur-xl border-b border-lydian-border-light/10">
+        <section className="py-20 bg-gradient-to-br from-slate-900 via-black to-slate-800 backdrop-blur-xl border-b border-white/20/10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
               {stats.map((stat, index) => {
@@ -153,15 +153,15 @@ export default function About() {
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
                     whileHover={{ scale: 1.05, y: -5 }}
-                    className="bg-lydian-glass-dark-medium backdrop-blur-xl border border-lydian-border-light rounded-3xl p-6 md:p-8 text-center group cursor-default"
+                    className="bg-white/10 backdrop-blur-xl border border-white/20 backdrop-blur-xl border border-white/20 rounded-3xl p-6 md:p-8 text-center group cursor-default"
                   >
                     <div className={`w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br ${stat.color} rounded-2xl flex items-center justify-center mx-auto mb-4 md:mb-6 group-hover:scale-110 transition-transform shadow-lg`}>
-                      <IconComponent className="w-8 h-8 md:w-10 md:h-10 text-lydian-text-inverse" />
+                      <IconComponent className="w-8 h-8 md:w-10 md:h-10 text-white" />
                     </div>
-                    <div className="text-3xl md:text-4xl font-black text-lydian-text-inverse mb-2">
+                    <div className="text-3xl md:text-4xl font-black text-white mb-2">
                       {stat.value}
                     </div>
-                    <div className="text-sm md:text-base text-lydian-text-muted font-medium">
+                    <div className="text-sm md:text-base text-gray-300 font-medium">
                       {stat.label}
                     </div>
                   </motion.div>
@@ -184,17 +184,17 @@ export default function About() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="bg-lydian-glass-dark-medium backdrop-blur-xl border border-lydian-border-light rounded-3xl p-8 md:p-10 hover:border-cyan-500/50 transition-all group"
+              className="bg-white/10 backdrop-blur-xl border border-white/20 backdrop-blur-xl border border-white/20 rounded-3xl p-8 md:p-10 hover:border-cyan-500/50 transition-all group"
             >
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-16 h-16 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 backdrop-blur-xl border border-cyan-500/30 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
                   <Zap className="w-8 h-8 text-cyan-400" />
                 </div>
-                <h3 className="text-3xl font-black text-lydian-text-inverse">
+                <h3 className="text-3xl font-black text-white">
                   Misyonumuz
                 </h3>
               </div>
-              <p className="text-lydian-text-dim text-lg leading-relaxed">
+              <p className="text-gray-400 text-lg leading-relaxed">
                 Yapay zeka ve blockchain teknolojilerini kullanarak, her bütçeye uygun,
                 güvenli ve kişiselleştirilmiş seyahat deneyimleri sunmak. Müşterilerimizin
                 hayallerindeki tatili gerçekleştirmelerine yardımcı olmak.
@@ -206,17 +206,17 @@ export default function About() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="bg-lydian-glass-dark-medium backdrop-blur-xl border border-lydian-border-light rounded-3xl p-8 md:p-10 hover:border-purple-500/50 transition-all group"
+              className="bg-white/10 backdrop-blur-xl border border-white/20 backdrop-blur-xl border border-white/20 rounded-3xl p-8 md:p-10 hover:border-purple-500/50 transition-all group"
             >
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-16 h-16 bg-gradient-to-br from-purple-500/20 to-pink-500/20 backdrop-blur-xl border border-purple-500/30 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
                   <Shield className="w-8 h-8 text-purple-400" />
                 </div>
-                <h3 className="text-3xl font-black text-lydian-text-inverse">
+                <h3 className="text-3xl font-black text-white">
                   Vizyonumuz
                 </h3>
               </div>
-              <p className="text-lydian-text-dim text-lg leading-relaxed">
+              <p className="text-gray-400 text-lg leading-relaxed">
                 Türkiye'nin en güvenilir ve teknolojik seyahat platformu olmak.
                 Global pazarda öncü konumda yer alan, sürdürülebilir turizme katkıda bulunan,
                 müşteri memnuniyetinde sektör lideri bir şirket olarak tanınmak.
@@ -241,15 +241,15 @@ export default function About() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ scale: 1.05, y: -5 }}
-                className="bg-lydian-glass-dark-medium backdrop-blur-xl border border-lydian-border-light rounded-3xl p-8 group cursor-default"
+                className="bg-white/10 backdrop-blur-xl border border-white/20 backdrop-blur-xl border border-white/20 rounded-3xl p-8 group cursor-default"
               >
                 <div className={`w-16 h-16 bg-gradient-to-br ${value.color} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-lg`}>
-                  <value.icon className="w-8 h-8 text-lydian-text-inverse" />
+                  <value.icon className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-lydian-text-inverse mb-4">
+                <h3 className="text-2xl font-bold text-white mb-4">
                   {value.title}
                 </h3>
-                <p className="text-lydian-text-dim leading-relaxed">
+                <p className="text-gray-400 leading-relaxed">
                   {value.description}
                 </p>
               </motion.div>
@@ -273,7 +273,7 @@ export default function About() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.15 }}
                 whileHover={{ scale: 1.05, y: -10 }}
-                className="bg-lydian-glass-dark-medium backdrop-blur-xl border border-lydian-border-light rounded-3xl p-8 text-center group cursor-default"
+                className="bg-white/10 backdrop-blur-xl border border-white/20 backdrop-blur-xl border border-white/20 rounded-3xl p-8 text-center group cursor-default"
               >
                 <div className="relative inline-block mb-6">
                   <div className="absolute inset-0 bg-gradient-to-br from-cyan-500 to-purple-500 rounded-full blur-xl opacity-50 group-hover:opacity-75 transition-opacity"></div>
@@ -282,19 +282,19 @@ export default function About() {
                     alt={member.name}
                     width={128}
                     height={128}
-                    className="relative w-32 h-32 rounded-full mx-auto object-cover border-4 border-lydian-border-light"
+                    className="relative w-32 h-32 rounded-full mx-auto object-cover border-4 border-white/20"
                   />
                   <div className="absolute -bottom-2 -right-2 w-10 h-10 bg-gradient-to-br from-green-500 to-emerald-500 rounded-full border-4 border-lydian-bg flex items-center justify-center">
-                    <CheckCircle className="w-5 h-5 text-lydian-text-inverse" />
+                    <CheckCircle className="w-5 h-5 text-white" />
                   </div>
                 </div>
-                <h3 className="text-2xl font-bold text-lydian-text-inverse mb-2">
+                <h3 className="text-2xl font-bold text-white mb-2">
                   {member.name}
                 </h3>
                 <p className="text-cyan-400 font-semibold mb-4 text-lg">
                   {member.role}
                 </p>
-                <p className="text-lydian-text-dim leading-relaxed">
+                <p className="text-gray-400 leading-relaxed">
                   {member.description}
                 </p>
               </motion.div>
@@ -324,15 +324,15 @@ export default function About() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <div className="inline-flex items-center gap-2 px-6 py-3 bg-lydian-glass-dark-medium backdrop-blur-xl border border-lydian-border-light rounded-full mb-8">
+              <div className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-xl border border-white/20 backdrop-blur-xl border border-white/20 rounded-full mb-8">
                 <Sparkles className="w-5 h-5 text-cyan-400" />
-                <span className="text-lydian-text-inverse font-semibold">15 Yıllık Deneyim</span>
+                <span className="text-white font-semibold">15 Yıllık Deneyim</span>
               </div>
 
-              <h2 className="text-4xl md:text-5xl font-black text-lydian-text-inverse mb-6">
+              <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
                 Hayalinizdeki Seyahate Başlayın
               </h2>
-              <p className="text-xl md:text-2xl text-lydian-text-dim mb-10 leading-relaxed">
+              <p className="text-xl md:text-2xl text-gray-400 mb-10 leading-relaxed">
                 15 yıllık deneyimimiz ve teknolojik altyapımızla sizin için en iyi seyahat deneyimini yaratıyoruz
               </p>
 

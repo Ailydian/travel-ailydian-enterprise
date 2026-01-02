@@ -152,21 +152,21 @@ const QuickSearchModal: React.FC<QuickSearchModalProps> = ({
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: -20 }}
           transition={{ type: "spring", stiffness: 300, damping: 30 }}
-          className="relative w-full max-w-2xl bg-lydian-glass-dark rounded-3xl shadow-2xl overflow-hidden"
+          className="relative w-full max-w-2xl bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-3xl shadow-2xl overflow-hidden"
           onClick={(e) => e.stopPropagation()}>
 
           {/* Header */}
-          <div className="relative bg-gradient-to-r from-lydian-primary to-lydian-secondary p-6">
+          <div className="relative bg-gradient-to-r from-blue-600 to-purple-700 p-6">
             <div className="flex items-center justify-between">
               <div>
-                <h2 className="text-2xl font-bold text-lydian-text-inverse">Hızlı Arama</h2>
-                <p className="text-lydian-text-inverse/80 text-sm mt-1">Nereye gitmek istersiniz?</p>
+                <h2 className="text-2xl font-bold text-white">Hızlı Arama</h2>
+                <p className="text-white/80 text-sm mt-1">Nereye gitmek istersiniz?</p>
               </div>
               <button
                 onClick={onClose}
-                className="w-10 h-10 rounded-full bg-lydian-glass-dark-heavy hover:bg-lydian-bg/30 flex items-center justify-center transition-all">
+                className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 hover:bg-lydian-bg/30 flex items-center justify-center transition-all">
 
-                <X className="w-5 h-5 text-lydian-text-inverse" />
+                <X className="w-5 h-5 text-white" />
               </button>
             </div>
           </div>
@@ -187,7 +187,7 @@ const QuickSearchModal: React.FC<QuickSearchModalProps> = ({
                 onClick={() => setSelectedCategory(cat.id as any)}
                 className={`flex items-center gap-2 px-4 py-2.5 rounded-xl font-medium transition-all ${
                 selectedCategory === cat.id ?
-                'bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white shadow-lg' :
+                'bg-gradient-to-r from-blue-600 to-purple-700 text-white shadow-lg' :
                 'bg-lydian-bg/10 text-gray-200 hover:bg-lydian-bg-surface-raised'}`
                 }>
 
@@ -201,7 +201,7 @@ const QuickSearchModal: React.FC<QuickSearchModalProps> = ({
             <div className="space-y-4">
               {/* Location Input */}
               <div>
-                <label className="block text-sm font-medium text-lydian-text-muted mb-2">
+                <label className="block text-sm font-medium text-gray-300 mb-2">
                   Destinasyon
                 </label>
                 <LocationAutocomplete
@@ -215,7 +215,7 @@ const QuickSearchModal: React.FC<QuickSearchModalProps> = ({
                   }}
                   placeholder="Nereye gitmek istersiniz?"
                   type="all"
-                  icon={<MapPin className="text-lydian-primary w-5 h-5" />}
+                  icon={<MapPin className="text-blue-500 w-5 h-5" />}
                   className="location-search" />
 
               </div>
@@ -223,30 +223,30 @@ const QuickSearchModal: React.FC<QuickSearchModalProps> = ({
               {/* Date Inputs */}
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-lydian-text-muted mb-2">
+                  <label className="block text-sm font-medium text-gray-300 mb-2">
                     Giriş Tarihi
                   </label>
                   <div className="relative">
-                    <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-lydian-text-muted" />
+                    <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-300" />
                     <input
                       type="date"
                       value={checkInDate}
                       onChange={(e) => setCheckInDate(e.target.value)}
-                      className="w-full pl-10 pr-4 py-3 border border-lydian-border-light/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-lydian-primary/50" />
+                      className="w-full pl-10 pr-4 py-3 border border-white/20/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-lydian-primary/50" />
 
                   </div>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-lydian-text-muted mb-2">
+                  <label className="block text-sm font-medium text-gray-300 mb-2">
                     Çıkış Tarihi
                   </label>
                   <div className="relative">
-                    <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-lydian-text-muted" />
+                    <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-300" />
                     <input
                       type="date"
                       value={checkOutDate}
                       onChange={(e) => setCheckOutDate(e.target.value)}
-                      className="w-full pl-10 pr-4 py-3 border border-lydian-border-light/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-lydian-primary/50" />
+                      className="w-full pl-10 pr-4 py-3 border border-white/20/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-lydian-primary/50" />
 
                   </div>
                 </div>
@@ -254,18 +254,18 @@ const QuickSearchModal: React.FC<QuickSearchModalProps> = ({
 
               {/* Travelers Input */}
               <div>
-                <label className="block text-sm font-medium text-lydian-text-muted mb-2">
+                <label className="block text-sm font-medium text-gray-300 mb-2">
                   Misafir Sayısı
                 </label>
                 <div className="relative">
-                  <Users className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-lydian-text-muted" />
+                  <Users className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-300" />
                   <input
                     type="number"
                     min="1"
                     max="20"
                     value={travelers}
                     onChange={(e) => setTravelers(e.target.value)}
-                    className="w-full pl-10 pr-4 py-3 border border-lydian-border-light/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-lydian-primary/50" />
+                    className="w-full pl-10 pr-4 py-3 border border-white/20/10 rounded-xl focus:outline-none focus:ring-2 focus:ring-lydian-primary/50" />
 
                 </div>
               </div>
@@ -276,7 +276,7 @@ const QuickSearchModal: React.FC<QuickSearchModalProps> = ({
                 disabled={isSearching}
                 whileHover={!isSearching ? { scale: 1.02 } : {}}
                 whileTap={!isSearching ? { scale: 0.98 } : {}}
-                className={`w-full py-4 bg-gradient-to-r from-lydian-primary to-lydian-secondary text-lydian-text-inverse rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2 ${
+                className={`w-full py-4 bg-gradient-to-r from-blue-600 to-purple-700 text-white rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2 ${
                 isSearching ? 'opacity-80 cursor-not-allowed' : ''}`
                 }>
 

@@ -77,13 +77,13 @@ export const HorizontalScrollSection: React.FC<HorizontalScrollSectionProps> = (
           {title &&
         <div className="relative inline-block mb-4">
               <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-[#00BAFF] via-[#667EEA] to-[#FF9500] rounded-full opacity-70 shadow-[0_0_20px_rgba(102,126,234,0.5)]" />
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-lydian-text-inverse leading-tight tracking-tight drop-shadow-[0_0_30px_rgba(102,126,234,0.3)]">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-white leading-tight tracking-tight drop-shadow-[0_0_30px_rgba(102,126,234,0.3)]">
                 {title}
               </h2>
             </div>
         }
           {subtitle &&
-        <p className="text-lg md:text-xl text-lydian-text-dim max-w-3xl font-light">
+        <p className="text-lg md:text-xl text-gray-400 max-w-3xl font-light">
               {subtitle}
             </p>
         }
@@ -108,9 +108,9 @@ export const HorizontalScrollSection: React.FC<HorizontalScrollSectionProps> = (
           onClick={() => scroll('left')}
           whileHover={{ scale: 1.1, x: -5 }}
           whileTap={{ scale: 0.9 }}
-          className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-lydian-glass-dark-medium backdrop-blur-xl border border-lydian-border-light rounded-full flex items-center justify-center shadow-lg hover:bg-lydian-glass-dark-heavy transition-all opacity-0 group-hover:opacity-100">
+          className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white/10 backdrop-blur-xl border border-white/20 backdrop-blur-xl border border-white/20 rounded-full flex items-center justify-center shadow-lg hover:bg-white/10 backdrop-blur-xl border border-white/20 transition-all opacity-0 group-hover:opacity-100">
 
-            <ChevronLeft className="w-6 h-6 text-lydian-text-inverse" />
+            <ChevronLeft className="w-6 h-6 text-white" />
           </motion.button>
         }
 
@@ -120,9 +120,9 @@ export const HorizontalScrollSection: React.FC<HorizontalScrollSectionProps> = (
           onClick={() => scroll('right')}
           whileHover={{ scale: 1.1, x: 5 }}
           whileTap={{ scale: 0.9 }}
-          className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-lydian-glass-dark-medium backdrop-blur-xl border border-lydian-border-light rounded-full flex items-center justify-center shadow-lg hover:bg-lydian-glass-dark-heavy transition-all opacity-0 group-hover:opacity-100">
+          className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white/10 backdrop-blur-xl border border-white/20 backdrop-blur-xl border border-white/20 rounded-full flex items-center justify-center shadow-lg hover:bg-white/10 backdrop-blur-xl border border-white/20 transition-all opacity-0 group-hover:opacity-100">
 
-            <ChevronRight className="w-6 h-6 text-lydian-text-inverse" />
+            <ChevronRight className="w-6 h-6 text-white" />
           </motion.button>
         }
 

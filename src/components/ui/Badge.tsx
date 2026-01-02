@@ -19,12 +19,12 @@ export interface BadgeProps {
 
 const variantStyles = {
   default: { solid: 'bg-gray-600 text-white', outline: 'border-2 border-gray-600 text-lydian-text-secondary', subtle: 'bg-lydian-bg-surface-raised text-lydian-text-secondary' },
-  primary: { solid: 'bg-lydian-primary text-white', outline: 'border-2 border-blue-600 text-lydian-primary', subtle: 'bg-blue-100 text-lydian-primary-hover' },
-  success: { solid: 'bg-lydian-success text-white', outline: 'border-2 border-green-600 text-lydian-success', subtle: 'bg-green-100 text-green-700' },
-  warning: { solid: 'bg-yellow-600 text-white', outline: 'border-2 border-yellow-600 text-lydian-warning', subtle: 'bg-yellow-100 text-yellow-700' },
+  primary: { solid: 'bg-gradient-to-r from-blue-600 to-purple-600 text-white', outline: 'border-2 border-blue-600 text-lydian-primary', subtle: 'bg-blue-100 text-lydian-primary-hover' },
+  success: { solid: 'bg-green-600 text-white', outline: 'border-2 border-green-600 text-green-500', subtle: 'bg-green-100 text-green-700' },
+  warning: { solid: 'bg-yellow-600 text-white', outline: 'border-2 border-yellow-600 text-yellow-500', subtle: 'bg-yellow-100 text-yellow-700' },
   error: { solid: 'bg-lydian-error text-white', outline: 'border-2 border-red-600 text-lydian-error', subtle: 'bg-red-100 text-red-700' },
   info: { solid: 'bg-cyan-600 text-white', outline: 'border-2 border-cyan-600 text-cyan-600', subtle: 'bg-cyan-100 text-cyan-700' },
-  neutral: { solid: 'bg-gray-500 text-white', outline: 'border-2 border-gray-500 text-lydian-text-muted', subtle: 'bg-lydian-bg-surface text-lydian-text-secondary' },
+  neutral: { solid: 'bg-gray-500 text-white', outline: 'border-2 border-gray-500 text-gray-300', subtle: 'bg-lydian-bg-surface text-lydian-text-secondary' },
 } as const;
 
 const sizeStyles = {
@@ -55,7 +55,7 @@ export const Badge: React.FC<BadgeProps> = ({
 };
 
 export const DotBadge: React.FC<{ variant?: 'default' | 'primary' | 'success' | 'warning' | 'error'; pulse?: boolean }> = ({ variant = 'default', pulse = false }) => {
-  const colors = { default: 'bg-gray-500', primary: 'bg-blue-500', success: 'bg-green-500', warning: 'bg-lydian-warning-hover', error: 'bg-red-500' };
+  const colors = { default: 'bg-gray-500', primary: 'bg-blue-500', success: 'bg-green-500', warning: 'bg-yellow-500-hover', error: 'bg-red-500' };
   return (
     <span className="relative inline-flex">
       <span className={`w-2 h-2 rounded-full ${colors[variant]}`} />

@@ -37,7 +37,7 @@ export const VideoHero: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-          className="text-lg md:text-2xl text-lydian-text-inverse/90 max-w-3xl mx-auto mb-12">
+          className="text-lg md:text-2xl text-white/90 max-w-3xl mx-auto mb-12">
 
           Turlar, Transferler, Araç Kiralama ve Konaklama Hizmetleri
         </motion.p>
@@ -53,7 +53,7 @@ export const VideoHero: React.FC = () => {
             <motion.button
               whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(220, 38, 38, 0.3)" }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 bg-gradient-to-r from-lydian-primary via-lydian-primary to-lydian-secondary text-lydian-text-inverse rounded-full font-bold text-lg shadow-2xl hover:shadow-red-500/50 transition-all duration-300 flex items-center gap-2 min-w-[200px] justify-center">
+              className="px-8 py-4 bg-gradient-to-r from-blue-600 via-purple-600 to-purple-700 text-white rounded-full font-bold text-lg shadow-2xl hover:shadow-red-500/50 transition-all duration-300 flex items-center gap-2 min-w-[200px] justify-center">
 
               Turları Keşfet
               <ArrowRight className="w-5 h-5" />
@@ -64,10 +64,10 @@ export const VideoHero: React.FC = () => {
             <motion.button
               whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(255, 255, 255, 0.2)" }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 bg-lydian-glass-dark-heavy backdrop-blur-md border-2 border-lydian-border-light/40 rounded-full font-black text-lg shadow-2xl hover:bg-lydian-bg/30 transition-all duration-300 flex items-center gap-2 min-w-[200px] justify-center">
+              className="px-8 py-4 bg-white/10 backdrop-blur-xl border border-white/20 backdrop-blur-md border-2 border-white/20/40 rounded-full font-black text-lg shadow-2xl hover:bg-lydian-bg/30 transition-all duration-300 flex items-center gap-2 min-w-[200px] justify-center">
 
-              <span className="text-lydian-text-inverse drop-shadow-lg">Yardım Al</span>
-              <ArrowRight className="w-5 h-5 text-lydian-text-inverse drop-shadow-lg" />
+              <span className="text-white drop-shadow-lg">Yardım Al</span>
+              <ArrowRight className="w-5 h-5 text-white drop-shadow-lg" />
             </motion.button>
           </Link>
         </motion.div>
@@ -80,9 +80,9 @@ export const VideoHero: React.FC = () => {
           className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
 
           {[
-          { icon: MapPin, label: 'Turlar', value: '500+', gradient: 'from-red-500 to-lydian-primary' },
-          { icon: TrendingUp, label: 'Destinasyonlar', value: '50+', gradient: 'from-lydian-primary to-lydian-secondary' },
-          { icon: Users, label: 'Mutlu Müşteri', value: '100K+', gradient: 'from-lydian-secondary to-red-600' },
+          { icon: MapPin, label: 'Turlar', value: '500+', gradient: 'from-red-500 to-purple-600' },
+          { icon: TrendingUp, label: 'Destinasyonlar', value: '50+', gradient: 'from-blue-600 to-purple-700' },
+          { icon: Users, label: 'Mutlu Müşteri', value: '100K+', gradient: 'from-purple-600 to-red-600' },
           { icon: Star, label: 'Değerlendirme', value: '4.9/5', gradient: 'from-yellow-400 to-red-500' }].
           map((stat, index) =>
           <motion.div
@@ -92,14 +92,14 @@ export const VideoHero: React.FC = () => {
             transition={{ duration: 0.5, delay: 0.8 + index * 0.1 }}
             className="relative group">
 
-              <div className="bg-lydian-glass-dark-medium backdrop-blur-md rounded-2xl p-6 border border-lydian-border-light hover:bg-lydian-glass-dark-heavy transition-all duration-300 hover:scale-105">
+              <div className="bg-white/10 backdrop-blur-xl border border-white/20 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:bg-white/10 backdrop-blur-xl border border-white/20 transition-all duration-300 hover:scale-105">
                 <div className={`w-12 h-12 mx-auto mb-3 rounded-full bg-gradient-to-r ${stat.gradient} flex items-center justify-center shadow-lg`}>
-                  <stat.icon className="w-6 h-6 text-lydian-text-inverse" />
+                  <stat.icon className="w-6 h-6 text-white" />
                 </div>
-                <div className="text-3xl md:text-4xl font-black text-lydian-text-inverse mb-1 bg-gradient-to-r from-white to-red-200 bg-clip-text text-transparent">
+                <div className="text-3xl md:text-4xl font-black text-white mb-1 bg-gradient-to-r from-white to-red-200 bg-clip-text text-transparent">
                   {stat.value}
                 </div>
-                <div className="text-sm md:text-base text-lydian-text-inverse/80 font-medium">
+                <div className="text-sm md:text-base text-white/80 font-medium">
                   {stat.label}
                 </div>
               </div>

@@ -23,7 +23,7 @@ interface CardProps {
 }
 
 const variantStyles = {
-  default: 'bg-lydian-bg border border-lydian-border shadow-sm',
+  default: 'bg-lydian-bg border border-white/20 shadow-sm',
   elevated: 'bg-lydian-bg shadow-lg',
   outlined: 'bg-transparent border-2 border-lydian-border',
   ghost: 'bg-lydian-bg-surface border border-transparent',
@@ -98,7 +98,7 @@ export const CardFooter: React.FC<{children: React.ReactNode;className?: string;
   className = ''
 }) => {
   return (
-    <div className={`px-6 py-4 bg-lydian-bg-surface border-t border-lydian-border rounded-b-lg ${className}`}>
+    <div className={`px-6 py-4 bg-lydian-bg-surface border-t border-white/20 rounded-b-lg ${className}`}>
       {children}
     </div>);
 

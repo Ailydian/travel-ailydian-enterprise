@@ -1,24 +1,60 @@
-# robots.txt for Ailydian Travel Platform
-# White-hat SEO configuration for optimal search engine indexing
+# https://holiday.ailydian.com/robots.txt
+# AI-Powered Holiday & Travel Platform - SEO Optimized
+# Last Updated: 2026-01-02
 
-# Allow all search engines
+# =================================================
+# ALLOW ALL LEGITIMATE SEARCH ENGINES
+# =================================================
+
 User-agent: *
 Allow: /
 
-# Specific directives for major search engines
+# =================================================
+# MAJOR SEARCH ENGINES - CRAWL OPTIMIZATION
+# =================================================
+
+# Google (Googlebot) - Highest priority
 User-agent: Googlebot
-Allow: /
 Crawl-delay: 0
+Allow: /
 
+# Google Images
+User-agent: Googlebot-Image
+Allow: /
+
+# Google Mobile
+User-agent: Googlebot-Mobile
+Allow: /
+
+# Bing (Bingbot)
 User-agent: Bingbot
+Crawl-delay: 1
 Allow: /
-Crawl-delay: 0
 
-User-agent: Yandexbot
+# Yandex (Russian market - important for tourism)
+User-agent: Yandex
+User-agent: YandexBot
+Crawl-delay: 2
 Allow: /
-Crawl-delay: 0
 
-# Disallow admin and private areas
+# Yandex Images
+User-agent: YandexImages
+Allow: /
+
+# Baidu (Chinese market - Chinese tourists)
+User-agent: Baiduspider
+Crawl-delay: 3
+Allow: /
+
+# DuckDuckGo
+User-agent: DuckDuckBot
+Crawl-delay: 1
+Allow: /
+
+# =================================================
+# DISALLOW PRIVATE/ADMIN AREAS
+# =================================================
+
 Disallow: /api/
 Disallow: /admin/
 Disallow: /_next/
@@ -26,19 +62,142 @@ Disallow: /dashboard/
 Disallow: /owner/
 Disallow: /vehicle-owner/
 Disallow: /transfer-owner/
+Disallow: /auth/
+Disallow: /checkout/
+Disallow: /account/
 
-# Allow public auth pages for registration/login
+# Allow public auth pages for registration/login (SEO for conversion)
 Allow: /owner/auth/
 Allow: /vehicle-owner/auth/
 Allow: /transfer-owner/auth/
 
-# Disallow checkout and cart (session-specific)
+# =================================================
+# DISALLOW DUPLICATE/DYNAMIC CONTENT
+# =================================================
+
+Disallow: /search?
+Disallow: /*?filter=
+Disallow: /*?sort=
+Disallow: /*?page=
 Disallow: /checkout
 Disallow: /cart
 Disallow: /booking-success
 
-# Sitemap location
+# =================================================
+# ALLOW ESSENTIAL RESOURCES
+# =================================================
+
+Allow: /_next/static/
+Allow: /_next/image
+
+# =================================================
+# SITEMAPS (Multi-language support)
+# =================================================
+
 Sitemap: https://holiday.ailydian.com/sitemap.xml
 Sitemap: https://holiday.ailydian.com/sitemap-rentals.xml
 Sitemap: https://holiday.ailydian.com/sitemap-car-rentals.xml
 Sitemap: https://holiday.ailydian.com/sitemap-transfers.xml
+
+# =================================================
+# SOCIAL MEDIA CRAWLERS (for rich previews)
+# =================================================
+
+# Facebook
+User-agent: facebookexternalhit
+Allow: /
+
+# Twitter
+User-agent: Twitterbot
+Allow: /
+
+# LinkedIn
+User-agent: LinkedInBot
+Allow: /
+
+# Pinterest
+User-agent: Pinterest
+Allow: /
+
+# WhatsApp
+User-agent: WhatsApp
+Allow: /
+
+# Telegram
+User-agent: TelegramBot
+Allow: /
+
+# =================================================
+# AI CRAWLERS (ChatGPT, Claude, Bard)
+# =================================================
+
+# OpenAI GPTBot
+User-agent: GPTBot
+Allow: /
+
+# Anthropic Claude
+User-agent: Claude-Web
+Allow: /
+
+# Google Bard/Gemini
+User-agent: Google-Extended
+Allow: /
+
+# Common Crawl
+User-agent: CCBot
+Allow: /
+
+# =================================================
+# BLOCK BAD BOTS & AGGRESSIVE SCRAPERS
+# =================================================
+
+# AhrefsBot (too aggressive)
+User-agent: AhrefsBot
+Disallow: /
+
+# SemrushBot (SEO tool)
+User-agent: SemrushBot
+Disallow: /
+
+# MJ12bot (Majestic)
+User-agent: MJ12bot
+Disallow: /
+
+# DotBot (Moz)
+User-agent: dotbot
+Disallow: /
+
+# Rogerbot (Moz)
+User-agent: rogerbot
+Disallow: /
+
+# Screaming Frog
+User-agent: Screaming Frog SEO Spider
+Disallow: /
+
+# Generic bad bots
+User-agent: SiteBot
+Disallow: /
+
+User-agent: ExtractorPro
+Disallow: /
+
+User-agent: Webstripper
+Disallow: /
+
+User-agent: WebCopier
+Disallow: /
+
+User-agent: WebZIP
+Disallow: /
+
+User-agent: HTTrack
+Disallow: /
+
+# =================================================
+# CONTACT & SUPPORT
+# =================================================
+
+# Contact: info@ailydian.com
+# Support: https://holiday.ailydian.com/support
+# Webmaster: https://holiday.ailydian.com/contact

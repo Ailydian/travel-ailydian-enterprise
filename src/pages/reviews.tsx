@@ -39,7 +39,7 @@ export default function ReviewsPage() {
         <Star
           key={star}
           className={`h-4 w-4 ${
-          star <= rating ? 'text-yellow-400 fill-yellow-400' : 'text-lydian-text-dim'}`
+          star <= rating ? 'text-yellow-400 fill-yellow-400' : 'text-gray-300'}`
           } />
 
         )}
@@ -87,16 +87,16 @@ export default function ReviewsPage() {
           <div className="bg-lydian-bg/95 backdrop-blur-20 rounded-2xl p-6 shadow-2xl neon-glow">
             <div className="flex flex-col lg:flex-row gap-4 items-center">
               <div className="flex-1 relative">
-                <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-lydian-text-muted" />
+                <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-300" />
                 <input
                   type="text"
                   placeholder="Destinasyon, otel, restoran ara..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-12 pr-4 py-3 border border-lydian-border-medium rounded-xl focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-border" />
+                  className="w-full pl-12 pr-4 py-3 border border-white/30 rounded-xl focus:ring-2 focus:ring-lydian-border-focus focus:border-white/20" />
 
               </div>
-              <button className="ocean-button px-6 py-3 rounded-xl">
+              <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-xl">
                 Ara
               </button>
             </div>
@@ -119,7 +119,7 @@ export default function ReviewsPage() {
                   className="w-full h-48 object-cover" />
 
                   {destination.verified &&
-                <div className="absolute top-2 right-2 bg-lydian-success text-lydian-text-inverse px-2 py-1 rounded-full text-xs flex items-center">
+                <div className="absolute top-2 right-2 bg-green-600 text-white px-2 py-1 rounded-full text-xs flex items-center">
                       <Verified className="h-3 w-3 mr-1" />
                       Verified
                     </div>
@@ -127,14 +127,14 @@ export default function ReviewsPage() {
                 </div>
                 <div className="p-4">
                   <h3 className="font-semibold text-lg mb-2">{destination.name}</h3>
-                  <div className="flex items-center text-sm text-lydian-text-dim mb-2">
+                  <div className="flex items-center text-sm text-gray-400 mb-2">
                     <MapPin className="h-4 w-4 mr-1" />
                     {destination.location}
                   </div>
                   <div className="flex items-center space-x-2">
                     {renderStars(Math.floor(destination.rating))}
                     <span className="text-sm font-medium">{destination.rating}</span>
-                    <span className="text-sm text-lydian-text-muted">({destination.reviewCount.toLocaleString()} reviews)</span>
+                    <span className="text-sm text-gray-300">({destination.reviewCount.toLocaleString()} reviews)</span>
                   </div>
                 </div>
               </div>

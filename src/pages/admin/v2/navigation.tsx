@@ -165,22 +165,22 @@ const NavigationManager = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50">
       {/* Header */}
-      <div className="bg-lydian-glass-dark border-b border-lydian-border sticky top-0 z-40 backdrop-blur-xl bg-lydian-bg/80">
+      <div className="bg-white/10 backdrop-blur-xl border border-b border-white/20 sticky top-0 z-40 backdrop-blur-xl bg-white/10 backdrop-blur-xl">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <Link href="/admin/v2">
-                <button className="flex items-center gap-2 px-4 py-2 text-lydian-text-secondary hover:text-lydian-text hover:bg-lydian-bg-surface-raised rounded-lg transition-all">
+                <button className="flex items-center gap-2 px-4 py-2 text-gray-300 hover:text-white hover:bg-white/5 backdrop-blur-xl rounded-lg transition-all">
                   <ArrowLeft className="w-5 h-5" />
                   <span className="font-medium">Dashboard'a Dön</span>
                 </button>
               </Link>
               <div className="h-8 w-px bg-slate-300" />
               <div>
-                <h1 className="text-2xl font-bold text-lydian-text">
+                <h1 className="text-2xl font-bold text-white">
                   Navigasyon Menüleri
                 </h1>
-                <p className="text-sm text-lydian-text-secondary">
+                <p className="text-sm text-gray-300">
                   Tüm site menülerini yönetin
                 </p>
               </div>
@@ -191,7 +191,7 @@ const NavigationManager = () => {
                 setEditingMenu(null);
                 setShowModal(true);
               }}
-              className="flex items-center gap-2 px-4 py-2 bg-lydian-primary text-lydian-text-inverse rounded-lg hover:bg-lydian-primary-dark transition-all">
+              className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:bg-gradient-to-r from-blue-600 to-purple-600 transition-all">
 
               <Plus className="w-5 h-5" />
               Yeni Menü Ekle
@@ -204,8 +204,8 @@ const NavigationManager = () => {
         <div className="grid grid-cols-12 gap-6">
           {/* Menu Type Selector */}
           <div className="col-span-3">
-            <div className="bg-lydian-glass-dark rounded-xl shadow-sm p-4 sticky top-24">
-              <h3 className="text-sm font-semibold text-lydian-text-secondary mb-3">Menü Tipi</h3>
+            <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl shadow-sm p-4 sticky top-24">
+              <h3 className="text-sm font-semibold text-gray-300 mb-3">Menü Tipi</h3>
               <div className="space-y-2">
                 {menuTypes.map((type) => {
                   const Icon = type.icon;
@@ -234,36 +234,36 @@ const NavigationManager = () => {
 
           {/* Menu List */}
           <div className="col-span-9">
-            <div className="bg-lydian-glass-dark rounded-xl shadow-sm overflow-hidden">
-              <div className="p-6 border-b border-lydian-border">
+            <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl shadow-sm overflow-hidden">
+              <div className="p-6 border-b border-white/20">
                 <div className="flex items-center justify-between">
                   <div>
-                    <h2 className="text-xl font-bold text-lydian-text">
+                    <h2 className="text-xl font-bold text-white">
                       {menuTypes.find((t) => t.id === activeType)?.name}
                     </h2>
-                    <p className="text-sm text-lydian-text-secondary mt-1">
+                    <p className="text-sm text-gray-300 mt-1">
                       {menus.length} menü öğesi
                     </p>
                   </div>
-                  <Globe className="w-8 h-8 text-lydian-text-dim" />
+                  <Globe className="w-8 h-8 text-gray-400" />
                 </div>
               </div>
 
               {loading ?
               <div className="p-12 text-center">
-                  <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-lydian-primary mx-auto mb-4"></div>
-                  <p className="text-lydian-text-secondary">Yükleniyor...</p>
+                  <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mx-auto mb-4"></div>
+                  <p className="text-gray-300">Yükleniyor...</p>
                 </div> :
               menus.length === 0 ?
               <div className="p-12 text-center">
-                  <MenuIcon className="w-16 h-16 text-lydian-text-dim mx-auto mb-4" />
-                  <p className="text-lydian-text-secondary mb-4">Henüz menü öğesi yok</p>
+                  <MenuIcon className="w-16 h-16 text-gray-400 mx-auto mb-4" />
+                  <p className="text-gray-300 mb-4">Henüz menü öğesi yok</p>
                   <button
                   onClick={() => {
                     setEditingMenu(null);
                     setShowModal(true);
                   }}
-                  className="px-4 py-2 bg-lydian-primary text-lydian-text-inverse rounded-lg hover:bg-lydian-primary-dark transition-all">
+                  className="px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:bg-gradient-to-r from-blue-600 to-purple-600 transition-all">
 
                     İlk Menüyü Ekle
                   </button>
@@ -314,35 +314,35 @@ const MenuItemRow = ({ menu, onEdit, onDelete, onToggleActive }: any) => {
 
   return (
     <div>
-      <div className="p-4 hover:bg-lydian-bg-surface transition-all">
+      <div className="p-4 hover:bg-white/5 transition-all">
         <div className="flex items-center gap-4">
-          <GripVertical className="w-5 h-5 text-lydian-text-muted cursor-move" />
+          <GripVertical className="w-5 h-5 text-gray-300 cursor-move" />
 
           <div className="flex-1">
             <div className="flex items-center gap-3">
-              <h3 className="font-semibold text-lydian-text">{menu.title}</h3>
+              <h3 className="font-semibold text-white">{menu.title}</h3>
               {menu.badge &&
               <span className="px-2 py-1 text-xs font-semibold bg-purple-100 text-purple-700 rounded">
                   {menu.badge}
                 </span>
               }
               {menu.openInNewTab &&
-              <ExternalLink className="w-4 h-4 text-lydian-text-muted" />
+              <ExternalLink className="w-4 h-4 text-gray-300" />
               }
               {menu.children && menu.children.length > 0 &&
               <button
                 onClick={() => setExpanded(!expanded)}
-                className="flex items-center gap-1 text-xs text-lydian-primary hover:text-lydian-primary-dark">
+                className="flex items-center gap-1 text-xs text-blue-400 hover:text-blue-400">
 
                   <ChevronRight className={`w-4 h-4 transition-transform ${expanded ? 'rotate-90' : ''}`} />
                   {menu.children.length} alt menü
                 </button>
               }
             </div>
-            <div className="flex items-center gap-4 mt-1 text-sm text-lydian-text-secondary">
+            <div className="flex items-center gap-4 mt-1 text-sm text-gray-300">
               <span className="font-mono">{menu.href}</span>
               {menu.parent &&
-              <span className="text-xs bg-lydian-bg-surface-raised px-2 py-1 rounded">
+              <span className="text-xs bg-white/5 backdrop-blur-xl px-2 py-1 rounded">
                   Alt menü: {menu.parent.title}
                 </span>
               }
@@ -354,7 +354,7 @@ const MenuItemRow = ({ menu, onEdit, onDelete, onToggleActive }: any) => {
               onClick={() => onToggleActive(menu)}
               className={`p-2 rounded-lg transition-all ${
               menu.isActive ?
-              'bg-green-100 text-green-700 hover:bg-green-200' :
+              'bg-purple-500/30 text-green-700 hover:bg-green-200' :
               'bg-slate-100 text-slate-400 hover:bg-slate-200'}`
               }>
 
@@ -363,14 +363,14 @@ const MenuItemRow = ({ menu, onEdit, onDelete, onToggleActive }: any) => {
 
             <button
               onClick={() => onEdit(menu)}
-              className="p-2 bg-lydian-primary-light text-lydian-primary-dark rounded-lg hover:bg-blue-200 transition-all">
+              className="p-2 bg-gradient-to-r from-blue-600 to-purple-600-light text-blue-400 rounded-lg hover:bg-blue-200 transition-all">
 
               <Edit2 className="w-5 h-5" />
             </button>
 
             <button
               onClick={() => onDelete(menu.id)}
-              className="p-2 bg-lydian-error-light text-lydian-primary-dark rounded-lg hover:bg-red-200 transition-all">
+              className="p-2 bg-white/10 text-blue-400 rounded-lg hover:bg-purple-500/20 transition-all">
 
               <Trash2 className="w-5 h-5" />
             </button>
@@ -380,7 +380,7 @@ const MenuItemRow = ({ menu, onEdit, onDelete, onToggleActive }: any) => {
 
       {/* Children */}
       {expanded && menu.children && menu.children.length > 0 &&
-      <div className="ml-12 border-l-2 border-lydian-border">
+      <div className="ml-12 border-l-2 border-white/20">
           {menu.children.map((child: NavigationMenu) =>
         <MenuItemRow
           key={child.id}
@@ -431,16 +431,16 @@ const MenuModal = ({ menu, onClose, onSave, saving, parentMenus }: any) => {
         initial={{ scale: 0.95, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.95, opacity: 0 }}
-        className="bg-lydian-glass-dark rounded-xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
+        className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}>
 
-        <div className="sticky top-0 bg-lydian-glass-dark border-b border-lydian-border px-6 py-4 flex items-center justify-between z-10">
-          <h2 className="text-xl font-bold text-lydian-text">
+        <div className="sticky top-0 bg-white/10 backdrop-blur-xl border border-b border-white/20 px-6 py-4 flex items-center justify-between z-10">
+          <h2 className="text-xl font-bold text-white">
             {menu ? 'Menüyü Düzenle' : 'Yeni Menü Ekle'}
           </h2>
           <button
             onClick={onClose}
-            className="p-2 hover:bg-lydian-bg-surface-raised rounded-lg transition-all">
+            className="p-2 hover:bg-white/5 backdrop-blur-xl rounded-lg transition-all">
 
             <X className="w-5 h-5" />
           </button>
@@ -449,41 +449,41 @@ const MenuModal = ({ menu, onClose, onSave, saving, parentMenus }: any) => {
         <form onSubmit={handleSubmit} className="p-6 space-y-4">
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-lydian-text-secondary mb-2">
+              <label className="block text-sm font-medium text-gray-300 mb-2">
                 Başlık *
               </label>
               <input
                 type="text"
                 value={formData.title}
                 onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-                className="w-full px-4 py-2 border border-lydian-border-medium rounded-lg focus:outline-none focus:ring-2 focus:ring-lydian-border-focus"
+                className="w-full px-4 py-2 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
                 required />
 
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-lydian-text-secondary mb-2">
+              <label className="block text-sm font-medium text-gray-300 mb-2">
                 Slug *
               </label>
               <input
                 type="text"
                 value={formData.slug}
                 onChange={(e) => setFormData({ ...formData, slug: e.target.value })}
-                className="w-full px-4 py-2 border border-lydian-border-medium rounded-lg focus:outline-none focus:ring-2 focus:ring-lydian-border-focus"
+                className="w-full px-4 py-2 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
                 required />
 
             </div>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-lydian-text-secondary mb-2">
+            <label className="block text-sm font-medium text-gray-300 mb-2">
               URL / Href *
             </label>
             <input
               type="text"
               value={formData.href}
               onChange={(e) => setFormData({ ...formData, href: e.target.value })}
-              className="w-full px-4 py-2 border border-lydian-border-medium rounded-lg focus:outline-none focus:ring-2 focus:ring-lydian-border-focus"
+              className="w-full px-4 py-2 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
               placeholder="/oteller veya https://example.com"
               required />
 
@@ -491,53 +491,53 @@ const MenuModal = ({ menu, onClose, onSave, saving, parentMenus }: any) => {
 
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-lydian-text-secondary mb-2">
+              <label className="block text-sm font-medium text-gray-300 mb-2">
                 İkon (Lucide)
               </label>
               <input
                 type="text"
                 value={formData.icon}
                 onChange={(e) => setFormData({ ...formData, icon: e.target.value })}
-                className="w-full px-4 py-2 border border-lydian-border-medium rounded-lg focus:outline-none focus:ring-2 focus:ring-lydian-border-focus"
+                className="w-full px-4 py-2 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
                 placeholder="Hotel, Plane, MapPin" />
 
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-lydian-text-secondary mb-2">
+              <label className="block text-sm font-medium text-gray-300 mb-2">
                 Rozet
               </label>
               <input
                 type="text"
                 value={formData.badge}
                 onChange={(e) => setFormData({ ...formData, badge: e.target.value })}
-                className="w-full px-4 py-2 border border-lydian-border-medium rounded-lg focus:outline-none focus:ring-2 focus:ring-lydian-border-focus"
+                className="w-full px-4 py-2 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
                 placeholder="Yeni, Popüler" />
 
             </div>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-lydian-text-secondary mb-2">
+            <label className="block text-sm font-medium text-gray-300 mb-2">
               Açıklama
             </label>
             <textarea
               value={formData.description}
               onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-              className="w-full px-4 py-2 border border-lydian-border-medium rounded-lg focus:outline-none focus:ring-2 focus:ring-lydian-border-focus"
+              className="w-full px-4 py-2 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
               rows={2} />
 
           </div>
 
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-lydian-text-secondary mb-2">
+              <label className="block text-sm font-medium text-gray-300 mb-2">
                 Üst Menü
               </label>
               <select
                 value={formData.parentId}
                 onChange={(e) => setFormData({ ...formData, parentId: e.target.value })}
-                className="w-full px-4 py-2 border border-lydian-border-medium rounded-lg focus:outline-none focus:ring-2 focus:ring-lydian-border-focus">
+                className="w-full px-4 py-2 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500">
 
                 <option value="">Üst seviye menü</option>
                 {parentMenus.map((parent: NavigationMenu) =>
@@ -549,14 +549,14 @@ const MenuModal = ({ menu, onClose, onSave, saving, parentMenus }: any) => {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-lydian-text-secondary mb-2">
+              <label className="block text-sm font-medium text-gray-300 mb-2">
                 Sıra
               </label>
               <input
                 type="number"
                 value={formData.order}
                 onChange={(e) => setFormData({ ...formData, order: parseInt(e.target.value) })}
-                className="w-full px-4 py-2 border border-lydian-border-medium rounded-lg focus:outline-none focus:ring-2 focus:ring-lydian-border-focus" />
+                className="w-full px-4 py-2 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" />
 
             </div>
           </div>
@@ -567,9 +567,9 @@ const MenuModal = ({ menu, onClose, onSave, saving, parentMenus }: any) => {
                 type="checkbox"
                 checked={formData.isActive}
                 onChange={(e) => setFormData({ ...formData, isActive: e.target.checked })}
-                className="w-5 h-5 text-lydian-primary rounded focus:ring-2 focus:ring-lydian-border-focus" />
+                className="w-5 h-5 text-blue-400 rounded focus:ring-2 focus:ring-purple-500" />
 
-              <span className="font-medium text-lydian-text-secondary">Aktif</span>
+              <span className="font-medium text-gray-300">Aktif</span>
             </label>
 
             <label className="flex items-center gap-2 cursor-pointer">
@@ -577,24 +577,24 @@ const MenuModal = ({ menu, onClose, onSave, saving, parentMenus }: any) => {
                 type="checkbox"
                 checked={formData.openInNewTab}
                 onChange={(e) => setFormData({ ...formData, openInNewTab: e.target.checked })}
-                className="w-5 h-5 text-lydian-primary rounded focus:ring-2 focus:ring-lydian-border-focus" />
+                className="w-5 h-5 text-blue-400 rounded focus:ring-2 focus:ring-purple-500" />
 
-              <span className="font-medium text-lydian-text-secondary">Yeni sekmede aç</span>
+              <span className="font-medium text-gray-300">Yeni sekmede aç</span>
             </label>
           </div>
 
-          <div className="flex gap-3 pt-4 border-t border-lydian-border">
+          <div className="flex gap-3 pt-4 border-t border-white/20">
             <button
               type="button"
               onClick={onClose}
-              className="flex-1 px-4 py-2 border border-lydian-border-medium text-lydian-text-secondary rounded-lg hover:bg-lydian-bg-surface transition-all">
+              className="flex-1 px-4 py-2 border border-white/20 text-gray-300 rounded-lg hover:bg-white/5 transition-all">
 
               İptal
             </button>
             <button
               type="submit"
               disabled={saving}
-              className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-lydian-primary text-lydian-text-inverse rounded-lg hover:bg-lydian-primary-dark transition-all disabled:opacity-50">
+              className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:bg-gradient-to-r from-blue-600 to-purple-600 transition-all disabled:opacity-50">
 
               <Save className="w-4 h-4" />
               {saving ? 'Kaydediliyor...' : 'Kaydet'}

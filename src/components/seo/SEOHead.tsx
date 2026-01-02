@@ -1,17 +1,47 @@
+/**
+ * Enhanced SEO Head Component
+ * Comprehensive meta tags for all search engines and social platforms
+ * Supports 8 languages with hreflang tags
+ * @module components/seo/SEOHead
+ */
+
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { SEO_CONFIG } from '../../config/seo';
+
+export type SupportedLocale = 'tr' | 'en' | 'de' | 'ru' | 'ar' | 'fa' | 'fr' | 'el';
 
 interface SEOHeadProps {
   title?: string;
   description?: string;
   keywords?: string[];
   image?: string;
-  type?: 'website' | 'article' | 'product';
+  type?: 'website' | 'article' | 'product' | 'business.business';
   noindex?: boolean;
   canonical?: string;
-  structuredData?: object;
+  structuredData?: object | object[];
+  ogLocale?: SupportedLocale;
+  twitterCard?: 'summary' | 'summary_large_image';
+  author?: string;
+  publishedTime?: string;
+  modifiedTime?: string;
+  productPrice?: number;
+  productCurrency?: string;
+  productAvailability?: 'in stock' | 'out of stock';
 }
+
+const LOCALE_MAP: Record<SupportedLocale, string> = {
+  tr: 'tr_TR',
+  en: 'en_US',
+  de: 'de_DE',
+  ru: 'ru_RU',
+  ar: 'ar_AR',
+  fa: 'fa_IR',
+  fr: 'fr_FR',
+  el: 'el_GR',
+};
+
+const ALL_LOCALES: SupportedLocale[] = ['tr', 'en', 'de', 'ru', 'ar', 'fa', 'fr', 'el'];
 
 export const SEOHead: React.FC<SEOHeadProps> = ({
   title,
@@ -22,8 +52,19 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
   noindex = false,
   canonical,
   structuredData,
+  ogLocale,
+  twitterCard = 'summary_large_image',
+  author,
+  publishedTime,
+  modifiedTime,
+  productPrice,
+  productCurrency,
+  productAvailability,
 }) => {
   const router = useRouter();
+  const { locale = 'tr', asPath } = router;
+
+  const currentLocale = (ogLocale || locale) as SupportedLocale;
 
   const fullTitle = title
     ? `${title} | ${SEO_CONFIG.siteName}`
@@ -31,7 +72,7 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
 
   const fullDescription = description || SEO_CONFIG.defaultDescription;
 
-  const currentUrl = canonical || `${SEO_CONFIG.url}${router.asPath}`;
+  const currentUrl = canonical || `${SEO_CONFIG.url}${asPath}`;
 
   const fullImage = image || SEO_CONFIG.openGraph.images[0].url;
 
@@ -118,10 +159,71 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
         }}
       />
 
-      {/* Alternate Language Links */}
-      <link rel="alternate" hrefLang="tr" href={`${SEO_CONFIG.url}${router.asPath}`} />
-      <link rel="alternate" hrefLang="en" href={`${SEO_CONFIG.url}/en${router.asPath}`} />
-      <link rel="alternate" hrefLang="x-default" href={`${SEO_CONFIG.url}${router.asPath}`} />
+      {/* Hreflang Tags for All 8 Languages */}
+      {ALL_LOCALES.map((lang) => {
+        const langPath = lang === 'tr' ? '' : `/${lang}`;
+        const cleanPath = asPath.replace(/^\/(tr|en|de|ru|ar|fa|fr|el)/, '');
+        const hrefLangUrl = `${SEO_CONFIG.url}${langPath}${cleanPath}`;
+
+        return (
+          <link
+            key={`hreflang-${lang}`}
+            rel="alternate"
+            hrefLang={lang}
+            href={hrefLangUrl}
+          />
+        );
+      })}
+      <link
+        rel="alternate"
+        hrefLang="x-default"
+        href={`${SEO_CONFIG.url}/en${asPath.replace(/^\/(tr|en|de|ru|ar|fa|fr|el)/, '')}`}
+      />
+
+      {/* Product-specific meta tags */}
+      {type === 'product' && productPrice && productCurrency && (
+        <>
+          <meta property="product:price:amount" content={productPrice.toString()} />
+          <meta property="product:price:currency" content={productCurrency} />
+          {productAvailability && (
+            <meta property="product:availability" content={productAvailability} />
+          )}
+        </>
+      )}
+
+      {/* Article-specific meta tags */}
+      {type === 'article' && (
+        <>
+          {publishedTime && <meta property="article:published_time" content={publishedTime} />}
+          {modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
+          {author && <meta property="article:author" content={author} />}
+        </>
+      )}
+
+      {/* Additional Open Graph Locale Alternates */}
+      {ALL_LOCALES
+        .filter((lang) => lang !== currentLocale)
+        .map((lang) => (
+          <meta
+            key={`og:locale:alternate:${lang}`}
+            property="og:locale:alternate"
+            content={LOCALE_MAP[lang]}
+          />
+        ))}
+
+      {/* Enhanced Structured Data */}
+      {structuredData && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(
+              Array.isArray(structuredData)
+                ? { '@context': 'https://schema.org', '@graph': structuredData }
+                : structuredData
+            ),
+          }}
+        />
+      )}
 
       {/* Favicons */}
       <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />

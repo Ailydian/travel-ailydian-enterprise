@@ -94,39 +94,39 @@ const NotificationItem: React.FC<{
       className="relative w-96 max-w-full">
 
       <div className={`bg-gradient-to-r ${colorClass} p-0.5 rounded-xl shadow-2xl`}>
-        <div className="bg-lydian-glass-dark dark:bg-gray-900 rounded-xl p-4">
+        <div className="bg-gradient-to-br from-slate-900 via-black to-slate-800 dark:bg-gray-900 rounded-xl p-4">
           <div className="flex items-start gap-3">
             {/* Icon */}
             <div className={`flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br ${colorClass} flex items-center justify-center shadow-lg`}>
-              <Icon className="w-6 h-6 text-lydian-text-inverse" />
+              <Icon className="w-6 h-6 text-white" />
             </div>
 
             {/* Content */}
             <div className="flex-1 min-w-0">
               {/* Header */}
               <div className="flex items-center gap-2 mb-1">
-                <StatusIcon className="w-4 h-4 text-lydian-text-muted" />
-                <span className="text-xs font-semibold text-lydian-text-muted uppercase tracking-wide">
+                <StatusIcon className="w-4 h-4 text-gray-300" />
+                <span className="text-xs font-semibold text-gray-300 uppercase tracking-wide">
                   {getStatusText(notification.status)}
                 </span>
               </div>
 
               {/* Title */}
-              <h4 className="text-sm font-bold text-lydian-text-inverse dark:text-lydian-text-inverse mb-1 truncate">
+              <h4 className="text-sm font-bold text-white dark:text-white mb-1 truncate">
                 {notification.title}
               </h4>
 
               {/* Customer */}
-              <p className="text-xs text-lydian-text-dim dark:text-lydian-text-muted mb-2">
+              <p className="text-xs text-gray-400 dark:text-gray-300 mb-2">
                 <span className="font-medium">{notification.customerName}</span>
               </p>
 
               {/* Amount & Time */}
               <div className="flex items-center justify-between">
-                <span className="text-sm font-bold text-lydian-text-inverse dark:text-lydian-text-inverse">
+                <span className="text-sm font-bold text-white dark:text-white">
                   {notification.amount.toLocaleString('tr-TR')} {notification.currency}
                 </span>
-                <span className="text-xs text-lydian-text-muted">
+                <span className="text-xs text-gray-300">
                   {new Date(notification.timestamp).toLocaleTimeString('tr-TR', {
                     hour: '2-digit',
                     minute: '2-digit'
@@ -138,9 +138,9 @@ const NotificationItem: React.FC<{
             {/* Close button */}
             <button
               onClick={() => onDismiss(notification.id)}
-              className="flex-shrink-0 w-6 h-6 rounded-lg hover:bg-lydian-glass-dark-medium dark:hover:bg-gray-800 flex items-center justify-center transition-colors">
+              className="flex-shrink-0 w-6 h-6 rounded-lg hover:bg-white/10 backdrop-blur-xl border border-white/20 dark:hover:bg-gray-800 flex items-center justify-center transition-colors">
 
-              <X className="w-4 h-4 text-lydian-text-muted" />
+              <X className="w-4 h-4 text-gray-300" />
             </button>
           </div>
         </div>

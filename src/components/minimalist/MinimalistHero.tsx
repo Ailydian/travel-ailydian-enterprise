@@ -54,13 +54,13 @@ export const MinimalistHero: React.FC<MinimalistHeroProps> = ({
           initial={minimalistAnimations.fadeInUp.initial}
           animate={minimalistAnimations.fadeInUp.animate}>
 
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-light text-lydian-text-inverse leading-tight mb-6">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-light text-white leading-tight mb-6">
             {title}
           </h1>
 
           {subtitle &&
           <motion.p
-            className="text-lg md:text-xl lg:text-2xl text-lydian-text-inverse/90 font-light leading-relaxed"
+            className="text-lg md:text-xl lg:text-2xl text-white/90 font-light leading-relaxed"
             initial={minimalistAnimations.textReveal.initial}
             animate={minimalistAnimations.textReveal.animate}>
 

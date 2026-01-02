@@ -199,7 +199,7 @@ const VirtualToursPage: NextPage = () => {
         <meta name="description" content="Türkiye'nin en güzel destinasyonlarını VR ve 360° sanal turlarla keşfedin. 4K-8K kalitede immersive deneyimler." />
       </Head>
 
-      <div className="relative min-h-screen bg-lydian-glass-dark">
+      <div className="relative min-h-screen bg-gradient-to-br from-slate-900 via-black to-slate-800">
         {/* Demo Badge */}
         <div className="absolute top-6 right-6 z-50">
           <DemoBadge
@@ -210,7 +210,7 @@ const VirtualToursPage: NextPage = () => {
         </div>
 
         {/* Beta Notice Banner */}
-        <div className="bg-lydian-info-lighter border-b border-blue-200 text-blue-800 px-4 py-3">
+        <div className="bg-blue-500/10 backdrop-blur-xl border border-blue-500/20 border-b border-blue-200 text-blue-800 px-4 py-3">
           <div className="max-w-7xl mx-auto flex items-start gap-3">
             <AlertTriangle className="w-5 h-5 mt-0.5 flex-shrink-0" />
             <div>
@@ -223,7 +223,7 @@ const VirtualToursPage: NextPage = () => {
         </div>
 
         {/* Hero Section */}
-        <section className="relative bg-gradient-to-r from-lydian-secondary via-lydian-primary to-indigo-800 text-lydian-text-inverse py-20">
+        <section className="relative bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 text-white py-20">
           <div className="absolute inset-0 bg-black/30"></div>
           <div className="relative max-w-7xl mx-auto px-4">
             <motion.div
@@ -233,7 +233,7 @@ const VirtualToursPage: NextPage = () => {
               className="text-center">
 
               <div className="flex items-center justify-center gap-4 mb-6">
-                <div className="w-16 h-16 bg-lydian-glass-dark-heavy rounded-full flex items-center justify-center">
+                <div className="w-16 h-16 bg-white/10 backdrop-blur-xl border border-white/20 rounded-full flex items-center justify-center">
                   <Gamepad2 className="w-8 h-8" />
                 </div>
                 <h1 className="text-5xl font-bold">Sanal Turlar</h1>
@@ -268,7 +268,7 @@ const VirtualToursPage: NextPage = () => {
         <div className="max-w-7xl mx-auto px-4 py-12">
           {/* Category Filters */}
           <div className="mb-8">
-            <h2 className="text-2xl font-bold text-lydian-text-inverse mb-6">Kategoriler</h2>
+            <h2 className="text-2xl font-bold text-white mb-6">Kategoriler</h2>
             <div className="flex flex-wrap gap-3">
               {categories.map((category) => {
                 const Icon = category.icon;
@@ -278,8 +278,8 @@ const VirtualToursPage: NextPage = () => {
                     onClick={() => setSelectedCategory(category.id)}
                     className={`flex items-center gap-2 px-6 py-3 rounded-full font-medium transition-all ${
                     selectedCategory === category.id ?
-                    'bg-lydian-primary text-white shadow-md' :
-                    'bg-lydian-bg/5 text-gray-200 hover:bg-lydian-info-lighter border border-lydian-border'}`
+                    'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-md' :
+                    'bg-white/10 backdrop-blur-xl border border-white/20 text-gray-200 hover:bg-blue-500/10'}`
                     }>
 
                     <Icon className="w-4 h-4" />
@@ -300,15 +300,15 @@ const VirtualToursPage: NextPage = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-lydian-bg-hover rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow cursor-pointer"
+                  className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow cursor-pointer"
                   onClick={() => handleTourSelect(tour)}>
 
                   <div className="relative">
-                    <div className="aspect-video bg-gradient-to-r from-purple-400 via-blue-500 to-lydian-primary-dark">
+                    <div className="aspect-video bg-gradient-to-r from-purple-400 via-blue-500 to-blue-700">
                       {/* Placeholder for video thumbnail */}
-                      <div className="absolute inset-0 bg-lydian-glass-heavy flex items-center justify-center">
-                        <div className="w-16 h-16 bg-lydian-bg/90 rounded-full flex items-center justify-center">
-                          <Play className="w-6 h-6 text-lydian-text-dim ml-1" />
+                      <div className="absolute inset-0 bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center">
+                        <div className="w-16 h-16 bg-white/10 backdrop-blur-xl border border-white/20 rounded-full flex items-center justify-center">
+                          <Play className="w-6 h-6 text-gray-400 ml-1" />
                         </div>
                       </div>
                     </div>
@@ -316,13 +316,13 @@ const VirtualToursPage: NextPage = () => {
                     {/* Badges */}
                     <div className="absolute top-4 left-4 flex flex-col gap-2">
                       {tour.featured &&
-                      <span className="bg-lydian-warning text-yellow-900 px-3 py-1 rounded-full text-xs font-bold">
+                      <span className="bg-yellow-500 text-yellow-900 px-3 py-1 rounded-full text-xs font-bold">
                           Öne Çıkan
                         </span>
                       }
-                      <span className={`px-3 py-1 rounded-full text-xs font-bold text-lydian-text-inverse ${
-                      tour.quality === '8K' ? 'bg-red-500' :
-                      tour.quality === '4K' ? 'bg-orange-500' : 'bg-blue-500'}`
+                      <span className={`px-3 py-1 rounded-full text-xs font-bold text-white ${
+                      tour.quality === '8K' ? 'bg-purple-600' :
+                      tour.quality === '4K' ? 'bg-blue-600' : 'bg-blue-500'}`
                       }>
                         {tour.quality}
                       </span>
@@ -330,33 +330,33 @@ const VirtualToursPage: NextPage = () => {
 
                     <div className="absolute top-4 right-4 flex gap-2">
                       {tour.vrSupport &&
-                      <div className="bg-lydian-accent-purple text-lydian-text-inverse p-2 rounded-full">
+                      <div className="bg-purple-600 text-white p-2 rounded-full">
                           <Gamepad2 className="w-4 h-4" />
                         </div>
                       }
                       {tour.audioGuide &&
-                      <div className="bg-lydian-success text-lydian-text-inverse p-2 rounded-full">
+                      <div className="bg-green-600 text-white p-2 rounded-full">
                           <Headphones className="w-4 h-4" />
                         </div>
                       }
                     </div>
 
-                    <div className="absolute bottom-4 right-4 bg-black/70 text-lydian-text-inverse px-2 py-1 rounded text-sm">
+                    <div className="absolute bottom-4 right-4 bg-black/70 text-white px-2 py-1 rounded text-sm">
                       {tour.duration}
                     </div>
                   </div>
 
                   <div className="p-6">
                     <div className="flex items-center gap-2 mb-2">
-                      <CategoryIcon className="w-4 h-4 text-lydian-primary" />
-                      <span className="text-sm text-lydian-primary font-medium">
+                      <CategoryIcon className="w-4 h-4 text-blue-500" />
+                      <span className="text-sm text-blue-500 font-medium">
                         {categories.find((cat) => cat.id === tour.category)?.name}
                       </span>
                     </div>
 
-                    <h3 className="text-xl font-bold text-lydian-text-inverse mb-2">{tour.title}</h3>
-                    
-                    <div className="flex items-center gap-4 text-sm text-lydian-text-dim mb-4">
+                    <h3 className="text-xl font-bold text-white mb-2">{tour.title}</h3>
+
+                    <div className="flex items-center gap-4 text-sm text-gray-400 mb-4">
                       <div className="flex items-center gap-1">
                         <MapPin className="w-4 h-4" />
                         {tour.location}
@@ -371,11 +371,11 @@ const VirtualToursPage: NextPage = () => {
                       <div className="flex items-center gap-1">
                         <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
                         <span className="font-medium">{tour.rating}</span>
-                        <span className="text-lydian-text-muted">({tour.reviews})</span>
+                        <span className="text-gray-300">({tour.reviews})</span>
                       </div>
                     </div>
 
-                    <p className="text-lydian-text-dim mb-4 text-sm line-clamp-2">
+                    <p className="text-gray-400 mb-4 text-sm line-clamp-2">
                       {tour.description}
                     </p>
 
@@ -383,7 +383,7 @@ const VirtualToursPage: NextPage = () => {
                       {tour.highlights.slice(0, 3).map((highlight, idx) =>
                       <span
                         key={idx}
-                        className="bg-lydian-glass-dark-medium text-lydian-text-muted px-2 py-1 rounded-lg text-xs">
+                        className="bg-white/10 backdrop-blur-xl border border-white/20 text-gray-300 px-2 py-1 rounded-lg text-xs">
 
                           {highlight}
                         </span>
@@ -393,20 +393,20 @@ const VirtualToursPage: NextPage = () => {
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
                         {tour.languages.map((lang, idx) =>
-                        <span key={idx} className="text-xs bg-lydian-primary-light text-lydian-primary-dark px-2 py-1 rounded">
+                        <span key={idx} className="text-xs bg-blue-500/10 text-blue-700 px-2 py-1 rounded">
                             {lang}
                           </span>
                         )}
                       </div>
                       
                       <div className="flex items-center gap-2">
-                        <button className="p-2 text-lydian-text-muted hover:text-lydian-primary transition-colors">
+                        <button className="p-2 text-gray-400 hover:text-blue-500 transition-colors">
                           <Share2 className="w-4 h-4" />
                         </button>
                         <motion.button
                           whileHover={{ scale: 1.05 }}
                           whileTap={{ scale: 0.95 }}
-                          className="bg-lydian-primary hover:bg-lydian-primary-dark text-lydian-text-inverse px-4 py-2 rounded-xl font-medium transition-colors">
+                          className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-4 py-2 rounded-xl font-medium transition-colors">
 
                           Turu Başlat
                         </motion.button>
@@ -426,13 +426,13 @@ const VirtualToursPage: NextPage = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.9 }}
-            className="bg-lydian-bg-hover rounded-2xl w-full max-w-4xl h-full max-h-[80vh] overflow-hidden">
+            className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl w-full max-w-4xl h-full max-h-[80vh] overflow-hidden">
 
               <div className="relative h-full flex flex-col">
                 {/* Video Player */}
                 <div className="relative flex-1 bg-black">
-                  <div className="absolute inset-0 bg-gradient-to-r from-lydian-secondary to-lydian-primary flex items-center justify-center">
-                    <div className="text-center text-lydian-text-inverse">
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 flex items-center justify-center">
+                    <div className="text-center text-white">
                       <Gamepad2 className="w-16 h-16 mx-auto mb-4" />
                       <h3 className="text-2xl font-bold mb-2">{selectedTour.title}</h3>
                       <p className="text-lg opacity-90">VR Deneyimi Başlatılıyor...</p>
@@ -441,22 +441,22 @@ const VirtualToursPage: NextPage = () => {
 
                   {/* Player Controls */}
                   <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black/70 rounded-full px-6 py-3 flex items-center gap-4">
-                    <button onClick={togglePlay} className="text-lydian-text-inverse hover:text-blue-400 transition-colors">
+                    <button onClick={togglePlay} className="text-white hover:text-blue-400 transition-colors">
                       {isPlaying ? <Pause className="w-6 h-6" /> : <Play className="w-6 h-6" />}
                     </button>
-                    <button className="text-lydian-text-inverse hover:text-blue-400 transition-colors">
+                    <button className="text-white hover:text-blue-400 transition-colors">
                       <RotateCw className="w-5 h-5" />
                     </button>
-                    <button className="text-lydian-text-inverse hover:text-blue-400 transition-colors">
+                    <button className="text-white hover:text-blue-400 transition-colors">
                       <ZoomIn className="w-5 h-5" />
                     </button>
-                    <button className="text-lydian-text-inverse hover:text-blue-400 transition-colors">
+                    <button className="text-white hover:text-blue-400 transition-colors">
                       <ZoomOut className="w-5 h-5" />
                     </button>
-                    <button onClick={toggleMute} className="text-lydian-text-inverse hover:text-blue-400 transition-colors">
+                    <button onClick={toggleMute} className="text-white hover:text-blue-400 transition-colors">
                       {isMuted ? <VolumeX className="w-5 h-5" /> : <Volume2 className="w-5 h-5" />}
                     </button>
-                    <button className="text-lydian-text-inverse hover:text-blue-400 transition-colors">
+                    <button className="text-white hover:text-blue-400 transition-colors">
                       <Expand className="w-5 h-5" />
                     </button>
                   </div>
@@ -464,18 +464,18 @@ const VirtualToursPage: NextPage = () => {
                   {/* Close Button */}
                   <button
                   onClick={() => setSelectedTour(null)}
-                  className="absolute top-4 right-4 bg-black/70 text-lydian-text-inverse p-2 rounded-full hover:bg-black/90 transition-colors">
+                  className="absolute top-4 right-4 bg-black/70 text-white p-2 rounded-full hover:bg-black/90 transition-colors">
 
                     ×
                   </button>
                 </div>
 
                 {/* Tour Info */}
-                <div className="p-6 bg-lydian-glass-dark">
+                <div className="p-6 bg-gradient-to-br from-slate-900 via-black to-slate-800">
                   <div className="flex items-center justify-between">
                     <div>
-                      <h3 className="text-xl font-bold text-lydian-text-inverse">{selectedTour.title}</h3>
-                      <p className="text-lydian-text-dim">{selectedTour.location} • {selectedTour.duration}</p>
+                      <h3 className="text-xl font-bold text-white">{selectedTour.title}</h3>
+                      <p className="text-gray-400">{selectedTour.location} • {selectedTour.duration}</p>
                     </div>
                     <div className="flex items-center gap-2">
                       <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />

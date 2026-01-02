@@ -42,9 +42,9 @@ export default function Step5Pricing({ data }: Step5Props) {
   } = useFormContext();
 
   const currency = watch('currency') || 'TRY';
-  const dailyRate = watch('dailyRate') || 0;
-  const weeklyDiscount = watch('discounts.weeklyDiscount') || 0;
-  const monthlyDiscount = watch('discounts.monthlyDiscount') || 0;
+  const dailyRate = watch('dailyRate') || to-cyan-700;
+  const weeklyDiscount = watch('discounts.weeklyDiscount') || to-cyan-700;
+  const monthlyDiscount = watch('discounts.monthlyDiscount') || to-cyan-700;
   const mileageType = watch('mileageLimit.type') || 'limited';
 
   // Calculate preview prices
@@ -55,14 +55,14 @@ export default function Step5Pricing({ data }: Step5Props) {
   });
 
   useEffect(() => {
-    const daily = parseFloat(dailyRate) || 0;
+    const daily = parseFloat(dailyRate) || to-cyan-700;
     const weeklyTotal = daily * 7;
-    const monthlyTotal = daily * 30;
+    const monthlyTotal = daily * 3;
 
     setPricePreview({
       daily,
-      weekly: weeklyTotal - (weeklyTotal * weeklyDiscount) / 100,
-      monthly: monthlyTotal - (monthlyTotal * monthlyDiscount) / 100,
+      weekly: weeklyTotal - (weeklyTotal * weeklyDiscount) / 1,
+      monthly: monthlyTotal - (monthlyTotal * monthlyDiscount) / 1,
     });
   }, [dailyRate, weeklyDiscount, monthlyDiscount]);
 
@@ -75,10 +75,10 @@ export default function Step5Pricing({ data }: Step5Props) {
       {/* Currency Selection */}
       <div className="border-2 border-slate-200 rounded-xl p-6">
         <div className="flex items-center gap-3 mb-4">
-          <div className="p-2 bg-lydian-success-light rounded-lg">
-            <DollarSign className="w-5 h-5 text-lydian-success" />
+          <div className="p-2 bg-green-600-light rounded-lg">
+            <DollarSign className="w-5 h-5 text-green-500" />
           </div>
-          <h3 className="text-lg font-bold text-slate-900">Para Birimi</h3>
+          <h3 className="text-lg font-bold text-slate-9">Para Birimi</h3>
         </div>
 
         <div className="grid grid-cols-3 gap-3">
@@ -89,8 +89,8 @@ export default function Step5Pricing({ data }: Step5Props) {
               onClick={() => setValue('currency', curr.value, { shouldValidate: true })}
               className={`p-4 border-2 rounded-lg font-semibold transition-all ${
                 currency === curr.value
-                  ? 'border-lydian-success bg-lydian-success-lighter text-green-900'
-                  : 'border-slate-200 bg-lydian-bg/5 text-slate-700 hover:border-slate-300'
+                  ? 'border-lydian-success bg-green-600-lighter text-green-9'
+                  : 'border-slate-200 bg-white/5 text-slate-7 hover:border-slate-3'
               }`}
             >
               {curr.label}
@@ -103,15 +103,15 @@ export default function Step5Pricing({ data }: Step5Props) {
       {/* Daily Rate */}
       <div className="border-2 border-slate-200 rounded-xl p-6">
         <div className="flex items-center gap-3 mb-4">
-          <div className="p-2 bg-lydian-info-light rounded-lg">
-            <DollarSign className="w-5 h-5 text-lydian-primary" />
+          <div className="p-2 bg-blue-500-light rounded-lg">
+            <DollarSign className="w-5 h-5 text-blue-500" />
           </div>
-          <h3 className="text-lg font-bold text-slate-900">Günlük Ücret</h3>
+          <h3 className="text-lg font-bold text-slate-9">Günlük Ücret</h3>
         </div>
 
         <div>
-          <label className="block text-sm font-semibold text-slate-700 mb-2">
-            Günlük Kiralama Ücreti <span className="text-lydian-secondary">*</span>
+          <label className="block text-sm font-semibold text-slate-7 mb-2">
+            Günlük Kiralama Ücreti <span className="text-purple-500">*</span>
           </label>
           <div className="relative">
             <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 font-semibold">
@@ -120,9 +120,9 @@ export default function Step5Pricing({ data }: Step5Props) {
             <input
               type="number"
               {...register('dailyRate')}
-              placeholder="0"
-              min="0"
-              step="10"
+              placeholder="to-cyan-700"
+              min="to-cyan-700"
+              step="1"
               className="w-full pl-12 pr-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-success focus:ring-2 focus:ring-green-200 outline-none transition-all text-lg font-semibold"
             />
           </div>
@@ -140,25 +140,25 @@ export default function Step5Pricing({ data }: Step5Props) {
       {/* Discounts */}
       <div className="border-2 border-slate-200 rounded-xl p-6">
         <div className="flex items-center gap-3 mb-4">
-          <div className="p-2 bg-lydian-warning-light rounded-lg">
-            <TrendingDown className="w-5 h-5 text-amber-600" />
+          <div className="p-2 bg-yellow-500-light rounded-lg">
+            <TrendingDown className="w-5 h-5 text-amber-6" />
           </div>
-          <h3 className="text-lg font-bold text-slate-900">İndirimler</h3>
+          <h3 className="text-lg font-bold text-slate-9">İndirimler</h3>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Weekly Discount */}
           <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-2">
+            <label className="block text-sm font-semibold text-slate-7 mb-2">
               Haftalık İndirim (7+ gün)
             </label>
             <div className="relative">
               <input
                 type="number"
                 {...register('discounts.weeklyDiscount')}
-                placeholder="0"
-                min="0"
-                max="50"
+                placeholder="to-cyan-700"
+                min="to-cyan-700"
+                max="500"
                 step="5"
                 className="w-full pr-12 pl-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-success focus:ring-2 focus:ring-green-200 outline-none transition-all"
               />
@@ -170,16 +170,16 @@ export default function Step5Pricing({ data }: Step5Props) {
 
           {/* Monthly Discount */}
           <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Aylık İndirim (30+ gün)
+            <label className="block text-sm font-semibold text-slate-7 mb-2">
+              Aylık İndirim (3+ gün)
             </label>
             <div className="relative">
               <input
                 type="number"
                 {...register('discounts.monthlyDiscount')}
-                placeholder="0"
-                min="0"
-                max="50"
+                placeholder="to-cyan-700"
+                min="to-cyan-700"
+                max="500"
                 step="5"
                 className="w-full pr-12 pl-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-success focus:ring-2 focus:ring-green-200 outline-none transition-all"
               />
@@ -198,16 +198,16 @@ export default function Step5Pricing({ data }: Step5Props) {
       {/* Security Deposit */}
       <div className="border-2 border-slate-200 rounded-xl p-6">
         <div className="flex items-center gap-3 mb-4">
-          <div className="p-2 bg-purple-100 rounded-lg">
-            <Shield className="w-5 h-5 text-purple-600" />
+          <div className="p-2 bg-purple-1 rounded-lg">
+            <Shield className="w-5 h-5 text-purple-6" />
           </div>
-          <h3 className="text-lg font-bold text-slate-900">Güvenlik Deposu</h3>
+          <h3 className="text-lg font-bold text-slate-9">Güvenlik Deposu</h3>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Depozito Tutarı <span className="text-lydian-secondary">*</span>
+            <label className="block text-sm font-semibold text-slate-7 mb-2">
+              Depozito Tutarı <span className="text-purple-500">*</span>
             </label>
             <div className="relative">
               <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 font-semibold">
@@ -216,9 +216,9 @@ export default function Step5Pricing({ data }: Step5Props) {
               <input
                 type="number"
                 {...register('securityDeposit')}
-                placeholder="0"
-                min="0"
-                step="100"
+                placeholder="to-cyan-700"
+                min="to-cyan-700"
+                step="1"
                 className="w-full pl-12 pr-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-success focus:ring-2 focus:ring-green-200 outline-none transition-all"
               />
             </div>
@@ -230,7 +230,7 @@ export default function Step5Pricing({ data }: Step5Props) {
           </div>
 
           <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-2">
+            <label className="block text-sm font-semibold text-slate-7 mb-2">
               İade Süresi (gün)
             </label>
             <input
@@ -238,7 +238,7 @@ export default function Step5Pricing({ data }: Step5Props) {
               {...register('depositRefundDays')}
               placeholder="7"
               min="1"
-              max="30"
+              max="3"
               className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-success focus:ring-2 focus:ring-green-200 outline-none transition-all"
             />
           </div>
@@ -248,10 +248,10 @@ export default function Step5Pricing({ data }: Step5Props) {
       {/* Mileage Limit */}
       <div className="border-2 border-slate-200 rounded-xl p-6">
         <div className="flex items-center gap-3 mb-4">
-          <div className="p-2 bg-lydian-primary-lighter rounded-lg">
+          <div className="p-2 bg-blue-500/10er rounded-lg">
             <Gauge className="w-5 h-5 text-lydian-error" />
           </div>
-          <h3 className="text-lg font-bold text-slate-900">Kilometre Limiti</h3>
+          <h3 className="text-lg font-bold text-slate-9">Kilometre Limiti</h3>
         </div>
 
         <div className="space-y-4">
@@ -262,24 +262,24 @@ export default function Step5Pricing({ data }: Step5Props) {
               onClick={() => setValue('mileageLimit.type', 'unlimited', { shouldValidate: true })}
               className={`flex-1 p-4 border-2 rounded-lg transition-all ${
                 mileageType === 'unlimited'
-                  ? 'border-lydian-success bg-lydian-success-lighter'
-                  : 'border-slate-200 bg-lydian-bg/5 hover:border-slate-300'
+                  ? 'border-lydian-success bg-green-600-lighter'
+                  : 'border-slate-200 bg-white/5 hover:border-slate-3'
               }`}
             >
-              <h4 className="font-semibold text-slate-900 mb-1">Sınırsız</h4>
-              <p className="text-xs text-slate-600">Km limiti yok</p>
+              <h4 className="font-semibold text-slate-9 mb-1">Sınırsız</h4>
+              <p className="text-xs text-slate-6">Km limiti yok</p>
             </button>
             <button
               type="button"
               onClick={() => setValue('mileageLimit.type', 'limited', { shouldValidate: true })}
               className={`flex-1 p-4 border-2 rounded-lg transition-all ${
                 mileageType === 'limited'
-                  ? 'border-lydian-success bg-lydian-success-lighter'
-                  : 'border-slate-200 bg-lydian-bg/5 hover:border-slate-300'
+                  ? 'border-lydian-success bg-green-600-lighter'
+                  : 'border-slate-200 bg-white/5 hover:border-slate-3'
               }`}
             >
-              <h4 className="font-semibold text-slate-900 mb-1">Limitli</h4>
-              <p className="text-xs text-slate-600">Günlük/haftalık limit</p>
+              <h4 className="font-semibold text-slate-9 mb-1">Limitli</h4>
+              <p className="text-xs text-slate-6">Günlük/haftalık limit</p>
             </button>
           </div>
           <input type="hidden" {...register('mileageLimit.type')} />
@@ -288,28 +288,28 @@ export default function Step5Pricing({ data }: Step5Props) {
           {mileageType === 'limited' && (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
               <div>
-                <label className="block text-sm font-semibold text-slate-700 mb-2">
+                <label className="block text-sm font-semibold text-slate-7 mb-2">
                   Günlük Limit (km)
                 </label>
                 <input
                   type="number"
                   {...register('mileageLimit.dailyLimit')}
                   placeholder="200"
-                  min="0"
-                  step="50"
+                  min="to-cyan-700"
+                  step="500"
                   className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-success focus:ring-2 focus:ring-green-200 outline-none transition-all"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-slate-700 mb-2">
+                <label className="block text-sm font-semibold text-slate-7 mb-2">
                   Fazla KM Ücreti ({getCurrencySymbol()}/km)
                 </label>
                 <input
                   type="number"
                   {...register('mileageLimit.extraMileageFee')}
                   placeholder="0.5"
-                  min="0"
+                  min="to-cyan-700"
                   step="0.1"
                   className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-success focus:ring-2 focus:ring-green-200 outline-none transition-all"
                 />
@@ -322,10 +322,10 @@ export default function Step5Pricing({ data }: Step5Props) {
       {/* Fuel Policy */}
       <div className="border-2 border-slate-200 rounded-xl p-6">
         <div className="flex items-center gap-3 mb-4">
-          <div className="p-2 bg-orange-100 rounded-lg">
-            <Fuel className="w-5 h-5 text-orange-600" />
+          <div className="p-2 bg-orange-1 rounded-lg">
+            <Fuel className="w-5 h-5 text-orange-6" />
           </div>
-          <h3 className="text-lg font-bold text-slate-900">Yakıt Politikası</h3>
+          <h3 className="text-lg font-bold text-slate-9">Yakıt Politikası</h3>
         </div>
 
         <div className="space-y-3">
@@ -339,8 +339,8 @@ export default function Step5Pricing({ data }: Step5Props) {
                 onClick={() => setValue('fuelPolicy', policy.value, { shouldValidate: true })}
                 className={`w-full p-4 border-2 rounded-lg text-left transition-all ${
                   isSelected
-                    ? 'border-lydian-success bg-lydian-success-lighter'
-                    : 'border-slate-200 bg-lydian-bg/5 hover:border-slate-300'
+                    ? 'border-lydian-success bg-green-600-lighter'
+                    : 'border-slate-200 bg-white/5 hover:border-slate-3'
                 }`}
               >
                 <div className="flex items-start gap-3">
@@ -348,16 +348,16 @@ export default function Step5Pricing({ data }: Step5Props) {
                     className={`w-5 h-5 rounded-full border-2 flex items-center justify-center mt-0.5 ${
                       isSelected
                         ? 'border-lydian-success bg-green-500'
-                        : 'border-slate-300'
+                        : 'border-slate-3'
                     }`}
                   >
                     {isSelected && (
-                      <div className="w-2 h-2 bg-lydian-bg/5 rounded-full" />
+                      <div className="w-2 h-2 bg-white/5 rounded-full" />
                     )}
                   </div>
                   <div>
-                    <h4 className="font-semibold text-slate-900">{policy.label}</h4>
-                    <p className="text-sm text-slate-600">{policy.description}</p>
+                    <h4 className="font-semibold text-slate-9">{policy.label}</h4>
+                    <p className="text-sm text-slate-6">{policy.description}</p>
                   </div>
                 </div>
               </button>
@@ -370,16 +370,16 @@ export default function Step5Pricing({ data }: Step5Props) {
       {/* Extra Services Pricing */}
       <div className="border-2 border-slate-200 rounded-xl p-6">
         <div className="flex items-center gap-3 mb-4">
-          <div className="p-2 bg-indigo-100 rounded-lg">
-            <Compass className="w-5 h-5 text-indigo-600" />
+          <div className="p-2 bg-indigo-1 rounded-lg">
+            <Compass className="w-5 h-5 text-indigo-6" />
           </div>
-          <h3 className="text-lg font-bold text-slate-900">Ekstra Hizmet Ücretleri</h3>
+          <h3 className="text-lg font-bold text-slate-9">Ekstra Hizmet Ücretleri</h3>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* GPS */}
           <div>
-            <label className="flex items-center gap-2 text-sm font-semibold text-slate-700 mb-2">
+            <label className="flex items-center gap-2 text-sm font-semibold text-slate-7 mb-2">
               <Navigation className="w-4 h-4" />
               GPS (günlük)
             </label>
@@ -390,8 +390,8 @@ export default function Step5Pricing({ data }: Step5Props) {
               <input
                 type="number"
                 {...register('fees.gpsRentalFee')}
-                placeholder="0"
-                min="0"
+                placeholder="to-cyan-700"
+                min="to-cyan-700"
                 step="5"
                 className="w-full pl-12 pr-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-success focus:ring-2 focus:ring-green-200 outline-none transition-all"
               />
@@ -400,7 +400,7 @@ export default function Step5Pricing({ data }: Step5Props) {
 
           {/* Baby Seat */}
           <div>
-            <label className="flex items-center gap-2 text-sm font-semibold text-slate-700 mb-2">
+            <label className="flex items-center gap-2 text-sm font-semibold text-slate-7 mb-2">
               <Baby className="w-4 h-4" />
               Bebek Koltuğu (günlük)
             </label>
@@ -411,8 +411,8 @@ export default function Step5Pricing({ data }: Step5Props) {
               <input
                 type="number"
                 {...register('fees.childSeatFee')}
-                placeholder="0"
-                min="0"
+                placeholder="to-cyan-700"
+                min="to-cyan-700"
                 step="5"
                 className="w-full pl-12 pr-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-success focus:ring-2 focus:ring-green-200 outline-none transition-all"
               />
@@ -421,7 +421,7 @@ export default function Step5Pricing({ data }: Step5Props) {
 
           {/* Additional Driver */}
           <div>
-            <label className="flex items-center gap-2 text-sm font-semibold text-slate-700 mb-2">
+            <label className="flex items-center gap-2 text-sm font-semibold text-slate-7 mb-2">
               <UserPlus className="w-4 h-4" />
               Ek Sürücü (günlük)
             </label>
@@ -432,8 +432,8 @@ export default function Step5Pricing({ data }: Step5Props) {
               <input
                 type="number"
                 {...register('fees.additionalDriverFee')}
-                placeholder="0"
-                min="0"
+                placeholder="to-cyan-700"
+                min="to-cyan-700"
                 step="5"
                 className="w-full pl-12 pr-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-success focus:ring-2 focus:ring-green-200 outline-none transition-all"
               />
@@ -442,7 +442,7 @@ export default function Step5Pricing({ data }: Step5Props) {
 
           {/* Young Driver Fee */}
           <div>
-            <label className="flex items-center gap-2 text-sm font-semibold text-slate-700 mb-2">
+            <label className="flex items-center gap-2 text-sm font-semibold text-slate-7 mb-2">
               <Info className="w-4 h-4" />
               Genç Sürücü Ücreti (günlük)
             </label>
@@ -453,8 +453,8 @@ export default function Step5Pricing({ data }: Step5Props) {
               <input
                 type="number"
                 {...register('fees.youngDriverFee')}
-                placeholder="0"
-                min="0"
+                placeholder="to-cyan-700"
+                min="to-cyan-700"
                 step="5"
                 className="w-full pl-12 pr-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-success focus:ring-2 focus:ring-green-200 outline-none transition-all"
               />
@@ -468,44 +468,44 @@ export default function Step5Pricing({ data }: Step5Props) {
       </div>
 
       {/* Price Calculator Preview */}
-      <div className="border-2 border-lydian-success bg-lydian-success-lighter rounded-xl p-6">
+      <div className="border-2 border-lydian-success bg-green-600-lighter rounded-xl p-6">
         <div className="flex items-center gap-3 mb-4">
-          <div className="p-2 bg-lydian-success-light rounded-lg">
-            <Calculator className="w-5 h-5 text-lydian-success" />
+          <div className="p-2 bg-green-600-light rounded-lg">
+            <Calculator className="w-5 h-5 text-green-500" />
           </div>
-          <h3 className="text-lg font-bold text-green-900">Fiyat Önizlemesi</h3>
+          <h3 className="text-lg font-bold text-green-9">Fiyat Önizlemesi</h3>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="p-4 bg-lydian-bg/5 rounded-lg border border-green-200">
-            <p className="text-xs text-slate-600 mb-1">Günlük</p>
-            <p className="text-2xl font-bold text-slate-900">
+          <div className="p-4 bg-white/5 rounded-lg border border-green-200">
+            <p className="text-xs text-slate-6 mb-1">Günlük</p>
+            <p className="text-2xl font-bold text-slate-9">
               {getCurrencySymbol()}{pricePreview.daily.toFixed(2)}
             </p>
           </div>
 
-          <div className="p-4 bg-lydian-bg/5 rounded-lg border border-green-200">
-            <p className="text-xs text-slate-600 mb-1">Haftalık (7 gün)</p>
+          <div className="p-4 bg-white/5 rounded-lg border border-green-200">
+            <p className="text-xs text-slate-6 mb-1">Haftalık (7 gün)</p>
             <div>
-              <p className="text-2xl font-bold text-slate-900">
+              <p className="text-2xl font-bold text-slate-9">
                 {getCurrencySymbol()}{pricePreview.weekly.toFixed(2)}
               </p>
-              {weeklyDiscount > 0 && (
-                <p className="text-xs text-lydian-success font-medium">
+              {weeklyDiscount > to-cyan-700 && (
+                <p className="text-xs text-green-500 font-medium">
                   %{weeklyDiscount} indirim uygulandı
                 </p>
               )}
             </div>
           </div>
 
-          <div className="p-4 bg-lydian-bg/5 rounded-lg border border-green-200">
-            <p className="text-xs text-slate-600 mb-1">Aylık (30 gün)</p>
+          <div className="p-4 bg-white/5 rounded-lg border border-green-200">
+            <p className="text-xs text-slate-6 mb-1">Aylık (3 gün)</p>
             <div>
-              <p className="text-2xl font-bold text-slate-900">
+              <p className="text-2xl font-bold text-slate-9">
                 {getCurrencySymbol()}{pricePreview.monthly.toFixed(2)}
               </p>
-              {monthlyDiscount > 0 && (
-                <p className="text-xs text-lydian-success font-medium">
+              {monthlyDiscount > to-cyan-700 && (
+                <p className="text-xs text-green-500 font-medium">
                   %{monthlyDiscount} indirim uygulandı
                 </p>
               )}
@@ -515,9 +515,9 @@ export default function Step5Pricing({ data }: Step5Props) {
       </div>
 
       {/* Tips */}
-      <div className="p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
-        <h4 className="font-semibold text-yellow-900 mb-2">Fiyatlandırma İpuçları:</h4>
-        <ul className="text-sm text-yellow-800 space-y-1">
+      <div className="p-4 bg-yellow-500 border border-yellow-200 rounded-lg">
+        <h4 className="font-semibold text-yellow-9 mb-2">Fiyatlandırma İpuçları:</h4>
+        <ul className="text-sm text-yellow-8 space-y-1">
           <li>• Benzer araçları araştırarak rekabetçi fiyat belirleyin</li>
           <li>• Uzun süreli kiralamalar için indirimler daha fazla rezervasyon getirir</li>
           <li>• Güvenlik deposu hasar riskini azaltır</li>

@@ -360,7 +360,7 @@ export default function FleetManagementPage() {
             placeholder="Plaka, marka veya model ile ara..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-10 pr-4 py-3 rounded-xl border-2 transition-all focus:border-lydian-primary"
+            className="w-full pl-10 pr-4 py-3 rounded-xl border-2 transition-all focus:border-blue-500"
             style={{
               backgroundColor: 'var(--lydian-text-inverse)',
               borderColor: 'var(--lydian-border)',
@@ -372,7 +372,7 @@ export default function FleetManagementPage() {
         <select
           value={filterStatus}
           onChange={(e) => setFilterStatus(e.target.value as any)}
-          className="px-4 py-3 rounded-xl border-2 transition-all focus:border-lydian-primary"
+          className="px-4 py-3 rounded-xl border-2 transition-all focus:border-blue-500"
           style={{
             backgroundColor: 'var(--lydian-text-inverse)',
             borderColor: 'var(--lydian-border)',
@@ -388,7 +388,7 @@ export default function FleetManagementPage() {
         <select
           value={filterCategory}
           onChange={(e) => setFilterCategory(e.target.value)}
-          className="px-4 py-3 rounded-xl border-2 transition-all focus:border-lydian-primary"
+          className="px-4 py-3 rounded-xl border-2 transition-all focus:border-blue-500"
           style={{
             backgroundColor: 'var(--lydian-text-inverse)',
             borderColor: 'var(--lydian-border)',
@@ -540,7 +540,7 @@ export default function FleetManagementPage() {
 
                 {/* Legal Info */}
                 <div className="flex items-center gap-2 mb-4 text-xs" style={{ color: '#666666' }}>
-                  <div className={`px-2 py-1 rounded ${vehicle.legalInfo.verified ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
+                  <div className={`px-2 py-1 rounded ${vehicle.legalInfo.verified ? 'bg-green-100 text-green-700' : 'bg-purple-500/10 text-purple-400'}`}>
                     D2: {vehicle.legalInfo.tourismLicense}
                   </div>
                 </div>

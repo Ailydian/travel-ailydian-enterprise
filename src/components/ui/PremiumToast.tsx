@@ -92,7 +92,7 @@ const typeConfig = {
   },
   cart: {
     icon: ShoppingCart,
-    gradient: 'from-lydian-primary to-lydian-secondary',
+    gradient: 'from-blue-600 to-purple-700',
     bg: 'bg-blue-50',
     border: 'border-blue-200',
     text: 'text-blue-900',
@@ -150,7 +150,7 @@ const PremiumToast: React.FC<PremiumToastProps> = ({ toast, onClose, position = 
       transition={{ type: 'spring', damping: 25, stiffness: 300 }}
       className="relative w-full max-w-md">
 
-      <div className={`relative bg-lydian-glass-dark rounded-2xl shadow-2xl border-2 ${config.border} overflow-hidden backdrop-blur-xl`}>
+      <div className={`relative bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-2xl shadow-2xl border-2 ${config.border} overflow-hidden backdrop-blur-xl`}>
         {/* Background Gradient Glow */}
         <div className={`absolute inset-0 bg-gradient-to-r ${config.gradient} opacity-5`} />
 
@@ -166,13 +166,13 @@ const PremiumToast: React.FC<PremiumToastProps> = ({ toast, onClose, position = 
 
               {toast.type === 'cart' && toast.itemCount ?
               <div className="relative">
-                  <ShoppingCart className="w-6 h-6 text-lydian-text-inverse" />
+                  <ShoppingCart className="w-6 h-6 text-white" />
                   <motion.div
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
-                  className="absolute -top-2 -right-2 w-5 h-5 bg-lydian-glass-dark rounded-full flex items-center justify-center shadow-md">
+                  className="absolute -top-2 -right-2 w-5 h-5 bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-full flex items-center justify-center shadow-md">
 
-                    <span className="text-xs font-bold text-lydian-primary">{toast.itemCount}</span>
+                    <span className="text-xs font-bold text-blue-500">{toast.itemCount}</span>
                   </motion.div>
                 </div> :
 
@@ -188,7 +188,7 @@ const PremiumToast: React.FC<PremiumToastProps> = ({ toast, onClose, position = 
                   {toast.title}
                 </h3>
                 {toast.badge &&
-                <span className="px-2 py-0.5 bg-gradient-to-r from-yellow-400 to-orange-400 text-lydian-text-inverse text-xs font-bold rounded-full">
+                <span className="px-2 py-0.5 bg-gradient-to-r from-yellow-400 to-orange-400 text-white text-xs font-bold rounded-full">
                     {toast.badge}
                   </span>
                 }
@@ -196,14 +196,14 @@ const PremiumToast: React.FC<PremiumToastProps> = ({ toast, onClose, position = 
 
               {/* Message */}
               {toast.message &&
-              <p className="text-sm text-lydian-text-dim mb-3 line-clamp-2">
+              <p className="text-sm text-gray-400 mb-3 line-clamp-2">
                   {toast.message}
                 </p>
               }
 
               {/* Image Preview (for cart items) */}
               {toast.image &&
-              <div className="mb-3 rounded-lg overflow-hidden border border-lydian-border-light/10">
+              <div className="mb-3 rounded-lg overflow-hidden border border-white/20/10">
                   <img
                   src={toast.image}
                   alt={toast.title}
@@ -215,8 +215,8 @@ const PremiumToast: React.FC<PremiumToastProps> = ({ toast, onClose, position = 
               {/* Price Display */}
               {toast.price &&
               <div className="mb-3 flex items-center gap-2">
-                  <Package className="w-4 h-4 text-lydian-text-muted" />
-                  <span className="text-sm font-semibold text-lydian-text-muted">
+                  <Package className="w-4 h-4 text-gray-300" />
+                  <span className="text-sm font-semibold text-gray-300">
                     {toast.price}
                   </span>
                 </div>
@@ -230,7 +230,7 @@ const PremiumToast: React.FC<PremiumToastProps> = ({ toast, onClose, position = 
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={handleViewCart}
-                  className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-lydian-primary to-lydian-secondary text-lydian-text-inverse rounded-lg font-medium text-sm shadow-lg hover:shadow-xl transition-all">
+                  className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-700 text-white rounded-lg font-medium text-sm shadow-lg hover:shadow-xl transition-all">
 
                     <ShoppingCart className="w-4 h-4" />
                     Sepete Git
@@ -260,7 +260,7 @@ const PremiumToast: React.FC<PremiumToastProps> = ({ toast, onClose, position = 
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={handleUndo}
-                  className="flex items-center gap-1.5 px-3 py-2 bg-lydian-glass-dark-medium hover:bg-lydian-bg-active text-lydian-text-muted rounded-lg font-medium text-sm transition-all">
+                  className="flex items-center gap-1.5 px-3 py-2 bg-white/10 backdrop-blur-xl border border-white/20 hover:bg-white/10 backdrop-blur-xl border border-white/20 text-gray-300 rounded-lg font-medium text-sm transition-all">
 
                     <RotateCcw className="w-3.5 h-3.5" />
                     Geri Al
@@ -272,15 +272,15 @@ const PremiumToast: React.FC<PremiumToastProps> = ({ toast, onClose, position = 
             {/* Close Button */}
             <button
               onClick={() => onClose(toast.id)}
-              className="flex-shrink-0 w-8 h-8 rounded-lg hover:bg-lydian-glass-dark-medium flex items-center justify-center transition-colors group">
+              className="flex-shrink-0 w-8 h-8 rounded-lg hover:bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center transition-colors group">
 
-              <X className="w-4 h-4 text-lydian-text-muted group-hover:text-lydian-text-dim" />
+              <X className="w-4 h-4 text-gray-300 group-hover:text-gray-400" />
             </button>
           </div>
         </div>
 
         {/* Progress Bar */}
-        <div className="absolute bottom-0 left-0 right-0 h-1 bg-lydian-glass-dark-medium">
+        <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/10 backdrop-blur-xl border border-white/20">
           <motion.div
             className={`h-full bg-gradient-to-r ${config.gradient}`}
             initial={{ width: '100%' }}
@@ -304,7 +304,7 @@ const PremiumToast: React.FC<PremiumToastProps> = ({ toast, onClose, position = 
             }}
             className="absolute top-2 right-2">
 
-              <Sparkles className="w-4 h-4 text-lydian-warning opacity-50" />
+              <Sparkles className="w-4 h-4 text-yellow-500 opacity-50" />
             </motion.div>
             <motion.div
             animate={{
@@ -318,7 +318,7 @@ const PremiumToast: React.FC<PremiumToastProps> = ({ toast, onClose, position = 
             }}
             className="absolute bottom-2 left-2">
 
-              <Sparkles className="w-3 h-3 text-lydian-primary opacity-30" />
+              <Sparkles className="w-3 h-3 text-blue-500 opacity-30" />
             </motion.div>
           </>
         }

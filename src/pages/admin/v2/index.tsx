@@ -142,7 +142,7 @@ const AdminDashboardV2 = () => {
     change: 12.3,
     trend: 'up',
     icon: Calendar,
-    color: 'text-lydian-primary',
+    color: 'text-blue-400',
     bgColor: 'bg-blue-50',
     realtime: true
   },
@@ -454,7 +454,7 @@ const AdminDashboardV2 = () => {
             change: data.overview.monthlyGrowth.bookings || 0,
             trend: (data.overview.monthlyGrowth.bookings || 0) >= 0 ? 'up' : 'down',
             icon: Calendar,
-            color: 'text-lydian-primary',
+            color: 'text-blue-400',
             bgColor: 'bg-blue-50',
             realtime: true
           },
@@ -694,7 +694,7 @@ const AdminDashboardV2 = () => {
       case 'operational':
       case 'active':
       case 'confirmed':
-        return 'text-lydian-success bg-green-50';
+        return 'text-purple-400 bg-purple-500/20';
       case 'warning':
       case 'degraded':
       case 'pending':
@@ -703,9 +703,9 @@ const AdminDashboardV2 = () => {
       case 'down':
       case 'inactive':
       case 'cancelled':
-        return 'text-lydian-error bg-red-50';
+        return 'text-gray-400 bg-purple-500/20';
       default:
-        return 'text-lydian-text-dim bg-lydian-bg/5';
+        return 'text-gray-400 bg-white/5';
     }
   };
 
@@ -733,20 +733,20 @@ const AdminDashboardV2 = () => {
 
 
       {/* Premium Header */}
-      <header className="bg-lydian-glass-dark border-b border-lydian-border sticky top-0 z-50 shadow-sm backdrop-blur-lg bg-lydian-bg/95">
+      <header className="bg-white/10 backdrop-blur-xl border border-b border-white/20 sticky top-0 z-50 shadow-sm backdrop-blur-lg bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900">
         <div className="max-w-[1920px] mx-auto px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo & Title */}
             <div className="flex items-center gap-6">
               <Link href="/admin/v2" className="flex items-center gap-3 group">
-                <div className="w-11 h-11 bg-gradient-to-br from-lydian-primary via-lydian-secondary to-pink-600 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all group-hover:scale-105">
-                  <Shield className="w-6 h-6 text-lydian-text-inverse" />
+                <div className="w-11 h-11 bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all group-hover:scale-105">
+                  <Shield className="w-6 h-6 text-white" />
                 </div>
                 <div>
                   <h1 className="text-xl font-bold bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] bg-clip-text text-transparent">
                     Travel LyDian
                   </h1>
-                  <p className="text-xs text-lydian-text-tertiary font-medium">Admin Control Center v2</p>
+                  <p className="text-xs text-white-tertiary font-medium">Admin Control Center v2</p>
                 </div>
               </Link>
 
@@ -755,29 +755,29 @@ const AdminDashboardV2 = () => {
                 {isRealtimeEnabled && wsConnected ?
                 <>
                     <div className="relative">
-                      <Wifi className="w-4 h-4 text-lydian-success" />
-                      <span className="absolute -top-1 -right-1 w-2 h-2 bg-lydian-success rounded-full animate-pulse"></span>
+                      <Wifi className="w-4 h-4 text-purple-400" />
+                      <span className="absolute -top-1 -right-1 w-2 h-2 bg-purple-500 rounded-full animate-pulse"></span>
                     </div>
-                    <span className="text-xs font-semibold text-lydian-success">LIVE</span>
-                    <span className="text-xs text-lydian-text-muted">• WebSocket</span>
+                    <span className="text-xs font-semibold text-purple-400">LIVE</span>
+                    <span className="text-xs text-gray-300">• WebSocket</span>
                   </> :
                 isRealtimeEnabled && !wsConnected ?
                 <>
                     <div className="relative">
                       <Wifi className="w-4 h-4 text-amber-600" />
-                      <span className="absolute -top-1 -right-1 w-2 h-2 bg-lydian-warning rounded-full animate-pulse"></span>
+                      <span className="absolute -top-1 -right-1 w-2 h-2 bg-blue-500 rounded-full animate-pulse"></span>
                     </div>
                     <span className="text-xs font-semibold text-amber-600">CONNECTING...</span>
                   </> :
 
                 <>
-                    <WifiOff className="w-4 h-4 text-lydian-text-muted" />
-                    <span className="text-xs font-medium text-lydian-text-muted">PAUSED</span>
+                    <WifiOff className="w-4 h-4 text-gray-300" />
+                    <span className="text-xs font-medium text-gray-300">PAUSED</span>
                   </>
                 }
                 <button
                   onClick={() => setIsRealtimeEnabled(!isRealtimeEnabled)}
-                  className="ml-2 text-xs text-lydian-primary hover:text-lydian-primary-dark font-medium">
+                  className="ml-2 text-xs text-blue-400 hover:text-blue-400 font-medium">
 
                   {isRealtimeEnabled ? 'Duraklat' : 'Başlat'}
                 </button>
@@ -788,13 +788,13 @@ const AdminDashboardV2 = () => {
             <div className="flex items-center gap-3">
               {/* Global Search */}
               <div className="relative hidden md:block">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-lydian-text-muted" />
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-300" />
                 <input
                   type="text"
                   placeholder="Arama: rezervasyon, müşteri, ürün..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-10 pr-4 py-2 border border-lydian-border rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-primary outline-none w-80 text-sm" />
+                  className="pl-10 pr-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-blue-500 outline-none w-80 text-sm" />
 
               </div>
 
@@ -802,7 +802,7 @@ const AdminDashboardV2 = () => {
               <select
                 value={selectedCurrency}
                 onChange={(e) => setSelectedCurrency(e.target.value as any)}
-                className="px-3 py-2 border border-lydian-border rounded-lg text-sm font-medium focus:ring-2 focus:ring-lydian-border-focus outline-none">
+                className="px-3 py-2 border border-white/20 rounded-lg text-sm font-medium focus:ring-2 focus:ring-purple-500 outline-none">
 
                 <option value="TRY">₺ TRY</option>
                 <option value="USD">$ USD</option>
@@ -813,7 +813,7 @@ const AdminDashboardV2 = () => {
               <select
                 value={timeRange}
                 onChange={(e) => setTimeRange(e.target.value as any)}
-                className="px-3 py-2 border border-lydian-border rounded-lg text-sm font-medium focus:ring-2 focus:ring-lydian-border-focus outline-none">
+                className="px-3 py-2 border border-white/20 rounded-lg text-sm font-medium focus:ring-2 focus:ring-purple-500 outline-none">
 
                 <option value="realtime">Gerçek Zamanlı</option>
                 <option value="24h">Son 24 Saat</option>
@@ -825,7 +825,7 @@ const AdminDashboardV2 = () => {
               {/* Export */}
               <button
                 onClick={exportToPDF}
-                className="flex items-center gap-2 px-4 py-2 bg-lydian-primary text-lydian-text-inverse rounded-lg hover:bg-lydian-primary-dark transition-all font-medium text-sm shadow-sm hover:shadow-md">
+                className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:bg-gradient-to-r from-blue-600 to-purple-600 transition-all font-medium text-sm shadow-sm hover:shadow-md">
 
                 <Download className="w-4 h-4" />
                 <span className="hidden lg:inline">Export</span>
@@ -834,16 +834,16 @@ const AdminDashboardV2 = () => {
               {/* Notifications */}
               <button
                 onClick={() => setShowNotifications(!showNotifications)}
-                className="relative p-2 hover:bg-lydian-bg-surface-raised rounded-lg transition-colors">
+                className="relative p-2 hover:bg-white/5 backdrop-blur-xl rounded-lg transition-colors">
 
-                <Bell className="w-5 h-5 text-lydian-text-secondary" />
-                <span className="absolute top-1 right-1 w-2 h-2 bg-lydian-error rounded-full animate-pulse"></span>
+                <Bell className="w-5 h-5 text-gray-300" />
+                <span className="absolute top-1 right-1 w-2 h-2 bg-gray-500 rounded-full animate-pulse"></span>
               </button>
 
               {/* Settings */}
               <Link href="/admin/v2/settings">
-                <button className="p-2 hover:bg-lydian-bg-surface-raised rounded-lg transition-colors">
-                  <Settings className="w-5 h-5 text-lydian-text-secondary" />
+                <button className="p-2 hover:bg-white/5 backdrop-blur-xl rounded-lg transition-colors">
+                  <Settings className="w-5 h-5 text-gray-300" />
                 </button>
               </Link>
             </div>
@@ -854,29 +854,48 @@ const AdminDashboardV2 = () => {
       <main className="max-w-[1920px] mx-auto px-6 lg:px-8 py-8">
         {/* Tab Navigation */}
         <div className="mb-8 flex items-center gap-2 overflow-x-auto pb-2">
-          {[
-          { id: 'overview', label: 'Genel Bakış', icon: LayoutDashboard },
-          { id: 'products', label: 'Ürün Yönetimi', icon: Package },
-          { id: 'b2b', label: 'B2B Partnerler', icon: Briefcase },
-          { id: 'analytics', label: 'Analytics', icon: BarChart3 },
-          { id: 'settings', label: 'Ayarlar', icon: Settings }].
-          map((tab) => {
-            const Icon = tab.icon;
-            return (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id as any)}
-                className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-sm transition-all whitespace-nowrap ${
-                activeTab === tab.id ?
-                'bg-lydian-primary text-white shadow-lg shadow-blue-600/30' :
-                'bg-lydian-bg/5 text-slate-700 hover:bg-slate-50'}`
-                }>
+          <button
+            onClick={() => setActiveTab('overview')}
+            className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-sm transition-all whitespace-nowrap ${
+            activeTab === 'overview' ?
+            'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg shadow-blue-600/30' :
+            'bg-white/5 text-slate-700 hover:bg-slate-50'}`
+            }>
+            <LayoutDashboard className="w-4 h-4" />
+            Genel Bakış
+          </button>
 
-                <Icon className="w-4 h-4" />
-                {tab.label}
-              </button>);
+          <button
+            onClick={() => setActiveTab('products')}
+            className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-sm transition-all whitespace-nowrap ${
+            activeTab === 'products' ?
+            'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg shadow-blue-600/30' :
+            'bg-white/5 text-slate-700 hover:bg-slate-50'}`
+            }>
+            <Package className="w-4 h-4" />
+            Ürün Yönetimi
+          </button>
 
-          })}
+          <Link href="/admin/v2/b2b">
+            <button className="flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-sm transition-all whitespace-nowrap bg-white/5 text-slate-700 hover:bg-slate-50">
+              <Briefcase className="w-4 h-4" />
+              B2B Partnerler
+            </button>
+          </Link>
+
+          <Link href="/admin/v2/analytics">
+            <button className="flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-sm transition-all whitespace-nowrap bg-white/5 text-slate-700 hover:bg-slate-50">
+              <BarChart3 className="w-4 h-4" />
+              Analytics
+            </button>
+          </Link>
+
+          <Link href="/admin/v2/settings">
+            <button className="flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-sm transition-all whitespace-nowrap bg-white/5 text-slate-700 hover:bg-slate-50">
+              <Settings className="w-4 h-4" />
+              Ayarlar
+            </button>
+          </Link>
         </div>
 
         {/* Overview Tab */}
@@ -892,11 +911,11 @@ const AdminDashboardV2 = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  className="bg-lydian-glass-dark rounded-2xl p-6 border border-lydian-border hover:shadow-xl transition-all relative overflow-hidden group">
+                  className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-6 border border-white/20 hover:shadow-xl transition-all relative overflow-hidden group">
 
                     {metric.realtime &&
                   <div className="absolute top-2 right-2">
-                        <span className="flex items-center gap-1 px-2 py-1 bg-lydian-error text-lydian-text-inverse text-[10px] font-bold rounded-full">
+                        <span className="flex items-center gap-1 px-2 py-1 bg-gray-500 text-white text-[10px] font-bold rounded-full">
                           <Activity className="w-3 h-3 animate-pulse" />
                           LIVE
                         </span>
@@ -907,22 +926,22 @@ const AdminDashboardV2 = () => {
                         <Icon className={`w-6 h-6 ${metric.color}`} />
                       </div>
                       <div className={`flex items-center gap-1 px-2 py-1 rounded-lg ${
-                    metric.trend === 'up' ? 'bg-green-50' : 'bg-red-50'}`
+                    metric.trend === 'up' ? 'bg-purple-500/20' : 'bg-purple-500/20'}`
                     }>
                         {metric.trend === 'up' ?
-                      <ArrowUpRight className="w-4 h-4 text-lydian-success" /> :
+                      <ArrowUpRight className="w-4 h-4 text-purple-400" /> :
 
-                      <TrendingDown className="w-4 h-4 text-lydian-primary" />
+                      <TrendingDown className="w-4 h-4 text-blue-400" />
                       }
                         <span className={`text-sm font-semibold ${
-                      metric.trend === 'up' ? 'text-lydian-success' : 'text-lydian-error'}`
+                      metric.trend === 'up' ? 'text-purple-400' : 'text-gray-400'}`
                       }>
                           {metric.change}%
                         </span>
                       </div>
                     </div>
-                    <h3 className="text-sm font-medium text-lydian-text-secondary mb-1">{metric.label}</h3>
-                    <p className="text-3xl font-bold text-lydian-text">
+                    <h3 className="text-sm font-medium text-gray-300 mb-1">{metric.label}</h3>
+                    <p className="text-3xl font-bold text-white">
                       {metric.currency ? formatCurrency(metric.value as number) : metric.value}
                     </p>
                   </motion.div>);
@@ -940,16 +959,16 @@ const AdminDashboardV2 = () => {
 
                 <div className="flex items-center justify-between mb-6">
                   <div className="flex items-center gap-3">
-                    <div className="p-3 bg-lydian-primary rounded-xl">
-                      <Car className="w-7 h-7 text-lydian-text-inverse" />
+                    <div className="p-3 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl">
+                      <Car className="w-7 h-7 text-white" />
                     </div>
                     <div>
-                      <h2 className="text-lg font-bold text-lydian-text">Araç Kiralama</h2>
-                      <p className="text-sm text-lydian-primary-dark">Car Rentals Performance</p>
+                      <h2 className="text-lg font-bold text-white">Araç Kiralama</h2>
+                      <p className="text-sm text-blue-400">Car Rentals Performance</p>
                     </div>
                   </div>
                   <Link href="/admin/v2/car-rentals">
-                    <button className="text-lydian-primary-dark hover:text-blue-900 font-medium text-sm flex items-center gap-1">
+                    <button className="text-blue-400 hover:text-blue-900 font-medium text-sm flex items-center gap-1">
                       Yönet
                       <ArrowUpRight className="w-4 h-4" />
                     </button>
@@ -957,43 +976,43 @@ const AdminDashboardV2 = () => {
                 </div>
 
                 <div className="grid grid-cols-2 gap-4 mb-4">
-                  <div className="bg-lydian-glass-dark rounded-xl p-4">
-                    <p className="text-xs text-lydian-text-secondary mb-1">Toplam Araç</p>
-                    <p className="text-2xl font-bold text-lydian-text">{productCategories.find((p) => p.id === 'car-rental')?.active || 0}</p>
+                  <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl p-4">
+                    <p className="text-xs text-gray-300 mb-1">Toplam Araç</p>
+                    <p className="text-2xl font-bold text-white">{productCategories.find((p) => p.id === 'car-rental')?.active || 0}</p>
                     <div className="flex items-center gap-1 mt-1">
-                      <TrendingUp className="w-3 h-3 text-lydian-success" />
-                      <span className="text-xs font-semibold text-lydian-success">+{productCategories.find((p) => p.id === 'car-rental')?.growth || 0}%</span>
+                      <TrendingUp className="w-3 h-3 text-purple-400" />
+                      <span className="text-xs font-semibold text-purple-400">+{productCategories.find((p) => p.id === 'car-rental')?.growth || 0}%</span>
                     </div>
                   </div>
-                  <div className="bg-lydian-glass-dark rounded-xl p-4">
-                    <p className="text-xs text-lydian-text-secondary mb-1">Aktif</p>
-                    <p className="text-2xl font-bold text-lydian-success-text">{Math.floor((productCategories.find((p) => p.id === 'car-rental')?.active || 0) * 0.85)}</p>
-                    <p className="text-xs text-lydian-text-tertiary mt-1">Müsait</p>
+                  <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl p-4">
+                    <p className="text-xs text-gray-300 mb-1">Aktif</p>
+                    <p className="text-2xl font-bold text-purple-400-text">{Math.floor((productCategories.find((p) => p.id === 'car-rental')?.active || 0) * 0.85)}</p>
+                    <p className="text-xs text-white-tertiary mt-1">Müsait</p>
                   </div>
-                  <div className="bg-lydian-glass-dark rounded-xl p-4">
-                    <p className="text-xs text-lydian-text-secondary mb-1">Bu Ay Gelir</p>
-                    <p className="text-xl font-bold text-lydian-primary-dark">
+                  <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl p-4">
+                    <p className="text-xs text-gray-300 mb-1">Bu Ay Gelir</p>
+                    <p className="text-xl font-bold text-blue-400">
                       {formatCurrency(productCategories.find((p) => p.id === 'car-rental')?.revenue || 0)}
                     </p>
                     <div className="flex items-center gap-1 mt-1">
-                      <ArrowUpRight className="w-3 h-3 text-lydian-primary" />
-                      <span className="text-xs text-lydian-text-tertiary">Aylık</span>
+                      <ArrowUpRight className="w-3 h-3 text-blue-400" />
+                      <span className="text-xs text-white-tertiary">Aylık</span>
                     </div>
                   </div>
-                  <div className="bg-lydian-glass-dark rounded-xl p-4">
-                    <p className="text-xs text-lydian-text-secondary mb-1">Rezervasyonlar</p>
+                  <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl p-4">
+                    <p className="text-xs text-gray-300 mb-1">Rezervasyonlar</p>
                     <p className="text-xl font-bold text-purple-700">{productCategories.find((p) => p.id === 'car-rental')?.bookings || 0}</p>
-                    <p className="text-xs text-lydian-text-tertiary mt-1">Bu ay</p>
+                    <p className="text-xs text-white-tertiary mt-1">Bu ay</p>
                   </div>
                 </div>
 
-                <div className="bg-lydian-glass-dark rounded-xl p-4">
+                <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl p-4">
                   <div className="flex items-center justify-between mb-2">
-                    <p className="text-xs font-semibold text-lydian-text-secondary">EN POPÜLER</p>
-                    <Star className="w-4 h-4 text-lydian-warning fill-amber-500" />
+                    <p className="text-xs font-semibold text-gray-300">EN POPÜLER</p>
+                    <Star className="w-4 h-4 text-blue-400 fill-amber-500" />
                   </div>
-                  <p className="text-sm font-bold text-lydian-text">BMW X5 2024 Premium SUV</p>
-                  <div className="flex items-center gap-4 mt-2 text-xs text-lydian-text-secondary">
+                  <p className="text-sm font-bold text-white">BMW X5 2024 Premium SUV</p>
+                  <div className="flex items-center gap-4 mt-2 text-xs text-gray-300">
                     <span className="flex items-center gap-1">
                       <Calendar className="w-3 h-3" />
                       67 rezervasyon
@@ -1016,10 +1035,10 @@ const AdminDashboardV2 = () => {
                 <div className="flex items-center justify-between mb-6">
                   <div className="flex items-center gap-3">
                     <div className="p-3 bg-purple-600 rounded-xl">
-                      <Home className="w-7 h-7 text-lydian-text-inverse" />
+                      <Home className="w-7 h-7 text-white" />
                     </div>
                     <div>
-                      <h2 className="text-lg font-bold text-lydian-text">Kiralık Mülkler</h2>
+                      <h2 className="text-lg font-bold text-white">Kiralık Mülkler</h2>
                       <p className="text-sm text-purple-700">Rental Properties Performance</p>
                     </div>
                   </div>
@@ -1032,46 +1051,46 @@ const AdminDashboardV2 = () => {
                 </div>
 
                 <div className="grid grid-cols-2 gap-4 mb-4">
-                  <div className="bg-lydian-glass-dark rounded-xl p-4">
-                    <p className="text-xs text-lydian-text-secondary mb-1">Toplam Mülk</p>
-                    <p className="text-2xl font-bold text-lydian-text">{productCategories.find((p) => p.id === 'rental')?.active || 0}</p>
+                  <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl p-4">
+                    <p className="text-xs text-gray-300 mb-1">Toplam Mülk</p>
+                    <p className="text-2xl font-bold text-white">{productCategories.find((p) => p.id === 'rental')?.active || 0}</p>
                     <div className="flex items-center gap-1 mt-1">
-                      <TrendingUp className="w-3 h-3 text-lydian-success" />
-                      <span className="text-xs font-semibold text-lydian-success">+{productCategories.find((p) => p.id === 'rental')?.growth || 0}%</span>
+                      <TrendingUp className="w-3 h-3 text-purple-400" />
+                      <span className="text-xs font-semibold text-purple-400">+{productCategories.find((p) => p.id === 'rental')?.growth || 0}%</span>
                     </div>
                   </div>
-                  <div className="bg-lydian-glass-dark rounded-xl p-4">
-                    <p className="text-xs text-lydian-text-secondary mb-1">Doluluk Oranı</p>
-                    <p className="text-2xl font-bold text-lydian-success-text">78%</p>
-                    <p className="text-xs text-lydian-text-tertiary mt-1">Ortalama</p>
+                  <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl p-4">
+                    <p className="text-xs text-gray-300 mb-1">Doluluk Oranı</p>
+                    <p className="text-2xl font-bold text-purple-400-text">78%</p>
+                    <p className="text-xs text-white-tertiary mt-1">Ortalama</p>
                   </div>
-                  <div className="bg-lydian-glass-dark rounded-xl p-4">
-                    <p className="text-xs text-lydian-text-secondary mb-1">Bu Ay Gelir</p>
+                  <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl p-4">
+                    <p className="text-xs text-gray-300 mb-1">Bu Ay Gelir</p>
                     <p className="text-xl font-bold text-purple-700">
                       {formatCurrency(productCategories.find((p) => p.id === 'rental')?.revenue || 0)}
                     </p>
                     <div className="flex items-center gap-1 mt-1">
                       <ArrowUpRight className="w-3 h-3 text-purple-600" />
-                      <span className="text-xs text-lydian-text-tertiary">Aylık</span>
+                      <span className="text-xs text-white-tertiary">Aylık</span>
                     </div>
                   </div>
-                  <div className="bg-lydian-glass-dark rounded-xl p-4">
-                    <p className="text-xs text-lydian-text-secondary mb-1">Superhost</p>
+                  <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl p-4">
+                    <p className="text-xs text-gray-300 mb-1">Superhost</p>
                     <p className="text-xl font-bold text-amber-600">2</p>
-                    <p className="text-xs text-lydian-text-tertiary mt-1">Aktif</p>
+                    <p className="text-xs text-white-tertiary mt-1">Aktif</p>
                   </div>
                 </div>
 
-                <div className="bg-lydian-glass-dark rounded-xl p-4">
+                <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl p-4">
                   <div className="flex items-center justify-between mb-2">
-                    <p className="text-xs font-semibold text-lydian-text-secondary">EN İYİ PERFORMANS</p>
+                    <p className="text-xs font-semibold text-gray-300">EN İYİ PERFORMANS</p>
                     <div className="flex items-center gap-1">
-                      <Star className="w-4 h-4 text-lydian-warning fill-amber-500" />
+                      <Star className="w-4 h-4 text-blue-400 fill-amber-500" />
                       <span className="text-xs font-bold text-amber-600">Superhost</span>
                     </div>
                   </div>
-                  <p className="text-sm font-bold text-lydian-text">Lüks Villa - Bodrum Yalıkavak</p>
-                  <div className="flex items-center gap-4 mt-2 text-xs text-lydian-text-secondary">
+                  <p className="text-sm font-bold text-white">Lüks Villa - Bodrum Yalıkavak</p>
+                  <div className="flex items-center gap-4 mt-2 text-xs text-gray-300">
                     <span className="flex items-center gap-1">
                       <Users className="w-3 h-3" />
                       8 misafir
@@ -1088,14 +1107,14 @@ const AdminDashboardV2 = () => {
             {/* Product Categories & Live Bookings */}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
               {/* Product Categories */}
-              <div className="lg:col-span-2 bg-lydian-glass-dark rounded-2xl p-6 border border-lydian-border">
+              <div className="lg:col-span-2 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-6 border border-white/20">
                 <div className="flex items-center justify-between mb-6">
                   <div>
-                    <h2 className="text-lg font-bold text-lydian-text">Ürün Kategorileri</h2>
-                    <p className="text-sm text-lydian-text-tertiary">Tüm ürünlerin performans özeti</p>
+                    <h2 className="text-lg font-bold text-white">Ürün Kategorileri</h2>
+                    <p className="text-sm text-white-tertiary">Tüm ürünlerin performans özeti</p>
                   </div>
                   <Link href="/admin/v2/products">
-                    <button className="text-lydian-primary hover:text-lydian-primary-dark font-medium text-sm flex items-center gap-1">
+                    <button className="text-blue-400 hover:text-blue-400 font-medium text-sm flex items-center gap-1">
                       Detaylar
                       <ArrowUpRight className="w-4 h-4" />
                     </button>
@@ -1120,37 +1139,37 @@ const AdminDashboardV2 = () => {
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: index * 0.1 }}
-                        className="flex items-center gap-4 p-4 rounded-xl hover:bg-lydian-bg-surface transition-all group cursor-pointer">
+                        className="flex items-center gap-4 p-4 rounded-xl hover:bg-white/5 transition-all group cursor-pointer">
 
-                        <div className="p-3 bg-lydian-primary-lighter rounded-xl group-hover:bg-lydian-primary-light transition-colors">
-                          <Icon className="w-6 h-6 text-lydian-primary" />
+                        <div className="p-3 bg-gradient-to-r from-blue-600 to-purple-600-lighter rounded-xl group-hover:bg-gradient-to-r from-blue-600 to-purple-600-light transition-colors">
+                          <Icon className="w-6 h-6 text-blue-400" />
                         </div>
                         <div className="flex-1">
                           <div className="flex items-center gap-3 mb-2">
-                            <h3 className="font-semibold text-lydian-text">{product.name}</h3>
+                            <h3 className="font-semibold text-white">{product.name}</h3>
                             <span className={`text-xs px-2 py-1 rounded-full font-semibold ${getStatusColor(product.status)}`}>
                               {product.status.toUpperCase()}
                             </span>
-                            <span className="text-xs text-lydian-text-muted">{product.lastUpdate}</span>
+                            <span className="text-xs text-gray-300">{product.lastUpdate}</span>
                           </div>
                           <div className="grid grid-cols-4 gap-4 text-sm">
                             <div>
-                              <span className="text-lydian-text-tertiary block text-xs mb-1">Gelir</span>
-                              <p className="font-semibold text-lydian-text">
+                              <span className="text-white-tertiary block text-xs mb-1">Gelir</span>
+                              <p className="font-semibold text-white">
                                 {formatCurrency(product.revenue)}
                               </p>
                             </div>
                             <div>
-                              <span className="text-lydian-text-tertiary block text-xs mb-1">Rezervasyon</span>
-                              <p className="font-semibold text-lydian-text">{product.bookings}</p>
+                              <span className="text-white-tertiary block text-xs mb-1">Rezervasyon</span>
+                              <p className="font-semibold text-white">{product.bookings}</p>
                             </div>
                             <div>
-                              <span className="text-lydian-text-tertiary block text-xs mb-1">Aktif</span>
-                              <p className="font-semibold text-lydian-text">{product.active}</p>
+                              <span className="text-white-tertiary block text-xs mb-1">Aktif</span>
+                              <p className="font-semibold text-white">{product.active}</p>
                             </div>
                             <div>
-                              <span className="text-lydian-text-tertiary block text-xs mb-1">Büyüme</span>
-                              <p className={`font-semibold ${product.growth >= 0 ? 'text-lydian-success' : 'text-lydian-error'}`}>
+                              <span className="text-white-tertiary block text-xs mb-1">Büyüme</span>
+                              <p className={`font-semibold ${product.growth >= 0 ? 'text-purple-400' : 'text-gray-400'}`}>
                                 {product.growth >= 0 ? '+' : ''}{product.growth}%
                               </p>
                             </div>
@@ -1164,16 +1183,16 @@ const AdminDashboardV2 = () => {
               </div>
 
               {/* Live Bookings */}
-              <div className="bg-lydian-glass-dark rounded-2xl p-6 border border-lydian-border">
+              <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-6 border border-white/20">
                 <div className="flex items-center justify-between mb-6">
                   <div>
-                    <h2 className="text-lg font-bold text-lydian-text">Canlı Rezervasyonlar</h2>
-                    <p className="text-sm text-lydian-text-tertiary">Gerçek zamanlı işlemler</p>
+                    <h2 className="text-lg font-bold text-white">Canlı Rezervasyonlar</h2>
+                    <p className="text-sm text-white-tertiary">Gerçek zamanlı işlemler</p>
                   </div>
                   {isRealtimeEnabled &&
                 <div className="flex items-center gap-1">
-                      <div className="w-2 h-2 bg-lydian-error rounded-full animate-pulse"></div>
-                      <span className="text-xs font-semibold text-lydian-primary">LIVE</span>
+                      <div className="w-2 h-2 bg-gray-500 rounded-full animate-pulse"></div>
+                      <span className="text-xs font-semibold text-blue-400">LIVE</span>
                     </div>
                 }
                 </div>
@@ -1189,26 +1208,26 @@ const AdminDashboardV2 = () => {
                     transition={{ delay: index * 0.05 }}
                     className="flex items-start gap-3 p-3 rounded-xl bg-gradient-to-r from-slate-50 to-blue-50 hover:from-blue-50 hover:to-purple-50 transition-all cursor-pointer group border border-slate-100">
 
-                        <div className="mt-1 p-2 bg-lydian-glass-dark rounded-lg shadow-sm group-hover:shadow-md transition-shadow">
+                        <div className="mt-1 p-2 bg-white/10 backdrop-blur-xl border border-white/20 rounded-lg shadow-sm group-hover:shadow-md transition-shadow">
                           {getProductIcon(booking.type)}
                         </div>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2 mb-1">
-                            <h4 className="font-semibold text-lydian-text text-sm truncate">
+                            <h4 className="font-semibold text-white text-sm truncate">
                               {booking.customer}
                             </h4>
-                            <span className="text-xs text-lydian-text-muted">{booking.country}</span>
+                            <span className="text-xs text-gray-300">{booking.country}</span>
                           </div>
-                          <p className="text-sm text-lydian-text-secondary truncate mb-2">{booking.product}</p>
+                          <p className="text-sm text-gray-300 truncate mb-2">{booking.product}</p>
                           <div className="flex items-center justify-between">
-                            <span className="text-sm font-bold text-lydian-text">
+                            <span className="text-sm font-bold text-white">
                               {formatCurrency(booking.amount)}
                             </span>
                             <span className={`text-xs px-2 py-1 rounded-full font-semibold ${getStatusColor(booking.status)}`}>
                               {booking.status}
                             </span>
                           </div>
-                          <p className="text-xs text-lydian-text-muted mt-1">{booking.timestamp}</p>
+                          <p className="text-xs text-gray-300 mt-1">{booking.timestamp}</p>
                         </div>
                       </motion.div>
                   )}
@@ -1220,14 +1239,14 @@ const AdminDashboardV2 = () => {
             {/* B2B Partners & System Health */}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               {/* B2B Partners Summary */}
-              <div className="lg:col-span-2 bg-lydian-glass-dark rounded-2xl p-6 border border-lydian-border">
+              <div className="lg:col-span-2 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-6 border border-white/20">
                 <div className="flex items-center justify-between mb-6">
                   <div>
-                    <h2 className="text-lg font-bold text-lydian-text">B2B Partnerler</h2>
-                    <p className="text-sm text-lydian-text-tertiary">Aktif iş ortaklıkları</p>
+                    <h2 className="text-lg font-bold text-white">B2B Partnerler</h2>
+                    <p className="text-sm text-white-tertiary">Aktif iş ortaklıkları</p>
                   </div>
                   <Link href="/admin/v2/b2b">
-                    <button className="text-lydian-primary hover:text-lydian-primary-dark font-medium text-sm flex items-center gap-1">
+                    <button className="text-blue-400 hover:text-blue-400 font-medium text-sm flex items-center gap-1">
                       Tümünü Gör
                       <ArrowUpRight className="w-4 h-4" />
                     </button>
@@ -1241,31 +1260,31 @@ const AdminDashboardV2 = () => {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  className="flex items-center gap-4 p-4 rounded-xl hover:bg-lydian-bg-surface transition-all">
+                  className="flex items-center gap-4 p-4 rounded-xl hover:bg-white/5 transition-all">
 
                       <div className="p-3 bg-purple-50 rounded-xl">
                         <Briefcase className="w-5 h-5 text-purple-600" />
                       </div>
                       <div className="flex-1">
                         <div className="flex items-center gap-3 mb-1">
-                          <h3 className="font-semibold text-lydian-text">{partner.name}</h3>
+                          <h3 className="font-semibold text-white">{partner.name}</h3>
                           <span className={`text-xs px-2 py-1 rounded-full font-semibold ${getStatusColor(partner.status)}`}>
                             {partner.status.toUpperCase()}
                           </span>
                         </div>
-                        <p className="text-sm text-lydian-text-tertiary mb-2">{partner.type.toUpperCase()} • {partner.lastActivity}</p>
+                        <p className="text-sm text-white-tertiary mb-2">{partner.type.toUpperCase()} • {partner.lastActivity}</p>
                         <div className="grid grid-cols-3 gap-4 text-sm">
                           <div>
-                            <span className="text-lydian-text-tertiary block text-xs">Gelir</span>
-                            <p className="font-semibold text-lydian-text">{formatCurrency(partner.revenue)}</p>
+                            <span className="text-white-tertiary block text-xs">Gelir</span>
+                            <p className="font-semibold text-white">{formatCurrency(partner.revenue)}</p>
                           </div>
                           <div>
-                            <span className="text-lydian-text-tertiary block text-xs">Rezervasyon</span>
-                            <p className="font-semibold text-lydian-text">{partner.bookings}</p>
+                            <span className="text-white-tertiary block text-xs">Rezervasyon</span>
+                            <p className="font-semibold text-white">{partner.bookings}</p>
                           </div>
                           <div>
-                            <span className="text-lydian-text-tertiary block text-xs">Komisyon</span>
-                            <p className="font-semibold text-lydian-text">{partner.commission}%</p>
+                            <span className="text-white-tertiary block text-xs">Komisyon</span>
+                            <p className="font-semibold text-white">{partner.commission}%</p>
                           </div>
                         </div>
                       </div>
@@ -1275,10 +1294,10 @@ const AdminDashboardV2 = () => {
               </div>
 
               {/* System Health */}
-              <div className="bg-lydian-glass-dark rounded-2xl p-6 border border-lydian-border">
+              <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-6 border border-white/20">
                 <div className="mb-6">
-                  <h2 className="text-lg font-bold text-lydian-text">Sistem Sağlığı</h2>
-                  <p className="text-sm text-lydian-text-tertiary">Son kontrol: {systemHealth.lastCheck}</p>
+                  <h2 className="text-lg font-bold text-white">Sistem Sağlığı</h2>
+                  <p className="text-sm text-white-tertiary">Son kontrol: {systemHealth.lastCheck}</p>
                 </div>
 
                 <div className="space-y-4">
@@ -1290,10 +1309,10 @@ const AdminDashboardV2 = () => {
                 map((service, index) => {
                   const Icon = service.icon;
                   return (
-                    <div key={index} className="flex items-center justify-between p-3 bg-lydian-bg-surface rounded-lg">
+                    <div key={index} className="flex items-center justify-between p-3 bg-white/5 rounded-lg">
                         <div className="flex items-center gap-3">
-                          <Icon className="w-5 h-5 text-lydian-text-secondary" />
-                          <span className="font-medium text-lydian-text text-sm">{service.label}</span>
+                          <Icon className="w-5 h-5 text-gray-300" />
+                          <span className="font-medium text-white text-sm">{service.label}</span>
                         </div>
                         <span className={`text-xs px-3 py-1 rounded-full font-semibold ${getStatusColor(service.status)}`}>
                           {service.status.toUpperCase()}
@@ -1303,7 +1322,7 @@ const AdminDashboardV2 = () => {
                 })}
                 </div>
 
-                <button className="mt-6 w-full flex items-center justify-center gap-2 px-4 py-3 bg-lydian-primary text-lydian-text-inverse rounded-lg hover:bg-lydian-primary-dark transition-all font-medium text-sm">
+                <button className="mt-6 w-full flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:bg-gradient-to-r from-blue-600 to-purple-600 transition-all font-medium text-sm">
                   <RefreshCw className="w-4 h-4" />
                   Sistem Kontrolü Yap
                 </button>
@@ -1317,26 +1336,26 @@ const AdminDashboardV2 = () => {
         <div className="space-y-6">
             <div className="flex items-center justify-between">
               <div>
-                <h2 className="text-2xl font-bold text-lydian-text">Ürün Yönetimi</h2>
-                <p className="text-lydian-text-secondary">Tüm ürünleri görüntüle, düzenle ve yönet</p>
+                <h2 className="text-2xl font-bold text-white">Ürün Yönetimi</h2>
+                <p className="text-gray-300">Tüm ürünleri görüntüle, düzenle ve yönet</p>
               </div>
               <div className="flex items-center gap-3">
                 <Link href="/admin/v2/all-products">
-                  <button className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-lydian-primary to-lydian-primary-dark text-lydian-text-inverse rounded-lg hover:shadow-xl transition-all font-medium">
+                  <button className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:shadow-xl transition-all font-medium">
                     <Database className="w-5 h-5" />
                     Tüm Ürünler (Gerçek Veri)
                     <ArrowUpRight className="w-4 h-4" />
                   </button>
                 </Link>
                 <Link href="/admin/v2/navigation">
-                  <button className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-lydian-success to-green-700 text-lydian-text-inverse rounded-lg hover:shadow-xl transition-all font-medium">
+                  <button className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-lydian-success to-green-700 text-white rounded-lg hover:shadow-xl transition-all font-medium">
                     <Globe className="w-5 h-5" />
                     Menü Yönetimi
                     <ArrowUpRight className="w-4 h-4" />
                   </button>
                 </Link>
                 <Link href="/admin/v2/content">
-                  <button className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-lydian-secondary to-purple-700 text-lydian-text-inverse rounded-lg hover:shadow-xl transition-all font-medium">
+                  <button className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-600 to-purple-700 text-white rounded-lg hover:shadow-xl transition-all font-medium">
                     <Edit className="w-5 h-5" />
                     İçerik Yönetimi
                     <ArrowUpRight className="w-4 h-4" />
@@ -1363,32 +1382,32 @@ const AdminDashboardV2 = () => {
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: index * 0.1 }}
-                    className="bg-lydian-glass-dark rounded-2xl p-6 border border-lydian-border hover:shadow-xl transition-all cursor-pointer group">
+                    className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-6 border border-white/20 hover:shadow-xl transition-all cursor-pointer group">
 
                     <div className="flex items-center gap-4 mb-4">
-                      <div className="p-4 bg-lydian-primary-lighter rounded-xl group-hover:bg-lydian-primary-light transition-colors">
-                        <Icon className="w-8 h-8 text-lydian-primary" />
+                      <div className="p-4 bg-gradient-to-r from-blue-600 to-purple-600-lighter rounded-xl group-hover:bg-gradient-to-r from-blue-600 to-purple-600-light transition-colors">
+                        <Icon className="w-8 h-8 text-blue-400" />
                       </div>
                       <div className="flex-1">
-                        <h3 className="font-bold text-lydian-text text-lg">{product.name}</h3>
-                        <p className="text-sm text-lydian-text-tertiary">{product.active} aktif ürün</p>
+                        <h3 className="font-bold text-white text-lg">{product.name}</h3>
+                        <p className="text-sm text-white-tertiary">{product.active} aktif ürün</p>
                       </div>
                     </div>
                     <div className="grid grid-cols-2 gap-4 mb-4">
                       <div>
-                        <p className="text-xs text-lydian-text-tertiary">Gelir</p>
-                        <p className="text-lg font-bold text-lydian-text">{formatCurrency(product.revenue)}</p>
+                        <p className="text-xs text-white-tertiary">Gelir</p>
+                        <p className="text-lg font-bold text-white">{formatCurrency(product.revenue)}</p>
                       </div>
                       <div>
-                        <p className="text-xs text-lydian-text-tertiary">Rezervasyon</p>
-                        <p className="text-lg font-bold text-lydian-text">{product.bookings}</p>
+                        <p className="text-xs text-white-tertiary">Rezervasyon</p>
+                        <p className="text-lg font-bold text-white">{product.bookings}</p>
                       </div>
                     </div>
                     <div className="flex items-center justify-between pt-4 border-t border-slate-100">
                       <span className={`text-xs px-2 py-1 rounded-full font-semibold ${getStatusColor(product.status)}`}>
                         {product.status.toUpperCase()}
                       </span>
-                      <span className={`text-sm font-semibold ${product.growth >= 0 ? 'text-lydian-success' : 'text-lydian-error'}`}>
+                      <span className={`text-sm font-semibold ${product.growth >= 0 ? 'text-purple-400' : 'text-gray-400'}`}>
                         {product.growth >= 0 ? '+' : ''}{product.growth}%
                       </span>
                     </div>
@@ -1399,156 +1418,15 @@ const AdminDashboardV2 = () => {
             </div>
 
             <Link href="/admin/v2/products">
-              <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8 text-center border-2 border-dashed border-blue-200 hover:border-lydian-border-focus transition-all cursor-pointer group">
-                <Package className="w-12 h-12 text-lydian-primary mx-auto mb-4 group-hover:scale-110 transition-transform" />
-                <h3 className="text-lg font-bold text-lydian-text mb-2">Detaylı Ürün Yönetimi</h3>
-                <p className="text-lydian-text-secondary">Tüm ürünleri görüntülemek ve düzenlemek için tıklayın</p>
+              <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8 text-center border-2 border-dashed border-blue-200 hover:border-white/20-focus transition-all cursor-pointer group">
+                <Package className="w-12 h-12 text-blue-400 mx-auto mb-4 group-hover:scale-110 transition-transform" />
+                <h3 className="text-lg font-bold text-white mb-2">Detaylı Ürün Yönetimi</h3>
+                <p className="text-gray-300">Tüm ürünleri görüntülemek ve düzenlemek için tıklayın</p>
               </div>
             </Link>
           </div>
         }
 
-        {/* B2B Tab */}
-        {activeTab === 'b2b' &&
-        <div className="space-y-6">
-            <div className="flex items-center justify-between">
-              <div>
-                <h2 className="text-2xl font-bold text-lydian-text">B2B Partner Yönetimi</h2>
-                <p className="text-lydian-text-secondary">İş ortaklıklarını görüntüle ve yönet</p>
-              </div>
-              <button className="flex items-center gap-2 px-6 py-3 bg-purple-600 text-lydian-text-inverse rounded-lg hover:bg-purple-700 transition-all font-medium shadow-lg">
-                <Plus className="w-5 h-5" />
-                Yeni Partner
-              </button>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-              {b2bPartners.map((partner, index) =>
-            <motion.div
-              key={partner.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-              className="bg-lydian-glass-dark rounded-2xl p-6 border border-lydian-border hover:shadow-xl transition-all">
-
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="flex items-center gap-3">
-                      <div className="p-3 bg-purple-50 rounded-xl">
-                        <Briefcase className="w-6 h-6 text-purple-600" />
-                      </div>
-                      <div>
-                        <h3 className="font-bold text-lydian-text">{partner.name}</h3>
-                        <p className="text-sm text-lydian-text-tertiary">{partner.type.toUpperCase()}</p>
-                      </div>
-                    </div>
-                    <span className={`text-xs px-3 py-1 rounded-full font-semibold ${getStatusColor(partner.status)}`}>
-                      {partner.status.toUpperCase()}
-                    </span>
-                  </div>
-
-                  <div className="space-y-3 mb-4">
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm text-lydian-text-secondary">Gelir</span>
-                      <span className="font-semibold text-lydian-text">{formatCurrency(partner.revenue)}</span>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm text-lydian-text-secondary">Rezervasyon</span>
-                      <span className="font-semibold text-lydian-text">{partner.bookings}</span>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <span className="text-sm text-lydian-text-secondary">Komisyon</span>
-                      <span className="font-semibold text-purple-600">{partner.commission}%</span>
-                    </div>
-                  </div>
-
-                  <div className="pt-4 border-t border-slate-100">
-                    <p className="text-xs text-lydian-text-muted mb-3">Son aktivite: {partner.lastActivity}</p>
-                    <div className="flex items-center gap-2">
-                      <button className="flex-1 px-4 py-2 bg-lydian-primary text-lydian-text-inverse rounded-lg hover:bg-lydian-primary-dark transition-colors text-sm font-medium">
-                        Düzenle
-                      </button>
-                      <button className="p-2 bg-lydian-bg-surface-raised text-lydian-text-secondary rounded-lg hover:bg-slate-200 transition-colors">
-                        <Eye className="w-4 h-4" />
-                      </button>
-                    </div>
-                  </div>
-                </motion.div>
-            )}
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-lydian-glass-dark rounded-xl p-6 border border-lydian-border">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-sm text-lydian-text-secondary">Toplam Partner</span>
-                  <Briefcase className="w-5 h-5 text-purple-600" />
-                </div>
-                <div className="text-3xl font-bold text-lydian-text">{b2bPartners.length}</div>
-              </div>
-              <div className="bg-lydian-glass-dark rounded-xl p-6 border border-lydian-border">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-sm text-lydian-text-secondary">Toplam Gelir</span>
-                  <DollarSign className="w-5 h-5 text-lydian-success" />
-                </div>
-                <div className="text-3xl font-bold text-lydian-text">
-                  {formatCurrency(b2bPartners.reduce((acc, p) => acc + p.revenue, 0))}
-                </div>
-              </div>
-              <div className="bg-lydian-glass-dark rounded-xl p-6 border border-lydian-border">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-sm text-lydian-text-secondary">Ort. Komisyon</span>
-                  <Target className="w-5 h-5 text-amber-600" />
-                </div>
-                <div className="text-3xl font-bold text-lydian-text">
-                  {(b2bPartners.reduce((acc, p) => acc + p.commission, 0) / b2bPartners.length).toFixed(1)}%
-                </div>
-              </div>
-            </div>
-          </div>
-        }
-
-        {/* Analytics Tab - Redirect to dedicated page */}
-        {activeTab === 'analytics' &&
-        <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-12 text-center border-2 border-dashed border-lydian-border-focus">
-            <div className="max-w-md mx-auto">
-              <div className="w-16 h-16 bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] rounded-full flex items-center justify-center mx-auto mb-4">
-                <BarChart3 className="w-8 h-8 text-lydian-text-inverse" />
-              </div>
-              <h3 className="text-2xl font-bold text-lydian-text mb-2">
-                Detaylı Analytics
-              </h3>
-              <p className="text-lydian-text-secondary mb-6">
-                Gelişmiş analitik raporları ve grafikler için özel sayfaya gidin
-              </p>
-              <Link href="/admin/v2/analytics">
-                <button className="px-8 py-3 bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] text-lydian-text-inverse rounded-lg hover:shadow-xl transition-all font-medium">
-                  Analytics Sayfasına Git
-                </button>
-              </Link>
-            </div>
-          </div>
-        }
-
-        {/* Settings Tab - Redirect to dedicated page */}
-        {activeTab === 'settings' &&
-        <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-12 text-center border-2 border-dashed border-purple-300">
-            <div className="max-w-md mx-auto">
-              <div className="w-16 h-16 bg-gradient-to-r from-lydian-secondary to-pink-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Settings className="w-8 h-8 text-lydian-text-inverse" />
-              </div>
-              <h3 className="text-2xl font-bold text-lydian-text mb-2">
-                Sistem Ayarları
-              </h3>
-              <p className="text-lydian-text-secondary mb-6">
-                Tüm sistem konfigürasyonları için özel ayarlar sayfasına gidin
-              </p>
-              <Link href="/admin/v2/settings">
-                <button className="px-8 py-3 bg-gradient-to-r from-lydian-secondary to-pink-600 text-lydian-text-inverse rounded-lg hover:shadow-xl transition-all font-medium">
-                  Ayarlar Sayfasına Git
-                </button>
-              </Link>
-            </div>
-          </div>
-        }
       </main>
     </div>);
 

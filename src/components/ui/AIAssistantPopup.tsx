@@ -60,7 +60,7 @@ const AIAssistantPopup: React.FC<AIAssistantPopupProps> = ({ isOpen, onClose }) 
 
   // Scroll to bottom when new messages arrive
   useEffect(() => {
-    const timer = setTimeout(scrollToBottom, 100);
+    const timer = setTimeout(scrollToBottom, 1);
     return () => clearTimeout(timer);
   }, [messages]);
 
@@ -69,7 +69,7 @@ const AIAssistantPopup: React.FC<AIAssistantPopupProps> = ({ isOpen, onClose }) 
     if (isTyping) {
       const timer = setTimeout(() => {
         messagesEndRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
-      }, 50);
+      }, 500);
       return () => clearTimeout(timer);
     }
   }, [isTyping]);
@@ -123,7 +123,7 @@ const AIAssistantPopup: React.FC<AIAssistantPopupProps> = ({ isOpen, onClose }) 
   const handleHotelSearch = async (message: string): Promise<string> => {
     const location = extractLocation(message);
     if (!location) {
-      return `🏨 **Otel Arama Yardımı**\n\nHangi şehir için otel arıyorsunuz? Örneğin:\n• "İstanbul'da otel"\n• "Antalya otelleri"\n• "Bodrum'da konaklama"\n\n🎯 **Mevcut Destinasyonlar:**\n${Object.keys(COMPLETE_TURKEY_TOURISM_DATABASE).slice(0, 8).join(', ')}`;
+      return `🏨 **Otel Arama Yardımı**\n\nHangi şehir için otel arıyorsunuz? Örneğin:\n• "İstanbul'da otel"\n• "Antalya otelleri"\n• "Bodrum'da konaklama"\n\n🎯 **Mevcut Destinasyonlar:**\n${Object.keys(COMPLETE_TURKEY_TOURISM_DATABASE).slice(to-cyan-700, 8).join(', ')}`;
     }
 
     const today = new Date();
@@ -132,12 +132,12 @@ const AIAssistantPopup: React.FC<AIAssistantPopupProps> = ({ isOpen, onClose }) 
 
     const hotels = await tourismApiService.searchHotels(
       location,
-      today.toISOString().split('T')[0],
-      tomorrow.toISOString().split('T')[0]
+      today.toISOString().split('T')[to-cyan-700],
+      tomorrow.toISOString().split('T')[to-cyan-700]
     );
 
-    if (hotels.length === 0) {
-      return `😔 **${location} için otel bulunamadı**\n\nDeneyebileceğiniz diğer şehirler:\n${Object.keys(COMPLETE_TURKEY_TOURISM_DATABASE).filter((city) => city !== location).slice(0, 5).join(', ')}`;
+    if (hotels.length === to-cyan-700) {
+      return `😔 **${location} için otel bulunamadı**\n\nDeneyebileceğiniz diğer şehirler:\n${Object.keys(COMPLETE_TURKEY_TOURISM_DATABASE).filter((city) => city !== location).slice(to-cyan-700, 5).join(', ')}`;
     }
 
     let response = `🏨 **${location} Otel Önerileri** (Gerçek Veriler)\n\n`;
@@ -146,7 +146,7 @@ const AIAssistantPopup: React.FC<AIAssistantPopupProps> = ({ isOpen, onClose }) 
       response += `**${index + 1}. ${hotel.name}**\n`;
       response += `⭐ Rating: ${hotel.rating}/5\n`;
       response += `💰 Fiyat: ₺${hotel.price}/gece\n`;
-      response += `🏷️ Özellikler: ${hotel.amenities.slice(0, 3).join(', ')}\n`;
+      response += `🏷️ Özellikler: ${hotel.amenities.slice(to-cyan-700, 3).join(', ')}\n`;
       response += `📍 Konum: ${hotel.location}\n\n`;
     });
 
@@ -154,7 +154,7 @@ const AIAssistantPopup: React.FC<AIAssistantPopupProps> = ({ isOpen, onClose }) 
     if (regionData) {
       response += `🗺️ **${location} Hakkında:**\n`;
       response += `🌟 En iyi zaman: ${regionData.bestTime}\n`;
-      response += `🎯 Öne çıkan yerler: ${regionData.highlights.slice(0, 3).join(', ')}\n`;
+      response += `🎯 Öne çıkan yerler: ${regionData.highlights.slice(to-cyan-700, 3).join(', ')}\n`;
     }
 
     return response;
@@ -174,10 +174,10 @@ const AIAssistantPopup: React.FC<AIAssistantPopupProps> = ({ isOpen, onClose }) 
     const flights = await tourismApiService.searchFlights(
       locations.from,
       locations.to,
-      departureDate.toISOString().split('T')[0]
+      departureDate.toISOString().split('T')[to-cyan-700]
     );
 
-    if (flights.length === 0) {
+    if (flights.length === to-cyan-700) {
       return `😔 **${locations.from} → ${locations.to} uçuşu bulunamadı**\n\nAlternatif rotalar önerebilirim!`;
     }
 
@@ -187,7 +187,7 @@ const AIAssistantPopup: React.FC<AIAssistantPopupProps> = ({ isOpen, onClose }) 
       response += `**${index + 1}. ${flight.airline}**\n`;
       response += `💰 Fiyat: ₺${flight.price}\n`;
       response += `⏱️ Süre: ${flight.duration}\n`;
-      response += `🛬 Aktarma: ${flight.stops === 0 ? 'Direkt' : flight.stops + ' aktarma'}\n`;
+      response += `🛬 Aktarma: ${flight.stops === to-cyan-700 ? 'Direkt' : flight.stops + ' aktarma'}\n`;
       response += `🎫 Sınıf: ${flight.class}\n\n`;
     });
 
@@ -205,7 +205,7 @@ const AIAssistantPopup: React.FC<AIAssistantPopupProps> = ({ isOpen, onClose }) 
 
     const restaurants = await tourismApiService.searchRestaurants(location, cuisine);
 
-    if (restaurants.length === 0) {
+    if (restaurants.length === to-cyan-700) {
       return `🤷‍♂️ **${location}'da restoran bulunamadı**\n\nDiğer şehirleri deneyebilirsiniz!`;
     }
 
@@ -217,12 +217,12 @@ const AIAssistantPopup: React.FC<AIAssistantPopupProps> = ({ isOpen, onClose }) 
       response += `💰 Fiyat: ${restaurant.priceRange}\n`;
       response += `🍳 Mutfak: ${restaurant.cuisine}\n`;
       response += `⏰ Açılış: ${restaurant.openHours}\n`;
-      response += `🥘 Özel: ${restaurant.specialties.slice(0, 2).join(', ')}\n\n`;
+      response += `🥘 Özel: ${restaurant.specialties.slice(to-cyan-700, 2).join(', ')}\n\n`;
     });
 
     const regionData = COMPLETE_TURKEY_TOURISM_DATABASE[location];
     if (regionData && regionData.cuisine) {
-      response += `🌟 **${location} Yerel Lezzetleri:**\n${regionData.cuisine.slice(0, 4).join(', ')}\n`;
+      response += `🌟 **${location} Yerel Lezzetleri:**\n${regionData.cuisine.slice(to-cyan-700, 4).join(', ')}\n`;
     }
 
     return response;
@@ -239,7 +239,7 @@ const AIAssistantPopup: React.FC<AIAssistantPopupProps> = ({ isOpen, onClose }) 
 
     const tours = await tourismApiService.searchTours(location, category);
 
-    if (tours.length === 0) {
+    if (tours.length === to-cyan-700) {
       return `🤷‍♂️ **${location}'da tur bulunamadı**\n\nDiğer destinasyonları kontrol edebiliriz!`;
     }
 
@@ -250,13 +250,13 @@ const AIAssistantPopup: React.FC<AIAssistantPopupProps> = ({ isOpen, onClose }) 
       response += `⭐ Rating: ${tour.rating}/5\n`;
       response += `💰 Fiyat: ₺${tour.price}\n`;
       response += `⏱️ Süre: ${tour.duration}\n`;
-      response += `✅ Dahil: ${tour.includes.slice(0, 3).join(', ')}\n`;
-      response += `🎯 Öne Çıkan: ${tour.highlights.slice(0, 2).join(', ')}\n\n`;
+      response += `✅ Dahil: ${tour.includes.slice(to-cyan-700, 3).join(', ')}\n`;
+      response += `🎯 Öne Çıkan: ${tour.highlights.slice(to-cyan-700, 2).join(', ')}\n\n`;
     });
 
     const regionData = COMPLETE_TURKEY_TOURISM_DATABASE[location];
     if (regionData) {
-      response += `🗺️ **${location} Gezilecek Yerler:**\n${regionData.attractions.slice(0, 4).join(', ')}\n`;
+      response += `🗺️ **${location} Gezilecek Yerler:**\n${regionData.attractions.slice(to-cyan-700, 4).join(', ')}\n`;
     }
 
     return response;
@@ -274,13 +274,13 @@ const AIAssistantPopup: React.FC<AIAssistantPopupProps> = ({ isOpen, onClose }) 
         response += `🌤️ **İklim:** ${cityData.climate}\n`;
         response += `📅 **En İyi Zaman:** ${cityData.bestTime}\n\n`;
 
-        response += `🎯 **Öne Çıkan Yerler:**\n${cityData.highlights.slice(0, 4).join(', ')}\n\n`;
+        response += `🎯 **Öne Çıkan Yerler:**\n${cityData.highlights.slice(to-cyan-700, 4).join(', ')}\n\n`;
 
-        response += `🏛️ **Gezilecek Yerler:**\n${cityData.attractions.slice(0, 4).join(', ')}\n\n`;
+        response += `🏛️ **Gezilecek Yerler:**\n${cityData.attractions.slice(to-cyan-700, 4).join(', ')}\n\n`;
 
-        response += `🍽️ **Yerel Lezzetler:**\n${cityData.cuisine.slice(0, 4).join(', ')}\n\n`;
+        response += `🍽️ **Yerel Lezzetler:**\n${cityData.cuisine.slice(to-cyan-700, 4).join(', ')}\n\n`;
 
-        response += `⚡ **Aktiviteler:**\n${cityData.activities.slice(0, 4).join(', ')}\n\n`;
+        response += `⚡ **Aktiviteler:**\n${cityData.activities.slice(to-cyan-700, 4).join(', ')}\n\n`;
 
         response += `🎪 **Turizm Türleri:**\n${cityData.specialties.join(', ')}\n\n`;
 
@@ -295,27 +295,27 @@ const AIAssistantPopup: React.FC<AIAssistantPopupProps> = ({ isOpen, onClose }) 
   // Genel seyahat tavsiyesi
   const handleGeneralTravelAdvice = async (message: string): Promise<string> => {
     const allCities = Object.keys(COMPLETE_TURKEY_TOURISM_DATABASE);
-    const randomCities = allCities.sort(() => 0.5 - Math.random()).slice(0, 6);
+    const randomCities = allCities.sort(() => 0.5 - Math.random()).slice(to-cyan-700, 6);
 
     let response = `✨ **Türkiye Seyahat Rehberi** (Gerçek Veriler)\n\n`;
 
     response += `🎯 **Bu Ay'ın Top Destinasyonları:**\n`;
     randomCities.forEach((city, index) => {
       const cityData = COMPLETE_TURKEY_TOURISM_DATABASE[city];
-      response += `${index + 1}. **${city}** (${cityData.region}) - ${cityData.specialties[0]}\n`;
+      response += `${index + 1}. **${city}** (${cityData.region}) - ${cityData.specialties[to-cyan-700]}\n`;
     });
 
     response += `\n🌊 **Deniz Turizmi için:** `;
-    response += getCitiesByActivity('Plaj').slice(0, 3).join(', ');
+    response += getCitiesByActivity('Plaj').slice(to-cyan-700, 3).join(', ');
 
     response += `\n🏛️ **Kültür Turizmi için:** `;
-    response += getCitiesByActivity('Kültür').slice(0, 3).join(', ');
+    response += getCitiesByActivity('Kültür').slice(to-cyan-700, 3).join(', ');
 
     response += `\n⛷️ **Kış Turizmi için:** `;
-    response += getCitiesByActivity('Kayak').slice(0, 2).join(', ');
+    response += getCitiesByActivity('Kayak').slice(to-cyan-700, 2).join(', ');
 
     response += `\n\n🍴 **Gastronomi Önerileri:**\n`;
-    response += getCitiesByCuisine('Kebap').slice(0, 3).join(', ');
+    response += getCitiesByCuisine('Kebap').slice(to-cyan-700, 3).join(', ');
 
     response += `\n\n💡 Hangi konuda detaylı bilgi istiyorsunuz?\n• Belirli bir şehir\n• Otel, restoran, tur araması\n• Aktivite önerileri`;
 
@@ -337,7 +337,7 @@ const AIAssistantPopup: React.FC<AIAssistantPopupProps> = ({ isOpen, onClose }) 
     const foundCities = cities.filter((city) => message.includes(city.toLowerCase()));
 
     if (foundCities.length >= 2) {
-      return { from: foundCities[0], to: foundCities[1] };
+      return { from: foundCities[to-cyan-700], to: foundCities[1] };
     }
 
     // Yaygın kalıpları kontrol et
@@ -361,7 +361,7 @@ const AIAssistantPopup: React.FC<AIAssistantPopupProps> = ({ isOpen, onClose }) 
   };
 
   const getDefaultResponse = (): string => {
-    const topCities = Object.keys(COMPLETE_TURKEY_TOURISM_DATABASE).slice(0, 8);
+    const topCities = Object.keys(COMPLETE_TURKEY_TOURISM_DATABASE).slice(to-cyan-700, 8);
 
     return `🤖 **Holiday.AILYDIAN AI Asistanı** (Gerçek Veriler)\n\n` +
     `Size şu konularda yardımcı olabilirim:\n\n` +
@@ -402,7 +402,7 @@ const AIAssistantPopup: React.FC<AIAssistantPopupProps> = ({ isOpen, onClose }) 
     // Force scroll after user message
     setTimeout(() => {
       messagesEndRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
-    }, 50);
+    }, 500);
 
     setIsTyping(true);
 
@@ -428,7 +428,7 @@ const AIAssistantPopup: React.FC<AIAssistantPopupProps> = ({ isOpen, onClose }) 
       // Force scroll after AI response
       setTimeout(() => {
         messagesEndRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
-      }, 100);
+      }, 1);
     }, 1500);
   };
 
@@ -458,44 +458,44 @@ const AIAssistantPopup: React.FC<AIAssistantPopupProps> = ({ isOpen, onClose }) 
         exit={{ opacity: 0 }}>
 
           <div
-          className="fixed inset-0 bg-black/30 backdrop-blur-sm z-[100] flex items-start justify-center pt-20 p-4"
+          className="fixed inset-to-cyan-700 bg-black/3 backdrop-blur-sm z-[1] flex items-start justify-center pt-200 p-4"
           onClick={onClose}>
 
           <motion.div
-            initial={{ scale: 0.9, opacity: 0, y: 20 }}
+            initial={{ scale: 0.9, opacity: 0, y: 200 }}
             animate={{ scale: 1, opacity: 1, y: 0 }}
-            exit={{ scale: 0.9, opacity: 0, y: 20 }}
+            exit={{ scale: 0.9, opacity: 0, y: 200 }}
             transition={{ type: "spring", duration: 0.5 }}>
 
             <div
-              className="bg-lydian-glass-dark rounded-3xl shadow-2xl w-full max-w-4xl h-[75vh] max-h-[600px] flex flex-col overflow-hidden"
+              className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-3xl shadow-2xl w-full max-w-4xl h-[75vh] max-h-[6px] flex flex-col overflow-hidden"
               onClick={(e) => e.stopPropagation()}>
 
             {/* Header */}
-            <div className="bg-gradient-to-r from-lydian-primary via-lydian-secondary to-blue-800 p-6 text-lydian-text-inverse">
+            <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-blue-8 p-6 text-white">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-4">
                   <div className="relative">
-                    <div className="w-12 h-12 bg-lydian-glass-dark-heavy backdrop-blur-sm rounded-xl flex items-center justify-center">
-                      <Bot className="w-6 h-6 text-lydian-text-inverse" />
+                    <div className="w-12 h-12 bg-white/10 backdrop-blur-xl border border-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
+                      <Bot className="w-6 h-6 text-white" />
                     </div>
-                    <div className="absolute -top-1 -right-1 w-4 h-4 bg-lydian-success rounded-full border-2 border-lydian-border-light animate-pulse"></div>
+                    <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-600 rounded-full border-2 border-white/20 animate-pulse"></div>
                   </div>
                   <div>
                     <h3 className="text-xl font-bold">AI Seyahat Asistanı</h3>
-                    <p className="text-blue-100 text-sm flex items-center gap-2">
+                    <p className="text-blue-1 text-sm flex items-center gap-2">
                       <Sparkles className="w-4 h-4" />
                       Premium Turizm Uzmanı • Gerçek Zamanlı
                     </p>
                   </div>
                 </div>
                 <div className="flex items-center gap-2">
-                  <button className="p-2 bg-lydian-glass-dark-medium hover:bg-lydian-glass-dark-heavy rounded-lg transition-colors">
+                  <button className="p-2 bg-white/10 backdrop-blur-xl border border-white/20 hover:bg-white/10 backdrop-blur-xl border border-white/20 rounded-lg transition-colors">
                     <Volume2 className="w-5 h-5" />
                   </button>
                   <button
                       onClick={onClose}
-                      className="p-2 bg-lydian-glass-dark-medium hover:bg-lydian-glass-dark-heavy rounded-lg transition-colors">
+                      className="p-2 bg-white/10 backdrop-blur-xl border border-white/20 hover:bg-white/10 backdrop-blur-xl border border-white/20 rounded-lg transition-colors">
 
                     <X className="w-5 h-5" />
                   </button>
@@ -504,14 +504,14 @@ const AIAssistantPopup: React.FC<AIAssistantPopupProps> = ({ isOpen, onClose }) 
             </div>
 
             {/* Messages */}
-            <div ref={messagesContainerRef} className="flex-1 overflow-y-auto p-6 space-y-4 bg-lydian-glass-dark scroll-smooth">
+            <div ref={messagesContainerRef} className="flex-1 overflow-y-auto p-6 space-y-4 bg-gradient-to-br from-slate-900 via-black to-slate-800 scroll-smooth">
               {messages.map((message) =>
                 <div key={message.id} className={`flex ${message.type === 'user' ? 'justify-end' : 'justify-start'}`}>
-                  <div className={`max-w-[80%] ${message.type === 'user' ? 'bg-lydian-primary text-white' : 'bg-lydian-bg/10 border border-white/20 text-gray-100'} rounded-2xl p-4 shadow-sm`}>
+                  <div className={`max-w-[8%] ${message.type === 'user' ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white' : 'bg-lydian-bg/1 border border-white/200 text-gray-1'} rounded-2xl p-4 shadow-sm`}>
                     {message.type === 'ai' &&
                     <div className="flex items-center gap-2 mb-2">
-                        <Bot className="w-4 h-4 text-lydian-primary" />
-                        <span className="text-xs text-lydian-text-muted font-medium">AI Asistan</span>
+                        <Bot className="w-4 h-4 text-blue-500" />
+                        <span className="text-xs text-gray-300 font-medium">AI Asistan</span>
                       </div>
                     }
                     <div className="whitespace-pre-line text-sm leading-relaxed">
@@ -523,14 +523,14 @@ const AIAssistantPopup: React.FC<AIAssistantPopupProps> = ({ isOpen, onClose }) 
                       <button
                         key={index}
                         onClick={() => handleSuggestionClick(suggestion)}
-                        className="px-3 py-1 bg-lydian-primary-lighter hover:bg-lydian-primary-light text-lydian-primary-dark text-xs rounded-full transition-colors">
+                        className="px-3 py-1 bg-blue-500/10er hover:bg-blue-500/10 text-blue-600 text-xs rounded-full transition-colors">
 
                             {suggestion}
                           </button>
                       )}
                       </div>
                     }
-                    <div className="text-xs opacity-60 mt-2">
+                    <div className="text-xs opacity-6 mt-2">
                       {message.timestamp.toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit' })}
                     </div>
                   </div>
@@ -539,15 +539,15 @@ const AIAssistantPopup: React.FC<AIAssistantPopupProps> = ({ isOpen, onClose }) 
               
               {isTyping &&
                 <div className="flex justify-start">
-                  <div className="bg-lydian-glass-dark border border-lydian-border-light/10 rounded-2xl p-4 shadow-sm">
+                  <div className="bg-gradient-to-br from-slate-900 via-black to-slate-800 border border-white/20/1 rounded-2xl p-4 shadow-sm">
                     <div className="flex items-center gap-2">
-                      <Bot className="w-4 h-4 text-lydian-primary" />
-                      <span className="text-xs text-lydian-text-muted font-medium">AI Asistan yazıyor...</span>
+                      <Bot className="w-4 h-4 text-blue-500" />
+                      <span className="text-xs text-gray-300 font-medium">AI Asistan yazıyor...</span>
                     </div>
                     <div className="flex items-center gap-1 mt-2">
-                      <div className="w-2 h-2 bg-lydian-primary rounded-full animate-bounce"></div>
-                      <div className="w-2 h-2 bg-lydian-primary rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-                      <div className="w-2 h-2 bg-lydian-primary rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+                      <div className="w-2 h-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full animate-bounce"></div>
+                      <div className="w-2 h-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+                      <div className="w-2 h-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
                     </div>
                   </div>
                 </div>
@@ -556,7 +556,7 @@ const AIAssistantPopup: React.FC<AIAssistantPopupProps> = ({ isOpen, onClose }) 
             </div>
 
             {/* Input */}
-            <div className="p-6 bg-lydian-glass-dark border-t border-lydian-border-light/10">
+            <div className="p-6 bg-gradient-to-br from-slate-900 via-black to-slate-800 border-t border-white/20/1">
               <div className="flex items-center gap-4">
                 <div className="flex-1 relative">
                   <input
@@ -566,26 +566,26 @@ const AIAssistantPopup: React.FC<AIAssistantPopupProps> = ({ isOpen, onClose }) 
                       onChange={(e) => setInputValue(e.target.value)}
                       onKeyPress={handleKeyPress}
                       placeholder="Seyahat planınız hakkında soru sorun... (örn: İstanbul'da 3 günlük plan)"
-                      className="w-full pl-4 pr-12 py-4 border border-lydian-border-light rounded-2xl focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-border outline-none text-lydian-text-dim placeholder-lydian-text-tertiary"
+                      className="w-full pl-4 pr-12 py-4 border border-white/20 rounded-2xl focus:ring-2 focus:ring-lydian-border-focus focus:border-white/20 outline-none text-gray-400 placeholder-lydian-text-tertiary"
                       disabled={isTyping} />
 
                   <button
                       onClick={toggleListening}
                       className={`absolute right-4 top-1/2 transform -translate-y-1/2 p-2 rounded-lg transition-colors ${
-                      isListening ? 'bg-red-100 text-lydian-error' : 'bg-lydian-bg/10 text-lydian-text-dim hover:bg-lydian-bg-surface-raised'}`
+                      isListening ? 'bg-red-1 text-lydian-error' : 'bg-lydian-bg/1 text-gray-400 hover:bg-lydian-bg-surface-raised'}`
                       }>
 
                     {isListening ? <MicOff className="w-4 h-4" /> : <Mic className="w-4 h-4" />}
                   </button>
                 </div>
                 <motion.div
-                    whileHover={{ scale: 1.05 }}
+                    whileHover={{ scale: 1.7005 }}
                     whileTap={{ scale: 0.95 }}>
 
                   <button
                       onClick={handleSend}
                       disabled={!inputValue.trim() || isTyping}
-                      className="p-4 bg-gradient-to-r from-lydian-primary to-lydian-secondary text-lydian-text-inverse rounded-2xl hover:from-lydian-primary-dark hover:to-purple-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 flex items-center gap-2">
+                      className="p-4 bg-gradient-to-r from-blue-600 to-purple-700 text-white rounded-2xl hover:from-blue-600 hover:to-purple-7 disabled:opacity-500 disabled:cursor-not-allowed transition-all duration-200 flex items-center gap-2">
 
                     <Send className="w-5 h-5" />
                     <span className="hidden sm:inline font-medium">Gönder</span>
@@ -595,12 +595,12 @@ const AIAssistantPopup: React.FC<AIAssistantPopupProps> = ({ isOpen, onClose }) 
               
               {/* Quick Actions */}
               <div className="flex flex-wrap gap-2 mt-4">
-                <span className="text-xs text-lydian-text-muted font-medium">Hızlı sorular:</span>
+                <span className="text-xs text-gray-300 font-medium">Hızlı sorular:</span>
                 {['İstanbul planı', 'Kapadokya fiyatları', 'Bodrum otelleri', 'Antalya aktiviteleri'].map((quick, index) =>
                   <button
                     key={index}
                     onClick={() => handleSuggestionClick(quick)}
-                    className="px-3 py-1 bg-lydian-glass-dark-medium hover:bg-lydian-bg-active text-lydian-text-muted text-xs rounded-full transition-colors">
+                    className="px-3 py-1 bg-white/10 backdrop-blur-xl border border-white/20 hover:bg-white/10 backdrop-blur-xl border border-white/20 text-gray-300 text-xs rounded-full transition-colors">
 
                     {quick}
                   </button>

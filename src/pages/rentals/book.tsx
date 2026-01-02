@@ -349,7 +349,7 @@ const RentalBookingPage = () => {
         <div className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-50 flex items-center justify-center">
           <div className="text-center">
             <div className="w-16 h-16 border-4 border-purple-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-            <p className="text-lydian-text-dim">Rezervasyon sayfası yükleniyor...</p>
+            <p className="text-gray-400">Rezervasyon sayfası yükleniyor...</p>
           </div>
         </div>
       </>);
@@ -362,10 +362,10 @@ const RentalBookingPage = () => {
         <ResponsiveHeaderBar />
         <div className="min-h-screen bg-gradient-to-br from-purple-50 to-pink-50 flex items-center justify-center">
           <div className="text-center">
-            <h1 className="text-2xl font-bold text-lydian-text-inverse mb-4">Özellik Bulunamadı</h1>
+            <h1 className="text-2xl font-bold text-white mb-4">Özellik Bulunamadı</h1>
             <Link
               href="/rentals"
-              className="px-6 py-3 bg-gradient-to-r from-lydian-secondary to-pink-600 text-lydian-text-inverse rounded-xl hover:shadow-lg transition-all inline-block">
+              className="px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-xl hover:shadow-lg transition-all inline-block">
 
               Tüm Özelliklere Dön
             </Link>
@@ -419,12 +419,12 @@ const RentalBookingPage = () => {
                         }>
 
                         {isCompleted ?
-                        <Check className="w-6 h-6 text-lydian-text-inverse" /> :
+                        <Check className="w-6 h-6 text-white" /> :
 
-                        <Icon className={`w-6 h-6 ${isActive ? 'text-white' : 'text-lydian-text-muted'}`} />
+                        <Icon className={`w-6 h-6 ${isActive ? 'text-white' : 'text-gray-300'}`} />
                         }
                       </motion.div>
-                      <p className={`text-xs mt-2 font-medium ${isActive ? 'text-purple-600' : 'text-lydian-text-dim'}`}>
+                      <p className={`text-xs mt-2 font-medium ${isActive ? 'text-purple-600' : 'text-gray-400'}`}>
                         {step.title}
                       </p>
                     </div>
@@ -447,16 +447,16 @@ const RentalBookingPage = () => {
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -20 }}
-                  className="bg-lydian-bg-hover rounded-2xl shadow-xl p-6 md:p-8">
+                  className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-2xl shadow-xl p-6 md:p-8">
 
                   {/* Step 1: Date Selection */}
                   {currentStep === 1 &&
                   <div>
-                      <h2 className="text-2xl font-bold text-lydian-text-inverse mb-6">Tarihlerinizi Seçin</h2>
+                      <h2 className="text-2xl font-bold text-white mb-6">Tarihlerinizi Seçin</h2>
 
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                         <div>
-                          <label className="block text-sm font-semibold text-lydian-text-muted mb-2">
+                          <label className="block text-sm font-semibold text-gray-300 mb-2">
                             <Calendar className="w-4 h-4 inline mr-2" />
                             Giriş Tarihi
                           </label>
@@ -478,7 +478,7 @@ const RentalBookingPage = () => {
                         </div>
 
                         <div>
-                          <label className="block text-sm font-semibold text-lydian-text-muted mb-2">
+                          <label className="block text-sm font-semibold text-gray-300 mb-2">
                             <Calendar className="w-4 h-4 inline mr-2" />
                             Çıkış Tarihi
                           </label>
@@ -502,7 +502,7 @@ const RentalBookingPage = () => {
 
                       {errors.nights &&
                     <div className="mb-6 p-4 bg-lydian-error-lighter border border-red-200 rounded-xl">
-                          <p className="text-lydian-primary-dark text-sm flex items-center gap-2">
+                          <p className="text-blue-600 text-sm flex items-center gap-2">
                             <AlertCircle className="w-5 h-5" />
                             {errors.nights}
                           </p>
@@ -510,8 +510,8 @@ const RentalBookingPage = () => {
                     }
 
                       {nights > 0 && !errors.nights &&
-                    <div className="mb-6 p-4 bg-lydian-success-lighter border border-green-200 rounded-xl">
-                          <p className="text-lydian-success-text font-semibold flex items-center gap-2">
+                    <div className="mb-6 p-4 bg-green-600-lighter border border-green-200 rounded-xl">
+                          <p className="text-green-500-text font-semibold flex items-center gap-2">
                             <Check className="w-5 h-5" />
                             {nights} gece konaklama
                           </p>
@@ -535,14 +535,14 @@ const RentalBookingPage = () => {
                   {/* Step 2: Guest Information */}
                   {currentStep === 2 &&
                   <div>
-                      <h2 className="text-2xl font-bold text-lydian-text-inverse mb-6">Misafir Bilgileri</h2>
+                      <h2 className="text-2xl font-bold text-white mb-6">Misafir Bilgileri</h2>
 
                       <div className="space-y-4 mb-6">
                         {/* Adults */}
-                        <div className="flex items-center justify-between p-4 bg-lydian-glass-dark rounded-xl">
+                        <div className="flex items-center justify-between p-4 bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-xl">
                           <div>
-                            <p className="font-semibold text-lydian-text-inverse">Yetişkinler</p>
-                            <p className="text-sm text-lydian-text-muted">13 yaş ve üzeri</p>
+                            <p className="font-semibold text-white">Yetişkinler</p>
+                            <p className="text-sm text-gray-300">13 yaş ve üzeri</p>
                           </div>
                           <div className="flex items-center gap-4">
                             <button
@@ -562,10 +562,10 @@ const RentalBookingPage = () => {
                         </div>
 
                         {/* Children */}
-                        <div className="flex items-center justify-between p-4 bg-lydian-glass-dark rounded-xl">
+                        <div className="flex items-center justify-between p-4 bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-xl">
                           <div>
-                            <p className="font-semibold text-lydian-text-inverse">Çocuklar</p>
-                            <p className="text-sm text-lydian-text-muted">2-12 yaş</p>
+                            <p className="font-semibold text-white">Çocuklar</p>
+                            <p className="text-sm text-gray-300">2-12 yaş</p>
                           </div>
                           <div className="flex items-center gap-4">
                             <button
@@ -585,10 +585,10 @@ const RentalBookingPage = () => {
                         </div>
 
                         {/* Infants */}
-                        <div className="flex items-center justify-between p-4 bg-lydian-glass-dark rounded-xl">
+                        <div className="flex items-center justify-between p-4 bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-xl">
                           <div>
-                            <p className="font-semibold text-lydian-text-inverse">Bebekler</p>
-                            <p className="text-sm text-lydian-text-muted">2 yaş altı</p>
+                            <p className="font-semibold text-white">Bebekler</p>
+                            <p className="text-sm text-gray-300">2 yaş altı</p>
                           </div>
                           <div className="flex items-center gap-4">
                             <button
@@ -610,7 +610,7 @@ const RentalBookingPage = () => {
 
                       {errors.guests &&
                     <div className="mb-6 p-4 bg-lydian-error-lighter border border-red-200 rounded-xl">
-                          <p className="text-lydian-primary-dark text-sm flex items-center gap-2">
+                          <p className="text-blue-600 text-sm flex items-center gap-2">
                             <AlertCircle className="w-5 h-5" />
                             {errors.guests}
                           </p>
@@ -619,7 +619,7 @@ const RentalBookingPage = () => {
 
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                         <div>
-                          <label className="block text-sm font-semibold text-lydian-text-muted mb-2">
+                          <label className="block text-sm font-semibold text-gray-300 mb-2">
                             Konaklama Amacı
                           </label>
                           <select
@@ -640,7 +640,7 @@ const RentalBookingPage = () => {
                         </div>
 
                         <div>
-                          <label className="block text-sm font-semibold text-lydian-text-muted mb-2">
+                          <label className="block text-sm font-semibold text-gray-300 mb-2">
                             Tahmini Varış Saati
                           </label>
                           <input
@@ -672,77 +672,77 @@ const RentalBookingPage = () => {
                   {/* Step 3: House Rules */}
                   {currentStep === 3 &&
                   <div>
-                      <h2 className="text-2xl font-bold text-lydian-text-inverse mb-6">Ev Kuralları</h2>
+                      <h2 className="text-2xl font-bold text-white mb-6">Ev Kuralları</h2>
 
                       <div className="space-y-4 mb-6">
-                        <div className="bg-lydian-glass-dark rounded-xl p-4">
-                          <h3 className="font-semibold text-lydian-text-inverse mb-3">Genel Kurallar</h3>
+                        <div className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-xl p-4">
+                          <h3 className="font-semibold text-white mb-3">Genel Kurallar</h3>
                           <div className="space-y-2">
                             <div className="flex items-center gap-2">
                               {property.smokingAllowed ?
-                            <Check className="w-5 h-5 text-lydian-success" /> :
+                            <Check className="w-5 h-5 text-green-500" /> :
 
-                            <X className="w-5 h-5 text-lydian-primary" />
+                            <X className="w-5 h-5 text-blue-500" />
                             }
-                              <span className="text-sm text-lydian-text-muted">
+                              <span className="text-sm text-gray-300">
                                 {property.smokingAllowed ? 'Sigara içilir' : 'Sigara içilmez'}
                               </span>
                             </div>
                             <div className="flex items-center gap-2">
                               {property.petsAllowed ?
-                            <Check className="w-5 h-5 text-lydian-success" /> :
+                            <Check className="w-5 h-5 text-green-500" /> :
 
-                            <X className="w-5 h-5 text-lydian-primary" />
+                            <X className="w-5 h-5 text-blue-500" />
                             }
-                              <span className="text-sm text-lydian-text-muted">
+                              <span className="text-sm text-gray-300">
                                 {property.petsAllowed ? 'Evcil hayvan kabul edilir' : 'Evcil hayvan kabul edilmez'}
                               </span>
                             </div>
                             <div className="flex items-center gap-2">
                               {property.partiesAllowed ?
-                            <Check className="w-5 h-5 text-lydian-success" /> :
+                            <Check className="w-5 h-5 text-green-500" /> :
 
-                            <X className="w-5 h-5 text-lydian-primary" />
+                            <X className="w-5 h-5 text-blue-500" />
                             }
-                              <span className="text-sm text-lydian-text-muted">
+                              <span className="text-sm text-gray-300">
                                 {property.partiesAllowed ? 'Parti yapılabilir' : 'Parti yapılamaz'}
                               </span>
                             </div>
                             <div className="flex items-center gap-2">
                               {property.childrenAllowed ?
-                            <Check className="w-5 h-5 text-lydian-success" /> :
+                            <Check className="w-5 h-5 text-green-500" /> :
 
-                            <X className="w-5 h-5 text-lydian-primary" />
+                            <X className="w-5 h-5 text-blue-500" />
                             }
-                              <span className="text-sm text-lydian-text-muted">
+                              <span className="text-sm text-gray-300">
                                 {property.childrenAllowed ? 'Çocuklar kabul edilir' : 'Çocuklar kabul edilmez'}
                               </span>
                             </div>
                           </div>
                         </div>
 
-                        <div className="bg-lydian-glass-dark rounded-xl p-4">
-                          <h3 className="font-semibold text-lydian-text-inverse mb-3">Giriş & Çıkış Kuralları</h3>
+                        <div className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-xl p-4">
+                          <h3 className="font-semibold text-white mb-3">Giriş & Çıkış Kuralları</h3>
                           <div className="space-y-2">
                             <div className="flex items-start gap-2">
-                              <Clock className="w-5 h-5 text-lydian-text-dim mt-0.5" />
+                              <Clock className="w-5 h-5 text-gray-400 mt-0.5" />
                               <div>
-                                <p className="text-sm font-semibold text-lydian-text-inverse">Giriş Saati</p>
-                                <p className="text-sm text-lydian-text-dim">{property.checkInTime}</p>
+                                <p className="text-sm font-semibold text-white">Giriş Saati</p>
+                                <p className="text-sm text-gray-400">{property.checkInTime}</p>
                               </div>
                             </div>
                             <div className="flex items-start gap-2">
-                              <Clock className="w-5 h-5 text-lydian-text-dim mt-0.5" />
+                              <Clock className="w-5 h-5 text-gray-400 mt-0.5" />
                               <div>
-                                <p className="text-sm font-semibold text-lydian-text-inverse">Çıkış Saati</p>
-                                <p className="text-sm text-lydian-text-dim">{property.checkOutTime}</p>
+                                <p className="text-sm font-semibold text-white">Çıkış Saati</p>
+                                <p className="text-sm text-gray-400">{property.checkOutTime}</p>
                               </div>
                             </div>
                             <div className="flex items-start gap-2">
-                              <Calendar className="w-5 h-5 text-lydian-text-dim mt-0.5" />
+                              <Calendar className="w-5 h-5 text-gray-400 mt-0.5" />
                               <div>
-                                <p className="text-sm font-semibold text-lydian-text-inverse">Minimum Konaklama</p>
-                                <p className="text-sm text-lydian-text-dim">{property.minimumStay} gece</p>
+                                <p className="text-sm font-semibold text-white">Minimum Konaklama</p>
+                                <p className="text-sm text-gray-400">{property.minimumStay} gece</p>
                               </div>
                             </div>
                           </div>
@@ -768,8 +768,8 @@ const RentalBookingPage = () => {
                           className="w-5 h-5 mt-1 text-purple-600 rounded focus:ring-2 focus:ring-purple-500" />
 
                           <div>
-                            <p className="font-semibold text-lydian-text-inverse">Ev kurallarını okudum ve kabul ediyorum</p>
-                            <p className="text-sm text-lydian-text-dim mt-1">
+                            <p className="font-semibold text-white">Ev kurallarını okudum ve kabul ediyorum</p>
+                            <p className="text-sm text-gray-400 mt-1">
                               Yukarıda belirtilen tüm kurallara uyacağımı taahhüt ediyorum.
                             </p>
                           </div>
@@ -778,7 +778,7 @@ const RentalBookingPage = () => {
 
                       {errors.rulesAccepted &&
                     <div className="p-4 bg-lydian-error-lighter border border-red-200 rounded-xl">
-                          <p className="text-lydian-primary-dark text-sm flex items-center gap-2">
+                          <p className="text-blue-600 text-sm flex items-center gap-2">
                             <AlertCircle className="w-5 h-5" />
                             {errors.rulesAccepted}
                           </p>
@@ -790,14 +790,14 @@ const RentalBookingPage = () => {
                   {/* Step 4: Contact & Special Requests */}
                   {currentStep === 4 &&
                   <div>
-                      <h2 className="text-2xl font-bold text-lydian-text-inverse mb-6">İletişim Bilgileri</h2>
+                      <h2 className="text-2xl font-bold text-white mb-6">İletişim Bilgileri</h2>
 
                       <div className="space-y-6 mb-6">
                         <div>
-                          <h3 className="font-semibold text-lydian-text-inverse mb-4">Birincil Misafir</h3>
+                          <h3 className="font-semibold text-white mb-4">Birincil Misafir</h3>
                           <div className="space-y-4">
                             <div>
-                              <label className="block text-sm font-semibold text-lydian-text-muted mb-2">
+                              <label className="block text-sm font-semibold text-gray-300 mb-2">
                                 <User className="w-4 h-4 inline mr-2" />
                                 Ad Soyad
                               </label>
@@ -816,7 +816,7 @@ const RentalBookingPage = () => {
                             </div>
 
                             <div>
-                              <label className="block text-sm font-semibold text-lydian-text-muted mb-2">
+                              <label className="block text-sm font-semibold text-gray-300 mb-2">
                                 <Mail className="w-4 h-4 inline mr-2" />
                                 E-posta
                               </label>
@@ -835,7 +835,7 @@ const RentalBookingPage = () => {
                             </div>
 
                             <div>
-                              <label className="block text-sm font-semibold text-lydian-text-muted mb-2">
+                              <label className="block text-sm font-semibold text-gray-300 mb-2">
                                 <Phone className="w-4 h-4 inline mr-2" />
                                 Telefon
                               </label>
@@ -855,11 +855,11 @@ const RentalBookingPage = () => {
                           </div>
                         </div>
 
-                        <div className="border-t border-lydian-border-light/10 pt-6">
-                          <h3 className="font-semibold text-lydian-text-inverse mb-4">Acil Durum İletişim</h3>
+                        <div className="border-t border-white/20/10 pt-6">
+                          <h3 className="font-semibold text-white mb-4">Acil Durum İletişim</h3>
                           <div className="space-y-4">
                             <div>
-                              <label className="block text-sm font-semibold text-lydian-text-muted mb-2">
+                              <label className="block text-sm font-semibold text-gray-300 mb-2">
                                 <User className="w-4 h-4 inline mr-2" />
                                 Ad Soyad
                               </label>
@@ -878,7 +878,7 @@ const RentalBookingPage = () => {
                             </div>
 
                             <div>
-                              <label className="block text-sm font-semibold text-lydian-text-muted mb-2">
+                              <label className="block text-sm font-semibold text-gray-300 mb-2">
                                 <Phone className="w-4 h-4 inline mr-2" />
                                 Telefon
                               </label>
@@ -898,16 +898,16 @@ const RentalBookingPage = () => {
                           </div>
                         </div>
 
-                        <div className="border-t border-lydian-border-light/10 pt-6">
-                          <h3 className="font-semibold text-lydian-text-inverse mb-4">Özel İstekler (İsteğe Bağlı)</h3>
+                        <div className="border-t border-white/20/10 pt-6">
+                          <h3 className="font-semibold text-white mb-4">Özel İstekler (İsteğe Bağlı)</h3>
                           <textarea
                           value={specialRequests}
                           onChange={(e) => setSpecialRequests(e.target.value)}
                           placeholder="Alerjiler, özel ihtiyaçlar, erken giriş talebi vb..."
                           rows={4}
-                          className="w-full px-4 py-3 border border-lydian-border-light rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500" />
+                          className="w-full px-4 py-3 border border-white/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500" />
 
-                          <p className="text-xs text-lydian-text-muted mt-1">
+                          <p className="text-xs text-gray-300 mt-1">
                             Özel istekleriniz ev sahibine iletilecektir, ancak garanti edilmez.
                           </p>
                         </div>
@@ -918,12 +918,12 @@ const RentalBookingPage = () => {
                   {/* Step 5: Review & Confirm */}
                   {currentStep === 5 &&
                   <div>
-                      <h2 className="text-2xl font-bold text-lydian-text-inverse mb-6">Rezervasyonu Onaylayın</h2>
+                      <h2 className="text-2xl font-bold text-white mb-6">Rezervasyonu Onaylayın</h2>
 
                       <div className="space-y-6">
                         {/* Property Summary */}
-                        <div className="bg-lydian-glass-dark rounded-xl p-4">
-                          <h3 className="font-semibold text-lydian-text-inverse mb-3">Özellik Bilgileri</h3>
+                        <div className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-xl p-4">
+                          <h3 className="font-semibold text-white mb-3">Özellik Bilgileri</h3>
                           <div className="flex gap-4">
                             <img
                             src={property.mainImage}
@@ -931,41 +931,41 @@ const RentalBookingPage = () => {
                             className="w-24 h-24 object-cover rounded-lg" />
 
                             <div>
-                              <p className="font-bold text-lydian-text-inverse">{property.title}</p>
-                              <p className="text-sm text-lydian-text-dim">
+                              <p className="font-bold text-white">{property.title}</p>
+                              <p className="text-sm text-gray-400">
                                 {property.district}, {property.city}
                               </p>
                               <div className="flex items-center gap-2 mt-2">
                                 <Star className="w-4 h-4 text-yellow-400 fill-yellow-400" />
                                 <span className="text-sm font-semibold">{parseFloat(property.overall).toFixed(1)}</span>
-                                <span className="text-sm text-lydian-text-dim">({property.reviewCount} değerlendirme)</span>
+                                <span className="text-sm text-gray-400">({property.reviewCount} değerlendirme)</span>
                               </div>
                             </div>
                           </div>
                         </div>
 
                         {/* Dates & Guests */}
-                        <div className="bg-lydian-glass-dark rounded-xl p-4">
-                          <h3 className="font-semibold text-lydian-text-inverse mb-3">Rezervasyon Detayları</h3>
+                        <div className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-xl p-4">
+                          <h3 className="font-semibold text-white mb-3">Rezervasyon Detayları</h3>
                           <div className="space-y-2 text-sm">
                             <div className="flex justify-between">
-                              <span className="text-lydian-text-dim">Giriş:</span>
+                              <span className="text-gray-400">Giriş:</span>
                               <span className="font-semibold">{new Date(checkInDate).toLocaleDateString('tr-TR')}</span>
                             </div>
                             <div className="flex justify-between">
-                              <span className="text-lydian-text-dim">Çıkış:</span>
+                              <span className="text-gray-400">Çıkış:</span>
                               <span className="font-semibold">{new Date(checkOutDate).toLocaleDateString('tr-TR')}</span>
                             </div>
                             <div className="flex justify-between">
-                              <span className="text-lydian-text-dim">Gece:</span>
+                              <span className="text-gray-400">Gece:</span>
                               <span className="font-semibold">{nights} gece</span>
                             </div>
                             <div className="flex justify-between">
-                              <span className="text-lydian-text-dim">Misafirler:</span>
+                              <span className="text-gray-400">Misafirler:</span>
                               <span className="font-semibold">{totalGuests} kişi</span>
                             </div>
                             <div className="flex justify-between">
-                              <span className="text-lydian-text-dim">Amaç:</span>
+                              <span className="text-gray-400">Amaç:</span>
                               <span className="font-semibold">
                                 {purposeOfStay === 'leisure' ? 'Tatil' : purposeOfStay === 'business' ? 'İş' : 'Diğer'}
                               </span>
@@ -974,19 +974,19 @@ const RentalBookingPage = () => {
                         </div>
 
                         {/* Contact Info */}
-                        <div className="bg-lydian-glass-dark rounded-xl p-4">
-                          <h3 className="font-semibold text-lydian-text-inverse mb-3">İletişim Bilgileri</h3>
+                        <div className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-xl p-4">
+                          <h3 className="font-semibold text-white mb-3">İletişim Bilgileri</h3>
                           <div className="space-y-2 text-sm">
                             <div className="flex justify-between">
-                              <span className="text-lydian-text-dim">Misafir:</span>
+                              <span className="text-gray-400">Misafir:</span>
                               <span className="font-semibold">{primaryGuestName}</span>
                             </div>
                             <div className="flex justify-between">
-                              <span className="text-lydian-text-dim">E-posta:</span>
+                              <span className="text-gray-400">E-posta:</span>
                               <span className="font-semibold">{primaryGuestEmail}</span>
                             </div>
                             <div className="flex justify-between">
-                              <span className="text-lydian-text-dim">Telefon:</span>
+                              <span className="text-gray-400">Telefon:</span>
                               <span className="font-semibold">{primaryGuestPhone}</span>
                             </div>
                           </div>
@@ -994,14 +994,14 @@ const RentalBookingPage = () => {
 
                         {/* Special Requests */}
                         {specialRequests &&
-                      <div className="bg-lydian-glass-dark rounded-xl p-4">
-                            <h3 className="font-semibold text-lydian-text-inverse mb-3">Özel İstekler</h3>
-                            <p className="text-sm text-lydian-text-muted">{specialRequests}</p>
+                      <div className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-xl p-4">
+                            <h3 className="font-semibold text-white mb-3">Özel İstekler</h3>
+                            <p className="text-sm text-gray-300">{specialRequests}</p>
                           </div>
                       }
 
                         {/* Cancellation Policy */}
-                        <div className="bg-lydian-warning-lighter rounded-xl p-4 border border-yellow-200">
+                        <div className="bg-yellow-500-lighter rounded-xl p-4 border border-yellow-200">
                           <h3 className="font-semibold text-yellow-900 mb-2">İptal Politikası</h3>
                           <p className="text-sm text-yellow-800">
                             Ücretsiz iptal: Giriş tarihinden 7 gün öncesine kadar ücretsiz iptal edilebilir.
@@ -1013,11 +1013,11 @@ const RentalBookingPage = () => {
                   }
 
                   {/* Navigation Buttons */}
-                  <div className="flex items-center gap-4 mt-8 pt-6 border-t border-lydian-border-light/10">
+                  <div className="flex items-center gap-4 mt-8 pt-6 border-t border-white/20/10">
                     {currentStep > 1 &&
                     <button
                       onClick={handlePrevious}
-                      className="flex items-center gap-2 px-6 py-3 bg-lydian-glass-dark-medium hover:bg-lydian-bg-active rounded-xl font-semibold transition-all">
+                      className="flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-xl border border-white/20 hover:bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl font-semibold transition-all">
 
                         <ChevronLeft className="w-5 h-5" />
                         Geri
@@ -1027,7 +1027,7 @@ const RentalBookingPage = () => {
                     {currentStep < 5 ?
                     <button
                       onClick={handleNext}
-                      className="flex items-center gap-2 ml-auto px-8 py-3 bg-gradient-to-r from-lydian-secondary to-pink-600 text-lydian-text-inverse rounded-xl font-semibold hover:shadow-lg transition-all">
+                      className="flex items-center gap-2 ml-auto px-8 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-xl font-semibold hover:shadow-lg transition-all">
 
                         İleri
                         <ChevronRight className="w-5 h-5" />
@@ -1035,7 +1035,7 @@ const RentalBookingPage = () => {
 
                     <button
                       onClick={handleProceedToCheckout}
-                      className="flex items-center gap-2 ml-auto px-8 py-3 bg-gradient-to-r from-lydian-success to-lydian-success text-lydian-text-inverse rounded-xl font-bold hover:shadow-lg transition-all">
+                      className="flex items-center gap-2 ml-auto px-8 py-3 bg-gradient-to-r from-lydian-success to-lydian-success text-white rounded-xl font-bold hover:shadow-lg transition-all">
 
                         <CreditCard className="w-5 h-5" />
                         Ödemeye Geç
@@ -1050,14 +1050,14 @@ const RentalBookingPage = () => {
             <div className="lg:col-span-1">
               <div className="sticky top-24">
                 {/* Property Card */}
-                <div className="bg-lydian-bg-hover rounded-2xl shadow-xl p-6 mb-6">
+                <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-2xl shadow-xl p-6 mb-6">
                   <img
                     src={property.mainImage}
                     alt={property.title}
                     className="w-full h-48 object-cover rounded-xl mb-4" />
 
-                  <h3 className="font-bold text-lg text-lydian-text-inverse mb-2">{property.title}</h3>
-                  <p className="text-sm text-lydian-text-dim mb-4">
+                  <h3 className="font-bold text-lg text-white mb-2">{property.title}</h3>
+                  <p className="text-sm text-gray-400 mb-4">
                     <MapPin className="w-4 h-4 inline mr-1" />
                     {property.district}, {property.city}
                   </p>
@@ -1065,10 +1065,10 @@ const RentalBookingPage = () => {
                   <div className="flex items-center gap-2 mb-4">
                     <Star className="w-5 h-5 text-yellow-400 fill-yellow-400" />
                     <span className="font-semibold">{parseFloat(property.overall).toFixed(1)}</span>
-                    <span className="text-sm text-lydian-text-dim">({property.reviewCount} değerlendirme)</span>
+                    <span className="text-sm text-gray-400">({property.reviewCount} değerlendirme)</span>
                   </div>
 
-                  <div className="flex items-center gap-4 text-sm text-lydian-text-dim">
+                  <div className="flex items-center gap-4 text-sm text-gray-400">
                     <div className="flex items-center gap-1">
                       <Users className="w-4 h-4" />
                       {property.guests}
@@ -1083,30 +1083,30 @@ const RentalBookingPage = () => {
                     </div>
                   </div>
 
-                  <div className="mt-4 pt-4 border-t border-lydian-border-light/10">
-                    <p className="text-xs text-lydian-text-dim mb-2">Özellikler:</p>
+                  <div className="mt-4 pt-4 border-t border-white/20/10">
+                    <p className="text-xs text-gray-400 mb-2">Özellikler:</p>
                     <div className="flex flex-wrap gap-2">
                       {property.wifi &&
-                      <div className="px-2 py-1 bg-lydian-primary-lighter rounded-lg text-xs flex items-center gap-1">
-                          <Wifi className="w-3 h-3 text-lydian-primary" />
+                      <div className="px-2 py-1 bg-blue-500/10er rounded-lg text-xs flex items-center gap-1">
+                          <Wifi className="w-3 h-3 text-blue-500" />
                           WiFi
                         </div>
                       }
                       {property.pool &&
-                      <div className="px-2 py-1 bg-lydian-primary-lighter rounded-lg text-xs flex items-center gap-1">
-                          <Waves className="w-3 h-3 text-lydian-primary" />
+                      <div className="px-2 py-1 bg-blue-500/10er rounded-lg text-xs flex items-center gap-1">
+                          <Waves className="w-3 h-3 text-blue-500" />
                           Havuz
                         </div>
                       }
                       {property.parking &&
-                      <div className="px-2 py-1 bg-lydian-primary-lighter rounded-lg text-xs flex items-center gap-1">
-                          <Car className="w-3 h-3 text-lydian-primary" />
+                      <div className="px-2 py-1 bg-blue-500/10er rounded-lg text-xs flex items-center gap-1">
+                          <Car className="w-3 h-3 text-blue-500" />
                           Otopark
                         </div>
                       }
                       {property.seaview &&
-                      <div className="px-2 py-1 bg-lydian-primary-lighter rounded-lg text-xs flex items-center gap-1">
-                          <Eye className="w-3 h-3 text-lydian-primary" />
+                      <div className="px-2 py-1 bg-blue-500/10er rounded-lg text-xs flex items-center gap-1">
+                          <Eye className="w-3 h-3 text-blue-500" />
                           Deniz Manzarası
                         </div>
                       }
@@ -1116,33 +1116,33 @@ const RentalBookingPage = () => {
 
                 {/* Price Breakdown */}
                 {nights > 0 &&
-                <div className="bg-lydian-bg-hover rounded-2xl shadow-xl p-6">
-                    <h3 className="font-bold text-lg text-lydian-text-inverse mb-4">Fiyat Detayları</h3>
+                <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-2xl shadow-xl p-6">
+                    <h3 className="font-bold text-lg text-white mb-4">Fiyat Detayları</h3>
 
                     <div className="space-y-3">
                       <div className="flex justify-between text-sm">
-                        <span className="text-lydian-text-dim">
+                        <span className="text-gray-400">
                           ₺{pricing.nightlyRate.toLocaleString('tr-TR')} × {nights} gece
                         </span>
                         <span className="font-semibold">₺{pricing.subtotal.toLocaleString('tr-TR')}</span>
                       </div>
 
                       <div className="flex justify-between text-sm">
-                        <span className="text-lydian-text-dim">Temizlik ücreti</span>
+                        <span className="text-gray-400">Temizlik ücreti</span>
                         <span className="font-semibold">₺{pricing.cleaningFee.toLocaleString('tr-TR')}</span>
                       </div>
 
                       <div className="flex justify-between text-sm">
-                        <span className="text-lydian-text-dim">Hizmet bedeli</span>
+                        <span className="text-gray-400">Hizmet bedeli</span>
                         <span className="font-semibold">₺{pricing.serviceFee.toLocaleString('tr-TR')}</span>
                       </div>
 
                       <div className="flex justify-between text-sm">
-                        <span className="text-lydian-text-dim">Vergiler</span>
+                        <span className="text-gray-400">Vergiler</span>
                         <span className="font-semibold">₺{pricing.tax.toLocaleString('tr-TR')}</span>
                       </div>
 
-                      <div className="pt-3 border-t-2 border-lydian-border-light">
+                      <div className="pt-3 border-t-2 border-white/20">
                         <div className="flex justify-between">
                           <span className="font-bold text-lg">Toplam</span>
                           <span className="font-bold text-lg text-purple-600">
@@ -1152,9 +1152,9 @@ const RentalBookingPage = () => {
                       </div>
                     </div>
 
-                    <div className="mt-4 pt-4 border-t border-lydian-border-light/10">
-                      <div className="flex items-start gap-2 text-xs text-lydian-text-dim">
-                        <Shield className="w-4 h-4 text-lydian-success mt-0.5" />
+                    <div className="mt-4 pt-4 border-t border-white/20/10">
+                      <div className="flex items-start gap-2 text-xs text-gray-400">
+                        <Shield className="w-4 h-4 text-green-500 mt-0.5" />
                         <p>Rezervasyonunuz güvenli ödeme sistemi ile korunmaktadır.</p>
                       </div>
                     </div>
@@ -1164,15 +1164,15 @@ const RentalBookingPage = () => {
                 {/* Host Info */}
                 <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-6 mt-6">
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="w-12 h-12 bg-gradient-to-br from-lydian-secondary to-pink-600 rounded-full flex items-center justify-center text-lydian-text-inverse font-bold text-lg">
+                    <div className="w-12 h-12 bg-gradient-to-br from-purple-600 to-pink-600 rounded-full flex items-center justify-center text-white font-bold text-lg">
                       {property.hostName.charAt(0)}
                     </div>
                     <div>
-                      <p className="font-bold text-lydian-text-inverse">{property.hostName}</p>
-                      <p className="text-sm text-lydian-text-dim">Ev Sahibi</p>
+                      <p className="font-bold text-white">{property.hostName}</p>
+                      <p className="text-sm text-gray-400">Ev Sahibi</p>
                     </div>
                   </div>
-                  <p className="text-xs text-lydian-text-dim">
+                  <p className="text-xs text-gray-400">
                     Sorularınız için rezervasyon sonrası ev sahibi ile iletişime geçebilirsiniz.
                   </p>
                 </div>

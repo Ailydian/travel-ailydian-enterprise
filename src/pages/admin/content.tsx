@@ -57,23 +57,23 @@ export default function AdminContent() {
           {/* Sidebar */}
           <aside className="w-64 bg-gray-800 border-r border-gray-700 min-h-screen p-6">
             <div className="mb-8">
-              <h2 className="text-2xl font-bold text-lydian-text-inverse mb-2">LyDian Admin</h2>
-              <p className="text-sm text-lydian-text-muted">{adminData?.email}</p>
+              <h2 className="text-2xl font-bold text-white mb-2">LyDian Admin</h2>
+              <p className="text-sm text-gray-300">{adminData?.email}</p>
             </div>
             <nav className="space-y-2">
-              <Link href="/admin/dashboard" className="flex items-center space-x-3 text-lydian-text-dim hover:text-lydian-text-inverse hover:bg-gray-700/80 rounded-lg px-3 py-2">
+              <Link href="/admin/dashboard" className="flex items-center space-x-3 text-gray-300 hover:text-white hover:bg-gray-700/80 rounded-lg px-3 py-2">
                 Dashboard
               </Link>
-              <Link href="/admin/locations" className="flex items-center space-x-3 text-lydian-text-dim hover:text-lydian-text-inverse hover:bg-gray-700/80 rounded-lg px-3 py-2">
+              <Link href="/admin/locations" className="flex items-center space-x-3 text-gray-300 hover:text-white hover:bg-gray-700/80 rounded-lg px-3 py-2">
                 Lokasyonlar
               </Link>
-              <Link href="/admin/users" className="flex items-center space-x-3 text-lydian-text-dim hover:text-lydian-text-inverse hover:bg-gray-700/80 rounded-lg px-3 py-2">
+              <Link href="/admin/users" className="flex items-center space-x-3 text-gray-300 hover:text-white hover:bg-gray-700/80 rounded-lg px-3 py-2">
                 Kullanıcılar
               </Link>
-              <Link href="/admin/reviews" className="flex items-center space-x-3 text-lydian-text-dim hover:text-lydian-text-inverse hover:bg-gray-700/80 rounded-lg px-3 py-2">
+              <Link href="/admin/reviews" className="flex items-center space-x-3 text-gray-300 hover:text-white hover:bg-gray-700/80 rounded-lg px-3 py-2">
                 İncelemeler
               </Link>
-              <Link href="/admin/content" className="flex items-center space-x-3 text-lydian-text-inverse rounded-lg px-3 py-2" style={{ background: `linear-gradient(45deg, ${AILYDIAN_COLORS.primary}40, ${AILYDIAN_COLORS.secondary}40)`, border: `1px solid ${AILYDIAN_COLORS.primary}60` }}>
+              <Link href="/admin/content" className="flex items-center space-x-3 text-white rounded-lg px-3 py-2" style={{ background: `linear-gradient(45deg, ${AILYDIAN_COLORS.primary}40, ${AILYDIAN_COLORS.secondary}40)`, border: `1px solid ${AILYDIAN_COLORS.primary}60` }}>
                 İçerik Yönetimi
               </Link>
             </nav>
@@ -83,8 +83,8 @@ export default function AdminContent() {
           <main className="flex-1 p-8">
             <div className="max-w-7xl mx-auto">
               <div className="flex items-center justify-between mb-8">
-                <h1 className="text-3xl font-bold text-lydian-text-inverse">İçerik Yönetimi</h1>
-                <button onClick={loadContent} className="flex items-center gap-2 px-4 py-2 bg-lydian-primary text-lydian-text-inverse rounded-lg hover:bg-lydian-primary-dark">
+                <h1 className="text-3xl font-bold text-white">İçerik Yönetimi</h1>
+                <button onClick={loadContent} className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700">
                   <RefreshCw className="w-4 h-4" />
                   Yenile
                 </button>
@@ -96,7 +96,7 @@ export default function AdminContent() {
                 <button
                   key={f}
                   onClick={() => setFilter(f)}
-                  className={`px-4 py-2 rounded-lg ${filter === f ? 'bg-lydian-primary text-white' : 'bg-gray-800 text-lydian-text-dim hover:bg-gray-700'}`}>
+                  className={`px-4 py-2 rounded-lg ${filter === f ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white' : 'bg-gray-800 text-gray-300 hover:bg-gray-700'}`}>
 
                     {f === 'all' ? 'Tümü' : f === 'published' ? 'Yayında' : f === 'pending' ? 'Beklemede' : 'İşaretli'}
                   </button>
@@ -108,21 +108,21 @@ export default function AdminContent() {
                 <table className="w-full">
                   <thead className="bg-gray-700">
                     <tr>
-                      <th className="px-6 py-4 text-left text-lydian-text-dim">Başlık</th>
-                      <th className="px-6 py-4 text-left text-lydian-text-dim">Tür</th>
-                      <th className="px-6 py-4 text-left text-lydian-text-dim">Durum</th>
-                      <th className="px-6 py-4 text-left text-lydian-text-dim">İşlemler</th>
+                      <th className="px-6 py-4 text-left text-gray-300">Başlık</th>
+                      <th className="px-6 py-4 text-left text-gray-300">Tür</th>
+                      <th className="px-6 py-4 text-left text-gray-300">Durum</th>
+                      <th className="px-6 py-4 text-left text-gray-300">İşlemler</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-gray-700">
                     {contentItems.map((item: any) =>
                     <tr key={item.id} className="hover:bg-gray-700/50">
-                        <td className="px-6 py-4 text-lydian-text-inverse">{item.title}</td>
-                        <td className="px-6 py-4 text-lydian-text-dim">{item.type}</td>
+                        <td className="px-6 py-4 text-white">{item.title}</td>
+                        <td className="px-6 py-4 text-gray-300">{item.type}</td>
                         <td className="px-6 py-4">
                           <span className={`px-3 py-1 rounded-full text-sm ${
                         item.status === 'published' ? 'bg-green-900 text-green-300' :
-                        item.status === 'flagged' ? 'bg-red-900 text-red-300' :
+                        item.status === 'flagged' ? 'bg-purple-600 text-purple-300' :
                         'bg-yellow-900 text-yellow-300'}`
                         }>
                             {item.status}
@@ -130,13 +130,13 @@ export default function AdminContent() {
                         </td>
                         <td className="px-6 py-4">
                           <div className="flex gap-2">
-                            <button className="p-2 bg-lydian-primary text-lydian-text-inverse rounded hover:bg-lydian-primary-dark">
+                            <button className="p-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded hover:from-blue-700 hover:to-purple-700">
                               <Eye className="w-4 h-4" />
                             </button>
-                            <button className="p-2 bg-lydian-success text-lydian-text-inverse rounded hover:bg-lydian-success-hover">
+                            <button className="p-2 bg-green-600 text-white rounded hover:bg-green-700">
                               <CheckCircle className="w-4 h-4" />
                             </button>
-                            <button className="p-2 bg-lydian-primary text-lydian-text-inverse rounded hover:bg-lydian-primary-dark">
+                            <button className="p-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded hover:from-blue-700 hover:to-purple-700">
                               <Trash2 className="w-4 h-4" />
                             </button>
                           </div>

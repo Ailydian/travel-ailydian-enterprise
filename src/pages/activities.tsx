@@ -394,7 +394,7 @@ export default function Activities() {
       <div className="min-h-screen" style={{ backgroundColor: 'white' }}>
 
         {/* Hero Section */}
-        <div className="text-lydian-text-inverse py-16" style={{ background: 'linear-gradient(to bottom, #87CEEB 0%, #4682B4 50%, #0ea5e9 100%)' }}>
+        <div className="text-white py-16" style={{ background: 'linear-gradient(to bottom, #87CEEB 0%, #4682B4 50%, #0ea5e9 100%)' }}>
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <Zap className="h-16 w-16 mx-auto mb-4" />
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
@@ -406,11 +406,11 @@ export default function Activities() {
             
             {/* Search Bar */}
             <div className="relative max-w-2xl mx-auto">
-              <Zap className="absolute left-3 top-3 h-5 w-5 text-lydian-text-muted" />
+              <Zap className="absolute left-3 top-3 h-5 w-5 text-gray-300" />
               <input
                 type="text"
                 placeholder="Aktivite ara..."
-                className="w-full pl-10 pr-4 py-3 rounded-lg text-lydian-text-inverse focus:ring-2 focus:ring-white focus:outline-none"
+                className="w-full pl-10 pr-4 py-3 rounded-lg text-white focus:ring-2 focus:ring-white focus:outline-none"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)} />
 
@@ -420,19 +420,19 @@ export default function Activities() {
 
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           {/* Filter Header */}
-          <div className="bg-lydian-bg-hover dark:bg-gray-800 rounded-lg shadow-md p-6 mb-4">
+          <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl dark:bg-gray-800 rounded-lg shadow-md p-6 mb-4">
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-2xl font-bold text-lydian-text-inverse dark:text-lydian-text-inverse">
+              <h2 className="text-2xl font-bold text-white dark:text-white">
                 {filteredAndSortedActivities.length} Aktivite Bulundu
               </h2>
               <button
                 onClick={() => setShowFilters(!showFilters)}
-                className="flex items-center gap-2 px-4 py-2 border border-lydian-border-medium rounded-lg hover:bg-lydian-glass-dark transition-colors relative">
+                className="flex items-center gap-2 px-4 py-2 border border-white/30 rounded-lg hover:bg-gradient-to-br from-slate-900 via-black to-slate-800 transition-colors relative">
 
                 <SlidersHorizontal className="w-4 h-4" />
                 Gelişmiş Filtreler
                 {activeFilterCount > 0 &&
-                <span className="absolute -top-2 -right-2 px-2 py-0.5 bg-orange-500 text-lydian-text-inverse rounded-full text-xs font-bold">
+                <span className="absolute -top-2 -right-2 px-2 py-0.5 bg-orange-500 text-white rounded-full text-xs font-bold">
                     {activeFilterCount}
                   </span>
                 }
@@ -453,11 +453,11 @@ export default function Activities() {
           </div>
 
           {/* Quick Filters */}
-          <div className="bg-lydian-bg-hover dark:bg-gray-800 rounded-lg shadow-md p-6 mb-8">
+          <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl dark:bg-gray-800 rounded-lg shadow-md p-6 mb-8">
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
               {/* Category Filter */}
               <div>
-                <label className="block text-sm font-medium text-lydian-text-muted dark:text-lydian-text-dim mb-2">
+                <label className="block text-sm font-medium text-gray-300 dark:text-gray-400 mb-2">
                   Kategori
                 </label>
                 <div className="flex flex-wrap gap-2">
@@ -470,7 +470,7 @@ export default function Activities() {
                         className={`flex items-center px-3 py-1 rounded-full text-sm font-medium transition-colors ${
                         selectedCategory === category.id ?
                         'bg-orange-500 text-white' :
-                        'bg-lydian-bg-surface-raised dark:bg-gray-700 text-gray-200 dark:text-lydian-text-dim hover:bg-orange-100 dark:hover:bg-gray-600'}`
+                        'bg-lydian-bg-surface-raised dark:bg-gray-700 text-gray-200 dark:text-gray-400 hover:bg-orange-100 dark:hover:bg-gray-600'}`
                         }>
 
                         <IconComponent className="h-3 w-3 mr-1" />
@@ -482,7 +482,7 @@ export default function Activities() {
                 <select
                   value={selectedCategory}
                   onChange={(e) => setSelectedCategory(e.target.value)}
-                  className="w-full mt-2 px-3 py-2 bg-lydian-bg-hover dark:bg-gray-700 border border-lydian-border-medium dark:border-gray-600 rounded-lg text-sm focus:ring-2 focus:ring-orange-500 focus:border-lydian-border md:hidden">
+                  className="w-full mt-2 px-3 py-2 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl dark:bg-gray-700 border border-white/30 dark:border-gray-600 rounded-lg text-sm focus:ring-2 focus:ring-orange-500 focus:border-white/20 md:hidden">
 
                   {categories.map((category) =>
                   <option key={category.id} value={category.id}>
@@ -494,13 +494,13 @@ export default function Activities() {
 
               {/* Difficulty Filter */}
               <div>
-                <label className="block text-sm font-medium text-lydian-text-muted dark:text-lydian-text-dim mb-2">
+                <label className="block text-sm font-medium text-gray-300 dark:text-gray-400 mb-2">
                   Zorluk
                 </label>
                 <select
                   value={selectedDifficulty}
                   onChange={(e) => setSelectedDifficulty(e.target.value)}
-                  className="w-full px-3 py-2 bg-lydian-bg-hover dark:bg-gray-700 border border-lydian-border-medium dark:border-gray-600 rounded-lg text-sm focus:ring-2 focus:ring-orange-500 focus:border-lydian-border">
+                  className="w-full px-3 py-2 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl dark:bg-gray-700 border border-white/30 dark:border-gray-600 rounded-lg text-sm focus:ring-2 focus:ring-orange-500 focus:border-white/20">
 
                   {difficulties.map((difficulty) =>
                   <option key={difficulty} value={difficulty}>
@@ -512,13 +512,13 @@ export default function Activities() {
 
               {/* Duration Filter */}
               <div>
-                <label className="block text-sm font-medium text-lydian-text-muted dark:text-lydian-text-dim mb-2">
+                <label className="block text-sm font-medium text-gray-300 dark:text-gray-400 mb-2">
                   Süre
                 </label>
                 <select
                   value={selectedDuration}
                   onChange={(e) => setSelectedDuration(e.target.value)}
-                  className="w-full px-3 py-2 bg-lydian-bg-hover dark:bg-gray-700 border border-lydian-border-medium dark:border-gray-600 rounded-lg text-sm focus:ring-2 focus:ring-orange-500 focus:border-lydian-border">
+                  className="w-full px-3 py-2 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl dark:bg-gray-700 border border-white/30 dark:border-gray-600 rounded-lg text-sm focus:ring-2 focus:ring-orange-500 focus:border-white/20">
 
                   {durations.map((duration) =>
                   <option key={duration} value={duration}>
@@ -530,13 +530,13 @@ export default function Activities() {
 
               {/* Sort */}
               <div>
-                <label className="block text-sm font-medium text-lydian-text-muted dark:text-lydian-text-dim mb-2">
+                <label className="block text-sm font-medium text-gray-300 dark:text-gray-400 mb-2">
                   Sırala
                 </label>
                 <select
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value)}
-                  className="w-full px-3 py-2 bg-lydian-bg-hover dark:bg-gray-700 border border-lydian-border-medium dark:border-gray-600 rounded-lg text-sm focus:ring-2 focus:ring-orange-500 focus:border-lydian-border">
+                  className="w-full px-3 py-2 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl dark:bg-gray-700 border border-white/30 dark:border-gray-600 rounded-lg text-sm focus:ring-2 focus:ring-orange-500 focus:border-white/20">
 
                   <option value="popularity">Popülerlik</option>
                   <option value="price-low">Fiyat (Düşük)</option>
@@ -567,7 +567,7 @@ export default function Activities() {
                 {filteredAndSortedActivities.map((activity) => {
                   const CategoryIcon = getCategoryIcon(activity.category);
                   return (
-                    <div key={activity.id} className="bg-lydian-bg-hover dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden group hover:shadow-xl transition-all duration-300">
+                    <div key={activity.id} className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden group hover:shadow-xl transition-all duration-300">
                   <div className="relative">
                     <Image
                           src={activity.image}
@@ -579,26 +579,26 @@ export default function Activities() {
                     
                     <button
                           onClick={() => toggleFavorite(activity.id)}
-                          className="absolute top-3 right-3 p-2 bg-lydian-bg/90 rounded-full hover:bg-lydian-glass-dark transition-colors shadow-lg">
+                          className="absolute top-3 right-3 p-2 bg-white/10 rounded-full hover:bg-gradient-to-br from-slate-900 via-black to-slate-800 transition-colors shadow-lg">
 
                       <Heart
                             className={`h-5 w-5 ${
                             favorites.has(activity.id) ?
                             'text-red-500 fill-current' :
-                            'text-lydian-text-dim'}`
+                            'text-gray-400'}`
                             } />
 
                     </button>
 
                     {/* Category Badge */}
-                    <div className="absolute top-3 left-3 bg-orange-500 text-lydian-text-inverse px-2 py-1 rounded-full text-sm font-semibold flex items-center">
+                    <div className="absolute top-3 left-3 bg-orange-500 text-white px-2 py-1 rounded-full text-sm font-semibold flex items-center">
                       <CategoryIcon className="h-3 w-3 mr-1" />
                       {categories.find((cat) => cat.id === activity.category)?.name}
                     </div>
 
                     {/* Discount Badge */}
                     {activity.originalPrice &&
-                        <div className="absolute bottom-3 right-3 bg-lydian-error text-lydian-text-inverse px-2 py-1 rounded-full text-sm font-bold">
+                        <div className="absolute bottom-3 right-3 bg-lydian-error text-white px-2 py-1 rounded-full text-sm font-bold">
                         %{Math.round((parseInt(activity.originalPrice.replace(/[^\d]/g, '')) - parseInt(activity.price.replace(/[^\d]/g, ''))) / parseInt(activity.originalPrice.replace(/[^\d]/g, '')) * 100)} İndirim
                       </div>
                         }
@@ -611,49 +611,49 @@ export default function Activities() {
 
                   <div className="p-6">
                     <div className="flex items-start justify-between mb-2">
-                      <h3 className="text-xl font-semibold text-lydian-text-inverse dark:text-lydian-text-inverse line-clamp-2 flex-1">
+                      <h3 className="text-xl font-semibold text-white dark:text-white line-clamp-2 flex-1">
                         {activity.name}
                       </h3>
                       <div className="flex items-center ml-3">
                         <Star className="h-4 w-4 text-yellow-400 fill-current" />
-                        <span className="ml-1 text-sm font-semibold text-lydian-text-inverse dark:text-lydian-text-inverse">
+                        <span className="ml-1 text-sm font-semibold text-white dark:text-white">
                           {activity.rating}
                         </span>
                       </div>
                     </div>
 
-                    <p className="text-lydian-text-dim dark:text-lydian-text-muted mb-3 flex items-center">
+                    <p className="text-gray-400 dark:text-gray-300 mb-3 flex items-center">
                       <MapPin className="h-4 w-4 mr-1" />
                       {activity.location}
                     </p>
 
-                    <p className="text-sm text-lydian-text-dim dark:text-lydian-text-muted mb-4">
+                    <p className="text-sm text-gray-400 dark:text-gray-300 mb-4">
                       {activity.description}
                     </p>
 
                     {/* Activity Details */}
                     <div className="grid grid-cols-2 gap-3 mb-4 text-sm">
-                      <div className="flex items-center text-lydian-text-dim dark:text-lydian-text-muted">
+                      <div className="flex items-center text-gray-400 dark:text-gray-300">
                         <Clock className="h-4 w-4 mr-1" />
                         {activity.duration}
                       </div>
-                      <div className="flex items-center text-lydian-text-dim dark:text-lydian-text-muted">
+                      <div className="flex items-center text-gray-400 dark:text-gray-300">
                         <Users className="h-4 w-4 mr-1" />
                         {activity.groupSize}
                       </div>
-                      <div className="flex items-center text-lydian-text-dim dark:text-lydian-text-muted">
+                      <div className="flex items-center text-gray-400 dark:text-gray-300">
                         <Calendar className="h-4 w-4 mr-1" />
                         {activity.ageLimit}
                       </div>
-                      <div className="flex items-center text-lydian-text-dim dark:text-lydian-text-muted">
-                        <span className="text-lydian-success mr-1">🌟</span>
+                      <div className="flex items-center text-gray-400 dark:text-gray-300">
+                        <span className="text-green-500 mr-1">🌟</span>
                         {activity.bestTime}
                       </div>
                     </div>
 
                     {/* Highlights */}
                     <div className="mb-4">
-                      <h4 className="text-sm font-semibold text-lydian-text-muted dark:text-lydian-text-dim mb-2">Öne Çıkanlar:</h4>
+                      <h4 className="text-sm font-semibold text-gray-300 dark:text-gray-400 mb-2">Öne Çıkanlar:</h4>
                       <div className="flex flex-wrap gap-1">
                         {activity.highlights.slice(0, 2).map((highlight) =>
                             <span
@@ -664,7 +664,7 @@ export default function Activities() {
                           </span>
                             )}
                         {activity.highlights.length > 2 &&
-                            <span className="text-xs text-lydian-text-muted px-2 py-1">
+                            <span className="text-xs text-gray-300 px-2 py-1">
                             +{activity.highlights.length - 2} daha
                           </span>
                             }
@@ -673,30 +673,30 @@ export default function Activities() {
 
                     {/* Includes */}
                     <div className="mb-4">
-                      <h4 className="text-sm font-semibold text-lydian-text-muted dark:text-lydian-text-dim mb-2">Dahil Olanlar:</h4>
+                      <h4 className="text-sm font-semibold text-gray-300 dark:text-gray-400 mb-2">Dahil Olanlar:</h4>
                       <div className="flex flex-wrap gap-1">
                         {activity.includes.slice(0, 3).map((item) =>
                             <span
                               key={item}
-                              className="px-2 py-1 bg-lydian-success-light dark:bg-green-900 text-green-800 dark:text-green-200 text-xs rounded-full">
+                              className="px-2 py-1 bg-green-600-light dark:bg-green-900 text-green-800 dark:text-green-200 text-xs rounded-full">
 
                             ✓ {item}
                           </span>
                             )}
                         {activity.includes.length > 3 &&
-                            <span className="text-xs text-lydian-text-muted px-2 py-1">
+                            <span className="text-xs text-gray-300 px-2 py-1">
                             +{activity.includes.length - 3} daha
                           </span>
                             }
                       </div>
                     </div>
 
-                    <div className="border-t border-lydian-border-light pt-4">
+                    <div className="border-t border-white/20 pt-4">
                       <div className="flex items-center justify-between mb-3">
                         <div>
                           <div className="flex items-center space-x-2">
                             {activity.originalPrice &&
-                                <span className="text-sm text-lydian-text-muted line-through">
+                                <span className="text-sm text-gray-300 line-through">
                                 {activity.originalPrice}
                               </span>
                                 }
@@ -704,7 +704,7 @@ export default function Activities() {
                               {activity.price}
                             </span>
                           </div>
-                          <span className="text-xs text-lydian-text-muted">
+                          <span className="text-xs text-gray-300">
                             {activity.reviews.toLocaleString()} değerlendirme
                           </span>
                         </div>
@@ -719,7 +719,7 @@ export default function Activities() {
                         </button>
                         <button
                               onClick={() => handleReserve(activity)}
-                              className="flex-1 px-4 py-2 bg-orange-500 text-lydian-text-inverse rounded-lg font-semibold hover:bg-orange-600 transition-all hover:scale-105 active:scale-95">
+                              className="flex-1 px-4 py-2 bg-orange-500 text-white rounded-lg font-semibold hover:bg-orange-600 transition-all hover:scale-105 active:scale-95">
 
                           Rezervasyon
                         </button>
@@ -734,11 +734,11 @@ export default function Activities() {
               {/* No Results */}
               {filteredAndSortedActivities.length === 0 &&
               <div className="text-center py-16">
-              <Zap className="h-24 w-24 text-lydian-text-dim mx-auto mb-6" />
-              <h2 className="text-2xl font-bold text-lydian-text-inverse dark:text-lydian-text-inverse mb-4">
+              <Zap className="h-24 w-24 text-gray-400 mx-auto mb-6" />
+              <h2 className="text-2xl font-bold text-white dark:text-white mb-4">
                 Aradığınız kriterlerde aktivite bulunamadı
               </h2>
-              <p className="text-lydian-text-dim dark:text-lydian-text-muted mb-8">
+              <p className="text-gray-400 dark:text-gray-300 mb-8">
                 Arama kriterlerinizi değiştirerek tekrar deneyin
               </p>
               <button
@@ -748,7 +748,7 @@ export default function Activities() {
                     setSelectedDifficulty('Tümü');
                     setSelectedDuration('Tümü');
                   }}
-                  className="bg-orange-500 text-lydian-text-inverse px-6 py-3 rounded-lg hover:bg-orange-600 transition-colors font-semibold">
+                  className="bg-orange-500 text-white px-6 py-3 rounded-lg hover:bg-orange-600 transition-colors font-semibold">
 
                 Filtreleri Temizle
               </button>
@@ -762,7 +762,7 @@ export default function Activities() {
       {/* Toast Notification */}
       {showToast &&
       <div
-        className="fixed bottom-8 right-8 z-50 bg-lydian-success text-lydian-text-inverse px-6 py-4 rounded-xl shadow-2xl flex items-center gap-3 animate-in fade-in slide-in-from-bottom-4 duration-300">
+        className="fixed bottom-8 right-8 z-50 bg-green-600 text-white px-6 py-4 rounded-xl shadow-2xl flex items-center gap-3 animate-in fade-in slide-in-from-bottom-4 duration-300">
 
           <CheckCircle className="w-6 h-6" />
           <span className="font-medium">{toastMessage}</span>

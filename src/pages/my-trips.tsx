@@ -101,7 +101,7 @@ const tripStats = [
   title: 'Tamamlanan Seyahat',
   value: '8',
   icon: CheckCircle,
-  color: 'text-lydian-success'
+  color: 'text-green-500'
 },
 {
   title: 'Yaklaşan Seyahat',
@@ -119,7 +119,7 @@ const tripStats = [
   title: 'Sadakat Puanı',
   value: '1,250',
   icon: Star,
-  color: 'text-lydian-warning'
+  color: 'text-yellow-500'
 }];
 
 
@@ -198,7 +198,7 @@ export default function MyTrips() {
               </div>
               <Link
                 href="/"
-                className="ocean-button-secondary flex items-center">
+                className="bg-white/10 backdrop-blur-xl border border-white/20 text-white hover:bg-white/20 flex items-center">
 
                 <ArrowRight className="h-5 w-5 mr-2 rotate-180" />
                 Ana Sayfa&apos;ya Dön
@@ -208,7 +208,7 @@ export default function MyTrips() {
         </div>
 
         {/* Hero Section */}
-        <div className="text-lydian-text-inverse py-16" style={{ background: 'linear-gradient(to bottom, #87CEEB 0%, #4682B4 50%, #0ea5e9 100%)' }}>
+        <div className="text-white py-16" style={{ background: 'linear-gradient(to bottom, #87CEEB 0%, #4682B4 50%, #0ea5e9 100%)' }}>
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               Seyahatlerim
@@ -223,16 +223,16 @@ export default function MyTrips() {
           {/* Stats */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-8 sm:mb-12">
             {tripStats.map((stat, index) =>
-            <div key={index} className="bg-lydian-bg-hover dark:bg-gray-800 rounded-lg shadow-lg p-4 sm:p-6 text-center">
+            <div key={index} className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl dark:bg-gray-800 rounded-lg shadow-lg p-4 sm:p-6 text-center">
                 <stat.icon className={`h-6 w-6 sm:h-8 sm:w-8 mx-auto mb-2 sm:mb-3 ${stat.color}`} />
-                <div className="text-xl sm:text-2xl font-bold text-lydian-text-inverse dark:text-lydian-text-inverse mb-1">{stat.value}</div>
-                <div className="text-xs sm:text-sm text-lydian-text-dim dark:text-lydian-text-muted">{stat.title}</div>
+                <div className="text-xl sm:text-2xl font-bold text-white dark:text-white mb-1">{stat.value}</div>
+                <div className="text-xs sm:text-sm text-gray-400 dark:text-gray-300">{stat.title}</div>
               </div>
             )}
           </div>
 
           {/* Filters and Tabs */}
-          <div className="bg-lydian-bg-hover dark:bg-gray-800 rounded-lg shadow-lg p-6 mb-8">
+          <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl dark:bg-gray-800 rounded-lg shadow-lg p-6 mb-8">
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
               {/* Status Tabs */}
               <div className="flex flex-wrap gap-2">
@@ -247,8 +247,8 @@ export default function MyTrips() {
                   onClick={() => setSelectedTab(tab.key)}
                   className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                   selectedTab === tab.key ?
-                  'bg-lydian-primary text-white' :
-                  'bg-lydian-bg/10 dark:bg-gray-700 text-gray-200 dark:text-lydian-text-dim hover:bg-blue-50 dark:hover:bg-gray-600'}`
+                  'bg-gradient-to-r from-blue-600 to-purple-600 text-white' :
+                  'bg-lydian-bg/10 dark:bg-gray-700 text-gray-200 dark:text-gray-400 hover:bg-blue-50 dark:hover:bg-gray-600'}`
                   }>
 
                     {tab.label}
@@ -258,13 +258,13 @@ export default function MyTrips() {
 
               {/* Sort Dropdown */}
               <div className="flex items-center gap-2">
-                <label className="text-sm font-medium text-lydian-text-muted dark:text-lydian-text-dim">
+                <label className="text-sm font-medium text-gray-300 dark:text-gray-400">
                   Sırala:
                 </label>
                 <select
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value)}
-                  className="px-3 py-2 border border-lydian-border-medium dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-border dark:bg-gray-700 dark:text-lydian-text-inverse text-sm">
+                  className="px-3 py-2 border border-white/30 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-white/20 dark:bg-gray-700 dark:text-white text-sm">
 
                   <option value="date">Tarihe Göre</option>
                   <option value="price">Fiyata Göre</option>
@@ -280,7 +280,7 @@ export default function MyTrips() {
               const TypeIcon = getTypeIcon(trip.type);
 
               return (
-                <div key={trip.id} className="bg-lydian-bg-hover dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+                <div key={trip.id} className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden">
                   <div className="flex flex-col md:flex-row">
                     <div className="w-full md:w-1/3 relative flex-shrink-0">
                       <Image
@@ -295,48 +295,48 @@ export default function MyTrips() {
                           {getStatusText(trip.status)}
                         </span>
                       </div>
-                      <div className="absolute top-3 sm:top-4 right-3 sm:right-4 bg-lydian-bg/90 dark:bg-gray-800/90 p-1.5 sm:p-2 rounded-full">
-                        <TypeIcon className="h-3 w-3 sm:h-4 sm:w-4 text-lydian-text-muted dark:text-lydian-text-dim" />
+                      <div className="absolute top-3 sm:top-4 right-3 sm:right-4 bg-white/10 dark:bg-gray-800/90 p-1.5 sm:p-2 rounded-full">
+                        <TypeIcon className="h-3 w-3 sm:h-4 sm:w-4 text-gray-300 dark:text-gray-400" />
                       </div>
                     </div>
                     
                     <div className="md:w-2/3 p-6">
                       <div className="flex items-start justify-between mb-4">
                         <div>
-                          <h3 className="text-xl font-semibold text-lydian-text-inverse dark:text-lydian-text-inverse mb-2">
+                          <h3 className="text-xl font-semibold text-white dark:text-white mb-2">
                             {trip.title}
                           </h3>
-                          <div className="flex items-center text-lydian-text-dim dark:text-lydian-text-muted mb-2">
+                          <div className="flex items-center text-gray-400 dark:text-gray-300 mb-2">
                             <MapPin className="h-4 w-4 mr-2" />
                             {trip.destination}
                           </div>
-                          <div className="flex items-center text-lydian-text-dim dark:text-lydian-text-muted mb-2">
+                          <div className="flex items-center text-gray-400 dark:text-gray-300 mb-2">
                             <Calendar className="h-4 w-4 mr-2" />
                             {trip.startDate} - {trip.endDate} ({trip.duration})
                           </div>
-                          <div className="flex items-center text-lydian-text-dim dark:text-lydian-text-muted">
+                          <div className="flex items-center text-gray-400 dark:text-gray-300">
                             <Users className="h-4 w-4 mr-2" />
                             {trip.participants} kişi
                           </div>
                         </div>
                         
                         <div className="text-right">
-                          <div className="text-2xl font-bold text-lydian-text-inverse dark:text-lydian-text-inverse mb-2">
+                          <div className="text-2xl font-bold text-white dark:text-white mb-2">
                             {trip.totalPrice}
                           </div>
-                          <div className="text-sm text-lydian-text-dim dark:text-lydian-text-muted">
+                          <div className="text-sm text-gray-400 dark:text-gray-300">
                             {trip.confirmationCode}
                           </div>
                         </div>
                       </div>
 
                       {/* Trip Details */}
-                      <div className="border-t border-lydian-border dark:border-gray-600 pt-4">
+                      <div className="border-t border-white/20 dark:border-gray-600 pt-4">
                         <div className="flex flex-wrap gap-2 mb-4">
                           {trip.includes?.map((item, index) =>
                           <span
                             key={index}
-                            className="px-2 py-1 bg-lydian-primary-light dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded text-xs">
+                            className="px-2 py-1 bg-blue-500/10 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded text-xs">
 
                               {item}
                             </span>
@@ -345,37 +345,37 @@ export default function MyTrips() {
 
                         {/* Action Buttons */}
                         <div className="flex flex-wrap gap-2 sm:gap-3">
-                          <button className="bg-lydian-primary text-lydian-text-inverse px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg hover:bg-lydian-primary-dark transition-colors text-xs sm:text-sm flex items-center">
+                          <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg hover:bg-gradient-to-r from-blue-700 to-purple-700 transition-colors text-xs sm:text-sm flex items-center">
                             <Eye className="h-3 w-3 sm:h-4 sm:w-4 mr-1.5 sm:mr-2" />
                             Detayları Gör
                           </button>
 
                           {trip.status === 'upcoming' &&
-                          <button className="bg-lydian-success text-lydian-text-inverse px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg hover:bg-lydian-success-hover transition-colors text-xs sm:text-sm flex items-center">
+                          <button className="bg-green-600 text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg hover:bg-green-600-hover transition-colors text-xs sm:text-sm flex items-center">
                               <Edit className="h-3 w-3 sm:h-4 sm:w-4 mr-1.5 sm:mr-2" />
                               Düzenle
                             </button>
                           }
 
-                          <button className="bg-gray-600 text-lydian-text-inverse px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg hover:bg-gray-700 transition-colors text-xs sm:text-sm flex items-center">
+                          <button className="bg-gray-600 text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg hover:bg-gray-700 transition-colors text-xs sm:text-sm flex items-center">
                             <Download className="h-3 w-3 sm:h-4 sm:w-4 mr-1.5 sm:mr-2" />
                             İndir
                           </button>
 
-                          <button className="bg-purple-600 text-lydian-text-inverse px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg hover:bg-purple-700 transition-colors text-xs sm:text-sm flex items-center">
+                          <button className="bg-purple-600 text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg hover:bg-purple-700 transition-colors text-xs sm:text-sm flex items-center">
                             <Share className="h-3 w-3 sm:h-4 sm:w-4 mr-1.5 sm:mr-2" />
                             Paylaş
                           </button>
 
                           {trip.status === 'upcoming' &&
-                          <button className="bg-lydian-primary text-lydian-text-inverse px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg hover:bg-lydian-primary-dark transition-colors text-xs sm:text-sm flex items-center">
+                          <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg hover:bg-gradient-to-r from-blue-700 to-purple-700 transition-colors text-xs sm:text-sm flex items-center">
                               <XCircle className="h-3 w-3 sm:h-4 sm:w-4 mr-1.5 sm:mr-2" />
                               İptal Et
                             </button>
                           }
 
                           {trip.status === 'completed' && !trip.rating &&
-                          <button className="bg-lydian-warning text-lydian-text-inverse px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg hover:bg-yellow-700 transition-colors text-xs sm:text-sm flex items-center">
+                          <button className="bg-yellow-500 text-white px-3 sm:px-4 py-1.5 sm:py-2 rounded-lg hover:bg-yellow-700 transition-colors text-xs sm:text-sm flex items-center">
                               <Star className="h-3 w-3 sm:h-4 sm:w-4 mr-1.5 sm:mr-2" />
                               Değerlendir
                             </button>
@@ -385,13 +385,13 @@ export default function MyTrips() {
                         {/* Rating Display */}
                         {trip.rating &&
                         <div className="flex items-center mt-3">
-                            <span className="text-sm text-lydian-text-dim dark:text-lydian-text-muted mr-2">Değerlendirmeniz:</span>
+                            <span className="text-sm text-gray-400 dark:text-gray-300 mr-2">Değerlendirmeniz:</span>
                             <div className="flex">
                               {[...Array(5)].map((_, i) =>
                             <Star
                               key={i}
                               className={`h-4 w-4 ${
-                              i < trip.rating ? 'text-yellow-400 fill-current' : 'text-lydian-text-dim'}`
+                              i < trip.rating ? 'text-yellow-400 fill-current' : 'text-gray-400'}`
                               } />
 
                             )}
@@ -409,16 +409,16 @@ export default function MyTrips() {
           {/* Empty State */}
           {sortedTrips.length === 0 &&
           <div className="text-center py-12">
-              <MapPin className="h-16 w-16 text-lydian-text-muted mx-auto mb-4" />
-              <h3 className="text-xl font-semibold text-lydian-text-inverse dark:text-lydian-text-inverse mb-2">
+              <MapPin className="h-16 w-16 text-gray-300 mx-auto mb-4" />
+              <h3 className="text-xl font-semibold text-white dark:text-white mb-2">
                 Henüz seyahat kaydınız bulunmuyor
               </h3>
-              <p className="text-lydian-text-dim dark:text-lydian-text-muted mb-6">
+              <p className="text-gray-400 dark:text-gray-300 mb-6">
                 İlk seyahatinizi planlamaya başlayın!
               </p>
               <Link
               href="/"
-              className="bg-lydian-primary text-lydian-text-inverse px-6 py-3 rounded-lg hover:bg-lydian-primary-dark transition-colors font-semibold">
+              className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-lg hover:bg-gradient-to-r from-blue-700 to-purple-700 transition-colors font-semibold">
 
                 Seyahat Planla
               </Link>
@@ -426,7 +426,7 @@ export default function MyTrips() {
           }
 
           {/* Quick Actions */}
-          <div className="bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] rounded-2xl p-8 text-lydian-text-inverse text-center mt-12">
+          <div className="bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] rounded-2xl p-8 text-white text-center mt-12">
             <h2 className="text-3xl font-bold mb-4">
               Yeni Bir Maceraya Hazır mısınız?
             </h2>
@@ -437,14 +437,14 @@ export default function MyTrips() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/"
-                className="bg-lydian-bg-hover text-lydian-primary px-6 py-3 rounded-lg hover:bg-lydian-primary-lighter transition-colors font-semibold flex items-center justify-center">
+                className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl text-blue-500 px-6 py-3 rounded-lg hover:bg-blue-500/10er transition-colors font-semibold flex items-center justify-center">
 
                 <Plus className="h-5 w-5 mr-2" />
                 Yeni Seyahat Planla
               </Link>
               <Link
                 href="/destinations"
-                className="bg-lydian-glass-dark-heavy text-lydian-text-inverse px-6 py-3 rounded-lg hover:bg-lydian-bg/30 transition-colors font-semibold flex items-center justify-center">
+                className="bg-white/10 backdrop-blur-xl border border-white/20 text-white px-6 py-3 rounded-lg hover:bg-lydian-bg/30 transition-colors font-semibold flex items-center justify-center">
 
                 <Globe className="h-5 w-5 mr-2" />
                 Destinasyonları Keşfet

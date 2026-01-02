@@ -452,7 +452,7 @@ export const PhotoUploader: React.FC<PhotoUploaderProps> = ({
   return (
     <div className={className}>
       {/* Requirements Display */}
-      <div className="mb-4 p-4 bg-lydian-primary-lighter border border-blue-200 rounded-lg">
+      <div className="mb-4 p-4 bg-blue-500/10er border border-blue-200 rounded-lg">
         <h4 className="text-sm font-semibold text-blue-900 mb-2">
           Photo Requirements
         </h4>
@@ -460,9 +460,9 @@ export const PhotoUploader: React.FC<PhotoUploaderProps> = ({
           {reqs.minPhotos &&
           <li className="flex items-center">
               {images.length >= reqs.minPhotos ?
-            <CheckCircle className="h-3 w-3 text-lydian-success mr-1" /> :
+            <CheckCircle className="h-3 w-3 text-green-500 mr-1" /> :
 
-            <AlertCircle className="h-3 w-3 text-lydian-warning mr-1" />
+            <AlertCircle className="h-3 w-3 text-yellow-500 mr-1" />
             }
               Minimum {reqs.minPhotos} photos (
               {images.length}/{reqs.minPhotos})
@@ -470,26 +470,26 @@ export const PhotoUploader: React.FC<PhotoUploaderProps> = ({
           }
           {reqs.maxPhotos &&
           <li className="flex items-center">
-              <CheckCircle className="h-3 w-3 text-lydian-success mr-1" />
+              <CheckCircle className="h-3 w-3 text-green-500 mr-1" />
               Maximum {reqs.maxPhotos} photos
             </li>
           }
           {reqs.minWidth && reqs.minHeight &&
           <li className="flex items-center">
-              <CheckCircle className="h-3 w-3 text-lydian-success mr-1" />
+              <CheckCircle className="h-3 w-3 text-green-500 mr-1" />
               Minimum dimensions: {reqs.minWidth}x{reqs.minHeight}px
             </li>
           }
           {reqs.maxFileSize &&
           <li className="flex items-center">
-              <CheckCircle className="h-3 w-3 text-lydian-success mr-1" />
+              <CheckCircle className="h-3 w-3 text-green-500 mr-1" />
               Maximum file size:{' '}
               {(reqs.maxFileSize / 1024 / 1024).toFixed(0)}MB per image
             </li>
           }
           {reqs.allowedTypes &&
           <li className="flex items-center">
-              <CheckCircle className="h-3 w-3 text-lydian-success mr-1" />
+              <CheckCircle className="h-3 w-3 text-green-500 mr-1" />
               Allowed formats: JPG, PNG, WebP
             </li>
           }
@@ -500,7 +500,7 @@ export const PhotoUploader: React.FC<PhotoUploaderProps> = ({
       {errors.length > 0 &&
       <div className="mb-4 p-4 bg-lydian-error-lighter border border-red-200 rounded-lg">
           <div className="flex items-start">
-            <AlertCircle className="h-5 w-5 text-lydian-primary mr-2 flex-shrink-0 mt-0.5" />
+            <AlertCircle className="h-5 w-5 text-blue-500 mr-2 flex-shrink-0 mt-0.5" />
             <div className="flex-1">
               <h4 className="text-sm font-semibold text-red-900 mb-1">
                 Upload Errors
@@ -513,7 +513,7 @@ export const PhotoUploader: React.FC<PhotoUploaderProps> = ({
             </div>
             <button
             onClick={() => setErrors([])}
-            className="text-lydian-primary hover:text-lydian-primary-active">
+            className="text-blue-500 hover:text-lydian-primary-active">
 
               <X className="h-4 w-4" />
             </button>
@@ -526,8 +526,8 @@ export const PhotoUploader: React.FC<PhotoUploaderProps> = ({
       <div
         className={`border-2 border-dashed rounded-lg p-8 text-center transition-colors ${
         isDragging ?
-        'border-lydian-primary bg-blue-50' :
-        'border-lydian-border-medium bg-lydian-bg/5'} ${
+        'border-blue-500 bg-blue-50' :
+        'border-white/30 bg-white/5'} ${
         disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer hover:border-blue-400 hover:bg-blue-50'}`}
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
@@ -535,14 +535,14 @@ export const PhotoUploader: React.FC<PhotoUploaderProps> = ({
         onClick={() => !disabled && fileInputRef.current?.click()}>
 
           <Upload
-          className={`h-12 w-12 mx-auto mb-4 ${isDragging ? 'text-blue-500' : 'text-lydian-text-muted'}`} />
+          className={`h-12 w-12 mx-auto mb-4 ${isDragging ? 'text-blue-500' : 'text-gray-300'}`} />
 
-          <p className="text-sm font-medium text-lydian-text-inverse mb-1">
+          <p className="text-sm font-medium text-white mb-1">
             {isDragging ?
           'Drop your images here' :
           'Drag & drop images here, or click to browse'}
           </p>
-          <p className="text-xs text-lydian-text-muted">
+          <p className="text-xs text-gray-300">
             {reqs.allowedTypes?.join(', ').replace(/image\//g, '').toUpperCase()}{' '}
             up to {(reqs.maxFileSize || 0) / 1024 / 1024}MB each
           </p>
@@ -563,11 +563,11 @@ export const PhotoUploader: React.FC<PhotoUploaderProps> = ({
       {images.length > 0 &&
       <div className="mt-6">
           <div className="flex items-center justify-between mb-4">
-            <h4 className="text-sm font-semibold text-lydian-text-inverse">
+            <h4 className="text-sm font-semibold text-white">
               Uploaded Photos ({images.length}
               {reqs.maxPhotos && `/${reqs.maxPhotos}`})
             </h4>
-            <p className="text-xs text-lydian-text-muted">
+            <p className="text-xs text-gray-300">
               Drag to reorder • Click star to set cover photo
             </p>
           </div>
@@ -582,12 +582,12 @@ export const PhotoUploader: React.FC<PhotoUploaderProps> = ({
             onDragEnd={handleDragEnd}
             className={`relative group rounded-lg overflow-hidden border-2 transition-all ${
             image.isCover ?
-            'border-lydian-primary ring-2 ring-lydian-primary' :
-            'border-lydian-border hover:border-lydian-border-medium'} ${
+            'border-blue-500 ring-2 ring-lydian-primary' :
+            'border-white/20 hover:border-white/30'} ${
             draggedIndex === index ? 'opacity-50' : ''}`}>
 
                 {/* Image */}
-                <div className="aspect-square bg-lydian-glass-dark-medium">
+                <div className="aspect-square bg-white/10 backdrop-blur-xl border border-white/20">
                   <img
                 src={image.preview}
                 alt={`Upload ${index + 1}`}
@@ -603,8 +603,8 @@ export const PhotoUploader: React.FC<PhotoUploaderProps> = ({
                   onClick={() => handleSetCover(image.id)}
                   className={`p-2 rounded-full transition-colors ${
                   image.isCover ?
-                  'bg-lydian-primary text-white' :
-                  'bg-lydian-bg/5 text-gray-200 hover:bg-lydian-primary hover:text-white'}`
+                  'bg-gradient-to-r from-blue-600 to-purple-600 text-white' :
+                  'bg-white/5 text-gray-200 hover:bg-gradient-to-r from-blue-600 to-purple-600 hover:text-white'}`
                   }
                   title={image.isCover ? 'Cover photo' : 'Set as cover'}>
 
@@ -616,7 +616,7 @@ export const PhotoUploader: React.FC<PhotoUploaderProps> = ({
                     {/* Remove */}
                     <button
                   onClick={() => handleRemoveImage(image.id)}
-                  className="p-2 bg-lydian-primary text-lydian-text-inverse rounded-full hover:bg-lydian-primary-dark transition-colors"
+                  className="p-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full hover:bg-gradient-to-r from-blue-700 to-purple-700 transition-colors"
                   title="Remove image">
 
                       <X className="h-4 w-4" />
@@ -626,7 +626,7 @@ export const PhotoUploader: React.FC<PhotoUploaderProps> = ({
 
                 {/* Cover Badge */}
                 {image.isCover &&
-            <div className="absolute top-2 left-2 px-2 py-1 bg-lydian-primary text-lydian-text-inverse text-xs font-semibold rounded-full flex items-center">
+            <div className="absolute top-2 left-2 px-2 py-1 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-xs font-semibold rounded-full flex items-center">
                     <Star className="h-3 w-3 fill-current mr-1" />
                     Cover
                   </div>
@@ -634,22 +634,22 @@ export const PhotoUploader: React.FC<PhotoUploaderProps> = ({
 
                 {/* Drag Handle */}
                 <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                  <div className="p-1 bg-lydian-glass-dark rounded cursor-move">
-                    <GripVertical className="h-4 w-4 text-lydian-text-dim" />
+                  <div className="p-1 bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded cursor-move">
+                    <GripVertical className="h-4 w-4 text-gray-400" />
                   </div>
                 </div>
 
                 {/* Upload Progress */}
                 {image.status === 'uploading' &&
             <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center">
-                    <Loader className="h-6 w-6 text-lydian-text-inverse animate-spin mb-2" />
-                    <div className="w-3/4 bg-lydian-bg-active rounded-full h-2 overflow-hidden">
+                    <Loader className="h-6 w-6 text-white animate-spin mb-2" />
+                    <div className="w-3/4 bg-white/10 backdrop-blur-xl border border-white/20 rounded-full h-2 overflow-hidden">
                       <div
-                  className="bg-lydian-primary h-full transition-all duration-300"
+                  className="bg-gradient-to-r from-blue-600 to-purple-600 h-full transition-all duration-300"
                   style={{ width: `${image.progress}%` }} />
 
                     </div>
-                    <p className="text-lydian-text-inverse text-xs mt-1">
+                    <p className="text-white text-xs mt-1">
                       {image.progress}%
                     </p>
                   </div>
@@ -658,8 +658,8 @@ export const PhotoUploader: React.FC<PhotoUploaderProps> = ({
                 {/* Error State */}
                 {image.status === 'error' &&
             <div className="absolute inset-0 bg-lydian-error bg-opacity-90 flex flex-col items-center justify-center p-2">
-                    <AlertCircle className="h-6 w-6 text-lydian-text-inverse mb-1" />
-                    <p className="text-lydian-text-inverse text-xs text-center">
+                    <AlertCircle className="h-6 w-6 text-white mb-1" />
+                    <p className="text-white text-xs text-center">
                       {image.error || 'Upload failed'}
                     </p>
                   </div>
@@ -667,8 +667,8 @@ export const PhotoUploader: React.FC<PhotoUploaderProps> = ({
 
                 {/* Success Indicator */}
                 {image.status === 'success' && image.progress === 100 &&
-            <div className="absolute bottom-2 right-2 p-1 bg-lydian-success rounded-full">
-                    <CheckCircle className="h-4 w-4 text-lydian-text-inverse" />
+            <div className="absolute bottom-2 right-2 p-1 bg-green-600 rounded-full">
+                    <CheckCircle className="h-4 w-4 text-white" />
                   </div>
             }
               </div>
@@ -681,7 +681,7 @@ export const PhotoUploader: React.FC<PhotoUploaderProps> = ({
       {reqs.minPhotos &&
       <div className="mt-4">
           {!meetsMinRequirement ?
-        <p className="text-sm text-lydian-warning-text bg-lydian-warning-lighter border border-yellow-200 rounded-lg p-3 flex items-start">
+        <p className="text-sm text-yellow-500-text bg-yellow-500-lighter border border-yellow-200 rounded-lg p-3 flex items-start">
               <AlertCircle className="h-5 w-5 mr-2 flex-shrink-0 mt-0.5" />
               <span>
                 Please upload at least {reqs.minPhotos - images.length} more
@@ -690,7 +690,7 @@ export const PhotoUploader: React.FC<PhotoUploaderProps> = ({
               </span>
             </p> :
 
-        <p className="text-sm text-lydian-success-text bg-lydian-success-lighter border border-green-200 rounded-lg p-3 flex items-center">
+        <p className="text-sm text-green-500-text bg-green-600-lighter border border-green-200 rounded-lg p-3 flex items-center">
               <CheckCircle className="h-5 w-5 mr-2 flex-shrink-0" />
               <span>Photo requirements met! Ready to proceed.</span>
             </p>

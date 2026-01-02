@@ -93,7 +93,7 @@ export const FuturisticInput: React.FC<FuturisticInputProps> = ({
             absolute left-4
             ${icon ? 'left-12' : 'left-4'}
             px-2
-            bg-lydian-glass-dark rounded-lg
+            bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-lg
             font-semibold
             pointer-events-none
             z-10
@@ -106,7 +106,7 @@ export const FuturisticInput: React.FC<FuturisticInputProps> = ({
 
       {/* Icon */}
       {icon &&
-      <div className="absolute left-4 top-1/2 -translate-y-1/2 z-10 text-lydian-text-muted">
+      <div className="absolute left-4 top-1/2 -translate-y-1/2 z-10 text-gray-300">
           {icon}
         </div>
       }

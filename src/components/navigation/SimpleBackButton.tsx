@@ -19,7 +19,7 @@ export function SimpleBackButton({
       {showHomeButton &&
       <button
         onClick={() => router.push('/')}
-        className="flex items-center gap-2 px-4 py-2 bg-lydian-primary text-lydian-text-inverse rounded-lg hover:bg-lydian-primary-dark transition-all shadow-lg hover:shadow-xl"
+        className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:bg-gradient-to-r from-blue-700 to-purple-700 transition-all shadow-lg hover:shadow-xl"
         aria-label="Anasayfa Dön">
 
           <Home className="w-5 h-5" />
@@ -30,7 +30,7 @@ export function SimpleBackButton({
       {showBackButton &&
       <button
         onClick={() => router.back()}
-        className="flex items-center gap-2 px-4 py-2 bg-gray-600 text-lydian-text-inverse rounded-lg hover:bg-gray-700 transition-all shadow-lg hover:shadow-xl"
+        className="flex items-center gap-2 px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-all shadow-lg hover:shadow-xl"
         aria-label="Önceki Sayfa">
 
           <ArrowLeft className="w-5 h-5" />

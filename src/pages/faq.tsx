@@ -208,15 +208,15 @@ export default function FAQ() {
       {/* Return to Home Button */}
       <Link
         href="/"
-        className="fixed top-24 left-6 z-10 flex items-center gap-2 px-4 py-2 bg-lydian-bg/90 backdrop-blur-sm rounded-xl shadow-lg border border-lydian-border text-lydian-text-muted hover:bg-lydian-glass-dark hover:text-lydian-primary transition-all duration-200">
+        className="fixed top-24 left-6 z-10 flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-xl shadow-lg border border-white/20 text-gray-300 hover:bg-white/5 hover:backdrop-blur-xl hover:border-white/20 hover:text-blue-500 transition-all duration-200">
 
         <ArrowLeft className="w-4 h-4" />
         <span className="font-medium">Ana Sayfaya Dön</span>
       </Link>
 
-      <div className="min-h-screen bg-lydian-glass-dark pt-8">
+      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-black to-slate-800 pt-8">
         {/* Hero Section */}
-        <div className="text-lydian-text-inverse py-16" style={{ background: 'linear-gradient(135deg, var(--ac-1) 0%, var(--ac-2) 50%, var(--ac-3) 100%)' }}>
+        <div className="text-white py-16" style={{ background: 'linear-gradient(135deg, var(--ac-1) 0%, var(--ac-2) 50%, var(--ac-3) 100%)' }}>
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <HelpCircle className="w-16 h-16 mx-auto mb-6 opacity-90" />
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
@@ -228,11 +228,11 @@ export default function FAQ() {
 
             {/* Search Bar */}
             <div className="relative max-w-2xl mx-auto">
-              <Search className="absolute left-4 top-4 h-5 w-5 text-lydian-text-muted" />
+              <Search className="absolute left-4 top-4 h-5 w-5 text-gray-400" />
               <input
                 type="text"
                 placeholder="Soru ara..."
-                className="w-full pl-12 pr-4 py-4 rounded-xl text-lydian-text-inverse focus:ring-2 focus:ring-white focus:outline-none shadow-lg"
+                className="w-full pl-12 pr-4 py-4 rounded-xl text-white focus:ring-2 focus:ring-white focus:outline-none shadow-lg"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)} />
 
@@ -247,8 +247,8 @@ export default function FAQ() {
               onClick={() => setSelectedCategory(null)}
               className={`px-4 py-2 rounded-lg font-medium transition-colors ${
               !selectedCategory ?
-              'ocean-button' :
-              'ocean-button-secondary'}`
+              'bg-gradient-to-r from-blue-600 to-purple-600 text-white' :
+              'bg-white/10 backdrop-blur-xl border border-white/20 text-white hover:bg-white/20'}`
               }>
 
               Tümü
@@ -259,8 +259,8 @@ export default function FAQ() {
               onClick={() => setSelectedCategory(category.id)}
               className={`px-4 py-2 rounded-lg font-medium transition-colors ${
               selectedCategory === category.id ?
-              'ocean-button' :
-              'ocean-button-secondary'}`
+              'bg-gradient-to-r from-blue-600 to-purple-600 text-white' :
+              'bg-white/10 backdrop-blur-xl border border-white/20 text-white hover:bg-white/20'}`
               }>
 
                 {category.name}
@@ -271,9 +271,9 @@ export default function FAQ() {
           {/* FAQ Content */}
           <div className="space-y-8">
             {filteredCategories.map((category) =>
-            <div key={category.id} className="bg-lydian-bg-hover rounded-xl shadow-lg p-6">
-                <h2 className="text-2xl font-bold text-lydian-text-inverse mb-6 flex items-center gap-3">
-                  <div className="w-1 h-8 bg-gradient-to-b from-lydian-primary to-lydian-secondary rounded-full"></div>
+            <div key={category.id} className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-xl shadow-lg p-6">
+                <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+                  <div className="w-1 h-8 bg-gradient-to-b from-blue-600 to-purple-600 rounded-full"></div>
                   {category.name}
                 </h2>
 
@@ -285,22 +285,22 @@ export default function FAQ() {
                   return (
                     <div
                       key={index}
-                      className="border border-lydian-border rounded-lg overflow-hidden hover:border-lydian-primary transition-colors">
+                      className="border border-white/20 rounded-lg overflow-hidden hover:border-blue-500 transition-colors">
 
                         <button
                         onClick={() => toggleQuestion(category.id, index)}
-                        className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-lydian-glass-dark transition-colors">
+                        className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-white/5 hover:backdrop-blur-xl hover:border-white/20 transition-colors">
 
-                          <span className="font-semibold text-lydian-text-inverse pr-4">{q.question}</span>
+                          <span className="font-semibold text-white pr-4">{q.question}</span>
                           <ChevronDown
-                          className={`w-5 h-5 text-lydian-primary transition-transform flex-shrink-0 ${
+                          className={`w-5 h-5 text-blue-500 transition-transform flex-shrink-0 ${
                           isExpanded ? 'rotate-180' : ''}`
                           } />
 
                         </button>
                         {isExpanded &&
-                      <div className="px-6 py-4 bg-lydian-glass-dark border-t border-lydian-border">
-                            <p className="text-lydian-text-muted leading-relaxed">{q.answer}</p>
+                      <div className="px-6 py-4 bg-white/5 backdrop-blur-xl border border-white/20 border-t border-white/20">
+                            <p className="text-gray-400 leading-relaxed">{q.answer}</p>
                           </div>
                       }
                       </div>);
@@ -314,11 +314,11 @@ export default function FAQ() {
           {/* No Results */}
           {filteredCategories.length === 0 &&
           <div className="text-center py-16">
-              <HelpCircle className="h-24 w-24 text-lydian-text-dim mx-auto mb-6" />
-              <h2 className="text-2xl font-bold text-lydian-text-inverse mb-4">
+              <HelpCircle className="h-24 w-24 text-gray-400 mx-auto mb-6" />
+              <h2 className="text-2xl font-bold text-white mb-4">
                 Aradığınız soruya cevap bulunamadı
               </h2>
-              <p className="text-lydian-text-dim mb-8">
+              <p className="text-gray-400 mb-8">
                 Farklı anahtar kelimeler deneyin veya bizimle iletişime geçin
               </p>
               <div className="flex items-center justify-center gap-4">
@@ -327,13 +327,13 @@ export default function FAQ() {
                   setSearchQuery('');
                   setSelectedCategory(null);
                 }}
-                className="px-6 py-3 bg-lydian-bg-active text-lydian-text-muted rounded-lg hover:bg-gray-300 transition-colors font-semibold">
+                className="px-6 py-3 bg-white/10 backdrop-blur-xl text-gray-300 rounded-lg hover:bg-white/30 transition-colors font-semibold">
 
                   Aramayı Temizle
                 </button>
                 <Link
                 href="/contact"
-                className="px-6 py-3 bg-gradient-to-r from-lydian-primary to-lydian-secondary text-lydian-text-inverse rounded-lg hover:shadow-lg transition-all font-semibold">
+                className="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:shadow-lg transition-all font-semibold">
 
                   İletişime Geç
                 </Link>
@@ -342,7 +342,7 @@ export default function FAQ() {
           }
 
           {/* Contact CTA */}
-          <div className="mt-16 bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] rounded-2xl p-8 text-lydian-text-inverse text-center">
+          <div className="mt-16 bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] rounded-2xl p-8 text-white text-center">
             <h3 className="text-2xl font-bold mb-4">Sorunuza cevap bulamadınız mı?</h3>
             <p className="mb-6 text-blue-100">
               7/24 müşteri hizmetlerimiz size yardımcı olmak için burada!
@@ -350,13 +350,13 @@ export default function FAQ() {
             <div className="flex flex-wrap items-center justify-center gap-4">
               <Link
                 href="/contact"
-                className="px-6 py-3 bg-lydian-bg-hover text-lydian-primary rounded-lg hover:bg-lydian-primary-lighter transition-colors font-semibold">
+                className="px-6 py-3 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl text-blue-500 rounded-lg hover:bg-blue-500/10 transition-colors font-semibold">
 
                 İletişime Geç
               </Link>
               <Link
                 href="/support"
-                className="px-6 py-3 bg-lydian-glass-dark-heavy backdrop-blur-sm text-lydian-text-inverse rounded-lg hover:bg-lydian-bg/30 transition-colors font-semibold">
+                className="px-6 py-3 bg-black/80 backdrop-blur-sm text-white rounded-lg hover:bg-white/10/30 transition-colors font-semibold">
 
                 Canlı Destek
               </Link>

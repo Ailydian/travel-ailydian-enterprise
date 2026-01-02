@@ -174,7 +174,7 @@ export default function PriceAlertsDashboard() {
     return (
       <div className="text-center py-12">
         <svg
-          className="w-16 h-16 text-lydian-text-muted mx-auto mb-4"
+          className="w-16 h-16 text-gray-300 mx-auto mb-4"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24">
@@ -186,7 +186,7 @@ export default function PriceAlertsDashboard() {
             d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
 
         </svg>
-        <p className="text-lydian-text-dim dark:text-lydian-text-muted">Please sign in to view your price alerts</p>
+        <p className="text-gray-400 dark:text-gray-300">Please sign in to view your price alerts</p>
       </div>);
 
   }
@@ -196,23 +196,23 @@ export default function PriceAlertsDashboard() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-lydian-text-inverse dark:text-lydian-text-inverse">Price Alerts</h1>
-          <p className="text-lydian-text-dim dark:text-lydian-text-muted mt-1">
+          <h1 className="text-3xl font-bold text-white dark:text-white">Price Alerts</h1>
+          <p className="text-gray-400 dark:text-gray-300 mt-1">
             Manage your travel price tracking alerts
           </p>
         </div>
       </div>
 
       {/* Filter Tabs */}
-      <div className="flex gap-2 border-b border-lydian-border-light/10 dark:border-gray-700">
+      <div className="flex gap-2 border-b border-white/20/10 dark:border-gray-700">
         {(['ALL', 'ACTIVE', 'TRIGGERED', 'EXPIRED'] as const).map((status) =>
         <button
           key={status}
           onClick={() => setFilter(status)}
           className={`px-4 py-2 font-medium transition-colors ${
           filter === status ?
-          'text-lydian-primary dark:text-blue-400 border-b-2 border-blue-600' :
-          'text-lydian-text-dim dark:text-lydian-text-muted hover:text-white dark:hover:text-gray-200'}`
+          'text-blue-500 dark:text-blue-400 border-b-2 border-blue-600' :
+          'text-gray-400 dark:text-gray-300 hover:text-white dark:hover:text-gray-200'}`
           }>
 
             {status}
@@ -223,12 +223,12 @@ export default function PriceAlertsDashboard() {
       {/* Alerts List */}
       {loading ?
       <div className="flex items-center justify-center py-12">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-lydian-primary"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500"></div>
         </div> :
       alerts.length === 0 ?
-      <div className="text-center py-12 bg-lydian-glass-dark dark:bg-gray-900 rounded-lg">
+      <div className="text-center py-12 bg-gradient-to-br from-slate-900 via-black to-slate-800 dark:bg-gray-900 rounded-lg">
           <svg
-          className="w-16 h-16 text-lydian-text-muted mx-auto mb-4"
+          className="w-16 h-16 text-gray-300 mx-auto mb-4"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24">
@@ -240,8 +240,8 @@ export default function PriceAlertsDashboard() {
             d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
 
           </svg>
-          <p className="text-lydian-text-dim dark:text-lydian-text-muted text-lg">No price alerts found</p>
-          <p className="text-lydian-text-muted dark:text-lydian-text-muted text-sm mt-2">
+          <p className="text-gray-400 dark:text-gray-300 text-lg">No price alerts found</p>
+          <p className="text-gray-300 dark:text-gray-300 text-sm mt-2">
             Start tracking prices to get notified when they drop
           </p>
         </div> :
@@ -254,19 +254,19 @@ export default function PriceAlertsDashboard() {
           return (
             <div
               key={alert.id}
-              className="bg-lydian-glass-dark dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition-shadow p-6">
+              className="bg-gradient-to-br from-slate-900 via-black to-slate-800 dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition-shadow p-6">
 
                 <div className="flex items-start justify-between">
                   <div className="flex items-start gap-4 flex-1">
                     {/* Icon */}
-                    <div className="p-3 bg-lydian-primary-light dark:bg-blue-900/30 rounded-lg text-lydian-primary dark:text-blue-400">
+                    <div className="p-3 bg-blue-500/10 dark:bg-blue-900/30 rounded-lg text-blue-500 dark:text-blue-400">
                       {getEntityTypeIcon(alert.entityType)}
                     </div>
 
                     {/* Content */}
                     <div className="flex-1">
                       <div className="flex items-center gap-3 mb-2">
-                        <h3 className="text-lg font-semibold text-lydian-text-inverse dark:text-lydian-text-inverse">
+                        <h3 className="text-lg font-semibold text-white dark:text-white">
                           {alert.entityName}
                         </h3>
                         {getStatusBadge(alert.status)}
@@ -274,50 +274,50 @@ export default function PriceAlertsDashboard() {
 
                       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
                         <div>
-                          <p className="text-xs text-lydian-text-dim dark:text-lydian-text-muted">Current Price</p>
-                          <p className="text-lg font-bold text-lydian-text-inverse dark:text-lydian-text-inverse">
+                          <p className="text-xs text-gray-400 dark:text-gray-300">Current Price</p>
+                          <p className="text-lg font-bold text-white dark:text-white">
                             {alert.currency} {parseFloat(alert.currentPrice.toString()).toFixed(2)}
                           </p>
                         </div>
 
                         <div>
-                          <p className="text-xs text-lydian-text-dim dark:text-lydian-text-muted">Target Price</p>
-                          <p className="text-lg font-bold text-lydian-success">
+                          <p className="text-xs text-gray-400 dark:text-gray-300">Target Price</p>
+                          <p className="text-lg font-bold text-green-500">
                             {alert.currency} {parseFloat(alert.targetPrice.toString()).toFixed(2)}
                           </p>
                         </div>
 
                         <div>
-                          <p className="text-xs text-lydian-text-dim dark:text-lydian-text-muted">
+                          <p className="text-xs text-gray-400 dark:text-gray-300">
                             Potential Savings
                           </p>
                           <p
                           className={`text-lg font-bold ${
-                          isGoodDeal ? 'text-lydian-success' : 'text-lydian-text-muted'}`
+                          isGoodDeal ? 'text-green-500' : 'text-gray-300'}`
                           }>
 
                             {isGoodDeal ? '-' : ''}
                             {alert.currency} {Math.abs(savings).toFixed(2)}
                           </p>
-                          <p className="text-xs text-lydian-text-muted">
+                          <p className="text-xs text-gray-300">
                             {isGoodDeal ? percentage.toFixed(1) : '0'}% off
                           </p>
                         </div>
 
                         <div>
-                          <p className="text-xs text-lydian-text-dim dark:text-lydian-text-muted">Notifications</p>
-                          <p className="text-lg font-bold text-lydian-primary">
+                          <p className="text-xs text-gray-400 dark:text-gray-300">Notifications</p>
+                          <p className="text-lg font-bold text-blue-500">
                             {alert.notificationCount}
                           </p>
                           {alert.lastNotifiedAt &&
-                        <p className="text-xs text-lydian-text-muted">
+                        <p className="text-xs text-gray-300">
                               Last: {format(new Date(alert.lastNotifiedAt), 'MMM dd')}
                             </p>
                         }
                         </div>
                       </div>
 
-                      <div className="flex items-center gap-6 mt-4 text-sm text-lydian-text-dim dark:text-lydian-text-muted">
+                      <div className="flex items-center gap-6 mt-4 text-sm text-gray-400 dark:text-gray-300">
                         <div className="flex items-center gap-1">
                           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path
@@ -350,7 +350,7 @@ export default function PriceAlertsDashboard() {
                   <div className="flex gap-2">
                     <button
                     onClick={() => handleToggleStatus(alert.id, alert.status)}
-                    className="p-2 text-lydian-text-dim hover:text-lydian-primary dark:text-lydian-text-muted dark:hover:text-blue-400 transition-colors"
+                    className="p-2 text-gray-400 hover:text-blue-500 dark:text-gray-300 dark:hover:text-blue-400 transition-colors"
                     title={alert.status === 'ACTIVE' ? 'Disable alert' : 'Enable alert'}>
 
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -373,7 +373,7 @@ export default function PriceAlertsDashboard() {
                     </button>
                     <button
                     onClick={() => handleDeleteAlert(alert.id)}
-                    className="p-2 text-lydian-text-dim hover:text-lydian-primary dark:text-lydian-text-muted dark:hover:text-lydian-error transition-colors"
+                    className="p-2 text-gray-400 hover:text-blue-500 dark:text-gray-300 dark:hover:text-lydian-error transition-colors"
                     title="Delete alert">
 
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -96,14 +96,14 @@ const AdvancedSearch: React.FC<AdvancedSearchProps> = ({
       {/* Ana Arama Kutusu */}
       <div className="relative">
         <div className="relative">
-          <MagnifyingGlassIcon className="absolute left-4 top-1/2 transform -translate-y-1/2 w-6 h-6 text-lydian-text-muted z-10" />
+          <MagnifyingGlassIcon className="absolute left-4 top-1/2 transform -translate-y-1/2 w-6 h-6 text-gray-300 z-10" />
           
           <input
             type="text"
             value={query}
             onChange={handleInputChange}
             placeholder={placeholder}
-            className="w-full pl-12 pr-20 py-4 bg-lydian-glass-dark border border-lydian-border-light rounded-2xl text-lydian-text-inverse placeholder-lydian-text-tertiary focus:outline-none focus:border-lydian-primary focus:ring-2 focus:ring-blue-200 transition-all duration-300 text-lg"
+            className="w-full pl-12 pr-20 py-4 bg-gradient-to-br from-slate-900 via-black to-slate-800 border border-white/20 rounded-2xl text-white placeholder-lydian-text-tertiary focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300 text-lg"
             onFocus={() => setIsOpen(query.length > 0)}
             autoComplete="off" />
 
@@ -112,17 +112,17 @@ const AdvancedSearch: React.FC<AdvancedSearchProps> = ({
             {query &&
             <button
               onClick={clearSearch}
-              className="p-1 hover:bg-lydian-glass-dark-medium rounded-full transition-colors duration-200">
+              className="p-1 hover:bg-white/10 backdrop-blur-xl border border-white/20 rounded-full transition-colors duration-200">
 
-                <XMarkIcon className="w-5 h-5 text-lydian-text-muted" />
+                <XMarkIcon className="w-5 h-5 text-gray-300" />
               </button>
             }
             
             <button
               onClick={() => setShowFilters(!showFilters)}
-              className="p-2 bg-lydian-primary-light hover:bg-blue-200 rounded-lg transition-colors duration-200">
+              className="p-2 bg-blue-500/10 hover:bg-blue-200 rounded-lg transition-colors duration-200">
 
-              <span className="text-sm font-semibold text-lydian-primary">Filtrele</span>
+              <span className="text-sm font-semibold text-blue-500">Filtrele</span>
             </button>
           </div>
         </div>
@@ -130,7 +130,7 @@ const AdvancedSearch: React.FC<AdvancedSearchProps> = ({
         {/* Loading Indicator */}
         {isLoading &&
         <div className="absolute right-16 top-1/2 transform -translate-y-1/2">
-            <div className="w-5 h-5 border-2 border-lydian-primary border-t-transparent rounded-full animate-spin" />
+            <div className="w-5 h-5 border-2 border-blue-500 border-t-transparent rounded-full animate-spin" />
           </div>
         }
       </div>
@@ -144,11 +144,11 @@ const AdvancedSearch: React.FC<AdvancedSearchProps> = ({
           exit={{ opacity: 0, height: 0 }}
           transition={{ duration: 0.3 }}>
 
-            <div className="mt-4 p-6 bg-lydian-glass-dark rounded-2xl border border-lydian-border-light/10 shadow-lg">
+            <div className="mt-4 p-6 bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-2xl border border-white/20/10 shadow-lg">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {/* Konum Filtresi */}
               <div>
-                <label className="block text-sm font-semibold text-lydian-text-muted mb-2">
+                <label className="block text-sm font-semibold text-gray-300 mb-2">
                   <MapPinIcon className="w-4 h-4 inline-block mr-1" />
                   Konum
                 </label>
@@ -157,20 +157,20 @@ const AdvancedSearch: React.FC<AdvancedSearchProps> = ({
                   value={filters.location}
                   onChange={(e) => handleFilterChange({ location: e.target.value })}
                   placeholder="Şehir veya ülke"
-                  className="w-full p-3 bg-lydian-glass-dark border border-lydian-border-light rounded-lg text-lydian-text-inverse placeholder-lydian-text-tertiary focus:outline-none focus:border-lydian-primary transition-colors duration-200" />
+                  className="w-full p-3 bg-gradient-to-br from-slate-900 via-black to-slate-800 border border-white/20 rounded-lg text-white placeholder-lydian-text-tertiary focus:outline-none focus:border-blue-500 transition-colors duration-200" />
 
               </div>
 
               {/* Misafir Sayısı */}
               <div>
-                <label className="block text-sm font-semibold text-lydian-text-muted mb-2">
+                <label className="block text-sm font-semibold text-gray-300 mb-2">
                   <UserGroupIcon className="w-4 h-4 inline-block mr-1" />
                   Misafir Sayısı
                 </label>
                 <select
                   value={filters.guests}
                   onChange={(e) => handleFilterChange({ guests: parseInt(e.target.value) })}
-                  className="w-full p-3 bg-lydian-glass-dark border border-lydian-border-light rounded-lg text-lydian-text-inverse focus:outline-none focus:border-lydian-primary transition-colors duration-200">
+                  className="w-full p-3 bg-gradient-to-br from-slate-900 via-black to-slate-800 border border-white/20 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors duration-200">
 
                   {[1, 2, 3, 4, 5, 6, 7, 8].map((num) =>
                   <option key={num} value={num}>{num} Misafir</option>
@@ -180,13 +180,13 @@ const AdvancedSearch: React.FC<AdvancedSearchProps> = ({
 
               {/* Derecelendirme */}
               <div>
-                <label className="block text-sm font-semibold text-lydian-text-muted mb-2">
+                <label className="block text-sm font-semibold text-gray-300 mb-2">
                   Minimum Puan
                 </label>
                 <select
                   value={filters.rating}
                   onChange={(e) => handleFilterChange({ rating: parseFloat(e.target.value) })}
-                  className="w-full p-3 bg-lydian-glass-dark border border-lydian-border-light rounded-lg text-lydian-text-inverse focus:outline-none focus:border-lydian-primary transition-colors duration-200">
+                  className="w-full p-3 bg-gradient-to-br from-slate-900 via-black to-slate-800 border border-white/20 rounded-lg text-white focus:outline-none focus:border-blue-500 transition-colors duration-200">
 
                   <option value={0}>Tümü</option>
                   <option value={3}>3+ Yıldız</option>
@@ -198,7 +198,7 @@ const AdvancedSearch: React.FC<AdvancedSearchProps> = ({
 
             {/* Tür Filtreleri */}
             <div className="mt-6">
-              <label className="block text-sm font-semibold text-lydian-text-muted mb-3">
+              <label className="block text-sm font-semibold text-gray-300 mb-3">
                 Arama Türü
               </label>
               <div className="flex flex-wrap gap-3">
@@ -219,8 +219,8 @@ const AdvancedSearch: React.FC<AdvancedSearchProps> = ({
                   }}
                   className={`px-4 py-2 rounded-lg border transition-all duration-200 ${
                   filters.type.includes(type.key) ?
-                  'bg-blue-500 text-white border-lydian-primary' :
-                  'bg-lydian-bg/5 text-gray-200 border-white/20 hover:border-blue-300'}`
+                  'bg-blue-500 text-white border-blue-500' :
+                  'bg-white/5 text-gray-200 border-white/20 hover:border-blue-300'}`
                   }>
 
                     {type.label}
@@ -242,21 +242,21 @@ const AdvancedSearch: React.FC<AdvancedSearchProps> = ({
           exit={{ opacity: 0, y: -10 }}
           transition={{ duration: 0.2 }}>
 
-            <div className="absolute top-full left-0 right-0 mt-2 bg-lydian-glass-dark border border-lydian-border-light/10 rounded-2xl shadow-xl z-50 overflow-hidden">
+            <div className="absolute top-full left-0 right-0 mt-2 bg-gradient-to-br from-slate-900 via-black to-slate-800 border border-white/20/10 rounded-2xl shadow-xl z-50 overflow-hidden">
             {/* Öneriler */}
             {filteredSuggestions.length > 0 &&
             <div className="p-2">
                 <div className="px-4 py-2">
-                  <span className="text-sm font-semibold text-lydian-text-muted">Öneriler</span>
+                  <span className="text-sm font-semibold text-gray-300">Öneriler</span>
                 </div>
                 {filteredSuggestions.map((suggestion) =>
               <button
                 key={suggestion}
                 onClick={() => handleSuggestionClick(suggestion)}
-                className="w-full text-left px-4 py-3 hover:bg-lydian-glass-dark rounded-lg transition-colors duration-200 flex items-center space-x-3">
+                className="w-full text-left px-4 py-3 hover:bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-lg transition-colors duration-200 flex items-center space-x-3">
 
-                    <MapPinIcon className="w-5 h-5 text-lydian-primary flex-shrink-0" />
-                    <span className="text-lydian-text-muted">{suggestion}</span>
+                    <MapPinIcon className="w-5 h-5 text-blue-500 flex-shrink-0" />
+                    <span className="text-gray-300">{suggestion}</span>
                   </button>
               )}
               </div>
@@ -264,14 +264,14 @@ const AdvancedSearch: React.FC<AdvancedSearchProps> = ({
 
             {/* Arama Sonuçları */}
             {results.length > 0 &&
-            <div className="border-t border-lydian-border-light/10 p-2">
+            <div className="border-t border-white/20/10 p-2">
                 <div className="px-4 py-2">
-                  <span className="text-sm font-semibold text-lydian-primary">Sonuçlar</span>
+                  <span className="text-sm font-semibold text-blue-500">Sonuçlar</span>
                 </div>
                 {results.slice(0, 5).map((result) =>
               <div
                 key={result.id}
-                className="px-4 py-3 hover:bg-lydian-glass-dark rounded-lg transition-colors duration-200 cursor-pointer">
+                className="px-4 py-3 hover:bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-lg transition-colors duration-200 cursor-pointer">
 
                     <div className="flex items-center space-x-4">
                       {result.image &&
@@ -282,19 +282,19 @@ const AdvancedSearch: React.FC<AdvancedSearchProps> = ({
 
                   }
                       <div className="flex-1 min-w-0">
-                        <h3 className="text-lydian-text-inverse font-semibold truncate">
+                        <h3 className="text-white font-semibold truncate">
                           {result.title}
                         </h3>
-                        <p className="text-lydian-text-muted text-sm truncate">
+                        <p className="text-gray-300 text-sm truncate">
                           {result.description}
                         </p>
                         <div className="flex items-center space-x-2 mt-1">
-                          <MapPinIcon className="w-3 h-3 text-lydian-primary" />
-                          <span className="text-xs text-lydian-text-muted">
+                          <MapPinIcon className="w-3 h-3 text-blue-500" />
+                          <span className="text-xs text-gray-300">
                             {result.location}
                           </span>
                           {result.price &&
-                      <span className="text-xs text-lydian-primary font-semibold ml-auto">
+                      <span className="text-xs text-blue-500 font-semibold ml-auto">
                               {result.price}
                             </span>
                       }

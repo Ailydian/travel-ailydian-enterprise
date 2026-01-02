@@ -13,7 +13,7 @@ import { Sparkles } from 'lucide-react';
 // Dynamic import for VideoBackground to avoid SSR issues
 const VideoBackground = dynamic(() => import('../ui/VideoBackground'), {
   ssr: false,
-  loading: () => <div className="absolute inset-0 bg-gradient-to-br from-lydian-primary/20 to-lydian-secondary/20" />
+  loading: () => <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-purple-700/20" />
 });
 
 export interface AnimatedHeroSectionProps {
@@ -36,7 +36,7 @@ export const AnimatedHeroSection: React.FC<AnimatedHeroSectionProps> = ({ onSear
 
         {/* Additional animated gradient overlay for premium effect */}
         <motion.div
-          className="absolute inset-0 bg-gradient-to-r from-lydian-primary/20 via-transparent to-lydian-secondary/20"
+          className="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-transparent to-purple-700/20"
           animate={{
             opacity: [0.3, 0.5, 0.3]
           }}
@@ -175,11 +175,11 @@ export const AnimatedHeroSection: React.FC<AnimatedHeroSectionProps> = ({ onSear
                 animate={{ rotate: 360 }}
                 transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}>
 
-                <Sparkles className="w-12 h-12 text-lydian-primary" />
+                <Sparkles className="w-12 h-12 text-blue-500" />
               </motion.div>
               <h1 className="text-5xl md:text-7xl font-bold text-lydian-text">
                 Discover Your Next
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-lydian-primary via-lydian-secondary to-lydian-neon-blue animate-gradient-shift">
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-lydian-neon-blue animate-gradient-shift">
                   Adventure
                 </span>
               </h1>
@@ -187,12 +187,12 @@ export const AnimatedHeroSection: React.FC<AnimatedHeroSectionProps> = ({ onSear
                 animate={{ rotate: -360 }}
                 transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}>
 
-                <Sparkles className="w-12 h-12 text-lydian-secondary" />
+                <Sparkles className="w-12 h-12 text-purple-500" />
               </motion.div>
             </div>
 
             <motion.p
-              className="text-xl md:text-2xl text-lydian-text-muted max-w-3xl mx-auto"
+              className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3, duration: 0.8 }}>
@@ -218,7 +218,7 @@ export const AnimatedHeroSection: React.FC<AnimatedHeroSectionProps> = ({ onSear
             map((feature, i) =>
             <motion.div
               key={i}
-              className="flex items-center gap-2 bg-glass-dark backdrop-blur-md px-6 py-3 rounded-full border border-lydian-primary/20"
+              className="flex items-center gap-2 bg-glass-dark backdrop-blur-md px-6 py-3 rounded-full border border-blue-500/20"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.9 + i * 0.1 }}
@@ -239,7 +239,7 @@ export const AnimatedHeroSection: React.FC<AnimatedHeroSectionProps> = ({ onSear
 
             <Link href="/destinations">
               <motion.button
-                className="bg-gradient-to-r from-lydian-primary to-lydian-secondary text-lydian-text-inverse px-8 py-4 rounded-xl font-semibold shadow-neon hover:shadow-neon-lg transition-all"
+                className="bg-gradient-to-r from-blue-600 to-purple-700 text-white px-8 py-4 rounded-xl font-semibold shadow-neon hover:shadow-neon-lg transition-all"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}>
 
@@ -249,7 +249,7 @@ export const AnimatedHeroSection: React.FC<AnimatedHeroSectionProps> = ({ onSear
 
             <Link href="/ai-planner">
               <motion.button
-                className="bg-glass-dark backdrop-blur-md border-2 border-lydian-primary text-lydian-primary px-8 py-4 rounded-xl font-semibold hover:bg-lydian-primary/10 transition-all"
+                className="bg-glass-dark backdrop-blur-md border-2 border-blue-500 text-blue-500 px-8 py-4 rounded-xl font-semibold hover:bg-lydian-primary/10 transition-all"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}>
 
@@ -278,10 +278,10 @@ export const AnimatedHeroSection: React.FC<AnimatedHeroSectionProps> = ({ onSear
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.6 + i * 0.1 }}>
 
-                <div className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-lydian-primary to-lydian-secondary mb-2">
+                <div className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-700 mb-2">
                   {stat.value}
                 </div>
-                <div className="text-lydian-text-muted">{stat.label}</div>
+                <div className="text-gray-300">{stat.label}</div>
               </motion.div>
             )}
           </motion.div>
@@ -294,9 +294,9 @@ export const AnimatedHeroSection: React.FC<AnimatedHeroSectionProps> = ({ onSear
         animate={{ y: [0, 10, 0] }}
         transition={{ duration: 2, repeat: Infinity }}>
 
-        <div className="w-6 h-10 border-2 border-lydian-primary/50 rounded-full flex items-start justify-center p-2">
+        <div className="w-6 h-10 border-2 border-blue-500/50 rounded-full flex items-start justify-center p-2">
           <motion.div
-            className="w-1.5 h-1.5 bg-lydian-primary rounded-full"
+            className="w-1.5 h-1.5 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full"
             animate={{ y: [0, 16, 0] }}
             transition={{ duration: 2, repeat: Infinity }} />
 

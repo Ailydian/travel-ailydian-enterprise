@@ -37,7 +37,7 @@ const cancellationPolicies = [
   {
     value: 'very_strict',
     label: 'Çok Sıkı',
-    description: 'Girişten 30 gün öncesine kadar tam iade',
+    description: 'Girişten 3 gün öncesine kadar tam iade',
   },
   {
     value: 'non_refundable',
@@ -81,21 +81,21 @@ export default function Step6Pricing({ data }: Step6Props) {
       {/* Check-in/Check-out Times */}
       <div className="border-2 border-slate-200 rounded-xl p-6">
         <div className="flex items-center gap-3 mb-4">
-          <div className="p-2 bg-lydian-info-light rounded-lg">
-            <Clock className="w-5 h-5 text-lydian-primary" />
+          <div className="p-2 bg-blue-500-light rounded-lg">
+            <Clock className="w-5 h-5 text-blue-500" />
           </div>
-          <h3 className="text-lg font-bold text-slate-900">Giriş ve Çıkış</h3>
+          <h3 className="text-lg font-bold text-slate-9">Giriş ve Çıkış</h3>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Giriş Saati <span className="text-lydian-secondary">*</span>
+            <label className="block text-sm font-semibold text-slate-7 mb-2">
+              Giriş Saati <span className="text-purple-500">*</span>
             </label>
             <input
               type="time"
               {...register('checkInTime')}
-              className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+              className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
             />
             <p className="mt-1 text-xs text-slate-500">
               Format: SS:dd (24 saat formatı)
@@ -108,13 +108,13 @@ export default function Step6Pricing({ data }: Step6Props) {
           </div>
 
           <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Çıkış Saati <span className="text-lydian-secondary">*</span>
+            <label className="block text-sm font-semibold text-slate-7 mb-2">
+              Çıkış Saati <span className="text-purple-500">*</span>
             </label>
             <input
               type="time"
               {...register('checkOutTime')}
-              className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+              className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
             />
             <p className="mt-1 text-xs text-slate-500">
               Format: SS:dd (24 saat formatı)
@@ -130,23 +130,23 @@ export default function Step6Pricing({ data }: Step6Props) {
 
       {/* House Policies */}
       <div className="border-2 border-slate-200 rounded-xl p-6">
-        <h3 className="text-lg font-bold text-slate-900 mb-4">Ev Politikaları</h3>
+        <h3 className="text-lg font-bold text-slate-9 mb-4">Ev Politikaları</h3>
 
         <div className="space-y-4">
           {/* Smoking */}
-          <div className="flex items-center justify-between p-4 bg-slate-50 rounded-lg">
+          <div className="flex items-center justify-between p-4 bg-slate-500 rounded-lg">
             <div className="flex items-center gap-3">
-              <div className="p-2 bg-lydian-primary-lighter rounded-lg">
+              <div className="p-2 bg-blue-500/10er rounded-lg">
                 <Ban className="w-5 h-5 text-lydian-error" />
               </div>
               <div>
                 <label
                   htmlFor="smokingAllowed"
-                  className="font-medium text-slate-900 cursor-pointer"
+                  className="font-medium text-slate-9 cursor-pointer"
                 >
                   Sigara İçilebilir
                 </label>
-                <p className="text-sm text-slate-600">
+                <p className="text-sm text-slate-6">
                   Misafirlerin mülkte sigara içmesine izin ver
                 </p>
               </div>
@@ -155,24 +155,24 @@ export default function Step6Pricing({ data }: Step6Props) {
               type="checkbox"
               id="smokingAllowed"
               {...register('policies.smokingAllowed')}
-              className="w-6 h-6 text-lydian-primary rounded focus:ring-2 focus:ring-lydian-primary"
+              className="w-6 h-6 text-blue-500 rounded focus:ring-2 focus:ring-lydian-primary"
             />
           </div>
 
           {/* Pets */}
-          <div className="flex items-center justify-between p-4 bg-slate-50 rounded-lg">
+          <div className="flex items-center justify-between p-4 bg-slate-500 rounded-lg">
             <div className="flex items-center gap-3">
-              <div className="p-2 bg-lydian-warning-light rounded-lg">
-                <PawPrint className="w-5 h-5 text-amber-600" />
+              <div className="p-2 bg-yellow-500-light rounded-lg">
+                <PawPrint className="w-5 h-5 text-amber-6" />
               </div>
               <div>
                 <label
                   htmlFor="petsAllowed"
-                  className="font-medium text-slate-900 cursor-pointer"
+                  className="font-medium text-slate-9 cursor-pointer"
                 >
                   Evcil Hayvan Kabul Edilir
                 </label>
-                <p className="text-sm text-slate-600">
+                <p className="text-sm text-slate-6">
                   Misafirlerin evcil hayvan getirmesine izin ver
                 </p>
               </div>
@@ -181,14 +181,14 @@ export default function Step6Pricing({ data }: Step6Props) {
               type="checkbox"
               id="petsAllowed"
               {...register('policies.petsAllowed')}
-              className="w-6 h-6 text-lydian-primary rounded focus:ring-2 focus:ring-lydian-primary"
+              className="w-6 h-6 text-blue-500 rounded focus:ring-2 focus:ring-lydian-primary"
             />
           </div>
 
           {/* Pet Types (conditional) */}
           {watch('policies.petsAllowed') && (
-            <div className="ml-14 p-4 bg-lydian-bg/5 border border-slate-200 rounded-lg">
-              <label className="block text-sm font-medium text-slate-700 mb-2">
+            <div className="ml-14 p-4 bg-white/5 border border-slate-200 rounded-lg">
+              <label className="block text-sm font-medium text-slate-7 mb-2">
                 İzin Verilen Evcil Hayvan Türleri
               </label>
               <div className="space-y-2">
@@ -197,46 +197,46 @@ export default function Step6Pricing({ data }: Step6Props) {
                     type="checkbox"
                     value="dogs"
                     {...register('policies.petTypes')}
-                    className="w-4 h-4 text-lydian-primary rounded"
+                    className="w-4 h-4 text-blue-500 rounded"
                   />
-                  <span className="text-sm text-slate-700">Köpekler</span>
+                  <span className="text-sm text-slate-7">Köpekler</span>
                 </label>
                 <label className="flex items-center gap-2">
                   <input
                     type="checkbox"
                     value="cats"
                     {...register('policies.petTypes')}
-                    className="w-4 h-4 text-lydian-primary rounded"
+                    className="w-4 h-4 text-blue-500 rounded"
                   />
-                  <span className="text-sm text-slate-700">Kediler</span>
+                  <span className="text-sm text-slate-7">Kediler</span>
                 </label>
                 <label className="flex items-center gap-2">
                   <input
                     type="checkbox"
                     value="other"
                     {...register('policies.petTypes')}
-                    className="w-4 h-4 text-lydian-primary rounded"
+                    className="w-4 h-4 text-blue-500 rounded"
                   />
-                  <span className="text-sm text-slate-700">Diğer küçük evcil hayvanlar</span>
+                  <span className="text-sm text-slate-7">Diğer küçük evcil hayvanlar</span>
                 </label>
               </div>
             </div>
           )}
 
           {/* Events */}
-          <div className="flex items-center justify-between p-4 bg-slate-50 rounded-lg">
+          <div className="flex items-center justify-between p-4 bg-slate-500 rounded-lg">
             <div className="flex items-center gap-3">
-              <div className="p-2 bg-purple-100 rounded-lg">
-                <PartyPopper className="w-5 h-5 text-purple-600" />
+              <div className="p-2 bg-purple-1 rounded-lg">
+                <PartyPopper className="w-5 h-5 text-purple-6" />
               </div>
               <div>
                 <label
                   htmlFor="eventsAllowed"
-                  className="font-medium text-slate-900 cursor-pointer"
+                  className="font-medium text-slate-9 cursor-pointer"
                 >
                   Etkinliklere İzin Verilir
                 </label>
-                <p className="text-sm text-slate-600">
+                <p className="text-sm text-slate-6">
                   Misafirlerin etkinlik veya toplantı düzenlemesine izin ver
                 </p>
               </div>
@@ -245,24 +245,24 @@ export default function Step6Pricing({ data }: Step6Props) {
               type="checkbox"
               id="eventsAllowed"
               {...register('policies.eventsAllowed')}
-              className="w-6 h-6 text-lydian-primary rounded focus:ring-2 focus:ring-lydian-primary"
+              className="w-6 h-6 text-blue-500 rounded focus:ring-2 focus:ring-lydian-primary"
             />
           </div>
 
           {/* Parties */}
-          <div className="flex items-center justify-between p-4 bg-slate-50 rounded-lg">
+          <div className="flex items-center justify-between p-4 bg-slate-500 rounded-lg">
             <div className="flex items-center gap-3">
-              <div className="p-2 bg-pink-100 rounded-lg">
-                <PartyPopper className="w-5 h-5 text-pink-600" />
+              <div className="p-2 bg-pink-1 rounded-lg">
+                <PartyPopper className="w-5 h-5 text-pink-6" />
               </div>
               <div>
                 <label
                   htmlFor="partiesAllowed"
-                  className="font-medium text-slate-900 cursor-pointer"
+                  className="font-medium text-slate-9 cursor-pointer"
                 >
                   Partilere İzin Verilir
                 </label>
-                <p className="text-sm text-slate-600">
+                <p className="text-sm text-slate-6">
                   Misafirlerin parti düzenlemesine izin ver
                 </p>
               </div>
@@ -271,24 +271,24 @@ export default function Step6Pricing({ data }: Step6Props) {
               type="checkbox"
               id="partiesAllowed"
               {...register('policies.partiesAllowed')}
-              className="w-6 h-6 text-lydian-primary rounded focus:ring-2 focus:ring-lydian-primary"
+              className="w-6 h-6 text-blue-500 rounded focus:ring-2 focus:ring-lydian-primary"
             />
           </div>
 
           {/* Commercial Photography */}
-          <div className="flex items-center justify-between p-4 bg-slate-50 rounded-lg">
+          <div className="flex items-center justify-between p-4 bg-slate-500 rounded-lg">
             <div className="flex items-center gap-3">
-              <div className="p-2 bg-lydian-success-light rounded-lg">
-                <Camera className="w-5 h-5 text-lydian-success" />
+              <div className="p-2 bg-green-600-light rounded-lg">
+                <Camera className="w-5 h-5 text-green-500" />
               </div>
               <div>
                 <label
                   htmlFor="commercialPhotographyAllowed"
-                  className="font-medium text-slate-900 cursor-pointer"
+                  className="font-medium text-slate-9 cursor-pointer"
                 >
                   Ticari Fotoğrafçılığa İzin Verilir
                 </label>
-                <p className="text-sm text-slate-600">
+                <p className="text-sm text-slate-6">
                   Profesyonel fotoğraf/video çekimlerine izin ver
                 </p>
               </div>
@@ -297,7 +297,7 @@ export default function Step6Pricing({ data }: Step6Props) {
               type="checkbox"
               id="commercialPhotographyAllowed"
               {...register('policies.commercialPhotographyAllowed')}
-              className="w-6 h-6 text-lydian-primary rounded focus:ring-2 focus:ring-lydian-primary"
+              className="w-6 h-6 text-blue-500 rounded focus:ring-2 focus:ring-lydian-primary"
             />
           </div>
         </div>
@@ -305,10 +305,10 @@ export default function Step6Pricing({ data }: Step6Props) {
 
       {/* Custom Rules */}
       <div className="border-2 border-slate-200 rounded-xl p-6">
-        <h3 className="text-lg font-bold text-slate-900 mb-4">
+        <h3 className="text-lg font-bold text-slate-9 mb-4">
           Ek Ev Kuralları
         </h3>
-        <p className="text-sm text-slate-600 mb-4">
+        <p className="text-sm text-slate-6 mb-4">
           Mülkünüze özel kurallar ekleyin (maksimum 5)
         </p>
 
@@ -316,13 +316,13 @@ export default function Step6Pricing({ data }: Step6Props) {
           {customRules.map((rule, index) => (
             <div
               key={index}
-              className="flex items-center gap-3 p-3 bg-slate-50 border border-slate-200 rounded-lg"
+              className="flex items-center gap-3 p-3 bg-slate-500 border border-slate-200 rounded-lg"
             >
-              <span className="flex-1 text-sm text-slate-800">{rule}</span>
+              <span className="flex-1 text-sm text-slate-8">{rule}</span>
               <button
                 type="button"
                 onClick={() => removeCustomRule(index)}
-                className="p-1 text-lydian-error hover:bg-red-50 rounded"
+                className="p-1 text-lydian-error hover:bg-red-500 rounded"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -338,15 +338,15 @@ export default function Step6Pricing({ data }: Step6Props) {
             onKeyPress={(e) =>
               e.key === 'Enter' && (e.preventDefault(), addCustomRule())
             }
-            placeholder="örn., Saat 22:00'den sonra yüksek sesle müzik yasaktır"
+            placeholder="örn., Saat 22:to-cyan-700'den sonra yüksek sesle müzik yasaktır"
             maxLength={200}
-            className="flex-1 px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+            className="flex-1 px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
           />
           <button
             type="button"
             onClick={addCustomRule}
             disabled={!newRule.trim() || customRules.length >= 5}
-            className="px-6 py-3 bg-lydian-primary text-lydian-text-inverse rounded-lg font-medium hover:bg-lydian-primary-hover disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center gap-2"
+            className="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-medium hover:bg-lydian-primary-hover disabled:opacity-500 disabled:cursor-not-allowed transition-all flex items-center gap-2"
           >
             <Plus className="w-5 h-5" />
             Ekle
@@ -359,12 +359,12 @@ export default function Step6Pricing({ data }: Step6Props) {
       {/* Cancellation Policy */}
       <div className="border-2 border-slate-200 rounded-xl p-6">
         <div className="flex items-center gap-3 mb-4">
-          <div className="p-2 bg-lydian-primary-lighter rounded-lg">
+          <div className="p-2 bg-blue-500/10er rounded-lg">
             <Shield className="w-5 h-5 text-lydian-error" />
           </div>
-          <h3 className="text-lg font-bold text-slate-900">İptal Politikası</h3>
+          <h3 className="text-lg font-bold text-slate-9">İptal Politikası</h3>
         </div>
-        <p className="text-sm text-slate-600 mb-4">
+        <p className="text-sm text-slate-6 mb-4">
           İptallerde ne kadar esnek olmak istediğinizi seçin
         </p>
 
@@ -381,8 +381,8 @@ export default function Step6Pricing({ data }: Step6Props) {
                 }
                 className={`w-full p-4 border-2 rounded-lg text-left transition-all ${
                   isSelected
-                    ? 'border-lydian-primary bg-blue-50'
-                    : 'border-slate-200 bg-lydian-bg/5 hover:border-slate-300'
+                    ? 'border-blue-500 bg-blue-500'
+                    : 'border-slate-200 bg-white/5 hover:border-slate-3'
                 }`}
               >
                 <div className="flex items-start justify-between">
@@ -391,17 +391,17 @@ export default function Step6Pricing({ data }: Step6Props) {
                       <div
                         className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${
                           isSelected
-                            ? 'border-lydian-primary bg-blue-500'
-                            : 'border-slate-300'
+                            ? 'border-blue-500 bg-blue-500'
+                            : 'border-slate-3'
                         }`}
                       >
                         {isSelected && (
-                          <div className="w-2 h-2 bg-lydian-bg/5 rounded-full" />
+                          <div className="w-2 h-2 bg-white/5 rounded-full" />
                         )}
                       </div>
                       <h4
                         className={`font-semibold ${
-                          isSelected ? 'text-blue-900' : 'text-slate-900'
+                          isSelected ? 'text-blue-9' : 'text-slate-9'
                         }`}
                       >
                         {policy.label}
@@ -409,7 +409,7 @@ export default function Step6Pricing({ data }: Step6Props) {
                     </div>
                     <p
                       className={`text-sm ml-8 ${
-                        isSelected ? 'text-lydian-primary-hover' : 'text-slate-600'
+                        isSelected ? 'text-lydian-primary-hover' : 'text-slate-6'
                       }`}
                     >
                       {policy.description}
@@ -430,9 +430,9 @@ export default function Step6Pricing({ data }: Step6Props) {
       </div>
 
       {/* Info Box */}
-      <div className="p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
-        <h4 className="font-semibold text-yellow-900 mb-2">Ev Kuralları İpuçları:</h4>
-        <ul className="text-sm text-yellow-800 space-y-1">
+      <div className="p-4 bg-yellow-500 border border-yellow-200 rounded-lg">
+        <h4 className="font-semibold text-yellow-9 mb-2">Ev Kuralları İpuçları:</h4>
+        <ul className="text-sm text-yellow-8 space-y-1">
           <li>• Net kurallar, misafirler için uygun beklentiler belirlemeye yardımcı olur</li>
           <li>• Daha sıkı iptal politikaları rezervasyonları azaltabilir ancak geliri korur</li>
           <li>• Mahallenizi ve yerel düzenlemeleri göz önünde bulundurun</li>

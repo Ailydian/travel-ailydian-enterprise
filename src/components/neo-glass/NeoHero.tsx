@@ -166,7 +166,7 @@ export const NeoHero: React.FC<NeoHeroProps> = ({
                 className="absolute -inset-4 bg-gradient-to-r from-[#00BAFF] via-[#667EEA] to-[#FF9500] rounded-3xl blur-2xl opacity-30" />
 
 
-              <h1 className="relative text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-lydian-text-inverse leading-tight tracking-tight">
+              <h1 className="relative text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white leading-tight tracking-tight">
                 {title}
               </h1>
             </div>
@@ -180,8 +180,8 @@ export const NeoHero: React.FC<NeoHeroProps> = ({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}>
 
-              <div className="bg-lydian-glass-dark-medium backdrop-blur-xl border border-lydian-border-light rounded-3xl p-6 shadow-[0_8px_32px_0_rgba(31,38,135,0.2)]">
-                <p className="text-xl md:text-2xl lg:text-3xl text-lydian-text-inverse/90 font-light leading-relaxed">
+              <div className="bg-white/10 backdrop-blur-xl border border-white/20 backdrop-blur-xl border border-white/20 rounded-3xl p-6 shadow-[0_8px_32px_0_rgba(31,38,135,0.2)]">
+                <p className="text-xl md:text-2xl lg:text-3xl text-white/90 font-light leading-relaxed">
                   {subtitle}
                 </p>
               </div>

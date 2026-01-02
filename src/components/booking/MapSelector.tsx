@@ -139,19 +139,19 @@ const MapSelector: React.FC<MapSelectorProps> = ({
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           placeholder="Adres veya konum ara... (örn: Kızılay, Ankara)"
-          className="w-full px-4 py-3 border border-lydian-border-light rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-border" />
+          className="w-full px-4 py-3 border border-white/20 rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-white/20" />
 
 
         {/* Search Results Dropdown */}
         {searchResults.length > 0 &&
-        <div className="absolute z-50 w-full mt-2 bg-lydian-glass-dark border border-lydian-border-light/10 rounded-lg shadow-lg max-h-60 overflow-y-auto">
+        <div className="absolute z-50 w-full mt-2 bg-gradient-to-br from-slate-900 via-black to-slate-800 border border-white/20/10 rounded-lg shadow-lg max-h-60 overflow-y-auto">
             {searchResults.map((result, index) =>
           <button
             key={index}
             onClick={() => handleSelectSearchResult(result)}
-            className="w-full text-left px-4 py-3 hover:bg-lydian-primary-lighter border-b border-lydian-border-light last:border-b-0 transition-colors">
+            className="w-full text-left px-4 py-3 hover:bg-blue-500/10er border-b border-white/20 last:border-b-0 transition-colors">
 
-                <p className="text-sm text-lydian-text-dim font-medium">
+                <p className="text-sm text-gray-400 font-medium">
                   {result.display_name}
                 </p>
               </button>
@@ -161,13 +161,13 @@ const MapSelector: React.FC<MapSelectorProps> = ({
 
         {isSearching &&
         <div className="absolute right-3 top-3">
-            <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-lydian-primary"></div>
+            <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-blue-500"></div>
           </div>
         }
       </div>
 
       {/* Map Container */}
-      <div className="relative w-full h-[400px] rounded-lg overflow-hidden border-2 border-lydian-border-light/10 shadow-md">
+      <div className="relative w-full h-[400px] rounded-lg overflow-hidden border-2 border-white/20/10 shadow-md">
         <MapContainer
           center={position ? [position.lat, position.lng] : defaultCenter}
           zoom={defaultZoom}
@@ -186,7 +186,7 @@ const MapSelector: React.FC<MapSelectorProps> = ({
 
         {/* Instructions Overlay */}
         <div className="absolute bottom-4 left-4 right-4 bg-lydian-bg/95 backdrop-blur-sm px-4 py-2 rounded-lg shadow-md z-[1000]">
-          <p className="text-sm text-lydian-text-muted">
+          <p className="text-sm text-gray-300">
             <strong>💡 İpucu:</strong> Haritada bir noktaya tıklayarak konumunuzu seçin veya üstteki arama kutusunu kullanın.
           </p>
         </div>
@@ -214,7 +214,7 @@ const MapSelector: React.FC<MapSelectorProps> = ({
             showToast({ type: 'info', title: 'Tarayıcınız konum servislerini desteklemiyor.' });
           }
         }}
-        className="w-full px-4 py-2 bg-lydian-primary-lighter text-lydian-primary-dark rounded-lg hover:bg-lydian-primary-light transition-colors font-medium text-sm flex items-center justify-center gap-2">
+        className="w-full px-4 py-2 bg-blue-500/10er text-blue-600 rounded-lg hover:bg-blue-500/10 transition-colors font-medium text-sm flex items-center justify-center gap-2">
 
         <svg
           className="w-5 h-5"

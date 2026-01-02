@@ -47,7 +47,7 @@ export default function ExternalPlatformReviews({
     },
     tripadvisor: {
       name: 'TripAdvisor Reviews',
-      color: 'text-lydian-success',
+      color: 'text-green-500',
       bgColor: 'bg-green-50',
       borderColor: 'border-green-200',
       logo: <Globe className="h-4 w-4" />
@@ -79,7 +79,7 @@ export default function ExternalPlatformReviews({
             <span className="ml-2">{config.name}</span>
           </div>
           {totalReviews &&
-          <span className="ml-2 text-sm text-lydian-text-muted">
+          <span className="ml-2 text-sm text-gray-300">
               ({totalReviews} reviews)
             </span>
           }
@@ -94,12 +94,12 @@ export default function ExternalPlatformReviews({
               className={`h-4 w-4 ${
               i < Math.floor(averageRating) ?
               'text-yellow-400 fill-current' :
-              'text-lydian-text-dim'}`
+              'text-gray-400'}`
               } />
 
             )}
             </div>
-            <span className="ml-2 text-sm font-medium text-lydian-text-inverse">
+            <span className="ml-2 text-sm font-medium text-white">
               {averageRating.toFixed(1)}
             </span>
           </div>
@@ -109,7 +109,7 @@ export default function ExternalPlatformReviews({
       {/* Reviews */}
       <div className="space-y-4">
         {displayedReviews.map((review) =>
-        <div key={review.id} className="bg-lydian-glass-dark p-4 rounded-lg border border-lydian-border-light">
+        <div key={review.id} className="bg-gradient-to-br from-slate-900 via-black to-slate-800 p-4 rounded-lg border border-white/20">
             {/* Review Header */}
             <div className="flex items-start justify-between mb-2">
               <div className="flex items-center">
@@ -120,15 +120,15 @@ export default function ExternalPlatformReviews({
                 className="h-8 w-8 rounded-full object-cover" /> :
 
 
-              <div className="h-8 w-8 bg-lydian-bg-active rounded-full flex items-center justify-center">
-                    <User className="h-4 w-4 text-lydian-text-muted" />
+              <div className="h-8 w-8 bg-white/10 backdrop-blur-xl border border-white/20 rounded-full flex items-center justify-center">
+                    <User className="h-4 w-4 text-gray-300" />
                   </div>
               }
                 <div className="ml-3">
-                  <p className="font-medium text-lydian-text-inverse text-sm">
+                  <p className="font-medium text-white text-sm">
                     {review.author_name}
                   </p>
-                  <div className="flex items-center text-xs text-lydian-text-muted">
+                  <div className="flex items-center text-xs text-gray-300">
                     <span>{formatDate(review.publish_date)}</span>
                     {review.trip_type &&
                   <>
@@ -149,12 +149,12 @@ export default function ExternalPlatformReviews({
                   className={`h-3 w-3 ${
                   i < review.rating ?
                   'text-yellow-400 fill-current' :
-                  'text-lydian-text-dim'}`
+                  'text-gray-400'}`
                   } />
 
                 )}
                 </div>
-                <span className="ml-1 text-xs text-lydian-text-dim">
+                <span className="ml-1 text-xs text-gray-400">
                   {review.rating}/5
                 </span>
               </div>
@@ -162,19 +162,19 @@ export default function ExternalPlatformReviews({
 
             {/* Review Title */}
             {review.title &&
-          <h4 className="font-medium text-lydian-text-inverse mb-2 text-sm">
+          <h4 className="font-medium text-white mb-2 text-sm">
                 {review.title}
               </h4>
           }
 
             {/* Review Content */}
-            <p className="text-lydian-text-muted text-sm leading-relaxed mb-3">
+            <p className="text-gray-300 text-sm leading-relaxed mb-3">
               {review.content}
             </p>
 
             {/* Review Footer */}
             <div className="flex items-center justify-between text-xs">
-              <div className="flex items-center text-lydian-text-muted">
+              <div className="flex items-center text-gray-300">
                 {review.helpful_votes && review.helpful_votes > 0 &&
               <span>{review.helpful_votes} found this helpful</span>
               }
@@ -221,7 +221,7 @@ export default function ExternalPlatformReviews({
           <button
           onClick={onLoadMore}
           disabled={isLoading}
-          className={`px-4 py-2 text-sm font-medium ${config.color} border ${config.borderColor} rounded-md hover:bg-lydian-glass-dark disabled:opacity-50`}>
+          className={`px-4 py-2 text-sm font-medium ${config.color} border ${config.borderColor} rounded-md hover:bg-gradient-to-br from-slate-900 via-black to-slate-800 disabled:opacity-50`}>
 
             {isLoading ? 'Loading...' : 'Load More Reviews'}
           </button>
@@ -229,8 +229,8 @@ export default function ExternalPlatformReviews({
       }
 
       {/* Source Attribution */}
-      <div className="mt-4 pt-3 border-t border-lydian-border-light/10">
-        <p className="text-xs text-lydian-text-muted flex items-center justify-center">
+      <div className="mt-4 pt-3 border-t border-white/20/10">
+        <p className="text-xs text-gray-300 flex items-center justify-center">
           Reviews synced from {config.name}
           {config.logo}
         </p>

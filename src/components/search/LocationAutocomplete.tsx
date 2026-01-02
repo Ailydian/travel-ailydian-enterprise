@@ -157,7 +157,7 @@ export const LocationAutocomplete: React.FC<LocationAutocompleteProps> = ({
     <div ref={wrapperRef} className={`relative ${className}`}>
       <div className="relative group">
         <div className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 pointer-events-none">
-          {icon || <MapPin className="text-lydian-text-muted w-5 h-5 group-hover:scale-110 group-focus-within:scale-110 group-focus-within:text-lydian-primary transition-all" />}
+          {icon || <MapPin className="text-gray-300 w-5 h-5 group-hover:scale-110 group-focus-within:scale-110 group-focus-within:text-blue-500 transition-all" />}
         </div>
         <input
           type="text"
@@ -166,29 +166,29 @@ export const LocationAutocomplete: React.FC<LocationAutocompleteProps> = ({
           onKeyDown={handleKeyDown}
           onFocus={() => value.length >= 2 && setShowSuggestions(true)}
           placeholder={placeholder}
-          className="w-full pl-12 pr-10 py-4 text-base bg-lydian-glass-dark border-2 border-lydian-border-light/10 rounded-2xl focus:ring-2 focus:ring-lydian-primary focus:border-lydian-primary outline-none text-lydian-text-inverse placeholder-lydian-text-tertiary font-medium shadow-sm hover:shadow-lg hover:border-lydian-primary/50 transition-all duration-200"
+          className="w-full pl-12 pr-10 py-4 text-base bg-gradient-to-br from-slate-900 via-black to-slate-800 border-2 border-white/20/10 rounded-2xl focus:ring-2 focus:ring-lydian-primary focus:border-blue-500 outline-none text-white placeholder-lydian-text-tertiary font-medium shadow-sm hover:shadow-lg hover:border-blue-500/50 transition-all duration-200"
           autoComplete="off" />
 
         {isLoading &&
-        <Loader2 className="absolute right-4 top-1/2 transform -translate-y-1/2 text-lydian-primary w-5 h-5 animate-spin" />
+        <Loader2 className="absolute right-4 top-1/2 transform -translate-y-1/2 text-blue-500 w-5 h-5 animate-spin" />
         }
       </div>
 
       {/* Suggestions Dropdown */}
       {showSuggestions && suggestions.length > 0 &&
-      <div className="absolute z-50 w-full mt-2 bg-lydian-glass-dark rounded-2xl shadow-2xl border-2 border-lydian-border-light overflow-hidden max-h-96 overflow-y-auto">
+      <div className="absolute z-50 w-full mt-2 bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-2xl shadow-2xl border-2 border-white/20 overflow-hidden max-h-96 overflow-y-auto">
           {suggestions.map((suggestion, index) =>
         <button
           key={suggestion.id}
           onClick={() => handleSelectSuggestion(suggestion)}
-          className={`w-full px-5 py-4 flex items-start gap-3 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all duration-200 text-left border-b border-lydian-border-light last:border-b-0 ${
-          index === selectedIndex ? 'bg-gradient-to-r from-lydian-primary/10 to-lydian-secondary/10' : ''}`
+          className={`w-full px-5 py-4 flex items-start gap-3 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-all duration-200 text-left border-b border-white/20 last:border-b-0 ${
+          index === selectedIndex ? 'bg-gradient-to-r from-blue-600/10 to-purple-700/10' : ''}`
           }>
 
               <span className="text-2xl mt-0.5 transform hover:scale-125 transition-transform">{getLocationIcon(suggestion.type)}</span>
               <div className="flex-1 min-w-0">
-                <div className="font-semibold text-lydian-text-inverse truncate">{suggestion.name}</div>
-                <div className="text-sm text-lydian-text-dim flex items-center gap-1 mt-1">
+                <div className="font-semibold text-white truncate">{suggestion.name}</div>
+                <div className="text-sm text-gray-400 flex items-center gap-1 mt-1">
                   <MapPin className="w-3 h-3 flex-shrink-0" />
                   <span className="truncate">
                     {suggestion.city}
@@ -197,14 +197,14 @@ export const LocationAutocomplete: React.FC<LocationAutocompleteProps> = ({
                     {suggestion.country}
                   </span>
                   {suggestion.code &&
-              <span className="ml-2 px-2 py-0.5 bg-gradient-to-r from-lydian-primary to-lydian-primary text-lydian-text-inverse rounded-md text-xs font-mono font-semibold shadow-sm flex-shrink-0">
+              <span className="ml-2 px-2 py-0.5 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-md text-xs font-mono font-semibold shadow-sm flex-shrink-0">
                       {suggestion.code}
                     </span>
               }
                 </div>
               </div>
               {suggestion.type === 'airport' &&
-          <Navigation className="w-5 h-5 text-lydian-primary mt-1 flex-shrink-0" />
+          <Navigation className="w-5 h-5 text-blue-500 mt-1 flex-shrink-0" />
           }
             </button>
         )}
@@ -213,12 +213,12 @@ export const LocationAutocomplete: React.FC<LocationAutocompleteProps> = ({
 
       {/* No results */}
       {showSuggestions && !isLoading && value.length >= 2 && suggestions.length === 0 &&
-      <div className="absolute z-50 w-full mt-2 bg-lydian-glass-dark rounded-2xl shadow-2xl border-2 border-lydian-border-light p-6 text-center">
+      <div className="absolute z-50 w-full mt-2 bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-2xl shadow-2xl border-2 border-white/20 p-6 text-center">
           <div className="w-16 h-16 mx-auto mb-3 rounded-full bg-gradient-to-r from-gray-100 to-gray-200 flex items-center justify-center">
-            <Search className="w-8 h-8 text-lydian-text-muted" />
+            <Search className="w-8 h-8 text-gray-300" />
           </div>
-          <div className="font-semibold text-lydian-text-inverse mb-1">Sonuç bulunamadı</div>
-          <div className="text-sm text-lydian-text-muted">Farklı bir arama terimi deneyin</div>
+          <div className="font-semibold text-white mb-1">Sonuç bulunamadı</div>
+          <div className="text-sm text-gray-300">Farklı bir arama terimi deneyin</div>
         </div>
       }
     </div>);

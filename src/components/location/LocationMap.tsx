@@ -44,17 +44,17 @@ const LocationMap: React.FC<LocationMapProps> = ({
       {/* Map Container */}
       <div
         ref={mapRef}
-        className="w-full h-full bg-lydian-bg-active rounded-lg overflow-hidden relative">
+        className="w-full h-full bg-white/10 backdrop-blur-xl border border-white/20 rounded-lg overflow-hidden relative">
 
         {/* Placeholder Map Content */}
         <div className="absolute inset-0 bg-gradient-to-br from-blue-100 to-green-100 flex items-center justify-center">
           <div className="text-center">
             <MapPin className="w-12 h-12 text-lydian-error mx-auto mb-4" />
-            <h3 className="text-lg font-semibold text-lydian-text-dim mb-2">{locationName}</h3>
+            <h3 className="text-lg font-semibold text-gray-400 mb-2">{locationName}</h3>
             {address &&
-            <p className="text-sm text-lydian-text-dim mb-2">{address}</p>
+            <p className="text-sm text-gray-400 mb-2">{address}</p>
             }
-            <div className="text-xs text-lydian-text-muted">
+            <div className="text-xs text-gray-300">
               <p>Lat: {coordinates.lat.toFixed(6)}</p>
               <p>Lng: {coordinates.lng.toFixed(6)}</p>
             </div>
@@ -63,10 +63,10 @@ const LocationMap: React.FC<LocationMapProps> = ({
 
         {/* Map Controls */}
         <div className="absolute top-4 right-4 flex flex-col space-y-2">
-          <button className="bg-lydian-glass-dark shadow-md rounded p-2 hover:bg-lydian-glass-dark transition-colors">
+          <button className="bg-gradient-to-br from-slate-900 via-black to-slate-800 shadow-md rounded p-2 hover:bg-gradient-to-br from-slate-900 via-black to-slate-800 transition-colors">
             <span className="text-lg font-bold">+</span>
           </button>
-          <button className="bg-lydian-glass-dark shadow-md rounded p-2 hover:bg-lydian-glass-dark transition-colors">
+          <button className="bg-gradient-to-br from-slate-900 via-black to-slate-800 shadow-md rounded p-2 hover:bg-gradient-to-br from-slate-900 via-black to-slate-800 transition-colors">
             <span className="text-lg font-bold">-</span>
           </button>
         </div>
@@ -78,7 +78,7 @@ const LocationMap: React.FC<LocationMapProps> = ({
               const url = `https://www.google.com/maps/dir/?api=1&destination=${coordinates.lat},${coordinates.lng}`;
               window.open(url, '_blank');
             }}
-            className="bg-lydian-primary text-lydian-text-inverse px-4 py-2 rounded-lg shadow-md hover:bg-lydian-primary-dark transition-colors text-sm font-medium">
+            className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-2 rounded-lg shadow-md hover:bg-gradient-to-r from-blue-700 to-purple-700 transition-colors text-sm font-medium">
 
             Get Directions
           </button>
@@ -86,7 +86,7 @@ const LocationMap: React.FC<LocationMapProps> = ({
       </div>
 
       {/* Map Integration Notice */}
-      <div className="mt-4 p-3 bg-lydian-warning-lighter border border-yellow-200 rounded-lg">
+      <div className="mt-4 p-3 bg-yellow-500-lighter border border-yellow-200 rounded-lg">
         <p className="text-sm text-yellow-800">
           <strong>Note:</strong> Map integration is ready for implementation. 
           Add your preferred map service (Google Maps, Mapbox, etc.) to enable interactive maps.

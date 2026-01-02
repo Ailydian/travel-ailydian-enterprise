@@ -20,7 +20,7 @@ export const PageLoader: React.FC<PageLoaderProps> = ({ isLoading }) => {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.2 }}
-        className="fixed inset-0 z-[10000] flex items-center justify-center bg-lydian-bg/80 backdrop-blur-sm">
+        className="fixed inset-0 z-[10000] flex items-center justify-center bg-white/10 backdrop-blur-sm">
 
           <div className="relative">
             {/* Animated Plane */}
@@ -36,7 +36,7 @@ export const PageLoader: React.FC<PageLoaderProps> = ({ isLoading }) => {
             }}
             className="relative z-10">
 
-              <Plane className="w-16 h-16 text-lydian-primary" />
+              <Plane className="w-16 h-16 text-blue-500" />
             </motion.div>
 
             {/* Sparkles */}
@@ -52,12 +52,12 @@ export const PageLoader: React.FC<PageLoaderProps> = ({ isLoading }) => {
             }}
             className="absolute -top-2 -right-2">
 
-              <Sparkles className="w-6 h-6 text-lydian-secondary" />
+              <Sparkles className="w-6 h-6 text-purple-500" />
             </motion.div>
 
             {/* Loading Bar */}
             <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-32">
-              <div className="h-1 bg-lydian-bg-active rounded-full overflow-hidden">
+              <div className="h-1 bg-white/10 backdrop-blur-xl border border-white/20 rounded-full overflow-hidden">
                 <motion.div
                 animate={{
                   x: ['-100%', '100%']
@@ -67,7 +67,7 @@ export const PageLoader: React.FC<PageLoaderProps> = ({ isLoading }) => {
                   repeat: Infinity,
                   ease: 'linear'
                 }}
-                className="h-full w-1/2 bg-gradient-to-r from-lydian-primary to-lydian-secondary rounded-full" />
+                className="h-full w-1/2 bg-gradient-to-r from-blue-600 to-purple-700 rounded-full" />
 
               </div>
             </div>
@@ -82,7 +82,7 @@ export const PageLoader: React.FC<PageLoaderProps> = ({ isLoading }) => {
               repeat: Infinity,
               ease: 'easeInOut'
             }}
-            className="absolute -bottom-16 left-1/2 -translate-x-1/2 whitespace-nowrap text-sm font-medium text-lydian-text-dim">
+            className="absolute -bottom-16 left-1/2 -translate-x-1/2 whitespace-nowrap text-sm font-medium text-gray-400">
 
               Yükleniyor...
             </motion.p>

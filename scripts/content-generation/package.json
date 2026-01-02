@@ -1,0 +1,21 @@
+{
+  "name": "@ailydian/content-generation",
+  "version": "1.0.0",
+  "description": "AI-powered content generation for 1378+ pages across 8 languages",
+  "private": true,
+  "scripts": {
+    "generate": "ts-node run-batch.ts",
+    "generate:test": "BATCH_SIZE=10 ts-node run-batch.ts",
+    "generate:full": "BATCH_SIZE=1000 CONCURRENCY=15 ts-node run-batch.ts"
+  },
+  "dependencies": {
+    "openai": "^4.20.0",
+    "p-limit": "^3.1.0",
+    "dotenv": "^16.0.3"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.0"
+  }
+}

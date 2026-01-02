@@ -39,14 +39,14 @@ const StatCard: React.FC<StatCardProps> = ({
   isPositive,
   icon: Icon
 }) =>
-<div className="bg-lydian-glass-dark rounded-lg border border-lydian-border-light/10 p-6 hover:shadow-lg transition-shadow">
+<div className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-lg border border-white/20/10 p-6 hover:shadow-lg transition-shadow">
     <div className="flex items-center justify-between mb-4">
-      <div className="p-2 bg-lydian-primary-lighter rounded-lg">
-        <Icon className="h-6 w-6 text-lydian-primary" />
+      <div className="p-2 bg-blue-500/10er rounded-lg">
+        <Icon className="h-6 w-6 text-blue-500" />
       </div>
       <div
       className={`flex items-center space-x-1 text-sm font-medium ${
-      isPositive ? 'text-lydian-success' : 'text-lydian-error'}`
+      isPositive ? 'text-green-500' : 'text-lydian-error'}`
       }>
 
         {isPositive ?
@@ -57,8 +57,8 @@ const StatCard: React.FC<StatCardProps> = ({
         <span>{change}</span>
       </div>
     </div>
-    <h3 className="text-2xl font-bold text-lydian-text-inverse mb-1">{value}</h3>
-    <p className="text-sm text-lydian-text-muted">{title}</p>
+    <h3 className="text-2xl font-bold text-white mb-1">{value}</h3>
+    <p className="text-sm text-gray-300">{title}</p>
   </div>;
 
 
@@ -82,18 +82,18 @@ const BookingRow: React.FC<{booking: Booking;}> = ({ booking }) => {
   };
 
   return (
-    <tr className="hover:bg-lydian-glass-dark">
+    <tr className="hover:bg-gradient-to-br from-slate-900 via-black to-slate-800">
       <td className="px-6 py-4 whitespace-nowrap">
-        <div className="text-sm font-medium text-lydian-text-inverse">{booking.guestName}</div>
+        <div className="text-sm font-medium text-white">{booking.guestName}</div>
       </td>
       <td className="px-6 py-4 whitespace-nowrap">
-        <div className="text-sm text-lydian-text-muted">{booking.property}</div>
+        <div className="text-sm text-gray-300">{booking.property}</div>
       </td>
       <td className="px-6 py-4 whitespace-nowrap">
-        <div className="text-sm text-lydian-text-muted">{booking.checkIn}</div>
+        <div className="text-sm text-gray-300">{booking.checkIn}</div>
       </td>
       <td className="px-6 py-4 whitespace-nowrap">
-        <div className="text-sm font-medium text-lydian-text-inverse">{booking.amount}</div>
+        <div className="text-sm font-medium text-white">{booking.amount}</div>
       </td>
       <td className="px-6 py-4 whitespace-nowrap">
         <span
@@ -186,10 +186,10 @@ export default function DashboardPage() {
 
       {/* Welcome Section */}
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-lydian-text-inverse mb-2">
+        <h1 className="text-3xl font-bold text-white mb-2">
           Welcome back, John!
         </h1>
-        <p className="text-lydian-text-muted">
+        <p className="text-gray-300">
           Here's what's happening with your properties today.
         </p>
       </div>
@@ -202,42 +202,42 @@ export default function DashboardPage() {
       </div>
 
       {/* Recent Bookings Table */}
-      <div className="bg-lydian-glass-dark rounded-lg border border-lydian-border-light/10 shadow-sm">
-        <div className="px-6 py-4 border-b border-lydian-border-light/10">
-          <h2 className="text-lg font-semibold text-lydian-text-inverse">Recent Bookings</h2>
+      <div className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-lg border border-white/20/10 shadow-sm">
+        <div className="px-6 py-4 border-b border-white/20/10">
+          <h2 className="text-lg font-semibold text-white">Recent Bookings</h2>
         </div>
         <div className="overflow-x-auto">
           <table className="min-w-full divide-y divide-lydian-border">
-            <thead className="bg-lydian-glass-dark">
+            <thead className="bg-gradient-to-br from-slate-900 via-black to-slate-800">
               <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-lydian-text-muted uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
                   Guest
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-lydian-text-muted uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
                   Property
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-lydian-text-muted uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
                   Check-in
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-lydian-text-muted uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
                   Amount
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-lydian-text-muted uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
                   Status
                 </th>
               </tr>
             </thead>
-            <tbody className="bg-lydian-glass-dark divide-y divide-lydian-border">
+            <tbody className="bg-gradient-to-br from-slate-900 via-black to-slate-800 divide-y divide-lydian-border">
               {recentBookings.map((booking) =>
               <BookingRow key={booking.id} booking={booking} />
               )}
             </tbody>
           </table>
         </div>
-        <div className="px-6 py-4 border-t border-lydian-border-light/10 bg-lydian-glass-dark">
+        <div className="px-6 py-4 border-t border-white/20/10 bg-gradient-to-br from-slate-900 via-black to-slate-800">
           <a
             href="/dashboard/bookings"
-            className="text-sm font-medium text-lydian-primary hover:text-lydian-primary-dark">
+            className="text-sm font-medium text-blue-500 hover:text-blue-600">
 
             View all bookings →
           </a>
@@ -246,26 +246,26 @@ export default function DashboardPage() {
 
       {/* Quick Actions */}
       <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
-        <button className="p-6 bg-lydian-glass-dark border border-lydian-border-light/10 rounded-lg hover:shadow-lg transition-shadow text-left">
-          <Calendar className="h-8 w-8 text-lydian-primary mb-3" />
-          <h3 className="font-semibold text-lydian-text-inverse mb-1">Manage Calendar</h3>
-          <p className="text-sm text-lydian-text-muted">
+        <button className="p-6 bg-gradient-to-br from-slate-900 via-black to-slate-800 border border-white/20/10 rounded-lg hover:shadow-lg transition-shadow text-left">
+          <Calendar className="h-8 w-8 text-blue-500 mb-3" />
+          <h3 className="font-semibold text-white mb-1">Manage Calendar</h3>
+          <p className="text-sm text-gray-300">
             Update availability and pricing
           </p>
         </button>
 
-        <button className="p-6 bg-lydian-glass-dark border border-lydian-border-light/10 rounded-lg hover:shadow-lg transition-shadow text-left">
-          <Users className="h-8 w-8 text-lydian-primary mb-3" />
-          <h3 className="font-semibold text-lydian-text-inverse mb-1">Guest Messages</h3>
-          <p className="text-sm text-lydian-text-muted">
+        <button className="p-6 bg-gradient-to-br from-slate-900 via-black to-slate-800 border border-white/20/10 rounded-lg hover:shadow-lg transition-shadow text-left">
+          <Users className="h-8 w-8 text-blue-500 mb-3" />
+          <h3 className="font-semibold text-white mb-1">Guest Messages</h3>
+          <p className="text-sm text-gray-300">
             Respond to guest inquiries
           </p>
         </button>
 
-        <button className="p-6 bg-lydian-glass-dark border border-lydian-border-light/10 rounded-lg hover:shadow-lg transition-shadow text-left">
-          <DollarSign className="h-8 w-8 text-lydian-primary mb-3" />
-          <h3 className="font-semibold text-lydian-text-inverse mb-1">View Earnings</h3>
-          <p className="text-sm text-lydian-text-muted">
+        <button className="p-6 bg-gradient-to-br from-slate-900 via-black to-slate-800 border border-white/20/10 rounded-lg hover:shadow-lg transition-shadow text-left">
+          <DollarSign className="h-8 w-8 text-blue-500 mb-3" />
+          <h3 className="font-semibold text-white mb-1">View Earnings</h3>
+          <p className="text-sm text-gray-300">
             Check your financial reports
           </p>
         </button>

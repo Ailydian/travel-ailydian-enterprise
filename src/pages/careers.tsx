@@ -129,9 +129,9 @@ export default function Careers() {
 
       <ModernHeader />
 
-      <main className="min-h-screen bg-lydian-glass-dark">
+      <main className="min-h-screen bg-gradient-to-br from-slate-900 via-black to-slate-800">
         {/* Hero Section */}
-        <div className="bg-gradient-to-r from-lydian-primary to-lydian-dark text-lydian-text-inverse py-20">
+        <div className="bg-gradient-to-r from-blue-600 to-lydian-dark text-white py-20">
           <div className="max-w-7xl mx-auto px-4">
             <div className="max-w-3xl">
               <h1 className="text-5xl md:text-6xl font-bold mb-6">
@@ -143,7 +143,7 @@ export default function Careers() {
               </p>
               <a
                 href="#open-positions"
-                className="inline-flex items-center gap-2 bg-lydian-bg-hover text-lydian-primary px-8 py-4 rounded-lg font-semibold hover:bg-lydian-primary-lighter transition-colors">
+                className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl text-blue-500 px-8 py-4 rounded-lg font-semibold hover:bg-blue-500/10er transition-colors">
 
                 Açık Pozisyonları Gör
                 <ChevronRight className="w-5 h-5" />
@@ -153,37 +153,37 @@ export default function Careers() {
         </div>
 
         {/* Stats Section */}
-        <div className="bg-lydian-bg-hover border-b border-lydian-border py-12">
+        <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl border-b border-white/20 py-12">
           <div className="max-w-7xl mx-auto px-4">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
               <div>
-                <div className="text-4xl font-bold text-lydian-primary mb-2">200+</div>
-                <div className="text-lydian-text-dim">Çalışan</div>
+                <div className="text-4xl font-bold text-blue-500 mb-2">200+</div>
+                <div className="text-gray-400">Çalışan</div>
               </div>
               <div>
-                <div className="text-4xl font-bold text-lydian-primary mb-2">15+</div>
-                <div className="text-lydian-text-dim">Ülkede Ofis</div>
+                <div className="text-4xl font-bold text-blue-500 mb-2">15+</div>
+                <div className="text-gray-400">Ülkede Ofis</div>
               </div>
               <div>
-                <div className="text-4xl font-bold text-lydian-primary mb-2">4.8/5</div>
-                <div className="text-lydian-text-dim">Çalışan Memnuniyeti</div>
+                <div className="text-4xl font-bold text-blue-500 mb-2">4.8/5</div>
+                <div className="text-gray-400">Çalışan Memnuniyeti</div>
               </div>
               <div>
-                <div className="text-4xl font-bold text-lydian-primary mb-2">%85</div>
-                <div className="text-lydian-text-dim">İç Terfi Oranı</div>
+                <div className="text-4xl font-bold text-blue-500 mb-2">%85</div>
+                <div className="text-gray-400">İç Terfi Oranı</div>
               </div>
             </div>
           </div>
         </div>
 
         {/* Why Join Us */}
-        <div className="py-16 bg-lydian-glass-dark">
+        <div className="py-16 bg-gradient-to-br from-slate-900 via-black to-slate-800">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-lydian-text-inverse mb-4">
+              <h2 className="text-4xl font-bold text-white mb-4">
                 Neden Travel.com?
               </h2>
-              <p className="text-xl text-lydian-text-dim max-w-2xl mx-auto">
+              <p className="text-xl text-gray-400 max-w-2xl mx-auto">
                 Çalışanlarımızın mutluluğu ve gelişimi bizim önceliğimiz
               </p>
             </div>
@@ -192,14 +192,14 @@ export default function Careers() {
               {benefits.map((benefit, index) => {
                 const Icon = benefit.icon;
                 return (
-                  <div key={index} className="bg-lydian-bg-hover rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow">
+                  <div key={index} className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow">
                     <div className="w-12 h-12 bg-lydian-primary/10 rounded-lg flex items-center justify-center mb-4">
-                      <Icon className="w-6 h-6 text-lydian-primary" />
+                      <Icon className="w-6 h-6 text-blue-500" />
                     </div>
-                    <h3 className="text-lg font-semibold text-lydian-text-inverse mb-2">
+                    <h3 className="text-lg font-semibold text-white mb-2">
                       {benefit.title}
                     </h3>
-                    <p className="text-lydian-text-dim">
+                    <p className="text-gray-400">
                       {benefit.description}
                     </p>
                   </div>);
@@ -210,23 +210,23 @@ export default function Careers() {
         </div>
 
         {/* Our Values */}
-        <div className="py-16 bg-lydian-glass-dark">
+        <div className="py-16 bg-gradient-to-br from-slate-900 via-black to-slate-800">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-lydian-text-inverse mb-4">
+              <h2 className="text-4xl font-bold text-white mb-4">
                 Değerlerimiz
               </h2>
             </div>
 
             <div className="grid md:grid-cols-3 gap-8">
               <div className="text-center p-6">
-                <div className="w-16 h-16 bg-lydian-primary-light rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Users className="w-8 h-8 text-lydian-primary" />
+                <div className="w-16 h-16 bg-blue-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Users className="w-8 h-8 text-blue-500" />
                 </div>
-                <h3 className="text-xl font-semibold text-lydian-text-inverse mb-3">
+                <h3 className="text-xl font-semibold text-white mb-3">
                   Takım Ruhu
                 </h3>
-                <p className="text-lydian-text-dim">
+                <p className="text-gray-400">
                   Birlikte çalışarak daha güçlü olduğumuza inanıyoruz.
                   İşbirliği ve karşılıklı destek kültürümüzün temelidir.
                 </p>
@@ -236,23 +236,23 @@ export default function Careers() {
                 <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Zap className="w-8 h-8 text-purple-600" />
                 </div>
-                <h3 className="text-xl font-semibold text-lydian-text-inverse mb-3">
+                <h3 className="text-xl font-semibold text-white mb-3">
                   İnovasyon
                 </h3>
-                <p className="text-lydian-text-dim">
+                <p className="text-gray-400">
                   Yenilikçi düşünmeyi ve risk almayı teşvik ediyoruz.
                   Her fikir değerli ve her ses duyulur.
                 </p>
               </div>
 
               <div className="text-center p-6">
-                <div className="w-16 h-16 bg-lydian-success-light rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Heart className="w-8 h-8 text-lydian-success" />
+                <div className="w-16 h-16 bg-green-600-light rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Heart className="w-8 h-8 text-green-500" />
                 </div>
-                <h3 className="text-xl font-semibold text-lydian-text-inverse mb-3">
+                <h3 className="text-xl font-semibold text-white mb-3">
                   Müşteri Odaklılık
                 </h3>
-                <p className="text-lydian-text-dim">
+                <p className="text-gray-400">
                   Müşterilerimizin seyahat deneyimini mükemmelleştirmek
                   için tutkuyla çalışıyoruz.
                 </p>
@@ -262,13 +262,13 @@ export default function Careers() {
         </div>
 
         {/* Open Positions */}
-        <div id="open-positions" className="py-16 bg-lydian-glass-dark">
+        <div id="open-positions" className="py-16 bg-gradient-to-br from-slate-900 via-black to-slate-800">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-lydian-text-inverse mb-4">
+              <h2 className="text-4xl font-bold text-white mb-4">
                 Açık Pozisyonlar
               </h2>
-              <p className="text-xl text-lydian-text-dim">
+              <p className="text-xl text-gray-400">
                 Size uygun pozisyonu bulun ve başvurun
               </p>
             </div>
@@ -281,8 +281,8 @@ export default function Careers() {
                 onClick={() => setSelectedDepartment(dept)}
                 className={`px-6 py-2 rounded-full font-medium transition-colors ${
                 selectedDepartment === dept ?
-                'bg-lydian-primary text-white' :
-                'bg-lydian-bg/5 text-gray-200 hover:bg-lydian-bg/10'}`
+                'bg-gradient-to-r from-blue-600 to-purple-600 text-white' :
+                'bg-white/5 text-gray-200 hover:bg-lydian-bg/10'}`
                 }>
 
                   {dept === 'all' ? 'Tümü' : dept}
@@ -293,36 +293,36 @@ export default function Careers() {
             {/* Job Listings */}
             <div className="space-y-4">
               {filteredJobs.map((job) =>
-              <div key={job.id} className="bg-lydian-bg-hover rounded-lg shadow-md hover:shadow-lg transition-shadow p-6">
+              <div key={job.id} className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-lg shadow-md hover:shadow-lg transition-shadow p-6">
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                     <div className="flex-1">
-                      <h3 className="text-xl font-semibold text-lydian-text-inverse mb-2">
+                      <h3 className="text-xl font-semibold text-white mb-2">
                         {job.title}
                       </h3>
-                      <p className="text-lydian-text-dim mb-4">
+                      <p className="text-gray-400 mb-4">
                         {job.description}
                       </p>
                       <div className="flex flex-wrap gap-3 text-sm">
-                        <span className="inline-flex items-center gap-1 text-lydian-text-dim">
+                        <span className="inline-flex items-center gap-1 text-gray-400">
                           <Briefcase className="w-4 h-4" />
                           {job.department}
                         </span>
-                        <span className="inline-flex items-center gap-1 text-lydian-text-dim">
+                        <span className="inline-flex items-center gap-1 text-gray-400">
                           <MapPin className="w-4 h-4" />
                           {job.location}
                         </span>
-                        <span className="inline-flex items-center gap-1 text-lydian-text-dim">
+                        <span className="inline-flex items-center gap-1 text-gray-400">
                           <Clock className="w-4 h-4" />
                           {job.type}
                         </span>
-                        <span className="inline-flex items-center gap-1 text-lydian-text-dim">
+                        <span className="inline-flex items-center gap-1 text-gray-400">
                           <TrendingUp className="w-4 h-4" />
                           {job.experience}
                         </span>
                       </div>
                     </div>
                     <div className="flex-shrink-0">
-                      <button className="w-full md:w-auto bg-lydian-primary text-lydian-text-inverse px-6 py-3 rounded-lg font-semibold hover:bg-lydian-dark transition-colors flex items-center gap-2 justify-center">
+                      <button className="w-full md:w-auto bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-lydian-dark transition-colors flex items-center gap-2 justify-center">
                         Başvur
                         <ChevronRight className="w-5 h-5" />
                       </button>
@@ -334,7 +334,7 @@ export default function Careers() {
 
             {filteredJobs.length === 0 &&
             <div className="text-center py-12">
-                <p className="text-lydian-text-muted text-lg">
+                <p className="text-gray-300 text-lg">
                   Bu departmanda şu anda açık pozisyon bulunmamaktadır.
                 </p>
               </div>
@@ -343,9 +343,9 @@ export default function Careers() {
         </div>
 
         {/* Spontaneous Application */}
-        <div className="py-16 bg-lydian-glass-dark">
+        <div className="py-16 bg-gradient-to-br from-slate-900 via-black to-slate-800">
           <div className="max-w-4xl mx-auto px-4">
-            <div className="bg-gradient-to-r from-lydian-primary to-lydian-dark text-lydian-text-inverse rounded-2xl p-8 md:p-12">
+            <div className="bg-gradient-to-r from-blue-600 to-lydian-dark text-white rounded-2xl p-8 md:p-12">
               <div className="text-center">
                 <Send className="w-16 h-16 mx-auto mb-6" />
                 <h2 className="text-3xl font-bold mb-4">
@@ -357,7 +357,7 @@ export default function Careers() {
                 </p>
                 <a
                   href="mailto:kariyer@holiday.ailydian.com"
-                  className="inline-flex items-center gap-2 bg-lydian-bg-hover text-lydian-primary px-8 py-4 rounded-lg font-semibold hover:bg-lydian-primary-lighter transition-colors">
+                  className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl text-blue-500 px-8 py-4 rounded-lg font-semibold hover:bg-blue-500/10er transition-colors">
 
                   <Send className="w-5 h-5" />
                   CV Gönder
@@ -368,41 +368,41 @@ export default function Careers() {
         </div>
 
         {/* Culture Section */}
-        <div className="py-16 bg-lydian-glass-dark">
+        <div className="py-16 bg-gradient-to-br from-slate-900 via-black to-slate-800">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-lydian-text-inverse mb-4">
+              <h2 className="text-4xl font-bold text-white mb-4">
                 Ofis Kültürümüz
               </h2>
-              <p className="text-xl text-lydian-text-dim max-w-2xl mx-auto">
+              <p className="text-xl text-gray-400 max-w-2xl mx-auto">
                 Travel.com&apos;da sadece çalışmıyorsunuz, aynı zamanda eğleniyor ve gelişiyorsunuz
               </p>
             </div>
 
             <div className="grid md:grid-cols-3 gap-6">
-              <div className="bg-lydian-bg-hover rounded-lg p-6 shadow-md">
-                <h3 className="text-lg font-semibold text-lydian-text-inverse mb-3">
+              <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-lg p-6 shadow-md">
+                <h3 className="text-lg font-semibold text-white mb-3">
                   Sosyal Aktiviteler
                 </h3>
-                <p className="text-lydian-text-dim mb-4">
+                <p className="text-gray-400 mb-4">
                   Düzenli team building etkinlikleri, oyun turnuvaları ve sosyal geziler
                 </p>
               </div>
 
-              <div className="bg-lydian-bg-hover rounded-lg p-6 shadow-md">
-                <h3 className="text-lg font-semibold text-lydian-text-inverse mb-3">
+              <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-lg p-6 shadow-md">
+                <h3 className="text-lg font-semibold text-white mb-3">
                   Modern Ofis
                 </h3>
-                <p className="text-lydian-text-dim mb-4">
+                <p className="text-gray-400 mb-4">
                   Son teknoloji ekipman, rahat çalışma alanları ve dinlenme odaları
                 </p>
               </div>
 
-              <div className="bg-lydian-bg-hover rounded-lg p-6 shadow-md">
-                <h3 className="text-lg font-semibold text-lydian-text-inverse mb-3">
+              <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-lg p-6 shadow-md">
+                <h3 className="text-lg font-semibold text-white mb-3">
                   Çeşitlilik ve Kapsayıcılık
                 </h3>
-                <p className="text-lydian-text-dim mb-4">
+                <p className="text-gray-400 mb-4">
                   Farklılıkları değerli bulan, herkesin kendini değerli hissettiği bir ortam
                 </p>
               </div>

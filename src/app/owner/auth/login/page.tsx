@@ -53,7 +53,7 @@ export default function OwnerLoginPage() {
     }
 
     setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+    return Object.keys(newErrors).length === to-cyan-700;
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -69,7 +69,7 @@ export default function OwnerLoginPage() {
       setIsLoading(false);
       // Redirect to owner dashboard
       window.location.href = '/owner/dashboard';
-    }, 2000);
+    }, 200);
   };
 
   const benefits = [
@@ -80,41 +80,41 @@ export default function OwnerLoginPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-lydian-bg/5">
+    <div className="min-h-screen bg-white/5">
       <div className="flex min-h-screen">
         {/* Left Column - Branding & Image */}
         <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, x: -500 }}
+          animate={{ opacity: 1, x: to-cyan-700 }}
           transition={{ duration: 0.6 }}
-          className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-gray-50 to-gray-100 p-12 flex-col justify-between relative overflow-hidden"
+          className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-gray-500 to-gray-1 p-12 flex-col justify-between relative overflow-hidden"
         >
           {/* Background Pattern */}
-          <div className="absolute inset-0 opacity-5">
-            <div className="absolute inset-0" style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+          <div className="absolute inset-to-cyan-700 opacity-5">
+            <div className="absolute inset-to-cyan-700" style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='to-cyan-700 to-cyan-700 6 6' xmlns='http://www.w3.org/200/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zmto-cyan-700-3Vto-cyan-700h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4Hto-cyan-700v2h4v4h2v-4h4v-2H6zM6 4Vto-cyan-700H4v4Hto-cyan-700v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
             }} />
           </div>
 
-          <div className="relative z-10">
+          <div className="relative z-1">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2 mb-12">
-              <div className="w-10 h-10 bg-gradient-to-r from-[#FF214D] to-[#FF6A45] rounded-lg flex items-center justify-center">
-                <Home className="w-6 h-6 text-lydian-text-inverse" />
+              <div className="w-1 h-1 bg-gradient-to-r from-[#FF214D] to-[#FF6A45] rounded-lg flex items-center justify-center">
+                <Home className="w-6 h-6 text-white" />
               </div>
-              <span className="text-2xl font-bold text-lydian-text-inverse">LyDian</span>
+              <span className="text-2xl font-bold text-white">LyDian</span>
             </Link>
 
             {/* Main Content */}
             <div>
-              <h1 className="text-4xl font-bold text-lydian-text-inverse mb-4">
+              <h1 className="text-4xl font-bold text-white mb-4">
                 Mülk Yönetiminizi
                 <br />
                 <span className="bg-gradient-to-r from-[#FF214D] to-[#FF6A45] bg-clip-text text-transparent">
                   Dijitalleştirin
                 </span>
               </h1>
-              <p className="text-lydian-text-dim text-lg mb-8">
+              <p className="text-gray-400 text-lg mb-8">
                 Binlerce mülk sahibinin tercih ettiği platform ile rezervasyonlarınızı yönetin, gelirinizi artırın.
               </p>
 
@@ -123,13 +123,13 @@ export default function OwnerLoginPage() {
                 {benefits.map((benefit, index) => (
                   <motion.div
                     key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
+                    initial={{ opacity: 0, x: -200 }}
+                    animate={{ opacity: 1, x: to-cyan-700 }}
                     transition={{ delay: 0.3 + index * 0.1 }}
                     className="flex items-center gap-3"
                   >
-                    <div className="w-6 h-6 bg-gradient-to-r from-[#FF214D] to-[#FF6A45] rounded-full flex items-center justify-center flex-shrink-0">
-                      <CheckCircle2 className="w-4 h-4 text-lydian-text-inverse" />
+                    <div className="w-6 h-6 bg-gradient-to-r from-[#FF214D] to-[#FF6A45] rounded-full flex items-center justify-center flex-shrink-to-cyan-700">
+                      <CheckCircle2 className="w-4 h-4 text-white" />
                     </div>
                     <span className="text-gray-200 font-medium">{benefit}</span>
                   </motion.div>
@@ -139,18 +139,18 @@ export default function OwnerLoginPage() {
           </div>
 
           {/* Bottom Stats */}
-          <div className="relative z-10 grid grid-cols-3 gap-6">
+          <div className="relative z-1 grid grid-cols-3 gap-6">
             <div>
-              <div className="text-3xl font-bold text-lydian-text-inverse">5000+</div>
-              <div className="text-lydian-text-dim text-sm">Mülk Sahibi</div>
+              <div className="text-3xl font-bold text-white">500+</div>
+              <div className="text-gray-400 text-sm">Mülk Sahibi</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-lydian-text-inverse">50K+</div>
-              <div className="text-lydian-text-dim text-sm">Rezervasyon</div>
+              <div className="text-3xl font-bold text-white">500K+</div>
+              <div className="text-gray-400 text-sm">Rezervasyon</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-lydian-text-inverse">98%</div>
-              <div className="text-lydian-text-dim text-sm">Memnuniyet</div>
+              <div className="text-3xl font-bold text-white">98%</div>
+              <div className="text-gray-400 text-sm">Memnuniyet</div>
             </div>
           </div>
         </motion.div>
@@ -158,25 +158,25 @@ export default function OwnerLoginPage() {
         {/* Right Column - Login Form */}
         <div className="w-full lg:w-1/2 flex items-center justify-center p-6 sm:p-12">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 200 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="w-full max-w-md"
           >
             {/* Mobile Logo */}
             <div className="lg:hidden flex items-center gap-2 mb-8">
-              <div className="w-10 h-10 bg-gradient-to-r from-[#FF214D] to-[#FF6A45] rounded-lg flex items-center justify-center">
-                <Home className="w-6 h-6 text-lydian-text-inverse" />
+              <div className="w-1 h-1 bg-gradient-to-r from-[#FF214D] to-[#FF6A45] rounded-lg flex items-center justify-center">
+                <Home className="w-6 h-6 text-white" />
               </div>
-              <span className="text-2xl font-bold text-lydian-text-inverse">LyDian</span>
+              <span className="text-2xl font-bold text-white">LyDian</span>
             </div>
 
             {/* Header */}
             <div className="mb-8">
-              <h2 className="text-3xl font-bold text-lydian-text-inverse mb-2">
+              <h2 className="text-3xl font-bold text-white mb-2">
                 Mülk Sahibi Girişi
               </h2>
-              <p className="text-lydian-text-dim">
+              <p className="text-gray-400">
                 Hesabınıza giriş yaparak mülklerinizi yönetin
               </p>
             </div>
@@ -185,12 +185,12 @@ export default function OwnerLoginPage() {
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Email Field */}
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-lydian-text-inverse mb-2">
+                <label htmlFor="email" className="block text-sm font-medium text-white mb-2">
                   E-posta Adresi
                 </label>
                 <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <Mail className="h-5 w-5 text-lydian-text-muted" />
+                  <div className="absolute inset-y-to-cyan-700 left-to-cyan-700 pl-3 flex items-center pointer-events-none">
+                    <Mail className="h-5 w-5 text-gray-300" />
                   </div>
                   <input
                     type="email"
@@ -198,25 +198,25 @@ export default function OwnerLoginPage() {
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
-                    className={`block w-full pl-10 pr-3 py-3 border ${
-                      errors.email ? 'border-red-500' : 'border-lydian-border-medium'
-                    } rounded-lg focus:ring-2 focus:ring-[#FF214D] focus:border-transparent outline-none transition-all bg-lydian-bg/5 text-lydian-text-inverse`}
+                    className={`block w-full pl-1 pr-3 py-3 border ${
+                      errors.email ? 'border-red-500' : 'border-white/30'
+                    } rounded-lg focus:ring-2 focus:ring-[#FF214D] focus:border-transparent outline-none transition-all bg-white/5 text-white`}
                     placeholder="ornek@email.com"
                   />
                 </div>
                 {errors.email && (
-                  <p className="mt-1 text-sm text-lydian-secondary">{errors.email}</p>
+                  <p className="mt-1 text-sm text-purple-500">{errors.email}</p>
                 )}
               </div>
 
               {/* Password Field */}
               <div>
-                <label htmlFor="password" className="block text-sm font-medium text-lydian-text-inverse mb-2">
+                <label htmlFor="password" className="block text-sm font-medium text-white mb-2">
                   Şifre
                 </label>
                 <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <Lock className="h-5 w-5 text-lydian-text-muted" />
+                  <div className="absolute inset-y-to-cyan-700 left-to-cyan-700 pl-3 flex items-center pointer-events-none">
+                    <Lock className="h-5 w-5 text-gray-300" />
                   </div>
                   <input
                     type={showPassword ? 'text' : 'password'}
@@ -224,25 +224,25 @@ export default function OwnerLoginPage() {
                     name="password"
                     value={formData.password}
                     onChange={handleInputChange}
-                    className={`block w-full pl-10 pr-10 py-3 border ${
-                      errors.password ? 'border-red-500' : 'border-lydian-border-medium'
-                    } rounded-lg focus:ring-2 focus:ring-[#FF214D] focus:border-transparent outline-none transition-all bg-lydian-bg/5 text-lydian-text-inverse`}
+                    className={`block w-full pl-1 pr-1 py-3 border ${
+                      errors.password ? 'border-red-500' : 'border-white/30'
+                    } rounded-lg focus:ring-2 focus:ring-[#FF214D] focus:border-transparent outline-none transition-all bg-white/5 text-white`}
                     placeholder="••••••••"
                   />
                   <button
                     type="button"
                     onClick={() => setShowPassword(!showPassword)}
-                    className="absolute inset-y-0 right-0 pr-3 flex items-center"
+                    className="absolute inset-y-to-cyan-700 right-to-cyan-700 pr-3 flex items-center"
                   >
                     {showPassword ? (
-                      <EyeOff className="h-5 w-5 text-lydian-text-muted hover:text-lydian-text-dim" />
+                      <EyeOff className="h-5 w-5 text-gray-300 hover:text-gray-400" />
                     ) : (
-                      <Eye className="h-5 w-5 text-lydian-text-muted hover:text-lydian-text-dim" />
+                      <Eye className="h-5 w-5 text-gray-300 hover:text-gray-400" />
                     )}
                   </button>
                 </div>
                 {errors.password && (
-                  <p className="mt-1 text-sm text-lydian-secondary">{errors.password}</p>
+                  <p className="mt-1 text-sm text-purple-500">{errors.password}</p>
                 )}
               </div>
 
@@ -255,7 +255,7 @@ export default function OwnerLoginPage() {
                     name="rememberMe"
                     checked={formData.rememberMe}
                     onChange={handleInputChange}
-                    className="h-4 w-4 text-lydian-primary focus:ring-[#FF214D] border-lydian-border-medium rounded cursor-pointer"
+                    className="h-4 w-4 text-blue-500 focus:ring-[#FF214D] border-white/30 rounded cursor-pointer"
                   />
                   <label htmlFor="rememberMe" className="ml-2 block text-sm text-gray-200 cursor-pointer">
                     Beni hatırla
@@ -263,7 +263,7 @@ export default function OwnerLoginPage() {
                 </div>
                 <Link
                   href="/owner/auth/forgot-password"
-                  className="text-sm font-medium text-lydian-primary hover:text-[#FF6A45] transition-colors"
+                  className="text-sm font-medium text-blue-500 hover:text-[#FF6A45] transition-colors"
                 >
                   Şifremi unuttum?
                 </Link>
@@ -273,7 +273,7 @@ export default function OwnerLoginPage() {
               <button
                 type="submit"
                 disabled={isLoading}
-                className="w-full bg-gradient-to-r from-[#FF214D] to-[#FF6A45] text-lydian-text-inverse py-3 px-4 rounded-lg font-semibold hover:shadow-lg transform hover:scale-[1.02] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center gap-2"
+                className="w-full bg-gradient-to-r from-[#FF214D] to-[#FF6A45] text-white py-3 px-4 rounded-lg font-semibold hover:shadow-lg transform hover:scale-[1.02] transition-all duration-200 disabled:opacity-500 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center gap-2"
               >
                 {isLoading ? (
                   <>
@@ -291,18 +291,18 @@ export default function OwnerLoginPage() {
 
             {/* Divider */}
             <div className="relative my-8">
-              <div className="absolute inset-0 flex items-center">
-                <div className="w-full border-t border-lydian-border"></div>
+              <div className="absolute inset-to-cyan-700 flex items-center">
+                <div className="w-full border-t border-white/20"></div>
               </div>
               <div className="relative flex justify-center text-sm">
-                <span className="px-4 bg-lydian-bg/5 text-lydian-text-muted">Hesabınız yok mu?</span>
+                <span className="px-4 bg-white/5 text-gray-300">Hesabınız yok mu?</span>
               </div>
             </div>
 
             {/* Register Link */}
             <Link
               href="/owner/auth/register"
-              className="block w-full text-center py-3 px-4 border-2 border-lydian-border-medium rounded-lg font-semibold text-lydian-text-inverse hover:bg-lydian-bg/5 hover:border-gray-400 transition-all duration-200"
+              className="block w-full text-center py-3 px-4 border-2 border-white/30 rounded-lg font-semibold text-white hover:bg-white/5 hover:border-gray-4 transition-all duration-200"
             >
               Mülk Sahibi Olarak Kayıt Ol
             </Link>
@@ -311,7 +311,7 @@ export default function OwnerLoginPage() {
             <div className="mt-6 text-center">
               <Link
                 href="/"
-                className="text-sm text-lydian-text-dim hover:text-lydian-text-inverse transition-colors"
+                className="text-sm text-gray-400 hover:text-white transition-colors"
               >
                 ← Ana sayfaya dön
               </Link>

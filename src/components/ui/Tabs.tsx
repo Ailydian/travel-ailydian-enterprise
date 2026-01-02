@@ -190,7 +190,7 @@ export const Tabs: React.FC<TabsProps> = ({
         ${baseClasses}
         rounded-lg
         ${isActive
-          ? 'bg-lydian-primary text-white shadow-md'
+          ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-md'
           : 'text-lydian-text-secondary hover:bg-lydian-bg-surface-raised'
         }
       `;
@@ -210,9 +210,9 @@ export const Tabs: React.FC<TabsProps> = ({
     // default variant
     return `
       ${baseClasses}
-      border border-lydian-border-medium -ml-px first:ml-0 first:rounded-l-lg last:rounded-r-lg
+      border border-white/30 -ml-px first:ml-0 first:rounded-l-lg last:rounded-r-lg
       ${isActive
-        ? 'bg-lydian-bg text-lydian-primary border-blue-600 z-10'
+        ? 'bg-lydian-bg text-blue-500 border-blue-600 z-10'
         : 'bg-lydian-bg-surface text-lydian-text-secondary hover:bg-lydian-bg-surface-raised'
       }
     `;
@@ -288,7 +288,7 @@ export const Tabs: React.FC<TabsProps> = ({
             <div
               ref={indicatorRef}
               className={`
-                absolute bg-lydian-primary transition-all duration-300
+                absolute bg-gradient-to-r from-blue-600 to-purple-600 transition-all duration-300
                 ${orientation === 'horizontal'
                   ? 'bottom-0 h-0.5'
                   : 'left-0 w-0.5'
@@ -369,7 +369,7 @@ export const TabButton: React.FC<{
       onClick={() => setActiveId(id)}
       className={`
         px-4 py-2 rounded-lg font-medium transition-colors
-        ${isActive ? 'bg-lydian-primary text-white' : 'bg-lydian-bg-surface-raised text-lydian-text-secondary hover:bg-lydian-bg-surface-raised'}
+        ${isActive ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white' : 'bg-lydian-bg-surface-raised text-lydian-text-secondary hover:bg-lydian-bg-surface-raised'}
         ${className}
       `}
     >

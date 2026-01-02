@@ -63,7 +63,7 @@ const ThemeSwitcher: React.FC = () => {
             animate={{ rotate: 360 }}
             transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}>
 
-            <div className="w-5 h-5 border-2 border-lydian-border rounded-full" />
+            <div className="w-5 h-5 border-2 border-white/20 rounded-full" />
           </motion.div> :
 
           <CurrentIcon
@@ -91,9 +91,9 @@ const ThemeSwitcher: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}>
 
-            <div className="absolute top-full right-0 mt-2 w-64 bg-lydian-glass-dark rounded-xl shadow-xl border border-lydian-border-light/10 overflow-hidden">
+            <div className="absolute top-full right-0 mt-2 w-64 bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-xl shadow-xl border border-white/20/10 overflow-hidden">
               <div className="p-4">
-              <h3 className="font-semibold text-lydian-text-inverse mb-3">Tema Seçimi</h3>
+              <h3 className="font-semibold text-white mb-3">Tema Seçimi</h3>
               <div className="grid grid-cols-2 gap-2">
                 {Object.values(themes).map((theme) => {
                   const ThemeIcon = themeIcons[theme.name as keyof typeof themeIcons] || Palette;
@@ -108,7 +108,7 @@ const ThemeSwitcher: React.FC = () => {
                       }}
                       className={`p-2 rounded-lg border transition-all ${
                       isActive ?
-                      'border-lydian-primary bg-blue-50' :
+                      'border-blue-500 bg-blue-50' :
                       'border-white/10 hover:border-white/20'}`
                       }>
 
@@ -132,7 +132,7 @@ const ThemeSwitcher: React.FC = () => {
       {/* Backdrop */}
       {isOpen &&
       <div
-        className="fixed inset-0 bg-lydian-bg-hover"
+        className="fixed inset-0 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl"
         onClick={() => setIsOpen(false)} />
 
       }

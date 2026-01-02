@@ -159,16 +159,16 @@ export default function CarRentalsManagement() {
     const colors: Record<string, string> = {
       ECONOMY_SEDAN: 'bg-blue-100 text-blue-800',
       PREMIUM_SEDAN: 'bg-purple-100 text-purple-800',
-      ECONOMY_SUV: 'bg-green-100 text-green-800',
+      ECONOMY_SUV: 'bg-purple-500/30 text-purple-300',
       PREMIUM_SUV: 'bg-emerald-100 text-emerald-800',
-      LUXURY: 'bg-lydian-warning-light text-amber-800',
-      SPORTS: 'bg-red-100 text-red-800',
-      VAN: 'bg-lydian-bg/10 text-white',
+      LUXURY: 'bg-blue-500-light text-amber-800',
+      SPORTS: 'bg-purple-500/30 text-purple-300',
+      VAN: 'bg-white/5 text-white',
       MINIVAN: 'bg-slate-100 text-slate-800',
       COMPACT: 'bg-cyan-100 text-cyan-800',
       FULLSIZE: 'bg-indigo-100 text-indigo-800'
     };
-    return colors[category] || 'bg-lydian-bg/10 text-white';
+    return colors[category] || 'bg-white/5 text-white';
   };
 
   const formatCategory = (category: string) => {
@@ -178,34 +178,36 @@ export default function CarRentalsManagement() {
   };
 
   return (
-    <div className="min-h-screen bg-lydian-glass-dark">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-black to-slate-800">
       {/* Header */}
-      <div className="bg-lydian-glass-dark border-b border-lydian-border">
+      <div className="bg-white/10 backdrop-blur-xl border-b border-white/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
-              <div className="p-2 bg-lydian-primary-light rounded-lg">
-                <Car className="w-6 h-6 text-lydian-primary" />
+              <div className="p-2 bg-gradient-to-r from-blue-600 to-purple-600-light rounded-lg">
+                <Car className="w-6 h-6 text-blue-400" />
               </div>
               <div>
-                <h1 className="text-2xl font-bold text-lydian-text-inverse">Araç Kiralama Yönetimi</h1>
-                <p className="text-sm text-lydian-text-dim">Tüm araçları yönetin ve düzenleyin</p>
+                <h1 className="text-2xl font-bold text-white">Araç Kiralama Yönetimi</h1>
+                <p className="text-sm text-gray-400">Tüm araçları yönetin ve düzenleyin</p>
               </div>
             </div>
-            <button className="flex items-center space-x-2 px-4 py-2 bg-lydian-primary text-lydian-text-inverse rounded-lg hover:bg-lydian-primary-dark transition-colors">
-              <Plus className="w-5 h-5" />
-              <span>Yeni Araç Ekle</span>
-            </button>
+            <Link href="/admin/v2/car-rentals/new">
+              <button className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:shadow-lg hover:shadow-blue-500/30 transition-all">
+                <Plus className="w-5 h-5" />
+                <span>Yeni Araç Ekle</span>
+              </button>
+            </Link>
           </div>
 
           {/* Stats */}
           <div className="grid grid-cols-1 md:grid-cols-5 gap-4 mt-6">
             <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-lg">
-              <p className="text-sm text-lydian-primary font-medium">Toplam Araç</p>
+              <p className="text-sm text-blue-400 font-medium">Toplam Araç</p>
               <p className="text-2xl font-bold text-blue-900 mt-1">{stats.total}</p>
             </div>
             <div className="bg-gradient-to-br from-green-50 to-green-100 p-4 rounded-lg">
-              <p className="text-sm text-lydian-success font-medium">Aktif</p>
+              <p className="text-sm text-purple-400 font-medium">Aktif</p>
               <p className="text-2xl font-bold text-green-900 mt-1">{stats.active}</p>
             </div>
             <div className="bg-gradient-to-br from-amber-50 to-amber-100 p-4 rounded-lg">
@@ -228,17 +230,17 @@ export default function CarRentalsManagement() {
 
       {/* Filters & Search */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        <div className="bg-lydian-glass-dark rounded-lg shadow-sm p-4 mb-6">
+        <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-lg shadow-sm p-4 mb-6">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             {/* Search */}
             <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-lydian-text-muted w-5 h-5" />
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-300 w-5 h-5" />
               <input
                 type="text"
                 placeholder="Araç, marka veya model ara..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 border border-lydian-border-medium rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-primary" />
+                className="w-full pl-10 pr-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-blue-500" />
 
             </div>
 
@@ -246,7 +248,7 @@ export default function CarRentalsManagement() {
             <select
               value={filterCategory}
               onChange={(e) => setFilterCategory(e.target.value)}
-              className="px-4 py-2 border border-lydian-border-medium rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-primary">
+              className="px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-blue-500">
 
               <option value="">Tüm Kategoriler</option>
               <option value="ECONOMY_SEDAN">Economy Sedan</option>
@@ -265,7 +267,7 @@ export default function CarRentalsManagement() {
             <select
               value={filterStatus}
               onChange={(e) => setFilterStatus(e.target.value)}
-              className="px-4 py-2 border border-lydian-border-medium rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-primary">
+              className="px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-blue-500">
 
               <option value="">Tüm Durumlar</option>
               <option value="active">Aktif</option>
@@ -281,7 +283,7 @@ export default function CarRentalsManagement() {
                 setFilterStatus('');
                 setPage(1);
               }}
-              className="px-4 py-2 border border-lydian-border-medium text-lydian-text-muted rounded-lg hover:bg-lydian-glass-dark transition-colors">
+              className="px-4 py-2 border border-white/20 text-gray-300 rounded-lg hover:bg-white/10 transition-colors">
 
               Filtreleri Temizle
             </button>
@@ -289,48 +291,48 @@ export default function CarRentalsManagement() {
         </div>
 
         {/* Cars Table */}
-        <div className="bg-lydian-glass-dark rounded-lg shadow-sm overflow-hidden">
+        <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-lg shadow-sm overflow-hidden">
           {loading ?
           <div className="p-12 text-center">
-              <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-lydian-primary"></div>
-              <p className="mt-4 text-lydian-text-dim">Yükleniyor...</p>
+              <div className="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500"></div>
+              <p className="mt-4 text-gray-400">Yükleniyor...</p>
             </div> :
           cars.length === 0 ?
           <div className="p-12 text-center">
-              <Car className="w-16 h-16 text-lydian-text-muted mx-auto mb-4" />
-              <p className="text-lydian-text-dim">Araç bulunamadı</p>
+              <Car className="w-16 h-16 text-gray-300 mx-auto mb-4" />
+              <p className="text-gray-400">Araç bulunamadı</p>
             </div> :
 
           <div className="overflow-x-auto">
               <table className="min-w-full divide-y divide-lydian-border">
-                <thead className="bg-lydian-glass-dark">
+                <thead className="bg-white/10 backdrop-blur-xl border border-white/20">
                   <tr>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-lydian-text-muted uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
                       Araç
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-lydian-text-muted uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
                       Kategori
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-lydian-text-muted uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
                       Özellikler
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-lydian-text-muted uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
                       Fiyat
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-lydian-text-muted uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
                       Durum
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-lydian-text-muted uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">
                       Rezervasyon
                     </th>
-                    <th className="px-6 py-3 text-right text-xs font-medium text-lydian-text-muted uppercase tracking-wider">
+                    <th className="px-6 py-3 text-right text-xs font-medium text-gray-300 uppercase tracking-wider">
                       İşlemler
                     </th>
                   </tr>
                 </thead>
-                <tbody className="bg-lydian-glass-dark divide-y divide-lydian-border">
+                <tbody className="bg-white/10 backdrop-blur-xl border border-white/20 divide-y divide-lydian-border">
                   {cars.map((car) =>
-                <tr key={car.id} className="hover:bg-lydian-glass-dark transition-colors">
+                <tr key={car.id} className="hover:bg-white/10 transition-colors">
                       <td className="px-6 py-4 whitespace-nowrap">
                         <div className="flex items-center space-x-3">
                           <img
@@ -342,8 +344,8 @@ export default function CarRentalsManagement() {
                         }} />
 
                           <div>
-                            <p className="font-medium text-lydian-text-inverse">{car.name}</p>
-                            <p className="text-sm text-lydian-text-muted">
+                            <p className="font-medium text-white">{car.name}</p>
+                            <p className="text-sm text-gray-300">
                               {car.brand} {car.model} ({car.year})
                             </p>
                           </div>
@@ -355,18 +357,18 @@ export default function CarRentalsManagement() {
                         </span>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="text-sm text-lydian-text-inverse">
+                        <div className="text-sm text-white">
                           {car.seats} koltuk • {car.transmission === 'AUTOMATIC' ? 'Otomatik' : 'Manuel'}
                         </div>
-                        <div className="text-sm text-lydian-text-muted">
+                        <div className="text-sm text-gray-300">
                           {car.fuelType}
                         </div>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="text-sm font-medium text-lydian-text-inverse">
+                        <div className="text-sm font-medium text-white">
                           {car.pricePerDay} {car.currency}/gün
                         </div>
-                        <div className="flex items-center text-sm text-lydian-text-muted">
+                        <div className="flex items-center text-sm text-gray-300">
                           <Star className="w-3 h-3 text-yellow-400 fill-current mr-1" />
                           {car.rating.toFixed(1)} ({car.reviewCount})
                         </div>
@@ -374,24 +376,24 @@ export default function CarRentalsManagement() {
                       <td className="px-6 py-4 whitespace-nowrap">
                         <div className="flex flex-col space-y-1">
                           <span className={`inline-flex items-center px-2 py-0.5 rounded text-xs font-medium ${
-                      car.isActive ? 'bg-green-100 text-green-800' : 'bg-lydian-bg/10 text-white'}`
+                      car.isActive ? 'bg-purple-500/30 text-purple-300' : 'bg-white/5 text-white'}`
                       }>
                             {car.isActive ? 'Aktif' : 'Pasif'}
                           </span>
                           {car.isFeatured &&
-                      <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-lydian-warning-light text-amber-800">
+                      <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-blue-500-light text-amber-800">
                               Öne Çıkan
                             </span>
                       }
                           <span className={`inline-flex items-center px-2 py-0.5 rounded text-xs font-medium ${
-                      car.availableCount > 0 ? 'bg-blue-100 text-blue-800' : 'bg-red-100 text-red-800'}`
+                      car.availableCount > 0 ? 'bg-blue-100 text-blue-800' : 'bg-purple-500/30 text-purple-300'}`
                       }>
                             {car.availableCount > 0 ? `${car.availableCount} Müsait` : 'Tükendi'}
                           </span>
                         </div>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="text-sm text-lydian-text-inverse font-medium">
+                        <div className="text-sm text-white font-medium">
                           {car._count?.bookings || 0} rezervasyon
                         </div>
                       </td>
@@ -401,8 +403,8 @@ export default function CarRentalsManagement() {
                         onClick={() => toggleActive(car.id, car.isActive)}
                         className={`p-2 rounded-lg transition-colors ${
                         car.isActive ?
-                        'text-lydian-success hover:bg-green-50' :
-                        'text-lydian-text-dim hover:bg-lydian-bg/5'}`
+                        'text-purple-400 hover:bg-purple-500/20' :
+                        'text-gray-400 hover:bg-white/5'}`
                         }
                         title={car.isActive ? 'Pasif yap' : 'Aktif yap'}>
 
@@ -413,7 +415,7 @@ export default function CarRentalsManagement() {
                         className={`p-2 rounded-lg transition-colors ${
                         car.isFeatured ?
                         'text-amber-600 hover:bg-amber-50' :
-                        'text-lydian-text-dim hover:bg-lydian-bg/5'}`
+                        'text-gray-400 hover:bg-white/5'}`
                         }
                         title={car.isFeatured ? 'Öne çıkarma' : 'Öne çıkar'}>
 
@@ -421,7 +423,7 @@ export default function CarRentalsManagement() {
                           </button>
                           <Link href={`/admin/v2/car-rentals/${car.id}/edit`}>
                             <button
-                          className="p-2 text-lydian-primary hover:bg-lydian-primary-lighter rounded-lg transition-colors"
+                          className="p-2 text-blue-400 hover:bg-gradient-to-r from-blue-600 to-purple-600-lighter rounded-lg transition-colors"
                           title="Düzenle">
 
                               <Edit2 className="w-4 h-4" />
@@ -429,7 +431,7 @@ export default function CarRentalsManagement() {
                           </Link>
                           <button
                         onClick={() => deleteCar(car.id)}
-                        className="p-2 text-lydian-primary hover:bg-lydian-error-lighter rounded-lg transition-colors"
+                        className="p-2 text-blue-400 hover:bg-white/5 rounded-lg transition-colors"
                         title="Sil">
 
                             <Trash2 className="w-4 h-4" />
@@ -445,23 +447,23 @@ export default function CarRentalsManagement() {
 
           {/* Pagination */}
           {totalPages > 1 &&
-          <div className="px-6 py-4 bg-lydian-glass-dark border-t border-lydian-border">
+          <div className="px-6 py-4 bg-white/10 backdrop-blur-xl border border-white/20 border-t border-white/20">
               <div className="flex items-center justify-between">
-                <div className="text-sm text-lydian-text-muted">
+                <div className="text-sm text-gray-300">
                   Sayfa <span className="font-medium">{page}</span> / <span className="font-medium">{totalPages}</span>
                 </div>
                 <div className="flex space-x-2">
                   <button
                   onClick={() => setPage((p) => Math.max(1, p - 1))}
                   disabled={page === 1}
-                  className="px-4 py-2 border border-lydian-border-medium rounded-lg text-sm font-medium text-lydian-text-muted hover:bg-lydian-glass-dark disabled:opacity-50 disabled:cursor-not-allowed transition-colors">
+                  className="px-4 py-2 border border-white/20 rounded-lg text-sm font-medium text-gray-300 hover:bg-white/10 disabled:opacity-50 disabled:cursor-not-allowed transition-colors">
 
                     Önceki
                   </button>
                   <button
                   onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
                   disabled={page === totalPages}
-                  className="px-4 py-2 border border-lydian-border-medium rounded-lg text-sm font-medium text-lydian-text-muted hover:bg-lydian-glass-dark disabled:opacity-50 disabled:cursor-not-allowed transition-colors">
+                  className="px-4 py-2 border border-white/20 rounded-lg text-sm font-medium text-gray-300 hover:bg-white/10 disabled:opacity-50 disabled:cursor-not-allowed transition-colors">
 
                     Sonraki
                   </button>

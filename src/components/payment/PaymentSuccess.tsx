@@ -27,8 +27,8 @@ export default function PaymentSuccess({
       <div className="max-w-md w-full bg-lydian-bg rounded-2xl shadow-xl p-8">
         {/* Success Icon */}
         <div className="flex justify-center mb-6">
-          <div className="bg-lydian-success-light rounded-full p-3">
-            <CheckCircleIcon className="h-16 w-16 text-lydian-success" />
+          <div className="bg-green-600-light rounded-full p-3">
+            <CheckCircleIcon className="h-16 w-16 text-green-500" />
           </div>
         </div>
 
@@ -59,9 +59,9 @@ export default function PaymentSuccess({
           )}
 
           {amount && (
-            <div className="flex justify-between items-center pt-3 border-t border-lydian-border">
+            <div className="flex justify-between items-center pt-3 border-t border-white/20">
               <span className="text-lydian-text-secondary font-medium">Amount Paid:</span>
-              <span className="text-2xl font-bold text-lydian-success">
+              <span className="text-2xl font-bold text-green-500">
                 ${amount.toFixed(2)}
               </span>
             </div>
@@ -70,7 +70,7 @@ export default function PaymentSuccess({
 
         {/* Confirmation Email Notice */}
         {customerEmail && (
-          <div className="bg-lydian-info-lighter border border-blue-200 rounded-lg p-4 mb-6">
+          <div className="bg-blue-500-lighter border border-blue-200 rounded-lg p-4 mb-6">
             <p className="text-sm text-blue-800">
               <span className="font-semibold">Confirmation sent!</span>
               <br />
@@ -83,7 +83,7 @@ export default function PaymentSuccess({
         <div className="space-y-3">
           <Link
             href={`/bookings/${bookingId}`}
-            className="flex items-center justify-center w-full bg-lydian-primary hover:bg-lydian-primary-hover text-lydian-text-inverse font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
+            className="flex items-center justify-center w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:bg-lydian-primary-hover text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
           >
             <DocumentTextIcon className="h-5 w-5 mr-2" />
             View Booking Details
@@ -99,12 +99,12 @@ export default function PaymentSuccess({
         </div>
 
         {/* Additional Info */}
-        <div className="mt-8 pt-6 border-t border-lydian-border">
-          <p className="text-xs text-lydian-text-muted text-center">
+        <div className="mt-8 pt-6 border-t border-white/20">
+          <p className="text-xs text-gray-300 text-center">
             Need help? Contact our support team at{' '}
             <a
               href="mailto:support@holiday.ailydian.com"
-              className="text-lydian-primary hover:underline"
+              className="text-blue-500 hover:underline"
             >
               support@holiday.ailydian.com
             </a>

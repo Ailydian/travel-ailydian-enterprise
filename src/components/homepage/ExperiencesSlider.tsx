@@ -47,13 +47,13 @@ export const ExperiencesSlider: React.FC<ExperiencesSliderProps> = ({
           transition={{ duration: 0.6 }}>
 
           <div className="flex items-center justify-center gap-3 mb-4">
-            <Sparkles className="w-8 h-8 text-lydian-primary" />
+            <Sparkles className="w-8 h-8 text-blue-500" />
             <h2 className="text-4xl md:text-5xl font-bold text-lydian-text">
               {title}
             </h2>
-            <Sparkles className="w-8 h-8 text-lydian-secondary" />
+            <Sparkles className="w-8 h-8 text-purple-500" />
           </div>
-          <p className="text-xl text-lydian-text-muted max-w-2xl mx-auto">
+          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
             {subtitle}
           </p>
         </motion.div>
@@ -95,7 +95,7 @@ export const ExperiencesSlider: React.FC<ExperiencesSliderProps> = ({
 
           <Link href="/tours">
             <motion.button
-              className="bg-glass-dark backdrop-blur-md border-2 border-lydian-primary text-lydian-primary px-8 py-4 rounded-xl font-semibold hover:bg-lydian-primary/10 transition-all inline-flex items-center gap-2"
+              className="bg-glass-dark backdrop-blur-md border-2 border-blue-500 text-blue-500 px-8 py-4 rounded-xl font-semibold hover:bg-lydian-primary/10 transition-all inline-flex items-center gap-2"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}>
 
@@ -143,7 +143,7 @@ const ExperienceCard: React.FC<{
       whileHover={{ y: -8 }}
       transition={{ duration: 0.3 }}>
 
-      <div className="bg-glass-dark backdrop-blur-xl rounded-2xl overflow-hidden border border-lydian-primary/20 shadow-lg hover:shadow-neon transition-all h-full flex flex-col">
+      <div className="bg-glass-dark backdrop-blur-xl rounded-2xl overflow-hidden border border-blue-500/20 shadow-lg hover:shadow-neon transition-all h-full flex flex-col">
         {/* Image Container */}
         <div className="relative h-56 overflow-hidden">
           {/* Image */}
@@ -161,7 +161,7 @@ const ExperienceCard: React.FC<{
           <div className="absolute inset-0 bg-gradient-to-t from-lydian-bg via-lydian-bg/50 to-transparent" />
 
           {/* Category Badge */}
-          <div className="absolute top-4 left-4 bg-lydian-bg-card/90 backdrop-blur-md text-lydian-primary px-3 py-1.5 rounded-full text-xs font-semibold border border-lydian-primary/30">
+          <div className="absolute top-4 left-4 bg-lydian-bg-card/90 backdrop-blur-md text-blue-500 px-3 py-1.5 rounded-full text-xs font-semibold border border-blue-500/30">
             {experience.category}
           </div>
 
@@ -183,7 +183,7 @@ const ExperienceCard: React.FC<{
               {experience.badges.slice(0, 3).map((badge, idx) =>
             <motion.div
               key={idx}
-              className="bg-lydian-bg-card/80 backdrop-blur-md text-lydian-text-muted px-2 py-1 rounded text-xs border border-lydian-primary/20 flex items-center gap-1"
+              className="bg-lydian-bg-card/80 backdrop-blur-md text-gray-300 px-2 py-1 rounded text-xs border border-blue-500/20 flex items-center gap-1"
               initial={{ opacity: 0, x: -10 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.1 * idx }}>
@@ -199,8 +199,8 @@ const ExperienceCard: React.FC<{
         {/* Content */}
         <div className="p-5 flex-grow flex flex-col">
           {/* Location */}
-          <div className="flex items-center gap-2 text-lydian-text-muted mb-2">
-            <MapPin className="w-4 h-4 text-lydian-primary" />
+          <div className="flex items-center gap-2 text-gray-300 mb-2">
+            <MapPin className="w-4 h-4 text-blue-500" />
             <span className="text-sm">{experience.location}</span>
           </div>
 
@@ -217,14 +217,14 @@ const ExperienceCard: React.FC<{
                 {experience.rating}
               </span>
             </div>
-            <span className="text-lydian-text-muted text-sm">
+            <span className="text-gray-300 text-sm">
               ({experience.reviews.toLocaleString()} reviews)
             </span>
           </div>
 
           {/* Duration */}
-          <div className="flex items-center gap-2 text-lydian-text-muted mb-4">
-            <Clock className="w-4 h-4 text-lydian-secondary" />
+          <div className="flex items-center gap-2 text-gray-300 mb-4">
+            <Clock className="w-4 h-4 text-purple-500" />
             <span className="text-sm">{experience.duration}</span>
           </div>
 
@@ -233,8 +233,8 @@ const ExperienceCard: React.FC<{
           <div className="mb-4 flex-grow">
               <ul className="space-y-1">
                 {experience.highlights.slice(0, 2).map((highlight, idx) =>
-              <li key={idx} className="text-xs text-lydian-text-muted flex items-start gap-2">
-                    <span className="text-lydian-primary mt-0.5">•</span>
+              <li key={idx} className="text-xs text-gray-300 flex items-start gap-2">
+                    <span className="text-blue-500 mt-0.5">•</span>
                     <span className="line-clamp-1">{highlight}</span>
                   </li>
               )}
@@ -243,16 +243,16 @@ const ExperienceCard: React.FC<{
           }
 
           {/* Price & CTA */}
-          <div className="mt-auto pt-4 border-t border-lydian-primary/10">
+          <div className="mt-auto pt-4 border-t border-blue-500/10">
             <div className="flex items-end justify-between mb-3">
               <div>
-                <div className="text-xs text-lydian-text-muted mb-1">From</div>
+                <div className="text-xs text-gray-300 mb-1">From</div>
                 <div className="flex items-baseline gap-2">
-                  <span className="text-2xl font-bold text-lydian-primary">
+                  <span className="text-2xl font-bold text-blue-500">
                     {experience.price}
                   </span>
                   {experience.originalPrice &&
-                  <span className="text-sm text-lydian-text-muted line-through">
+                  <span className="text-sm text-gray-300 line-through">
                       {experience.originalPrice}
                     </span>
                   }
@@ -264,7 +264,7 @@ const ExperienceCard: React.FC<{
             <div className="flex gap-2">
               <Link href={`/tours/${experience.id}`} className="flex-1">
                 <motion.button
-                  className="w-full bg-glass border border-lydian-primary/30 text-lydian-text px-4 py-2.5 rounded-lg font-medium hover:bg-lydian-primary/10 transition-all text-sm"
+                  className="w-full bg-glass border border-blue-500/30 text-lydian-text px-4 py-2.5 rounded-lg font-medium hover:bg-lydian-primary/10 transition-all text-sm"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}>
 
@@ -273,7 +273,7 @@ const ExperienceCard: React.FC<{
               </Link>
 
               <motion.button
-                className="flex-1 bg-gradient-to-r from-lydian-primary to-lydian-secondary text-lydian-text-inverse px-4 py-2.5 rounded-lg font-medium shadow-neon hover:shadow-neon-lg transition-all flex items-center justify-center gap-2 text-sm disabled:opacity-50 disabled:cursor-not-allowed"
+                className="flex-1 bg-gradient-to-r from-blue-600 to-purple-700 text-white px-4 py-2.5 rounded-lg font-medium shadow-neon hover:shadow-neon-lg transition-all flex items-center justify-center gap-2 text-sm disabled:opacity-50 disabled:cursor-not-allowed"
                 onClick={handleAddToCart}
                 disabled={isAddingToCart}
                 whileHover={!isAddingToCart ? { scale: 1.02 } : {}}

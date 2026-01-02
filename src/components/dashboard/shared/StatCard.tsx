@@ -25,27 +25,27 @@ export interface StatCardProps {
 
 const variantStyles = {
   default: {
-    container: 'bg-lydian-bg/5 border-lydian-border',
-    icon: 'bg-lydian-bg/10 text-lydian-text-dim',
+    container: 'bg-white/5 border-lydian-border',
+    icon: 'bg-lydian-bg/10 text-gray-400',
     text: 'text-white'
   },
   primary: {
-    container: 'bg-lydian-bg/5 border-blue-200',
+    container: 'bg-white/5 border-blue-200',
     icon: 'bg-blue-100 text-lydian-primary',
     text: 'text-white'
   },
   success: {
-    container: 'bg-lydian-bg/5 border-green-200',
-    icon: 'bg-green-100 text-lydian-success',
+    container: 'bg-white/5 border-green-200',
+    icon: 'bg-green-100 text-green-500',
     text: 'text-white'
   },
   warning: {
-    container: 'bg-lydian-bg/5 border-yellow-200',
-    icon: 'bg-yellow-100 text-lydian-warning',
+    container: 'bg-white/5 border-yellow-200',
+    icon: 'bg-yellow-100 text-yellow-500',
     text: 'text-white'
   },
   danger: {
-    container: 'bg-lydian-bg/5 border-red-200',
+    container: 'bg-white/5 border-red-200',
     icon: 'bg-red-100 text-lydian-error',
     text: 'text-white'
   }
@@ -84,11 +84,11 @@ export const StatCard: React.FC<StatCardProps> = ({
       <div className={`rounded-lg border p-6 ${styles.container}`}>
         <div className="flex items-center justify-between space-x-4">
           <div className="flex-1 space-y-3">
-            <div className="h-4 bg-lydian-bg-active rounded animate-pulse w-24" />
-            <div className="h-8 bg-lydian-bg-active rounded animate-pulse w-32" />
-            <div className="h-3 bg-lydian-bg-active rounded animate-pulse w-20" />
+            <div className="h-4 bg-white/10 backdrop-blur-xl border border-white/20 rounded animate-pulse w-24" />
+            <div className="h-8 bg-white/10 backdrop-blur-xl border border-white/20 rounded animate-pulse w-32" />
+            <div className="h-3 bg-white/10 backdrop-blur-xl border border-white/20 rounded animate-pulse w-20" />
           </div>
-          <div className="h-12 w-12 bg-lydian-bg-active rounded-full animate-pulse" />
+          <div className="h-12 w-12 bg-white/10 backdrop-blur-xl border border-white/20 rounded-full animate-pulse" />
         </div>
       </div>);
 
@@ -116,13 +116,13 @@ export const StatCard: React.FC<StatCardProps> = ({
 
       <div className="flex items-center justify-between space-x-4">
         <div className="flex-1 space-y-1">
-          <p className="text-sm font-medium text-lydian-text-dim">{title}</p>
+          <p className="text-sm font-medium text-gray-400">{title}</p>
           <p className={`text-3xl font-bold ${styles.text}`}>{value}</p>
           <div className="flex items-center space-x-2">
             {trend !== undefined &&
             <div
               className={`flex items-center text-sm font-medium ${
-              isPositiveTrend ? 'text-lydian-success' : 'text-lydian-error'}`
+              isPositiveTrend ? 'text-green-500' : 'text-lydian-error'}`
               }>
 
                 <TrendIcon className="h-4 w-4 mr-1" />
@@ -130,7 +130,7 @@ export const StatCard: React.FC<StatCardProps> = ({
               </div>
             }
             {description &&
-            <p className="text-xs text-lydian-text-muted">{description}</p>
+            <p className="text-xs text-gray-300">{description}</p>
             }
           </div>
         </div>

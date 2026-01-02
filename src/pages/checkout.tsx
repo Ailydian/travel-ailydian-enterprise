@@ -38,9 +38,9 @@ import { useToast } from '../context/ToastContext';
 const LocationPicker = dynamic(() => import('../components/ui/LocationPicker'), {
   ssr: false,
   loading: () => (
-    <div className="bg-lydian-glass-dark backdrop-blur-xl rounded-2xl border border-white/10 p-6">
-      <div className="h-96 bg-lydian-bg/5 rounded-lg animate-pulse flex items-center justify-center">
-        <MapPin className="w-12 h-12 text-lydian-text-muted" />
+    <div className="bg-gradient-to-br from-slate-900 via-black to-slate-800 backdrop-blur-xl rounded-2xl border border-white/10 p-6">
+      <div className="h-96 bg-white/5 rounded-lg animate-pulse flex items-center justify-center">
+        <MapPin className="w-12 h-12 text-gray-300" />
       </div>
     </div>
   ),
@@ -534,19 +534,19 @@ const Checkout: React.FC = () => {
           <title>Ödeme Başarılı - AILYDIAN Holiday</title>
         </Head>
         <ModernHeader />
-        <main className="pt-8 min-h-screen bg-lydian-glass-dark flex items-center justify-center px-3 sm:px-4">
+        <main className="pt-8 min-h-screen bg-gradient-to-br from-slate-900 via-black to-slate-800 flex items-center justify-center px-3 sm:px-4">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="text-center bg-lydian-glass-dark backdrop-blur-xl rounded-3xl shadow-2xl border border-white/10 p-6 sm:p-8 lg:p-12 max-w-md w-full"
+            className="text-center bg-gradient-to-br from-slate-900 via-black to-slate-800 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/10 p-6 sm:p-8 lg:p-12 max-w-md w-full"
           >
             <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-r from-green-400 to-emerald-500 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 shadow-lg shadow-green-500/50">
-              <CheckCircle className="w-10 h-10 sm:w-12 sm:h-12 text-lydian-text-inverse" />
+              <CheckCircle className="w-10 h-10 sm:w-12 sm:h-12 text-white" />
             </div>
-            <h1 className="text-xl sm:text-2xl font-bold text-lydian-text-inverse mb-3 sm:mb-4">
+            <h1 className="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4">
               Ödeme Başarılı!
             </h1>
-            <p className="text-sm sm:text-base text-lydian-text-dim mb-6 sm:mb-8">
+            <p className="text-sm sm:text-base text-gray-400 mb-6 sm:mb-8">
               Rezervasyonunuz onaylandı. E-posta ile detayları gönderdik.
             </p>
             <div className="animate-pulse text-cyan-400 font-medium text-sm sm:text-base">
@@ -565,22 +565,22 @@ const Checkout: React.FC = () => {
           <title>Ödeme İşleniyor - AILYDIAN Holiday</title>
         </Head>
         <ModernHeader />
-        <main className="pt-8 min-h-screen bg-lydian-glass-dark flex items-center justify-center px-3 sm:px-4">
+        <main className="pt-8 min-h-screen bg-gradient-to-br from-slate-900 via-black to-slate-800 flex items-center justify-center px-3 sm:px-4">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="text-center bg-lydian-glass-dark backdrop-blur-xl rounded-3xl shadow-2xl border border-white/10 p-6 sm:p-8 lg:p-12 max-w-md w-full"
+            className="text-center bg-gradient-to-br from-slate-900 via-black to-slate-800 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/10 p-6 sm:p-8 lg:p-12 max-w-md w-full"
           >
             <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-r from-[#667EEA] to-[#00BAFF] rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 animate-pulse shadow-lg shadow-[#667EEA]/50">
-              <Zap className="w-10 h-10 sm:w-12 sm:h-12 text-lydian-text-inverse" />
+              <Zap className="w-10 h-10 sm:w-12 sm:h-12 text-white" />
             </div>
-            <h1 className="text-xl sm:text-2xl font-bold text-lydian-text-inverse mb-3 sm:mb-4">
+            <h1 className="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4">
               Ödeme İşleniyor
             </h1>
-            <p className="text-sm sm:text-base text-lydian-text-dim mb-6 sm:mb-8">
+            <p className="text-sm sm:text-base text-gray-400 mb-6 sm:mb-8">
               Lütfen bekleyin, ödemeniz güvenli şekilde işleniyor...
             </p>
-            <div className="flex items-center gap-2 justify-center text-xs sm:text-sm text-lydian-text-muted">
+            <div className="flex items-center gap-2 justify-center text-xs sm:text-sm text-gray-300">
               <Lock className="w-3 h-3 sm:w-4 sm:h-4" />
               256-bit SSL ile korumalı
             </div>
@@ -602,7 +602,7 @@ const Checkout: React.FC = () => {
 
       <ModernHeader />
 
-      <main className="min-h-screen bg-lydian-glass-dark pt-8">
+      <main className="min-h-screen bg-gradient-to-br from-slate-900 via-black to-slate-800 pt-8">
         <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 py-4 sm:py-6 lg:py-8">
           {/* Header */}
           <motion.div
@@ -610,10 +610,10 @@ const Checkout: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             className="text-center mb-6 sm:mb-8"
           >
-            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-lydian-text-inverse mb-2">
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-2">
               Güvenli Ödeme
             </h1>
-            <p className="text-sm sm:text-base text-lydian-text-dim">
+            <p className="text-sm sm:text-base text-gray-400">
               Blockchain teknologisi ile doğrulanmış güvenli ödeme
             </p>
           </motion.div>
@@ -628,15 +628,15 @@ const Checkout: React.FC = () => {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 text-xs sm:text-sm">
               <div className="flex items-center gap-2">
                 <Shield className="w-4 h-4 sm:w-5 sm:h-5 text-green-400" />
-                <span className="font-medium text-lydian-text-inverse">256-bit SSL</span>
+                <span className="font-medium text-white">256-bit SSL</span>
               </div>
               <div className="flex items-center gap-2">
                 <Lock className="w-4 h-4 sm:w-5 sm:h-5 text-cyan-400" />
-                <span className="font-medium text-lydian-text-inverse">PCI DSS Uyumlu</span>
+                <span className="font-medium text-white">PCI DSS Uyumlu</span>
               </div>
               <div className="flex items-center gap-2">
                 <Zap className="w-4 h-4 sm:w-5 sm:h-5 text-purple-400" />
-                <span className="font-medium text-lydian-text-inverse">
+                <span className="font-medium text-white">
                   Blockchain Doğrulamalı
                 </span>
               </div>
@@ -650,13 +650,13 @@ const Checkout: React.FC = () => {
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                className="bg-lydian-glass-dark backdrop-blur-xl rounded-2xl shadow-lg border border-white/10 p-4 sm:p-6"
+                className="bg-gradient-to-br from-slate-900 via-black to-slate-800 backdrop-blur-xl rounded-2xl shadow-lg border border-white/10 p-4 sm:p-6"
               >
                 <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
-                  <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-r from-[#00BAFF] to-[#667EEA] text-lydian-text-inverse rounded-full flex items-center justify-center font-bold text-xs sm:text-sm">
+                  <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-r from-[#00BAFF] to-[#667EEA] text-white rounded-full flex items-center justify-center font-bold text-xs sm:text-sm">
                     1
                   </div>
-                  <h2 className="text-lg sm:text-xl font-bold text-lydian-text-inverse">
+                  <h2 className="text-lg sm:text-xl font-bold text-white">
                     Kişisel Bilgiler
                   </h2>
                 </div>
@@ -709,14 +709,14 @@ const Checkout: React.FC = () => {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.1 }}
-                className="bg-lydian-glass-dark backdrop-blur-xl rounded-2xl shadow-lg border border-white/10 p-4 sm:p-6"
+                className="bg-gradient-to-br from-slate-900 via-black to-slate-800 backdrop-blur-xl rounded-2xl shadow-lg border border-white/10 p-4 sm:p-6"
               >
                 <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
                   <div className="flex items-center gap-2 sm:gap-3">
-                    <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-r from-[#00BAFF] to-[#667EEA] text-lydian-text-inverse rounded-full flex items-center justify-center font-bold text-xs sm:text-sm">
+                    <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-r from-[#00BAFF] to-[#667EEA] text-white rounded-full flex items-center justify-center font-bold text-xs sm:text-sm">
                       2
                     </div>
-                    <h2 className="text-lg sm:text-xl font-bold text-lydian-text-inverse">
+                    <h2 className="text-lg sm:text-xl font-bold text-white">
                       Kart Bilgileri
                     </h2>
                   </div>
@@ -747,14 +747,14 @@ const Checkout: React.FC = () => {
 
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
                     <div>
-                      <label className="block text-sm font-medium text-lydian-text-dim mb-2">
+                      <label className="block text-sm font-medium text-gray-400 mb-2">
                         <Calendar className="w-4 h-4 inline mr-1" />
                         Ay *
                       </label>
                       <select
                         value={formData.expiryMonth}
                         onChange={(e) => handleInputChange('expiryMonth', e.target.value)}
-                        className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base bg-lydian-bg/10 backdrop-blur-xl border-2 rounded-2xl text-lydian-text-inverse outline-none transition-all ${
+                        className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base bg-lydian-bg/10 backdrop-blur-xl border-2 rounded-2xl text-white outline-none transition-all ${
                           errors.expiryMonth ? 'border-red-500' : 'border-white/30'
                         }`}
                       >
@@ -772,14 +772,14 @@ const Checkout: React.FC = () => {
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-lydian-text-dim mb-2">
+                      <label className="block text-sm font-medium text-gray-400 mb-2">
                         <Calendar className="w-4 h-4 inline mr-1" />
                         Yıl *
                       </label>
                       <select
                         value={formData.expiryYear}
                         onChange={(e) => handleInputChange('expiryYear', e.target.value)}
-                        className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base bg-lydian-bg/10 backdrop-blur-xl border-2 rounded-2xl text-lydian-text-inverse outline-none transition-all ${
+                        className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base bg-lydian-bg/10 backdrop-blur-xl border-2 rounded-2xl text-white outline-none transition-all ${
                           errors.expiryYear ? 'border-red-500' : 'border-white/30'
                         }`}
                       >
@@ -824,13 +824,13 @@ const Checkout: React.FC = () => {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.2 }}
-                className="bg-lydian-glass-dark backdrop-blur-xl rounded-2xl shadow-lg border border-white/10 p-4 sm:p-6"
+                className="bg-gradient-to-br from-slate-900 via-black to-slate-800 backdrop-blur-xl rounded-2xl shadow-lg border border-white/10 p-4 sm:p-6"
               >
                 <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
-                  <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-r from-[#00BAFF] to-[#667EEA] text-lydian-text-inverse rounded-full flex items-center justify-center font-bold text-xs sm:text-sm">
+                  <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-r from-[#00BAFF] to-[#667EEA] text-white rounded-full flex items-center justify-center font-bold text-xs sm:text-sm">
                     3
                   </div>
-                  <h2 className="text-lg sm:text-xl font-bold text-lydian-text-inverse">
+                  <h2 className="text-lg sm:text-xl font-bold text-white">
                     Fatura Adresi
                   </h2>
                 </div>
@@ -871,14 +871,14 @@ const Checkout: React.FC = () => {
                   />
 
                   <div className="md:col-span-2">
-                    <label className="block text-sm font-medium text-lydian-text-dim mb-2">
+                    <label className="block text-sm font-medium text-gray-400 mb-2">
                       <Globe className="w-4 h-4 inline mr-1" />
                       Ülke *
                     </label>
                     <select
                       value={formData.country}
                       onChange={(e) => handleInputChange('country', e.target.value)}
-                      className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base bg-lydian-bg/10 backdrop-blur-xl border-2 border-white/30 rounded-2xl text-lydian-text-inverse outline-none transition-all"
+                      className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base bg-lydian-bg/10 backdrop-blur-xl border-2 border-white/30 rounded-2xl text-white outline-none transition-all"
                     >
                       <option value="TR" className="bg-gray-800">
                         Türkiye
@@ -905,13 +905,13 @@ const Checkout: React.FC = () => {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.3 }}
-                className="bg-lydian-glass-dark backdrop-blur-xl rounded-2xl shadow-lg border border-white/10 p-4 sm:p-6"
+                className="bg-gradient-to-br from-slate-900 via-black to-slate-800 backdrop-blur-xl rounded-2xl shadow-lg border border-white/10 p-4 sm:p-6"
               >
                 <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
-                  <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-r from-[#00BAFF] to-[#667EEA] text-lydian-text-inverse rounded-full flex items-center justify-center font-bold text-xs sm:text-sm">
+                  <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-r from-[#00BAFF] to-[#667EEA] text-white rounded-full flex items-center justify-center font-bold text-xs sm:text-sm">
                     4
                   </div>
-                  <h2 className="text-lg sm:text-xl font-bold text-lydian-text-inverse">
+                  <h2 className="text-lg sm:text-xl font-bold text-white">
                     Teslim Alma Noktası
                   </h2>
                 </div>
@@ -941,10 +941,10 @@ const Checkout: React.FC = () => {
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
-                className="bg-lydian-glass-dark backdrop-blur-xl rounded-2xl shadow-lg border border-white/10 p-4 sm:p-6 lg:sticky lg:top-8"
+                className="bg-gradient-to-br from-slate-900 via-black to-slate-800 backdrop-blur-xl rounded-2xl shadow-lg border border-white/10 p-4 sm:p-6 lg:sticky lg:top-8"
               >
                 <div className="flex items-center justify-between mb-4 sm:mb-6">
-                  <h3 className="font-bold text-base sm:text-lg text-lydian-text-inverse">
+                  <h3 className="font-bold text-base sm:text-lg text-white">
                     Sipariş Özeti
                   </h3>
                   {bookingData && (
@@ -978,58 +978,58 @@ const Checkout: React.FC = () => {
                   {orderSummary.items.map((item, index) => (
                     <div key={index} className="flex justify-between items-start">
                       <div className="min-w-0 pr-2">
-                        <p className="font-medium text-lydian-text-inverse text-xs sm:text-sm line-clamp-2">
+                        <p className="font-medium text-white text-xs sm:text-sm line-clamp-2">
                           {item.title}
                         </p>
                         {item.guests && (
-                          <p className="text-[10px] sm:text-xs text-lydian-text-muted">
+                          <p className="text-[10px] sm:text-xs text-gray-300">
                             {item.guests} misafir
                           </p>
                         )}
                         {item.passengers && (
-                          <p className="text-[10px] sm:text-xs text-lydian-text-muted">
+                          <p className="text-[10px] sm:text-xs text-gray-300">
                             {item.passengers} yolcu
                           </p>
                         )}
                         {bookingData &&
                           bookingData.type === 'hotel' &&
                           bookingData.productSpecific.nights && (
-                            <p className="text-[10px] sm:text-xs text-lydian-text-muted">
+                            <p className="text-[10px] sm:text-xs text-gray-300">
                               {bookingData.productSpecific.nights} gece
                             </p>
                           )}
                         {bookingData &&
                           bookingData.type === 'transfer' &&
                           bookingData.productSpecific.date && (
-                            <p className="text-[10px] sm:text-xs text-lydian-text-muted">
+                            <p className="text-[10px] sm:text-xs text-gray-300">
                               {bookingData.productSpecific.date}
                             </p>
                           )}
                         {bookingData &&
                           bookingData.type === 'tour' &&
                           bookingData.productSpecific.date && (
-                            <p className="text-[10px] sm:text-xs text-lydian-text-muted">
+                            <p className="text-[10px] sm:text-xs text-gray-300">
                               {bookingData.productSpecific.date}
                             </p>
                           )}
                       </div>
-                      <span className="font-semibold text-sm sm:text-base whitespace-nowrap text-lydian-text-inverse">
+                      <span className="font-semibold text-sm sm:text-base whitespace-nowrap text-white">
                         ₺{item.price.toLocaleString('tr-TR')}
                       </span>
                     </div>
                   ))}
                 </div>
 
-                <div className="space-y-2 sm:space-y-3 mb-4 sm:mb-6 border-t border-lydian-border pt-3 sm:pt-4">
+                <div className="space-y-2 sm:space-y-3 mb-4 sm:mb-6 border-t border-white/20 pt-3 sm:pt-4">
                   <div className="flex justify-between text-sm sm:text-base">
-                    <span className="text-lydian-text-dim">Ara Toplam</span>
-                    <span className="font-semibold text-lydian-text-inverse">
+                    <span className="text-gray-400">Ara Toplam</span>
+                    <span className="font-semibold text-white">
                       ₺{orderSummary.subtotal.toLocaleString('tr-TR')}
                     </span>
                   </div>
                   <div className="flex justify-between text-sm sm:text-base">
-                    <span className="text-lydian-text-dim">KDV (%18)</span>
-                    <span className="font-semibold text-lydian-text-inverse">
+                    <span className="text-gray-400">KDV (%18)</span>
+                    <span className="font-semibold text-white">
                       ₺{orderSummary.tax.toLocaleString('tr-TR')}
                     </span>
                   </div>
@@ -1039,9 +1039,9 @@ const Checkout: React.FC = () => {
                       -₺{orderSummary.discount.toLocaleString('tr-TR')}
                     </span>
                   </div>
-                  <div className="border-t border-lydian-border pt-2 sm:pt-3">
+                  <div className="border-t border-white/20 pt-2 sm:pt-3">
                     <div className="flex justify-between items-center">
-                      <span className="text-base sm:text-lg font-bold text-lydian-text-inverse">
+                      <span className="text-base sm:text-lg font-bold text-white">
                         Toplam
                       </span>
                       <span className="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-orange-400">
@@ -1052,18 +1052,18 @@ const Checkout: React.FC = () => {
                 </div>
 
                 {/* Security Features */}
-                <div className="space-y-2 sm:space-y-3 mb-4 sm:mb-6 p-3 sm:p-4 bg-lydian-bg/5 backdrop-blur-xl rounded-xl border border-white/10">
+                <div className="space-y-2 sm:space-y-3 mb-4 sm:mb-6 p-3 sm:p-4 bg-white/5 backdrop-blur-xl rounded-xl border border-white/10">
                   <div className="flex items-center gap-2 text-xs sm:text-sm">
                     <Shield className="w-3 h-3 sm:w-4 sm:h-4 text-green-400" />
-                    <span className="text-lydian-text-dim">256-bit SSL Güvenli</span>
+                    <span className="text-gray-400">256-bit SSL Güvenli</span>
                   </div>
                   <div className="flex items-center gap-2 text-xs sm:text-sm">
                     <Lock className="w-3 h-3 sm:w-4 sm:h-4 text-cyan-400" />
-                    <span className="text-lydian-text-dim">PCI DSS Uyumlu</span>
+                    <span className="text-gray-400">PCI DSS Uyumlu</span>
                   </div>
                   <div className="flex items-center gap-2 text-xs sm:text-sm">
                     <Zap className="w-3 h-3 sm:w-4 sm:h-4 text-purple-400" />
-                    <span className="text-lydian-text-dim">Blockchain Doğrulama</span>
+                    <span className="text-gray-400">Blockchain Doğrulama</span>
                   </div>
                 </div>
 
@@ -1076,7 +1076,7 @@ const Checkout: React.FC = () => {
                   Güvenli Ödeme Yap
                 </FuturisticButton>
 
-                <p className="text-[10px] sm:text-xs text-lydian-text-muted text-center mt-3 sm:mt-4">
+                <p className="text-[10px] sm:text-xs text-gray-300 text-center mt-3 sm:mt-4">
                   Tüm kart bilgileriniz 256-bit SSL ile şifrelenir ve güvenli şekilde işlenir.
                 </p>
               </motion.div>

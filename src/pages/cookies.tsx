@@ -13,51 +13,51 @@ const Cookies: React.FC = () => {
 
       <ModernHeader />
 
-      <main className="min-h-screen bg-lydian-glass-dark">
+      <main className="min-h-screen bg-gradient-to-br from-slate-900 via-black to-slate-800">
         <div className="max-w-4xl mx-auto px-4 py-16">
-          <h1 className="text-4xl font-bold text-lydian-text-inverse mb-8">Çerez Politikası</h1>
-          <div className="bg-lydian-bg-hover rounded-2xl shadow-lg p-8 space-y-8">
+          <h1 className="text-4xl font-bold text-white mb-8">Çerez Politikası</h1>
+          <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-2xl shadow-lg p-8 space-y-8">
             
             <section>
-              <h2 className="text-2xl font-bold text-lydian-text-inverse mb-4">1. Çerez Nedir?</h2>
-              <p className="text-lydian-text-muted leading-relaxed">
+              <h2 className="text-2xl font-bold text-white mb-4">1. Çerez Nedir?</h2>
+              <p className="text-gray-300 leading-relaxed">
                 Çerezler, web sitelerini ziyaret ettiğinizde tarayıcınıza kaydedilen küçük metin dosyalarıdır. 
                 Holiday.AILYDIAN&apos;da çerezler, AI öneri sistemi, kişiselleştirme ve site performansını iyileştirmek için kullanılır.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-lydian-text-inverse mb-4">2. Kullandığımız Çerez Türleri</h2>
+              <h2 className="text-2xl font-bold text-white mb-4">2. Kullandığımız Çerez Türleri</h2>
               
               <div className="space-y-6">
-                <div className="border-l-4 border-lydian-primary pl-4">
-                  <h3 className="font-bold text-lg text-lydian-text-inverse mb-2">Gerekli Çerezler</h3>
-                  <p className="text-lydian-text-muted">Web sitesinin temel işlevleri için zorunlu olan çerezlerdir. Giriş durumu, sepet içeriği ve güvenlik.</p>
+                <div className="border-l-4 border-blue-500 pl-4">
+                  <h3 className="font-bold text-lg text-white mb-2">Gerekli Çerezler</h3>
+                  <p className="text-gray-300">Web sitesinin temel işlevleri için zorunlu olan çerezlerdir. Giriş durumu, sepet içeriği ve güvenlik.</p>
                 </div>
 
                 <div className="border-l-4 border-lydian-success pl-4">
-                  <h3 className="font-bold text-lg text-lydian-text-inverse mb-2">Analitik Çerezler</h3>
-                  <p className="text-lydian-text-muted">Google Analytics ile site kullanım istatistikleri. Hangi sayfaların popüler olduğunu anlamaya yarar.</p>
+                  <h3 className="font-bold text-lg text-white mb-2">Analitik Çerezler</h3>
+                  <p className="text-gray-300">Google Analytics ile site kullanım istatistikleri. Hangi sayfaların popüler olduğunu anlamaya yarar.</p>
                 </div>
 
                 <div className="border-l-4 border-purple-500 pl-4">
-                  <h3 className="font-bold text-lg text-lydian-text-inverse mb-2">AI Kişiselleştirme Çerezler</h3>
-                  <p className="text-lydian-text-muted">Seyahat tercihlerinizi öğrenmek ve size özel AI öneriler sunmak için kullanılır.</p>
+                  <h3 className="font-bold text-lg text-white mb-2">AI Kişiselleştirme Çerezler</h3>
+                  <p className="text-gray-300">Seyahat tercihlerinizi öğrenmek ve size özel AI öneriler sunmak için kullanılır.</p>
                 </div>
 
                 <div className="border-l-4 border-orange-500 pl-4">
-                  <h3 className="font-bold text-lg text-lydian-text-inverse mb-2">Pazarlama Çerezler</h3>
-                  <p className="text-lydian-text-muted">İlgi alanlarınıza uygun reklamlar göstermek için üçüncü taraf platformlarda kullanılır.</p>
+                  <h3 className="font-bold text-lg text-white mb-2">Pazarlama Çerezler</h3>
+                  <p className="text-gray-300">İlgi alanlarınıza uygun reklamlar göstermek için üçüncü taraf platformlarda kullanılır.</p>
                 </div>
               </div>
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-lydian-text-inverse mb-4">3. Çerez Yönetimi</h2>
-              <p className="text-lydian-text-muted leading-relaxed mb-4">
+              <h2 className="text-2xl font-bold text-white mb-4">3. Çerez Yönetimi</h2>
+              <p className="text-gray-300 leading-relaxed mb-4">
                 Çerezleri kontrol etmek için tarayıcı ayarlarınızı kullanabilirsiniz:
               </p>
-              <ul className="list-disc list-inside text-lydian-text-muted space-y-2">
+              <ul className="list-disc list-inside text-gray-300 space-y-2">
                 <li><strong>Chrome:</strong> Ayarlar &gt; Gizlilik ve Güvenlik &gt; Çerezler</li>
                 <li><strong>Firefox:</strong> Seçenekler &gt; Gizlilik ve Güvenlik</li>
                 <li><strong>Safari:</strong> Tercihler &gt; Gizlilik</li>
@@ -66,16 +66,16 @@ const Cookies: React.FC = () => {
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-lydian-text-inverse mb-4">4. AI ve Blockchain Çerezler</h2>
-              <p className="text-lydian-text-muted leading-relaxed">
+              <h2 className="text-2xl font-bold text-white mb-4">4. AI ve Blockchain Çerezler</h2>
+              <p className="text-gray-300 leading-relaxed">
                 AI seyahat asistanımız ve blockchain güvenlik sistemi, kullanım deneyiminizi kişiselleştirmek için 
                 özel çerezler kullanabilir. Bu çerezler anonim veri analizi için kullanılır.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-lydian-text-inverse mb-4">5. Üçüncü Taraf Çerezler</h2>
-              <ul className="list-disc list-inside text-lydian-text-muted space-y-2">
+              <h2 className="text-2xl font-bold text-white mb-4">5. Üçüncü Taraf Çerezler</h2>
+              <ul className="list-disc list-inside text-gray-300 space-y-2">
                 <li><strong>Google Analytics:</strong> Site kullanım istatistikleri</li>
                 <li><strong>Facebook Pixel:</strong> Sosyal medya entegrasyonu</li>
                 <li><strong>Kripto Ödeme Sağlayıcıları:</strong> Güvenli ödeme işlemleri</li>
@@ -84,22 +84,22 @@ const Cookies: React.FC = () => {
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-lydian-text-inverse mb-4">6. Çerez Onayı</h2>
-              <p className="text-lydian-text-muted leading-relaxed">
+              <h2 className="text-2xl font-bold text-white mb-4">6. Çerez Onayı</h2>
+              <p className="text-gray-300 leading-relaxed">
                 İlk ziyaretinizde çerez onay paneli görünür. Tercihlerinizi istediğiniz zaman değiştirebilirsiniz. 
                 Gerekli çerezler site işleyişi için zorunludur.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-bold text-lydian-text-inverse mb-4">7. İletişim</h2>
-              <p className="text-lydian-text-muted leading-relaxed">
+              <h2 className="text-2xl font-bold text-white mb-4">7. İletişim</h2>
+              <p className="text-gray-300 leading-relaxed">
                 Çerezler hakkında sorularınız için: <strong>cookies@lydian.com</strong>
               </p>
             </section>
 
             <div className="border-t pt-8">
-              <p className="text-sm text-lydian-text-muted">
+              <p className="text-sm text-gray-300">
                 Son güncelleme: 26 Eylül 2025 | KVKK ve GDPR uyumlu çerez politikası.
               </p>
             </div>

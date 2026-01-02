@@ -305,10 +305,10 @@ export default function VehicleSubmissionWizard() {
         <div className="max-w-5xl mx-auto px-4 py-8">
           {/* Header */}
           <div className="mb-8">
-            <h1 className="text-4xl font-bold text-lydian-text mb-2">
+            <h1 className="text-4xl font-bold text-white mb-2">
               Aracınızı Listeleyin
             </h1>
-            <p className="text-lydian-text-secondary">
+            <p className="text-gray-300">
               Aracınızı platformumuza eklemek için aşağıdaki formu doldurun
             </p>
           </div>
@@ -316,10 +316,10 @@ export default function VehicleSubmissionWizard() {
           {/* Progress Bar */}
           <div className="mb-8">
             <div className="flex justify-between items-center mb-3">
-              <span className="text-sm font-medium text-lydian-text-secondary">
+              <span className="text-sm font-medium text-gray-300">
                 Adım {currentStep} / {TOTAL_STEPS}
               </span>
-              <span className="text-sm text-lydian-text-secondary">
+              <span className="text-sm text-gray-300">
                 %{Math.round(progressPercentage)} Tamamlandı
               </span>
             </div>
@@ -341,10 +341,10 @@ export default function VehicleSubmissionWizard() {
                 key={step}
                 className={`flex-1 min-w-[120px] p-3 rounded-lg border-2 transition-all ${
                 step === currentStep ?
-                'border-green-500 bg-green-50' :
+                'border-green-500 bg-purple-500/20' :
                 completedSteps.includes(step) ?
                 'border-emerald-500 bg-emerald-50' :
-                'border-slate-200 bg-lydian-bg'}`
+                'border-slate-200 bg-white/5'}`
                 }>
 
                   <div className="flex items-center gap-2 mb-1">
@@ -354,7 +354,7 @@ export default function VehicleSubmissionWizard() {
                   <div
                     className={`w-6 h-6 rounded-full flex items-center justify-center text-sm font-semibold ${
                     step === currentStep ?
-                    'bg-green-500 text-white' :
+                    'bg-purple-500/200 text-white' :
                     'bg-slate-200 text-slate-600'}`
                     }>
 
@@ -371,7 +371,7 @@ export default function VehicleSubmissionWizard() {
                   </div>
                   <p
                   className={`text-xs leading-tight ${
-                  step === currentStep ? 'text-lydian-success' : 'text-slate-500'}`
+                  step === currentStep ? 'text-purple-400' : 'text-slate-500'}`
                   }>
 
                     {stepTitles[step - 1]}
@@ -383,7 +383,7 @@ export default function VehicleSubmissionWizard() {
 
           {/* Auto-save indicator */}
           {lastSavedAt &&
-          <div className="mb-4 flex items-center gap-2 text-sm text-lydian-text-secondary">
+          <div className="mb-4 flex items-center gap-2 text-sm text-gray-300">
               <Save className="w-4 h-4" />
               <span>Son kayıt: {lastSavedAt.toLocaleTimeString('tr-TR')}</span>
             </div>
@@ -391,12 +391,12 @@ export default function VehicleSubmissionWizard() {
 
           {/* Step Content */}
           <form onSubmit={handleSubmit(handleNext)}>
-            <div className="bg-lydian-glass-dark rounded-xl shadow-lg p-8 mb-6">
+            <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl shadow-lg p-8 mb-6">
               <div className="mb-6">
-                <h2 className="text-2xl font-bold text-lydian-text mb-2">
+                <h2 className="text-2xl font-bold text-white mb-2">
                   {stepTitles[currentStep - 1]}
                 </h2>
-                <p className="text-lydian-text-secondary">{stepDescriptions[currentStep - 1]}</p>
+                <p className="text-gray-300">{stepDescriptions[currentStep - 1]}</p>
               </div>
 
               {/* Step Component */}
@@ -414,14 +414,14 @@ export default function VehicleSubmissionWizard() {
 
               {/* Error Summary */}
               {Object.keys(errors).length > 0 &&
-              <div className="mt-6 p-4 bg-lydian-error-lighter border border-red-200 rounded-lg">
+              <div className="mt-6 p-4 bg-white/5 border border-purple-400 rounded-lg">
                   <div className="flex items-start gap-3">
-                    <AlertCircle className="w-5 h-5 text-lydian-primary mt-0.5" />
+                    <AlertCircle className="w-5 h-5 text-blue-400 mt-0.5" />
                     <div>
-                      <h4 className="font-semibold text-red-900 mb-1">
+                      <h4 className="font-semibold text-purple-300 mb-1">
                         Lütfen aşağıdaki hataları düzeltin:
                       </h4>
-                      <ul className="text-sm text-lydian-primary-dark space-y-1">
+                      <ul className="text-sm text-blue-400 space-y-1">
                         {Object.entries(errors).map(([field, error]) =>
                       <li key={field}>
                             {field}: {error?.message?.toString()}
@@ -441,7 +441,7 @@ export default function VehicleSubmissionWizard() {
                   type="button"
                   onClick={handleBack}
                   disabled={currentStep === 1}
-                  className="px-6 py-3 bg-lydian-glass-dark border-2 border-lydian-border-medium rounded-lg font-semibold text-lydian-text-secondary hover:bg-lydian-bg-surface disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center gap-2">
+                  className="px-6 py-3 bg-white/10 backdrop-blur-xl border border-white/20 border border-white/20 rounded-lg font-semibold text-gray-300 hover:bg-white/5 disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center gap-2">
 
                   <ChevronLeft className="w-5 h-5" />
                   Geri
@@ -450,7 +450,7 @@ export default function VehicleSubmissionWizard() {
                 <button
                   type="button"
                   onClick={handleSaveDraft}
-                  className="px-6 py-3 bg-lydian-glass-dark border-2 border-lydian-border-medium rounded-lg font-semibold text-lydian-text-secondary hover:bg-lydian-bg-surface transition-all flex items-center gap-2">
+                  className="px-6 py-3 bg-white/10 backdrop-blur-xl border border-white/20 border border-white/20 rounded-lg font-semibold text-gray-300 hover:bg-white/5 transition-all flex items-center gap-2">
 
                   <Save className="w-5 h-5" />
                   Taslak Kaydet
@@ -460,7 +460,7 @@ export default function VehicleSubmissionWizard() {
               <button
                 type="submit"
                 disabled={!isValid || isSubmitting}
-                className="px-8 py-3 bg-gradient-to-r from-lydian-success to-lydian-success text-lydian-text-inverse rounded-lg font-semibold hover:from-green-700 hover:to-emerald-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center gap-2 shadow-lg">
+                className="px-8 py-3 bg-gradient-to-r from-lydian-success to-lydian-success text-white rounded-lg font-semibold hover:from-green-700 hover:to-emerald-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center gap-2 shadow-lg">
 
                 {isSubmitting ?
                 <>
@@ -497,25 +497,25 @@ export default function VehicleSubmissionWizard() {
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
-            className="bg-lydian-glass-dark rounded-2xl p-8 max-w-md w-full text-center">
+            className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-8 max-w-md w-full text-center">
 
               <motion.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ delay: 0.2, type: 'spring' }}
-              className="w-20 h-20 bg-lydian-success-light rounded-full flex items-center justify-center mx-auto mb-6">
+              className="w-20 h-20 bg-purple-500-light rounded-full flex items-center justify-center mx-auto mb-6">
 
-                <CheckCircle2 className="w-12 h-12 text-lydian-success" />
+                <CheckCircle2 className="w-12 h-12 text-purple-400" />
               </motion.div>
 
-              <h3 className="text-2xl font-bold text-lydian-text mb-3">
+              <h3 className="text-2xl font-bold text-white mb-3">
                 Araç Başarıyla Gönderildi!
               </h3>
-              <p className="text-lydian-text-secondary mb-6">
+              <p className="text-gray-300 mb-6">
                 Aracınız inceleme için gönderildi. Onaylandığında ve platformda yayınlandığında sizi bilgilendireceğiz.
               </p>
 
-              <div className="flex items-center justify-center gap-2 text-sm text-lydian-text-tertiary">
+              <div className="flex items-center justify-center gap-2 text-sm text-white-tertiary">
                 <Loader2 className="w-4 h-4 animate-spin" />
                 <span>Kontrol paneline yönlendiriliyor...</span>
               </div>

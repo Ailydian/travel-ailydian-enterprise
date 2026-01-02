@@ -129,14 +129,14 @@ export default function PriceChart({
       const isPredicted = data.isPrediction;
 
       return (
-        <div className="bg-lydian-glass-dark dark:bg-gray-800 p-4 rounded-lg shadow-lg border border-lydian-border-light/10 dark:border-gray-700">
-          <p className="font-semibold text-lydian-text-inverse dark:text-lydian-text-inverse">{label}</p>
-          <p className={`text-sm ${isPredicted ? 'text-lydian-primary' : 'text-lydian-success'}`}>
+        <div className="bg-gradient-to-br from-slate-900 via-black to-slate-800 dark:bg-gray-800 p-4 rounded-lg shadow-lg border border-white/20/10 dark:border-gray-700">
+          <p className="font-semibold text-white dark:text-white">{label}</p>
+          <p className={`text-sm ${isPredicted ? 'text-lydian-primary' : 'text-green-500'}`}>
             {isPredicted ? 'Predicted: ' : 'Actual: '}
             {currency} {(data.price || data.predictedPrice)?.toFixed(2)}
           </p>
           {isPredicted && data.confidence &&
-          <p className="text-xs text-lydian-text-muted mt-1">
+          <p className="text-xs text-gray-300 mt-1">
               Confidence: {data.confidence}%
             </p>
           }
@@ -149,16 +149,16 @@ export default function PriceChart({
   if (loading) {
     return (
       <div className="flex items-center justify-center" style={{ height }}>
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-lydian-primary"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500"></div>
       </div>);
 
   }
 
   if (chartData.length === 0) {
     return (
-      <div className="flex flex-col items-center justify-center bg-lydian-glass-dark dark:bg-gray-900 rounded-lg p-8" style={{ height }}>
+      <div className="flex flex-col items-center justify-center bg-gradient-to-br from-slate-900 via-black to-slate-800 dark:bg-gray-900 rounded-lg p-8" style={{ height }}>
         <svg
-          className="w-16 h-16 text-lydian-text-muted mb-4"
+          className="w-16 h-16 text-gray-300 mb-4"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24">
@@ -170,7 +170,7 @@ export default function PriceChart({
             d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
 
         </svg>
-        <p className="text-lydian-text-dim dark:text-lydian-text-muted text-center">
+        <p className="text-gray-400 dark:text-gray-300 text-center">
           No price history available yet.
           <br />
           Start tracking to see price trends!
@@ -188,16 +188,16 @@ export default function PriceChart({
       {/* Stats Cards */}
       {stats &&
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <div className="bg-lydian-glass-dark dark:bg-gray-800 p-4 rounded-lg shadow">
-            <p className="text-sm text-lydian-text-dim dark:text-lydian-text-muted">Current Price</p>
-            <p className="text-2xl font-bold text-lydian-text-inverse dark:text-lydian-text-inverse">
+          <div className="bg-gradient-to-br from-slate-900 via-black to-slate-800 dark:bg-gray-800 p-4 rounded-lg shadow">
+            <p className="text-sm text-gray-400 dark:text-gray-300">Current Price</p>
+            <p className="text-2xl font-bold text-white dark:text-white">
               {currency} {currentPrice?.toFixed(2)}
             </p>
             {stats.trend &&
           <p className={`text-xs mt-1 ${
-          stats.trend === 'decreasing' ? 'text-lydian-success' :
+          stats.trend === 'decreasing' ? 'text-green-500' :
           stats.trend === 'increasing' ? 'text-lydian-error' :
-          'text-lydian-text-dim'}`
+          'text-gray-400'}`
           }>
                 {stats.trend === 'decreasing' ? '↓ Decreasing' :
             stats.trend === 'increasing' ? '↑ Increasing' :
@@ -206,32 +206,32 @@ export default function PriceChart({
           }
           </div>
 
-          <div className="bg-lydian-glass-dark dark:bg-gray-800 p-4 rounded-lg shadow">
-            <p className="text-sm text-lydian-text-dim dark:text-lydian-text-muted">Lowest Price</p>
-            <p className="text-2xl font-bold text-lydian-success">
+          <div className="bg-gradient-to-br from-slate-900 via-black to-slate-800 dark:bg-gray-800 p-4 rounded-lg shadow">
+            <p className="text-sm text-gray-400 dark:text-gray-300">Lowest Price</p>
+            <p className="text-2xl font-bold text-green-500">
               {currency} {minPrice?.toFixed(2)}
             </p>
-            <p className="text-xs text-lydian-text-muted mt-1">
+            <p className="text-xs text-gray-300 mt-1">
               Best deal recorded
             </p>
           </div>
 
-          <div className="bg-lydian-glass-dark dark:bg-gray-800 p-4 rounded-lg shadow">
-            <p className="text-sm text-lydian-text-dim dark:text-lydian-text-muted">Highest Price</p>
-            <p className="text-2xl font-bold text-lydian-primary">
+          <div className="bg-gradient-to-br from-slate-900 via-black to-slate-800 dark:bg-gray-800 p-4 rounded-lg shadow">
+            <p className="text-sm text-gray-400 dark:text-gray-300">Highest Price</p>
+            <p className="text-2xl font-bold text-blue-500">
               {currency} {maxPrice?.toFixed(2)}
             </p>
-            <p className="text-xs text-lydian-text-muted mt-1">
+            <p className="text-xs text-gray-300 mt-1">
               Peak price recorded
             </p>
           </div>
 
-          <div className="bg-lydian-glass-dark dark:bg-gray-800 p-4 rounded-lg shadow">
-            <p className="text-sm text-lydian-text-dim dark:text-lydian-text-muted">Average Price</p>
-            <p className="text-2xl font-bold text-lydian-primary">
+          <div className="bg-gradient-to-br from-slate-900 via-black to-slate-800 dark:bg-gray-800 p-4 rounded-lg shadow">
+            <p className="text-sm text-gray-400 dark:text-gray-300">Average Price</p>
+            <p className="text-2xl font-bold text-blue-500">
               {currency} {stats.avg}
             </p>
-            <p className="text-xs text-lydian-text-muted mt-1">
+            <p className="text-xs text-gray-300 mt-1">
               {days}-day average
             </p>
           </div>
@@ -240,10 +240,10 @@ export default function PriceChart({
 
       {/* Best Time to Book Alert */}
       {stats?.bestTimeToBook &&
-      <div className="bg-lydian-success-lighter dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-4">
+      <div className="bg-green-600-lighter dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-4">
           <div className="flex items-start">
             <svg
-            className="w-6 h-6 text-lydian-success dark:text-green-400 mr-3 flex-shrink-0"
+            className="w-6 h-6 text-green-500 dark:text-green-400 mr-3 flex-shrink-0"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24">
@@ -270,10 +270,10 @@ export default function PriceChart({
 
       {/* ML Predictions Insight */}
       {predictions?.bestDayToBuy &&
-      <div className="bg-lydian-primary-lighter dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4">
+      <div className="bg-blue-500/10er dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4">
           <div className="flex items-start">
             <svg
-            className="w-6 h-6 text-lydian-primary dark:text-blue-400 mr-3 flex-shrink-0"
+            className="w-6 h-6 text-blue-500 dark:text-blue-400 mr-3 flex-shrink-0"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24">
@@ -294,7 +294,7 @@ export default function PriceChart({
                 {predictions.bestDayToBuy.price?.toFixed(2)} on day{' '}
                 {predictions.bestDayToBuy.day}
                 {predictions.bestDayToBuy.savings > 0 &&
-              <span className="text-lydian-success dark:text-green-400 font-semibold">
+              <span className="text-green-500 dark:text-green-400 font-semibold">
                     {' '}(Save {currency} {predictions.bestDayToBuy.savings?.toFixed(2)})
                   </span>
               }
@@ -305,8 +305,8 @@ export default function PriceChart({
       }
 
       {/* Chart */}
-      <div className="bg-lydian-glass-dark dark:bg-gray-800 p-6 rounded-lg shadow">
-        <h3 className="text-lg font-semibold text-lydian-text-inverse dark:text-lydian-text-inverse mb-4">
+      <div className="bg-gradient-to-br from-slate-900 via-black to-slate-800 dark:bg-gray-800 p-6 rounded-lg shadow">
+        <h3 className="text-lg font-semibold text-white dark:text-white mb-4">
           Price History & Predictions
         </h3>
         <ResponsiveContainer width="100%" height={height}>
@@ -370,13 +370,13 @@ export default function PriceChart({
       {/* Legend */}
       <div className="flex items-center justify-center gap-6 text-sm">
         <div className="flex items-center gap-2">
-          <div className="w-4 h-1 bg-lydian-success"></div>
-          <span className="text-lydian-text-dim dark:text-lydian-text-muted">Actual Price</span>
+          <div className="w-4 h-1 bg-green-600"></div>
+          <span className="text-gray-400 dark:text-gray-300">Actual Price</span>
         </div>
         {showPredictions &&
         <div className="flex items-center gap-2">
-            <div className="w-4 h-1 bg-lydian-primary border-dashed border-t-2 border-lydian-primary"></div>
-            <span className="text-lydian-text-dim dark:text-lydian-text-muted">ML Prediction</span>
+            <div className="w-4 h-1 bg-gradient-to-r from-blue-600 to-purple-600 border-dashed border-t-2 border-blue-500"></div>
+            <span className="text-gray-400 dark:text-gray-300">ML Prediction</span>
           </div>
         }
       </div>

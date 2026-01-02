@@ -294,26 +294,33 @@ const GetYourGuideStyleHome: React.FC = () => {
 
               AI Planlayıcı
             </Button>
+            <Button variant="glass"
+              size="xl"
+              onClick={() => router.push('/explore')}
+              leftIcon={<Compass className="w-6 h-6" />}>
+
+              Gelişmiş Özellikler
+            </Button>
           </div>
         </NeoHero>
 
         {/* Search Results */}
         {searchResults.length > 0 &&
-        <section className="py-16 bg-lydian-glass-dark">
+        <section className="py-16 bg-white/10 backdrop-blur-xl">
             <div className="max-w-7xl mx-auto px-4">
               <div className="flex items-center justify-between mb-8">
                 <div>
-                  <h2 className="text-2xl font-bold text-lydian-text-inverse mb-2">
+                  <h2 className="text-2xl font-bold text-white mb-2">
 &quot;{searchQuery}&quot; için {searchResults.length} sonuç bulundu
                   </h2>
-                  <p className="text-lydian-text-dim">En iyi seçenekler AI tarafından sıralandı</p>
+                  <p className="text-gray-400">En iyi seçenekler AI tarafından sıralandı</p>
                 </div>
                 <div className="flex items-center gap-2">
-                  <button className="flex items-center gap-2 px-4 py-2 bg-lydian-bg-hover border border-lydian-border rounded-lg text-sm font-medium hover:bg-lydian-glass-dark">
+                  <button className="flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-xl border border-white/20 rounded-lg text-sm font-medium hover:bg-white/10">
                     <Filter className="w-4 h-4" />
                     Filtrele
                   </button>
-                  <select className="px-4 py-2 bg-lydian-bg-hover border border-lydian-border rounded-lg text-sm font-medium">
+                  <select className="px-4 py-2 bg-white/5 backdrop-blur-xl border border-white/20 rounded-lg text-sm font-medium">
                     <option>Önerilenler</option>
                     <option>Fiyat (Düşük-Yüksek)</option>
                     <option>Fiyat (Yüksek-Düşük)</option>
@@ -329,7 +336,7 @@ const GetYourGuideStyleHome: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-lydian-bg-surface rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group">
+                className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group">
 
                     {/* Image */}
                     <div className="relative h-48 overflow-hidden">
@@ -341,14 +348,14 @@ const GetYourGuideStyleHome: React.FC = () => {
 
                       {/* Category Badge */}
                       <div className="absolute top-4 left-4">
-                        <span className="px-3 py-1 bg-lydian-glass-heavy text-lydian-text rounded-full text-sm font-medium capitalize">
+                        <span className="px-3 py-1 bg-white/15 backdrop-blur-xl text-white rounded-full text-sm font-medium capitalize">
                           {result.type || selectedCategory}
                         </span>
                       </div>
 
                       {/* AI Badge */}
                       <div className="absolute top-4 right-4">
-                        <div className="flex items-center gap-1 px-2 py-1 bg-gradient-to-r from-lydian-primary to-lydian-secondary text-lydian-text-inverse rounded-full text-xs font-medium">
+                        <div className="flex items-center gap-1 px-2 py-1 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full text-xs font-medium">
                           <Sparkles className="w-3 h-3" />
                           <span>AI Önerisi</span>
                         </div>
@@ -357,7 +364,7 @@ const GetYourGuideStyleHome: React.FC = () => {
 
                     {/* Content */}
                     <div className="p-6">
-                      <div className="flex items-center gap-2 text-sm text-lydian-text-muted mb-2">
+                      <div className="flex items-center gap-2 text-sm text-gray-300 mb-2">
                         <MapPin className="w-4 h-4" />
                         <span>{result.location || 'Türkiye'}</span>
                         {result.duration &&
@@ -368,7 +375,7 @@ const GetYourGuideStyleHome: React.FC = () => {
                     }
                       </div>
 
-                      <h3 className="font-bold text-lg text-lydian-text mb-3 line-clamp-2">
+                      <h3 className="font-bold text-lg text-white mb-3 line-clamp-2">
                         {result.title || result.name}
                       </h3>
 
@@ -376,18 +383,18 @@ const GetYourGuideStyleHome: React.FC = () => {
                       {result.rating &&
                   <div className="flex items-center gap-2 mb-3">
                           <div className="flex items-center gap-1">
-                            <Star className="w-4 h-4 text-lydian-warning fill-current" />
+                            <Star className="w-4 h-4 text-yellow-400 fill-current" />
                             <span className="font-medium">{result.rating}</span>
                           </div>
                           {result.reviews &&
-                    <span className="text-lydian-text-tertiary text-sm">({result.reviews} değerlendirme)</span>
+                    <span className="text-gray-300 text-sm">({result.reviews} değerlendirme)</span>
                     }
                         </div>
                   }
 
                       {/* Description or Features */}
                       {result.description &&
-                  <p className="text-sm text-lydian-text-secondary mb-4 line-clamp-2">
+                  <p className="text-sm text-gray-300 mb-4 line-clamp-2">
                           {result.description}
                         </p>
                   }
@@ -396,11 +403,11 @@ const GetYourGuideStyleHome: React.FC = () => {
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-2">
                           {result.price ?
-                      <span className="text-xl font-bold text-lydian-text">
+                      <span className="text-xl font-bold text-white">
                               {typeof result.price === 'string' ? result.price : `₺${result.price}`}
                             </span> :
 
-                      <span className="text-sm text-lydian-text-muted">Fiyat bilgisi yok</span>
+                      <span className="text-sm text-gray-400">Fiyat bilgisi yok</span>
                       }
                         </div>
                         <div className="flex flex-col gap-2">
@@ -417,7 +424,7 @@ const GetYourGuideStyleHome: React.FC = () => {
                             <motion.button
                           whileHover={{ scale: 1.02 }}
                           whileTap={{ scale: 0.98 }}
-                          className="w-full px-4 py-2.5 bg-gradient-to-r from-lydian-primary to-lydian-primary-dark hover:from-lydian-primary-hover hover:to-lydian-primary-darker text-lydian-text-inverse rounded-lg font-semibold transition-all duration-200 text-sm flex items-center justify-center gap-2">
+                          className="w-full px-4 py-2.5 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white rounded-lg font-semibold transition-all duration-200 text-sm flex items-center justify-center gap-2">
 
                               <Eye className="w-4 h-4" />
                               Detayları Gör
@@ -428,7 +435,7 @@ const GetYourGuideStyleHome: React.FC = () => {
                           whileHover={{ scale: 1.05 }}
                           whileTap={{ scale: 0.95 }}
                           onClick={() => handleAddToCart(result)}
-                          className="p-2 bg-lydian-primary hover:bg-lydian-dark text-lydian-text-inverse rounded-lg transition-all duration-200 flex-shrink-0"
+                          className="p-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-all duration-200 flex-shrink-0"
                           title={t('home.cart.addToCart')}>
 
                               <ShoppingCart className="w-4 h-4" />
@@ -440,7 +447,7 @@ const GetYourGuideStyleHome: React.FC = () => {
                             handleAddToCart(result);
                             router.push('/checkout');
                           }}
-                          className="flex-1 px-4 py-2 bg-gradient-to-r from-lydian-primary to-lydian-secondary text-lydian-text-inverse rounded-lg font-medium hover:shadow-lg transition-all duration-200 text-sm">
+                          className="flex-1 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-medium hover:shadow-lg transition-all duration-200 text-sm">
 
                               {result.type === 'hotel' ? t('home.bookingTypes.hotel') :
                           result.type === 'flight' ? t('home.bookingTypes.flight') :
@@ -461,7 +468,7 @@ const GetYourGuideStyleHome: React.FC = () => {
                   <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-3 bg-lydian-bg-hover border-2 border-lydian-primary text-lydian-primary rounded-2xl font-medium hover:bg-lydian-primary hover:text-lydian-text-inverse transition-all duration-200">
+                className="px-8 py-3 bg-white/5 backdrop-blur-xl border-2 border-blue-500 text-blue-400 rounded-2xl font-medium hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 hover:text-white transition-all duration-200">
 
                     {t('home.experiences.loadMore')}
                   </motion.button>
@@ -671,7 +678,7 @@ const GetYourGuideStyleHome: React.FC = () => {
         </NeoSection>
 
         {/* Partner Services - Property, Vehicle & Transfer */}
-        <section className="py-20 bg-lydian-glass-dark">
+        <section className="py-20 bg-white/10 backdrop-blur-xl">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center mb-16">
               <motion.div
@@ -679,10 +686,10 @@ const GetYourGuideStyleHome: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}>
 
-                <h2 className="text-4xl md:text-5xl font-black text-lydian-text-inverse mb-4">
+                <h2 className="text-4xl md:text-5xl font-black text-white mb-4">
                   Partner Hizmetlerimiz
                 </h2>
-                <p className="text-xl text-lydian-text-dim max-w-3xl mx-auto">
+                <p className="text-xl text-gray-400 max-w-3xl mx-auto">
                   Ev, araç kiralama ve transfer hizmetlerinizi kolayca yönetin. Gelir elde edin, misafirlerinizi mutlu edin.
                 </p>
               </motion.div>
@@ -698,37 +705,37 @@ const GetYourGuideStyleHome: React.FC = () => {
                 className="group">
 
                 <Link href="/owner">
-                  <div className="relative bg-lydian-bg-surface rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer border-2 border-lydian-border hover:border-lydian-primary">
+                  <div className="relative bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer hover:border-blue-500">
                     {/* Icon Background */}
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-lydian-primary-lighter to-lydian-primary-light rounded-bl-full"></div>
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-bl-full"></div>
 
                     <div className="p-8 relative z-10">
-                      <div className="w-16 h-16 bg-gradient-to-r from-lydian-primary to-lydian-secondary rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <Home className="w-8 h-8 text-lydian-text-inverse" />
+                      <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <Home className="w-8 h-8 text-white" />
                       </div>
 
-                      <h3 className="text-2xl font-bold text-lydian-text mb-3">
+                      <h3 className="text-2xl font-bold text-white mb-3">
                         Ev & Villa Kiralama
                       </h3>
 
-                      <p className="text-lydian-text-secondary mb-6 leading-relaxed">
+                      <p className="text-gray-300 mb-6 leading-relaxed">
                         Mülkünüzü kiraya verin, gelir elde edin. Kolay yönetim, güvenli ödemeler.
                       </p>
 
                       <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-2 text-lydian-primary font-semibold">
+                        <div className="flex items-center gap-2 text-blue-400 font-semibold">
                           <span>Hemen Başla</span>
                           <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
                         </div>
-                        <div className="px-3 py-1 bg-lydian-primary-lighter text-lydian-primary rounded-full text-sm font-medium">
+                        <div className="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm font-medium">
                           Partner
                         </div>
                       </div>
 
-                      <div className="mt-6 pt-6 border-t border-lydian-border">
+                      <div className="mt-6 pt-6 border-t border-white/20">
                         <div className="flex items-center justify-between text-sm">
-                          <div className="text-lydian-text-muted">Ortalama Gelir</div>
-                          <div className="font-bold text-lydian-text">₺15,000/ay</div>
+                          <div className="text-gray-400">Ortalama Gelir</div>
+                          <div className="font-bold text-white">₺15,000/ay</div>
                         </div>
                       </div>
                     </div>
@@ -745,37 +752,37 @@ const GetYourGuideStyleHome: React.FC = () => {
                 className="group">
 
                 <Link href="/vehicle-owner">
-                  <div className="relative bg-lydian-bg-surface rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer border-2 border-lydian-border hover:border-lydian-primary">
+                  <div className="relative bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer hover:border-blue-500">
                     {/* Icon Background */}
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-lydian-success-lighter to-lydian-success-light rounded-bl-full"></div>
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-green-500/20 to-emerald-500/20 rounded-bl-full"></div>
 
                     <div className="p-8 relative z-10">
-                      <div className="w-16 h-16 bg-gradient-to-r from-lydian-primary to-lydian-secondary rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <Car className="w-8 h-8 text-lydian-text-inverse" />
+                      <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <Car className="w-8 h-8 text-white" />
                       </div>
 
-                      <h3 className="text-2xl font-bold text-lydian-text mb-3">
+                      <h3 className="text-2xl font-bold text-white mb-3">
                         Araç Kiralama
                       </h3>
 
-                      <p className="text-lydian-text-secondary mb-6 leading-relaxed">
+                      <p className="text-gray-300 mb-6 leading-relaxed">
                         Araçlarınızı kiraya verin, filo yönetimi yapın. 14+ araç kategorisi desteği.
                       </p>
 
                       <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-2 text-lydian-primary font-semibold">
+                        <div className="flex items-center gap-2 text-blue-400 font-semibold">
                           <span>Hemen Başla</span>
                           <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
                         </div>
-                        <div className="px-3 py-1 bg-lydian-primary-lighter text-lydian-primary rounded-full text-sm font-medium">
+                        <div className="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm font-medium">
                           Partner
                         </div>
                       </div>
 
-                      <div className="mt-6 pt-6 border-t border-lydian-border">
+                      <div className="mt-6 pt-6 border-t border-white/20">
                         <div className="flex items-center justify-between text-sm">
-                          <div className="text-lydian-text-muted">Ortalama Gelir</div>
-                          <div className="font-bold text-lydian-text">₺8,500/ay</div>
+                          <div className="text-gray-400">Ortalama Gelir</div>
+                          <div className="font-bold text-white">₺8,500/ay</div>
                         </div>
                       </div>
                     </div>
@@ -792,37 +799,37 @@ const GetYourGuideStyleHome: React.FC = () => {
                 className="group">
 
                 <Link href="/transfer-owner">
-                  <div className="relative bg-lydian-bg-surface rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer border-2 border-lydian-border hover:border-lydian-primary">
+                  <div className="relative bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden cursor-pointer hover:border-blue-500">
                     {/* Icon Background */}
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-lydian-success-lighter to-lydian-success-light rounded-bl-full"></div>
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-green-500/20 to-emerald-500/20 rounded-bl-full"></div>
 
                     <div className="p-8 relative z-10">
-                      <div className="w-16 h-16 bg-gradient-to-r from-lydian-primary to-lydian-secondary rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                        <Bus className="w-8 h-8 text-lydian-text-inverse" />
+                      <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <Bus className="w-8 h-8 text-white" />
                       </div>
 
-                      <h3 className="text-2xl font-bold text-lydian-text mb-3">
+                      <h3 className="text-2xl font-bold text-white mb-3">
                         Transfer Hizmeti
                       </h3>
 
-                      <p className="text-lydian-text-secondary mb-6 leading-relaxed">
+                      <p className="text-gray-300 mb-6 leading-relaxed">
                         Transfer araçlarınızı yönetin, havaalanı-otel transferleri sağlayın. D2 belgeli.
                       </p>
 
                       <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-2 text-lydian-primary font-semibold">
+                        <div className="flex items-center gap-2 text-blue-400 font-semibold">
                           <span>Hemen Başla</span>
                           <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
                         </div>
-                        <div className="px-3 py-1 bg-lydian-primary-lighter text-lydian-primary rounded-full text-sm font-medium">
+                        <div className="px-3 py-1 bg-blue-500/20 text-blue-400 rounded-full text-sm font-medium">
                           Partner
                         </div>
                       </div>
 
-                      <div className="mt-6 pt-6 border-t border-lydian-border">
+                      <div className="mt-6 pt-6 border-t border-white/20">
                         <div className="flex items-center justify-between text-sm">
-                          <div className="text-lydian-text-muted">Ortalama Gelir</div>
-                          <div className="font-bold text-lydian-text">₺12,000/ay</div>
+                          <div className="text-gray-400">Ortalama Gelir</div>
+                          <div className="font-bold text-white">₺12,000/ay</div>
                         </div>
                       </div>
                     </div>
@@ -839,9 +846,9 @@ const GetYourGuideStyleHome: React.FC = () => {
               transition={{ delay: 0.4 }}
               className="mt-16 text-center">
 
-              <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-lydian-primary-lighter to-lydian-primary-light rounded-full">
-                <CheckCircle className="w-5 h-5 text-lydian-primary" />
-                <span className="text-lydian-primary-dark font-medium">
+              <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-500/20 to-purple-500/20 backdrop-blur-xl border border-white/20 rounded-full">
+                <CheckCircle className="w-5 h-5 text-blue-400" />
+                <span className="text-white font-medium">
                   Ücretsiz kayıt ol, hemen gelir elde etmeye başla
                 </span>
               </div>
@@ -850,11 +857,11 @@ const GetYourGuideStyleHome: React.FC = () => {
         </section>
 
         {/* Why Choose Us */}
-        <section className="py-16 bg-lydian-glass-dark">
+        <section className="py-16 bg-white/10 backdrop-blur-xl">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-lydian-text-inverse mb-4">Neden AILYDIAN Holiday?</h2>
-              <p className="text-lydian-text-dim">Gelişmiş özelliklerimizle seyahatin geleceğini yaşayın</p>
+              <h2 className="text-3xl font-bold text-white mb-4">Neden AILYDIAN Holiday?</h2>
+              <p className="text-gray-400">Gelişmiş özelliklerimizle seyahatin geleceğini yaşayın</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -863,37 +870,37 @@ const GetYourGuideStyleHome: React.FC = () => {
                 icon: Sparkles,
                 title: 'AI Destekli Öneriler',
                 description: 'Tercihleriniz ve davranış örüntülerinize dayanan kişiselleştirilmiş seyahat önerileri alın.',
-                color: 'bg-yellow-100 text-lydian-warning'
+                color: 'bg-yellow-500/20 text-yellow-400'
               },
               {
                 icon: Camera,
                 title: 'Sanal Gerçeklik Önizlemeleri',
                 description: 'Rezervasyon yapmadan önce destinasyonları 360° VR ile deneyimleyin. Tam olarak ne aldığınızı görün.',
-                color: 'bg-purple-100 text-lydian-primary'
+                color: 'bg-purple-500/20 text-purple-400'
               },
               {
                 icon: Shield,
                 title: 'Blockchain Doğrulama',
                 description: 'Tüm yorumlar ve rezervasyonlar maksimum güven ve şeffaflık için blockchain üzerinde doğrulanır.',
-                color: 'bg-red-50 text-lydian-primary'
+                color: 'bg-blue-500/20 text-blue-400'
               },
               {
                 icon: Zap,
                 title: 'Anlık Onay',
                 description: 'Çoğu deneyim için rezervasyon yapın ve anlık onay alın. Bekleme yok, belirsizlik yok.',
-                color: 'bg-red-50 text-lydian-primary'
+                color: 'bg-blue-500/20 text-blue-400'
               },
               {
                 icon: Award,
                 title: 'Premium Deneyimler',
                 description: 'Başka yerde bulunmayan özel deneyimlere ve VIP hizmetlere erişim.',
-                color: 'bg-red-50 text-lydian-primary'
+                color: 'bg-blue-500/20 text-blue-400'
               },
               {
                 icon: TrendingUp,
                 title: '7/24 AI Destek',
                 description: 'AI destekli müşteri destek sistemimizle istediğiniz zaman yardım alın.',
-                color: 'bg-red-50 text-lydian-primary'
+                color: 'bg-blue-500/20 text-blue-400'
               }].
               map((feature, index) =>
               <motion.div
@@ -903,11 +910,11 @@ const GetYourGuideStyleHome: React.FC = () => {
                 transition={{ delay: index * 0.1 }}
                 className="text-center p-6">
 
-                  <div className={`w-16 h-16 rounded-full ${feature.color} flex items-center justify-center mx-auto mb-4`}>
+                  <div className={`w-16 h-16 rounded-full ${feature.color} flex items-center justify-center mx-auto mb-4 backdrop-blur-xl border border-white/10`}>
                     <feature.icon className="w-8 h-8" />
                   </div>
-                  <h3 className="font-bold text-lg text-lydian-text-inverse mb-2">{feature.title}</h3>
-                  <p className="text-lydian-text-dim">{feature.description}</p>
+                  <h3 className="font-bold text-lg text-white mb-2">{feature.title}</h3>
+                  <p className="text-gray-400">{feature.description}</p>
                 </motion.div>
               )}
             </div>

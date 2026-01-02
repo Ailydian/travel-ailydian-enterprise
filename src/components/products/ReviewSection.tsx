@@ -55,18 +55,18 @@ export const ReviewSection: React.FC<ReviewSectionProps> = ({
   });
 
   return (
-    <div className="bg-lydian-glass-dark/95 backdrop-blur-xl rounded-2xl p-6 sm:p-8 shadow-lg border border-lydian-border-light/20">
+    <div className="bg-white/5 backdrop-blur-xl rounded-2xl p-6 sm:p-8 shadow-lg border border-white/10">
       {/* Header */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-8 gap-4">
         <div>
-          <h3 className="text-2xl font-bold text-lydian-text-inverse mb-2">Yorumlar</h3>
-          <p className="text-lydian-text-muted">
+          <h3 className="text-2xl font-bold text-white mb-2">Yorumlar</h3>
+          <p className="text-gray-400">
             {totalReviews.toLocaleString()} müşteri değerlendirmesi
           </p>
         </div>
         <div className="flex items-center gap-3">
           <div className="text-right">
-            <div className="text-4xl font-bold text-lydian-text-inverse">{averageRating.toFixed(1)}</div>
+            <div className="text-4xl font-bold text-white">{averageRating.toFixed(1)}</div>
             <div className="flex items-center gap-1 mt-1">
               {[...Array(5)].map((_, i) => (
                 <Star
@@ -74,7 +74,7 @@ export const ReviewSection: React.FC<ReviewSectionProps> = ({
                   className={`w-4 h-4 ${
                     i < Math.floor(averageRating)
                       ? 'fill-yellow-400 text-yellow-400'
-                      : 'text-lydian-text-dim'
+                      : 'text-gray-400'
                   }`}
                 />
               ))}
@@ -84,12 +84,12 @@ export const ReviewSection: React.FC<ReviewSectionProps> = ({
       </div>
 
       {/* Rating Distribution */}
-      <div className="mb-8 p-6 bg-white/5 rounded-xl border border-lydian-border-light/10">
-        <h4 className="text-sm font-semibold text-lydian-text-inverse mb-4">Puan Dağılımı</h4>
+      <div className="mb-8 p-6 bg-white/5 rounded-xl border border-white/10">
+        <h4 className="text-sm font-semibold text-white mb-4">Puan Dağılımı</h4>
         <div className="space-y-2">
           {ratingDistribution.map(({ star, count, percentage }) => (
             <div key={star} className="flex items-center gap-3">
-              <span className="text-sm text-lydian-text-muted w-12">{star} yıldız</span>
+              <span className="text-sm text-gray-400 w-12">{star} yıldız</span>
               <div className="flex-1 h-2 bg-white/10 rounded-full overflow-hidden">
                 <motion.div
                   initial={{ width: 0 }}
@@ -99,7 +99,7 @@ export const ReviewSection: React.FC<ReviewSectionProps> = ({
                   className="h-full bg-gradient-to-r from-yellow-400 to-orange-400"
                 />
               </div>
-              <span className="text-sm text-lydian-text-muted w-12 text-right">
+              <span className="text-sm text-gray-400 w-12 text-right">
                 {count}
               </span>
             </div>
@@ -116,7 +116,7 @@ export const ReviewSection: React.FC<ReviewSectionProps> = ({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.1 }}
-            className="border-b border-lydian-border-light/10 pb-6 last:border-0 last:pb-0"
+            className="border-b border-white/20/10 pb-6 last:border-0 last:pb-0"
           >
             {/* Author Info */}
             <div className="flex items-start gap-4 mb-4">
@@ -131,7 +131,7 @@ export const ReviewSection: React.FC<ReviewSectionProps> = ({
               </div>
               <div className="flex-1">
                 <div className="flex items-center gap-2 mb-1 flex-wrap">
-                  <span className="font-semibold text-lydian-text-inverse">{review.author}</span>
+                  <span className="font-semibold text-white">{review.author}</span>
                   {review.verified && (
                     <span className="px-2 py-0.5 bg-green-500/20 text-green-400 rounded text-xs font-semibold flex items-center gap-1">
                       <Check className="w-3 h-3" />
@@ -139,7 +139,7 @@ export const ReviewSection: React.FC<ReviewSectionProps> = ({
                     </span>
                   )}
                 </div>
-                <div className="flex items-center gap-3 text-sm text-lydian-text-muted">
+                <div className="flex items-center gap-3 text-sm text-gray-400">
                   <div className="flex">
                     {[...Array(5)].map((_, i) => (
                       <Star
@@ -147,7 +147,7 @@ export const ReviewSection: React.FC<ReviewSectionProps> = ({
                         className={`w-4 h-4 ${
                           i < review.rating
                             ? 'fill-yellow-400 text-yellow-400'
-                            : 'text-lydian-text-dim'
+                            : 'text-gray-500'
                         }`}
                       />
                     ))}
@@ -161,9 +161,9 @@ export const ReviewSection: React.FC<ReviewSectionProps> = ({
             {/* Review Content */}
             <div className="pl-16">
               {review.title && (
-                <h4 className="font-semibold text-lydian-text-inverse mb-2">{review.title}</h4>
+                <h4 className="font-semibold text-white mb-2">{review.title}</h4>
               )}
-              <p className="text-lydian-text-muted text-sm mb-3 leading-relaxed">{review.text}</p>
+              <p className="text-gray-400 text-sm mb-3 leading-relaxed">{review.text}</p>
 
               {/* Helpful Button */}
               <button
@@ -171,7 +171,7 @@ export const ReviewSection: React.FC<ReviewSectionProps> = ({
                 className={`flex items-center gap-2 text-sm transition-colors ${
                   helpfulClicks[review.id]
                     ? 'text-blue-400'
-                    : 'text-lydian-text-muted hover:text-lydian-text-inverse'
+                    : 'text-gray-400 hover:text-white'
                 }`}
               >
                 <ThumbsUp className={`w-4 h-4 ${helpfulClicks[review.id] ? 'fill-blue-400' : ''}`} />
@@ -189,7 +189,7 @@ export const ReviewSection: React.FC<ReviewSectionProps> = ({
         <div className="mt-8">
           <button
             onClick={() => setDisplayCount(prev => Math.min(prev + maxReviews, reviews.length))}
-            className="w-full py-3 border-2 border-lydian-border-light/20 rounded-lg font-semibold text-lydian-text-muted hover:border-lydian-border-light hover:bg-white/5 transition-all"
+            className="w-full py-3 border-2 border-white/20/20 rounded-lg font-semibold text-gray-300 hover:border-white/20 hover:bg-white/5 transition-all"
           >
             Daha Fazla Yorum Göster ({reviews.length - displayCount} kaldı)
           </button>

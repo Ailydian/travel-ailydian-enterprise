@@ -108,10 +108,10 @@ export const ProductHero: React.FC<ProductHeroProps> = ({
   return (
     <>
       {/* Breadcrumb Bar - Sticky */}
-      <div className="sticky top-0 z-40 bg-lydian-glass-dark/95 backdrop-blur-xl border-b border-lydian-border-light/10">
+      <div className="sticky top-0 z-40 bg-lydian-glass-dark/95 backdrop-blur-xl border-b border-white/20/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
-          <nav className="flex items-center gap-2 text-sm text-lydian-text-muted">
-            <Link href="/" className="hover:text-lydian-primary transition-colors flex items-center gap-1">
+          <nav className="flex items-center gap-2 text-sm text-gray-300">
+            <Link href="/" className="hover:text-blue-500 transition-colors flex items-center gap-1">
               <Home className="w-4 h-4" />
               Ana Sayfa
             </Link>
@@ -119,9 +119,9 @@ export const ProductHero: React.FC<ProductHeroProps> = ({
               <React.Fragment key={index}>
                 <ChevronRight className="w-4 h-4" />
                 {index === breadcrumbs.length - 1 ? (
-                  <span className="text-lydian-text-inverse font-medium">{crumb.label}</span>
+                  <span className="text-white font-medium">{crumb.label}</span>
                 ) : (
-                  <Link href={crumb.href} className="hover:text-lydian-primary transition-colors">
+                  <Link href={crumb.href} className="hover:text-blue-500 transition-colors">
                     {crumb.label}
                   </Link>
                 )}

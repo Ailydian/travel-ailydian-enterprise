@@ -137,10 +137,10 @@ const BookingDetailPage: React.FC = () => {
 
   if (loading || status === 'loading') {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-lydian-glass-dark">
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-black to-slate-800">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-lydian-primary mx-auto"></div>
-          <p className="mt-4 text-lydian-text-dim">Loading booking details...</p>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mx-auto"></div>
+          <p className="mt-4 text-gray-400">Loading booking details...</p>
         </div>
       </div>);
 
@@ -148,10 +148,10 @@ const BookingDetailPage: React.FC = () => {
 
   if (!booking) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-lydian-glass-dark">
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-black to-slate-800">
         <div className="text-center">
-          <p className="text-lydian-text-dim">Booking not found</p>
-          <Link href="/bookings" className="text-lydian-primary hover:underline mt-4 inline-block">
+          <p className="text-gray-400">Booking not found</p>
+          <Link href="/bookings" className="text-blue-500 hover:underline mt-4 inline-block">
             Back to Bookings
           </Link>
         </div>
@@ -170,7 +170,7 @@ const BookingDetailPage: React.FC = () => {
           {/* Back Button */}
           <Link
             href="/bookings"
-            className="inline-flex items-center gap-2 text-lydian-primary hover:text-lydian-primary-dark mb-6">
+            className="inline-flex items-center gap-2 text-blue-500 hover:text-blue-600 mb-6">
 
             <ArrowLeft className="w-4 h-4" />
             Back to Bookings
@@ -180,18 +180,18 @@ const BookingDetailPage: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-lydian-bg-hover rounded-2xl shadow-lg p-8 mb-6">
+            className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-2xl shadow-lg p-8 mb-6">
 
             <div className="flex items-start justify-between mb-6">
               <div className="flex items-start gap-4">
-                <div className="p-4 bg-lydian-primary-light text-lydian-primary rounded-xl">
+                <div className="p-4 bg-blue-500/10 text-blue-500 rounded-xl">
                   {getBookingIcon(booking.bookingType)}
                 </div>
                 <div>
-                  <h1 className="text-3xl font-bold text-lydian-text-inverse mb-2">
+                  <h1 className="text-3xl font-bold text-white mb-2">
                     {booking.bookingType.charAt(0).toUpperCase() + booking.bookingType.slice(1)} Booking
                   </h1>
-                  <p className="text-lydian-text-dim font-mono text-lg">{booking.bookingReference}</p>
+                  <p className="text-gray-400 font-mono text-lg">{booking.bookingReference}</p>
                 </div>
               </div>
               <span className={`px-4 py-2 rounded-full text-sm font-semibold border ${getStatusBadge(booking.status)}`}>
@@ -201,23 +201,23 @@ const BookingDetailPage: React.FC = () => {
 
             {/* Quick Actions */}
             <div className="flex flex-wrap gap-3">
-              <button className="flex items-center gap-2 px-4 py-2 bg-lydian-primary text-lydian-text-inverse rounded-lg hover:bg-lydian-primary-dark transition-colors">
+              <button className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:bg-gradient-to-r from-blue-700 to-purple-700 transition-colors">
                 <Download className="w-4 h-4" />
                 Download Invoice
               </button>
               {booking.status.toUpperCase() === 'CONFIRMED' &&
               <>
-                  <button className="flex items-center gap-2 px-4 py-2 bg-purple-600 text-lydian-text-inverse rounded-lg hover:bg-purple-700 transition-colors">
+                  <button className="flex items-center gap-2 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors">
                     <Edit className="w-4 h-4" />
                     Modify Booking
                   </button>
-                  <button className="flex items-center gap-2 px-4 py-2 bg-lydian-primary text-lydian-text-inverse rounded-lg hover:bg-lydian-primary-dark transition-colors">
+                  <button className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:bg-gradient-to-r from-blue-700 to-purple-700 transition-colors">
                     <Trash2 className="w-4 h-4" />
                     Cancel Booking
                   </button>
                 </>
               }
-              <button className="flex items-center gap-2 px-4 py-2 bg-lydian-glass-dark-medium text-lydian-text-muted rounded-lg hover:bg-lydian-bg-active transition-colors">
+              <button className="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-xl border border-white/20 text-gray-300 rounded-lg hover:bg-white/10 backdrop-blur-xl border border-white/20 transition-colors">
                 <Share2 className="w-4 h-4" />
                 Share
               </button>
@@ -229,17 +229,17 @@ const BookingDetailPage: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="bg-lydian-bg-hover rounded-2xl shadow-lg p-8 mb-6">
+            className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-2xl shadow-lg p-8 mb-6">
 
-            <h2 className="text-2xl font-bold text-lydian-text-inverse mb-6">Booking Items</h2>
+            <h2 className="text-2xl font-bold text-white mb-6">Booking Items</h2>
             <div className="space-y-4">
               {booking.metaData?.items?.map((item: any, index: number) =>
-              <div key={index} className="flex justify-between items-start p-4 bg-lydian-glass-dark rounded-xl">
+              <div key={index} className="flex justify-between items-start p-4 bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-xl">
                   <div>
-                    <p className="font-semibold text-lydian-text-inverse mb-1">{item.title}</p>
-                    <p className="text-sm text-lydian-text-dim">{item.guests} guests</p>
+                    <p className="font-semibold text-white mb-1">{item.title}</p>
+                    <p className="text-sm text-gray-400">{item.guests} guests</p>
                   </div>
-                  <span className="font-bold text-lydian-text-inverse">{item.price} TRY</span>
+                  <span className="font-bold text-white">{item.price} TRY</span>
                 </div>
               )}
             </div>
@@ -251,16 +251,16 @@ const BookingDetailPage: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="bg-lydian-bg-hover rounded-2xl shadow-lg p-8">
+              className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-2xl shadow-lg p-8">
 
-              <h2 className="text-xl font-bold text-lydian-text-inverse mb-6">Travel Details</h2>
+              <h2 className="text-xl font-bold text-white mb-6">Travel Details</h2>
               <div className="space-y-4">
                 {booking.checkInDate &&
                 <div className="flex items-start gap-3">
-                    <Calendar className="w-5 h-5 text-lydian-primary mt-1" />
+                    <Calendar className="w-5 h-5 text-blue-500 mt-1" />
                     <div>
-                      <p className="text-sm text-lydian-text-dim">Check-in</p>
-                      <p className="font-semibold text-lydian-text-inverse">
+                      <p className="text-sm text-gray-400">Check-in</p>
+                      <p className="font-semibold text-white">
                         {new Date(booking.checkInDate).toLocaleDateString('en-US', {
                         weekday: 'long',
                         year: 'numeric',
@@ -274,10 +274,10 @@ const BookingDetailPage: React.FC = () => {
 
                 {booking.checkOutDate &&
                 <div className="flex items-start gap-3">
-                    <Calendar className="w-5 h-5 text-lydian-primary mt-1" />
+                    <Calendar className="w-5 h-5 text-blue-500 mt-1" />
                     <div>
-                      <p className="text-sm text-lydian-text-dim">Check-out</p>
-                      <p className="font-semibold text-lydian-text-inverse">
+                      <p className="text-sm text-gray-400">Check-out</p>
+                      <p className="font-semibold text-white">
                         {new Date(booking.checkOutDate).toLocaleDateString('en-US', {
                         weekday: 'long',
                         year: 'numeric',
@@ -293,8 +293,8 @@ const BookingDetailPage: React.FC = () => {
                 <div className="flex items-start gap-3">
                     <Users className="w-5 h-5 text-purple-600 mt-1" />
                     <div>
-                      <p className="text-sm text-lydian-text-dim">Guests</p>
-                      <p className="font-semibold text-lydian-text-inverse">{booking.guestCount} people</p>
+                      <p className="text-sm text-gray-400">Guests</p>
+                      <p className="font-semibold text-white">{booking.guestCount} people</p>
                     </div>
                   </div>
                 }
@@ -303,8 +303,8 @@ const BookingDetailPage: React.FC = () => {
                 <div className="flex items-start gap-3">
                     <FileText className="w-5 h-5 text-orange-600 mt-1" />
                     <div>
-                      <p className="text-sm text-lydian-text-dim">Special Requests</p>
-                      <p className="font-semibold text-lydian-text-inverse">{booking.specialRequests}</p>
+                      <p className="text-sm text-gray-400">Special Requests</p>
+                      <p className="font-semibold text-white">{booking.specialRequests}</p>
                     </div>
                   </div>
                 }
@@ -316,18 +316,18 @@ const BookingDetailPage: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="bg-lydian-bg-hover rounded-2xl shadow-lg p-8">
+              className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-2xl shadow-lg p-8">
 
-              <h2 className="text-xl font-bold text-lydian-text-inverse mb-6">Payment & Contact</h2>
+              <h2 className="text-xl font-bold text-white mb-6">Payment & Contact</h2>
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
-                  <CreditCard className="w-5 h-5 text-lydian-success mt-1" />
+                  <CreditCard className="w-5 h-5 text-green-500 mt-1" />
                   <div>
-                    <p className="text-sm text-lydian-text-dim">Total Amount</p>
-                    <p className="font-bold text-2xl text-lydian-success">
+                    <p className="text-sm text-gray-400">Total Amount</p>
+                    <p className="font-bold text-2xl text-green-500">
                       {booking.totalAmount} {booking.currency}
                     </p>
-                    <p className="text-xs text-lydian-text-muted mt-1">
+                    <p className="text-xs text-gray-300 mt-1">
                       Payment Status: {booking.paymentStatus}
                     </p>
                   </div>
@@ -336,28 +336,28 @@ const BookingDetailPage: React.FC = () => {
                 {booking.metaData?.customerInfo &&
                 <>
                     <div className="flex items-start gap-3">
-                      <Mail className="w-5 h-5 text-lydian-primary mt-1" />
+                      <Mail className="w-5 h-5 text-blue-500 mt-1" />
                       <div>
-                        <p className="text-sm text-lydian-text-dim">Email</p>
-                        <p className="font-semibold text-lydian-text-inverse">{booking.metaData.customerInfo.email}</p>
+                        <p className="text-sm text-gray-400">Email</p>
+                        <p className="font-semibold text-white">{booking.metaData.customerInfo.email}</p>
                       </div>
                     </div>
 
                     <div className="flex items-start gap-3">
                       <Phone className="w-5 h-5 text-purple-600 mt-1" />
                       <div>
-                        <p className="text-sm text-lydian-text-dim">Phone</p>
-                        <p className="font-semibold text-lydian-text-inverse">{booking.metaData.customerInfo.phone}</p>
+                        <p className="text-sm text-gray-400">Phone</p>
+                        <p className="font-semibold text-white">{booking.metaData.customerInfo.phone}</p>
                       </div>
                     </div>
                   </>
                 }
 
                 <div className="flex items-start gap-3">
-                  <Clock className="w-5 h-5 text-lydian-text-dim mt-1" />
+                  <Clock className="w-5 h-5 text-gray-400 mt-1" />
                   <div>
-                    <p className="text-sm text-lydian-text-dim">Booked on</p>
-                    <p className="font-semibold text-lydian-text-inverse">
+                    <p className="text-sm text-gray-400">Booked on</p>
+                    <p className="font-semibold text-white">
                       {new Date(booking.createdAt).toLocaleDateString('en-US', {
                         year: 'numeric',
                         month: 'long',
@@ -375,24 +375,24 @@ const BookingDetailPage: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="bg-lydian-primary-lighter border border-blue-200 rounded-2xl p-6 mt-6">
+            className="bg-blue-500/10er border border-blue-200 rounded-2xl p-6 mt-6">
 
-            <h3 className="font-bold text-lydian-text-inverse mb-3">Important Information</h3>
-            <ul className="space-y-2 text-sm text-lydian-text-muted">
+            <h3 className="font-bold text-white mb-3">Important Information</h3>
+            <ul className="space-y-2 text-sm text-gray-300">
               <li className="flex items-start gap-2">
-                <CheckCircle className="w-4 h-4 text-lydian-primary mt-0.5 flex-shrink-0" />
+                <CheckCircle className="w-4 h-4 text-blue-500 mt-0.5 flex-shrink-0" />
                 <span>Please arrive 15 minutes before your scheduled time</span>
               </li>
               <li className="flex items-start gap-2">
-                <CheckCircle className="w-4 h-4 text-lydian-primary mt-0.5 flex-shrink-0" />
+                <CheckCircle className="w-4 h-4 text-blue-500 mt-0.5 flex-shrink-0" />
                 <span>Bring a valid ID and your booking reference number</span>
               </li>
               <li className="flex items-start gap-2">
-                <CheckCircle className="w-4 h-4 text-lydian-primary mt-0.5 flex-shrink-0" />
+                <CheckCircle className="w-4 h-4 text-blue-500 mt-0.5 flex-shrink-0" />
                 <span>Cancellations must be made at least 24 hours in advance for a full refund</span>
               </li>
               <li className="flex items-start gap-2">
-                <CheckCircle className="w-4 h-4 text-lydian-primary mt-0.5 flex-shrink-0" />
+                <CheckCircle className="w-4 h-4 text-blue-500 mt-0.5 flex-shrink-0" />
                 <span>For any questions, contact our 24/7 support at support@holiday.ailydian.com</span>
               </li>
             </ul>

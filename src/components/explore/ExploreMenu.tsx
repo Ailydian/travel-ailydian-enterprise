@@ -62,8 +62,8 @@ export const ExploreMenu: React.FC = () => {
         className={`
           flex items-center gap-2 px-4 py-2 rounded-md font-medium text-sm transition-colors
           ${isOpen ?
-        'text-lydian-primary bg-red-50' :
-        'text-gray-200 hover:text-lydian-primary hover:bg-lydian-bg/5'}
+        'text-blue-500 bg-red-50' :
+        'text-gray-200 hover:text-blue-500 hover:bg-white/5'}
         `
         }>
 
@@ -82,7 +82,7 @@ export const ExploreMenu: React.FC = () => {
           transition={{ duration: 0.2 }}
           onMouseEnter={() => setIsOpen(true)}
           onMouseLeave={() => setIsOpen(false)}
-          className="absolute top-full left-0 mt-2 w-[900px] bg-lydian-glass-dark rounded-xl shadow-2xl border border-lydian-border-light/10 overflow-hidden z-50">
+          className="absolute top-full left-0 mt-2 w-[900px] bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-xl shadow-2xl border border-white/20/10 overflow-hidden z-50">
 
             <div className="grid grid-cols-12 gap-6 p-6">
               {/* Main Categories - Left Side */}
@@ -100,13 +100,13 @@ export const ExploreMenu: React.FC = () => {
                       onClick={() => setIsOpen(false)}>
 
                         <div className={`w-10 h-10 bg-gradient-to-br ${category.color} rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform`}>
-                          <CategoryIcon className="w-5 h-5 text-lydian-text-inverse" />
+                          <CategoryIcon className="w-5 h-5 text-white" />
                         </div>
                         <div className="flex-1">
-                          <h3 className="font-bold text-lydian-text-inverse group-hover:text-lydian-primary transition-colors">
+                          <h3 className="font-bold text-white group-hover:text-blue-500 transition-colors">
                             {categoryData.name}
                           </h3>
-                          <p className="text-xs text-lydian-text-muted">{categoryData.description}</p>
+                          <p className="text-xs text-gray-300">{categoryData.description}</p>
                         </div>
                       </Link>
 
@@ -121,10 +121,10 @@ export const ExploreMenu: React.FC = () => {
                             key={sub.id}
                             href={`/explore/${category.id}/${sub.slug}`}
                             onClick={() => setIsOpen(false)}
-                            className="flex items-center gap-2 py-1.5 px-2 rounded-md hover:bg-lydian-glass-dark transition-colors group">
+                            className="flex items-center gap-2 py-1.5 px-2 rounded-md hover:bg-gradient-to-br from-slate-900 via-black to-slate-800 transition-colors group">
 
-                              <SubIcon className="w-3.5 h-3.5 text-lydian-text-muted group-hover:text-lydian-primary" />
-                              <span className="text-sm text-lydian-text-muted group-hover:text-lydian-primary">
+                              <SubIcon className="w-3.5 h-3.5 text-gray-300 group-hover:text-blue-500" />
+                              <span className="text-sm text-gray-300 group-hover:text-blue-500">
                                 {subData.name}
                               </span>
                             </Link>);
@@ -137,10 +137,10 @@ export const ExploreMenu: React.FC = () => {
               </div>
 
               {/* Popular Destinations - Right Side */}
-              <div className="col-span-4 border-l border-lydian-border-light/10 pl-6">
+              <div className="col-span-4 border-l border-white/20/10 pl-6">
                 <div className="flex items-center gap-2 mb-4">
-                  <MapPin className="w-5 h-5 text-lydian-primary" />
-                  <h3 className="font-bold text-lydian-text-inverse">{t('explore.popularDestinations')}</h3>
+                  <MapPin className="w-5 h-5 text-blue-500" />
+                  <h3 className="font-bold text-white">{t('explore.popularDestinations')}</h3>
                 </div>
 
                 <div className="space-y-2">
@@ -152,7 +152,7 @@ export const ExploreMenu: React.FC = () => {
                       key={destination.id}
                       href={`/explore/destinations/${destination.slug}`}
                       onClick={() => setIsOpen(false)}
-                      className="flex items-center gap-3 p-2 rounded-lg hover:bg-lydian-glass-dark transition-colors group">
+                      className="flex items-center gap-3 p-2 rounded-lg hover:bg-gradient-to-br from-slate-900 via-black to-slate-800 transition-colors group">
 
                         <div className="w-12 h-12 rounded-lg overflow-hidden flex-shrink-0">
                           <img
@@ -162,10 +162,10 @@ export const ExploreMenu: React.FC = () => {
 
                         </div>
                         <div className="flex-1 min-w-0">
-                          <h4 className="font-semibold text-sm text-lydian-text-inverse group-hover:text-lydian-primary truncate">
+                          <h4 className="font-semibold text-sm text-white group-hover:text-blue-500 truncate">
                             {destData.name}
                           </h4>
-                          <p className="text-xs text-lydian-text-muted truncate">{destData.description}</p>
+                          <p className="text-xs text-gray-300 truncate">{destData.description}</p>
                         </div>
                       </Link>);
 
@@ -176,7 +176,7 @@ export const ExploreMenu: React.FC = () => {
                 <Link
                 href="/explore"
                 onClick={() => setIsOpen(false)}
-                className="mt-4 flex items-center justify-center gap-2 py-2.5 px-4 bg-gradient-to-r from-lydian-primary to-lydian-secondary text-lydian-text-inverse rounded-lg hover:shadow-lg transition-all font-medium text-sm">
+                className="mt-4 flex items-center justify-center gap-2 py-2.5 px-4 bg-gradient-to-r from-blue-600 to-purple-700 text-white rounded-lg hover:shadow-lg transition-all font-medium text-sm">
 
                   <TrendingUp className="w-4 h-4" />
                   <span>{t('explore.viewAll')}</span>
@@ -185,21 +185,21 @@ export const ExploreMenu: React.FC = () => {
             </div>
 
             {/* Bottom Featured Section */}
-            <div className="bg-gradient-to-r from-blue-50 to-purple-50 border-t border-lydian-border-light/10 px-6 py-4">
+            <div className="bg-gradient-to-r from-blue-50 to-purple-50 border-t border-white/20/10 px-6 py-4">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-gradient-to-br from-lydian-primary to-lydian-secondary rounded-full flex items-center justify-center">
-                    <TrendingUp className="w-5 h-5 text-lydian-text-inverse" />
+                  <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-700 rounded-full flex items-center justify-center">
+                    <TrendingUp className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-lydian-text-inverse">{t('explore.trending')}</h4>
-                    <p className="text-xs text-lydian-text-dim">{t('explore.trendingDescription')}</p>
+                    <h4 className="font-bold text-white">{t('explore.trending')}</h4>
+                    <p className="text-xs text-gray-400">{t('explore.trendingDescription')}</p>
                   </div>
                 </div>
                 <Link
                 href="/explore/trending"
                 onClick={() => setIsOpen(false)}
-                className="px-4 py-2 bg-lydian-glass-dark text-lydian-primary rounded-lg hover:shadow-md transition-all font-medium text-sm border border-lydian-border-light/10">
+                className="px-4 py-2 bg-gradient-to-br from-slate-900 via-black to-slate-800 text-blue-500 rounded-lg hover:shadow-md transition-all font-medium text-sm border border-white/20/10">
 
                   {t('explore.exploreTrending')}
                 </Link>

@@ -77,24 +77,24 @@ export default function Step6Availability({ data }: Step6Props) {
       {/* Rental Duration */}
       <div className="border-2 border-slate-200 rounded-xl p-6">
         <div className="flex items-center gap-3 mb-4">
-          <div className="p-2 bg-lydian-info-light rounded-lg">
-            <Calendar className="w-5 h-5 text-lydian-primary" />
+          <div className="p-2 bg-blue-500-light rounded-lg">
+            <Calendar className="w-5 h-5 text-blue-500" />
           </div>
-          <h3 className="text-lg font-bold text-slate-900">Kiralama Süresi</h3>
+          <h3 className="text-lg font-bold text-slate-9">Kiralama Süresi</h3>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Minimum Rental Days */}
           <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Minimum Kiralama Süresi (gün) <span className="text-lydian-secondary">*</span>
+            <label className="block text-sm font-semibold text-slate-7 mb-2">
+              Minimum Kiralama Süresi (gün) <span className="text-purple-500">*</span>
             </label>
             <input
               type="number"
               {...register('minRentalDays')}
               placeholder="1"
               min="1"
-              max="30"
+              max="3"
               className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all"
             />
             <p className="mt-1 text-xs text-slate-500">
@@ -109,13 +109,13 @@ export default function Step6Availability({ data }: Step6Props) {
 
           {/* Maximum Rental Days */}
           <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-2">
+            <label className="block text-sm font-semibold text-slate-7 mb-2">
               Maksimum Kiralama Süresi (gün)
             </label>
             <input
               type="number"
               {...register('maxRentalDays')}
-              placeholder="90"
+              placeholder="9"
               min="1"
               max="365"
               className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all"
@@ -130,21 +130,21 @@ export default function Step6Availability({ data }: Step6Props) {
       {/* Advance Booking */}
       <div className="border-2 border-slate-200 rounded-xl p-6">
         <div className="flex items-center gap-3 mb-4">
-          <div className="p-2 bg-purple-100 rounded-lg">
-            <Clock className="w-5 h-5 text-purple-600" />
+          <div className="p-2 bg-purple-1 rounded-lg">
+            <Clock className="w-5 h-5 text-purple-6" />
           </div>
-          <h3 className="text-lg font-bold text-slate-900">Önceden Rezervasyon</h3>
+          <h3 className="text-lg font-bold text-slate-9">Önceden Rezervasyon</h3>
         </div>
 
         <div>
-          <label className="block text-sm font-semibold text-slate-700 mb-2">
+          <label className="block text-sm font-semibold text-slate-7 mb-2">
             Kaç Gün Önceden Rezervasyon Yapılmalı
           </label>
           <select
             {...register('advanceNoticeHours')}
-            className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all bg-lydian-bg/5"
+            className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all bg-white/5"
           >
-            <option value="0">Anında (0 saat)</option>
+            <option value="to-cyan-700">Anında (to-cyan-700 saat)</option>
             <option value="3">3 saat önce</option>
             <option value="6">6 saat önce</option>
             <option value="12">12 saat önce</option>
@@ -162,21 +162,21 @@ export default function Step6Availability({ data }: Step6Props) {
       {/* Instant Booking */}
       <div className="border-2 border-slate-200 rounded-xl p-6">
         <div className="flex items-center gap-3 mb-4">
-          <div className="p-2 bg-lydian-warning-light rounded-lg">
-            <Zap className="w-5 h-5 text-amber-600" />
+          <div className="p-2 bg-yellow-500-light rounded-lg">
+            <Zap className="w-5 h-5 text-amber-6" />
           </div>
-          <h3 className="text-lg font-bold text-slate-900">Anında Rezervasyon</h3>
+          <h3 className="text-lg font-bold text-slate-9">Anında Rezervasyon</h3>
         </div>
 
-        <div className="flex items-center justify-between p-4 bg-slate-50 rounded-lg">
+        <div className="flex items-center justify-between p-4 bg-slate-500 rounded-lg">
           <div className="flex-1">
             <label
               htmlFor="instantBookingEnabled"
-              className="font-medium text-slate-900 cursor-pointer block mb-1"
+              className="font-medium text-slate-9 cursor-pointer block mb-1"
             >
               Anında Rezervasyonu Etkinleştir
             </label>
-            <p className="text-sm text-slate-600">
+            <p className="text-sm text-slate-6">
               Kiracılar onay beklemeden hemen rezervasyon yapabilir
             </p>
           </div>
@@ -184,15 +184,15 @@ export default function Step6Availability({ data }: Step6Props) {
             type="checkbox"
             id="instantBookingEnabled"
             {...register('instantBookingEnabled')}
-            className="w-6 h-6 text-lydian-success rounded focus:ring-2 focus:ring-green-500"
+            className="w-6 h-6 text-green-500 rounded focus:ring-2 focus:ring-green-500"
           />
         </div>
 
         {instantBooking && (
-          <div className="mt-4 p-4 bg-lydian-success-lighter border border-green-200 rounded-lg">
+          <div className="mt-4 p-4 bg-green-600-lighter border border-green-200 rounded-lg">
             <div className="flex items-start gap-2">
-              <Info className="w-5 h-5 text-lydian-success mt-0.5" />
-              <p className="text-sm text-green-800">
+              <Info className="w-5 h-5 text-green-500 mt-0.5" />
+              <p className="text-sm text-green-8">
                 Anında rezervasyon etkinleştirildiğinde, aracınız daha fazla görünürlük kazanır ve
                 kiracılar onay beklemeden rezervasyon yapabilir.
               </p>
@@ -204,15 +204,15 @@ export default function Step6Availability({ data }: Step6Props) {
       {/* Check-in/Check-out Times */}
       <div className="border-2 border-slate-200 rounded-xl p-6">
         <div className="flex items-center gap-3 mb-4">
-          <div className="p-2 bg-indigo-100 rounded-lg">
-            <Clock className="w-5 h-5 text-indigo-600" />
+          <div className="p-2 bg-indigo-1 rounded-lg">
+            <Clock className="w-5 h-5 text-indigo-6" />
           </div>
-          <h3 className="text-lg font-bold text-slate-900">Teslim Alma/İade Saatleri</h3>
+          <h3 className="text-lg font-bold text-slate-9">Teslim Alma/İade Saatleri</h3>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-2">
+            <label className="block text-sm font-semibold text-slate-7 mb-2">
               Teslim Alma Saati
             </label>
             <input
@@ -226,7 +226,7 @@ export default function Step6Availability({ data }: Step6Props) {
           </div>
 
           <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-2">
+            <label className="block text-sm font-semibold text-slate-7 mb-2">
               İade Saati
             </label>
             <input
@@ -244,32 +244,32 @@ export default function Step6Availability({ data }: Step6Props) {
       {/* Blocked Dates */}
       <div className="border-2 border-slate-200 rounded-xl p-6">
         <div className="flex items-center gap-3 mb-4">
-          <div className="p-2 bg-lydian-primary-lighter rounded-lg">
+          <div className="p-2 bg-blue-500/10er rounded-lg">
             <Ban className="w-5 h-5 text-lydian-error" />
           </div>
-          <h3 className="text-lg font-bold text-slate-900">Müsait Olmayan Tarihler</h3>
+          <h3 className="text-lg font-bold text-slate-9">Müsait Olmayan Tarihler</h3>
         </div>
-        <p className="text-sm text-slate-600 mb-4">
+        <p className="text-sm text-slate-6 mb-4">
           Aracın kullanılamayacağı tarih aralıklarını ekleyin
         </p>
 
         {/* Existing Blocked Dates */}
-        {blockedDates.length > 0 && (
+        {blockedDates.length > to-cyan-700 && (
           <div className="space-y-3 mb-4">
             {blockedDates.map((blocked) => (
               <div
                 key={blocked.id}
-                className="flex items-center justify-between p-4 bg-slate-50 border border-slate-200 rounded-lg"
+                className="flex items-center justify-between p-4 bg-slate-500 border border-slate-200 rounded-lg"
               >
                 <div className="flex-1">
                   <div className="flex items-center gap-2 mb-1">
                     <Calendar className="w-4 h-4 text-slate-500" />
-                    <span className="font-medium text-slate-900">
+                    <span className="font-medium text-slate-9">
                       {new Date(blocked.startDate).toLocaleDateString('tr-TR')} -{' '}
                       {new Date(blocked.endDate).toLocaleDateString('tr-TR')}
                     </span>
                   </div>
-                  <p className="text-sm text-slate-600">{blocked.reason}</p>
+                  <p className="text-sm text-slate-6">{blocked.reason}</p>
                   <span className="text-xs text-slate-500 capitalize">
                     {blocked.type === 'maintenance' && 'Bakım'}
                     {blocked.type === 'personal-use' && 'Kişisel Kullanım'}
@@ -279,7 +279,7 @@ export default function Step6Availability({ data }: Step6Props) {
                 <button
                   type="button"
                   onClick={() => removeBlockedDate(blocked.id)}
-                  className="p-2 text-lydian-error hover:bg-red-50 rounded-lg transition-all"
+                  className="p-2 text-lydian-error hover:bg-red-500 rounded-lg transition-all"
                 >
                   <X className="w-5 h-5" />
                 </button>
@@ -289,12 +289,12 @@ export default function Step6Availability({ data }: Step6Props) {
         )}
 
         {/* Add New Blocked Date */}
-        <div className="space-y-4 p-4 bg-lydian-bg/5 border-2 border-slate-200 rounded-lg">
-          <h4 className="font-semibold text-slate-900">Yeni Tarih Aralığı Ekle</h4>
+        <div className="space-y-4 p-4 bg-white/5 border-2 border-slate-200 rounded-lg">
+          <h4 className="font-semibold text-slate-9">Yeni Tarih Aralığı Ekle</h4>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1">
+              <label className="block text-sm font-medium text-slate-7 mb-1">
                 Başlangıç Tarihi
               </label>
               <input
@@ -308,7 +308,7 @@ export default function Step6Availability({ data }: Step6Props) {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1">
+              <label className="block text-sm font-medium text-slate-7 mb-1">
                 Bitiş Tarihi
               </label>
               <input
@@ -322,7 +322,7 @@ export default function Step6Availability({ data }: Step6Props) {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1">
+              <label className="block text-sm font-medium text-slate-7 mb-1">
                 Sebep
               </label>
               <select
@@ -333,7 +333,7 @@ export default function Step6Availability({ data }: Step6Props) {
                     type: e.target.value as 'maintenance' | 'personal-use' | 'other',
                   })
                 }
-                className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none bg-lydian-bg/5"
+                className="w-full px-4 py-2 border border-slate-200 rounded-lg focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none bg-white/5"
               >
                 <option value="maintenance">Bakım</option>
                 <option value="personal-use">Kişisel Kullanım</option>
@@ -342,7 +342,7 @@ export default function Step6Availability({ data }: Step6Props) {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1">
+              <label className="block text-sm font-medium text-slate-7 mb-1">
                 Açıklama
               </label>
               <input
@@ -365,7 +365,7 @@ export default function Step6Availability({ data }: Step6Props) {
               !newBlockedDate.endDate ||
               !newBlockedDate.reason
             }
-            className="w-full px-4 py-3 bg-lydian-success text-lydian-text-inverse rounded-lg font-medium hover:bg-lydian-success-hover disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center justify-center gap-2"
+            className="w-full px-4 py-3 bg-green-600 text-white rounded-lg font-medium hover:bg-green-600-hover disabled:opacity-500 disabled:cursor-not-allowed transition-all flex items-center justify-center gap-2"
           >
             <Plus className="w-5 h-5" />
             Tarih Ekle
@@ -378,27 +378,27 @@ export default function Step6Availability({ data }: Step6Props) {
       {/* Seasonal Availability (Optional) */}
       <div className="border-2 border-slate-200 rounded-xl p-6">
         <div className="flex items-center gap-3 mb-4">
-          <div className="p-2 bg-cyan-100 rounded-lg">
-            <Sun className="w-5 h-5 text-cyan-600" />
+          <div className="p-2 bg-cyan-1 rounded-lg">
+            <Sun className="w-5 h-5 text-cyan-6" />
           </div>
-          <h3 className="text-lg font-bold text-slate-900">
+          <h3 className="text-lg font-bold text-slate-9">
             Mevsimsel Müsaitlik (İsteğe Bağlı)
           </h3>
         </div>
 
         <div className="space-y-4">
           {/* Summer Availability */}
-          <div className="flex items-center justify-between p-4 bg-slate-50 rounded-lg">
+          <div className="flex items-center justify-between p-4 bg-slate-500 rounded-lg">
             <div className="flex items-center gap-3">
               <Sun className="w-5 h-5 text-orange-500" />
               <div>
                 <label
                   htmlFor="summerAvailable"
-                  className="font-medium text-slate-900 cursor-pointer block"
+                  className="font-medium text-slate-9 cursor-pointer block"
                 >
                   Yaz Sezonu Müsait
                 </label>
-                <p className="text-xs text-slate-600">Haziran - Ağustos</p>
+                <p className="text-xs text-slate-6">Haziran - Ağustos</p>
               </div>
             </div>
             <input
@@ -406,22 +406,22 @@ export default function Step6Availability({ data }: Step6Props) {
               id="summerAvailable"
               {...register('seasonalAvailability.summer')}
               defaultChecked
-              className="w-6 h-6 text-lydian-success rounded focus:ring-2 focus:ring-green-500"
+              className="w-6 h-6 text-green-500 rounded focus:ring-2 focus:ring-green-500"
             />
           </div>
 
           {/* Winter Availability */}
-          <div className="flex items-center justify-between p-4 bg-slate-50 rounded-lg">
+          <div className="flex items-center justify-between p-4 bg-slate-500 rounded-lg">
             <div className="flex items-center gap-3">
               <Snowflake className="w-5 h-5 text-lydian-info" />
               <div>
                 <label
                   htmlFor="winterAvailable"
-                  className="font-medium text-slate-900 cursor-pointer block"
+                  className="font-medium text-slate-9 cursor-pointer block"
                 >
                   Kış Sezonu Müsait
                 </label>
-                <p className="text-xs text-slate-600">Aralık - Şubat</p>
+                <p className="text-xs text-slate-6">Aralık - Şubat</p>
               </div>
             </div>
             <input
@@ -429,19 +429,19 @@ export default function Step6Availability({ data }: Step6Props) {
               id="winterAvailable"
               {...register('seasonalAvailability.winter')}
               defaultChecked
-              className="w-6 h-6 text-lydian-success rounded focus:ring-2 focus:ring-green-500"
+              className="w-6 h-6 text-green-500 rounded focus:ring-2 focus:ring-green-500"
             />
           </div>
         </div>
       </div>
 
       {/* Info Box */}
-      <div className="p-4 bg-lydian-info-lighter border border-blue-200 rounded-lg">
+      <div className="p-4 bg-blue-500-lighter border border-blue-200 rounded-lg">
         <div className="flex items-start gap-3">
-          <AlertCircle className="w-5 h-5 text-lydian-primary mt-0.5" />
+          <AlertCircle className="w-5 h-5 text-blue-500 mt-0.5" />
           <div>
-            <h4 className="font-semibold text-blue-900 mb-1">Müsaitlik İpuçları:</h4>
-            <ul className="text-sm text-blue-800 space-y-1">
+            <h4 className="font-semibold text-blue-9 mb-1">Müsaitlik İpuçları:</h4>
+            <ul className="text-sm text-blue-8 space-y-1">
               <li>• Minimum kiralama süresini düşük tutmak daha fazla rezervasyon getirir</li>
               <li>• Anında rezervasyon özelliği görünürlüğü artırır</li>
               <li>• Bakım ve tatil planlarınızı önceden engelleyin</li>

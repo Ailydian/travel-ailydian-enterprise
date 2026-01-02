@@ -181,7 +181,7 @@ export default function AdminV2ToursManagement() {
       case 'inactive':
         return 'from-gray-500 to-slate-600';
       case 'archived':
-        return 'from-red-500 to-rose-600';
+        return 'from-purple-500 to-purple-600';
       default:
         return 'from-blue-500 to-cyan-600';
     }
@@ -206,7 +206,7 @@ export default function AdminV2ToursManagement() {
               <motion.h1
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="text-4xl font-black text-lydian-text-inverse bg-clip-text text-transparent bg-gradient-to-r from-lydian-primary via-lydian-accent to-lydian-primary"
+                className="text-4xl font-black text-white bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-lydian-accent to-purple-600"
               >
                 Tours Management
               </motion.h1>
@@ -214,7 +214,7 @@ export default function AdminV2ToursManagement() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.1 }}
-                className="text-lydian-text-muted mt-2"
+                className="text-gray-300 mt-2"
               >
                 Manage tour packages, pricing, and availability
               </motion.p>
@@ -227,7 +227,7 @@ export default function AdminV2ToursManagement() {
             >
               <button
                 onClick={() => setShowFilters(!showFilters)}
-                className="px-4 py-2.5 bg-lydian-glass-light/40 backdrop-blur-xl rounded-xl border border-lydian-border-light/20 flex items-center gap-2 hover:bg-lydian-glass-light/60 hover:border-lydian-primary/30 transition-all"
+                className="px-4 py-2.5 bg-white/10 backdrop-blur-xl backdrop-blur-xl rounded-xl border border-white/20 flex items-center gap-2 hover:bg-white/15 backdrop-blur-xl hover:border-blue-500/30 transition-all"
               >
                 <Filter className="w-4 h-4" />
                 <span className="font-medium">Filters</span>
@@ -235,18 +235,18 @@ export default function AdminV2ToursManagement() {
 
               <button
                 onClick={() => setViewMode(viewMode === 'grid' ? 'list' : 'grid')}
-                className="p-2.5 bg-lydian-glass-light/40 backdrop-blur-xl rounded-xl border border-lydian-border-light/20 hover:bg-lydian-glass-light/60 hover:border-lydian-primary/30 transition-all"
+                className="p-2.5 bg-white/10 backdrop-blur-xl backdrop-blur-xl rounded-xl border border-white/20 hover:bg-white/15 backdrop-blur-xl hover:border-blue-500/30 transition-all"
               >
                 {viewMode === 'grid' ? (
-                  <List className="w-5 h-5 text-lydian-text-inverse" />
+                  <List className="w-5 h-5 text-white" />
                 ) : (
-                  <Grid3x3 className="w-5 h-5 text-lydian-text-inverse" />
+                  <Grid3x3 className="w-5 h-5 text-white" />
                 )}
               </button>
 
               <button
                 onClick={() => router.push('/adminv2/tours/new')}
-                className="px-6 py-3 bg-gradient-to-r from-lydian-primary to-lydian-accent text-lydian-text-inverse rounded-xl font-semibold hover:shadow-lg hover:shadow-lydian-primary/30 transition-all flex items-center gap-2"
+                className="px-6 py-3 bg-gradient-to-r from-blue-600 to-lydian-accent text-white rounded-xl font-semibold hover:shadow-lg hover:shadow-lydian-primary/30 transition-all flex items-center gap-2"
               >
                 <Plus className="w-5 h-5" />
                 Create Tour
@@ -267,7 +267,7 @@ export default function AdminV2ToursManagement() {
                   icon: DollarSign,
                   color: 'from-purple-500 to-pink-600',
                 },
-                { label: 'Bookings', value: stats.bookings, icon: Users, color: 'from-orange-500 to-red-600' },
+                { label: 'Bookings', value: stats.bookings, icon: Users, color: 'from-orange-500 to-purple-600' },
                 {
                   label: 'Avg Rating',
                   value: stats.avgRating.toFixed(1),
@@ -284,16 +284,16 @@ export default function AdminV2ToursManagement() {
                     transition={{ delay: index * 0.05 }}
                     className="group relative"
                   >
-                    <div className="relative bg-lydian-glass-light/40 backdrop-blur-xl rounded-2xl p-4 border border-lydian-border-light/20 hover:border-lydian-primary/30 transition-all overflow-hidden">
+                    <div className="relative bg-white/10 backdrop-blur-xl backdrop-blur-xl rounded-2xl p-4 border border-white/20 hover:border-blue-500/30 transition-all overflow-hidden">
                       <div
                         className={`absolute inset-0 bg-gradient-to-br ${stat.color} opacity-0 group-hover:opacity-5 transition-opacity`}
                       />
                       <div className={`absolute top-3 right-3 p-2 rounded-lg bg-gradient-to-br ${stat.color} opacity-10`}>
-                        <Icon className="w-4 h-4 text-lydian-text-inverse" />
+                        <Icon className="w-4 h-4 text-white" />
                       </div>
                       <div className="relative">
-                        <p className="text-xs text-lydian-text-muted mb-1">{stat.label}</p>
-                        <p className="text-2xl font-bold text-lydian-text-inverse">{stat.value}</p>
+                        <p className="text-xs text-gray-300 mb-1">{stat.label}</p>
+                        <p className="text-2xl font-bold text-white">{stat.value}</p>
                       </div>
                     </div>
                   </motion.div>
@@ -307,17 +307,17 @@ export default function AdminV2ToursManagement() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="bg-lydian-glass-light/40 backdrop-blur-xl rounded-2xl p-6 border border-lydian-border-light/20"
+            className="bg-white/10 backdrop-blur-xl backdrop-blur-xl rounded-2xl p-6 border border-white/20"
           >
             <div className="flex flex-col md:flex-row items-center gap-4">
               <div className="flex-1 w-full relative">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-lydian-text-muted" />
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-300" />
                 <input
                   type="text"
                   placeholder="Search tours by title, destination..."
                   value={filters.search}
                   onChange={(e) => setFilters({ ...filters, search: e.target.value })}
-                  className="w-full pl-10 pr-4 py-3 bg-lydian-glass-dark/30 border border-lydian-border-light/20 rounded-xl text-lydian-text-inverse placeholder-lydian-text-muted focus:outline-none focus:ring-2 focus:ring-lydian-primary/50 focus:border-lydian-primary/50 transition-all"
+                  className="w-full pl-10 pr-4 py-3 bg-white/5 backdrop-blur-xl border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-blue-500/50 transition-all"
                 />
               </div>
 
@@ -332,7 +332,7 @@ export default function AdminV2ToursManagement() {
                     <select
                       value={filters.status}
                       onChange={(e) => setFilters({ ...filters, status: e.target.value })}
-                      className="px-4 py-3 bg-lydian-glass-dark/30 border border-lydian-border-light/20 rounded-xl text-lydian-text-inverse focus:outline-none focus:ring-2 focus:ring-lydian-primary/50"
+                      className="px-4 py-3 bg-white/5 backdrop-blur-xl border border-white/20 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
                     >
                       <option value="">All Status</option>
                       <option value="active">Active</option>
@@ -343,7 +343,7 @@ export default function AdminV2ToursManagement() {
                     <select
                       value={filters.category}
                       onChange={(e) => setFilters({ ...filters, category: e.target.value })}
-                      className="px-4 py-3 bg-lydian-glass-dark/30 border border-lydian-border-light/20 rounded-xl text-lydian-text-inverse focus:outline-none focus:ring-2 focus:ring-lydian-primary/50"
+                      className="px-4 py-3 bg-white/5 backdrop-blur-xl border border-white/20 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
                     >
                       <option value="">All Categories</option>
                       <option value="cultural">Cultural</option>
@@ -359,7 +359,7 @@ export default function AdminV2ToursManagement() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={loadTours}
-                className="px-6 py-3 bg-gradient-to-r from-lydian-primary to-lydian-accent text-lydian-text-inverse rounded-xl font-semibold hover:shadow-lg hover:shadow-lydian-primary/30 transition-all"
+                className="px-6 py-3 bg-gradient-to-r from-blue-600 to-lydian-accent text-white rounded-xl font-semibold hover:shadow-lg hover:shadow-lydian-primary/30 transition-all"
               >
                 Search
               </motion.button>
@@ -373,21 +373,21 @@ export default function AdminV2ToursManagement() {
               animate={{ opacity: 1 }}
               className="flex flex-col items-center justify-center py-20"
             >
-              <Loader2 className="w-12 h-12 animate-spin text-lydian-primary mb-4" />
-              <p className="text-lydian-text-muted">Loading tours...</p>
+              <Loader2 className="w-12 h-12 animate-spin text-blue-400 mb-4" />
+              <p className="text-gray-300">Loading tours...</p>
             </motion.div>
           ) : tours.length === 0 ? (
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="text-center py-20 bg-lydian-glass-light/20 rounded-2xl border border-lydian-border-light/20 backdrop-blur-xl"
+              className="text-center py-20 bg-white/5 backdrop-blur-xl rounded-2xl border border-white/20 backdrop-blur-xl"
             >
-              <Package className="w-20 h-20 mx-auto mb-4 text-lydian-text-muted opacity-50" />
-              <p className="text-lg text-lydian-text-inverse font-semibold mb-2">No tours found</p>
-              <p className="text-sm text-lydian-text-muted mb-6">Create your first tour to get started</p>
+              <Package className="w-20 h-20 mx-auto mb-4 text-gray-300 opacity-50" />
+              <p className="text-lg text-white font-semibold mb-2">No tours found</p>
+              <p className="text-sm text-gray-300 mb-6">Create your first tour to get started</p>
               <button
                 onClick={() => router.push('/adminv2/tours/new')}
-                className="px-6 py-3 bg-gradient-to-r from-lydian-primary to-lydian-accent text-lydian-text-inverse rounded-xl font-semibold hover:shadow-lg hover:shadow-lydian-primary/30 transition-all inline-flex items-center gap-2"
+                className="px-6 py-3 bg-gradient-to-r from-blue-600 to-lydian-accent text-white rounded-xl font-semibold hover:shadow-lg hover:shadow-lydian-primary/30 transition-all inline-flex items-center gap-2"
               >
                 <Plus className="w-5 h-5" />
                 Create Tour
@@ -407,11 +407,11 @@ export default function AdminV2ToursManagement() {
                   transition={{ delay: index * 0.05 }}
                   className="group relative"
                 >
-                  <div className="bg-lydian-glass-light/40 backdrop-blur-xl rounded-2xl overflow-hidden border border-lydian-border-light/20 hover:border-lydian-primary/50 hover:shadow-lg hover:shadow-lydian-primary/10 transition-all">
+                  <div className="bg-white/10 backdrop-blur-xl backdrop-blur-xl rounded-2xl overflow-hidden border border-white/20 hover:border-blue-500/50 hover:shadow-lg hover:shadow-purple-500/10 transition-all">
                     {viewMode === 'grid' ? (
                       <>
                         {/* Image */}
-                        <div className="relative h-48 bg-lydian-glass-dark/30 overflow-hidden">
+                        <div className="relative h-48 bg-white/5 backdrop-blur-xl overflow-hidden">
                           {tour.images && tour.images.length > 0 ? (
                             <img
                               src={tour.images[0]}
@@ -420,7 +420,7 @@ export default function AdminV2ToursManagement() {
                             />
                           ) : (
                             <div className="w-full h-full flex items-center justify-center">
-                              <ImageIcon className="w-16 h-16 text-lydian-text-muted opacity-30" />
+                              <ImageIcon className="w-16 h-16 text-gray-300 opacity-30" />
                             </div>
                           )}
                           {/* Status Badge */}
@@ -442,10 +442,10 @@ export default function AdminV2ToursManagement() {
                         <div className="p-5">
                           <div className="flex items-start justify-between mb-3">
                             <div className="flex-1">
-                              <h3 className="text-lg font-bold text-lydian-text-inverse mb-1 line-clamp-1">
+                              <h3 className="text-lg font-bold text-white mb-1 line-clamp-1">
                                 {tour.title}
                               </h3>
-                              <div className="flex items-center gap-2 text-sm text-lydian-text-muted">
+                              <div className="flex items-center gap-2 text-sm text-gray-300">
                                 <MapPin className="w-4 h-4" />
                                 <span>{tour.destination}</span>
                               </div>
@@ -454,19 +454,19 @@ export default function AdminV2ToursManagement() {
 
                           {/* Meta Info */}
                           <div className="grid grid-cols-2 gap-3 mb-4">
-                            <div className="flex items-center gap-2 text-xs text-lydian-text-muted">
+                            <div className="flex items-center gap-2 text-xs text-gray-300">
                               <Clock className="w-3 h-3" />
                               <span>{tour.duration} days</span>
                             </div>
-                            <div className="flex items-center gap-2 text-xs text-lydian-text-muted">
+                            <div className="flex items-center gap-2 text-xs text-gray-300">
                               <Users className="w-3 h-3" />
                               <span>Max {tour.maxGroupSize}</span>
                             </div>
-                            <div className="flex items-center gap-2 text-xs text-lydian-text-muted">
+                            <div className="flex items-center gap-2 text-xs text-gray-300">
                               <Calendar className="w-3 h-3" />
                               <span>{tour.bookingCount} bookings</span>
                             </div>
-                            <div className="flex items-center gap-2 text-xs text-lydian-success">
+                            <div className="flex items-center gap-2 text-xs text-purple-400">
                               <TrendingUp className="w-3 h-3" />
                               <span>{formatCurrency(tour.revenue)}</span>
                             </div>
@@ -475,8 +475,8 @@ export default function AdminV2ToursManagement() {
                           {/* Price */}
                           <div className="flex items-center justify-between mb-4">
                             <div>
-                              <p className="text-xs text-lydian-text-muted">Starting from</p>
-                              <p className="text-2xl font-bold text-lydian-text-inverse">
+                              <p className="text-xs text-gray-300">Starting from</p>
+                              <p className="text-2xl font-bold text-white">
                                 {formatCurrency(tour.price)}
                               </p>
                             </div>
@@ -488,7 +488,7 @@ export default function AdminV2ToursManagement() {
                               whileHover={{ scale: 1.05 }}
                               whileTap={{ scale: 0.95 }}
                               onClick={() => router.push(`/adminv2/tours/${tour.id}`)}
-                              className="flex-1 px-4 py-2 bg-gradient-to-r from-lydian-primary to-lydian-accent text-lydian-text-inverse rounded-lg font-semibold hover:shadow-lg hover:shadow-lydian-primary/30 transition-all flex items-center justify-center gap-2"
+                              className="flex-1 px-4 py-2 bg-gradient-to-r from-blue-600 to-lydian-accent text-white rounded-lg font-semibold hover:shadow-lg hover:shadow-lydian-primary/30 transition-all flex items-center justify-center gap-2"
                             >
                               <Edit className="w-4 h-4" />
                               Edit
@@ -497,7 +497,7 @@ export default function AdminV2ToursManagement() {
                               whileHover={{ scale: 1.05 }}
                               whileTap={{ scale: 0.95 }}
                               onClick={() => handleDelete(tour.id)}
-                              className="px-4 py-2 bg-red-500/10 text-red-400 rounded-lg border border-red-500/20 hover:bg-red-500/20 hover:border-red-500/40 transition-all"
+                              className="px-4 py-2 bg-purple-500/10 text-purple-300 rounded-lg border border-purple-500/20 hover:bg-purple-500/20 hover:border-purple-500/40 transition-all"
                             >
                               <Trash2 className="w-4 h-4" />
                             </motion.button>
@@ -507,12 +507,12 @@ export default function AdminV2ToursManagement() {
                     ) : (
                       <div className="flex items-center gap-6 p-6">
                         {/* Thumbnail */}
-                        <div className="w-32 h-32 flex-shrink-0 bg-lydian-glass-dark/30 rounded-xl overflow-hidden">
+                        <div className="w-32 h-32 flex-shrink-0 bg-white/5 backdrop-blur-xl rounded-xl overflow-hidden">
                           {tour.images && tour.images.length > 0 ? (
                             <img src={tour.images[0]} alt={tour.title} className="w-full h-full object-cover" />
                           ) : (
                             <div className="w-full h-full flex items-center justify-center">
-                              <ImageIcon className="w-12 h-12 text-lydian-text-muted opacity-30" />
+                              <ImageIcon className="w-12 h-12 text-gray-300 opacity-30" />
                             </div>
                           )}
                         </div>
@@ -521,8 +521,8 @@ export default function AdminV2ToursManagement() {
                         <div className="flex-1 min-w-0">
                           <div className="flex items-start justify-between mb-2">
                             <div>
-                              <h3 className="text-xl font-bold text-lydian-text-inverse mb-1">{tour.title}</h3>
-                              <div className="flex items-center gap-4 text-sm text-lydian-text-muted">
+                              <h3 className="text-xl font-bold text-white mb-1">{tour.title}</h3>
+                              <div className="flex items-center gap-4 text-sm text-gray-300">
                                 <span className="flex items-center gap-1">
                                   <MapPin className="w-4 h-4" />
                                   {tour.destination}
@@ -544,29 +544,29 @@ export default function AdminV2ToursManagement() {
                             </div>
                           </div>
 
-                          <p className="text-sm text-lydian-text-muted line-clamp-2 mb-3">{tour.description}</p>
+                          <p className="text-sm text-gray-300 line-clamp-2 mb-3">{tour.description}</p>
 
                           <div className="flex items-center justify-between">
                             <div className="flex items-center gap-4 text-sm">
-                              <span className="flex items-center gap-1 text-lydian-text-muted">
+                              <span className="flex items-center gap-1 text-gray-300">
                                 <Star className="w-4 h-4 text-yellow-400 fill-yellow-400" />
                                 {tour.rating} ({tour.reviewCount} reviews)
                               </span>
-                              <span className="text-lydian-text-muted">{tour.bookingCount} bookings</span>
-                              <span className="text-lydian-success font-semibold">
+                              <span className="text-gray-300">{tour.bookingCount} bookings</span>
+                              <span className="text-purple-400 font-semibold">
                                 {formatCurrency(tour.revenue)} revenue
                               </span>
                             </div>
 
                             <div className="flex items-center gap-2">
-                              <p className="text-2xl font-bold text-lydian-text-inverse">
+                              <p className="text-2xl font-bold text-white">
                                 {formatCurrency(tour.price)}
                               </p>
                               <motion.button
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                                 onClick={() => router.push(`/adminv2/tours/${tour.id}`)}
-                                className="px-4 py-2 bg-gradient-to-r from-lydian-primary to-lydian-accent text-lydian-text-inverse rounded-lg font-semibold hover:shadow-lg hover:shadow-lydian-primary/30 transition-all flex items-center gap-2"
+                                className="px-4 py-2 bg-gradient-to-r from-blue-600 to-lydian-accent text-white rounded-lg font-semibold hover:shadow-lg hover:shadow-lydian-primary/30 transition-all flex items-center gap-2"
                               >
                                 <Edit className="w-4 h-4" />
                                 Edit
@@ -575,7 +575,7 @@ export default function AdminV2ToursManagement() {
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                                 onClick={() => handleDelete(tour.id)}
-                                className="p-2 bg-red-500/10 text-red-400 rounded-lg border border-red-500/20 hover:bg-red-500/20 transition-all"
+                                className="p-2 bg-purple-500/10 text-purple-300 rounded-lg border border-purple-500/20 hover:bg-purple-500/20 transition-all"
                               >
                                 <Trash2 className="w-4 h-4" />
                               </motion.button>
@@ -601,8 +601,8 @@ export default function AdminV2ToursManagement() {
                   onClick={() => setPage(p)}
                   className={`px-4 py-2 rounded-xl font-semibold transition-all ${
                     p === page
-                      ? 'bg-gradient-to-r from-lydian-primary to-lydian-accent text-lydian-text-inverse shadow-lg shadow-lydian-primary/30'
-                      : 'bg-lydian-glass-light/40 text-lydian-text-muted hover:bg-lydian-glass-light/60 border border-lydian-border-light/20'
+                      ? 'bg-gradient-to-r from-blue-600 to-lydian-accent text-white shadow-lg shadow-lydian-primary/30'
+                      : 'bg-white/10 backdrop-blur-xl text-gray-300 hover:bg-white/15 backdrop-blur-xl border border-white/20'
                   }`}
                 >
                   {p}

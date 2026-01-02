@@ -108,14 +108,14 @@ export default function TransferOwnerLoginPage() {
 
 
   return (
-    <div className="min-h-screen bg-lydian-glass-dark">
+    <div className="min-h-screen bg-white/10 backdrop-blur-xl border border-white/20">
       <div className="flex min-h-screen">
         {/* Left Column - Branding & Image */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
-          className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-lydian-primary to-cyan-600 p-12 flex-col justify-between relative overflow-hidden">
+          className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-blue-600 to-cyan-600 p-12 flex-col justify-between relative overflow-hidden">
 
           {/* Background Pattern */}
           <div className="absolute inset-0 opacity-10">
@@ -127,15 +127,15 @@ export default function TransferOwnerLoginPage() {
           <div className="relative z-10">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2 mb-12">
-              <div className="w-10 h-10 bg-lydian-glass-dark rounded-lg flex items-center justify-center">
-                <Bus className="w-6 h-6 text-lydian-primary" />
+              <div className="w-10 h-10 bg-white/10 backdrop-blur-xl border border-white/20 rounded-lg flex items-center justify-center">
+                <Bus className="w-6 h-6 text-blue-400" />
               </div>
-              <span className="text-2xl font-bold text-lydian-text-inverse">LyDian Transfer</span>
+              <span className="text-2xl font-bold text-white">LyDian Transfer</span>
             </Link>
 
             {/* Main Content */}
             <div>
-              <h1 className="text-4xl font-bold text-lydian-text-inverse mb-4">
+              <h1 className="text-4xl font-bold text-white mb-4">
                 Transfer İşletmenizi
                 <br />
                 <span className="text-cyan-200">
@@ -156,10 +156,10 @@ export default function TransferOwnerLoginPage() {
                   transition={{ delay: 0.3 + index * 0.1 }}
                   className="flex items-center gap-3">
 
-                    <div className="w-6 h-6 bg-lydian-glass-dark rounded-full flex items-center justify-center flex-shrink-0">
-                      <CheckCircle2 className="w-4 h-4 text-lydian-primary" />
+                    <div className="w-6 h-6 bg-white/10 backdrop-blur-xl border border-white/20 rounded-full flex items-center justify-center flex-shrink-0">
+                      <CheckCircle2 className="w-4 h-4 text-blue-400" />
                     </div>
-                    <span className="text-lydian-text-inverse font-medium">{benefit}</span>
+                    <span className="text-white font-medium">{benefit}</span>
                   </motion.div>
                 )}
               </div>
@@ -169,15 +169,15 @@ export default function TransferOwnerLoginPage() {
           {/* Bottom Stats */}
           <div className="relative z-10 grid grid-cols-3 gap-6">
             <div>
-              <div className="text-3xl font-bold text-lydian-text-inverse">1500+</div>
+              <div className="text-3xl font-bold text-white">1500+</div>
               <div className="text-blue-100 text-sm">Transfer Firması</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-lydian-text-inverse">25K+</div>
+              <div className="text-3xl font-bold text-white">25K+</div>
               <div className="text-blue-100 text-sm">Transfer</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-lydian-text-inverse">97%</div>
+              <div className="text-3xl font-bold text-white">97%</div>
               <div className="text-blue-100 text-sm">Memnuniyet</div>
             </div>
           </div>
@@ -193,18 +193,18 @@ export default function TransferOwnerLoginPage() {
 
             {/* Mobile Logo */}
             <div className="lg:hidden flex items-center gap-2 mb-8">
-              <div className="w-10 h-10 bg-gradient-to-r from-lydian-primary to-cyan-600 rounded-lg flex items-center justify-center">
-                <Bus className="w-6 h-6 text-lydian-text-inverse" />
+              <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-lg flex items-center justify-center">
+                <Bus className="w-6 h-6 text-white" />
               </div>
-              <span className="text-2xl font-bold text-lydian-text-inverse">LyDian Transfer</span>
+              <span className="text-2xl font-bold text-white">LyDian Transfer</span>
             </div>
 
             {/* Header */}
             <div className="mb-8">
-              <h2 className="text-3xl font-bold text-lydian-text-inverse mb-2">
+              <h2 className="text-3xl font-bold text-white mb-2">
                 Transfer Sahibi Girişi
               </h2>
-              <p className="text-lydian-text-dim">
+              <p className="text-gray-400">
                 Hesabınıza giriş yaparak transferlerinizi yönetin
               </p>
             </div>
@@ -216,10 +216,10 @@ export default function TransferOwnerLoginPage() {
               <motion.div
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="flex items-center gap-3 p-4 bg-lydian-error-lighter border border-red-200 rounded-lg">
+                className="flex items-center gap-3 p-4 bg-white/5 border border-purple-400 rounded-lg">
 
-                  <AlertCircle className="w-5 h-5 text-lydian-error flex-shrink-0" />
-                  <p className="text-sm text-lydian-primary-dark">{errors.general}</p>
+                  <AlertCircle className="w-5 h-5 text-gray-400 flex-shrink-0" />
+                  <p className="text-sm text-blue-400">{errors.general}</p>
                 </motion.div>
               }
 
@@ -228,21 +228,21 @@ export default function TransferOwnerLoginPage() {
               <motion.div
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="flex items-center gap-3 p-4 bg-lydian-success-lighter border border-green-200 rounded-lg">
+                className="flex items-center gap-3 p-4 bg-purple-500-lighter border border-purple-400 rounded-lg">
 
-                  <CheckCircle2 className="w-5 h-5 text-lydian-success flex-shrink-0" />
-                  <p className="text-sm text-lydian-success-text">{successMessage}</p>
+                  <CheckCircle2 className="w-5 h-5 text-purple-400 flex-shrink-0" />
+                  <p className="text-sm text-purple-400-text">{successMessage}</p>
                 </motion.div>
               }
 
               {/* Email Field */}
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-lydian-text-inverse mb-2">
+                <label htmlFor="email" className="block text-sm font-medium text-white mb-2">
                   E-posta Adresi
                 </label>
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <Mail className="h-5 w-5 text-lydian-text-muted" />
+                    <Mail className="h-5 w-5 text-gray-300" />
                   </div>
                   <input
                     type="email"
@@ -251,24 +251,24 @@ export default function TransferOwnerLoginPage() {
                     value={formData.email}
                     onChange={handleInputChange}
                     className={`block w-full pl-10 pr-3 py-3 border ${
-                    errors.email ? 'border-red-500' : 'border-lydian-border-medium'} rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-lydian-border outline-none transition-all bg-lydian-glass-dark text-lydian-text-inverse`
+                    errors.email ? 'border-purple-500' : 'border-white/20'} rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-white/20 outline-none transition-all bg-white/10 backdrop-blur-xl border border-white/20 text-white`
                     }
                     placeholder="ornek@email.com" />
 
                 </div>
                 {errors.email &&
-                <p className="mt-1 text-sm text-lydian-error">{errors.email}</p>
+                <p className="mt-1 text-sm text-gray-400">{errors.email}</p>
                 }
               </div>
 
               {/* Password Field */}
               <div>
-                <label htmlFor="password" className="block text-sm font-medium text-lydian-text-inverse mb-2">
+                <label htmlFor="password" className="block text-sm font-medium text-white mb-2">
                   Şifre
                 </label>
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                    <Lock className="h-5 w-5 text-lydian-text-muted" />
+                    <Lock className="h-5 w-5 text-gray-300" />
                   </div>
                   <input
                     type={showPassword ? 'text' : 'password'}
@@ -277,7 +277,7 @@ export default function TransferOwnerLoginPage() {
                     value={formData.password}
                     onChange={handleInputChange}
                     className={`block w-full pl-10 pr-10 py-3 border ${
-                    errors.password ? 'border-red-500' : 'border-lydian-border-medium'} rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-lydian-border outline-none transition-all bg-lydian-glass-dark text-lydian-text-inverse`
+                    errors.password ? 'border-purple-500' : 'border-white/20'} rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-white/20 outline-none transition-all bg-white/10 backdrop-blur-xl border border-white/20 text-white`
                     }
                     placeholder="••••••••" />
 
@@ -287,14 +287,14 @@ export default function TransferOwnerLoginPage() {
                     className="absolute inset-y-0 right-0 pr-3 flex items-center">
 
                     {showPassword ?
-                    <EyeOff className="h-5 w-5 text-lydian-text-muted hover:text-lydian-text-dim" /> :
+                    <EyeOff className="h-5 w-5 text-gray-300 hover:text-gray-400" /> :
 
-                    <Eye className="h-5 w-5 text-lydian-text-muted hover:text-lydian-text-dim" />
+                    <Eye className="h-5 w-5 text-gray-300 hover:text-gray-400" />
                     }
                   </button>
                 </div>
                 {errors.password &&
-                <p className="mt-1 text-sm text-lydian-error">{errors.password}</p>
+                <p className="mt-1 text-sm text-gray-400">{errors.password}</p>
                 }
               </div>
 
@@ -307,15 +307,15 @@ export default function TransferOwnerLoginPage() {
                     name="rememberMe"
                     checked={formData.rememberMe}
                     onChange={handleInputChange}
-                    className="h-4 w-4 text-lydian-primary focus:ring-lydian-primary border-lydian-border-medium rounded cursor-pointer" />
+                    className="h-4 w-4 text-blue-400 focus:ring-lydian-primary border-white/20 rounded cursor-pointer" />
 
-                  <label htmlFor="rememberMe" className="ml-2 block text-sm text-lydian-text-muted cursor-pointer">
+                  <label htmlFor="rememberMe" className="ml-2 block text-sm text-gray-300 cursor-pointer">
                     Beni Hatırla
                   </label>
                 </div>
                 <Link
                   href="/transfer-owner/auth/forgot-password"
-                  className="text-sm font-medium text-lydian-primary hover:text-cyan-600 transition-colors">
+                  className="text-sm font-medium text-blue-400 hover:text-cyan-600 transition-colors">
 
                   Şifremi Unuttum
                 </Link>
@@ -325,11 +325,11 @@ export default function TransferOwnerLoginPage() {
               <button
                 type="submit"
                 disabled={isLoading}
-                className="w-full bg-gradient-to-r from-lydian-primary to-cyan-600 text-lydian-text-inverse py-3 px-4 rounded-lg font-semibold hover:shadow-lg transform hover:scale-[1.02] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center gap-2">
+                className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 text-white py-3 px-4 rounded-lg font-semibold hover:shadow-lg transform hover:scale-[1.02] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center gap-2">
 
                 {isLoading ?
                 <>
-                    <div className="w-5 h-5 border-2 border-lydian-border-light border-t-transparent rounded-full animate-spin" />
+                    <div className="w-5 h-5 border border-white/20 border-t-transparent rounded-full animate-spin" />
                     <span>Giriş yapılıyor...</span>
                   </> :
 
@@ -344,17 +344,17 @@ export default function TransferOwnerLoginPage() {
             {/* Divider */}
             <div className="relative my-8">
               <div className="absolute inset-0 flex items-center">
-                <div className="w-full border-t border-lydian-border"></div>
+                <div className="w-full border-t border-white/20"></div>
               </div>
               <div className="relative flex justify-center text-sm">
-                <span className="px-4 bg-lydian-glass-dark text-lydian-text-muted">Hesabınız yok mu?</span>
+                <span className="px-4 bg-white/10 backdrop-blur-xl border border-white/20 text-gray-300">Hesabınız yok mu?</span>
               </div>
             </div>
 
             {/* Register Link */}
             <Link
               href="/transfer-owner/auth/register"
-              className="block w-full text-center py-3 px-4 border-2 border-lydian-border-medium rounded-lg font-semibold text-lydian-text-inverse hover:bg-lydian-glass-dark hover:border-lydian-border-heavy transition-all duration-200">
+              className="block w-full text-center py-3 px-4 border border-white/20 rounded-lg font-semibold text-white hover:bg-white/10 hover:border-white/20-heavy transition-all duration-200">
 
               Transfer Sahibi Olarak Kayıt Ol
             </Link>
@@ -363,7 +363,7 @@ export default function TransferOwnerLoginPage() {
             <div className="mt-6 text-center">
               <Link
                 href="/"
-                className="text-sm text-lydian-text-dim hover:text-lydian-text-inverse transition-colors">
+                className="text-sm text-gray-400 hover:text-white transition-colors">
 
                 ← Ana sayfaya dön
               </Link>

@@ -23,7 +23,7 @@ const backgroundClasses = {
   dark: 'bg-gradient-to-br from-gray-900 via-[#1a1a2e] to-gray-900',
   gradient: 'bg-gradient-to-br from-[#00BAFF]/10 via-[#667EEA]/10 to-[#FF9500]/10',
   neo: 'bg-gradient-to-br from-gray-50 via-white to-gray-50',
-  glass: 'bg-lydian-glass-dark backdrop-blur-3xl',
+  glass: 'bg-gradient-to-br from-slate-900 via-black to-slate-800 backdrop-blur-3xl',
 };
 
 const paddingClasses = {
@@ -58,7 +58,7 @@ export const Section: React.FC<SectionProps> = ({
           {title && (
             <h2 className={`text-3xl md:text-4xl lg:text-5xl font-black mb-4 ${
               background === 'dark' || background === 'glass'
-                ? 'text-lydian-text-inverse'
+                ? 'text-white'
                 : 'text-lydian-text'
             }`}>
               {title}
@@ -67,7 +67,7 @@ export const Section: React.FC<SectionProps> = ({
           {subtitle && (
             <p className={`text-lg md:text-xl max-w-3xl mx-auto ${
               background === 'dark' || background === 'glass'
-                ? 'text-lydian-text-dim'
+                ? 'text-gray-400'
                 : 'text-lydian-text-secondary'
             }`}>
               {subtitle}

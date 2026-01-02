@@ -76,7 +76,7 @@ export const BookingFooter: React.FC = () => {
 
 
   return (
-    <footer className="relative bg-gradient-to-br from-gray-900 via-[#1a1a2e] to-gray-900 text-lydian-text-dim">
+    <footer className="relative bg-gradient-to-br from-gray-900 via-[#1a1a2e] to-gray-900 text-gray-400">
       {/* 🎨 NEO-GLASS Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-r from-[#00BAFF]/10 via-[#667EEA]/10 to-[#FF9500]/10 opacity-30" />
       {/* Newsletter Section */}
@@ -84,10 +84,10 @@ export const BookingFooter: React.FC = () => {
         <div className="relative max-w-7xl mx-auto px-4 py-12">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="text-center md:text-left">
-              <h3 className="text-2xl font-bold text-lydian-text-inverse mb-2">
+              <h3 className="text-2xl font-bold text-white mb-2">
                 Özel Fırsatları Kaçırmayın!
               </h3>
-              <p className="text-lydian-text-muted">
+              <p className="text-gray-300">
                 En iyi fiyatları ve kampanyaları ilk siz öğrenin
               </p>
             </div>
@@ -95,9 +95,9 @@ export const BookingFooter: React.FC = () => {
               <input
                 type="email"
                 placeholder="E-posta adresiniz"
-                className="flex-1 px-4 py-3 rounded-md bg-lydian-glass-dark text-lydian-text-inverse placeholder-lydian-text-tertiary focus:outline-none focus:ring-2 focus:ring-lydian-primary" />
+                className="flex-1 px-4 py-3 rounded-md bg-gradient-to-br from-slate-900 via-black to-slate-800 text-white placeholder-lydian-text-tertiary focus:outline-none focus:ring-2 focus:ring-lydian-primary" />
 
-              <button className="px-6 py-3 bg-lydian-primary text-lydian-text-inverse rounded-md font-semibold hover:bg-lydian-dark transition-colors whitespace-nowrap">
+              <button className="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-md font-semibold hover:bg-lydian-dark transition-colors whitespace-nowrap">
                 Abone Ol
               </button>
             </div>
@@ -110,13 +110,13 @@ export const BookingFooter: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
           {/* Services */}
           <div>
-            <h4 className="text-lydian-text-inverse font-bold mb-4">{footerLinks.services.title}</h4>
+            <h4 className="text-white font-bold mb-4">{footerLinks.services.title}</h4>
             <ul className="space-y-2">
               {footerLinks.services.links.map((link, index) =>
               <li key={index}>
                   <Link
                   href={link.href}
-                  className="text-sm hover:text-lydian-text-inverse transition-colors flex items-center gap-1 group">
+                  className="text-sm hover:text-white transition-colors flex items-center gap-1 group">
 
                     <ChevronRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
                     <span>{link.label}</span>
@@ -128,13 +128,13 @@ export const BookingFooter: React.FC = () => {
 
           {/* Support */}
           <div>
-            <h4 className="text-lydian-text-inverse font-bold mb-4">{footerLinks.support.title}</h4>
+            <h4 className="text-white font-bold mb-4">{footerLinks.support.title}</h4>
             <ul className="space-y-2">
               {footerLinks.support.links.map((link, index) =>
               <li key={index}>
                   <Link
                   href={link.href}
-                  className="text-sm hover:text-lydian-text-inverse transition-colors flex items-center gap-1 group">
+                  className="text-sm hover:text-white transition-colors flex items-center gap-1 group">
 
                     <ChevronRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
                     <span>{link.label}</span>
@@ -146,13 +146,13 @@ export const BookingFooter: React.FC = () => {
 
           {/* Company */}
           <div>
-            <h4 className="text-lydian-text-inverse font-bold mb-4">{footerLinks.company.title}</h4>
+            <h4 className="text-white font-bold mb-4">{footerLinks.company.title}</h4>
             <ul className="space-y-2">
               {footerLinks.company.links.map((link, index) =>
               <li key={index}>
                   <Link
                   href={link.href}
-                  className="text-sm hover:text-lydian-text-inverse transition-colors flex items-center gap-1 group">
+                  className="text-sm hover:text-white transition-colors flex items-center gap-1 group">
 
                     <ChevronRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
                     <span>{link.label}</span>
@@ -164,13 +164,13 @@ export const BookingFooter: React.FC = () => {
 
           {/* Legal */}
           <div>
-            <h4 className="text-lydian-text-inverse font-bold mb-4">{footerLinks.legal.title}</h4>
+            <h4 className="text-white font-bold mb-4">{footerLinks.legal.title}</h4>
             <ul className="space-y-2">
               {footerLinks.legal.links.map((link, index) =>
               <li key={index}>
                   <Link
                   href={link.href}
-                  className="text-sm hover:text-lydian-text-inverse transition-colors flex items-center gap-1 group">
+                  className="text-sm hover:text-white transition-colors flex items-center gap-1 group">
 
                     <ChevronRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
                     <span>{link.label}</span>
@@ -182,15 +182,15 @@ export const BookingFooter: React.FC = () => {
 
           {/* Popular Destinations */}
           <div>
-            <h4 className="text-lydian-text-inverse font-bold mb-4">Popüler Destinasyonlar</h4>
+            <h4 className="text-white font-bold mb-4">Popüler Destinasyonlar</h4>
             <ul className="space-y-2">
               {popularDestinations.map((destination, index) =>
               <li key={index}>
                   <Link
                   href={destination.href}
-                  className="text-sm hover:text-lydian-text-inverse transition-colors flex items-center gap-1 group">
+                  className="text-sm hover:text-white transition-colors flex items-center gap-1 group">
 
-                    <MapPin className="w-3 h-3 text-lydian-primary" />
+                    <MapPin className="w-3 h-3 text-blue-500" />
                     <span>{destination.name}</span>
                   </Link>
                 </li>
@@ -204,21 +204,21 @@ export const BookingFooter: React.FC = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             <div className="flex items-center gap-3">
               <div className="w-12 h-12 rounded-full bg-green-500/10 flex items-center justify-center">
-                <Shield className="w-6 h-6 text-lydian-success" />
+                <Shield className="w-6 h-6 text-green-500" />
               </div>
               <div>
-                <div className="text-lydian-text-inverse font-semibold text-sm">Güvenli Ödeme</div>
-                <div className="text-xs text-lydian-text-muted">256-bit SSL</div>
+                <div className="text-white font-semibold text-sm">Güvenli Ödeme</div>
+                <div className="text-xs text-gray-300">256-bit SSL</div>
               </div>
             </div>
 
             <div className="flex items-center gap-3">
               <div className="w-12 h-12 rounded-full bg-lydian-primary/10 flex items-center justify-center">
-                <Award className="w-6 h-6 text-lydian-primary" />
+                <Award className="w-6 h-6 text-blue-500" />
               </div>
               <div>
-                <div className="text-lydian-text-inverse font-semibold text-sm">Güvenilir</div>
-                <div className="text-xs text-lydian-text-muted">100K+ Mutlu Müşteri</div>
+                <div className="text-white font-semibold text-sm">Güvenilir</div>
+                <div className="text-xs text-gray-300">100K+ Mutlu Müşteri</div>
               </div>
             </div>
 
@@ -227,8 +227,8 @@ export const BookingFooter: React.FC = () => {
                 <CreditCard className="w-6 h-6 text-lydian-accent-purple" />
               </div>
               <div>
-                <div className="text-lydian-text-inverse font-semibold text-sm">Esnek Ödeme</div>
-                <div className="text-xs text-lydian-text-muted">Tüm Kartlar</div>
+                <div className="text-white font-semibold text-sm">Esnek Ödeme</div>
+                <div className="text-xs text-gray-300">Tüm Kartlar</div>
               </div>
             </div>
 
@@ -237,8 +237,8 @@ export const BookingFooter: React.FC = () => {
                 <Headphones className="w-6 h-6 text-orange-500" />
               </div>
               <div>
-                <div className="text-lydian-text-inverse font-semibold text-sm">24/7 Destek</div>
-                <div className="text-xs text-lydian-text-muted">Her Zaman Yanınızda</div>
+                <div className="text-white font-semibold text-sm">24/7 Destek</div>
+                <div className="text-xs text-gray-300">Her Zaman Yanınızda</div>
               </div>
             </div>
           </div>
@@ -248,26 +248,26 @@ export const BookingFooter: React.FC = () => {
         <div className="border-t border-gray-800 pt-8 mb-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="flex items-center gap-3">
-              <Phone className="w-5 h-5 text-lydian-primary" />
+              <Phone className="w-5 h-5 text-blue-500" />
               <div>
-                <div className="text-sm text-lydian-text-muted">Müşteri Hizmetleri</div>
-                <div className="text-lydian-text-inverse font-semibold">+90 850 XXX XX XX</div>
+                <div className="text-sm text-gray-300">Müşteri Hizmetleri</div>
+                <div className="text-white font-semibold">+90 850 XXX XX XX</div>
               </div>
             </div>
 
             <div className="flex items-center gap-3">
-              <Mail className="w-5 h-5 text-lydian-primary" />
+              <Mail className="w-5 h-5 text-blue-500" />
               <div>
-                <div className="text-sm text-lydian-text-muted">E-posta</div>
-                <div className="text-lydian-text-inverse font-semibold">info@holiday.ailydian.com</div>
+                <div className="text-sm text-gray-300">E-posta</div>
+                <div className="text-white font-semibold">info@holiday.ailydian.com</div>
               </div>
             </div>
 
             <div className="flex items-center gap-3">
-              <Globe className="w-5 h-5 text-lydian-primary" />
+              <Globe className="w-5 h-5 text-blue-500" />
               <div>
-                <div className="text-sm text-lydian-text-muted">Dil & Para Birimi</div>
-                <div className="text-lydian-text-inverse font-semibold">Türkçe • ₺ TRY</div>
+                <div className="text-sm text-gray-300">Dil & Para Birimi</div>
+                <div className="text-white font-semibold">Türkçe • ₺ TRY</div>
               </div>
             </div>
           </div>
@@ -278,39 +278,39 @@ export const BookingFooter: React.FC = () => {
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             {/* Social Media */}
             <div className="flex items-center gap-4">
-              <span className="text-sm text-lydian-text-muted">Bizi Takip Edin:</span>
+              <span className="text-sm text-gray-300">Bizi Takip Edin:</span>
               <div className="flex gap-3">
                 <a
                   href="#"
-                  className="w-10 h-10 rounded-full bg-gray-800 hover:bg-lydian-primary flex items-center justify-center transition-colors"
+                  className="w-10 h-10 rounded-full bg-gray-800 hover:bg-gradient-to-r from-blue-600 to-purple-600 flex items-center justify-center transition-colors"
                   aria-label="Facebook">
 
                   <Facebook className="w-5 h-5" />
                 </a>
                 <a
                   href="#"
-                  className="w-10 h-10 rounded-full bg-gray-800 hover:bg-lydian-primary flex items-center justify-center transition-colors"
+                  className="w-10 h-10 rounded-full bg-gray-800 hover:bg-gradient-to-r from-blue-600 to-purple-600 flex items-center justify-center transition-colors"
                   aria-label="Twitter">
 
                   <Twitter className="w-5 h-5" />
                 </a>
                 <a
                   href="#"
-                  className="w-10 h-10 rounded-full bg-gray-800 hover:bg-lydian-primary flex items-center justify-center transition-colors"
+                  className="w-10 h-10 rounded-full bg-gray-800 hover:bg-gradient-to-r from-blue-600 to-purple-600 flex items-center justify-center transition-colors"
                   aria-label="Instagram">
 
                   <Instagram className="w-5 h-5" />
                 </a>
                 <a
                   href="#"
-                  className="w-10 h-10 rounded-full bg-gray-800 hover:bg-lydian-primary flex items-center justify-center transition-colors"
+                  className="w-10 h-10 rounded-full bg-gray-800 hover:bg-gradient-to-r from-blue-600 to-purple-600 flex items-center justify-center transition-colors"
                   aria-label="LinkedIn">
 
                   <Linkedin className="w-5 h-5" />
                 </a>
                 <a
                   href="#"
-                  className="w-10 h-10 rounded-full bg-gray-800 hover:bg-lydian-primary flex items-center justify-center transition-colors"
+                  className="w-10 h-10 rounded-full bg-gray-800 hover:bg-gradient-to-r from-blue-600 to-purple-600 flex items-center justify-center transition-colors"
                   aria-label="YouTube">
 
                   <Youtube className="w-5 h-5" />
@@ -320,18 +320,18 @@ export const BookingFooter: React.FC = () => {
 
             {/* Payment Methods */}
             <div className="flex items-center gap-4">
-              <span className="text-sm text-lydian-text-muted">Ödeme Yöntemleri:</span>
+              <span className="text-sm text-gray-300">Ödeme Yöntemleri:</span>
               <div className="flex gap-2">
-                <div className="w-12 h-8 bg-lydian-glass-dark rounded flex items-center justify-center text-xs font-bold text-lydian-text-muted">
+                <div className="w-12 h-8 bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded flex items-center justify-center text-xs font-bold text-gray-300">
                   VISA
                 </div>
-                <div className="w-12 h-8 bg-lydian-glass-dark rounded flex items-center justify-center text-xs font-bold text-lydian-text-muted">
+                <div className="w-12 h-8 bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded flex items-center justify-center text-xs font-bold text-gray-300">
                   MC
                 </div>
-                <div className="w-12 h-8 bg-lydian-glass-dark rounded flex items-center justify-center text-xs font-bold text-lydian-text-muted">
+                <div className="w-12 h-8 bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded flex items-center justify-center text-xs font-bold text-gray-300">
                   AMEX
                 </div>
-                <div className="w-12 h-8 bg-lydian-glass-dark rounded flex items-center justify-center text-xs font-bold text-lydian-text-muted">
+                <div className="w-12 h-8 bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded flex items-center justify-center text-xs font-bold text-gray-300">
                   TROY
                 </div>
               </div>
@@ -343,15 +343,15 @@ export const BookingFooter: React.FC = () => {
       {/* Bottom Bar */}
       <div className="border-t border-gray-800">
         <div className="max-w-7xl mx-auto px-4 py-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-lydian-text-muted">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-300">
             <div className="flex items-center gap-2">
-              <span className="text-lydian-primary font-bold text-lg">Travel.com</span>
+              <span className="text-blue-500 font-bold text-lg">Travel.com</span>
               <span>•</span>
               <span>© {currentYear} Tüm hakları saklıdır.</span>
             </div>
             <div className="flex items-center gap-1">
               <span>Powered by</span>
-              <span className="text-lydian-text-inverse font-semibold">LyDian AI</span>
+              <span className="text-white font-semibold">LyDian AI</span>
             </div>
           </div>
         </div>

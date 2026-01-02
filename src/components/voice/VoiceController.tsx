@@ -329,7 +329,7 @@ const VoiceController: React.FC<VoiceControllerProps> = ({
               className={`p-4 rounded-full shadow-lg transition-all duration-300 ${
               isEnabled ?
               'bg-gradient-to-r from-blue-500 to-purple-600 text-white' :
-              'bg-lydian-bg/5 text-lydian-text-dim hover:bg-lydian-bg/5'}`
+              'bg-white/5 text-gray-400 hover:bg-white/5'}`
               }>
 
             {isEnabled ?
@@ -357,7 +357,7 @@ const VoiceController: React.FC<VoiceControllerProps> = ({
               animate={{ opacity: [0.5, 1, 0.5] }}
               transition={{ repeat: Infinity, duration: 0.8 }}>
 
-                <div className="absolute -top-2 -left-2 w-4 h-4 bg-lydian-success rounded-full" />
+                <div className="absolute -top-2 -left-2 w-4 h-4 bg-green-600 rounded-full" />
               </motion.div>
             }
           </>
@@ -373,9 +373,9 @@ const VoiceController: React.FC<VoiceControllerProps> = ({
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 20, scale: 0.9 }}>
 
-            <div className="absolute bottom-16 left-0 w-80 bg-lydian-glass-dark rounded-2xl shadow-2xl border border-lydian-border-light/10 overflow-hidden">
+            <div className="absolute bottom-16 left-0 w-80 bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-2xl shadow-2xl border border-white/20/10 overflow-hidden">
             {/* Header */}
-            <div className="p-4 bg-gradient-to-r from-lydian-primary to-lydian-secondary text-lydian-text-inverse">
+            <div className="p-4 bg-gradient-to-r from-blue-600 to-purple-700 text-white">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <HeadphonesIcon className="w-5 h-5" />
@@ -390,14 +390,14 @@ const VoiceController: React.FC<VoiceControllerProps> = ({
                 <div className="flex items-center gap-2">
                   <button
                     onClick={() => setShowSettings(!showSettings)}
-                    className="p-2 hover:bg-lydian-glass-dark-heavy rounded-lg transition-colors">
+                    className="p-2 hover:bg-white/10 backdrop-blur-xl border border-white/20 rounded-lg transition-colors">
 
                     <Settings className="w-4 h-4" />
                   </button>
                   
                   <button
                     onClick={() => setIsEnabled(false)}
-                    className="p-2 hover:bg-lydian-glass-dark-heavy rounded-lg transition-colors">
+                    className="p-2 hover:bg-white/10 backdrop-blur-xl border border-white/20 rounded-lg transition-colors">
 
                     <X className="w-4 h-4" />
                   </button>
@@ -413,9 +413,9 @@ const VoiceController: React.FC<VoiceControllerProps> = ({
                 animate={{ height: 'auto' }}
                 exit={{ height: 0 }}>
 
-                  <div className="border-b border-lydian-border-light/10 overflow-hidden">
+                  <div className="border-b border-white/20/10 overflow-hidden">
                   <div className="p-4">
-                    <h4 className="font-medium text-lydian-text-inverse mb-3">Dil Seçimi</h4>
+                    <h4 className="font-medium text-white mb-3">Dil Seçimi</h4>
                     <div className="grid grid-cols-2 gap-2">
                       {languages.map((lang) =>
                       <button
@@ -438,24 +438,24 @@ const VoiceController: React.FC<VoiceControllerProps> = ({
             </AnimatePresence>
 
             {/* Status */}
-            <div className="p-4 border-b border-lydian-border-light/10">
+            <div className="p-4 border-b border-white/20/10">
               <div className="flex items-center justify-between mb-3">
-                <span className="text-sm font-medium text-lydian-text-muted">Durum</span>
+                <span className="text-sm font-medium text-gray-300">Durum</span>
                 <div className="flex items-center gap-2">
                   {isListening &&
-                  <span className="flex items-center gap-1 text-xs text-lydian-primary">
+                  <span className="flex items-center gap-1 text-xs text-blue-500">
                       <div className="w-2 h-2 bg-lydian-error rounded-full animate-pulse" />
                       Dinliyor
                     </span>
                   }
                   {isSpeaking &&
-                  <span className="flex items-center gap-1 text-xs text-lydian-success">
-                      <div className="w-2 h-2 bg-lydian-success rounded-full animate-pulse" />
+                  <span className="flex items-center gap-1 text-xs text-green-500">
+                      <div className="w-2 h-2 bg-green-600 rounded-full animate-pulse" />
                       Konuşuyor
                     </span>
                   }
                   {isProcessing &&
-                  <span className="flex items-center gap-1 text-xs text-lydian-primary">
+                  <span className="flex items-center gap-1 text-xs text-blue-500">
                       <Loader className="w-3 h-3 animate-spin" />
                       İşleniyor
                     </span>
@@ -465,17 +465,17 @@ const VoiceController: React.FC<VoiceControllerProps> = ({
 
               {/* Transcript */}
               {transcript &&
-              <div className="bg-lydian-glass-dark p-3 rounded-lg mb-3">
-                  <p className="text-sm text-lydian-text-inverse">{transcript}</p>
+              <div className="bg-gradient-to-br from-slate-900 via-black to-slate-800 p-3 rounded-lg mb-3">
+                  <p className="text-sm text-white">{transcript}</p>
                   {confidence > 0 &&
                 <div className="flex items-center gap-2 mt-2">
-                      <div className="flex-1 bg-lydian-bg-active h-1 rounded-full">
+                      <div className="flex-1 bg-white/10 backdrop-blur-xl border border-white/20 h-1 rounded-full">
                         <div
-                      className="bg-lydian-primary h-1 rounded-full transition-all"
+                      className="bg-gradient-to-r from-blue-600 to-purple-600 h-1 rounded-full transition-all"
                       style={{ width: `${confidence * 100}%` }} />
 
                       </div>
-                      <span className="text-xs text-lydian-text-muted">
+                      <span className="text-xs text-gray-300">
                         %{Math.round(confidence * 100)}
                       </span>
                     </div>
@@ -485,7 +485,7 @@ const VoiceController: React.FC<VoiceControllerProps> = ({
 
               {/* Error */}
               {error &&
-              <div className="flex items-center gap-2 text-lydian-primary text-sm mb-3">
+              <div className="flex items-center gap-2 text-blue-500 text-sm mb-3">
                   <AlertCircle className="w-4 h-4" />
                   {error}
                 </div>
@@ -517,7 +517,7 @@ const VoiceController: React.FC<VoiceControllerProps> = ({
 
                     <button
                     onClick={stopSpeaking}
-                    className="flex items-center gap-2 px-4 py-2 bg-orange-500 text-lydian-text-inverse rounded-lg font-medium hover:bg-orange-600 transition-colors">
+                    className="flex items-center gap-2 px-4 py-2 bg-orange-500 text-white rounded-lg font-medium hover:bg-orange-600 transition-colors">
 
                       <Pause className="w-4 h-4" />
                       Sustur
@@ -529,7 +529,7 @@ const VoiceController: React.FC<VoiceControllerProps> = ({
 
             {/* Quick Commands */}
             <div className="p-4">
-              <h4 className="font-medium text-lydian-text-inverse mb-3">Hızlı Komutlar</h4>
+              <h4 className="font-medium text-white mb-3">Hızlı Komutlar</h4>
               <div className="space-y-2">
                 {[
                 { text: '"Istanbul ara"', action: 'İstanbul\'u arar' },
@@ -538,10 +538,10 @@ const VoiceController: React.FC<VoiceControllerProps> = ({
                 { text: '"Yardım"', action: 'Yardım menüsü' }].
                 map((cmd, index) =>
                 <div key={index} className="flex items-center justify-between text-sm">
-                    <code className="bg-lydian-glass-dark-medium px-2 py-1 rounded text-lydian-text-dim">
+                    <code className="bg-white/10 backdrop-blur-xl border border-white/20 px-2 py-1 rounded text-gray-400">
                       {cmd.text}
                     </code>
-                    <span className="text-lydian-text-muted text-xs">{cmd.action}</span>
+                    <span className="text-gray-300 text-xs">{cmd.action}</span>
                   </div>
                 )}
               </div>

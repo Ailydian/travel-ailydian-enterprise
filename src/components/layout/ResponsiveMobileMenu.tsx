@@ -207,40 +207,40 @@ const ResponsiveMobileMenu: React.FC<ResponsiveMobileMenuProps> = ({
             stiffness: 300,
             mass: 0.8
           }}
-          className="fixed top-0 left-0 bottom-0 w-[85%] max-w-sm bg-lydian-glass-dark z-[99999] overflow-y-auto shadow-2xl overscroll-contain">
+          className="fixed top-0 left-0 bottom-0 w-[85%] max-w-sm bg-gradient-to-br from-slate-900 via-black to-slate-800 z-[99999] overflow-y-auto shadow-2xl overscroll-contain">
 
             {/* Header */}
-            <div className="sticky top-0 bg-gradient-to-r from-lydian-primary to-lydian-secondary p-6 mobile-nav-safe">
+            <div className="sticky top-0 bg-gradient-to-r from-blue-600 to-purple-700 p-6 mobile-nav-safe">
               <div className="flex items-center justify-between mb-4">
                 <Link href="/" onClick={onClose}>
                   <div className="flex items-center gap-2">
-                    <div className="w-10 h-10 bg-lydian-glass-dark rounded-xl flex items-center justify-center shadow-lg">
+                    <div className="w-10 h-10 bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-xl flex items-center justify-center shadow-lg">
                       <span className="text-2xl">✈️</span>
                     </div>
                     <div>
-                      <h2 className="text-lydian-text-inverse font-bold text-lg">LyDian</h2>
+                      <h2 className="text-white font-bold text-lg">LyDian</h2>
                       <p className="text-blue-100 text-xs">Travel Platform</p>
                     </div>
                   </div>
                 </Link>
                 <button
                 onClick={onClose}
-                className="w-10 h-10 rounded-xl bg-lydian-glass-dark-heavy hover:bg-lydian-bg/30 flex items-center justify-center transition-colors touch-target"
+                className="w-10 h-10 rounded-xl bg-white/10 backdrop-blur-xl border border-white/20 hover:bg-lydian-bg/30 flex items-center justify-center transition-colors touch-target"
                 aria-label="Menüyü Kapat">
 
-                  <X className="w-6 h-6 text-lydian-text-inverse" />
+                  <X className="w-6 h-6 text-white" />
                 </button>
               </div>
 
               {/* User Info */}
               {session &&
-            <div className="bg-lydian-glass-dark-medium backdrop-blur-sm rounded-xl p-3 border border-lydian-border-light">
+            <div className="bg-white/10 backdrop-blur-xl border border-white/20 backdrop-blur-sm rounded-xl p-3 border border-white/20">
                   <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-full bg-lydian-glass-dark-heavy flex items-center justify-center">
-                      <User className="w-6 h-6 text-lydian-text-inverse" />
+                    <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center">
+                      <User className="w-6 h-6 text-white" />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className="text-lydian-text-inverse font-semibold truncate">
+                      <p className="text-white font-semibold truncate">
                         {session.user?.name || 'Kullanıcı'}
                       </p>
                       <p className="text-blue-100 text-sm truncate">
@@ -254,7 +254,7 @@ const ResponsiveMobileMenu: React.FC<ResponsiveMobileMenuProps> = ({
 
             {/* Main Menu Items */}
             <div className="p-4 space-y-1">
-              <p className="text-xs font-semibold text-lydian-text-muted uppercase tracking-wider px-4 mb-2">
+              <p className="text-xs font-semibold text-gray-300 uppercase tracking-wider px-4 mb-2">
                 Ana Menü
               </p>
               {mainMenuItems.map((item, index) =>
@@ -264,20 +264,20 @@ const ResponsiveMobileMenu: React.FC<ResponsiveMobileMenuProps> = ({
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: index * 0.05 }}
               onClick={() => handleMenuItemClick(item.href)}
-              className="w-full flex items-center gap-4 p-4 rounded-2xl hover:bg-lydian-glass-dark active:bg-lydian-glass-dark-medium transition-all group touch-target">
+              className="w-full flex items-center gap-4 p-4 rounded-2xl hover:bg-gradient-to-br from-slate-900 via-black to-slate-800 active:bg-white/10 backdrop-blur-xl border border-white/20 transition-all group touch-target">
 
                   <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${item.color} flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform`}>
-                    <item.icon className="w-6 h-6 text-lydian-text-inverse" />
+                    <item.icon className="w-6 h-6 text-white" />
                   </div>
                   <div className="flex-1 text-left">
-                    <p className="font-semibold text-lydian-text-inverse">{item.label}</p>
+                    <p className="font-semibold text-white">{item.label}</p>
                   </div>
                   {item.badge &&
-              <span className="px-2 py-1 bg-gradient-to-r from-green-500 to-emerald-500 text-lydian-text-inverse text-xs font-bold rounded-full">
+              <span className="px-2 py-1 bg-gradient-to-r from-green-500 to-emerald-500 text-white text-xs font-bold rounded-full">
                       {item.badge}
                     </span>
               }
-                  <ChevronRight className="w-5 h-5 text-lydian-text-muted group-hover:text-lydian-primary group-hover:translate-x-1 transition-all" />
+                  <ChevronRight className="w-5 h-5 text-gray-300 group-hover:text-blue-500 group-hover:translate-x-1 transition-all" />
                 </motion.button>
             )}
             </div>
@@ -289,7 +289,7 @@ const ResponsiveMobileMenu: React.FC<ResponsiveMobileMenuProps> = ({
 
             {/* User Menu Items */}
             <div className="p-4 space-y-1">
-              <p className="text-xs font-semibold text-lydian-text-muted uppercase tracking-wider px-4 mb-2">
+              <p className="text-xs font-semibold text-gray-300 uppercase tracking-wider px-4 mb-2">
                 {session ? 'Hesabım' : 'Hesap'}
               </p>
               {userMenuItems.map((item, index) =>
@@ -299,20 +299,20 @@ const ResponsiveMobileMenu: React.FC<ResponsiveMobileMenuProps> = ({
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: (mainMenuItems.length + index) * 0.05 }}
               onClick={() => handleMenuItemClick(item.href)}
-              className="w-full flex items-center gap-4 p-4 rounded-2xl hover:bg-lydian-glass-dark active:bg-lydian-glass-dark-medium transition-all group touch-target">
+              className="w-full flex items-center gap-4 p-4 rounded-2xl hover:bg-gradient-to-br from-slate-900 via-black to-slate-800 active:bg-white/10 backdrop-blur-xl border border-white/20 transition-all group touch-target">
 
                   <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${item.color} flex items-center justify-center shadow-md group-hover:scale-110 transition-transform`}>
-                    <item.icon className="w-5 h-5 text-lydian-text-inverse" />
+                    <item.icon className="w-5 h-5 text-white" />
                   </div>
                   <div className="flex-1 text-left">
-                    <p className="font-medium text-lydian-text-inverse">{item.label}</p>
+                    <p className="font-medium text-white">{item.label}</p>
                   </div>
                   {item.badge && item.badge !== '0' &&
-              <span className="px-2 py-1 bg-lydian-primary text-lydian-text-inverse text-xs font-bold rounded-full min-w-[24px] text-center">
+              <span className="px-2 py-1 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-xs font-bold rounded-full min-w-[24px] text-center">
                       {item.badge}
                     </span>
               }
-                  <ChevronRight className="w-5 h-5 text-lydian-text-muted group-hover:text-lydian-primary group-hover:translate-x-1 transition-all" />
+                  <ChevronRight className="w-5 h-5 text-gray-300 group-hover:text-blue-500 group-hover:translate-x-1 transition-all" />
                 </motion.button>
             )}
 
@@ -326,12 +326,12 @@ const ResponsiveMobileMenu: React.FC<ResponsiveMobileMenuProps> = ({
               className="w-full flex items-center gap-4 p-4 rounded-2xl hover:bg-lydian-error-lighter active:bg-lydian-error-light transition-all group touch-target mt-2">
 
                   <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-lydian-success to-lydian-success flex items-center justify-center shadow-md group-hover:scale-110 transition-transform">
-                    <LogOut className="w-5 h-5 text-lydian-text-inverse" />
+                    <LogOut className="w-5 h-5 text-white" />
                   </div>
                   <div className="flex-1 text-left">
-                    <p className="font-medium text-lydian-primary">Çıkış Yap</p>
+                    <p className="font-medium text-blue-500">Çıkış Yap</p>
                   </div>
-                  <ChevronRight className="w-5 h-5 text-lydian-error group-hover:text-lydian-primary group-hover:translate-x-1 transition-all" />
+                  <ChevronRight className="w-5 h-5 text-lydian-error group-hover:text-blue-500 group-hover:translate-x-1 transition-all" />
                 </motion.button>
             }
             </div>
@@ -340,23 +340,23 @@ const ResponsiveMobileMenu: React.FC<ResponsiveMobileMenuProps> = ({
             <div className="p-6 pb-8 mobile-nav-safe">
               <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-4 border border-blue-100">
                 <div className="flex items-center gap-3 mb-3">
-                  <Headphones className="w-5 h-5 text-lydian-primary" />
-                  <p className="font-semibold text-lydian-text-inverse">Müşteri Desteği</p>
+                  <Headphones className="w-5 h-5 text-blue-500" />
+                  <p className="font-semibold text-white">Müşteri Desteği</p>
                 </div>
-                <p className="text-sm text-lydian-text-dim mb-3">
+                <p className="text-sm text-gray-400 mb-3">
                   7/24 size yardımcı olmaya hazırız
                 </p>
                 <Link
                 href="/support"
                 onClick={onClose}
-                className="w-full bg-gradient-to-r from-lydian-primary to-lydian-secondary text-lydian-text-inverse py-3 px-4 rounded-xl font-medium flex items-center justify-center gap-2 hover:shadow-lg active:scale-95 transition-all touch-target">
+                className="w-full bg-gradient-to-r from-blue-600 to-purple-700 text-white py-3 px-4 rounded-xl font-medium flex items-center justify-center gap-2 hover:shadow-lg active:scale-95 transition-all touch-target">
 
                   <Headphones className="w-4 h-4" />
                   Destek Al
                 </Link>
               </div>
 
-              <p className="text-center text-xs text-lydian-text-muted mt-6">
+              <p className="text-center text-xs text-gray-300 mt-6">
                 © 2025 AILYDIAN Holiday. Tüm hakları saklıdır.
               </p>
             </div>

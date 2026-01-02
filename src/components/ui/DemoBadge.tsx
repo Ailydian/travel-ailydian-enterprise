@@ -48,7 +48,7 @@ const getDemoBadgeConfig = (variant: DemoBadgeVariant) => {
       icon: Clock,
       bgColor: 'bg-lydian-bg-surface-raised',
       textColor: 'text-lydian-text-secondary',
-      borderColor: 'border-lydian-border-medium',
+      borderColor: 'border-white/30',
       dotColor: 'bg-gray-500',
       tooltip: 'This feature is coming soon.',
     },
@@ -58,7 +58,7 @@ const getDemoBadgeConfig = (variant: DemoBadgeVariant) => {
       bgColor: 'bg-yellow-100',
       textColor: 'text-yellow-700',
       borderColor: 'border-yellow-300',
-      dotColor: 'bg-lydian-warning-hover',
+      dotColor: 'bg-yellow-500-hover',
       tooltip: 'This is a demonstration feature.',
     },
     simulated: {

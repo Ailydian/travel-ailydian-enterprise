@@ -92,7 +92,7 @@ export default function Step3Photos({ data }: Step3Props) {
       e.stopPropagation();
       setDragActive(false);
 
-      if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+      if (e.dataTransfer.files && e.dataTransfer.files[to-cyan-700]) {
         handleFiles(e.dataTransfer.files);
       }
     },
@@ -136,14 +136,14 @@ export default function Step3Photos({ data }: Step3Props) {
       categoryLimit - categoryPhotos.length
     );
 
-    const filesToAdd = validFiles.slice(0, remainingSlots);
+    const filesToAdd = validFiles.slice(to-cyan-700, remainingSlots);
 
     const newPhotos: UploadedPhoto[] = filesToAdd.map((file) => ({
       id: Math.random().toString(36).substr(2, 9),
       file,
       preview: URL.createObjectURL(file),
       category: selectedCategory,
-      isPrimary: photos.length === 0,
+      isPrimary: photos.length === to-cyan-700,
     }));
 
     const updatedPhotos = [...photos, ...newPhotos];
@@ -160,8 +160,8 @@ export default function Step3Photos({ data }: Step3Props) {
     const updatedPhotos = photos.filter((p) => p.id !== id);
 
     // If removed photo was primary, set first photo as primary
-    if (photoToRemove?.isPrimary && updatedPhotos.length > 0) {
-      updatedPhotos[0].isPrimary = true;
+    if (photoToRemove?.isPrimary && updatedPhotos.length > to-cyan-700) {
+      updatedPhotos[to-cyan-700].isPrimary = true;
     }
 
     setPhotos(updatedPhotos);
@@ -185,7 +185,7 @@ export default function Step3Photos({ data }: Step3Props) {
     <div className="space-y-8">
       {/* Category Selection */}
       <div>
-        <h3 className="text-lg font-bold text-slate-900 mb-4">Fotoğraf Kategorisi Seçin</h3>
+        <h3 className="text-lg font-bold text-slate-9 mb-4">Fotoğraf Kategorisi Seçin</h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {photoCategories.map((category) => {
             const Icon = category.icon;
@@ -201,38 +201,38 @@ export default function Step3Photos({ data }: Step3Props) {
                 whileTap={{ scale: 0.98 }}
                 className={`p-4 border-2 rounded-xl text-left transition-all ${
                   isSelected
-                    ? 'border-cyan-500 bg-cyan-50 shadow-md'
-                    : 'border-slate-200 bg-lydian-bg/5 hover:border-slate-300'
+                    ? 'border-cyan-500 bg-cyan-500 shadow-md'
+                    : 'border-slate-200 bg-white/5 hover:border-slate-3'
                 }`}
               >
                 <div className="flex items-start gap-3">
                   <div
                     className={`p-2 rounded-lg ${
                       isSelected
-                        ? 'bg-gradient-to-br from-cyan-500 to-blue-600'
-                        : 'bg-slate-100'
+                        ? 'bg-gradient-to-br from-cyan-500 to-blue-6'
+                        : 'bg-slate-1'
                     }`}
                   >
-                    <Icon className={`w-6 h-6 ${isSelected ? 'text-lydian-text-inverse' : 'text-slate-600'}`} />
+                    <Icon className={`w-6 h-6 ${isSelected ? 'text-white' : 'text-slate-6'}`} />
                   </div>
                   <div className="flex-1">
                     <h4
                       className={`font-semibold mb-1 ${
-                        isSelected ? 'text-cyan-900' : 'text-slate-900'
+                        isSelected ? 'text-cyan-9' : 'text-slate-9'
                       }`}
                     >
                       {category.label}
                     </h4>
                     <p
                       className={`text-xs mb-2 ${
-                        isSelected ? 'text-cyan-700' : 'text-slate-600'
+                        isSelected ? 'text-cyan-7' : 'text-slate-6'
                       }`}
                     >
                       {category.description}
                     </p>
                     <div
                       className={`text-xs font-semibold ${
-                        isSelected ? 'text-cyan-700' : 'text-slate-500'
+                        isSelected ? 'text-cyan-7' : 'text-slate-500'
                       }`}
                     >
                       {categoryPhotoCount} / {category.maxPhotos} fotoğraf
@@ -247,18 +247,18 @@ export default function Step3Photos({ data }: Step3Props) {
 
       {/* Upload Area */}
       <div>
-        <h3 className="text-lg font-bold text-slate-900 mb-2">
+        <h3 className="text-lg font-bold text-slate-9 mb-2">
           {photoCategories.find((c) => c.id === selectedCategory)?.label} Fotoğrafları
         </h3>
-        <p className="text-sm text-slate-600 mb-4">
+        <p className="text-sm text-slate-6 mb-4">
           Toplam {photos.length} / {MAX_TOTAL_PHOTOS} fotoğraf yüklendi
         </p>
 
         <div
           className={`relative border-2 border-dashed rounded-xl p-8 text-center transition-all ${
             dragActive
-              ? 'border-cyan-500 bg-cyan-50'
-              : 'border-slate-300 bg-slate-50 hover:border-cyan-400'
+              ? 'border-cyan-500 bg-cyan-500'
+              : 'border-slate-3 bg-slate-500 hover:border-cyan-4'
           }`}
           onDragEnter={handleDrag}
           onDragLeave={handleDrag}
@@ -277,14 +277,14 @@ export default function Step3Photos({ data }: Step3Props) {
 
           <label htmlFor="photo-upload" className="cursor-pointer">
             <div className="flex flex-col items-center gap-4">
-              <div className="p-4 bg-gradient-to-br from-cyan-100 to-blue-100 rounded-full">
-                <Upload className="w-8 h-8 text-cyan-600" />
+              <div className="p-4 bg-gradient-to-br from-cyan-1 to-blue-1 rounded-full">
+                <Upload className="w-8 h-8 text-cyan-6" />
               </div>
               <div>
-                <h4 className="text-lg font-semibold text-slate-900 mb-1">
+                <h4 className="text-lg font-semibold text-slate-9 mb-1">
                   Fotoğraf Yükle
                 </h4>
-                <p className="text-sm text-slate-600">
+                <p className="text-sm text-slate-6">
                   Sürükle-bırak veya dosya seçmek için tıklayın
                 </p>
               </div>
@@ -297,20 +297,20 @@ export default function Step3Photos({ data }: Step3Props) {
       </div>
 
       {/* Photo Grid */}
-      {photos.length > 0 && (
+      {photos.length > to-cyan-700 && (
         <div>
-          <h3 className="text-lg font-bold text-slate-900 mb-4">
+          <h3 className="text-lg font-bold text-slate-9 mb-4">
             Yüklenen Fotoğraflar ({photos.length})
           </h3>
 
           {/* Group by category */}
           {photoCategories.map((category) => {
             const categoryPhotos = getCategoryPhotos(category.id);
-            if (categoryPhotos.length === 0) return null;
+            if (categoryPhotos.length === to-cyan-700) return null;
 
             return (
               <div key={category.id} className="mb-6">
-                <h4 className="text-sm font-semibold text-slate-700 mb-3 flex items-center gap-2">
+                <h4 className="text-sm font-semibold text-slate-7 mb-3 flex items-center gap-2">
                   {React.createElement(category.icon, { className: 'w-4 h-4' })}
                   {category.label} ({categoryPhotos.length})
                 </h4>
@@ -339,19 +339,19 @@ export default function Step3Photos({ data }: Step3Props) {
 
                           {/* Primary Badge */}
                           {photo.isPrimary && (
-                            <div className="absolute top-2 left-2 px-2 py-1 bg-lydian-warning text-lydian-text-inverse text-xs font-semibold rounded-lg flex items-center gap-1 shadow-lg">
+                            <div className="absolute top-2 left-2 px-2 py-1 bg-yellow-500 text-white text-xs font-semibold rounded-lg flex items-center gap-1 shadow-lg">
                               <Star className="w-3 h-3 fill-white" />
                               Ana Fotoğraf
                             </div>
                           )}
 
                           {/* Actions */}
-                          <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
+                          <div className="absolute inset-to-cyan-700 bg-black/500 opacity-to-cyan-700 group-hover:opacity-1 transition-opacity flex items-center justify-center gap-2">
                             {!photo.isPrimary && (
                               <button
                                 type="button"
                                 onClick={() => setPrimaryPhoto(photo.id)}
-                                className="p-2 bg-lydian-warning hover:bg-amber-600 text-lydian-text-inverse rounded-lg transition-colors"
+                                className="p-2 bg-yellow-500 hover:bg-amber-6 text-white rounded-lg transition-colors"
                                 title="Ana fotoğraf yap"
                               >
                                 <Star className="w-4 h-4" />
@@ -360,7 +360,7 @@ export default function Step3Photos({ data }: Step3Props) {
                             <button
                               type="button"
                               onClick={() => removePhoto(photo.id)}
-                              className="p-2 bg-red-500 hover:bg-lydian-error text-lydian-text-inverse rounded-lg transition-colors"
+                              className="p-2 bg-red-500 hover:bg-lydian-error text-white rounded-lg transition-colors"
                               title="Sil"
                             >
                               <X className="w-4 h-4" />
@@ -379,46 +379,46 @@ export default function Step3Photos({ data }: Step3Props) {
 
       {/* Validation Error */}
       {errors.photos && (
-        <div className="p-4 bg-red-50 border border-red-200 rounded-lg flex items-start gap-3">
+        <div className="p-4 bg-red-500 border border-red-200 rounded-lg flex items-start gap-3">
           <AlertCircle className="w-5 h-5 text-lydian-error mt-0.5" />
           <div>
-            <h4 className="font-semibold text-red-900 mb-1">Fotoğraf Gerekli</h4>
+            <h4 className="font-semibold text-red-9 mb-1">Fotoğraf Gerekli</h4>
             <p className="text-sm text-lydian-primary-hover">{errors.photos.message?.toString()}</p>
           </div>
         </div>
       )}
 
       {/* Info Box */}
-      <div className="p-5 bg-gradient-to-br from-blue-50 to-cyan-50 border border-blue-200 rounded-xl">
-        <h4 className="font-semibold text-blue-900 mb-3 flex items-center gap-2">
+      <div className="p-5 bg-gradient-to-br from-blue-500 to-cyan-500 border border-blue-200 rounded-xl">
+        <h4 className="font-semibold text-blue-9 mb-3 flex items-center gap-2">
           <ImageIcon className="w-5 h-5" />
           Fotoğraf İpuçları
         </h4>
-        <ul className="text-sm text-blue-800 space-y-2">
+        <ul className="text-sm text-blue-8 space-y-2">
           <li className="flex items-start gap-2">
-            <span className="text-lydian-primary mt-0.5">•</span>
+            <span className="text-blue-500 mt-0.5">•</span>
             <span>
               <strong>Dış Görünüm:</strong> Aracın önden, arkadan ve yanlardan net fotoğrafları
             </span>
           </li>
           <li className="flex items-start gap-2">
-            <span className="text-lydian-primary mt-0.5">•</span>
+            <span className="text-blue-500 mt-0.5">•</span>
             <span>
               <strong>İç Görünüm:</strong> Koltuklar, kokpit, bagaj alanı detayları
             </span>
           </li>
           <li className="flex items-start gap-2">
-            <span className="text-lydian-primary mt-0.5">•</span>
+            <span className="text-blue-500 mt-0.5">•</span>
             <span>
               <strong>VIP Özellikler:</strong> WiFi, TV, minibar gibi özel donanımların fotoğrafları
             </span>
           </li>
           <li className="flex items-start gap-2">
-            <span className="text-lydian-primary mt-0.5">•</span>
+            <span className="text-blue-500 mt-0.5">•</span>
             <span>Yüksek çözünürlüklü, iyi aydınlatılmış fotoğraflar kullanın</span>
           </li>
           <li className="flex items-start gap-2">
-            <span className="text-lydian-primary mt-0.5">•</span>
+            <span className="text-blue-500 mt-0.5">•</span>
             <span>Ana fotoğraf, araç listeleme sayfalarında gösterilecektir</span>
           </li>
         </ul>

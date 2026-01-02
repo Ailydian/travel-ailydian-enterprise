@@ -106,7 +106,7 @@ export const ImmersiveHero: React.FC<ImmersiveHeroProps> = ({
         <div className="max-w-7xl w-full mx-auto text-center">
           {/* Hero Title with Glow Effect */}
           <motion.h1
-            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-lydian-text-inverse mb-6 tracking-tight"
+            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-white mb-6 tracking-tight"
             style={{
               letterSpacing: '0.03em',
               lineHeight: 1.1
@@ -120,7 +120,7 @@ export const ImmersiveHero: React.FC<ImmersiveHeroProps> = ({
           {/* Subtitle */}
           {subtitle &&
           <motion.p
-            className="text-xl sm:text-2xl md:text-3xl text-lydian-text-inverse/90 mb-12 max-w-3xl mx-auto font-light"
+            className="text-xl sm:text-2xl md:text-3xl text-white/90 mb-12 max-w-3xl mx-auto font-light"
             style={{
               letterSpacing: '0.02em',
               textShadow: '0 2px 20px rgba(0, 0, 0, 0.3)'
@@ -140,7 +140,7 @@ export const ImmersiveHero: React.FC<ImmersiveHeroProps> = ({
             {...immersiveAnimations.searchBox}>
 
               <div
-              className="backdrop-blur-xl bg-lydian-glass-dark-medium rounded-3xl p-6 sm:p-8 border border-lydian-border-light shadow-2xl"
+              className="backdrop-blur-xl bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-6 sm:p-8 border border-white/20 shadow-2xl"
               style={{
                 boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3), 0 0 60px rgba(86, 204, 242, 0.2)'
               }}>
@@ -162,12 +162,12 @@ export const ImmersiveHero: React.FC<ImmersiveHeroProps> = ({
               animate={{ y: [0, 10, 0] }}
               transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}>
 
-              <span className="text-lydian-text-inverse/70 text-sm mb-2 group-hover:text-lydian-text-inverse/90 transition-colors">
+              <span className="text-white/70 text-sm mb-2 group-hover:text-white/90 transition-colors">
                 Scroll to explore
               </span>
-              <div className="w-8 h-12 border-2 border-lydian-border-light rounded-full flex items-start justify-center p-2 group-hover:border-lydian-border-light/50 transition-colors">
+              <div className="w-8 h-12 border-2 border-white/20 rounded-full flex items-start justify-center p-2 group-hover:border-white/20/50 transition-colors">
                 <motion.div
-                  className="w-1.5 h-1.5 bg-lydian-bg/70 rounded-full group-hover:bg-lydian-bg/90"
+                  className="w-1.5 h-1.5 bg-lydian-bg/70 rounded-full group-hover:bg-white/10"
                   animate={{ y: [0, 16, 0] }}
                   transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }} />
 

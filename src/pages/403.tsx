@@ -69,7 +69,7 @@ const Custom403Page: React.FC = () => {
                   <div className="w-10 h-10 rounded-xl flex items-center justify-center" style={{
                     background: 'linear-gradient(135deg, var(--ac-1), var(--ac-2))'
                   }}>
-                    <Globe className="w-6 h-6 text-lydian-text-inverse" />
+                    <Globe className="w-6 h-6 text-white" />
                   </div>
                   <span className="text-2xl font-bold neon-text-strong" style={{
                     color: 'var(--tx-1)',

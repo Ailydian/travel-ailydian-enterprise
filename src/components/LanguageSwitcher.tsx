@@ -118,11 +118,11 @@ export const LanguageSwitcher: React.FC = () => {
         as={motion.button}
         whileHover={{ scale: 1.05, y: -2 }}
         whileTap={{ scale: 0.95 }}
-        className="flex items-center gap-2 px-4 py-2 bg-lydian-glass-dark-medium hover:bg-lydian-glass-dark-heavy backdrop-blur-md rounded-lg transition-all font-bold text-sm border border-lydian-border-light shadow-lg hover:shadow-white/20 text-lydian-text-inverse">
+        className="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-xl border border-white/20 hover:bg-white/10 backdrop-blur-xl border border-white/20 backdrop-blur-md rounded-lg transition-all font-bold text-sm border border-white/20 shadow-lg hover:shadow-white/20 text-white">
 
-        <Globe className="w-4 h-4 text-lydian-text-inverse" />
-        <span className="text-lydian-text-inverse font-bold text-2xl">{currentLanguage.flag}</span>
-        <span className="text-lydian-text-inverse font-bold hidden sm:inline">{currentLanguage.nativeName}</span>
+        <Globe className="w-4 h-4 text-white" />
+        <span className="text-white font-bold text-2xl">{currentLanguage.flag}</span>
+        <span className="text-white font-bold hidden sm:inline">{currentLanguage.nativeName}</span>
       </Menu.Button>
 
       <Transition
@@ -134,9 +134,9 @@ export const LanguageSwitcher: React.FC = () => {
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95">
 
-        <Menu.Items className="absolute right-0 mt-2 w-64 origin-top-right divide-y divide-gray-100 rounded-xl bg-lydian-glass-dark shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none z-50 overflow-hidden">
-          <div className="bg-gradient-to-r from-lydian-primary to-lydian-secondary px-4 py-3">
-            <p className="text-sm font-bold text-lydian-text-inverse">Select Language</p>
+        <Menu.Items className="absolute right-0 mt-2 w-64 origin-top-right divide-y divide-gray-100 rounded-xl bg-gradient-to-br from-slate-900 via-black to-slate-800 shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none z-50 overflow-hidden">
+          <div className="bg-gradient-to-r from-blue-600 to-purple-700 px-4 py-3">
+            <p className="text-sm font-bold text-white">Select Language</p>
           </div>
           
           <div className="p-1 max-h-96 overflow-y-auto">
@@ -150,8 +150,8 @@ export const LanguageSwitcher: React.FC = () => {
                     onClick={() => handleLanguageChange(language.code)}
                     className={
                     'group flex w-full items-center justify-between rounded-lg px-3 py-2.5 text-sm transition-all ' + (
-                    active ? 'bg-lydian-glass-dark-medium' : '') + ' ' + (
-                    isActive ? 'bg-gradient-to-r from-lydian-primary/20 to-lydian-secondary/20 text-lydian-primary font-bold border border-lydian-primary/30' : 'text-white')
+                    active ? 'bg-white/10 backdrop-blur-xl border border-white/20' : '') + ' ' + (
+                    isActive ? 'bg-gradient-to-r from-blue-600/20 to-purple-700/20 text-blue-500 font-bold border border-blue-500/30' : 'text-white')
                     }>
 
                       <div className="flex items-center gap-3">
@@ -160,7 +160,7 @@ export const LanguageSwitcher: React.FC = () => {
                           <p className={'font-medium ' + (isActive ? 'text-lydian-primary' : 'text-white')}>
                             {language.nativeName}
                           </p>
-                          <p className="text-xs text-lydian-text-muted">
+                          <p className="text-xs text-gray-300">
                             {language.name} · {language.currency}
                           </p>
                         </div>
@@ -170,9 +170,9 @@ export const LanguageSwitcher: React.FC = () => {
                     <motion.div
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
-                      className="flex items-center justify-center w-6 h-6 bg-lydian-primary rounded-full">
+                      className="flex items-center justify-center w-6 h-6 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full">
 
-                          <Check className="w-4 h-4 text-lydian-text-inverse" />
+                          <Check className="w-4 h-4 text-white" />
                         </motion.div>
                     }
                       
@@ -188,8 +188,8 @@ export const LanguageSwitcher: React.FC = () => {
             })}
           </div>
           
-          <div className="p-3 bg-lydian-glass-dark">
-            <p className="text-xs text-lydian-text-muted text-center">
+          <div className="p-3 bg-gradient-to-br from-slate-900 via-black to-slate-800">
+            <p className="text-xs text-gray-300 text-center">
               Language preferences are saved automatically
             </p>
           </div>

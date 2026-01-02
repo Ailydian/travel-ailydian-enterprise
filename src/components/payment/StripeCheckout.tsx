@@ -169,12 +169,12 @@ function PaymentForm({
       <button
         type="submit"
         disabled={!stripe || loading}
-        className="w-full bg-lydian-primary hover:bg-lydian-primary-hover disabled:bg-gray-400 disabled:cursor-not-allowed text-lydian-text-inverse font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
+        className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:bg-lydian-primary-hover disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
       >
         {loading ? (
           <span className="flex items-center justify-center">
             <svg
-              className="animate-spin -ml-1 mr-3 h-5 w-5 text-lydian-text-inverse"
+              className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
@@ -200,7 +200,7 @@ function PaymentForm({
         )}
       </button>
 
-      <p className="text-xs text-lydian-text-muted text-center">
+      <p className="text-xs text-gray-300 text-center">
         Your payment is secured by Stripe. We never store your card details.
       </p>
     </form>

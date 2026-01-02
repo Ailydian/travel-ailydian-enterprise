@@ -27,7 +27,7 @@ const CryptoPayments: React.FC = () => {
 
       <SimplifiedHeader />
 
-      <main className="relative min-h-screen bg-lydian-glass-dark">
+      <main className="relative min-h-screen bg-gray-900">
         {/* Demo Badge */}
         <div className="absolute top-6 right-6 z-50">
           <DemoBadge
@@ -59,15 +59,15 @@ const CryptoPayments: React.FC = () => {
               transition={{ duration: 0.8 }}>
 
               <div className="flex items-center justify-center gap-3 mb-6">
-                <div className="p-3 bg-lydian-glass-dark-medium backdrop-blur-sm rounded-2xl">
-                  <Coins className="w-8 h-8 text-lydian-text-inverse" />
+                <div className="p-3 bg-white/10 backdrop-blur-sm rounded-2xl">
+                  <Coins className="w-8 h-8 text-white" />
                 </div>
-                <h1 className="text-4xl md:text-6xl font-black text-lydian-text-inverse">
+                <h1 className="text-4xl md:text-6xl font-black text-white">
                   Kripto Ödemeler
                 </h1>
               </div>
               <p className="text-xl text-orange-100 mb-8 max-w-3xl mx-auto">
-                Bitcoin, Ethereum, USDT ve 50+ kripto para ile güvenli ödeme yapın. 
+                Bitcoin, Ethereum, USDT ve 50+ kripto para ile güvenli ödeme yapın.
                 Blockchain teknolojisi ile şeffaf, hızlı ve güvenli rezervasyonlar.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
@@ -77,9 +77,9 @@ const CryptoPayments: React.FC = () => {
                 { icon: Globe, text: 'Küresel Erişim' },
                 { icon: TrendingUp, text: 'Düşük Komisyon' }].
                 map((stat, index) =>
-                <div key={index} className="flex items-center gap-2 bg-lydian-glass-dark-medium backdrop-blur-sm rounded-full px-4 py-2">
+                <div key={index} className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
                     <stat.icon className="w-5 h-5 text-yellow-200" />
-                    <span className="text-lydian-text-inverse font-medium">{stat.text}</span>
+                    <span className="text-white font-medium">{stat.text}</span>
                   </div>
                 )}
               </div>
@@ -88,19 +88,19 @@ const CryptoPayments: React.FC = () => {
         </section>
 
         {/* Supported Cryptocurrencies */}
-        <section className="py-16 bg-lydian-glass-dark">
+        <section className="py-16 bg-gray-800">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-lydian-text-inverse mb-4">Desteklenen Kripto Paralar</h2>
-              <p className="text-lydian-text-dim">En popüler kripto paralarla ödeme yapabilirsiniz</p>
+              <h2 className="text-3xl font-bold text-white mb-4">Desteklenen Kripto Paralar</h2>
+              <p className="text-gray-300">En popüler kripto paralarla ödeme yapabilirsiniz</p>
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
               {[
               { name: 'Bitcoin', symbol: 'BTC', color: 'bg-orange-100 text-orange-600' },
-              { name: 'Ethereum', symbol: 'ETH', color: 'bg-blue-100 text-lydian-primary' },
-              { name: 'Tether', symbol: 'USDT', color: 'bg-green-100 text-lydian-success' },
-              { name: 'Binance Coin', symbol: 'BNB', color: 'bg-yellow-100 text-lydian-warning' },
+              { name: 'Ethereum', symbol: 'ETH', color: 'bg-blue-100 text-blue-600' },
+              { name: 'Tether', symbol: 'USDT', color: 'bg-green-100 text-green-600' },
+              { name: 'Binance Coin', symbol: 'BNB', color: 'bg-yellow-100 text-yellow-600' },
               { name: 'Cardano', symbol: 'ADA', color: 'bg-indigo-100 text-indigo-600' },
               { name: 'Solana', symbol: 'SOL', color: 'bg-purple-100 text-purple-600' }].
               map((crypto, index) =>
@@ -109,13 +109,13 @@ const CryptoPayments: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className="text-center p-6 border border-lydian-border rounded-2xl hover:shadow-lg transition-shadow">
+                className="text-center p-6 border border-white/20 rounded-2xl hover:shadow-lg transition-shadow bg-gray-700">
 
                   <div className={`w-16 h-16 ${crypto.color} rounded-full flex items-center justify-center mx-auto mb-4`}>
                     <span className="font-bold text-lg">{crypto.symbol}</span>
                   </div>
-                  <h3 className="font-bold text-sm">{crypto.name}</h3>
-                  <p className="text-xs text-lydian-text-muted">{crypto.symbol}</p>
+                  <h3 className="font-bold text-sm text-white">{crypto.name}</h3>
+                  <p className="text-xs text-gray-400">{crypto.symbol}</p>
                 </motion.div>
               )}
             </div>
@@ -123,11 +123,11 @@ const CryptoPayments: React.FC = () => {
         </section>
 
         {/* How it Works */}
-        <section className="py-16 bg-lydian-glass-dark">
+        <section className="py-16 bg-gray-900">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-lydian-text-inverse mb-4">Nasıl Çalışır?</h2>
-              <p className="text-lydian-text-dim">3 basit adımda kripto ile ödeme yapın</p>
+              <h2 className="text-3xl font-bold text-white mb-4">Nasıl Çalışır?</h2>
+              <p className="text-gray-300">3 basit adımda kripto ile ödeme yapın</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -137,14 +137,14 @@ const CryptoPayments: React.FC = () => {
                 title: 'Rezervasyon Seçin',
                 description: 'İstediğiniz tur, otel veya aktiviteyi sepete ekleyin.',
                 icon: CreditCard,
-                color: 'bg-blue-100 text-lydian-primary'
+                color: 'bg-blue-100 text-blue-600'
               },
               {
                 step: '2',
                 title: 'Kripto Para Seçin',
                 description: 'Ödeme sayfasında tercih ettiğiniz kripto parayı seçin.',
                 icon: Wallet,
-                color: 'bg-green-100 text-lydian-success'
+                color: 'bg-green-100 text-green-600'
               },
               {
                 step: '3',
@@ -165,12 +165,12 @@ const CryptoPayments: React.FC = () => {
                     <div className={`w-20 h-20 ${step.color} rounded-full flex items-center justify-center mx-auto mb-4`}>
                       <step.icon className="w-8 h-8" />
                     </div>
-                    <div className="absolute -top-2 -right-2 w-8 h-8 bg-gray-900 text-lydian-text-inverse rounded-full flex items-center justify-center text-sm font-bold">
+                    <div className="absolute -top-2 -right-2 w-8 h-8 bg-gray-900 text-white rounded-full flex items-center justify-center text-sm font-bold">
                       {step.step}
                     </div>
                   </div>
-                  <h3 className="font-bold text-xl mb-4">{step.title}</h3>
-                  <p className="text-lydian-text-dim">{step.description}</p>
+                  <h3 className="font-bold text-xl mb-4 text-white">{step.title}</h3>
+                  <p className="text-gray-300">{step.description}</p>
                 </motion.div>
               )}
             </div>
@@ -178,11 +178,11 @@ const CryptoPayments: React.FC = () => {
         </section>
 
         {/* Benefits */}
-        <section className="py-16 bg-lydian-glass-dark">
+        <section className="py-16 bg-gray-800">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-lydian-text-inverse mb-4">Kripto Ödeme Avantajları</h2>
-              <p className="text-lydian-text-dim">Neden kripto para ile ödeme yapmayı tercih etmelisiniz?</p>
+              <h2 className="text-3xl font-bold text-white mb-4">Kripto Ödeme Avantajları</h2>
+              <p className="text-gray-300">Neden kripto para ile ödeme yapmayı tercih etmelisiniz?</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -218,8 +218,8 @@ const CryptoPayments: React.FC = () => {
                   <div className="w-16 h-16 bg-gradient-to-br from-orange-100 to-yellow-100 text-orange-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
                     <benefit.icon className="w-8 h-8" />
                   </div>
-                  <h3 className="font-bold text-lg mb-4">{benefit.title}</h3>
-                  <p className="text-lydian-text-dim">{benefit.description}</p>
+                  <h3 className="font-bold text-lg mb-4 text-white">{benefit.title}</h3>
+                  <p className="text-gray-300">{benefit.description}</p>
                 </motion.div>
               )}
             </div>
@@ -234,7 +234,7 @@ const CryptoPayments: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}>
 
-              <h2 className="text-3xl font-bold text-lydian-text-inverse mb-4">
+              <h2 className="text-3xl font-bold text-white mb-4">
                 Kripto ile İlk Rezervasyonunuzu Yapın
               </h2>
               <p className="text-orange-100 mb-8 max-w-2xl mx-auto">
@@ -243,7 +243,7 @@ const CryptoPayments: React.FC = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-4 bg-lydian-bg-hover text-orange-600 rounded-xl font-bold text-lg hover:bg-lydian-glass-dark transition-colors inline-flex items-center gap-2">
+                className="px-8 py-4 bg-white text-orange-600 rounded-xl font-bold text-lg hover:bg-gray-100 transition-colors inline-flex items-center gap-2">
 
                 Şimdi Rezervasyon Yap
                 <ArrowRight className="w-5 h-5" />

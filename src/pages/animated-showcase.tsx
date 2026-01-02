@@ -29,7 +29,7 @@ const AnimatedShowcase: React.FC = () => {
   {
     id: 1,
     content:
-    <div className="bg-glass-dark rounded-2xl overflow-hidden border border-lydian-primary/20 h-full">
+    <div className="bg-glass-dark rounded-2xl overflow-hidden border border-blue-500/20 h-full">
           <img
         src="https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?w=400&h=300&q=90"
         alt="Istanbul"
@@ -37,12 +37,12 @@ const AnimatedShowcase: React.FC = () => {
 
           <div className="p-6">
             <h3 className="text-xl font-bold text-lydian-text mb-2">Istanbul</h3>
-            <p className="text-lydian-text-muted mb-4">
+            <p className="text-gray-300 mb-4">
               Explore the magical city where East meets West
             </p>
             <div className="flex items-center justify-between">
-              <span className="text-lydian-primary font-bold text-lg">From $299</span>
-              <button className="bg-lydian-primary hover:bg-lydian-dark text-lydian-text-inverse px-4 py-2 rounded-lg transition-colors">
+              <span className="text-blue-500 font-bold text-lg">From $299</span>
+              <button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:bg-lydian-dark text-white px-4 py-2 rounded-lg transition-colors">
                 Book Now
               </button>
             </div>
@@ -53,7 +53,7 @@ const AnimatedShowcase: React.FC = () => {
   {
     id: 2,
     content:
-    <div className="bg-glass-dark rounded-2xl overflow-hidden border border-lydian-primary/20 h-full">
+    <div className="bg-glass-dark rounded-2xl overflow-hidden border border-blue-500/20 h-full">
           <img
         src="https://images.unsplash.com/photo-1548013146-72479768bada?w=400&h=300&q=90"
         alt="Cappadocia"
@@ -61,12 +61,12 @@ const AnimatedShowcase: React.FC = () => {
 
           <div className="p-6">
             <h3 className="text-xl font-bold text-lydian-text mb-2">Cappadocia</h3>
-            <p className="text-lydian-text-muted mb-4">
+            <p className="text-gray-300 mb-4">
               Hot air balloon adventures and fairy chimneys
             </p>
             <div className="flex items-center justify-between">
-              <span className="text-lydian-primary font-bold text-lg">From $399</span>
-              <button className="bg-lydian-primary hover:bg-lydian-dark text-lydian-text-inverse px-4 py-2 rounded-lg transition-colors">
+              <span className="text-blue-500 font-bold text-lg">From $399</span>
+              <button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:bg-lydian-dark text-white px-4 py-2 rounded-lg transition-colors">
                 Book Now
               </button>
             </div>
@@ -77,7 +77,7 @@ const AnimatedShowcase: React.FC = () => {
   {
     id: 3,
     content:
-    <div className="bg-glass-dark rounded-2xl overflow-hidden border border-lydian-primary/20 h-full">
+    <div className="bg-glass-dark rounded-2xl overflow-hidden border border-blue-500/20 h-full">
           <img
         src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&q=90"
         alt="Antalya"
@@ -85,12 +85,12 @@ const AnimatedShowcase: React.FC = () => {
 
           <div className="p-6">
             <h3 className="text-xl font-bold text-lydian-text mb-2">Antalya</h3>
-            <p className="text-lydian-text-muted mb-4">
+            <p className="text-gray-300 mb-4">
               Mediterranean paradise with ancient ruins
             </p>
             <div className="flex items-center justify-between">
-              <span className="text-lydian-primary font-bold text-lg">From $249</span>
-              <button className="bg-lydian-primary hover:bg-lydian-dark text-lydian-text-inverse px-4 py-2 rounded-lg transition-colors">
+              <span className="text-blue-500 font-bold text-lg">From $249</span>
+              <button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:bg-lydian-dark text-white px-4 py-2 rounded-lg transition-colors">
                 Book Now
               </button>
             </div>
@@ -101,7 +101,7 @@ const AnimatedShowcase: React.FC = () => {
   {
     id: 4,
     content:
-    <div className="bg-glass-dark rounded-2xl overflow-hidden border border-lydian-primary/20 h-full">
+    <div className="bg-glass-dark rounded-2xl overflow-hidden border border-blue-500/20 h-full">
           <img
         src="https://images.unsplash.com/photo-1609322537228-f710d846310a?w=400&h=300&q=90"
         alt="Pamukkale"
@@ -109,12 +109,12 @@ const AnimatedShowcase: React.FC = () => {
 
           <div className="p-6">
             <h3 className="text-xl font-bold text-lydian-text mb-2">Pamukkale</h3>
-            <p className="text-lydian-text-muted mb-4">
+            <p className="text-gray-300 mb-4">
               Cotton castle terraces and thermal pools
             </p>
             <div className="flex items-center justify-between">
-              <span className="text-lydian-primary font-bold text-lg">From $199</span>
-              <button className="bg-lydian-primary hover:bg-lydian-dark text-lydian-text-inverse px-4 py-2 rounded-lg transition-colors">
+              <span className="text-blue-500 font-bold text-lg">From $199</span>
+              <button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:bg-lydian-dark text-white px-4 py-2 rounded-lg transition-colors">
                 Book Now
               </button>
             </div>
@@ -195,7 +195,7 @@ const AnimatedShowcase: React.FC = () => {
             <h1 className="text-5xl md:text-6xl font-bold text-lydian-text mb-4 text-neon">
               Animated Components Showcase
             </h1>
-            <p className="text-xl text-lydian-text-muted max-w-3xl mx-auto">
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               Beautiful, performant, and accessible animated SVG components built with Framer Motion
             </p>
           </motion.div>
@@ -207,21 +207,21 @@ const AnimatedShowcase: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {/* Animated Plane */}
               <motion.div
-                className="bg-glass-dark rounded-2xl p-8 border border-lydian-primary/20 flex flex-col items-center"
+                className="bg-glass-dark rounded-2xl p-8 border border-blue-500/20 flex flex-col items-center"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}>
 
                 <h3 className="text-xl font-semibold text-lydian-text mb-6">Animated Plane</h3>
                 <AnimatedPlane size={120} />
-                <p className="text-lydian-text-muted mt-4 text-center">
+                <p className="text-gray-300 mt-4 text-center">
                   Perfect for flight bookings and travel sections
                 </p>
               </motion.div>
 
               {/* Animated Globe */}
               <motion.div
-                className="bg-glass-dark rounded-2xl p-8 border border-lydian-primary/20 flex flex-col items-center"
+                className="bg-glass-dark rounded-2xl p-8 border border-blue-500/20 flex flex-col items-center"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -229,14 +229,14 @@ const AnimatedShowcase: React.FC = () => {
 
                 <h3 className="text-xl font-semibold text-lydian-text mb-6">Rotating Globe</h3>
                 <AnimatedGlobe size={120} />
-                <p className="text-lydian-text-muted mt-4 text-center">
+                <p className="text-gray-300 mt-4 text-center">
                   Ideal for international destinations
                 </p>
               </motion.div>
 
               {/* Animated Price Chart */}
               <motion.div
-                className="bg-glass-dark rounded-2xl p-8 border border-lydian-primary/20 flex flex-col items-center"
+                className="bg-glass-dark rounded-2xl p-8 border border-blue-500/20 flex flex-col items-center"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -244,14 +244,14 @@ const AnimatedShowcase: React.FC = () => {
 
                 <h3 className="text-xl font-semibold text-lydian-text mb-6">Price Trends</h3>
                 <AnimatedPriceChart size={120} />
-                <p className="text-lydian-text-muted mt-4 text-center">
+                <p className="text-gray-300 mt-4 text-center">
                   Show price analytics and trends
                 </p>
               </motion.div>
 
               {/* Map Pin */}
               <motion.div
-                className="bg-glass-dark rounded-2xl p-8 border border-lydian-primary/20 flex flex-col items-center"
+                className="bg-glass-dark rounded-2xl p-8 border border-blue-500/20 flex flex-col items-center"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -259,14 +259,14 @@ const AnimatedShowcase: React.FC = () => {
 
                 <h3 className="text-xl font-semibold text-lydian-text mb-6">Map Pin</h3>
                 <MapPinAnimated size={60} />
-                <p className="text-lydian-text-muted mt-4 text-center">
+                <p className="text-gray-300 mt-4 text-center">
                   Location markers with pulse effect
                 </p>
               </motion.div>
 
               {/* Compass */}
               <motion.div
-                className="bg-glass-dark rounded-2xl p-8 border border-lydian-primary/20 flex flex-col items-center"
+                className="bg-glass-dark rounded-2xl p-8 border border-blue-500/20 flex flex-col items-center"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -274,14 +274,14 @@ const AnimatedShowcase: React.FC = () => {
 
                 <h3 className="text-xl font-semibold text-lydian-text mb-6">Compass</h3>
                 <CompassAnimated size={100} />
-                <p className="text-lydian-text-muted mt-4 text-center">
+                <p className="text-gray-300 mt-4 text-center">
                   Navigation and exploration themes
                 </p>
               </motion.div>
 
               {/* Suitcase */}
               <motion.div
-                className="bg-glass-dark rounded-2xl p-8 border border-lydian-primary/20 flex flex-col items-center"
+                className="bg-glass-dark rounded-2xl p-8 border border-blue-500/20 flex flex-col items-center"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -289,7 +289,7 @@ const AnimatedShowcase: React.FC = () => {
 
                 <h3 className="text-xl font-semibold text-lydian-text mb-6">Suitcase</h3>
                 <SuitcaseAnimated size={80} />
-                <p className="text-lydian-text-muted mt-4 text-center">
+                <p className="text-gray-300 mt-4 text-center">
                   Packing and travel preparation
                 </p>
               </motion.div>
@@ -302,20 +302,20 @@ const AnimatedShowcase: React.FC = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <motion.div
-                className="bg-glass-dark rounded-2xl p-8 border border-lydian-primary/20 flex flex-col items-center"
+                className="bg-glass-dark rounded-2xl p-8 border border-blue-500/20 flex flex-col items-center"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}>
 
                 <h3 className="text-xl font-semibold text-lydian-text mb-6">Spinner</h3>
                 <LoadingSpinner size={60} />
-                <p className="text-lydian-text-muted mt-4 text-center">
+                <p className="text-gray-300 mt-4 text-center">
                   Classic loading spinner
                 </p>
               </motion.div>
 
               <motion.div
-                className="bg-glass-dark rounded-2xl p-8 border border-lydian-primary/20 flex flex-col items-center"
+                className="bg-glass-dark rounded-2xl p-8 border border-blue-500/20 flex flex-col items-center"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -323,13 +323,13 @@ const AnimatedShowcase: React.FC = () => {
 
                 <h3 className="text-xl font-semibold text-lydian-text mb-6">Plane Loader</h3>
                 <LoadingPlane size={40} />
-                <p className="text-lydian-text-muted mt-4 text-center">
+                <p className="text-gray-300 mt-4 text-center">
                   Animated plane loading state
                 </p>
               </motion.div>
 
               <motion.div
-                className="bg-glass-dark rounded-2xl p-8 border border-lydian-primary/20 flex flex-col items-center"
+                className="bg-glass-dark rounded-2xl p-8 border border-blue-500/20 flex flex-col items-center"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -337,7 +337,7 @@ const AnimatedShowcase: React.FC = () => {
 
                 <h3 className="text-xl font-semibold text-lydian-text mb-6">Dots</h3>
                 <LoadingDots size={12} />
-                <p className="text-lydian-text-muted mt-4 text-center">
+                <p className="text-gray-300 mt-4 text-center">
                   Bouncing dots loader
                 </p>
               </motion.div>
@@ -350,20 +350,20 @@ const AnimatedShowcase: React.FC = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <motion.div
-                className="bg-glass-dark rounded-2xl p-8 border border-lydian-primary/20 flex flex-col items-center"
+                className="bg-glass-dark rounded-2xl p-8 border border-blue-500/20 flex flex-col items-center"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}>
 
                 <h3 className="text-xl font-semibold text-lydian-text mb-6">Success</h3>
                 <StatusIcon type="success" size={100} />
-                <p className="text-lydian-text-muted mt-4 text-center">
+                <p className="text-gray-300 mt-4 text-center">
                   Booking confirmed
                 </p>
               </motion.div>
 
               <motion.div
-                className="bg-glass-dark rounded-2xl p-8 border border-lydian-primary/20 flex flex-col items-center"
+                className="bg-glass-dark rounded-2xl p-8 border border-blue-500/20 flex flex-col items-center"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -371,13 +371,13 @@ const AnimatedShowcase: React.FC = () => {
 
                 <h3 className="text-xl font-semibold text-lydian-text mb-6">Error</h3>
                 <StatusIcon type="error" size={100} />
-                <p className="text-lydian-text-muted mt-4 text-center">
+                <p className="text-gray-300 mt-4 text-center">
                   Booking failed
                 </p>
               </motion.div>
 
               <motion.div
-                className="bg-glass-dark rounded-2xl p-8 border border-lydian-primary/20 flex flex-col items-center"
+                className="bg-glass-dark rounded-2xl p-8 border border-blue-500/20 flex flex-col items-center"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -385,7 +385,7 @@ const AnimatedShowcase: React.FC = () => {
 
                 <h3 className="text-xl font-semibold text-lydian-text mb-6">Warning</h3>
                 <StatusIcon type="warning" size={100} />
-                <p className="text-lydian-text-muted mt-4 text-center">
+                <p className="text-gray-300 mt-4 text-center">
                   Action required
                 </p>
               </motion.div>
@@ -432,8 +432,8 @@ const AnimatedShowcase: React.FC = () => {
           <section className="mb-20">
             <h2 className="text-3xl font-bold text-lydian-text mb-8">Usage Examples</h2>
 
-            <div className="bg-glass-dark rounded-2xl p-8 border border-lydian-primary/20">
-              <pre className="text-lydian-text-muted overflow-x-auto">
+            <div className="bg-glass-dark rounded-2xl p-8 border border-blue-500/20">
+              <pre className="text-gray-300 overflow-x-auto">
                 <code>{`// Import components
 import {
   AnimatedPlane,

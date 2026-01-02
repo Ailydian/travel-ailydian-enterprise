@@ -33,7 +33,7 @@ export const NeonText: React.FC<NeonTextProps> = ({
   };
   const colorClasses = {
     primary: 'text-lydian-primary',
-    secondary: 'text-lydian-secondary',
+    secondary: 'text-purple-500',
     white: 'text-lydian-text',
   };
   const sizeClasses = {

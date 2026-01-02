@@ -55,7 +55,7 @@ const UnifiedSearch: React.FC = () => {
   {
     icon: Car,
     text: "Antalya araç kiralama + havaalanı karşılama",
-    color: 'text-lydian-success'
+    color: 'text-green-500'
   },
   {
     icon: Plane,
@@ -72,7 +72,7 @@ const UnifiedSearch: React.FC = () => {
   // Categories
   const categories = [
   { id: 'hotels', name: 'Oteller', icon: Hotel, color: 'bg-blue-100 text-lydian-primary' },
-  { id: 'cars', name: 'Araç Kiralama', icon: Car, color: 'bg-green-100 text-lydian-success' },
+  { id: 'cars', name: 'Araç Kiralama', icon: Car, color: 'bg-green-100 text-green-500' },
   { id: 'flights', name: 'Uçuşlar', icon: Plane, color: 'bg-purple-100 text-purple-600' },
   { id: 'tours', name: 'Turlar', icon: MapPin, color: 'bg-orange-100 text-orange-600' }];
 
@@ -142,14 +142,14 @@ const UnifiedSearch: React.FC = () => {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="AI ile akıllı arama: 'İstanbul'da 3 gece otel + Kapadokya turu + araç kiralama'..."
-            className="w-full pl-12 pr-12 py-4 text-lg border-2 border-lydian-border-light/10 rounded-2xl focus:outline-none focus:border-purple-500 transition-all shadow-lg" />
+            className="w-full pl-12 pr-12 py-4 text-lg border-2 border-white/20/10 rounded-2xl focus:outline-none focus:border-purple-500 transition-all shadow-lg" />
 
 
           <div className="absolute inset-y-0 right-0 pr-4 flex items-center">
             {isSearching ?
             <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-purple-600"></div> :
 
-            <Search className="h-6 w-6 text-lydian-text-muted" />
+            <Search className="h-6 w-6 text-gray-300" />
             }
           </div>
         </div>
@@ -167,7 +167,7 @@ const UnifiedSearch: React.FC = () => {
                 className={`flex items-center gap-2 px-4 py-2 rounded-full transition-all ${
                 isSelected ?
                 category.color :
-                'bg-lydian-bg/10 text-lydian-text-dim hover:bg-lydian-bg-surface-raised'}`
+                'bg-lydian-bg/10 text-gray-400 hover:bg-lydian-bg-surface-raised'}`
                 }>
 
                 <Icon className="h-4 w-4" />
@@ -181,7 +181,7 @@ const UnifiedSearch: React.FC = () => {
       {/* Popular Searches */}
       {!showResults &&
       <div className="mt-8">
-          <h3 className="text-sm font-semibold text-lydian-text-muted mb-3">Popüler Aramalar</h3>
+          <h3 className="text-sm font-semibold text-gray-300 mb-3">Popüler Aramalar</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             {popularSearches.map((search, index) => {
             const Icon = search.icon;
@@ -189,11 +189,11 @@ const UnifiedSearch: React.FC = () => {
               <button
                 key={index}
                 onClick={() => setSearchQuery(search.text)}
-                className="flex items-center gap-3 p-4 bg-lydian-glass-dark border border-lydian-border-light/10 rounded-xl hover:border-purple-300 hover:shadow-md transition-all text-left">
+                className="flex items-center gap-3 p-4 bg-gradient-to-br from-slate-900 via-black to-slate-800 border border-white/20/10 rounded-xl hover:border-purple-300 hover:shadow-md transition-all text-left">
 
                   <Icon className={`h-5 w-5 ${search.color}`} />
-                  <span className="text-sm text-lydian-text-muted">{search.text}</span>
-                  <ChevronRight className="h-4 w-4 text-lydian-text-muted ml-auto" />
+                  <span className="text-sm text-gray-300">{search.text}</span>
+                  <ChevronRight className="h-4 w-4 text-gray-300 ml-auto" />
                 </button>);
 
           })}
@@ -212,7 +212,7 @@ const UnifiedSearch: React.FC = () => {
 
             <div className="flex items-center gap-2 mb-4">
               <Sparkles className="h-5 w-5 text-purple-600" />
-              <h3 className="text-lg font-bold text-lydian-text-inverse">AI Önerileri</h3>
+              <h3 className="text-lg font-bold text-white">AI Önerileri</h3>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -231,29 +231,29 @@ const UnifiedSearch: React.FC = () => {
                         {suggestion.type === 'alternative' && '🔄 Alternatif'}
                         {suggestion.type === 'upgrade' && '⭐ Premium Seçenek'}
                       </span>
-                      <h4 className="text-base font-bold text-lydian-text-inverse mt-1">
+                      <h4 className="text-base font-bold text-white mt-1">
                         {suggestion.title}
                       </h4>
                     </div>
                     {suggestion.savings &&
-                <div className="bg-lydian-success text-lydian-text-inverse text-xs font-bold px-2 py-1 rounded-full">
+                <div className="bg-green-600 text-white text-xs font-bold px-2 py-1 rounded-full">
                         -{suggestion.savings}%
                       </div>
                 }
                   </div>
 
-                  <p className="text-sm text-lydian-text-dim mb-3">{suggestion.description}</p>
+                  <p className="text-sm text-gray-400 mb-3">{suggestion.description}</p>
 
                   <div className="space-y-1 mb-4">
                     {suggestion.items.map((item, idx) =>
-                <div key={idx} className="flex items-center gap-2 text-xs text-lydian-text-muted">
+                <div key={idx} className="flex items-center gap-2 text-xs text-gray-300">
                         <div className="w-1.5 h-1.5 bg-purple-400 rounded-full"></div>
                         <span>{item}</span>
                       </div>
                 )}
                   </div>
 
-                  <button className="w-full bg-purple-600 hover:bg-purple-700 text-lydian-text-inverse font-medium py-2 px-4 rounded-lg transition-colors">
+                  <button className="w-full bg-purple-600 hover:bg-purple-700 text-white font-medium py-2 px-4 rounded-lg transition-colors">
                     Detayları Gör
                   </button>
                 </motion.div>
@@ -272,7 +272,7 @@ const UnifiedSearch: React.FC = () => {
           exit={{ opacity: 0 }}
           className="mt-8">
 
-            <h3 className="text-lg font-bold text-lydian-text-inverse mb-4">
+            <h3 className="text-lg font-bold text-white mb-4">
               {results.length} Sonuç Bulundu
             </h3>
 
@@ -284,7 +284,7 @@ const UnifiedSearch: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.05 }}
               onClick={() => router.push(result.url)}
-              className="bg-lydian-glass-dark rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all cursor-pointer group">
+              className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all cursor-pointer group">
 
                   {/* Image */}
                   <div className="relative h-48 overflow-hidden">
@@ -295,7 +295,7 @@ const UnifiedSearch: React.FC = () => {
 
 
                     {/* Category Badge */}
-                    <div className="absolute top-3 left-3 bg-lydian-bg/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-semibold">
+                    <div className="absolute top-3 left-3 bg-white/10 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-semibold">
                       {result.category === 'hotel' && '🏨 Otel'}
                       {result.category === 'car' && '🚗 Araç'}
                       {result.category === 'flight' && '✈️ Uçuş'}
@@ -306,7 +306,7 @@ const UnifiedSearch: React.FC = () => {
 
                     {/* Rating */}
                     {result.rating &&
-                <div className="absolute top-3 right-3 bg-lydian-warning text-yellow-900 px-2 py-1 rounded-lg text-xs font-bold flex items-center gap-1">
+                <div className="absolute top-3 right-3 bg-yellow-500 text-yellow-900 px-2 py-1 rounded-lg text-xs font-bold flex items-center gap-1">
                         ⭐ {result.rating.toFixed(1)}
                       </div>
                 }
@@ -314,18 +314,18 @@ const UnifiedSearch: React.FC = () => {
 
                   {/* Content */}
                   <div className="p-4">
-                    <h4 className="font-bold text-lydian-text-inverse mb-1 line-clamp-1">
+                    <h4 className="font-bold text-white mb-1 line-clamp-1">
                       {result.title}
                     </h4>
 
                     {result.location &&
-                <p className="text-xs text-lydian-text-muted mb-2 flex items-center gap-1">
+                <p className="text-xs text-gray-300 mb-2 flex items-center gap-1">
                         <MapPin className="h-3 w-3" />
                         {result.location}
                       </p>
                 }
 
-                    <p className="text-sm text-lydian-text-dim mb-3 line-clamp-2">
+                    <p className="text-sm text-gray-400 mb-3 line-clamp-2">
                       {result.description}
                     </p>
 
@@ -334,10 +334,10 @@ const UnifiedSearch: React.FC = () => {
                         <span className="text-2xl font-bold text-purple-600">
                           ₺{result.price.toLocaleString()}
                         </span>
-                        <span className="text-xs text-lydian-text-muted ml-1">/ gecelik</span>
+                        <span className="text-xs text-gray-300 ml-1">/ gecelik</span>
                       </div>
 
-                      <button className="bg-purple-600 hover:bg-purple-700 text-lydian-text-inverse font-medium py-2 px-4 rounded-lg transition-colors text-sm">
+                      <button className="bg-purple-600 hover:bg-purple-700 text-white font-medium py-2 px-4 rounded-lg transition-colors text-sm">
                         İncele
                       </button>
                     </div>
@@ -352,13 +352,13 @@ const UnifiedSearch: React.FC = () => {
       {/* No Results */}
       {showResults && !isSearching && results.length === 0 &&
       <div className="mt-12 text-center">
-          <div className="inline-block p-6 bg-lydian-glass-dark-medium rounded-full mb-4">
-            <Search className="h-12 w-12 text-lydian-text-muted" />
+          <div className="inline-block p-6 bg-white/10 backdrop-blur-xl border border-white/20 rounded-full mb-4">
+            <Search className="h-12 w-12 text-gray-300" />
           </div>
-          <h3 className="text-xl font-bold text-lydian-text-inverse mb-2">
+          <h3 className="text-xl font-bold text-white mb-2">
             Sonuç Bulunamadı
           </h3>
-          <p className="text-lydian-text-dim mb-6">
+          <p className="text-gray-400 mb-6">
             Aramanız için sonuç bulunamadı. Farklı kelimeler deneyin.
           </p>
           <button
@@ -367,7 +367,7 @@ const UnifiedSearch: React.FC = () => {
             setShowResults(false);
             setResults([]);
           }}
-          className="bg-purple-600 hover:bg-purple-700 text-lydian-text-inverse font-medium py-3 px-6 rounded-lg transition-colors">
+          className="bg-purple-600 hover:bg-purple-700 text-white font-medium py-3 px-6 rounded-lg transition-colors">
 
             Yeni Arama Yap
           </button>

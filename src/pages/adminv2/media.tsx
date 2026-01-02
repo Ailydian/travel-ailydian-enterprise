@@ -242,7 +242,7 @@ export default function AdminV2MediaLibrary() {
               <motion.h1
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="text-4xl font-black text-lydian-text-inverse bg-clip-text text-transparent bg-gradient-to-r from-lydian-primary via-lydian-accent to-lydian-primary"
+                className="text-4xl font-black text-white bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600"
               >
                 Media Library
               </motion.h1>
@@ -250,7 +250,7 @@ export default function AdminV2MediaLibrary() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.1 }}
-                className="text-lydian-text-muted mt-2"
+                className="text-gray-300 mt-2"
               >
                 Manage your media files, images, documents and videos
               </motion.p>
@@ -263,7 +263,7 @@ export default function AdminV2MediaLibrary() {
             >
               <button
                 onClick={() => setShowFilters(!showFilters)}
-                className="px-4 py-2.5 bg-lydian-glass-light/40 backdrop-blur-xl rounded-xl border border-lydian-border-light/20 flex items-center gap-2 hover:bg-lydian-glass-light/60 hover:border-lydian-primary/30 transition-all"
+                className="px-4 py-2.5 bg-white/10 backdrop-blur-xl backdrop-blur-xl rounded-xl border border-white/20 flex items-center gap-2 hover:bg-white/15 backdrop-blur-xl hover:border-blue-500/30 transition-all"
               >
                 <Filter className="w-4 h-4" />
                 <span className="font-medium">Filters</span>
@@ -271,12 +271,12 @@ export default function AdminV2MediaLibrary() {
 
               <button
                 onClick={() => setViewMode(viewMode === 'grid' ? 'list' : 'grid')}
-                className="p-2.5 bg-lydian-glass-light/40 backdrop-blur-xl rounded-xl border border-lydian-border-light/20 hover:bg-lydian-glass-light/60 hover:border-lydian-primary/30 transition-all"
+                className="p-2.5 bg-white/10 backdrop-blur-xl backdrop-blur-xl rounded-xl border border-white/20 hover:bg-white/15 backdrop-blur-xl hover:border-blue-500/30 transition-all"
               >
-                {viewMode === 'grid' ? <List className="w-5 h-5 text-lydian-text-inverse" /> : <Grid3x3 className="w-5 h-5 text-lydian-text-inverse" />}
+                {viewMode === 'grid' ? <List className="w-5 h-5 text-white" /> : <Grid3x3 className="w-5 h-5 text-white" />}
               </button>
 
-              <label className="px-6 py-3 bg-gradient-to-r from-lydian-primary to-lydian-accent text-lydian-text-inverse rounded-xl font-semibold hover:shadow-lg hover:shadow-lydian-primary/30 transition-all cursor-pointer flex items-center gap-2">
+              <label className="px-6 py-3 bg-gradient-to-r from-blue-600 to-lydian-accent text-white rounded-xl font-semibold hover:shadow-lg hover:shadow-lydian-primary/30 transition-all cursor-pointer flex items-center gap-2">
                 <Upload className="w-5 h-5" />
                 Upload Files
                 <input
@@ -297,7 +297,7 @@ export default function AdminV2MediaLibrary() {
                 { label: 'Total Files', value: stats.total, icon: ImageIcon, color: 'from-blue-500 to-cyan-600' },
                 { label: 'Total Size', value: formatFileSize(stats.totalSize), icon: Upload, color: 'from-purple-500 to-pink-600' },
                 { label: 'Images', value: stats.byCategory.image || 0, icon: ImageIcon, color: 'from-green-500 to-emerald-600' },
-                { label: 'Folders', value: stats.folders.length, icon: FolderOpen, color: 'from-orange-500 to-red-600' },
+                { label: 'Folders', value: stats.folders.length, icon: FolderOpen, color: 'from-orange-500 to-purple-600' },
               ].map((stat, index) => {
                 const Icon = stat.icon;
                 return (
@@ -308,14 +308,14 @@ export default function AdminV2MediaLibrary() {
                     transition={{ delay: index * 0.1 }}
                     className="group relative"
                   >
-                    <div className="relative bg-lydian-glass-light/40 backdrop-blur-xl rounded-2xl p-6 border border-lydian-border-light/20 hover:border-lydian-primary/30 transition-all overflow-hidden">
+                    <div className="relative bg-white/10 backdrop-blur-xl rounded-2xl p-6 border border-white/20 hover:border-blue-500/30 transition-all overflow-hidden">
                       <div className={`absolute inset-0 bg-gradient-to-br ${stat.color} opacity-0 group-hover:opacity-5 transition-opacity`} />
                       <div className={`absolute top-4 right-4 p-3 rounded-xl bg-gradient-to-br ${stat.color} opacity-10`}>
-                        <Icon className="w-6 h-6 text-lydian-text-inverse" />
+                        <Icon className="w-6 h-6 text-white" />
                       </div>
                       <div className="relative">
-                        <p className="text-sm text-lydian-text-muted mb-2">{stat.label}</p>
-                        <p className="text-3xl font-bold text-lydian-text-inverse">{stat.value}</p>
+                        <p className="text-sm text-gray-300 mb-2">{stat.label}</p>
+                        <p className="text-3xl font-bold text-white">{stat.value}</p>
                       </div>
                     </div>
                   </motion.div>
@@ -329,24 +329,24 @@ export default function AdminV2MediaLibrary() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="bg-lydian-glass-light/40 backdrop-blur-xl rounded-2xl p-6 border border-lydian-border-light/20"
+            className="bg-white/10 backdrop-blur-xl rounded-2xl p-6 border border-white/20"
           >
             <div className="flex items-center gap-3">
               <div className="flex-1 relative">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-lydian-text-muted" />
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-300" />
                 <input
                   type="text"
                   placeholder="Search files..."
                   value={filters.search}
                   onChange={(e) => setFilters({ ...filters, search: e.target.value })}
-                  className="w-full pl-10 pr-4 py-3 bg-lydian-glass-dark/30 border border-lydian-border-light/20 rounded-xl text-lydian-text-inverse placeholder-lydian-text-muted focus:outline-none focus:ring-2 focus:ring-lydian-primary/50 focus:border-lydian-primary/50 transition-all"
+                  className="w-full pl-10 pr-4 py-3 bg-white/5 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-blue-500/50 transition-all"
                 />
               </div>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={loadMedia}
-                className="px-4 py-3 bg-gradient-to-r from-lydian-primary to-lydian-accent text-lydian-text-inverse rounded-xl hover:shadow-lg hover:shadow-lydian-primary/30 transition-all"
+                className="px-4 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl hover:shadow-lg hover:shadow-blue-500/30 transition-all"
               >
                 <RefreshCw className="w-5 h-5" />
               </motion.button>
@@ -362,18 +362,18 @@ export default function AdminV2MediaLibrary() {
             onDragOver={(e) => e.preventDefault()}
             className="relative group"
           >
-            <div className="border-2 border-dashed border-lydian-border-light/30 rounded-2xl p-16 text-center bg-lydian-glass-light/20 hover:bg-lydian-glass-light/40 hover:border-lydian-primary/50 transition-all backdrop-blur-xl overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-lydian-primary/5 to-lydian-accent/5 opacity-0 group-hover:opacity-100 transition-opacity" />
+            <div className="border-2 border-dashed border-white/20 rounded-2xl p-16 text-center bg-white/5 hover:bg-white/10 hover:border-blue-500/50 transition-all overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity" />
               <div className="relative">
                 <motion.div
                   whileHover={{ scale: 1.1, rotate: 5 }}
                   transition={{ type: 'spring', stiffness: 300 }}
                 >
-                  <Upload className="w-20 h-20 mx-auto mb-6 text-lydian-text-muted" />
+                  <Upload className="w-20 h-20 mx-auto mb-6 text-gray-300" />
                 </motion.div>
-                <p className="text-xl text-lydian-text-inverse font-bold mb-2">Drag & drop files here</p>
-                <p className="text-lydian-text-muted">or click Upload Files button above</p>
-                <p className="text-xs text-lydian-text-dim mt-4">Supports images, PDFs, and videos up to 10MB</p>
+                <p className="text-xl text-white font-bold mb-2">Drag & drop files here</p>
+                <p className="text-gray-300">or click Upload Files button above</p>
+                <p className="text-xs text-gray-400 mt-4">Supports images, PDFs, and videos up to 10MB</p>
               </div>
             </div>
           </motion.div>
@@ -385,18 +385,18 @@ export default function AdminV2MediaLibrary() {
               animate={{ opacity: 1 }}
               className="flex flex-col items-center justify-center py-20"
             >
-              <Loader2 className="w-12 h-12 animate-spin text-lydian-primary mb-4" />
-              <p className="text-lydian-text-muted">Loading media files...</p>
+              <Loader2 className="w-12 h-12 animate-spin text-blue-400 mb-4" />
+              <p className="text-gray-300">Loading media files...</p>
             </motion.div>
           ) : media.length === 0 ? (
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="text-center py-20 bg-lydian-glass-light/20 rounded-2xl border border-lydian-border-light/20 backdrop-blur-xl"
+              className="text-center py-20 bg-white/5 rounded-2xl border border-white/20"
             >
-              <ImageIcon className="w-20 h-20 mx-auto mb-4 text-lydian-text-muted opacity-50" />
-              <p className="text-lg text-lydian-text-inverse font-semibold mb-2">No media files found</p>
-              <p className="text-sm text-lydian-text-muted">Upload files to get started</p>
+              <ImageIcon className="w-20 h-20 mx-auto mb-4 text-gray-300 opacity-50" />
+              <p className="text-lg text-white font-semibold mb-2">No media files found</p>
+              <p className="text-sm text-gray-300">Upload files to get started</p>
             </motion.div>
           ) : (
             <div className={viewMode === 'grid' ? 'grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4' : 'space-y-3'}>
@@ -408,14 +408,14 @@ export default function AdminV2MediaLibrary() {
                   transition={{ delay: index * 0.05 }}
                   className="group relative"
                 >
-                  <div className="bg-lydian-glass-light/40 backdrop-blur-xl rounded-2xl p-3 border border-lydian-border-light/20 hover:border-lydian-primary/50 hover:shadow-lg hover:shadow-lydian-primary/10 transition-all overflow-hidden">
+                  <div className="bg-white/10 backdrop-blur-xl rounded-2xl p-3 border border-white/20 hover:border-blue-500/50 hover:shadow-lg hover:shadow-purple-500/10 transition-all overflow-hidden">
                     {viewMode === 'grid' ? (
                       <>
-                        <div className="aspect-square bg-lydian-glass-dark/30 rounded-xl mb-3 overflow-hidden relative group-hover:scale-105 transition-transform">
+                        <div className="aspect-square bg-white/5 rounded-xl mb-3 overflow-hidden relative group-hover:scale-105 transition-transform">
                           {item.category === 'image' ? (
                             <img src={item.url} alt={item.originalFilename} className="w-full h-full object-cover" />
                           ) : (
-                            <div className="flex items-center justify-center h-full text-lydian-primary">
+                            <div className="flex items-center justify-center h-full text-blue-400">
                               {getCategoryIcon(item.category)}
                             </div>
                           )}
@@ -424,27 +424,27 @@ export default function AdminV2MediaLibrary() {
                               <motion.button
                                 whileHover={{ scale: 1.1 }}
                                 whileTap={{ scale: 0.9 }}
-                                className="p-2 bg-lydian-glass-light/80 backdrop-blur-xl rounded-lg hover:bg-lydian-primary transition-all"
+                                className="p-2 bg-white/10 backdrop-blur-xl rounded-lg hover:bg-gradient-to-r from-blue-600 to-purple-600 transition-all"
                               >
                                 <Eye className="w-4 h-4" />
                               </motion.button>
                               <motion.button
                                 whileHover={{ scale: 1.1 }}
                                 whileTap={{ scale: 0.9 }}
-                                className="p-2 bg-lydian-glass-light/80 backdrop-blur-xl rounded-lg hover:bg-lydian-accent transition-all"
+                                className="p-2 bg-white/10 backdrop-blur-xl rounded-lg hover:bg-blue-500/20 transition-all"
                               >
                                 <Copy className="w-4 h-4" />
                               </motion.button>
                             </div>
                           </div>
                         </div>
-                        <p className="text-sm text-lydian-text-inverse truncate font-medium mb-1">{item.originalFilename}</p>
-                        <p className="text-xs text-lydian-text-muted mb-3">{formatFileSize(item.size)}</p>
+                        <p className="text-sm text-white truncate font-medium mb-1">{item.originalFilename}</p>
+                        <p className="text-xs text-gray-300 mb-3">{formatFileSize(item.size)}</p>
                         <motion.button
                           whileHover={{ scale: 1.02 }}
                           whileTap={{ scale: 0.98 }}
                           onClick={() => handleDelete(item.id)}
-                          className="w-full px-3 py-2 text-xs bg-red-500/10 text-red-400 rounded-lg hover:bg-red-500/20 border border-red-500/20 hover:border-red-500/40 transition-all flex items-center justify-center gap-2 font-medium"
+                          className="w-full px-3 py-2 text-xs bg-purple-500/10 text-purple-300 rounded-lg hover:bg-purple-500/20 border border-purple-500/20 hover:border-purple-500/40 transition-all flex items-center justify-center gap-2 font-medium"
                         >
                           <Trash2 className="w-3 h-3" />
                           Delete
@@ -452,18 +452,18 @@ export default function AdminV2MediaLibrary() {
                       </>
                     ) : (
                       <div className="flex items-center gap-4 p-3">
-                        <div className="w-16 h-16 bg-lydian-glass-dark/30 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <div className="w-16 h-16 bg-white/5 rounded-xl flex items-center justify-center flex-shrink-0">
                           {getCategoryIcon(item.category)}
                         </div>
                         <div className="flex-1 min-w-0">
-                          <p className="text-sm text-lydian-text-inverse font-semibold truncate">{item.originalFilename}</p>
-                          <p className="text-xs text-lydian-text-muted mt-1">{formatFileSize(item.size)}</p>
+                          <p className="text-sm text-white font-semibold truncate">{item.originalFilename}</p>
+                          <p className="text-xs text-gray-300 mt-1">{formatFileSize(item.size)}</p>
                         </div>
                         <div className="flex items-center gap-2">
                           <motion.button
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className="p-2 bg-lydian-glass-light/40 rounded-lg hover:bg-lydian-primary/20 transition-all"
+                            className="p-2 bg-white/10 rounded-lg hover:bg-gradient-to-r from-blue-600 to-purple-600/20 transition-all"
                           >
                             <Eye className="w-4 h-4" />
                           </motion.button>
@@ -471,7 +471,7 @@ export default function AdminV2MediaLibrary() {
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                             onClick={() => handleDelete(item.id)}
-                            className="px-4 py-2 text-xs bg-red-500/10 text-red-400 rounded-lg hover:bg-red-500/20 border border-red-500/20 transition-all font-medium"
+                            className="px-4 py-2 text-xs bg-purple-500/10 text-purple-300 rounded-lg hover:bg-purple-500/20 border border-purple-500/20 transition-all font-medium"
                           >
                             Delete
                           </motion.button>
@@ -499,8 +499,8 @@ export default function AdminV2MediaLibrary() {
                   onClick={() => setPage(p)}
                   className={`px-4 py-2 rounded-xl font-semibold transition-all ${
                     p === page
-                      ? 'bg-gradient-to-r from-lydian-primary to-lydian-accent text-lydian-text-inverse shadow-lg shadow-lydian-primary/30'
-                      : 'bg-lydian-glass-light/40 text-lydian-text-muted hover:bg-lydian-glass-light/60 border border-lydian-border-light/20'
+                      ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg shadow-blue-500/30'
+                      : 'bg-white/10 text-gray-300 hover:bg-white/15 border border-white/20'
                   }`}
                 >
                   {p}

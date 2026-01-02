@@ -42,8 +42,8 @@ const TabButton: React.FC<TabButtonProps> = ({ label, icon, isActive, onClick })
       onClick={onClick}
       className={`flex items-center gap-3 px-4 py-3 rounded-lg font-medium transition-all ${
         isActive
-          ? 'bg-lydian-info-lighter text-lydian-primary-hover border-2 border-blue-200'
-          : 'text-lydian-text-dim hover:bg-lydian-bg/5 border-2 border-transparent'
+          ? 'bg-blue-500-lighter text-lydian-primary-hover border-2 border-blue-200'
+          : 'text-gray-400 hover:bg-white/5 border-2 border-transparent'
       }`}
     >
       {icon}
@@ -73,16 +73,16 @@ const ProfileTab: React.FC = () => {
   };
 
   return (
-    <div className="bg-lydian-bg/5 border border-lydian-border rounded-xl p-6">
+    <div className="bg-white/5 border border-white/20 rounded-xl p-6">
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h2 className="text-xl font-semibold text-lydian-text-inverse">Profile Settings</h2>
-          <p className="text-sm text-lydian-text-muted mt-1">Manage your personal information</p>
+          <h2 className="text-xl font-semibold text-white">Profile Settings</h2>
+          <p className="text-sm text-gray-300 mt-1">Manage your personal information</p>
         </div>
         {!isEditing && (
           <button
             onClick={() => setIsEditing(true)}
-            className="flex items-center gap-2 px-4 py-2 text-lydian-primary hover:bg-lydian-info-lighter rounded-lg transition-colors font-medium"
+            className="flex items-center gap-2 px-4 py-2 text-blue-500 hover:bg-blue-500-lighter rounded-lg transition-colors font-medium"
           >
             <Edit className="w-4 h-4" />
             Edit Profile
@@ -93,18 +93,18 @@ const ProfileTab: React.FC = () => {
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Avatar Upload */}
         <div className="flex items-center gap-6">
-          <div className="w-24 h-24 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-lydian-text-inverse text-3xl font-bold">
-            {formData.name.charAt(0)}
+          <div className="w-24 h-24 bg-gradient-to-br from-blue-500 to-purple-6 rounded-full flex items-center justify-center text-white text-3xl font-bold">
+            {formData.name.charAt(to-cyan-700)}
           </div>
           <div>
             <button
               type="button"
-              className="flex items-center gap-2 px-4 py-2 bg-lydian-bg/5 border-2 border-lydian-border rounded-lg hover:border-lydian-primary hover:text-lydian-primary transition-colors font-medium mb-2"
+              className="flex items-center gap-2 px-4 py-2 bg-white/5 border-2 border-white/20 rounded-lg hover:border-blue-500 hover:text-blue-500 transition-colors font-medium mb-2"
             >
               <Upload className="w-4 h-4" />
               Upload Photo
             </button>
-            <p className="text-xs text-lydian-text-muted">JPG, PNG or GIF. Max size 5MB.</p>
+            <p className="text-xs text-gray-300">JPG, PNG or GIF. Max size 5MB.</p>
           </div>
         </div>
 
@@ -116,7 +116,7 @@ const ProfileTab: React.FC = () => {
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
               disabled={!isEditing}
-              className="w-full px-4 py-2.5 border border-lydian-border-medium rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-transparent disabled:bg-lydian-bg/5 disabled:cursor-not-allowed"
+              className="w-full px-4 py-2.5 border border-white/30 rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-transparent disabled:bg-white/5 disabled:cursor-not-allowed"
             />
           </div>
 
@@ -127,7 +127,7 @@ const ProfileTab: React.FC = () => {
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
               disabled={!isEditing}
-              className="w-full px-4 py-2.5 border border-lydian-border-medium rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-transparent disabled:bg-lydian-bg/5 disabled:cursor-not-allowed"
+              className="w-full px-4 py-2.5 border border-white/30 rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-transparent disabled:bg-white/5 disabled:cursor-not-allowed"
             />
           </div>
 
@@ -138,7 +138,7 @@ const ProfileTab: React.FC = () => {
               value={formData.phone}
               onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
               disabled={!isEditing}
-              className="w-full px-4 py-2.5 border border-lydian-border-medium rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-transparent disabled:bg-lydian-bg/5 disabled:cursor-not-allowed"
+              className="w-full px-4 py-2.5 border border-white/30 rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-transparent disabled:bg-white/5 disabled:cursor-not-allowed"
             />
           </div>
 
@@ -149,7 +149,7 @@ const ProfileTab: React.FC = () => {
               value={formData.location}
               onChange={(e) => setFormData({ ...formData, location: e.target.value })}
               disabled={!isEditing}
-              className="w-full px-4 py-2.5 border border-lydian-border-medium rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-transparent disabled:bg-lydian-bg/5 disabled:cursor-not-allowed"
+              className="w-full px-4 py-2.5 border border-white/30 rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-transparent disabled:bg-white/5 disabled:cursor-not-allowed"
             />
           </div>
         </div>
@@ -161,7 +161,7 @@ const ProfileTab: React.FC = () => {
             onChange={(e) => setFormData({ ...formData, bio: e.target.value })}
             disabled={!isEditing}
             rows={4}
-            className="w-full px-4 py-2.5 border border-lydian-border-medium rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-transparent disabled:bg-lydian-bg/5 disabled:cursor-not-allowed"
+            className="w-full px-4 py-2.5 border border-white/30 rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-transparent disabled:bg-white/5 disabled:cursor-not-allowed"
           />
         </div>
 
@@ -170,13 +170,13 @@ const ProfileTab: React.FC = () => {
             <button
               type="button"
               onClick={() => setIsEditing(false)}
-              className="flex-1 px-4 py-2.5 border-2 border-lydian-border-medium rounded-lg hover:bg-lydian-bg/5 font-medium transition-colors"
+              className="flex-1 px-4 py-2.5 border-2 border-white/30 rounded-lg hover:bg-white/5 font-medium transition-colors"
             >
               Cancel
             </button>
             <button
               type="submit"
-              className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-lydian-primary text-lydian-text-inverse rounded-lg hover:bg-lydian-primary-hover font-medium transition-colors"
+              className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:bg-lydian-primary-hover font-medium transition-colors"
             >
               <Save className="w-4 h-4" />
               Save Changes
@@ -197,13 +197,13 @@ const PropertiesTab: React.FC = () => {
   ];
 
   return (
-    <div className="bg-lydian-bg/5 border border-lydian-border rounded-xl p-6">
+    <div className="bg-white/5 border border-white/20 rounded-xl p-6">
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h2 className="text-xl font-semibold text-lydian-text-inverse">My Properties</h2>
-          <p className="text-sm text-lydian-text-muted mt-1">Manage your property listings</p>
+          <h2 className="text-xl font-semibold text-white">My Properties</h2>
+          <p className="text-sm text-gray-300 mt-1">Manage your property listings</p>
         </div>
-        <button className="flex items-center gap-2 px-4 py-2 bg-lydian-primary text-lydian-text-inverse rounded-lg hover:bg-lydian-primary-hover transition-colors font-medium">
+        <button className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:bg-lydian-primary-hover transition-colors font-medium">
           <Plus className="w-4 h-4" />
           Add Property
         </button>
@@ -213,25 +213,25 @@ const PropertiesTab: React.FC = () => {
         {properties.map((property) => (
           <div
             key={property.id}
-            className="flex items-center justify-between p-4 border border-lydian-border rounded-lg hover:shadow-md transition-shadow"
+            className="flex items-center justify-between p-4 border border-white/20 rounded-lg hover:shadow-md transition-shadow"
           >
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center text-lydian-text-inverse font-semibold text-lg">
-                {property.name.charAt(0)}
+              <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-6 rounded-lg flex items-center justify-center text-white font-semibold text-lg">
+                {property.name.charAt(to-cyan-700)}
               </div>
               <div>
-                <h4 className="font-semibold text-lydian-text-inverse">{property.name}</h4>
-                <p className="text-sm text-lydian-text-muted">{property.location}</p>
+                <h4 className="font-semibold text-white">{property.name}</h4>
+                <p className="text-sm text-gray-300">{property.location}</p>
               </div>
             </div>
             <div className="flex items-center gap-2">
-              <span className="px-3 py-1 bg-lydian-success-light text-green-800 rounded-full text-xs font-semibold">
+              <span className="px-3 py-1 bg-green-600-light text-green-8 rounded-full text-xs font-semibold">
                 {property.status}
               </span>
-              <button className="p-2 text-lydian-primary hover:bg-lydian-info-lighter rounded-lg transition-colors">
+              <button className="p-2 text-blue-500 hover:bg-blue-500-lighter rounded-lg transition-colors">
                 <Edit className="w-4 h-4" />
               </button>
-              <button className="p-2 text-lydian-error hover:bg-red-50 rounded-lg transition-colors">
+              <button className="p-2 text-lydian-error hover:bg-red-500 rounded-lg transition-colors">
                 <Trash2 className="w-4 h-4" />
               </button>
             </div>
@@ -259,16 +259,16 @@ const NotificationsTab: React.FC = () => {
   };
 
   return (
-    <div className="bg-lydian-bg/5 border border-lydian-border rounded-xl p-6">
+    <div className="bg-white/5 border border-white/20 rounded-xl p-6">
       <div className="mb-6">
-        <h2 className="text-xl font-semibold text-lydian-text-inverse">Notification Settings</h2>
-        <p className="text-sm text-lydian-text-muted mt-1">Manage how you receive notifications</p>
+        <h2 className="text-xl font-semibold text-white">Notification Settings</h2>
+        <p className="text-sm text-gray-300 mt-1">Manage how you receive notifications</p>
       </div>
 
       <div className="space-y-6">
         {/* Email Notifications */}
         <div>
-          <h3 className="text-lg font-semibold text-lydian-text-inverse mb-4 flex items-center gap-2">
+          <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
             <Mail className="w-5 h-5" />
             Email Notifications
           </h3>
@@ -279,19 +279,19 @@ const NotificationsTab: React.FC = () => {
               { key: 'emailReviews' as const, label: 'Reviews', desc: 'Get notified when guests leave reviews' },
               { key: 'emailReports' as const, label: 'Weekly Reports', desc: 'Receive weekly performance summaries' },
             ].map((item) => (
-              <div key={item.key} className="flex items-center justify-between p-4 border border-lydian-border rounded-lg">
+              <div key={item.key} className="flex items-center justify-between p-4 border border-white/20 rounded-lg">
                 <div>
-                  <p className="font-medium text-lydian-text-inverse">{item.label}</p>
-                  <p className="text-sm text-lydian-text-muted">{item.desc}</p>
+                  <p className="font-medium text-white">{item.label}</p>
+                  <p className="text-sm text-gray-300">{item.desc}</p>
                 </div>
                 <button
                   onClick={() => handleToggle(item.key)}
                   className={`relative w-12 h-6 rounded-full transition-colors ${
-                    settings[item.key] ? 'bg-lydian-primary' : 'bg-gray-300'
+                    settings[item.key] ? 'bg-lydian-primary' : 'bg-gray-3'
                   }`}
                 >
                   <div
-                    className={`absolute w-5 h-5 bg-lydian-bg/5 rounded-full top-0.5 transition-transform ${
+                    className={`absolute w-5 h-5 bg-white/5 rounded-full top-0.5 transition-transform ${
                       settings[item.key] ? 'translate-x-6' : 'translate-x-0.5'
                     }`}
                   />
@@ -303,7 +303,7 @@ const NotificationsTab: React.FC = () => {
 
         {/* Push Notifications */}
         <div>
-          <h3 className="text-lg font-semibold text-lydian-text-inverse mb-4 flex items-center gap-2">
+          <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
             <Bell className="w-5 h-5" />
             Push Notifications
           </h3>
@@ -312,19 +312,19 @@ const NotificationsTab: React.FC = () => {
               { key: 'pushBookings' as const, label: 'Booking Updates', desc: 'Real-time booking notifications' },
               { key: 'pushMessages' as const, label: 'Messages', desc: 'Instant message alerts' },
             ].map((item) => (
-              <div key={item.key} className="flex items-center justify-between p-4 border border-lydian-border rounded-lg">
+              <div key={item.key} className="flex items-center justify-between p-4 border border-white/20 rounded-lg">
                 <div>
-                  <p className="font-medium text-lydian-text-inverse">{item.label}</p>
-                  <p className="text-sm text-lydian-text-muted">{item.desc}</p>
+                  <p className="font-medium text-white">{item.label}</p>
+                  <p className="text-sm text-gray-300">{item.desc}</p>
                 </div>
                 <button
                   onClick={() => handleToggle(item.key)}
                   className={`relative w-12 h-6 rounded-full transition-colors ${
-                    settings[item.key] ? 'bg-lydian-primary' : 'bg-gray-300'
+                    settings[item.key] ? 'bg-lydian-primary' : 'bg-gray-3'
                   }`}
                 >
                   <div
-                    className={`absolute w-5 h-5 bg-lydian-bg/5 rounded-full top-0.5 transition-transform ${
+                    className={`absolute w-5 h-5 bg-white/5 rounded-full top-0.5 transition-transform ${
                       settings[item.key] ? 'translate-x-6' : 'translate-x-0.5'
                     }`}
                   />
@@ -334,7 +334,7 @@ const NotificationsTab: React.FC = () => {
           </div>
         </div>
 
-        <button className="w-full flex items-center justify-center gap-2 px-4 py-2.5 bg-lydian-primary text-lydian-text-inverse rounded-lg hover:bg-lydian-primary-hover font-medium transition-colors">
+        <button className="w-full flex items-center justify-center gap-2 px-4 py-2.5 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:bg-lydian-primary-hover font-medium transition-colors">
           <Save className="w-4 h-4" />
           Save Notification Settings
         </button>
@@ -349,20 +349,20 @@ const PaymentsTab: React.FC = () => {
   const { mutate: updatePaymentSettings } = useUpdatePaymentSettings();
 
   return (
-    <div className="bg-lydian-bg/5 border border-lydian-border rounded-xl p-6">
+    <div className="bg-white/5 border border-white/20 rounded-xl p-6">
       <div className="mb-6">
-        <h2 className="text-xl font-semibold text-lydian-text-inverse">Payment Settings</h2>
-        <p className="text-sm text-lydian-text-muted mt-1">Manage your payout methods and schedule</p>
+        <h2 className="text-xl font-semibold text-white">Payment Settings</h2>
+        <p className="text-sm text-gray-300 mt-1">Manage your payout methods and schedule</p>
       </div>
 
       <div className="space-y-6">
         {/* Bank Account */}
         <div>
-          <h3 className="text-lg font-semibold text-lydian-text-inverse mb-4">Bank Account</h3>
-          <div className="p-4 border-2 border-dashed border-lydian-border-medium rounded-lg text-center">
-            <CreditCard className="w-12 h-12 text-lydian-text-muted mx-auto mb-3" />
-            <p className="text-lydian-text-dim mb-4">No bank account connected</p>
-            <button className="px-4 py-2 bg-lydian-primary text-lydian-text-inverse rounded-lg hover:bg-lydian-primary-hover transition-colors font-medium">
+          <h3 className="text-lg font-semibold text-white mb-4">Bank Account</h3>
+          <div className="p-4 border-2 border-dashed border-white/30 rounded-lg text-center">
+            <CreditCard className="w-12 h-12 text-gray-300 mx-auto mb-3" />
+            <p className="text-gray-400 mb-4">No bank account connected</p>
+            <button className="px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:bg-lydian-primary-hover transition-colors font-medium">
               Add Bank Account
             </button>
           </div>
@@ -370,8 +370,8 @@ const PaymentsTab: React.FC = () => {
 
         {/* Payout Schedule */}
         <div>
-          <h3 className="text-lg font-semibold text-lydian-text-inverse mb-4">Payout Schedule</h3>
-          <select className="w-full px-4 py-2.5 border border-lydian-border-medium rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-transparent">
+          <h3 className="text-lg font-semibold text-white mb-4">Payout Schedule</h3>
+          <select className="w-full px-4 py-2.5 border border-white/30 rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-transparent">
             <option value="weekly">Weekly</option>
             <option value="biweekly">Bi-weekly</option>
             <option value="monthly">Monthly</option>
@@ -380,33 +380,33 @@ const PaymentsTab: React.FC = () => {
 
         {/* Payment Methods */}
         <div>
-          <h3 className="text-lg font-semibold text-lydian-text-inverse mb-4">Connected Accounts</h3>
+          <h3 className="text-lg font-semibold text-white mb-4">Connected Accounts</h3>
           <div className="space-y-3">
-            <div className="flex items-center justify-between p-4 border border-lydian-border rounded-lg">
+            <div className="flex items-center justify-between p-4 border border-white/20 rounded-lg">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-lydian-info-light rounded-lg flex items-center justify-center">
-                  <CreditCard className="w-5 h-5 text-lydian-primary" />
+                <div className="w-1 h-1 bg-blue-500-light rounded-lg flex items-center justify-center">
+                  <CreditCard className="w-5 h-5 text-blue-500" />
                 </div>
                 <div>
-                  <p className="font-medium text-lydian-text-inverse">PayPal</p>
-                  <p className="text-sm text-lydian-text-muted">Not connected</p>
+                  <p className="font-medium text-white">PayPal</p>
+                  <p className="text-sm text-gray-300">Not connected</p>
                 </div>
               </div>
-              <button className="px-4 py-2 border border-lydian-border-medium rounded-lg hover:bg-lydian-bg/5 transition-colors font-medium text-sm">
+              <button className="px-4 py-2 border border-white/30 rounded-lg hover:bg-white/5 transition-colors font-medium text-sm">
                 Connect
               </button>
             </div>
-            <div className="flex items-center justify-between p-4 border border-lydian-border rounded-lg">
+            <div className="flex items-center justify-between p-4 border border-white/20 rounded-lg">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
-                  <CreditCard className="w-5 h-5 text-purple-600" />
+                <div className="w-1 h-1 bg-purple-1 rounded-lg flex items-center justify-center">
+                  <CreditCard className="w-5 h-5 text-purple-6" />
                 </div>
                 <div>
-                  <p className="font-medium text-lydian-text-inverse">Stripe</p>
-                  <p className="text-sm text-lydian-text-muted">Not connected</p>
+                  <p className="font-medium text-white">Stripe</p>
+                  <p className="text-sm text-gray-300">Not connected</p>
                 </div>
               </div>
-              <button className="px-4 py-2 border border-lydian-border-medium rounded-lg hover:bg-lydian-bg/5 transition-colors font-medium text-sm">
+              <button className="px-4 py-2 border border-white/30 rounded-lg hover:bg-white/5 transition-colors font-medium text-sm">
                 Connect
               </button>
             </div>
@@ -423,28 +423,28 @@ const SecurityTab: React.FC = () => {
   const [twoFactorEnabled, setTwoFactorEnabled] = useState(false);
 
   return (
-    <div className="bg-lydian-bg/5 border border-lydian-border rounded-xl p-6">
+    <div className="bg-white/5 border border-white/20 rounded-xl p-6">
       <div className="mb-6">
-        <h2 className="text-xl font-semibold text-lydian-text-inverse">Security Settings</h2>
-        <p className="text-sm text-lydian-text-muted mt-1">Manage your account security</p>
+        <h2 className="text-xl font-semibold text-white">Security Settings</h2>
+        <p className="text-sm text-gray-300 mt-1">Manage your account security</p>
       </div>
 
       <div className="space-y-6">
         {/* Change Password */}
         <div>
-          <h3 className="text-lg font-semibold text-lydian-text-inverse mb-4">Change Password</h3>
+          <h3 className="text-lg font-semibold text-white mb-4">Change Password</h3>
           <div className="space-y-4">
             <div>
               <label className="block text-sm font-medium text-gray-200 mb-2">Current Password</label>
               <div className="relative">
                 <input
                   type={showPassword ? 'text' : 'password'}
-                  className="w-full px-4 py-2.5 pr-10 border border-lydian-border-medium rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-transparent"
+                  className="w-full px-4 py-2.5 pr-1 border border-white/30 rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-transparent"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-lydian-text-muted hover:text-lydian-text-dim"
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-300 hover:text-gray-400"
                 >
                   {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                 </button>
@@ -454,67 +454,67 @@ const SecurityTab: React.FC = () => {
               <label className="block text-sm font-medium text-gray-200 mb-2">New Password</label>
               <input
                 type="password"
-                className="w-full px-4 py-2.5 border border-lydian-border-medium rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-transparent"
+                className="w-full px-4 py-2.5 border border-white/30 rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-transparent"
               />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-200 mb-2">Confirm New Password</label>
               <input
                 type="password"
-                className="w-full px-4 py-2.5 border border-lydian-border-medium rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-transparent"
+                className="w-full px-4 py-2.5 border border-white/30 rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-transparent"
               />
             </div>
-            <button className="px-4 py-2.5 bg-lydian-primary text-lydian-text-inverse rounded-lg hover:bg-lydian-primary-hover transition-colors font-medium">
+            <button className="px-4 py-2.5 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:bg-lydian-primary-hover transition-colors font-medium">
               Update Password
             </button>
           </div>
         </div>
 
         {/* Two-Factor Authentication */}
-        <div className="pt-6 border-t border-lydian-border">
+        <div className="pt-6 border-t border-white/20">
           <div className="flex items-center justify-between mb-4">
             <div>
-              <h3 className="text-lg font-semibold text-lydian-text-inverse flex items-center gap-2">
+              <h3 className="text-lg font-semibold text-white flex items-center gap-2">
                 <Shield className="w-5 h-5" />
                 Two-Factor Authentication
               </h3>
-              <p className="text-sm text-lydian-text-muted mt-1">Add an extra layer of security to your account</p>
+              <p className="text-sm text-gray-300 mt-1">Add an extra layer of security to your account</p>
             </div>
             <button
               onClick={() => setTwoFactorEnabled(!twoFactorEnabled)}
               className={`relative w-12 h-6 rounded-full transition-colors ${
-                twoFactorEnabled ? 'bg-lydian-primary' : 'bg-gray-300'
+                twoFactorEnabled ? 'bg-lydian-primary' : 'bg-gray-3'
               }`}
             >
               <div
-                className={`absolute w-5 h-5 bg-lydian-bg/5 rounded-full top-0.5 transition-transform ${
+                className={`absolute w-5 h-5 bg-white/5 rounded-full top-0.5 transition-transform ${
                   twoFactorEnabled ? 'translate-x-6' : 'translate-x-0.5'
                 }`}
               />
             </button>
           </div>
           {twoFactorEnabled && (
-            <div className="p-4 bg-lydian-info-lighter border border-blue-200 rounded-lg">
-              <p className="text-sm text-blue-900 mb-3">
+            <div className="p-4 bg-blue-500-lighter border border-blue-200 rounded-lg">
+              <p className="text-sm text-blue-9 mb-3">
                 Scan this QR code with your authenticator app to enable 2FA
               </p>
-              <div className="w-48 h-48 bg-lydian-bg/5 border-2 border-blue-300 rounded-lg mx-auto flex items-center justify-center">
-                <Smartphone className="w-12 h-12 text-lydian-text-muted" />
+              <div className="w-48 h-48 bg-white/5 border-2 border-blue-3 rounded-lg mx-auto flex items-center justify-center">
+                <Smartphone className="w-12 h-12 text-gray-300" />
               </div>
             </div>
           )}
         </div>
 
         {/* Active Sessions */}
-        <div className="pt-6 border-t border-lydian-border">
-          <h3 className="text-lg font-semibold text-lydian-text-inverse mb-4">Active Sessions</h3>
+        <div className="pt-6 border-t border-white/20">
+          <h3 className="text-lg font-semibold text-white mb-4">Active Sessions</h3>
           <div className="space-y-3">
-            <div className="flex items-center justify-between p-4 border border-lydian-border rounded-lg">
+            <div className="flex items-center justify-between p-4 border border-white/20 rounded-lg">
               <div>
-                <p className="font-medium text-lydian-text-inverse">Chrome on MacBook Pro</p>
-                <p className="text-sm text-lydian-text-muted">San Francisco, CA • Last active: Just now</p>
+                <p className="font-medium text-white">Chrome on MacBook Pro</p>
+                <p className="text-sm text-gray-300">San Francisco, CA • Last active: Just now</p>
               </div>
-              <span className="px-3 py-1 bg-lydian-success-light text-green-800 rounded-full text-xs font-semibold">
+              <span className="px-3 py-1 bg-green-600-light text-green-8 rounded-full text-xs font-semibold">
                 Current
               </span>
             </div>
@@ -539,13 +539,13 @@ const SettingsPage: React.FC = () => {
 
   return (
     <div className="space-y-6">
-      <h1 className="text-3xl font-black mb-6 text-lydian-text-inverse">
+      <h1 className="text-3xl font-black mb-6 text-white">
         Settings
       </h1>
       <div className="flex flex-col lg:flex-row gap-6">
         {/* Tabs Sidebar */}
-        <div className="lg:w-64 flex-shrink-0">
-          <div className="bg-lydian-bg/5 border border-lydian-border rounded-xl p-3">
+        <div className="lg:w-64 flex-shrink-to-cyan-700">
+          <div className="bg-white/5 border border-white/20 rounded-xl p-3">
             <div className="space-y-2">
               {tabs.map((tab) => (
                 <TabButton

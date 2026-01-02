@@ -79,29 +79,29 @@ const AdvancedAnalytics = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50">
       {/* Header */}
-      <div className="bg-lydian-glass-dark border-b border-lydian-border sticky top-0 z-40 backdrop-blur-xl bg-lydian-bg/80">
+      <div className="bg-white/10 backdrop-blur-xl border border-b border-white/20 sticky top-0 z-40 backdrop-blur-xl bg-white/10 backdrop-blur-xl">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <Link href="/admin/v2">
-                <button className="flex items-center gap-2 px-4 py-2 text-lydian-text-secondary hover:text-lydian-text hover:bg-lydian-bg-surface-raised rounded-lg transition-all">
+                <button className="flex items-center gap-2 px-4 py-2 text-gray-300 hover:text-white hover:bg-white/5 backdrop-blur-xl rounded-lg transition-all">
                   <ArrowLeft className="w-5 h-5" />
                   <span className="font-medium">Dashboard'a Dön</span>
                 </button>
               </Link>
               <div className="h-8 w-px bg-slate-300" />
               <div>
-                <h1 className="text-2xl font-bold text-lydian-text">
+                <h1 className="text-2xl font-bold text-white">
                   Detaylı Analytics
                 </h1>
-                <p className="text-sm text-lydian-text-secondary">
+                <p className="text-sm text-gray-300">
                   Gerçek zamanlı iş analitiği
                 </p>
               </div>
             </div>
 
             <div className="flex items-center gap-3">
-              <div className="flex bg-lydian-bg-surface-raised rounded-lg p-1">
+              <div className="flex bg-white/5 backdrop-blur-xl rounded-lg p-1">
                 {timeRanges.map((range) =>
                 <button
                   key={range.value}
@@ -110,7 +110,7 @@ const AdvancedAnalytics = () => {
                       px-4 py-2 rounded-md text-sm font-medium transition-all
                       ${
                   timeRange === range.value ?
-                  'bg-lydian-bg/5 text-lydian-primary shadow-sm' :
+                  'bg-white/5 text-blue-400 shadow-sm' :
                   'text-slate-600 hover:text-slate-900'}
                     `
                   }>
@@ -122,12 +122,12 @@ const AdvancedAnalytics = () => {
 
               <button
                 onClick={fetchAnalytics}
-                className="p-2 text-lydian-text-secondary hover:text-lydian-primary hover:bg-lydian-primary-lighter rounded-lg transition-all">
+                className="p-2 text-gray-300 hover:text-blue-400 hover:bg-gradient-to-r from-blue-600 to-purple-600-lighter rounded-lg transition-all">
 
                 <RefreshCw className="w-5 h-5" />
               </button>
 
-              <button className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] text-lydian-text-inverse rounded-lg hover:shadow-lg transition-all">
+              <button className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] text-white rounded-lg hover:shadow-lg transition-all">
                 <Download className="w-4 h-4" />
                 Rapor İndir
               </button>
@@ -171,27 +171,27 @@ const AdvancedAnalytics = () => {
 
         {/* Revenue by Category */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-          <div className="bg-lydian-glass-dark rounded-xl shadow-sm p-6">
-            <h3 className="text-lg font-bold text-lydian-text mb-4">
+          <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl shadow-sm p-6">
+            <h3 className="text-lg font-bold text-white mb-4">
               Kategoriye Göre Gelir
             </h3>
             <div className="space-y-4">
               {Object.entries(stats.revenue?.byCategory || {}).map(([key, value]: any) =>
               <div key={key}>
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-sm font-medium text-lydian-text-secondary capitalize">
+                    <span className="text-sm font-medium text-gray-300 capitalize">
                       {key === 'hotels' && 'Oteller'}
                       {key === 'tours' && 'Turlar'}
                       {key === 'flights' && 'Uçuşlar'}
                       {key === 'transfers' && 'Transferler'}
                     </span>
-                    <span className="text-sm font-bold text-lydian-text">
+                    <span className="text-sm font-bold text-white">
                       ₺{value.toLocaleString('tr-TR')}
                     </span>
                   </div>
-                  <div className="h-2 bg-lydian-bg-surface-raised rounded-full overflow-hidden">
+                  <div className="h-2 bg-white/5 backdrop-blur-xl rounded-full overflow-hidden">
                     <div
-                    className="h-full bg-gradient-to-r from-lydian-primary to-purple-500"
+                    className="h-full bg-gradient-to-r from-blue-600 to-purple-500"
                     style={{ width: `${value / stats.revenue?.total * 100}%` }} />
 
                   </div>
@@ -201,8 +201,8 @@ const AdvancedAnalytics = () => {
           </div>
 
           {/* Booking Status */}
-          <div className="bg-lydian-glass-dark rounded-xl shadow-sm p-6">
-            <h3 className="text-lg font-bold text-lydian-text mb-4">
+          <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl shadow-sm p-6">
+            <h3 className="text-lg font-bold text-white mb-4">
               Rezervasyon Durumu
             </h3>
             <div className="space-y-4">
@@ -229,46 +229,46 @@ const AdvancedAnalytics = () => {
         </div>
 
         {/* Top Products */}
-        <div className="bg-lydian-glass-dark rounded-xl shadow-sm p-6">
-          <h3 className="text-lg font-bold text-lydian-text mb-4">
+        <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl shadow-sm p-6">
+          <h3 className="text-lg font-bold text-white mb-4">
             En Çok Satan Ürünler
           </h3>
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
-                <tr className="border-b border-lydian-border">
-                  <th className="text-left py-3 px-4 text-sm font-semibold text-lydian-text-secondary">
+                <tr className="border-b border-white/20">
+                  <th className="text-left py-3 px-4 text-sm font-semibold text-gray-300">
                     Ürün
                   </th>
-                  <th className="text-right py-3 px-4 text-sm font-semibold text-lydian-text-secondary">
+                  <th className="text-right py-3 px-4 text-sm font-semibold text-gray-300">
                     Rezervasyon
                   </th>
-                  <th className="text-right py-3 px-4 text-sm font-semibold text-lydian-text-secondary">
+                  <th className="text-right py-3 px-4 text-sm font-semibold text-gray-300">
                     Gelir
                   </th>
-                  <th className="text-right py-3 px-4 text-sm font-semibold text-lydian-text-secondary">
+                  <th className="text-right py-3 px-4 text-sm font-semibold text-gray-300">
                     Ort. Değer
                   </th>
                 </tr>
               </thead>
               <tbody>
                 {stats.topProducts?.map((product: any, index: number) =>
-                <tr key={index} className="border-b border-slate-100 hover:bg-lydian-bg-surface">
+                <tr key={index} className="border-b border-slate-100 hover:bg-white/5">
                     <td className="py-4 px-4">
                       <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 bg-gradient-to-br from-lydian-primary to-purple-500 rounded-lg flex items-center justify-center text-lydian-text-inverse font-bold text-sm">
+                        <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-purple-500 rounded-lg flex items-center justify-center text-white font-bold text-sm">
                           {index + 1}
                         </div>
-                        <span className="font-medium text-lydian-text">{product.name}</span>
+                        <span className="font-medium text-white">{product.name}</span>
                       </div>
                     </td>
-                    <td className="py-4 px-4 text-right text-lydian-text font-semibold">
+                    <td className="py-4 px-4 text-right text-white font-semibold">
                       {product.bookings}
                     </td>
-                    <td className="py-4 px-4 text-right text-lydian-text font-semibold">
+                    <td className="py-4 px-4 text-right text-white font-semibold">
                       ₺{product.revenue.toLocaleString('tr-TR')}
                     </td>
-                    <td className="py-4 px-4 text-right text-lydian-text-secondary">
+                    <td className="py-4 px-4 text-right text-gray-300">
                       ₺{Math.round(product.revenue / product.bookings).toLocaleString('tr-TR')}
                     </td>
                   </tr>
@@ -286,25 +286,25 @@ const AdvancedAnalytics = () => {
 const MetricCard = ({ title, value, change, icon: Icon, color }: any) => {
   const isPositive = change >= 0;
   const colorClasses = {
-    green: 'bg-green-50 text-lydian-success',
-    blue: 'bg-blue-50 text-lydian-primary',
+    green: 'bg-purple-500/20 text-purple-400',
+    blue: 'bg-blue-50 text-blue-400',
     purple: 'bg-purple-50 text-purple-600',
     orange: 'bg-orange-50 text-orange-600'
   };
 
   return (
-    <div className="bg-lydian-glass-dark rounded-xl shadow-sm p-6 border border-lydian-border">
+    <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl shadow-sm p-6 border border-white/20">
       <div className="flex items-center justify-between mb-4">
-        <span className="text-sm text-lydian-text-secondary">{title}</span>
+        <span className="text-sm text-gray-300">{title}</span>
         <div className={`p-2 rounded-lg ${colorClasses[color as keyof typeof colorClasses]}`}>
           <Icon className="w-5 h-5" />
         </div>
       </div>
-      <div className="text-3xl font-bold text-lydian-text mb-2">{value}</div>
-      <div className={`flex items-center gap-1 text-sm font-medium ${isPositive ? 'text-lydian-success' : 'text-lydian-error'}`}>
+      <div className="text-3xl font-bold text-white mb-2">{value}</div>
+      <div className={`flex items-center gap-1 text-sm font-medium ${isPositive ? 'text-purple-400' : 'text-gray-400'}`}>
         {isPositive ? <TrendingUp className="w-4 h-4" /> : <TrendingDown className="w-4 h-4" />}
         <span>{isPositive ? '+' : ''}{change}%</span>
-        <span className="text-lydian-text-tertiary ml-1">vs önceki dönem</span>
+        <span className="text-white-tertiary ml-1">vs önceki dönem</span>
       </div>
     </div>);
 
@@ -313,9 +313,9 @@ const MetricCard = ({ title, value, change, icon: Icon, color }: any) => {
 // Status Card Component
 const StatusCard = ({ label, value, icon: Icon, color }: any) => {
   const colorClasses = {
-    green: 'bg-green-50 text-lydian-success border-green-200',
+    green: 'bg-purple-500/20 text-purple-400 border-purple-400',
     orange: 'bg-orange-50 text-orange-600 border-orange-200',
-    red: 'bg-red-50 text-lydian-error border-red-200'
+    red: 'bg-purple-500/20 text-gray-400 border-purple-400'
   };
 
   return (

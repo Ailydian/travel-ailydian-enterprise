@@ -99,13 +99,13 @@ const supportStats = [
   title: 'Müşteri Memnuniyeti',
   value: '98%',
   icon: Star,
-  color: 'text-lydian-warning'
+  color: 'text-yellow-500'
 },
 {
   title: 'Çözüm Oranı',
   value: '99.2%',
   icon: CheckCircle,
-  color: 'text-lydian-success'
+  color: 'text-green-500'
 },
 {
   title: 'Aktif Temsilci',
@@ -145,7 +145,7 @@ export default function Support() {
     switch (priority) {
       case 'urgent':return 'border-l-4 border-red-500';
       case 'high':return 'border-l-4 border-orange-500';
-      case 'medium':return 'border-l-4 border-lydian-primary';
+      case 'medium':return 'border-l-4 border-blue-500';
       case 'low':return 'border-l-4 border-green-500';
       default:return 'border-l-4 border-gray-500';
     }
@@ -170,7 +170,7 @@ export default function Support() {
       <div className="min-h-screen" style={{ backgroundColor: 'white' }}>
 
         {/* Hero Section */}
-        <div className="text-lydian-text-inverse py-16" style={{ background: 'linear-gradient(to bottom, #87CEEB 0%, #4682B4 50%, #0ea5e9 100%)' }}>
+        <div className="text-white py-16" style={{ background: 'linear-gradient(to bottom, #87CEEB 0%, #4682B4 50%, #0ea5e9 100%)' }}>
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
               Destek Merkezi
@@ -185,30 +185,30 @@ export default function Support() {
           {/* Support Stats */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
             {supportStats.map((stat, index) =>
-            <div key={index} className="bg-lydian-bg-hover dark:bg-gray-800 rounded-lg shadow-lg p-6 text-center">
+            <div key={index} className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl dark:bg-gray-800 rounded-lg shadow-lg p-6 text-center">
                 <stat.icon className={`h-8 w-8 mx-auto mb-3 ${stat.color}`} />
-                <div className="text-2xl font-bold text-lydian-text-inverse dark:text-lydian-text-inverse mb-1">{stat.value}</div>
-                <div className="text-sm text-lydian-text-dim dark:text-lydian-text-muted">{stat.title}</div>
+                <div className="text-2xl font-bold text-white dark:text-white mb-1">{stat.value}</div>
+                <div className="text-sm text-gray-400 dark:text-gray-300">{stat.title}</div>
               </div>
             )}
           </div>
 
           {/* Support Categories */}
           <div className="mb-12">
-            <h2 className="text-3xl font-bold text-lydian-text-inverse dark:text-lydian-text-inverse mb-8 text-center">
+            <h2 className="text-3xl font-bold text-white dark:text-white mb-8 text-center">
               Destek Kategorileri
             </h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {supportCategories.map((category) =>
-              <div key={category.id} className="bg-lydian-bg-hover dark:bg-gray-800 rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow cursor-pointer group">
+              <div key={category.id} className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl dark:bg-gray-800 rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow cursor-pointer group">
                   <div className="mb-4">
-                    <category.icon className="w-12 h-12 text-lydian-text-muted dark:text-lydian-text-dim group-hover:text-lydian-primary transition-colors" />
+                    <category.icon className="w-12 h-12 text-gray-300 dark:text-gray-400 group-hover:text-blue-500 transition-colors" />
                   </div>
-                  <h3 className="text-xl font-semibold text-lydian-text-inverse dark:text-lydian-text-inverse mb-3 group-hover:text-lydian-primary transition-colors">
+                  <h3 className="text-xl font-semibold text-white dark:text-white mb-3 group-hover:text-blue-500 transition-colors">
                     {category.title}
                   </h3>
-                  <p className="text-lydian-text-dim dark:text-lydian-text-muted text-sm">
+                  <p className="text-gray-400 dark:text-gray-300 text-sm">
                     {category.description}
                   </p>
                   <div className={`mt-4 px-3 py-1 rounded-full text-xs font-medium ${category.color} inline-block`}>
@@ -223,7 +223,7 @@ export default function Support() {
           <div className="text-center mb-8">
             <button
               onClick={() => setShowNewTicketForm(!showNewTicketForm)}
-              className="bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] text-lydian-text-inverse px-8 py-3 rounded-lg hover:from-lydian-primary-dark hover:to-purple-700 transition-all font-semibold flex items-center mx-auto">
+              className="bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] text-white px-8 py-3 rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all font-semibold flex items-center mx-auto">
 
               <MessageCircle className="h-5 w-5 mr-2" />
               Yeni Destek Talebi Oluştur
@@ -232,20 +232,20 @@ export default function Support() {
 
           {/* New Ticket Form */}
           {showNewTicketForm &&
-          <div className="bg-lydian-bg-hover dark:bg-gray-800 rounded-lg shadow-lg p-8 mb-8">
-              <h3 className="text-2xl font-semibold text-lydian-text-inverse dark:text-lydian-text-inverse mb-6">
+          <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl dark:bg-gray-800 rounded-lg shadow-lg p-8 mb-8">
+              <h3 className="text-2xl font-semibold text-white dark:text-white mb-6">
                 Yeni Destek Talebi
               </h3>
               
               <form onSubmit={handleNewTicketSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-medium text-lydian-text-muted dark:text-lydian-text-dim mb-2">
+                    <label className="block text-sm font-medium text-gray-300 dark:text-gray-400 mb-2">
                       Kategori
                     </label>
                     <select
                     required
-                    className="w-full px-3 py-2 border border-lydian-border-medium dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-border dark:bg-gray-700 dark:text-lydian-text-inverse"
+                    className="w-full px-3 py-2 border border-white/30 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-white/20 dark:bg-gray-700 dark:text-white"
                     value={newTicketData.category}
                     onChange={(e) => setNewTicketData({ ...newTicketData, category: e.target.value })}>
 
@@ -258,11 +258,11 @@ export default function Support() {
                   </div>
                   
                   <div>
-                    <label className="block text-sm font-medium text-lydian-text-muted dark:text-lydian-text-dim mb-2">
+                    <label className="block text-sm font-medium text-gray-300 dark:text-gray-400 mb-2">
                       Öncelik
                     </label>
                     <select
-                    className="w-full px-3 py-2 border border-lydian-border-medium dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-border dark:bg-gray-700 dark:text-lydian-text-inverse"
+                    className="w-full px-3 py-2 border border-white/30 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-white/20 dark:bg-gray-700 dark:text-white"
                     value={newTicketData.priority}
                     onChange={(e) => setNewTicketData({ ...newTicketData, priority: e.target.value })}>
 
@@ -275,13 +275,13 @@ export default function Support() {
                 </div>
                 
                 <div>
-                  <label className="block text-sm font-medium text-lydian-text-muted dark:text-lydian-text-dim mb-2">
+                  <label className="block text-sm font-medium text-gray-300 dark:text-gray-400 mb-2">
                     Konu Başlığı
                   </label>
                   <input
                   type="text"
                   required
-                  className="w-full px-3 py-2 border border-lydian-border-medium dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-border dark:bg-gray-700 dark:text-lydian-text-inverse"
+                  className="w-full px-3 py-2 border border-white/30 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-white/20 dark:bg-gray-700 dark:text-white"
                   value={newTicketData.title}
                   onChange={(e) => setNewTicketData({ ...newTicketData, title: e.target.value })}
                   placeholder="Sorununuzu kısaca özetleyin" />
@@ -289,13 +289,13 @@ export default function Support() {
                 </div>
                 
                 <div>
-                  <label className="block text-sm font-medium text-lydian-text-muted dark:text-lydian-text-dim mb-2">
+                  <label className="block text-sm font-medium text-gray-300 dark:text-gray-400 mb-2">
                     Açıklama
                   </label>
                   <textarea
                   required
                   rows={4}
-                  className="w-full px-3 py-2 border border-lydian-border-medium dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-border dark:bg-gray-700 dark:text-lydian-text-inverse"
+                  className="w-full px-3 py-2 border border-white/30 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-white/20 dark:bg-gray-700 dark:text-white"
                   value={newTicketData.description}
                   onChange={(e) => setNewTicketData({ ...newTicketData, description: e.target.value })}
                   placeholder="Sorununuzu detaylı olarak açıklayın" />
@@ -305,14 +305,14 @@ export default function Support() {
                 <div className="flex gap-4">
                   <button
                   type="submit"
-                  className="bg-lydian-primary text-lydian-text-inverse px-6 py-2 rounded-lg hover:bg-lydian-primary-dark transition-colors font-semibold">
+                  className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-lg hover:bg-gradient-to-r from-blue-700 to-purple-700 transition-colors font-semibold">
 
                     Talep Oluştur
                   </button>
                   <button
                   type="button"
                   onClick={() => setShowNewTicketForm(false)}
-                  className="bg-gray-300 dark:bg-gray-600 text-lydian-text-muted dark:text-lydian-text-dim px-6 py-2 rounded-lg hover:bg-gray-400 dark:hover:bg-lydian-bg/50 transition-colors">
+                  className="bg-gray-300 dark:bg-gray-600 text-gray-300 dark:text-gray-400 px-6 py-2 rounded-lg hover:bg-gray-400 dark:hover:bg-white/50 transition-colors">
 
                     İptal
                   </button>
@@ -324,7 +324,7 @@ export default function Support() {
           {/* Support Tickets */}
           <div className="mb-12">
             <div className="flex items-center justify-between mb-8">
-              <h2 className="text-3xl font-bold text-lydian-text-inverse dark:text-lydian-text-inverse">
+              <h2 className="text-3xl font-bold text-white dark:text-white">
                 Destek Talepleriniz
               </h2>
               
@@ -334,8 +334,8 @@ export default function Support() {
                   onClick={() => setSelectedCategory('all')}
                   className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                   selectedCategory === 'all' ?
-                  'bg-lydian-primary text-white' :
-                  'bg-lydian-bg/5 dark:bg-gray-800 text-gray-200 dark:text-lydian-text-dim hover:bg-blue-50 dark:hover:bg-gray-700'}`
+                  'bg-gradient-to-r from-blue-600 to-purple-600 text-white' :
+                  'bg-white/5 dark:bg-gray-800 text-gray-200 dark:text-gray-400 hover:bg-blue-50 dark:hover:bg-gray-700'}`
                   }>
 
                   Tümü
@@ -346,8 +346,8 @@ export default function Support() {
                   onClick={() => setSelectedCategory(category.id)}
                   className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                   selectedCategory === category.id ?
-                  'bg-lydian-primary text-white' :
-                  'bg-lydian-bg/5 dark:bg-gray-800 text-gray-200 dark:text-lydian-text-dim hover:bg-blue-50 dark:hover:bg-gray-700'}`
+                  'bg-gradient-to-r from-blue-600 to-purple-600 text-white' :
+                  'bg-white/5 dark:bg-gray-800 text-gray-200 dark:text-gray-400 hover:bg-blue-50 dark:hover:bg-gray-700'}`
                   }>
 
                     {category.title}
@@ -358,15 +358,15 @@ export default function Support() {
 
             <div className="space-y-4">
               {filteredTickets.map((ticket) =>
-              <div key={ticket.id} className={`bg-lydian-glass-dark dark:bg-gray-800 rounded-lg shadow-md ${getPriorityColor(ticket.priority)}`}>
+              <div key={ticket.id} className={`bg-gradient-to-br from-slate-900 via-black to-slate-800 dark:bg-gray-800 rounded-lg shadow-md ${getPriorityColor(ticket.priority)}`}>
                   <div
-                  className="p-6 cursor-pointer hover:bg-lydian-glass-dark dark:hover:bg-gray-700 transition-colors"
+                  className="p-6 cursor-pointer hover:bg-gradient-to-br from-slate-900 via-black to-slate-800 dark:hover:bg-gray-700 transition-colors"
                   onClick={() => setSelectedTicket(selectedTicket === ticket.id ? null : ticket.id)}>
 
                     <div className="flex items-center justify-between">
                       <div className="flex-1">
                         <div className="flex items-center gap-4 mb-2">
-                          <h3 className="text-lg font-semibold text-lydian-text-inverse dark:text-lydian-text-inverse">
+                          <h3 className="text-lg font-semibold text-white dark:text-white">
                             {ticket.title}
                           </h3>
                           <span className={`px-3 py-1 rounded-full text-xs font-medium ${getStatusColor(ticket.status)}`}>
@@ -374,7 +374,7 @@ export default function Support() {
                           ticket.status === 'in-progress' ? 'İnceleniyor' : 'Çözüldü'}
                           </span>
                         </div>
-                        <div className="flex items-center gap-6 text-sm text-lydian-text-dim dark:text-lydian-text-muted">
+                        <div className="flex items-center gap-6 text-sm text-gray-400 dark:text-gray-300">
                           <span className="flex items-center">
                             <FileText className="h-4 w-4 mr-1" />
                             {ticket.id}
@@ -394,25 +394,25 @@ export default function Support() {
                         </div>
                       </div>
                       {selectedTicket === ticket.id ?
-                    <ChevronUp className="h-5 w-5 text-lydian-text-muted" /> :
-                    <ChevronDown className="h-5 w-5 text-lydian-text-muted" />
+                    <ChevronUp className="h-5 w-5 text-gray-300" /> :
+                    <ChevronDown className="h-5 w-5 text-gray-300" />
                     }
                     </div>
                   </div>
                   
                   {selectedTicket === ticket.id &&
-                <div className="px-6 pb-6 border-t border-lydian-border dark:border-gray-600 pt-4">
-                      <div className="bg-lydian-glass-dark dark:bg-gray-700 rounded-lg p-4 mb-4">
-                        <p className="text-lydian-text-muted dark:text-lydian-text-dim">
+                <div className="px-6 pb-6 border-t border-white/20 dark:border-gray-600 pt-4">
+                      <div className="bg-gradient-to-br from-slate-900 via-black to-slate-800 dark:bg-gray-700 rounded-lg p-4 mb-4">
+                        <p className="text-gray-300 dark:text-gray-400">
                           Bu talep hakkında detaylı bilgi ve mesaj geçmişi burada görüntülenir. 
                           Müşteri temsilcinizle olan tüm iletişim kayıtları ve çözüm süreci takip edilebilir.
                         </p>
                       </div>
                       <div className="flex gap-3">
-                        <button className="bg-lydian-primary text-lydian-text-inverse px-4 py-2 rounded-lg hover:bg-lydian-primary-dark transition-colors text-sm">
+                        <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-2 rounded-lg hover:bg-gradient-to-r from-blue-700 to-purple-700 transition-colors text-sm">
                           Mesaj Gönder
                         </button>
-                        <button className="bg-gray-300 dark:bg-gray-600 text-lydian-text-muted dark:text-lydian-text-dim px-4 py-2 rounded-lg hover:bg-gray-400 dark:hover:bg-lydian-bg/50 transition-colors text-sm">
+                        <button className="bg-gray-300 dark:bg-gray-600 text-gray-300 dark:text-gray-400 px-4 py-2 rounded-lg hover:bg-gray-400 dark:hover:bg-white/50 transition-colors text-sm">
                           Dosya Ekle
                         </button>
                       </div>
@@ -424,7 +424,7 @@ export default function Support() {
           </div>
 
           {/* Contact Options */}
-          <div className="bg-gradient-to-br from-lydian-primary via-lydian-secondary to-pink-600 rounded-2xl p-8 text-lydian-text-inverse text-center">
+          <div className="bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 rounded-2xl p-8 text-white text-center">
             <h2 className="text-3xl font-bold mb-4">
               Anlık Destek İhtiyacınız Var mı?
             </h2>
@@ -433,19 +433,19 @@ export default function Support() {
             </p>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <button className="bg-gray-900 border-2 border-lydian-border-light rounded-lg p-6 hover:bg-gray-800 transition-colors group">
+              <button className="bg-gray-900 border-2 border-white/20 rounded-lg p-6 hover:bg-gray-800 transition-colors group">
                 <MessageCircle className="h-8 w-8 mx-auto mb-3 group-hover:scale-110 transition-transform" />
                 <h3 className="text-lg font-semibold mb-2">Canlı Sohbet</h3>
                 <p className="text-blue-100">Anında yanıt alın</p>
               </button>
               
-              <button className="bg-gray-900 border-2 border-lydian-border-light rounded-lg p-6 hover:bg-gray-800 transition-colors group">
+              <button className="bg-gray-900 border-2 border-white/20 rounded-lg p-6 hover:bg-gray-800 transition-colors group">
                 <Phone className="h-8 w-8 mx-auto mb-3 group-hover:scale-110 transition-transform" />
                 <h3 className="text-lg font-semibold mb-2">Telefon Desteği</h3>
                 <p className="text-blue-100">+90 242 123 4567</p>
               </button>
               
-              <button className="bg-gray-900 border-2 border-lydian-border-light rounded-lg p-6 hover:bg-gray-800 transition-colors group">
+              <button className="bg-gray-900 border-2 border-white/20 rounded-lg p-6 hover:bg-gray-800 transition-colors group">
                 <Mail className="h-8 w-8 mx-auto mb-3 group-hover:scale-110 transition-transform" />
                 <h3 className="text-lg font-semibold mb-2">E-posta</h3>
                 <p className="text-blue-100">destek@lydian.com</p>

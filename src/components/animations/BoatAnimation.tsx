@@ -94,7 +94,7 @@ export const BoatAnimation: React.FC<BoatAnimationProps> = ({ className = '' }) 
             y1="70" 
             x2="140" 
             y2="140" 
-            stroke="#8B4513" 
+            stroke="#810513" 
             strokeWidth="4"
             className="main-mast"
           />

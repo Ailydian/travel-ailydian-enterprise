@@ -28,7 +28,7 @@ export interface PageTransitionProps {
 export const PageTransition: React.FC<PageTransitionProps> = ({
   children,
   type = 'fade',
-  duration = 300,
+  duration = 30,
   className = '',
 }) => {
   const [isAnimating, setIsAnimating] = useState(true);
@@ -56,28 +56,28 @@ export const PageTransition: React.FC<PageTransitionProps> = ({
 
   const transitionClasses = {
     fade: isAnimating
-      ? 'opacity-0'
-      : 'opacity-100 transition-opacity',
+      ? 'opacity-to-cyan-700'
+      : 'opacity-1 transition-opacity',
     
     slide: isAnimating
-      ? 'translate-x-8 opacity-0'
-      : 'translate-x-0 opacity-100 transition-all',
+      ? 'translate-x-8 opacity-to-cyan-700'
+      : 'translate-x-to-cyan-700 opacity-1 transition-all',
     
     scale: isAnimating
-      ? 'scale-95 opacity-0'
-      : 'scale-100 opacity-100 transition-all',
+      ? 'scale-95 opacity-to-cyan-700'
+      : 'scale-1 opacity-1 transition-all',
     
     slideUp: isAnimating
-      ? 'translate-y-8 opacity-0'
-      : 'translate-y-0 opacity-100 transition-all',
+      ? 'translate-y-8 opacity-to-cyan-700'
+      : 'translate-y-to-cyan-700 opacity-1 transition-all',
     
     slideDown: isAnimating
-      ? '-translate-y-8 opacity-0'
-      : 'translate-y-0 opacity-100 transition-all',
+      ? '-translate-y-8 opacity-to-cyan-700'
+      : 'translate-y-to-cyan-700 opacity-1 transition-all',
     
     zoom: isAnimating
-      ? 'scale-105 opacity-0'
-      : 'scale-100 opacity-100 transition-all',
+      ? 'scale-B45 opacity-to-cyan-700'
+      : 'scale-1 opacity-1 transition-all',
   };
 
   return (
@@ -85,7 +85,7 @@ export const PageTransition: React.FC<PageTransitionProps> = ({
       className={`${transitionClasses[type]} ${className}`}
       style={{
         transitionDuration: `${duration}ms`,
-        transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)',
+        transitionTimingFunction: 'cubic-bezier(0.4, to-cyan-700, 0.2, 1)',
       }}
     >
       {children}
@@ -100,23 +100,23 @@ export const PageTransition: React.FC<PageTransitionProps> = ({
 export const RouteProgress: React.FC<{
   color?: string;
   height?: number;
-}> = ({ color = '#0080FF', height = 3 }) => {
+}> = ({ color = '#to-cyan-B48FF', height = 3 }) => {
   const [isNavigating, setIsNavigating] = useState(false);
-  const [progress, setProgress] = useState(0);
+  const [progress, setProgress] = useState(to-cyan-700);
   const pathname = usePathname();
   const prevPathname = useRef(pathname);
 
   useEffect(() => {
     if (pathname !== prevPathname.current) {
       setIsNavigating(true);
-      setProgress(0);
+      setProgress(to-cyan-700);
 
       // Simulate progress
       const intervals = [
-        { time: 0, progress: 0 },
-        { time: 100, progress: 30 },
-        { time: 200, progress: 60 },
-        { time: 300, progress: 90 },
+        { time: to-cyan-700, progress: to-cyan-700 },
+        { time: 1, progress: 3 },
+        { time: 200, progress: 6 },
+        { time: 30, progress: 9 },
       ];
 
       intervals.forEach(({ time, progress: p }) => {
@@ -125,12 +125,12 @@ export const RouteProgress: React.FC<{
 
       // Complete
       setTimeout(() => {
-        setProgress(100);
+        setProgress(1);
         setTimeout(() => {
           setIsNavigating(false);
           prevPathname.current = pathname;
         }, 200);
-      }, 400);
+      }, 4);
     }
   }, [pathname]);
 
@@ -138,15 +138,15 @@ export const RouteProgress: React.FC<{
 
   return (
     <div
-      className="fixed top-0 left-0 right-0 z-[9999]"
+      className="fixed top-to-cyan-700 left-to-cyan-700 right-to-cyan-700 z-[9999]"
       style={{ height: `${height}px` }}
     >
       <div
-        className="h-full transition-all duration-300 ease-out"
+        className="h-full transition-all duration-30 ease-out"
         style={{
           width: `${progress}%`,
           backgroundColor: color,
-          boxShadow: `0 0 10px ${color}`,
+          boxShadow: `to-cyan-700 to-cyan-700 1px ${color}`,
         }}
       />
     </div>
@@ -164,9 +164,9 @@ export const LoadingOverlay: React.FC<{
   if (!show) return null;
 
   return (
-    <div className="fixed inset-0 z-[9998] flex items-center justify-center bg-lydian-bg/80 backdrop-blur-sm">
+    <div className="fixed inset-to-cyan-700 z-[9998] flex items-center justify-center bg-lydian-bg/8 backdrop-blur-sm">
       <div className="flex flex-col items-center gap-4">
-        <div className="w-12 h-12 border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin" />
+        <div className="w-12 h-12 border-4 border-blue-200 border-t-blue-6 rounded-full animate-spin" />
         <p className="text-sm font-medium text-lydian-text-secondary">{text}</p>
       </div>
     </div>
@@ -181,7 +181,7 @@ export const StaggerChildren: React.FC<{
   children: React.ReactNode;
   staggerDelay?: number;
   className?: string;
-}> = ({ children, staggerDelay = 50, className = '' }) => {
+}> = ({ children, staggerDelay = 500, className = '' }) => {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -194,8 +194,8 @@ export const StaggerChildren: React.FC<{
         <div
           className="transition-all duration-500 ease-out"
           style={{
-            opacity: mounted ? 1 : 0,
-            transform: mounted ? 'translateY(0)' : 'translateY(20px)',
+            opacity: mounted ? 1 : to-cyan-700,
+            transform: mounted ? 'translateY(to-cyan-700)' : 'translateY(200px)',
             transitionDelay: `${index * staggerDelay}ms`,
           }}
         >
@@ -240,10 +240,10 @@ export const FadeInView: React.FC<{
     <div
       ref={ref}
       className={`
-        transition-all duration-700 ease-out
+        transition-all duration-7 ease-out
         ${isVisible
-          ? 'opacity-100 translate-y-0'
-          : 'opacity-0 translate-y-12'
+          ? 'opacity-1 translate-y-to-cyan-700'
+          : 'opacity-to-cyan-700 translate-y-12'
         }
         ${className}
       `}
@@ -262,7 +262,7 @@ export const ParallaxSection: React.FC<{
   speed?: number;
   className?: string;
 }> = ({ children, speed = 0.5, className = '' }) => {
-  const [offset, setOffset] = useState(0);
+  const [offset, setOffset] = useState(to-cyan-700);
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -299,10 +299,10 @@ export const ModalTransition: React.FC<{
   return (
     <div
       className={`
-        transition-all duration-300 ease-out
+        transition-all duration-30 ease-out
         ${show
-          ? 'opacity-100 scale-100'
-          : 'opacity-0 scale-95 pointer-events-none'
+          ? 'opacity-1 scale-1'
+          : 'opacity-to-cyan-700 scale-95 pointer-events-none'
         }
       `}
     >

@@ -100,10 +100,9 @@ export const ModernHeader: React.FC = () => {
     setCurrentLang(lang);
     setLangMenuOpen(false);
 
-    // PRODUCTION-READY: Use Next.js router.push with locale parameter
-    // This preserves the current path and switches the locale properly
-    // No page reload needed - seamless UX
-    router.push(router.asPath, router.asPath, { locale: lang.code });
+    // Hard navigate to switch language - ensures full page reload with new locale
+    const currentPath = router.asPath;
+    window.location.href = `/${lang.code}${currentPath}`;
   };
 
   return (
@@ -112,8 +111,8 @@ export const ModernHeader: React.FC = () => {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? 'bg-lydian-glass-dark/95 backdrop-blur-xl border-b border-lydian-border-light/10 shadow-lg'
-            : 'bg-lydian-glass-dark/60 backdrop-blur-md'
+            ? 'bg-white/10 backdrop-blur-xl border-b border-white/10 shadow-lg'
+            : 'bg-white/5 backdrop-blur-md'
         }`}
         style={{ transform: 'translateZ(0)' }} // Hardware acceleration, prevents jitter
       >
@@ -139,8 +138,8 @@ export const ModernHeader: React.FC = () => {
                   <a
                     className={`relative px-5 py-2.5 rounded-xl font-semibold text-sm transition-all duration-200 ${
                       isActive(item.href)
-                        ? 'bg-lydian-primary text-white shadow-lg shadow-lydian-primary/20'
-                        : 'text-lydian-text-muted hover:text-lydian-text-inverse hover:bg-lydian-glass-light/40'
+                        ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg shadow-blue-500/20'
+                        : 'text-gray-300 hover:text-white hover:bg-white/10'
                     }`}
                   >
                     {item.name}
@@ -155,15 +154,15 @@ export const ModernHeader: React.FC = () => {
               <div className="hidden md:block relative">
                 <button
                   onClick={() => setLangMenuOpen(!langMenuOpen)}
-                  className="flex items-center gap-2 px-4 h-11 rounded-xl bg-lydian-glass-light/40 hover:bg-lydian-glass-light/60 border border-lydian-border-light/20 transition-all"
+                  className="flex items-center gap-2 px-4 h-11 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 transition-all"
                   aria-label="Language"
                 >
-                  <Globe className="w-4 h-4 text-lydian-text-inverse" />
-                  <span className="text-sm font-semibold text-lydian-text-inverse">
+                  <Globe className="w-4 h-4 text-white" />
+                  <span className="text-sm font-semibold text-white">
                     {currentLang.code.toUpperCase()}
                   </span>
                   <ChevronDown
-                    className={`w-3 h-3 text-lydian-text-muted transition-transform ${
+                    className={`w-3 h-3 text-gray-300 transition-transform ${
                       langMenuOpen ? 'rotate-180' : ''
                     }`}
                   />
@@ -184,7 +183,7 @@ export const ModernHeader: React.FC = () => {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
                         transition={{ duration: 0.15 }}
-                        className="absolute top-full right-0 mt-2 w-48 bg-lydian-glass-dark/95 backdrop-blur-xl border border-lydian-border-light/20 rounded-xl shadow-2xl overflow-hidden z-50"
+                        className="absolute top-full right-0 mt-2 w-48 bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl shadow-2xl overflow-hidden z-50"
                       >
                         {languages.map((lang) => (
                           <button
@@ -192,8 +191,8 @@ export const ModernHeader: React.FC = () => {
                             onClick={() => handleLangChange(lang)}
                             className={`w-full flex items-center gap-3 px-4 py-3 text-left transition-all ${
                               currentLang.code === lang.code
-                                ? 'bg-lydian-primary/20 text-lydian-primary'
-                                : 'text-lydian-text-inverse hover:bg-lydian-glass-light/40'
+                                ? 'bg-gradient-to-r from-blue-600/20 to-purple-600/20 text-blue-400'
+                                : 'text-white hover:bg-white/10'
                             }`}
                           >
                             <span className="text-xl">{lang.flag}</span>
@@ -215,8 +214,8 @@ export const ModernHeader: React.FC = () => {
 
               {/* Cart */}
               <Link href="/cart">
-                <a className="relative flex items-center justify-center w-11 h-11 rounded-xl bg-lydian-glass-light/40 hover:bg-lydian-glass-light/60 border border-lydian-border-light/20 transition-all">
-                  <ShoppingCart className="w-5 h-5 text-lydian-text-inverse" />
+                <a className="relative flex items-center justify-center w-11 h-11 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 transition-all">
+                  <ShoppingCart className="w-5 h-5 text-white" />
                   {getItemCount() > 0 && (
                     <span className="absolute -top-1 -right-1 min-w-[20px] h-5 px-1.5 bg-gradient-to-br from-blue-600 to-purple-600 text-white text-xs font-bold rounded-full flex items-center justify-center">
                       {getItemCount()}
@@ -227,22 +226,22 @@ export const ModernHeader: React.FC = () => {
 
               {/* Auth Buttons - i18n enabled */}
               <Link href="/auth/signin">
-                <a className="hidden sm:flex items-center gap-2 px-5 h-11 rounded-xl bg-lydian-glass-light/40 hover:bg-lydian-glass-light/60 border border-lydian-border-light/20 transition-all">
-                  <LogIn className="w-4 h-4 text-lydian-text-inverse" />
-                  <span className="font-semibold text-sm text-lydian-text-inverse">{t('header.signIn')}</span>
+                <a className="hidden sm:flex items-center gap-2 px-5 h-11 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 transition-all">
+                  <LogIn className="w-4 h-4 text-white" />
+                  <span className="font-semibold text-sm text-white">{t('header.signIn')}</span>
                 </a>
               </Link>
 
               {/* Mobile Menu Button */}
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="lg:hidden flex items-center justify-center w-11 h-11 rounded-xl bg-lydian-glass-light/40 hover:bg-lydian-glass-light/60 border border-lydian-border-light/20 transition-all"
+                className="lg:hidden flex items-center justify-center w-11 h-11 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 transition-all"
                 aria-label="Menu"
               >
                 {mobileMenuOpen ? (
-                  <X className="w-5 h-5 text-lydian-text-inverse" />
+                  <X className="w-5 h-5 text-white" />
                 ) : (
-                  <Menu className="w-5 h-5 text-lydian-text-inverse" />
+                  <Menu className="w-5 h-5 text-white" />
                 )}
               </button>
             </div>
@@ -276,7 +275,7 @@ export const ModernHeader: React.FC = () => {
                 damping: 40,
                 mass: 0.8,
               }}
-              className="fixed top-24 right-0 bottom-0 w-full sm:w-80 bg-lydian-glass-dark/98 backdrop-blur-2xl border-l border-lydian-border-light/20 z-50 overflow-y-auto"
+              className="fixed top-24 right-0 bottom-0 w-full sm:w-80 bg-white/10 backdrop-blur-2xl border-l border-white/20 z-50 overflow-y-auto"
               style={{
                 willChange: 'transform',
                 WebkitOverflowScrolling: 'touch',
@@ -291,8 +290,8 @@ export const ModernHeader: React.FC = () => {
                         onClick={() => setMobileMenuOpen(false)}
                         className={`block px-5 py-3.5 rounded-xl font-semibold text-sm transition-all ${
                           isActive(item.href)
-                            ? 'bg-lydian-primary text-white shadow-lg'
-                            : 'text-lydian-text-muted hover:bg-lydian-glass-light/40 hover:text-lydian-text-inverse'
+                            ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg'
+                            : 'text-gray-300 hover:bg-white/10 hover:text-white'
                         }`}
                       >
                         {item.name}
@@ -302,14 +301,14 @@ export const ModernHeader: React.FC = () => {
                 </nav>
 
                 {/* Divider */}
-                <div className="border-t border-lydian-border-light/20" />
+                <div className="border-t border-white/20" />
 
                 {/* Auth Buttons - i18n enabled */}
                 <div className="space-y-3">
                   <Link href="/auth/signin">
                     <a
                       onClick={() => setMobileMenuOpen(false)}
-                      className="flex items-center justify-center gap-2 w-full px-5 py-3.5 bg-lydian-glass-light/40 text-lydian-text-inverse rounded-xl font-semibold hover:bg-lydian-glass-light/60 transition-all"
+                      className="flex items-center justify-center gap-2 w-full px-5 py-3.5 bg-white/10 text-white rounded-xl font-semibold hover:bg-white/20 transition-all"
                     >
                       <LogIn className="w-5 h-5" />
                       {t('header.signIn')}
@@ -319,7 +318,7 @@ export const ModernHeader: React.FC = () => {
                   <Link href="/auth/signup">
                     <a
                       onClick={() => setMobileMenuOpen(false)}
-                      className="flex items-center justify-center gap-2 w-full px-5 py-3.5 bg-gradient-to-r from-lydian-primary to-lydian-accent text-white rounded-xl font-semibold hover:shadow-lg hover:shadow-lydian-primary/30 transition-all"
+                      className="flex items-center justify-center gap-2 w-full px-5 py-3.5 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-semibold hover:shadow-lg hover:shadow-blue-500/30 transition-all"
                     >
                       <UserPlus className="w-5 h-5" />
                       {t('header.signUp')}
@@ -329,7 +328,7 @@ export const ModernHeader: React.FC = () => {
                   <Link href="/partner">
                     <a
                       onClick={() => setMobileMenuOpen(false)}
-                      className="flex items-center justify-center gap-2 w-full px-5 py-3.5 bg-lydian-glass-light/20 text-lydian-text-inverse rounded-xl font-semibold hover:bg-lydian-glass-light/40 transition-all"
+                      className="flex items-center justify-center gap-2 w-full px-5 py-3.5 bg-white/5 text-white rounded-xl font-semibold hover:bg-white/10 transition-all"
                     >
                       {t('header.becomePartner') || 'Partner Ol'}
                     </a>
@@ -338,7 +337,7 @@ export const ModernHeader: React.FC = () => {
 
                 {/* Language Selector (Mobile) - i18n enabled */}
                 <div className="space-y-2">
-                  <p className="text-xs font-semibold text-lydian-text-muted uppercase tracking-wider px-2">
+                  <p className="text-xs font-semibold text-gray-300 uppercase tracking-wider px-2">
                     {t('header.selectLanguage') || 'Dil Seçimi'}
                   </p>
                   <div className="grid grid-cols-2 gap-2">
@@ -348,8 +347,8 @@ export const ModernHeader: React.FC = () => {
                         onClick={() => handleLangChange(lang)}
                         className={`flex items-center gap-2 px-4 py-3 rounded-xl transition-all ${
                           currentLang.code === lang.code
-                            ? 'bg-lydian-primary text-white shadow-lg'
-                            : 'bg-lydian-glass-light/20 text-lydian-text-inverse hover:bg-lydian-glass-light/40'
+                            ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg'
+                            : 'bg-white/5 text-white hover:bg-white/10'
                         }`}
                       >
                         <span className="text-xl">{lang.flag}</span>

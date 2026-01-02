@@ -186,24 +186,24 @@ const PropertyOwnerDashboard: React.FC = () => {
 
   if (loading || !stats) {
     return (
-      <div className="min-h-screen bg-lydian-glass-dark flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-black to-slate-800 flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-purple-600 mx-auto mb-4"></div>
-          <p className="text-lydian-text-dim">Yükleniyor...</p>
+          <p className="text-gray-400">Yükleniyor...</p>
         </div>
       </div>);
 
   }
 
   return (
-    <div className="min-h-screen bg-lydian-glass-dark">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-black to-slate-800">
       {/* Header */}
-      <div className="bg-lydian-glass-dark border-b border-lydian-border sticky top-0 z-50">
+      <div className="bg-gradient-to-br from-slate-900 via-black to-slate-800 border-b border-white/20 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center gap-4">
               <Home className="h-6 w-6 text-purple-600" />
-              <h1 className="text-xl font-bold text-lydian-text-inverse">
+              <h1 className="text-xl font-bold text-white">
                 Property Dashboard
               </h1>
 
@@ -211,17 +211,17 @@ const PropertyOwnerDashboard: React.FC = () => {
               <div className="flex items-center gap-2 text-sm">
                 {syncStatus === 'synced' &&
                 <>
-                    <div className="w-2 h-2 bg-lydian-success rounded-full animate-pulse"></div>
-                    <span className="text-lydian-success font-medium">Senkronize</span>
+                    <div className="w-2 h-2 bg-green-600 rounded-full animate-pulse"></div>
+                    <span className="text-green-500 font-medium">Senkronize</span>
                   </>
                 }
                 {syncStatus === 'syncing' &&
                 <>
-                    <div className="w-2 h-2 bg-lydian-warning-hover rounded-full animate-pulse"></div>
-                    <span className="text-lydian-warning font-medium">Güncelleniyor...</span>
+                    <div className="w-2 h-2 bg-yellow-500-hover rounded-full animate-pulse"></div>
+                    <span className="text-yellow-500 font-medium">Güncelleniyor...</span>
                   </>
                 }
-                <span className="text-lydian-text-muted">
+                <span className="text-gray-300">
                   {lastSyncTime.toLocaleTimeString('tr-TR')}
                 </span>
               </div>
@@ -229,7 +229,7 @@ const PropertyOwnerDashboard: React.FC = () => {
 
             <div className="flex items-center gap-4">
               {/* Notifications */}
-              <button className="relative p-2 text-lydian-text-dim hover:bg-lydian-glass-dark-medium rounded-lg">
+              <button className="relative p-2 text-gray-400 hover:bg-white/10 backdrop-blur-xl border border-white/20 rounded-lg">
                 <Bell className="h-5 w-5" />
                 {notifications.filter((n) => !n.read).length > 0 &&
                 <span className="absolute top-1 right-1 w-2 h-2 bg-lydian-error rounded-full"></span>
@@ -239,7 +239,7 @@ const PropertyOwnerDashboard: React.FC = () => {
               {/* Settings */}
               <button
                 onClick={() => router.push('/partner/property/settings')}
-                className="p-2 text-lydian-text-dim hover:bg-lydian-glass-dark-medium rounded-lg">
+                className="p-2 text-gray-400 hover:bg-white/10 backdrop-blur-xl border border-white/20 rounded-lg">
 
                 <Settings className="h-5 w-5" />
               </button>
@@ -255,7 +255,7 @@ const PropertyOwnerDashboard: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-gradient-to-br from-purple-500 to-purple-700 rounded-xl p-6 text-lydian-text-inverse shadow-lg">
+            className="bg-gradient-to-br from-purple-500 to-purple-700 rounded-xl p-6 text-white shadow-lg">
 
             <div className="flex items-center justify-between mb-4">
               <DollarSign className="h-8 w-8 opacity-80" />
@@ -284,19 +284,19 @@ const PropertyOwnerDashboard: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="bg-lydian-glass-dark rounded-xl p-6 shadow-md">
+            className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-xl p-6 shadow-md">
 
             <div className="flex items-center justify-between mb-4">
-              <Calendar className="h-8 w-8 text-lydian-primary" />
-              <span className="bg-lydian-primary-light text-lydian-primary text-xs font-bold px-2 py-1 rounded-full">
+              <Calendar className="h-8 w-8 text-blue-500" />
+              <span className="bg-blue-500/10 text-blue-500 text-xs font-bold px-2 py-1 rounded-full">
                 Yeni
               </span>
             </div>
-            <p className="text-lydian-text-dim text-sm mb-1">Yaklaşan Rezervasyonlar</p>
-            <p className="text-3xl font-bold text-lydian-text-inverse mb-2">
+            <p className="text-gray-400 text-sm mb-1">Yaklaşan Rezervasyonlar</p>
+            <p className="text-3xl font-bold text-white mb-2">
               {stats.bookings.upcoming}
             </p>
-            <p className="text-xs text-lydian-text-muted">
+            <p className="text-xs text-gray-300">
               {stats.bookings.pending} beklemede
             </p>
           </motion.div>
@@ -306,24 +306,24 @@ const PropertyOwnerDashboard: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="bg-lydian-glass-dark rounded-xl p-6 shadow-md">
+            className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-xl p-6 shadow-md">
 
             <div className="flex items-center justify-between mb-4">
-              <Users className="h-8 w-8 text-lydian-success" />
+              <Users className="h-8 w-8 text-green-500" />
               <div className="text-right">
-                <p className="text-xs text-lydian-text-muted">Hedef</p>
-                <p className="text-sm font-bold text-lydian-text-inverse">
+                <p className="text-xs text-gray-300">Hedef</p>
+                <p className="text-sm font-bold text-white">
                   %{stats.occupancy.target}
                 </p>
               </div>
             </div>
-            <p className="text-lydian-text-dim text-sm mb-1">Doluluk Oranı</p>
-            <p className="text-3xl font-bold text-lydian-text-inverse mb-2">
+            <p className="text-gray-400 text-sm mb-1">Doluluk Oranı</p>
+            <p className="text-3xl font-bold text-white mb-2">
               %{stats.occupancy.current}
             </p>
-            <div className="w-full bg-lydian-bg-active rounded-full h-2">
+            <div className="w-full bg-white/10 backdrop-blur-xl border border-white/20 rounded-full h-2">
               <div
-                className="bg-lydian-success h-2 rounded-full"
+                className="bg-green-600 h-2 rounded-full"
                 style={{ width: `${stats.occupancy.current}%` }}>
               </div>
             </div>
@@ -334,17 +334,17 @@ const PropertyOwnerDashboard: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="bg-lydian-glass-dark rounded-xl p-6 shadow-md">
+            className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-xl p-6 shadow-md">
 
             <div className="flex items-center justify-between mb-4">
               <MousePointer className="h-8 w-8 text-orange-600" />
-              <Star className="h-5 w-5 text-lydian-warning fill-yellow-500" />
+              <Star className="h-5 w-5 text-yellow-500 fill-yellow-500" />
             </div>
-            <p className="text-lydian-text-dim text-sm mb-1">Dönüşüm Oranı</p>
-            <p className="text-3xl font-bold text-lydian-text-inverse mb-2">
+            <p className="text-gray-400 text-sm mb-1">Dönüşüm Oranı</p>
+            <p className="text-3xl font-bold text-white mb-2">
               %{stats.analytics.conversionRate.toFixed(1)}
             </p>
-            <p className="text-xs text-lydian-text-muted">
+            <p className="text-xs text-gray-300">
               {stats.analytics.views.toLocaleString()} görüntüleme
             </p>
           </motion.div>
@@ -353,11 +353,11 @@ const PropertyOwnerDashboard: React.FC = () => {
         {/* Revenue Chart & AI Pricing */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
           {/* Revenue Chart */}
-          <div className="lg:col-span-2 bg-lydian-glass-dark rounded-xl p-6 shadow-md">
+          <div className="lg:col-span-2 bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-xl p-6 shadow-md">
             <div className="flex items-center justify-between mb-6">
               <div>
-                <h3 className="text-lg font-bold text-lydian-text-inverse">Gelir Trendi</h3>
-                <p className="text-sm text-lydian-text-muted">Son 30 gün</p>
+                <h3 className="text-lg font-bold text-white">Gelir Trendi</h3>
+                <p className="text-sm text-gray-300">Son 30 gün</p>
               </div>
               <BarChart3 className="h-5 w-5 text-purple-600" />
             </div>
@@ -365,10 +365,10 @@ const PropertyOwnerDashboard: React.FC = () => {
             <Line data={revenueChartData} options={revenueChartOptions} />
 
             {/* Forecast */}
-            <div className="mt-6 pt-6 border-t border-lydian-border">
+            <div className="mt-6 pt-6 border-t border-white/20">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-lydian-text-dim mb-1">
+                  <p className="text-sm text-gray-400 mb-1">
                     AI Tahmini (Sonraki 3 Ay)
                   </p>
                   <p className="text-2xl font-bold text-purple-600">
@@ -384,7 +384,7 @@ const PropertyOwnerDashboard: React.FC = () => {
           <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl p-6 shadow-md border border-purple-200">
             <div className="flex items-center gap-2 mb-4">
               <Sparkles className="h-5 w-5 text-purple-600" />
-              <h3 className="text-lg font-bold text-lydian-text-inverse">
+              <h3 className="text-lg font-bold text-white">
                 AI Fiyat Önerisi
               </h3>
             </div>
@@ -392,43 +392,43 @@ const PropertyOwnerDashboard: React.FC = () => {
             {/* Current vs Suggested */}
             <div className="space-y-4 mb-6">
               <div>
-                <p className="text-xs text-lydian-text-dim mb-1">Mevcut Fiyat</p>
-                <p className="text-2xl font-bold text-lydian-text-inverse">
+                <p className="text-xs text-gray-400 mb-1">Mevcut Fiyat</p>
+                <p className="text-2xl font-bold text-white">
                   ₺{stats.pricing.currentPrice.toLocaleString()}
                 </p>
               </div>
 
               <div className="flex items-center gap-2">
-                <div className="flex-1 h-px bg-gray-300"></div>
-                <TrendingUp className="h-4 w-4 text-lydian-success" />
-                <div className="flex-1 h-px bg-gray-300"></div>
+                <div className="flex-1 h-px bg-lydian-border-medium"></div>
+                <TrendingUp className="h-4 w-4 text-green-500" />
+                <div className="flex-1 h-px bg-lydian-border-medium"></div>
               </div>
 
               <div>
-                <p className="text-xs text-lydian-text-dim mb-1">Önerilen Fiyat</p>
-                <p className="text-3xl font-bold text-lydian-success">
+                <p className="text-xs text-gray-400 mb-1">Önerilen Fiyat</p>
+                <p className="text-3xl font-bold text-green-500">
                   ₺{stats.pricing.suggestedPrice.toLocaleString()}
                 </p>
-                <p className="text-xs text-lydian-success font-semibold mt-1">
+                <p className="text-xs text-green-500 font-semibold mt-1">
                   +%{stats.pricing.optimizationOpportunity} potansiyel artış
                 </p>
               </div>
             </div>
 
             {/* Competitor Comparison */}
-            <div className="bg-lydian-glass-dark rounded-lg p-4 mb-4">
-              <p className="text-xs text-lydian-text-dim mb-2">Rakip Ortalaması</p>
-              <p className="text-xl font-bold text-lydian-text-inverse">
+            <div className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-lg p-4 mb-4">
+              <p className="text-xs text-gray-400 mb-2">Rakip Ortalaması</p>
+              <p className="text-xl font-bold text-white">
                 ₺{stats.pricing.competitorAverage.toLocaleString()}
               </p>
             </div>
 
             {/* Apply Button */}
-            <button className="w-full bg-purple-600 hover:bg-purple-700 text-lydian-text-inverse font-bold py-3 px-4 rounded-lg transition-colors">
+            <button className="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-4 rounded-lg transition-colors">
               Önerilen Fiyatı Uygula
             </button>
 
-            <p className="text-xs text-lydian-text-muted mt-3 text-center">
+            <p className="text-xs text-gray-300 mt-3 text-center">
               AI, rakip fiyatları ve talep trendlerini analiz eder
             </p>
           </div>
@@ -437,72 +437,72 @@ const PropertyOwnerDashboard: React.FC = () => {
         {/* Analytics & Notifications */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Detailed Analytics */}
-          <div className="bg-lydian-glass-dark rounded-xl p-6 shadow-md">
-            <h3 className="text-lg font-bold text-lydian-text-inverse mb-4">
+          <div className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-xl p-6 shadow-md">
+            <h3 className="text-lg font-bold text-white mb-4">
               Detaylı Analitik
             </h3>
 
             <div className="space-y-4">
               {/* Views */}
-              <div className="flex items-center justify-between p-3 bg-lydian-glass-dark rounded-lg">
+              <div className="flex items-center justify-between p-3 bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-lg">
                 <div className="flex items-center gap-3">
-                  <Eye className="h-5 w-5 text-lydian-primary" />
+                  <Eye className="h-5 w-5 text-blue-500" />
                   <div>
-                    <p className="text-sm font-semibold text-lydian-text-inverse">
+                    <p className="text-sm font-semibold text-white">
                       Görüntüleme
                     </p>
-                    <p className="text-xs text-lydian-text-muted">Bu ay</p>
+                    <p className="text-xs text-gray-300">Bu ay</p>
                   </div>
                 </div>
-                <p className="text-xl font-bold text-lydian-text-inverse">
+                <p className="text-xl font-bold text-white">
                   {stats.analytics.views.toLocaleString()}
                 </p>
               </div>
 
               {/* Clicks */}
-              <div className="flex items-center justify-between p-3 bg-lydian-glass-dark rounded-lg">
+              <div className="flex items-center justify-between p-3 bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-lg">
                 <div className="flex items-center gap-3">
-                  <MousePointer className="h-5 w-5 text-lydian-success" />
+                  <MousePointer className="h-5 w-5 text-green-500" />
                   <div>
-                    <p className="text-sm font-semibold text-lydian-text-inverse">
+                    <p className="text-sm font-semibold text-white">
                       Tıklama
                     </p>
-                    <p className="text-xs text-lydian-text-muted">Rezervasyon sayfası</p>
+                    <p className="text-xs text-gray-300">Rezervasyon sayfası</p>
                   </div>
                 </div>
-                <p className="text-xl font-bold text-lydian-text-inverse">
+                <p className="text-xl font-bold text-white">
                   {stats.analytics.clicks.toLocaleString()}
                 </p>
               </div>
 
               {/* Average Stay */}
-              <div className="flex items-center justify-between p-3 bg-lydian-glass-dark rounded-lg">
+              <div className="flex items-center justify-between p-3 bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-lg">
                 <div className="flex items-center gap-3">
                   <Clock className="h-5 w-5 text-orange-600" />
                   <div>
-                    <p className="text-sm font-semibold text-lydian-text-inverse">
+                    <p className="text-sm font-semibold text-white">
                       Ortalama Konaklama
                     </p>
-                    <p className="text-xs text-lydian-text-muted">Gece sayısı</p>
+                    <p className="text-xs text-gray-300">Gece sayısı</p>
                   </div>
                 </div>
-                <p className="text-xl font-bold text-lydian-text-inverse">
+                <p className="text-xl font-bold text-white">
                   {stats.analytics.averageStayLength.toFixed(1)}
                 </p>
               </div>
 
               {/* Repeat Guests */}
-              <div className="flex items-center justify-between p-3 bg-lydian-glass-dark rounded-lg">
+              <div className="flex items-center justify-between p-3 bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-lg">
                 <div className="flex items-center gap-3">
                   <Star className="h-5 w-5 text-purple-600" />
                   <div>
-                    <p className="text-sm font-semibold text-lydian-text-inverse">
+                    <p className="text-sm font-semibold text-white">
                       Tekrar Gelen Misafir
                     </p>
-                    <p className="text-xs text-lydian-text-muted">Sadakat oranı</p>
+                    <p className="text-xs text-gray-300">Sadakat oranı</p>
                   </div>
                 </div>
-                <p className="text-xl font-bold text-lydian-text-inverse">
+                <p className="text-xl font-bold text-white">
                   %{stats.analytics.repeatGuestRate}
                 </p>
               </div>
@@ -510,9 +510,9 @@ const PropertyOwnerDashboard: React.FC = () => {
           </div>
 
           {/* Recent Notifications */}
-          <div className="bg-lydian-glass-dark rounded-xl p-6 shadow-md">
+          <div className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-xl p-6 shadow-md">
             <div className="flex items-center justify-between mb-4">
-              <h3 className="text-lg font-bold text-lydian-text-inverse">Bildirimler</h3>
+              <h3 className="text-lg font-bold text-white">Bildirimler</h3>
               <button className="text-sm text-purple-600 font-medium hover:text-purple-700">
                 Tümünü Gör
               </button>
@@ -526,38 +526,38 @@ const PropertyOwnerDashboard: React.FC = () => {
                 notification.urgent ?
                 'bg-red-50 border-red-500' :
                 notification.read ?
-                'bg-lydian-bg/5 border-lydian-border-medium' :
-                'bg-blue-50 border-lydian-primary'}`
+                'bg-white/5 border-white/30' :
+                'bg-blue-50 border-blue-500'}`
                 }>
 
                   <div className="flex items-start gap-3">
                     {notification.type === 'booking' &&
-                  <CheckCircle className="h-5 w-5 text-lydian-success flex-shrink-0 mt-0.5" />
+                  <CheckCircle className="h-5 w-5 text-green-500 flex-shrink-0 mt-0.5" />
                   }
                     {notification.type === 'cancellation' &&
-                  <AlertCircle className="h-5 w-5 text-lydian-primary flex-shrink-0 mt-0.5" />
+                  <AlertCircle className="h-5 w-5 text-blue-500 flex-shrink-0 mt-0.5" />
                   }
                     {notification.type === 'review' &&
-                  <Star className="h-5 w-5 text-lydian-warning flex-shrink-0 mt-0.5" />
+                  <Star className="h-5 w-5 text-yellow-500 flex-shrink-0 mt-0.5" />
                   }
                     {notification.type === 'message' &&
-                  <MessageSquare className="h-5 w-5 text-lydian-primary flex-shrink-0 mt-0.5" />
+                  <MessageSquare className="h-5 w-5 text-blue-500 flex-shrink-0 mt-0.5" />
                   }
 
                     <div className="flex-1">
-                      <p className="text-sm font-semibold text-lydian-text-inverse">
+                      <p className="text-sm font-semibold text-white">
                         {notification.title}
                       </p>
-                      <p className="text-xs text-lydian-text-dim mt-1">
+                      <p className="text-xs text-gray-400 mt-1">
                         {notification.description}
                       </p>
-                      <p className="text-xs text-lydian-text-muted mt-2">
+                      <p className="text-xs text-gray-300 mt-2">
                         {notification.time}
                       </p>
                     </div>
 
                     {!notification.read &&
-                  <div className="w-2 h-2 bg-lydian-primary rounded-full flex-shrink-0 mt-2"></div>
+                  <div className="w-2 h-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex-shrink-0 mt-2"></div>
                   }
                   </div>
                 </div>

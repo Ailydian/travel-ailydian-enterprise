@@ -198,10 +198,10 @@ const VehicleOwnerDashboard: React.FC = () => {
 
   if (loading || !stats) {
     return (
-      <div className="min-h-screen bg-lydian-glass-dark flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-black to-slate-800 flex items-center justify-center">
         <div className="text-center">
           <RefreshCw className="h-12 w-12 text-purple-600 animate-spin mx-auto mb-4" />
-          <p className="text-lydian-text-dim">Dashboard yükleniyor...</p>
+          <p className="text-gray-400">Dashboard yükleniyor...</p>
         </div>
       </div>);
 
@@ -256,17 +256,17 @@ const VehicleOwnerDashboard: React.FC = () => {
         <meta name="description" content="Vehicle owner dashboard with driver management" />
       </Head>
 
-      <div className="min-h-screen bg-lydian-glass-dark">
+      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-black to-slate-800">
         {/* Header */}
-        <div className="bg-lydian-glass-dark border-b border-lydian-border">
+        <div className="bg-gradient-to-br from-slate-900 via-black to-slate-800 border-b border-white/20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
             <div className="flex items-center justify-between">
               <div>
-                <h1 className="text-3xl font-bold text-lydian-text-inverse flex items-center gap-3">
+                <h1 className="text-3xl font-bold text-white flex items-center gap-3">
                   <Car className="h-8 w-8 text-purple-600" />
                   Şoförlü Araç Partner Dashboard
                 </h1>
-                <p className="text-sm text-lydian-text-dim mt-1">
+                <p className="text-sm text-gray-400 mt-1">
                   Araç filosu, sürücü yönetimi ve rezervasyon takibi
                 </p>
               </div>
@@ -274,19 +274,19 @@ const VehicleOwnerDashboard: React.FC = () => {
               {/* Sync Status */}
               <div className="flex items-center gap-2">
                 {syncStatus === 'synced' &&
-                <div className="flex items-center gap-2 text-lydian-success">
+                <div className="flex items-center gap-2 text-green-500">
                     <CheckCircle className="h-5 w-5" />
                     <span className="text-sm font-medium">Senkronize</span>
                   </div>
                 }
                 {syncStatus === 'syncing' &&
-                <div className="flex items-center gap-2 text-lydian-primary">
+                <div className="flex items-center gap-2 text-blue-500">
                     <RefreshCw className="h-5 w-5 animate-spin" />
                     <span className="text-sm font-medium">Güncelleniyor...</span>
                   </div>
                 }
                 {syncStatus === 'error' &&
-                <div className="flex items-center gap-2 text-lydian-primary">
+                <div className="flex items-center gap-2 text-blue-500">
                     <AlertCircle className="h-5 w-5" />
                     <span className="text-sm font-medium">Hata</span>
                   </div>
@@ -295,7 +295,7 @@ const VehicleOwnerDashboard: React.FC = () => {
             </div>
 
             {/* Tab Navigation */}
-            <div className="flex items-center gap-2 mt-6 border-b border-lydian-border">
+            <div className="flex items-center gap-2 mt-6 border-b border-white/20">
               {['overview', 'vehicles', 'drivers', 'bookings'].map((tab) =>
               <button
                 key={tab}
@@ -303,7 +303,7 @@ const VehicleOwnerDashboard: React.FC = () => {
                 className={`px-4 py-2 font-medium border-b-2 transition-colors ${
                 selectedTab === tab ?
                 'border-purple-600 text-purple-600' :
-                'border-transparent text-lydian-text-dim hover:text-white'}`
+                'border-transparent text-gray-400 hover:text-white'}`
                 }>
 
                   {tab === 'overview' && 'Genel Bakış'}
@@ -325,7 +325,7 @@ const VehicleOwnerDashboard: React.FC = () => {
             className="bg-lydian-error-lighter border border-red-200 rounded-lg p-4 mb-6">
 
               <div className="flex items-start gap-3">
-                <AlertCircle className="h-6 w-6 text-lydian-primary flex-shrink-0 mt-0.5" />
+                <AlertCircle className="h-6 w-6 text-blue-500 flex-shrink-0 mt-0.5" />
                 <div className="flex-1">
                   <h3 className="font-bold text-red-900 mb-2">Acil Bakım Uyarıları</h3>
                   {maintenanceAlerts.filter((a) => a.priority === 'high').map((alert) =>
@@ -347,23 +347,23 @@ const VehicleOwnerDashboard: React.FC = () => {
                 <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="bg-lydian-glass-dark rounded-xl shadow-md p-6">
+                className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-xl shadow-md p-6">
 
                   <div className="flex items-center justify-between mb-4">
                     <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
                       <DollarSign className="h-6 w-6 text-purple-600" />
                     </div>
                     {stats.revenue.growth > 0 ?
-                  <TrendingUp className="h-5 w-5 text-lydian-success" /> :
+                  <TrendingUp className="h-5 w-5 text-green-500" /> :
 
-                  <TrendingDown className="h-5 w-5 text-lydian-primary" />
+                  <TrendingDown className="h-5 w-5 text-blue-500" />
                   }
                   </div>
-                  <p className="text-sm text-lydian-text-dim mb-1">Aylık Gelir</p>
-                  <p className="text-2xl font-bold text-lydian-text-inverse">
+                  <p className="text-sm text-gray-400 mb-1">Aylık Gelir</p>
+                  <p className="text-2xl font-bold text-white">
                     ₺{stats.revenue.thisMonth.toLocaleString()}
                   </p>
-                  <p className={`text-xs mt-2 ${stats.revenue.growth > 0 ? 'text-lydian-success' : 'text-lydian-error'}`}>
+                  <p className={`text-xs mt-2 ${stats.revenue.growth > 0 ? 'text-green-500' : 'text-lydian-error'}`}>
                     {stats.revenue.growth > 0 ? '+' : ''}{stats.revenue.growth}% geçen aya göre
                   </p>
                 </motion.div>
@@ -373,19 +373,19 @@ const VehicleOwnerDashboard: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
-                className="bg-lydian-glass-dark rounded-xl shadow-md p-6">
+                className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-xl shadow-md p-6">
 
                   <div className="flex items-center justify-between mb-4">
-                    <div className="w-12 h-12 bg-lydian-primary-light rounded-lg flex items-center justify-center">
-                      <Activity className="h-6 w-6 text-lydian-primary" />
+                    <div className="w-12 h-12 bg-blue-500/10 rounded-lg flex items-center justify-center">
+                      <Activity className="h-6 w-6 text-blue-500" />
                     </div>
-                    <span className="px-3 py-1 bg-lydian-primary-light text-blue-800 text-xs font-bold rounded-full">
+                    <span className="px-3 py-1 bg-blue-500/10 text-blue-800 text-xs font-bold rounded-full">
                       Aktif
                     </span>
                   </div>
-                  <p className="text-sm text-lydian-text-dim mb-1">Aktif Rezervasyonlar</p>
-                  <p className="text-2xl font-bold text-lydian-text-inverse">{stats.bookings.active}</p>
-                  <p className="text-xs text-lydian-text-muted mt-2">
+                  <p className="text-sm text-gray-400 mb-1">Aktif Rezervasyonlar</p>
+                  <p className="text-2xl font-bold text-white">{stats.bookings.active}</p>
+                  <p className="text-xs text-gray-300 mt-2">
                     {stats.bookings.upcoming} yaklaşan rezervasyon
                   </p>
                 </motion.div>
@@ -395,21 +395,21 @@ const VehicleOwnerDashboard: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="bg-lydian-glass-dark rounded-xl shadow-md p-6">
+                className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-xl shadow-md p-6">
 
                   <div className="flex items-center justify-between mb-4">
-                    <div className="w-12 h-12 bg-lydian-success-light rounded-lg flex items-center justify-center">
-                      <Car className="h-6 w-6 text-lydian-success" />
+                    <div className="w-12 h-12 bg-green-600-light rounded-lg flex items-center justify-center">
+                      <Car className="h-6 w-6 text-green-500" />
                     </div>
-                    <CheckCircle className="h-5 w-5 text-lydian-success" />
+                    <CheckCircle className="h-5 w-5 text-green-500" />
                   </div>
-                  <p className="text-sm text-lydian-text-dim mb-1">Müsait Araçlar</p>
-                  <p className="text-2xl font-bold text-lydian-text-inverse">
+                  <p className="text-sm text-gray-400 mb-1">Müsait Araçlar</p>
+                  <p className="text-2xl font-bold text-white">
                     {stats.vehicles.available}/{stats.vehicles.total}
                   </p>
-                  <div className="mt-2 bg-lydian-bg-active rounded-full h-2">
+                  <div className="mt-2 bg-white/10 backdrop-blur-xl border border-white/20 rounded-full h-2">
                     <div
-                    className="bg-lydian-success h-2 rounded-full"
+                    className="bg-green-600 h-2 rounded-full"
                     style={{ width: `${stats.vehicles.available / stats.vehicles.total * 100}%` }}>
                   </div>
                   </div>
@@ -420,11 +420,11 @@ const VehicleOwnerDashboard: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="bg-lydian-glass-dark rounded-xl shadow-md p-6">
+                className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-xl shadow-md p-6">
 
                   <div className="flex items-center justify-between mb-4">
-                    <div className="w-12 h-12 bg-lydian-warning-light rounded-lg flex items-center justify-center">
-                      <Star className="h-6 w-6 text-lydian-warning" />
+                    <div className="w-12 h-12 bg-yellow-500-light rounded-lg flex items-center justify-center">
+                      <Star className="h-6 w-6 text-yellow-500" />
                     </div>
                     <div className="flex items-center gap-1">
                       {[...Array(5)].map((_, i) =>
@@ -433,17 +433,17 @@ const VehicleOwnerDashboard: React.FC = () => {
                       className={`h-4 w-4 ${
                       i < Math.floor(stats.performance.customerRating) ?
                       'text-yellow-400 fill-yellow-400' :
-                      'text-lydian-text-dim'}`
+                      'text-gray-400'}`
                       } />
 
                     )}
                     </div>
                   </div>
-                  <p className="text-sm text-lydian-text-dim mb-1">Müşteri Memnuniyeti</p>
-                  <p className="text-2xl font-bold text-lydian-text-inverse">
+                  <p className="text-sm text-gray-400 mb-1">Müşteri Memnuniyeti</p>
+                  <p className="text-2xl font-bold text-white">
                     {stats.performance.customerRating.toFixed(1)}/5.0
                   </p>
-                  <p className="text-xs text-lydian-text-muted mt-2">
+                  <p className="text-xs text-gray-300 mt-2">
                     {stats.bookings.completed} tamamlanmış rezervasyon
                   </p>
                 </motion.div>
@@ -455,9 +455,9 @@ const VehicleOwnerDashboard: React.FC = () => {
                 <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="bg-lydian-glass-dark rounded-xl shadow-md p-6">
+                className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-xl shadow-md p-6">
 
-                  <h2 className="text-xl font-bold text-lydian-text-inverse mb-6 flex items-center gap-2">
+                  <h2 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
                     <BarChart3 className="h-5 w-5 text-purple-600" />
                     Gelir Trendi (6 Ay)
                   </h2>
@@ -469,9 +469,9 @@ const VehicleOwnerDashboard: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
-                className="bg-lydian-glass-dark rounded-xl shadow-md p-6">
+                className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-xl shadow-md p-6">
 
-                  <h2 className="text-xl font-bold text-lydian-text-inverse mb-6 flex items-center gap-2">
+                  <h2 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
                     <PieChart className="h-5 w-5 text-purple-600" />
                     Araç Tipi Dağılımı
                   </h2>
@@ -483,9 +483,9 @@ const VehicleOwnerDashboard: React.FC = () => {
               <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="bg-lydian-glass-dark rounded-xl shadow-md p-6">
+              className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-xl shadow-md p-6">
 
-                <h2 className="text-xl font-bold text-lydian-text-inverse mb-6 flex items-center gap-2">
+                <h2 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
                   <Calendar className="h-5 w-5 text-purple-600" />
                   Rezervasyon Durumu
                 </h2>
@@ -499,9 +499,9 @@ const VehicleOwnerDashboard: React.FC = () => {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="bg-lydian-glass-dark rounded-xl shadow-md p-6">
+            className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-xl shadow-md p-6">
 
-              <h2 className="text-xl font-bold text-lydian-text-inverse mb-6 flex items-center gap-2">
+              <h2 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
                 <Car className="h-5 w-5 text-purple-600" />
                 Araç Filosu ({vehicles.length})
               </h2>
@@ -510,12 +510,12 @@ const VehicleOwnerDashboard: React.FC = () => {
                 {vehicles.map((vehicle) =>
               <div
                 key={vehicle.id}
-                className="border border-lydian-border rounded-lg p-4 hover:border-purple-300 transition-colors">
+                className="border border-white/20 rounded-lg p-4 hover:border-purple-300 transition-colors">
 
                     <div className="flex items-start justify-between mb-3">
                       <div>
-                        <p className="font-bold text-lydian-text-inverse">{vehicle.brand} {vehicle.model}</p>
-                        <p className="text-sm text-lydian-text-dim">{vehicle.year} • {vehicle.plateNumber}</p>
+                        <p className="font-bold text-white">{vehicle.brand} {vehicle.model}</p>
+                        <p className="text-sm text-gray-400">{vehicle.year} • {vehicle.plateNumber}</p>
                       </div>
                       <span
                     className={`px-3 py-1 text-xs font-bold rounded-full ${
@@ -533,40 +533,40 @@ const VehicleOwnerDashboard: React.FC = () => {
                     </div>
 
                     <div className="grid grid-cols-2 gap-2 mb-3 text-sm">
-                      <div className="flex items-center gap-2 text-lydian-text-muted">
-                        <Users className="h-4 w-4 text-lydian-text-muted" />
+                      <div className="flex items-center gap-2 text-gray-300">
+                        <Users className="h-4 w-4 text-gray-300" />
                         <span>{vehicle.capacity} kişi</span>
                       </div>
-                      <div className="flex items-center gap-2 text-lydian-text-muted">
-                        <Gauge className="h-4 w-4 text-lydian-text-muted" />
+                      <div className="flex items-center gap-2 text-gray-300">
+                        <Gauge className="h-4 w-4 text-gray-300" />
                         <span>{vehicle.totalKm.toLocaleString()} km</span>
                       </div>
-                      <div className="flex items-center gap-2 text-lydian-text-muted">
-                        <Fuel className="h-4 w-4 text-lydian-text-muted" />
+                      <div className="flex items-center gap-2 text-gray-300">
+                        <Fuel className="h-4 w-4 text-gray-300" />
                         <span>{vehicle.fuelLevel}%</span>
                       </div>
-                      <div className="flex items-center gap-2 text-lydian-text-muted">
-                        <DollarSign className="h-4 w-4 text-lydian-text-muted" />
+                      <div className="flex items-center gap-2 text-gray-300">
+                        <DollarSign className="h-4 w-4 text-gray-300" />
                         <span>₺{vehicle.dailyRate}/gün</span>
                       </div>
                     </div>
 
-                    <div className="border-t border-lydian-border pt-3 mt-3">
+                    <div className="border-t border-white/20 pt-3 mt-3">
                       <div className="flex items-center justify-between text-sm mb-2">
-                        <span className="text-lydian-text-dim">Sürücü:</span>
-                        <span className="font-medium text-lydian-text-inverse">{vehicle.driver}</span>
+                        <span className="text-gray-400">Sürücü:</span>
+                        <span className="font-medium text-white">{vehicle.driver}</span>
                       </div>
                       <div className="flex items-center justify-between text-sm mb-2">
-                        <span className="text-lydian-text-dim">Doluluk:</span>
+                        <span className="text-gray-400">Doluluk:</span>
                         <span className="font-medium text-purple-600">{vehicle.utilization}%</span>
                       </div>
-                      <div className="bg-lydian-bg-active rounded-full h-2 mb-3">
+                      <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-full h-2 mb-3">
                         <div
                       className="bg-purple-600 h-2 rounded-full"
                       style={{ width: `${vehicle.utilization}%` }}>
                     </div>
                       </div>
-                      <button className="w-full bg-purple-600 hover:bg-purple-700 text-lydian-text-inverse font-medium py-2 px-4 rounded-lg transition-colors text-sm">
+                      <button className="w-full bg-purple-600 hover:bg-purple-700 text-white font-medium py-2 px-4 rounded-lg transition-colors text-sm">
                         Detayları Görüntüle
                       </button>
                     </div>
@@ -581,38 +581,38 @@ const VehicleOwnerDashboard: React.FC = () => {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="bg-lydian-glass-dark rounded-xl shadow-md p-6">
+            className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-xl shadow-md p-6">
 
-              <h2 className="text-xl font-bold text-lydian-text-inverse mb-6 flex items-center gap-2">
+              <h2 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
                 <Users className="h-5 w-5 text-purple-600" />
                 Sürücü Kadrosu ({drivers.length})
               </h2>
 
               <div className="overflow-x-auto">
                 <table className="w-full">
-                  <thead className="bg-lydian-glass-dark">
+                  <thead className="bg-gradient-to-br from-slate-900 via-black to-slate-800">
                     <tr>
-                      <th className="px-4 py-3 text-left text-xs font-bold text-lydian-text-muted uppercase">Sürücü</th>
-                      <th className="px-4 py-3 text-left text-xs font-bold text-lydian-text-muted uppercase">Durum</th>
-                      <th className="px-4 py-3 text-left text-xs font-bold text-lydian-text-muted uppercase">Deneyim</th>
-                      <th className="px-4 py-3 text-left text-xs font-bold text-lydian-text-muted uppercase">Puan</th>
-                      <th className="px-4 py-3 text-left text-xs font-bold text-lydian-text-muted uppercase">Sefer</th>
-                      <th className="px-4 py-3 text-left text-xs font-bold text-lydian-text-muted uppercase">Gelir</th>
-                      <th className="px-4 py-3 text-left text-xs font-bold text-lydian-text-muted uppercase">Araç</th>
-                      <th className="px-4 py-3 text-left text-xs font-bold text-lydian-text-muted uppercase">İletişim</th>
+                      <th className="px-4 py-3 text-left text-xs font-bold text-gray-300 uppercase">Sürücü</th>
+                      <th className="px-4 py-3 text-left text-xs font-bold text-gray-300 uppercase">Durum</th>
+                      <th className="px-4 py-3 text-left text-xs font-bold text-gray-300 uppercase">Deneyim</th>
+                      <th className="px-4 py-3 text-left text-xs font-bold text-gray-300 uppercase">Puan</th>
+                      <th className="px-4 py-3 text-left text-xs font-bold text-gray-300 uppercase">Sefer</th>
+                      <th className="px-4 py-3 text-left text-xs font-bold text-gray-300 uppercase">Gelir</th>
+                      <th className="px-4 py-3 text-left text-xs font-bold text-gray-300 uppercase">Araç</th>
+                      <th className="px-4 py-3 text-left text-xs font-bold text-gray-300 uppercase">İletişim</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-lydian-border">
                     {drivers.map((driver) =>
-                  <tr key={driver.id} className="hover:bg-lydian-glass-dark">
+                  <tr key={driver.id} className="hover:bg-gradient-to-br from-slate-900 via-black to-slate-800">
                         <td className="px-4 py-4">
                           <div className="flex items-center gap-3">
                             <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center font-bold text-purple-600">
                               {driver.name.charAt(0)}
                             </div>
                             <div>
-                              <p className="font-medium text-lydian-text-inverse">{driver.name}</p>
-                              <p className="text-xs text-lydian-text-muted">{driver.licenseType} Ehliyet</p>
+                              <p className="font-medium text-white">{driver.name}</p>
+                              <p className="text-xs text-gray-300">{driver.licenseType} Ehliyet</p>
                             </div>
                           </div>
                         </td>
@@ -630,29 +630,29 @@ const VehicleOwnerDashboard: React.FC = () => {
                           </span>
                         </td>
                         <td className="px-4 py-4">
-                          <span className="text-sm font-medium text-lydian-text-inverse">{driver.experienceYears} yıl</span>
+                          <span className="text-sm font-medium text-white">{driver.experienceYears} yıl</span>
                         </td>
                         <td className="px-4 py-4">
                           <div className="flex items-center gap-1">
                             <Star className="h-4 w-4 text-yellow-400 fill-yellow-400" />
-                            <span className="font-bold text-lydian-text-inverse">{driver.rating.toFixed(1)}</span>
+                            <span className="font-bold text-white">{driver.rating.toFixed(1)}</span>
                           </div>
                         </td>
                         <td className="px-4 py-4">
-                          <span className="text-sm font-medium text-lydian-text-inverse">{driver.completedTrips}</span>
+                          <span className="text-sm font-medium text-white">{driver.completedTrips}</span>
                         </td>
                         <td className="px-4 py-4">
                           <span className="font-bold text-purple-600">₺{driver.earnings.toLocaleString()}</span>
                         </td>
                         <td className="px-4 py-4">
-                          <span className="text-sm text-lydian-text-muted">{driver.currentVehicle || '-'}</span>
+                          <span className="text-sm text-gray-300">{driver.currentVehicle || '-'}</span>
                         </td>
                         <td className="px-4 py-4">
                           <div className="flex items-center gap-2">
-                            <button className="p-2 bg-lydian-primary-light hover:bg-blue-200 text-lydian-primary rounded-lg transition-colors">
+                            <button className="p-2 bg-blue-500/10 hover:bg-blue-200 text-blue-500 rounded-lg transition-colors">
                               <Phone className="h-4 w-4" />
                             </button>
-                            <button className="p-2 bg-lydian-success-light hover:bg-green-200 text-lydian-success rounded-lg transition-colors">
+                            <button className="p-2 bg-green-600-light hover:bg-green-200 text-green-500 rounded-lg transition-colors">
                               <MessageCircle className="h-4 w-4" />
                             </button>
                           </div>
@@ -670,9 +670,9 @@ const VehicleOwnerDashboard: React.FC = () => {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="bg-lydian-glass-dark rounded-xl shadow-md p-6">
+            className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-xl shadow-md p-6">
 
-              <h2 className="text-xl font-bold text-lydian-text-inverse mb-6 flex items-center gap-2">
+              <h2 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
                 <Calendar className="h-5 w-5 text-purple-600" />
                 Rezervasyonlar ({bookings.length})
               </h2>
@@ -681,12 +681,12 @@ const VehicleOwnerDashboard: React.FC = () => {
                 {bookings.map((booking) =>
               <div
                 key={booking.id}
-                className="border border-lydian-border rounded-lg p-4 hover:border-purple-300 transition-colors">
+                className="border border-white/20 rounded-lg p-4 hover:border-purple-300 transition-colors">
 
                     <div className="flex items-start justify-between mb-3">
                       <div>
-                        <p className="font-bold text-lydian-text-inverse">{booking.customer}</p>
-                        <p className="text-sm text-lydian-text-dim">{booking.vehicle} • {booking.driver}</p>
+                        <p className="font-bold text-white">{booking.customer}</p>
+                        <p className="text-sm text-gray-400">{booking.vehicle} • {booking.driver}</p>
                       </div>
                       <span
                     className={`px-3 py-1 text-xs font-bold rounded-full ${
@@ -705,31 +705,31 @@ const VehicleOwnerDashboard: React.FC = () => {
 
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-3">
                       <div>
-                        <p className="text-xs text-lydian-text-dim">Başlangıç</p>
-                        <p className="text-sm font-medium text-lydian-text-inverse">{booking.startDate}</p>
+                        <p className="text-xs text-gray-400">Başlangıç</p>
+                        <p className="text-sm font-medium text-white">{booking.startDate}</p>
                       </div>
                       <div>
-                        <p className="text-xs text-lydian-text-dim">Bitiş</p>
-                        <p className="text-sm font-medium text-lydian-text-inverse">{booking.endDate}</p>
+                        <p className="text-xs text-gray-400">Bitiş</p>
+                        <p className="text-sm font-medium text-white">{booking.endDate}</p>
                       </div>
                       <div>
-                        <p className="text-xs text-lydian-text-dim">Süre</p>
-                        <p className="text-sm font-medium text-lydian-text-inverse">{booking.days} gün</p>
+                        <p className="text-xs text-gray-400">Süre</p>
+                        <p className="text-sm font-medium text-white">{booking.days} gün</p>
                       </div>
                       <div>
-                        <p className="text-xs text-lydian-text-dim">Ücret</p>
+                        <p className="text-xs text-gray-400">Ücret</p>
                         <p className="text-sm font-bold text-purple-600">₺{booking.price.toLocaleString()}</p>
                       </div>
                     </div>
 
                     <div className="flex items-center gap-2 mb-3">
-                      <MapPin className="h-4 w-4 text-lydian-text-muted" />
-                      <span className="text-sm text-lydian-text-muted">{booking.pickupLocation} → {booking.destination}</span>
+                      <MapPin className="h-4 w-4 text-gray-300" />
+                      <span className="text-sm text-gray-300">{booking.pickupLocation} → {booking.destination}</span>
                     </div>
 
                     <div className="flex flex-wrap gap-2">
                       {booking.services.map((service, idx) =>
-                  <span key={idx} className="px-2 py-1 bg-lydian-glass-dark-medium text-lydian-text-muted text-xs rounded">
+                  <span key={idx} className="px-2 py-1 bg-white/10 backdrop-blur-xl border border-white/20 text-gray-300 text-xs rounded">
                           {service}
                         </span>
                   )}

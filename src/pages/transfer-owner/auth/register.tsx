@@ -194,14 +194,14 @@ export default function TransferOwnerRegisterPage() {
   };
 
   return (
-    <div className="min-h-screen bg-lydian-glass-dark">
+    <div className="min-h-screen bg-white/10 backdrop-blur-xl border border-white/20">
       <div className="flex min-h-screen">
         {/* Left Column - Benefits & Info */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
-          className="hidden lg:flex lg:w-2/5 bg-gradient-to-br from-lydian-primary to-cyan-600 p-12 flex-col justify-between relative overflow-hidden">
+          className="hidden lg:flex lg:w-2/5 bg-gradient-to-br from-blue-600 to-cyan-600 p-12 flex-col justify-between relative overflow-hidden">
 
           {/* Background Pattern */}
           <div className="absolute inset-0 opacity-10">
@@ -213,15 +213,15 @@ export default function TransferOwnerRegisterPage() {
           <div className="relative z-10">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2 mb-12">
-              <div className="w-10 h-10 bg-lydian-glass-dark rounded-lg flex items-center justify-center">
-                <Bus className="w-6 h-6 text-lydian-primary" />
+              <div className="w-10 h-10 bg-white/10 backdrop-blur-xl border border-white/20 rounded-lg flex items-center justify-center">
+                <Bus className="w-6 h-6 text-blue-400" />
               </div>
-              <span className="text-2xl font-bold text-lydian-text-inverse">LyDian Transfer</span>
+              <span className="text-2xl font-bold text-white">LyDian Transfer</span>
             </Link>
 
             {/* Header */}
             <div className="mb-8">
-              <h1 className="text-4xl font-bold text-lydian-text-inverse mb-4">
+              <h1 className="text-4xl font-bold text-white mb-4">
                 Transfer Hizmeti
                 <br />
                 <span className="text-cyan-200">
@@ -243,11 +243,11 @@ export default function TransferOwnerRegisterPage() {
                 transition={{ delay: 0.3 + index * 0.1 }}
                 className="flex gap-4">
 
-                  <div className="w-12 h-12 bg-lydian-glass-dark rounded-lg flex items-center justify-center flex-shrink-0">
-                    <benefit.icon className="w-6 h-6 text-lydian-primary" />
+                  <div className="w-12 h-12 bg-white/10 backdrop-blur-xl border border-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <benefit.icon className="w-6 h-6 text-blue-400" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-lydian-text-inverse mb-1">{benefit.title}</h3>
+                    <h3 className="font-semibold text-white mb-1">{benefit.title}</h3>
                     <p className="text-blue-100 text-sm">{benefit.description}</p>
                   </div>
                 </motion.div>
@@ -260,15 +260,15 @@ export default function TransferOwnerRegisterPage() {
             <div className="text-sm text-blue-100 mb-4">Güvenilir Platform</div>
             <div className="grid grid-cols-3 gap-6">
               <div>
-                <div className="text-2xl font-bold text-lydian-text-inverse">1500+</div>
+                <div className="text-2xl font-bold text-white">1500+</div>
                 <div className="text-blue-100 text-sm">Transfer Firması</div>
               </div>
               <div>
-                <div className="text-2xl font-bold text-lydian-text-inverse">25K+</div>
+                <div className="text-2xl font-bold text-white">25K+</div>
                 <div className="text-blue-100 text-sm">Transfer</div>
               </div>
               <div>
-                <div className="text-2xl font-bold text-lydian-text-inverse">97%</div>
+                <div className="text-2xl font-bold text-white">97%</div>
                 <div className="text-blue-100 text-sm">Memnuniyet</div>
               </div>
             </div>
@@ -285,10 +285,10 @@ export default function TransferOwnerRegisterPage() {
 
             {/* Mobile Logo */}
             <div className="lg:hidden flex items-center gap-2 mb-8">
-              <div className="w-10 h-10 bg-gradient-to-r from-lydian-primary to-cyan-600 rounded-lg flex items-center justify-center">
-                <Bus className="w-6 h-6 text-lydian-text-inverse" />
+              <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-lg flex items-center justify-center">
+                <Bus className="w-6 h-6 text-white" />
               </div>
-              <span className="text-2xl font-bold text-lydian-text-inverse">LyDian Transfer</span>
+              <span className="text-2xl font-bold text-white">LyDian Transfer</span>
             </div>
 
             {/* Progress Steps */}
@@ -301,7 +301,7 @@ export default function TransferOwnerRegisterPage() {
                       className={`w-10 h-10 rounded-full flex items-center justify-center font-semibold transition-all ${
                       currentStep >= step ?
                       'bg-gradient-to-r from-blue-600 to-cyan-600 text-white' :
-                      'bg-lydian-bg-surface-raised text-lydian-text-muted'}`
+                      'bg-white/5 backdrop-blur-xl text-gray-300'}`
                       }>
 
                         {currentStep > step ?
@@ -313,7 +313,7 @@ export default function TransferOwnerRegisterPage() {
                       {step < 3 &&
                     <div
                       className={`h-1 w-full ml-2 transition-all ${
-                      currentStep > step ? 'bg-gradient-to-r from-blue-600 to-cyan-600' : 'bg-lydian-bg-surface-raised'}`
+                      currentStep > step ? 'bg-gradient-to-r from-blue-600 to-cyan-600' : 'bg-white/5 backdrop-blur-xl'}`
                       }
                       style={{ width: 'calc(100% - 40px)' }} />
 
@@ -323,13 +323,13 @@ export default function TransferOwnerRegisterPage() {
                 )}
               </div>
               <div className="flex justify-between text-sm">
-                <span className={currentStep >= 1 ? 'text-white font-medium' : 'text-lydian-text-muted'}>
+                <span className={currentStep >= 1 ? 'text-white font-medium' : 'text-gray-300'}>
                   Kişisel Bilgiler
                 </span>
-                <span className={currentStep >= 2 ? 'text-white font-medium' : 'text-lydian-text-muted'}>
+                <span className={currentStep >= 2 ? 'text-white font-medium' : 'text-gray-300'}>
                   Firma Bilgileri
                 </span>
-                <span className={currentStep >= 3 ? 'text-white font-medium' : 'text-lydian-text-muted'}>
+                <span className={currentStep >= 3 ? 'text-white font-medium' : 'text-gray-300'}>
                   Onay
                 </span>
               </div>
@@ -337,12 +337,12 @@ export default function TransferOwnerRegisterPage() {
 
             {/* Header */}
             <div className="mb-6">
-              <h2 className="text-3xl font-bold text-lydian-text-inverse mb-2">
+              <h2 className="text-3xl font-bold text-white mb-2">
                 {currentStep === 1 && 'Hesap Oluştur'}
                 {currentStep === 2 && 'Firma Bilgileriniz'}
                 {currentStep === 3 && 'Son Adım'}
               </h2>
-              <p className="text-lydian-text-dim">
+              <p className="text-gray-400">
                 {currentStep === 1 && 'Kişisel bilgilerinizi girerek başlayın'}
                 {currentStep === 2 && 'Transfer firmanız hakkında bilgi verin'}
                 {currentStep === 3 && 'Koşulları onaylayarak kaydı tamamlayın'}
@@ -363,12 +363,12 @@ export default function TransferOwnerRegisterPage() {
 
                     {/* Full Name */}
                     <div>
-                      <label htmlFor="fullName" className="block text-sm font-medium text-lydian-text-inverse mb-2">
+                      <label htmlFor="fullName" className="block text-sm font-medium text-white mb-2">
                         Ad Soyad
                       </label>
                       <div className="relative">
                         <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                          <User className="h-5 w-5 text-lydian-text-muted" />
+                          <User className="h-5 w-5 text-gray-300" />
                         </div>
                         <input
                         type="text"
@@ -377,24 +377,24 @@ export default function TransferOwnerRegisterPage() {
                         value={formData.fullName}
                         onChange={handleInputChange}
                         className={`block w-full pl-10 pr-3 py-3 border ${
-                        errors.fullName ? 'border-red-500' : 'border-lydian-border-medium'} rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-lydian-border outline-none transition-all bg-lydian-glass-dark text-lydian-text-inverse`
+                        errors.fullName ? 'border-purple-500' : 'border-white/20'} rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-white/20 outline-none transition-all bg-white/10 backdrop-blur-xl border border-white/20 text-white`
                         }
                         placeholder="Ahmet Yılmaz" />
 
                       </div>
                       {errors.fullName &&
-                    <p className="mt-1 text-sm text-lydian-error">{errors.fullName}</p>
+                    <p className="mt-1 text-sm text-gray-400">{errors.fullName}</p>
                     }
                     </div>
 
                     {/* Email */}
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-lydian-text-inverse mb-2">
+                      <label htmlFor="email" className="block text-sm font-medium text-white mb-2">
                         E-posta Adresi
                       </label>
                       <div className="relative">
                         <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                          <Mail className="h-5 w-5 text-lydian-text-muted" />
+                          <Mail className="h-5 w-5 text-gray-300" />
                         </div>
                         <input
                         type="email"
@@ -403,24 +403,24 @@ export default function TransferOwnerRegisterPage() {
                         value={formData.email}
                         onChange={handleInputChange}
                         className={`block w-full pl-10 pr-3 py-3 border ${
-                        errors.email ? 'border-red-500' : 'border-lydian-border-medium'} rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-lydian-border outline-none transition-all bg-lydian-glass-dark text-lydian-text-inverse`
+                        errors.email ? 'border-purple-500' : 'border-white/20'} rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-white/20 outline-none transition-all bg-white/10 backdrop-blur-xl border border-white/20 text-white`
                         }
                         placeholder="ornek@email.com" />
 
                       </div>
                       {errors.email &&
-                    <p className="mt-1 text-sm text-lydian-error">{errors.email}</p>
+                    <p className="mt-1 text-sm text-gray-400">{errors.email}</p>
                     }
                     </div>
 
                     {/* Phone */}
                     <div>
-                      <label htmlFor="phone" className="block text-sm font-medium text-lydian-text-inverse mb-2">
+                      <label htmlFor="phone" className="block text-sm font-medium text-white mb-2">
                         Telefon Numarası
                       </label>
                       <div className="relative">
                         <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                          <Phone className="h-5 w-5 text-lydian-text-muted" />
+                          <Phone className="h-5 w-5 text-gray-300" />
                         </div>
                         <input
                         type="tel"
@@ -429,13 +429,13 @@ export default function TransferOwnerRegisterPage() {
                         value={formData.phone}
                         onChange={handleInputChange}
                         className={`block w-full pl-10 pr-3 py-3 border ${
-                        errors.phone ? 'border-red-500' : 'border-lydian-border-medium'} rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-lydian-border outline-none transition-all bg-lydian-glass-dark text-lydian-text-inverse`
+                        errors.phone ? 'border-purple-500' : 'border-white/20'} rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-white/20 outline-none transition-all bg-white/10 backdrop-blur-xl border border-white/20 text-white`
                         }
                         placeholder="0555 123 4567" />
 
                       </div>
                       {errors.phone &&
-                    <p className="mt-1 text-sm text-lydian-error">{errors.phone}</p>
+                    <p className="mt-1 text-sm text-gray-400">{errors.phone}</p>
                     }
                     </div>
 
@@ -443,7 +443,7 @@ export default function TransferOwnerRegisterPage() {
                     <button
                     type="button"
                     onClick={handleNext}
-                    className="w-full bg-gradient-to-r from-lydian-primary to-cyan-600 text-lydian-text-inverse py-3 px-4 rounded-lg font-semibold hover:shadow-lg transform hover:scale-[1.02] transition-all duration-200 flex items-center justify-center gap-2 mt-6">
+                    className="w-full bg-gradient-to-r from-blue-600 to-cyan-600 text-white py-3 px-4 rounded-lg font-semibold hover:shadow-lg transform hover:scale-[1.02] transition-all duration-200 flex items-center justify-center gap-2 mt-6">
 
                       <span>Devam Et</span>
                       <ArrowRight className="w-5 h-5" />
@@ -463,12 +463,12 @@ export default function TransferOwnerRegisterPage() {
 
                     {/* Company Name */}
                     <div>
-                      <label htmlFor="companyName" className="block text-sm font-medium text-lydian-text-inverse mb-2">
+                      <label htmlFor="companyName" className="block text-sm font-medium text-white mb-2">
                         Firma Adı
                       </label>
                       <div className="relative">
                         <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                          <Building2 className="h-5 w-5 text-lydian-text-muted" />
+                          <Building2 className="h-5 w-5 text-gray-300" />
                         </div>
                         <input
                         type="text"
@@ -477,27 +477,27 @@ export default function TransferOwnerRegisterPage() {
                         value={formData.companyName}
                         onChange={handleInputChange}
                         className={`block w-full pl-10 pr-3 py-3 border ${
-                        errors.companyName ? 'border-red-500' : 'border-lydian-border-medium'} rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-lydian-border outline-none transition-all bg-lydian-glass-dark text-lydian-text-inverse`
+                        errors.companyName ? 'border-purple-500' : 'border-white/20'} rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-white/20 outline-none transition-all bg-white/10 backdrop-blur-xl border border-white/20 text-white`
                         }
                         placeholder="Örnek Transfer Hizmetleri" />
 
                       </div>
                       {errors.companyName &&
-                    <p className="mt-1 text-sm text-lydian-error">{errors.companyName}</p>
+                    <p className="mt-1 text-sm text-gray-400">{errors.companyName}</p>
                     }
-                      <p className="mt-1 text-xs text-lydian-text-muted">
+                      <p className="mt-1 text-xs text-gray-300">
                         Transfer hizmeti veren firmanızın ticari unvanı
                       </p>
                     </div>
 
                     {/* Tourism License */}
                     <div>
-                      <label htmlFor="tourismLicense" className="block text-sm font-medium text-lydian-text-inverse mb-2">
+                      <label htmlFor="tourismLicense" className="block text-sm font-medium text-white mb-2">
                         D2 Turizm Belgesi Numarası
                       </label>
                       <div className="relative">
                         <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                          <FileText className="h-5 w-5 text-lydian-text-muted" />
+                          <FileText className="h-5 w-5 text-gray-300" />
                         </div>
                         <input
                         type="text"
@@ -506,27 +506,27 @@ export default function TransferOwnerRegisterPage() {
                         value={formData.tourismLicense}
                         onChange={handleInputChange}
                         className={`block w-full pl-10 pr-3 py-3 border ${
-                        errors.tourismLicense ? 'border-red-500' : 'border-lydian-border-medium'} rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-lydian-border outline-none transition-all bg-lydian-glass-dark text-lydian-text-inverse`
+                        errors.tourismLicense ? 'border-purple-500' : 'border-white/20'} rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-white/20 outline-none transition-all bg-white/10 backdrop-blur-xl border border-white/20 text-white`
                         }
                         placeholder="D2-IST-2024-1234" />
 
                       </div>
                       {errors.tourismLicense &&
-                    <p className="mt-1 text-sm text-lydian-error">{errors.tourismLicense}</p>
+                    <p className="mt-1 text-sm text-gray-400">{errors.tourismLicense}</p>
                     }
-                      <p className="mt-1 text-xs text-lydian-text-muted">
+                      <p className="mt-1 text-xs text-gray-300">
                         Kültür ve Turizm Bakanlığı tarafından verilen D2 belgesi numaranız
                       </p>
                     </div>
 
                     {/* Password */}
                     <div>
-                      <label htmlFor="password" className="block text-sm font-medium text-lydian-text-inverse mb-2">
+                      <label htmlFor="password" className="block text-sm font-medium text-white mb-2">
                         Şifre
                       </label>
                       <div className="relative">
                         <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                          <Lock className="h-5 w-5 text-lydian-text-muted" />
+                          <Lock className="h-5 w-5 text-gray-300" />
                         </div>
                         <input
                         type={showPassword ? 'text' : 'password'}
@@ -535,7 +535,7 @@ export default function TransferOwnerRegisterPage() {
                         value={formData.password}
                         onChange={handleInputChange}
                         className={`block w-full pl-10 pr-10 py-3 border ${
-                        errors.password ? 'border-red-500' : 'border-lydian-border-medium'} rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-lydian-border outline-none transition-all bg-lydian-glass-dark text-lydian-text-inverse`
+                        errors.password ? 'border-purple-500' : 'border-white/20'} rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-white/20 outline-none transition-all bg-white/10 backdrop-blur-xl border border-white/20 text-white`
                         }
                         placeholder="••••••••" />
 
@@ -545,28 +545,28 @@ export default function TransferOwnerRegisterPage() {
                         className="absolute inset-y-0 right-0 pr-3 flex items-center">
 
                           {showPassword ?
-                        <EyeOff className="h-5 w-5 text-lydian-text-muted hover:text-lydian-text-dim" /> :
+                        <EyeOff className="h-5 w-5 text-gray-300 hover:text-gray-400" /> :
 
-                        <Eye className="h-5 w-5 text-lydian-text-muted hover:text-lydian-text-dim" />
+                        <Eye className="h-5 w-5 text-gray-300 hover:text-gray-400" />
                         }
                         </button>
                       </div>
                       {errors.password &&
-                    <p className="mt-1 text-sm text-lydian-error">{errors.password}</p>
+                    <p className="mt-1 text-sm text-gray-400">{errors.password}</p>
                     }
-                      <p className="mt-1 text-xs text-lydian-text-muted">
+                      <p className="mt-1 text-xs text-gray-300">
                         En az 8 karakter, bir büyük harf, bir küçük harf ve bir rakam içermelidir
                       </p>
                     </div>
 
                     {/* Confirm Password */}
                     <div>
-                      <label htmlFor="confirmPassword" className="block text-sm font-medium text-lydian-text-inverse mb-2">
+                      <label htmlFor="confirmPassword" className="block text-sm font-medium text-white mb-2">
                         Şifre Tekrar
                       </label>
                       <div className="relative">
                         <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                          <Lock className="h-5 w-5 text-lydian-text-muted" />
+                          <Lock className="h-5 w-5 text-gray-300" />
                         </div>
                         <input
                         type={showConfirmPassword ? 'text' : 'password'}
@@ -575,7 +575,7 @@ export default function TransferOwnerRegisterPage() {
                         value={formData.confirmPassword}
                         onChange={handleInputChange}
                         className={`block w-full pl-10 pr-10 py-3 border ${
-                        errors.confirmPassword ? 'border-red-500' : 'border-lydian-border-medium'} rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-lydian-border outline-none transition-all bg-lydian-glass-dark text-lydian-text-inverse`
+                        errors.confirmPassword ? 'border-purple-500' : 'border-white/20'} rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-white/20 outline-none transition-all bg-white/10 backdrop-blur-xl border border-white/20 text-white`
                         }
                         placeholder="••••••••" />
 
@@ -585,14 +585,14 @@ export default function TransferOwnerRegisterPage() {
                         className="absolute inset-y-0 right-0 pr-3 flex items-center">
 
                           {showConfirmPassword ?
-                        <EyeOff className="h-5 w-5 text-lydian-text-muted hover:text-lydian-text-dim" /> :
+                        <EyeOff className="h-5 w-5 text-gray-300 hover:text-gray-400" /> :
 
-                        <Eye className="h-5 w-5 text-lydian-text-muted hover:text-lydian-text-dim" />
+                        <Eye className="h-5 w-5 text-gray-300 hover:text-gray-400" />
                         }
                         </button>
                       </div>
                       {errors.confirmPassword &&
-                    <p className="mt-1 text-sm text-lydian-error">{errors.confirmPassword}</p>
+                    <p className="mt-1 text-sm text-gray-400">{errors.confirmPassword}</p>
                     }
                     </div>
 
@@ -601,7 +601,7 @@ export default function TransferOwnerRegisterPage() {
                       <button
                       type="button"
                       onClick={handleBack}
-                      className="flex-1 border-2 border-lydian-border-medium text-lydian-text-muted py-3 px-4 rounded-lg font-semibold hover:bg-lydian-glass-dark transition-all duration-200 flex items-center justify-center gap-2">
+                      className="flex-1 border border-white/20 text-gray-300 py-3 px-4 rounded-lg font-semibold hover:bg-white/10 transition-all duration-200 flex items-center justify-center gap-2">
 
                         <ArrowLeft className="w-5 h-5" />
                         <span>Geri</span>
@@ -609,7 +609,7 @@ export default function TransferOwnerRegisterPage() {
                       <button
                       type="button"
                       onClick={handleNext}
-                      className="flex-1 bg-gradient-to-r from-lydian-primary to-cyan-600 text-lydian-text-inverse py-3 px-4 rounded-lg font-semibold hover:shadow-lg transform hover:scale-[1.02] transition-all duration-200 flex items-center justify-center gap-2">
+                      className="flex-1 bg-gradient-to-r from-blue-600 to-cyan-600 text-white py-3 px-4 rounded-lg font-semibold hover:shadow-lg transform hover:scale-[1.02] transition-all duration-200 flex items-center justify-center gap-2">
 
                         <span>Devam Et</span>
                         <ArrowRight className="w-5 h-5" />
@@ -630,39 +630,39 @@ export default function TransferOwnerRegisterPage() {
 
                     {/* Summary */}
                     <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-lg p-6 space-y-3">
-                      <h3 className="font-semibold text-lydian-text-inverse mb-4">Kayıt Özeti</h3>
+                      <h3 className="font-semibold text-white mb-4">Kayıt Özeti</h3>
                       <div className="flex justify-between text-sm">
-                        <span className="text-lydian-text-dim">Ad Soyad:</span>
-                        <span className="font-medium text-lydian-text-inverse">{formData.fullName}</span>
+                        <span className="text-gray-400">Ad Soyad:</span>
+                        <span className="font-medium text-white">{formData.fullName}</span>
                       </div>
                       <div className="flex justify-between text-sm">
-                        <span className="text-lydian-text-dim">E-posta:</span>
-                        <span className="font-medium text-lydian-text-inverse">{formData.email}</span>
+                        <span className="text-gray-400">E-posta:</span>
+                        <span className="font-medium text-white">{formData.email}</span>
                       </div>
                       <div className="flex justify-between text-sm">
-                        <span className="text-lydian-text-dim">Telefon:</span>
-                        <span className="font-medium text-lydian-text-inverse">{formData.phone}</span>
+                        <span className="text-gray-400">Telefon:</span>
+                        <span className="font-medium text-white">{formData.phone}</span>
                       </div>
                       <div className="flex justify-between text-sm">
-                        <span className="text-lydian-text-dim">Firma Adı:</span>
-                        <span className="font-medium text-lydian-text-inverse">{formData.companyName}</span>
+                        <span className="text-gray-400">Firma Adı:</span>
+                        <span className="font-medium text-white">{formData.companyName}</span>
                       </div>
                       <div className="flex justify-between text-sm">
-                        <span className="text-lydian-text-dim">D2 Belgesi:</span>
-                        <span className="font-medium text-lydian-text-inverse">{formData.tourismLicense}</span>
+                        <span className="text-gray-400">D2 Belgesi:</span>
+                        <span className="font-medium text-white">{formData.tourismLicense}</span>
                       </div>
                     </div>
 
                     {/* D2 License Info Box */}
-                    <div className="bg-lydian-primary-lighter border-2 border-blue-200 rounded-lg p-4">
+                    <div className="bg-gradient-to-r from-blue-600 to-purple-600-lighter border-2 border-blue-200 rounded-lg p-4">
                       <h3 className="text-sm font-semibold text-blue-900 mb-2">D2 Turizm Belgesi Gerekli</h3>
-                      <p className="text-sm text-lydian-primary-dark mb-3">
+                      <p className="text-sm text-blue-400 mb-3">
                         Transfer hizmeti sağlayıcısı olmak için Kültür ve Turizm Bakanlığı tarafından verilen geçerli bir D2 Tourism License gereklidir.
                       </p>
                       <Link
                       href="https://www.ktb.gov.tr"
                       target="_blank"
-                      className="text-sm font-medium text-lydian-primary hover:text-blue-800 underline inline-block">
+                      className="text-sm font-medium text-blue-400 hover:text-blue-800 underline inline-block">
 
                         Kültür ve Turizm Bakanlığı resmi kaynağını ziyaret edin →
                       </Link>
@@ -671,7 +671,7 @@ export default function TransferOwnerRegisterPage() {
                     {/* Terms Acceptance */}
                     <div className="space-y-4">
                       <div className={`border-2 rounded-lg p-4 ${
-                    errors.termsAccepted ? 'border-red-500 bg-red-50' : 'border-lydian-border'}`
+                    errors.termsAccepted ? 'border-purple-500 bg-purple-500/20' : 'border-white/20'}`
                     }>
                         <label className="flex items-start gap-3 cursor-pointer">
                           <input
@@ -679,14 +679,14 @@ export default function TransferOwnerRegisterPage() {
                           name="termsAccepted"
                           checked={formData.termsAccepted}
                           onChange={handleInputChange}
-                          className="mt-1 h-5 w-5 text-lydian-primary focus:ring-lydian-primary border-lydian-border-medium rounded cursor-pointer" />
+                          className="mt-1 h-5 w-5 text-blue-400 focus:ring-lydian-primary border-white/20 rounded cursor-pointer" />
 
                           <div className="flex-1">
-                            <span className="text-lydian-text-inverse">
+                            <span className="text-white">
                               <Link
                               href="/transfer-owner/auth/terms"
                               target="_blank"
-                              className="font-medium text-lydian-primary hover:text-cyan-600 underline">
+                              className="font-medium text-blue-400 hover:text-cyan-600 underline">
 
                                 Kullanım Koşulları
                               </Link>
@@ -694,7 +694,7 @@ export default function TransferOwnerRegisterPage() {
                               <Link
                               href="/transfer-owner/auth/terms"
                               target="_blank"
-                              className="font-medium text-lydian-primary hover:text-cyan-600 underline">
+                              className="font-medium text-blue-400 hover:text-cyan-600 underline">
 
                                 Transfer Hizmeti Sağlayıcı Sözleşmesi
                               </Link>
@@ -703,12 +703,12 @@ export default function TransferOwnerRegisterPage() {
                           </div>
                         </label>
                         {errors.termsAccepted &&
-                      <p className="mt-2 text-sm text-lydian-error ml-8">{errors.termsAccepted}</p>
+                      <p className="mt-2 text-sm text-gray-400 ml-8">{errors.termsAccepted}</p>
                       }
                       </div>
 
                       <div className={`border-2 rounded-lg p-4 ${
-                    errors.kvkkAccepted ? 'border-red-500 bg-red-50' : 'border-lydian-border'}`
+                    errors.kvkkAccepted ? 'border-purple-500 bg-purple-500/20' : 'border-white/20'}`
                     }>
                         <label className="flex items-start gap-3 cursor-pointer">
                           <input
@@ -716,15 +716,15 @@ export default function TransferOwnerRegisterPage() {
                           name="kvkkAccepted"
                           checked={formData.kvkkAccepted}
                           onChange={handleInputChange}
-                          className="mt-1 h-5 w-5 text-lydian-primary focus:ring-lydian-primary border-lydian-border-medium rounded cursor-pointer" />
+                          className="mt-1 h-5 w-5 text-blue-400 focus:ring-lydian-primary border-white/20 rounded cursor-pointer" />
 
                           <div className="flex-1">
-                            <span className="text-lydian-text-inverse">
+                            <span className="text-white">
                               Kişisel verilerimin işlenmesine ilişkin{' '}
                               <Link
                               href="/transfer-owner/auth/terms#kvkk"
                               target="_blank"
-                              className="font-medium text-lydian-primary hover:text-cyan-600 underline">
+                              className="font-medium text-blue-400 hover:text-cyan-600 underline">
 
                                 KVKK Aydınlatma Metni
                               </Link>
@@ -733,12 +733,12 @@ export default function TransferOwnerRegisterPage() {
                           </div>
                         </label>
                         {errors.kvkkAccepted &&
-                      <p className="mt-2 text-sm text-lydian-error ml-8">{errors.kvkkAccepted}</p>
+                      <p className="mt-2 text-sm text-gray-400 ml-8">{errors.kvkkAccepted}</p>
                       }
                       </div>
 
                       <div className={`border-2 rounded-lg p-4 ${
-                    errors.transferAgreementAccepted ? 'border-red-500 bg-red-50' : 'border-lydian-border'}`
+                    errors.transferAgreementAccepted ? 'border-purple-500 bg-purple-500/20' : 'border-white/20'}`
                     }>
                         <label className="flex items-start gap-3 cursor-pointer">
                           <input
@@ -746,14 +746,14 @@ export default function TransferOwnerRegisterPage() {
                           name="transferAgreementAccepted"
                           checked={formData.transferAgreementAccepted}
                           onChange={handleInputChange}
-                          className="mt-1 h-5 w-5 text-lydian-primary focus:ring-lydian-primary border-lydian-border-medium rounded cursor-pointer" />
+                          className="mt-1 h-5 w-5 text-blue-400 focus:ring-lydian-primary border-white/20 rounded cursor-pointer" />
 
                           <div className="flex-1">
-                            <span className="text-lydian-text-inverse">
+                            <span className="text-white">
                               <Link
                               href="/transfer-owner/auth/terms#transfer-agreement"
                               target="_blank"
-                              className="font-medium text-lydian-primary hover:text-cyan-600 underline">
+                              className="font-medium text-blue-400 hover:text-cyan-600 underline">
 
                                 Transfer Hizmeti Sağlayıcı Sözleşmesi
                               </Link>
@@ -762,7 +762,7 @@ export default function TransferOwnerRegisterPage() {
                           </div>
                         </label>
                         {errors.transferAgreementAccepted &&
-                      <p className="mt-2 text-sm text-lydian-error ml-8">{errors.transferAgreementAccepted}</p>
+                      <p className="mt-2 text-sm text-gray-400 ml-8">{errors.transferAgreementAccepted}</p>
                       }
                       </div>
                     </div>
@@ -772,7 +772,7 @@ export default function TransferOwnerRegisterPage() {
                       <button
                       type="button"
                       onClick={handleBack}
-                      className="flex-1 border-2 border-lydian-border-medium text-lydian-text-muted py-3 px-4 rounded-lg font-semibold hover:bg-lydian-glass-dark transition-all duration-200 flex items-center justify-center gap-2">
+                      className="flex-1 border border-white/20 text-gray-300 py-3 px-4 rounded-lg font-semibold hover:bg-white/10 transition-all duration-200 flex items-center justify-center gap-2">
 
                         <ArrowLeft className="w-5 h-5" />
                         <span>Geri</span>
@@ -780,11 +780,11 @@ export default function TransferOwnerRegisterPage() {
                       <button
                       type="submit"
                       disabled={isLoading}
-                      className="flex-1 bg-gradient-to-r from-lydian-primary to-cyan-600 text-lydian-text-inverse py-3 px-4 rounded-lg font-semibold hover:shadow-lg transform hover:scale-[1.02] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center gap-2">
+                      className="flex-1 bg-gradient-to-r from-blue-600 to-cyan-600 text-white py-3 px-4 rounded-lg font-semibold hover:shadow-lg transform hover:scale-[1.02] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center gap-2">
 
                         {isLoading ?
                       <>
-                            <div className="w-5 h-5 border-2 border-lydian-border-light border-t-transparent rounded-full animate-spin" />
+                            <div className="w-5 h-5 border border-white/20 border-t-transparent rounded-full animate-spin" />
                             <span>Kaydediliyor...</span>
                           </> :
 
@@ -802,11 +802,11 @@ export default function TransferOwnerRegisterPage() {
 
             {/* Login Link */}
             <div className="mt-8 text-center">
-              <p className="text-lydian-text-dim">
+              <p className="text-gray-400">
                 Zaten hesabınız var mı?{' '}
                 <Link
                   href="/transfer-owner/auth/login"
-                  className="font-medium text-lydian-primary hover:text-cyan-600 transition-colors">
+                  className="font-medium text-blue-400 hover:text-cyan-600 transition-colors">
 
                   Giriş yapın
                 </Link>
@@ -817,7 +817,7 @@ export default function TransferOwnerRegisterPage() {
             <div className="mt-4 text-center">
               <Link
                 href="/"
-                className="text-sm text-lydian-text-dim hover:text-lydian-text-inverse transition-colors">
+                className="text-sm text-gray-400 hover:text-white transition-colors">
 
                 ← Ana sayfaya dön
               </Link>

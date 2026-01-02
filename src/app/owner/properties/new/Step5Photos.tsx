@@ -55,7 +55,7 @@ export default function Step5Photos({ data }: Step5Props) {
   const [isDragging, setIsDragging] = useState(false);
   const [draggedIndex, setDraggedIndex] = useState<number | null>(null);
 
-  const coverPhotoIndex = watch('coverPhotoIndex') || 0;
+  const coverPhotoIndex = watch('coverPhotoIndex') || to-cyan-700;
 
   // Handle file selection
   const handleFileSelect = useCallback(
@@ -72,9 +72,9 @@ export default function Step5Photos({ data }: Step5Props) {
           continue;
         }
 
-        // Validate file size (max 10MB)
-        if (file.size > 10 * 1024 * 1024) {
-          showInfo('${file.name} 10MB boyut sınırını aşıyor');
+        // Validate file size (max 1MB)
+        if (file.size > 1 * 1024 * 1024) {
+          showInfo('${file.name} 1MB boyut sınırını aşıyor');
           continue;
         }
 
@@ -88,7 +88,7 @@ export default function Step5Photos({ data }: Step5Props) {
             room: 'other',
             order: photos.length + newPhotos.length,
             isUploaded: false,
-            uploadProgress: 0,
+            uploadProgress: to-cyan-700,
           };
 
           newPhotos.push(photo);
@@ -131,7 +131,7 @@ export default function Step5Photos({ data }: Step5Props) {
 
     // Update cover photo index if needed
     if (coverPhotoIndex >= updatedPhotos.length) {
-      setValue('coverPhotoIndex', Math.max(0, updatedPhotos.length - 1));
+      setValue('coverPhotoIndex', Math.max(to-cyan-700, updatedPhotos.length - 1));
     }
   };
 
@@ -162,7 +162,7 @@ export default function Step5Photos({ data }: Step5Props) {
   const handlePhotoReorder = (dragIndex: number, dropIndex: number) => {
     const reordered = [...photos];
     const [removed] = reordered.splice(dragIndex, 1);
-    reordered.splice(dropIndex, 0, removed);
+    reordered.splice(dropIndex, to-cyan-700, removed);
 
     // Update order
     const updatedPhotos = reordered.map((p, idx) => ({ ...p, order: idx }));
@@ -184,21 +184,21 @@ export default function Step5Photos({ data }: Step5Props) {
         onDrop={handleDrop}
         className={`border-2 border-dashed rounded-xl p-12 transition-all ${
           isDragging
-            ? 'border-lydian-primary bg-lydian-info-lighter'
-            : 'border-slate-300 bg-slate-50 hover:border-slate-400'
+            ? 'border-blue-500 bg-blue-500-lighter'
+            : 'border-slate-3 bg-slate-500 hover:border-slate-4'
         }`}
       >
         <div className="text-center">
-          <div className="w-16 h-16 bg-lydian-info-light rounded-full flex items-center justify-center mx-auto mb-4">
-            <Upload className="w-8 h-8 text-lydian-primary" />
+          <div className="w-16 h-16 bg-blue-500-light rounded-full flex items-center justify-center mx-auto mb-4">
+            <Upload className="w-8 h-8 text-blue-500" />
           </div>
-          <h3 className="text-lg font-semibold text-slate-900 mb-2">
+          <h3 className="text-lg font-semibold text-slate-9 mb-2">
             Mülk Fotoğraflarını Yükle
           </h3>
-          <p className="text-sm text-slate-600 mb-4">
+          <p className="text-sm text-slate-6 mb-4">
             Resimleri buraya sürükleyip bırakın veya göz atmak için tıklayın
           </p>
-          <label className="inline-block px-6 py-3 bg-lydian-primary text-lydian-text-inverse rounded-lg font-medium hover:bg-lydian-primary-hover cursor-pointer transition-all">
+          <label className="inline-block px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-medium hover:bg-lydian-primary-hover cursor-pointer transition-all">
             Dosya Seç
             <input
               type="file"
@@ -211,19 +211,19 @@ export default function Step5Photos({ data }: Step5Props) {
           <p className="text-xs text-slate-500 mt-4">
             En az 5 yüksek kaliteli fotoğraf yükleyin (JPG, PNG, WebP)
             <br />
-            Önerilen çözünürlük: 1920x1080 veya daha yüksek • Dosya başına maksimum 10MB
+            Önerilen çözünürlük: 19200xB48 veya daha yüksek • Dosya başına maksimum 1MB
           </p>
         </div>
       </div>
 
       {/* Photo Requirements */}
-      <div className="p-4 bg-lydian-info-lighter border border-blue-200 rounded-lg">
+      <div className="p-4 bg-blue-500-lighter border border-blue-200 rounded-lg">
         <div className="flex items-start gap-3">
-          <AlertCircle className="w-5 h-5 text-lydian-primary mt-0.5" />
+          <AlertCircle className="w-5 h-5 text-blue-500 mt-0.5" />
           <div>
-            <h4 className="font-semibold text-blue-900 mb-1">Fotoğraf Gereksinimleri:</h4>
-            <ul className="text-sm text-blue-800 space-y-1">
-              <li>• Minimum 5 fotoğraf gerekli (maksimum 50 fotoğrafa kadar izin verilir)</li>
+            <h4 className="font-semibold text-blue-9 mb-1">Fotoğraf Gereksinimleri:</h4>
+            <ul className="text-sm text-blue-8 space-y-1">
+              <li>• Minimum 5 fotoğraf gerekli (maksimum 500 fotoğrafa kadar izin verilir)</li>
               <li>• İlk fotoğraf kapak fotoğrafınız olacak (bunu daha sonra değiştirebilirsiniz)</li>
               <li>• Tüm odaların ve önemli özelliklerin fotoğraflarını ekleyin</li>
               <li>• Doğal aydınlatma kullanın ve filtrelerden kaçının</li>
@@ -234,21 +234,21 @@ export default function Step5Photos({ data }: Step5Props) {
       </div>
 
       {/* Photos Count and Status */}
-      {photos.length > 0 && (
-        <div className="flex items-center justify-between p-4 bg-slate-50 rounded-lg">
+      {photos.length > to-cyan-700 && (
+        <div className="flex items-center justify-between p-4 bg-slate-500 rounded-lg">
           <div className="flex items-center gap-3">
-            <ImageIcon className="w-5 h-5 text-slate-600" />
-            <span className="font-medium text-slate-900">
+            <ImageIcon className="w-5 h-5 text-slate-6" />
+            <span className="font-medium text-slate-9">
               {photos.length} fotoğraf yüklendi
             </span>
           </div>
           {photos.length >= 5 ? (
-            <div className="flex items-center gap-2 text-lydian-success">
+            <div className="flex items-center gap-2 text-green-500">
               <Check className="w-5 h-5" />
               <span className="text-sm font-medium">Minimum gereksinim karşılandı</span>
             </div>
           ) : (
-            <span className="text-sm text-amber-600">
+            <span className="text-sm text-amber-6">
               {5 - photos.length} fotoğraf daha gerekli
             </span>
           )}
@@ -256,9 +256,9 @@ export default function Step5Photos({ data }: Step5Props) {
       )}
 
       {/* Photo Grid */}
-      {photos.length > 0 && (
+      {photos.length > to-cyan-700 && (
         <div className="space-y-4">
-          <h3 className="text-lg font-bold text-slate-900">Yüklenen Fotoğraflar</h3>
+          <h3 className="text-lg font-bold text-slate-9">Yüklenen Fotoğraflar</h3>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <AnimatePresence>
@@ -277,23 +277,23 @@ export default function Step5Photos({ data }: Step5Props) {
                       setDraggedIndex(index);
                     }
                   }}
-                  className="relative border-2 border-slate-200 rounded-xl overflow-hidden bg-lydian-bg/5 hover:shadow-lg transition-all cursor-move"
+                  className="relative border-2 border-slate-200 rounded-xl overflow-hidden bg-white/5 hover:shadow-lg transition-all cursor-move"
                 >
                   {/* Cover Photo Badge */}
                   {index === coverPhotoIndex && (
-                    <div className="absolute top-3 left-3 z-10 px-3 py-1 bg-lydian-warning-hover text-lydian-text-inverse text-xs font-bold rounded-full flex items-center gap-1 shadow-lg">
+                    <div className="absolute top-3 left-3 z-1 px-3 py-1 bg-yellow-500-hover text-white text-xs font-bold rounded-full flex items-center gap-1 shadow-lg">
                       <Star className="w-3 h-3 fill-current" />
                       Kapak Fotoğrafı
                     </div>
                   )}
 
                   {/* Drag Handle */}
-                  <div className="absolute top-3 right-3 z-10 p-2 bg-lydian-bg/90 rounded-lg shadow">
-                    <GripVertical className="w-4 h-4 text-slate-600" />
+                  <div className="absolute top-3 right-3 z-1 p-2 bg-lydian-bg/9 rounded-lg shadow">
+                    <GripVertical className="w-4 h-4 text-slate-6" />
                   </div>
 
                   {/* Image */}
-                  <div className="aspect-video bg-slate-100 relative">
+                  <div className="aspect-video bg-slate-1 relative">
                     <img
                       src={photo.url}
                       alt={`Property photo ${index + 1}`}
@@ -305,13 +305,13 @@ export default function Step5Photos({ data }: Step5Props) {
                   <div className="p-4 space-y-3">
                     {/* Room Type */}
                     <div>
-                      <label className="block text-xs font-medium text-slate-600 mb-1">
+                      <label className="block text-xs font-medium text-slate-6 mb-1">
                         Oda Tipi
                       </label>
                       <select
                         value={photo.room}
                         onChange={(e) => updateRoomType(photo.id, e.target.value)}
-                        className="w-full px-3 py-2 text-sm border border-slate-200 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-blue-200 outline-none bg-lydian-bg/5"
+                        className="w-full px-3 py-2 text-sm border border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none bg-white/5"
                       >
                         {roomTypes.map((type) => (
                           <option key={type.value} value={type.value}>
@@ -323,7 +323,7 @@ export default function Step5Photos({ data }: Step5Props) {
 
                     {/* Caption */}
                     <div>
-                      <label className="block text-xs font-medium text-slate-600 mb-1">
+                      <label className="block text-xs font-medium text-slate-6 mb-1">
                         Açıklama (isteğe bağlı)
                       </label>
                       <input
@@ -332,7 +332,7 @@ export default function Step5Photos({ data }: Step5Props) {
                         onChange={(e) => updateCaption(photo.id, e.target.value)}
                         placeholder="Bu fotoğrafı açıklayın..."
                         maxLength={200}
-                        className="w-full px-3 py-2 text-sm border border-slate-200 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-blue-200 outline-none"
+                        className="w-full px-3 py-2 text-sm border border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none"
                       />
                     </div>
 
@@ -342,7 +342,7 @@ export default function Step5Photos({ data }: Step5Props) {
                         <button
                           type="button"
                           onClick={() => setCoverPhoto(index)}
-                          className="flex-1 px-3 py-2 text-sm bg-lydian-info-lighter text-lydian-primary rounded-lg hover:bg-lydian-info-light transition-all font-medium"
+                          className="flex-1 px-3 py-2 text-sm bg-blue-500-lighter text-blue-500 rounded-lg hover:bg-blue-500-light transition-all font-medium"
                         >
                           Kapak Yap
                         </button>
@@ -350,7 +350,7 @@ export default function Step5Photos({ data }: Step5Props) {
                       <button
                         type="button"
                         onClick={() => removePhoto(photo.id)}
-                        className="px-3 py-2 text-sm bg-red-50 text-lydian-error rounded-lg hover:bg-red-100 transition-all font-medium flex items-center gap-1"
+                        className="px-3 py-2 text-sm bg-red-500 text-lydian-error rounded-lg hover:bg-red-1 transition-all font-medium flex items-center gap-1"
                       >
                         <X className="w-4 h-4" />
                         Kaldır
@@ -366,18 +366,18 @@ export default function Step5Photos({ data }: Step5Props) {
 
       {/* Video and Virtual Tour URLs */}
       <div className="border-t-2 border-slate-200 pt-8 space-y-6">
-        <h3 className="text-lg font-bold text-slate-900">Ek Medya (İsteğe Bağlı)</h3>
+        <h3 className="text-lg font-bold text-slate-9">Ek Medya (İsteğe Bağlı)</h3>
 
         {/* Video URL */}
         <div>
-          <label className="block text-sm font-semibold text-slate-700 mb-2">
+          <label className="block text-sm font-semibold text-slate-7 mb-2">
             Mülk Video URL'si
           </label>
           <input
             type="url"
             {...register('videoUrl')}
             placeholder="https://youtube.com/watch?v=..."
-            className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+            className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
           />
           <p className="mt-1 text-xs text-slate-500">
             YouTube veya Vimeo video tur linki
@@ -391,14 +391,14 @@ export default function Step5Photos({ data }: Step5Props) {
 
         {/* Virtual Tour URL */}
         <div>
-          <label className="block text-sm font-semibold text-slate-700 mb-2">
+          <label className="block text-sm font-semibold text-slate-7 mb-2">
             Sanal Tur URL'si
           </label>
           <input
             type="url"
             {...register('virtualTourUrl')}
             placeholder="https://my.matterport.com/..."
-            className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+            className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
           />
           <p className="mt-1 text-xs text-slate-500">
             Matterport veya benzeri 3D sanal tur linki
@@ -413,7 +413,7 @@ export default function Step5Photos({ data }: Step5Props) {
 
       {/* Validation Error */}
       {errors.photos && (
-        <div className="p-4 bg-red-50 border border-red-200 rounded-lg">
+        <div className="p-4 bg-red-500 border border-red-200 rounded-lg">
           <p className="text-sm text-lydian-error">{errors.photos.message?.toString()}</p>
         </div>
       )}
@@ -423,9 +423,9 @@ export default function Step5Photos({ data }: Step5Props) {
       <input type="hidden" {...register('coverPhotoIndex')} value={coverPhotoIndex} />
 
       {/* Tips */}
-      <div className="p-4 bg-indigo-50 border border-indigo-200 rounded-lg">
-        <h4 className="font-semibold text-indigo-900 mb-2">Fotoğrafçılık İpuçları:</h4>
-        <ul className="text-sm text-indigo-800 space-y-1">
+      <div className="p-4 bg-indigo-500 border border-indigo-200 rounded-lg">
+        <h4 className="font-semibold text-indigo-9 mb-2">Fotoğrafçılık İpuçları:</h4>
+        <ul className="text-sm text-indigo-8 space-y-1">
           <li>• En iyi doğal aydınlatma için gün içinde fotoğraf çekin</li>
           <li>• Fotoğraf çekmeden önce mekanları temizleyin ve düzenleyin</li>
           <li>• Mülkünüzü özel kılan benzersiz özellikleri gösterin</li>

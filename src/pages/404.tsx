@@ -14,41 +14,40 @@ import {
   Hotel,
   Camera,
   ArrowLeft,
-  Compass,
   Star,
   TrendingUp,
-  Heart,
   Sparkles,
-  Globe } from 'lucide-react';
+  Globe,
+} from 'lucide-react';
 import { motion } from 'framer-motion';
 
 // Popüler destinasyon önerileri
 const popularDestinations = [
-{
-  id: 1,
-  name: 'İstanbul',
-  country: 'Türkiye',
-  image: 'https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?w=400&h=300&q=90',
-  price: '₺2,850',
-  rating: 4.8
-},
-{
-  id: 2,
-  name: 'Kapadokya',
-  country: 'Türkiye',
-  image: 'https://images.unsplash.com/photo-1570939274719-c60ee3bf5cd9?w=400&h=300&q=90',
-  price: '₺2,200',
-  rating: 4.9
-},
-{
-  id: 3,
-  name: 'Antalya',
-  country: 'Türkiye',
-  image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&q=90',
-  price: '₺1,950',
-  rating: 4.7
-}];
-
+  {
+    id: 1,
+    name: 'İstanbul',
+    country: 'Türkiye',
+    image: 'https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?w=400&h=300&q=90',
+    price: '₺2,850',
+    rating: 4.8,
+  },
+  {
+    id: 2,
+    name: 'Kapadokya',
+    country: 'Türkiye',
+    image: 'https://images.unsplash.com/photo-1570939274719-c60ee3bf5cd9?w=400&h=300&q=90',
+    price: '₺2,200',
+    rating: 4.9,
+  },
+  {
+    id: 3,
+    name: 'Antalya',
+    country: 'Türkiye',
+    image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&q=90',
+    price: '₺1,950',
+    rating: 4.7,
+  },
+];
 
 const Custom404Page: React.FC = () => {
   const { t } = useTranslation('common');
@@ -65,14 +64,14 @@ const Custom404Page: React.FC = () => {
         level: 'warning',
         tags: {
           page: '404',
-          type: 'not-found'
+          type: 'not-found',
         },
         contexts: {
           page: {
             requestedUrl: router.asPath,
-            pathname: router.pathname
-          }
-        }
+            pathname: router.pathname,
+          },
+        },
       });
     }
   }, [router]);
@@ -104,44 +103,66 @@ const Custom404Page: React.FC = () => {
         <meta name="robots" content="noindex, nofollow" />
       </Head>
 
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-black to-slate-800" style={{ background: 'var(--bg-0)' }}>
-        {/* Animated Neon Background Elements */}
+      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-black to-slate-800">
+        {/* Animated Lydian Background Elements - BLUE/PURPLE ONLY */}
         <div className="fixed inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-lydian-primary/30 to-orange-500/30 rounded-full blur-3xl animate-pulse" style={{ background: 'radial-gradient(circle, rgba(255, 33, 77, 0.3), rgba(255, 106, 69, 0.3))' }}></div>
-          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-orange-500/30 to-lydian-primary/30 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s', background: 'radial-gradient(circle, rgba(255, 106, 69, 0.3), rgba(255, 8, 68, 0.3))' }}></div>
-          {/* Neon grid overlay */}
-          <div className="absolute inset-0 opacity-10" style={{
-            backgroundImage: 'linear-gradient(rgba(255, 33, 77, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 33, 77, 0.1) 1px, transparent 1px)',
-            backgroundSize: '50px 50px'
-          }}></div>
+          <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-blue-600/30 to-purple-600/30 rounded-full blur-3xl animate-pulse"></div>
+          <div
+            className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-br from-purple-600/30 to-blue-600/30 rounded-full blur-3xl animate-pulse"
+            style={{ animationDelay: '1s' }}
+          ></div>
+          {/* Lydian grid overlay */}
+          <div
+            className="absolute inset-0 opacity-10"
+            style={{
+              backgroundImage:
+                'linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px)',
+              backgroundSize: '50px 50px',
+            }}
+          ></div>
         </div>
 
         <div className="relative z-10 flex flex-col min-h-screen">
-          {/* Neon Header */}
-          <header className="bg-black/90 backdrop-blur-md border-b border-red-500/30" style={{ backgroundColor: 'rgba(10, 10, 11, 0.9)', borderColor: 'rgba(255, 33, 77, 0.3)' }}>
+          {/* Lydian Header */}
+          <header className="bg-black/90 backdrop-blur-md border-b border-blue-500/30">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="flex items-center justify-between h-16">
                 <Link href="/" className="flex items-center space-x-3">
-                  <div className="w-10 h-10 bg-gradient-to-br from-lydian-primary to-orange-500 rounded-xl flex items-center justify-center" style={{ background: 'linear-gradient(135deg, var(--ac-1), var(--ac-2))' }}>
-                    <Globe className="w-6 h-6 text-lydian-text-inverse" />
+                  <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl flex items-center justify-center">
+                    <Globe className="w-6 h-6 text-white" />
                   </div>
-                  <span className="text-2xl font-bold neon-text-strong" style={{ color: 'var(--tx-1)', textShadow: '0 0 10px var(--ac-1), 0 0 20px var(--ac-1)' }}>
+                  <span
+                    className="text-2xl font-bold text-white"
+                    style={{ textShadow: '0 0 10px #3b82f6, 0 0 20px #3b82f6' }}
+                  >
                     Holiday.AILYDIAN
                   </span>
                 </Link>
 
                 <nav className="hidden md:flex items-center space-x-8">
-                  <Link href="/destinations" className="transition-colors" style={{ color: 'var(--tx-2)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = 'var(--ac-1)'} onMouseLeave={(e) => (e.target as HTMLElement).style.color = 'var(--tx-2)'}>
+                  <Link
+                    href="/destinations"
+                    className="text-gray-300 hover:text-blue-400 transition-colors"
+                  >
                     Destinasyonlar
                   </Link>
-                  <Link href="/hotels" className="transition-colors" style={{ color: 'var(--tx-2)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = 'var(--ac-1)'} onMouseLeave={(e) => (e.target as HTMLElement).style.color = 'var(--tx-2)'}>
+                  <Link
+                    href="/hotels"
+                    className="text-gray-300 hover:text-blue-400 transition-colors"
+                  >
                     Oteller
                   </Link>
-                  <Link href="/flights" className="transition-colors" style={{ color: 'var(--tx-2)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = 'var(--ac-1)'} onMouseLeave={(e) => (e.target as HTMLElement).style.color = 'var(--tx-2)'}>
-                    Uçak Biletleri
+                  <Link
+                    href="/tours"
+                    className="text-gray-300 hover:text-blue-400 transition-colors"
+                  >
+                    Turlar
                   </Link>
-                  <Link href="/activities" className="transition-colors" style={{ color: 'var(--tx-2)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = 'var(--ac-1)'} onMouseLeave={(e) => (e.target as HTMLElement).style.color = 'var(--tx-2)'}>
-                    Aktiviteler
+                  <Link
+                    href="/car-rentals"
+                    className="text-gray-300 hover:text-blue-400 transition-colors"
+                  >
+                    Araç Kiralama
                   </Link>
                 </nav>
               </div>
@@ -155,30 +176,39 @@ const Custom404Page: React.FC = () => {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}>
-
+                transition={{ duration: 0.6 }}
+              >
                 <div className="mb-8">
                   <div className="relative inline-block">
-                    <div className="text-9xl font-bold neon-text-strong" style={{
-                      color: 'var(--tx-1)',
-                      textShadow: '0 0 20px var(--ac-1), 0 0 40px var(--ac-1), 0 0 60px var(--ac-1), 0 0 80px var(--ac-1)'
-                    }}>
+                    <div
+                      className="text-9xl font-bold text-white"
+                      style={{
+                        textShadow:
+                          '0 0 20px #3b82f6, 0 0 40px #3b82f6, 0 0 60px #3b82f6, 0 0 80px #3b82f6',
+                      }}
+                    >
                       404
                     </div>
                     <motion.div
                       animate={{ rotate: 360 }}
-                      transition={{ duration: 20, repeat: Infinity, ease: "linear" }}>
-
+                      transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+                    >
                       <div className="absolute -top-8 -right-8">
-                        <Sparkles className="w-12 h-12" style={{ color: 'var(--ac-2)', filter: 'drop-shadow(0 0 10px var(--ac-2))' }} />
+                        <Sparkles
+                          className="w-12 h-12 text-purple-500"
+                          style={{ filter: 'drop-shadow(0 0 10px #8b5cf6)' }}
+                        />
                       </div>
                     </motion.div>
                     <motion.div
                       animate={{ y: [-10, 10, -10] }}
-                      transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}>
-
+                      transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+                    >
                       <div className="absolute -bottom-4 -left-8">
-                        <Plane className="w-10 h-10" style={{ color: 'var(--ac-1)', filter: 'drop-shadow(0 0 8px var(--ac-1))' }} />
+                        <Plane
+                          className="w-10 h-10 text-blue-500"
+                          style={{ filter: 'drop-shadow(0 0 8px #3b82f6)' }}
+                        />
                       </div>
                     </motion.div>
                   </div>
@@ -189,18 +219,18 @@ const Custom404Page: React.FC = () => {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}>
-
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
                 <div className="mb-8">
-                <h1 className="text-4xl md:text-5xl font-bold neon-text-strong mb-4" style={{
-                    color: 'var(--tx-1)',
-                    textShadow: '0 0 15px var(--ac-1)'
-                  }}>
-                  {t('errors.404.title')}
-                </h1>
-                <p className="text-xl mb-6 max-w-2xl mx-auto" style={{ color: 'var(--tx-2)' }}>
-                  {t('errors.404.description')}
-                </p>
+                  <h1
+                    className="text-4xl md:text-5xl font-bold text-white mb-4"
+                    style={{ textShadow: '0 0 15px #3b82f6' }}
+                  >
+                    {t('errors.404.title')}
+                  </h1>
+                  <p className="text-xl text-gray-300 mb-6 max-w-2xl mx-auto">
+                    {t('errors.404.description')}
+                  </p>
                 </div>
               </motion.div>
 
@@ -208,54 +238,27 @@ const Custom404Page: React.FC = () => {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}>
-
+                transition={{ duration: 0.6, delay: 0.4 }}
+              >
                 <div className="mb-12">
-                <form onSubmit={handleSearch} className="max-w-md mx-auto">
-                  <div className="relative">
-                    <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5" style={{ color: 'var(--tx-3)' }} />
-                    <input
+                  <form onSubmit={handleSearch} className="max-w-md mx-auto">
+                    <div className="relative">
+                      <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                      <input
                         type="text"
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
                         placeholder="Aradığınız destinasyonu yazın..."
-                        className="w-full pl-12 pr-4 py-4 rounded-2xl shadow-lg transition-all duration-300 text-lg border-2"
-                        style={{
-                          backgroundColor: 'var(--bg-1)',
-                          color: 'var(--tx-1)',
-                          borderColor: 'var(--ac-1)',
-                          boxShadow: '0 0 20px rgba(255, 33, 77, 0.3)'
-                        }}
-                        onFocus={(e) => {
-                          e.target.style.boxShadow = '0 0 30px rgba(255, 33, 77, 0.5), 0 0 10px var(--ac-1)';
-                          e.target.style.borderColor = 'var(--ac-2)';
-                        }}
-                        onBlur={(e) => {
-                          e.target.style.boxShadow = '0 0 20px rgba(255, 33, 77, 0.3)';
-                          e.target.style.borderColor = 'var(--ac-1)';
-                        }} />
-
-                    <button
+                        className="w-full pl-12 pr-4 py-4 bg-white/10 backdrop-blur-xl border-2 border-blue-500/50 text-white rounded-2xl shadow-lg transition-all duration-300 text-lg placeholder-gray-400 focus:outline-none focus:border-purple-500 focus:shadow-2xl focus:shadow-blue-500/50"
+                      />
+                      <button
                         type="submit"
-                        className="absolute right-2 top-1/2 transform -translate-y-1/2 px-6 py-2 rounded-xl font-medium transition-all duration-300 neon-glow"
-                        style={{
-                          background: 'linear-gradient(135deg, var(--ac-1), var(--ac-2))',
-                          color: 'white',
-                          boxShadow: '0 0 20px var(--ac-1), 0 0 40px var(--ac-1)'
-                        }}
-                        onMouseEnter={(e) => {
-                          (e.target as HTMLElement).style.boxShadow = '0 0 30px var(--ac-1), 0 0 60px var(--ac-1)';
-                          (e.target as HTMLElement).style.transform = 'translateY(-50%) scale(1.05)';
-                        }}
-                        onMouseLeave={(e) => {
-                          (e.target as HTMLElement).style.boxShadow = '0 0 20px var(--ac-1), 0 0 40px var(--ac-1)';
-                          (e.target as HTMLElement).style.transform = 'translateY(-50%) scale(1)';
-                        }}>
-
-                      Ara
-                    </button>
-                  </div>
-                </form>
+                        className="absolute right-2 top-1/2 transform -translate-y-1/2 px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-medium transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/50 hover:scale-105"
+                      >
+                        Ara
+                      </button>
+                    </div>
+                  </form>
                 </div>
               </motion.div>
 
@@ -263,56 +266,24 @@ const Custom404Page: React.FC = () => {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.6 }}>
-
+                transition={{ duration: 0.6, delay: 0.6 }}
+              >
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-                <Link
+                  <Link
                     href="/"
-                    className="inline-flex items-center px-8 py-4 rounded-2xl font-semibold transition-all duration-300 neon-glow"
-                    style={{
-                      background: 'linear-gradient(135deg, var(--ac-1), var(--ac-2))',
-                      color: 'white',
-                      boxShadow: '0 0 25px var(--ac-1), 0 0 50px var(--ac-1)',
-                      border: 'none'
-                    }}
-                    onMouseEnter={(e) => {
-                      (e.target as HTMLElement).style.boxShadow = '0 0 35px var(--ac-1), 0 0 70px var(--ac-1)';
-                      (e.target as HTMLElement).style.transform = 'scale(1.05) translateY(-2px)';
-                    }}
-                    onMouseLeave={(e) => {
-                      (e.target as HTMLElement).style.boxShadow = '0 0 25px var(--ac-1), 0 0 50px var(--ac-1)';
-                      (e.target as HTMLElement).style.transform = 'scale(1) translateY(0px)';
-                    }}>
+                    className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-2xl font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/50 hover:scale-105"
+                  >
+                    <Home className="w-5 h-5 mr-2" />
+                    {t('errors.404.backHome')}
+                  </Link>
 
-                  <Home className="w-5 h-5 mr-2" />
-                  {t('errors.404.backHome')}
-                </Link>
-
-                <button
+                  <button
                     onClick={handleGoBack}
-                    className="inline-flex items-center px-8 py-4 rounded-2xl font-semibold transition-all duration-300 border-2"
-                    style={{
-                      backgroundColor: 'var(--bg-1)',
-                      color: 'var(--tx-1)',
-                      borderColor: 'var(--ac-1)',
-                      boxShadow: '0 0 15px rgba(255, 33, 77, 0.3)'
-                    }}
-                    onMouseEnter={(e) => {
-                      (e.target as HTMLElement).style.backgroundColor = 'var(--ac-1)';
-                      (e.target as HTMLElement).style.color = 'white';
-                      (e.target as HTMLElement).style.boxShadow = '0 0 25px var(--ac-1), 0 0 50px var(--ac-1)';
-                      (e.target as HTMLElement).style.transform = 'scale(1.05) translateY(-2px)';
-                    }}
-                    onMouseLeave={(e) => {
-                      (e.target as HTMLElement).style.backgroundColor = 'var(--bg-1)';
-                      (e.target as HTMLElement).style.color = 'var(--tx-1)';
-                      (e.target as HTMLElement).style.boxShadow = '0 0 15px rgba(255, 33, 77, 0.3)';
-                      (e.target as HTMLElement).style.transform = 'scale(1) translateY(0px)';
-                    }}>
-
-                  <ArrowLeft className="w-5 h-5 mr-2" />
-                  Geri Dön
-                </button>
+                    className="inline-flex items-center px-8 py-4 bg-white/10 backdrop-blur-xl border-2 border-blue-500/50 text-white rounded-2xl font-semibold transition-all duration-300 hover:bg-blue-600 hover:border-blue-600 hover:shadow-lg hover:shadow-blue-500/50 hover:scale-105"
+                  >
+                    <ArrowLeft className="w-5 h-5 mr-2" />
+                    Geri Dön
+                  </button>
                 </div>
               </motion.div>
 
@@ -320,72 +291,65 @@ const Custom404Page: React.FC = () => {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.8 }}>
-
+                transition={{ duration: 0.6, delay: 0.8 }}
+              >
                 <div className="mb-8">
-                <h2 className="text-2xl font-bold neon-text-strong mb-8 flex items-center justify-center" style={{
-                    color: 'var(--tx-1)',
-                    textShadow: '0 0 15px var(--ac-2)'
-                  }}>
-                  <TrendingUp className="w-6 h-6 mr-2" style={{ color: 'var(--ac-2)', filter: 'drop-shadow(0 0 8px var(--ac-2))' }} />
-                  Popüler Destinasyonlar
-                </h2>
-                
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  {popularDestinations.map((destination, index) =>
-                    <motion.div
-                      key={destination.id}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: 1 + index * 0.1 }}>
+                  <h2
+                    className="text-2xl font-bold text-white mb-8 flex items-center justify-center"
+                    style={{ textShadow: '0 0 15px #8b5cf6' }}
+                  >
+                    <TrendingUp
+                      className="w-6 h-6 mr-2 text-purple-500"
+                      style={{ filter: 'drop-shadow(0 0 8px #8b5cf6)' }}
+                    />
+                    Popüler Destinasyonlar
+                  </h2>
 
-                      <Link
-                        href={`/destinations/${destination.name.toLowerCase()}`}
-                        className="block rounded-2xl transition-all duration-300 overflow-hidden group border-2"
-                        style={{
-                          backgroundColor: 'var(--bg-1)',
-                          borderColor: 'var(--ac-1)',
-                          boxShadow: '0 0 20px rgba(255, 33, 77, 0.3)'
-                        }}
-                        onMouseEnter={(e) => {
-                          (e.target as HTMLElement).style.boxShadow = '0 0 30px var(--ac-1), 0 0 60px var(--ac-1)';
-                          (e.target as HTMLElement).style.transform = 'translateY(-5px) scale(1.02)';
-                          (e.target as HTMLElement).style.borderColor = 'var(--ac-2)';
-                        }}
-                        onMouseLeave={(e) => {
-                          (e.target as HTMLElement).style.boxShadow = '0 0 20px rgba(255, 33, 77, 0.3)';
-                          (e.target as HTMLElement).style.transform = 'translateY(0px) scale(1)';
-                          (e.target as HTMLElement).style.borderColor = 'var(--ac-1)';
-                        }}>
-
-                        <div className="relative h-48">
-                          <img
-                            src={destination.image}
-                            alt={destination.name}
-                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
-
-                          <div className="absolute top-4 right-4 rounded-full px-3 py-1 flex items-center border" style={{
-                            backgroundColor: 'rgba(10, 10, 11, 0.8)',
-                            borderColor: 'var(--ac-2)',
-                            backdropFilter: 'blur(10px)'
-                          }}>
-                            <Star className="w-4 h-4 fill-current mr-1" style={{ color: 'var(--ac-2)' }} />
-                            <span className="text-sm font-medium" style={{ color: 'var(--tx-1)' }}>{destination.rating}</span>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    {popularDestinations.map((destination, index) => (
+                      <motion.div
+                        key={destination.id}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 1 + index * 0.1 }}
+                      >
+                        <Link
+                          href={`/destinations/${destination.name.toLowerCase()}`}
+                          className="block bg-white/10 backdrop-blur-xl border-2 border-blue-500/50 rounded-2xl transition-all duration-300 overflow-hidden group hover:shadow-lg hover:shadow-blue-500/50 hover:scale-105 hover:border-purple-500"
+                        >
+                          <div className="relative h-48">
+                            <img
+                              src={destination.image}
+                              alt={destination.name}
+                              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                            />
+                            <div className="absolute top-4 right-4 bg-black/80 backdrop-blur-md border border-purple-500/50 rounded-full px-3 py-1 flex items-center">
+                              <Star className="w-4 h-4 text-purple-400 fill-current mr-1" />
+                              <span className="text-sm font-medium text-white">
+                                {destination.rating}
+                              </span>
+                            </div>
                           </div>
-                        </div>
-                        
-                        <div className="p-6">
-                          <h3 className="text-xl font-bold mb-2 neon-text-strong" style={{ color: 'var(--tx-1)' }}>{destination.name}</h3>
-                          <p className="mb-3" style={{ color: 'var(--tx-2)' }}>{destination.country}</p>
-                          <div className="flex items-center justify-between">
-                            <span className="text-2xl font-bold" style={{ color: 'var(--ac-1)', textShadow: '0 0 8px var(--ac-1)' }}>{destination.price}</span>
-                            <span className="text-sm" style={{ color: 'var(--tx-3)' }}>başlayan fiyatlarla</span>
+
+                          <div className="p-6">
+                            <h3 className="text-xl font-bold text-white mb-2">
+                              {destination.name}
+                            </h3>
+                            <p className="text-gray-300 mb-3">{destination.country}</p>
+                            <div className="flex items-center justify-between">
+                              <span
+                                className="text-2xl font-bold text-blue-400"
+                                style={{ textShadow: '0 0 8px #3b82f6' }}
+                              >
+                                {destination.price}
+                              </span>
+                              <span className="text-sm text-gray-400">başlayan fiyatlarla</span>
+                            </div>
                           </div>
-                        </div>
-                      </Link>
-                    </motion.div>
-                    )}
-                </div>
+                        </Link>
+                      </motion.div>
+                    ))}
+                  </div>
                 </div>
               </motion.div>
 
@@ -393,78 +357,64 @@ const Custom404Page: React.FC = () => {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 1.2 }}>
-
+                transition={{ duration: 0.6, delay: 1.2 }}
+              >
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto">
-                {[
-                  { icon: MapPin, label: 'Destinasyonlar', href: '/destinations' },
-                  { icon: Hotel, label: 'Oteller', href: '/hotels' },
-                  { icon: Plane, label: 'Uçak Biletleri', href: '/flights' },
-                  { icon: Camera, label: 'Aktiviteler', href: '/activities' }].
-                  map((item, index) => {
+                  {[
+                    { icon: MapPin, label: 'Destinasyonlar', href: '/destinations' },
+                    { icon: Hotel, label: 'Oteller', href: '/hotels' },
+                    { icon: Plane, label: 'Turlar', href: '/tours' },
+                    { icon: Camera, label: 'Transferler', href: '/transfers' },
+                  ].map((item) => {
                     const Icon = item.icon;
                     return (
                       <Link
                         key={item.label}
                         href={item.href}
-                        className="flex flex-col items-center p-6 rounded-2xl transition-all duration-300 group border-2"
-                        style={{
-                          backgroundColor: 'var(--bg-1)',
-                          borderColor: 'var(--ac-1)',
-                          boxShadow: '0 0 15px rgba(255, 33, 77, 0.3)'
-                        }}
-                        onMouseEnter={(e) => {
-                          (e.target as HTMLElement).style.boxShadow = '0 0 25px var(--ac-1), 0 0 50px var(--ac-1)';
-                          (e.target as HTMLElement).style.transform = 'scale(1.05) translateY(-3px)';
-                        }}
-                        onMouseLeave={(e) => {
-                          (e.target as HTMLElement).style.boxShadow = '0 0 15px rgba(255, 33, 77, 0.3)';
-                          (e.target as HTMLElement).style.transform = 'scale(1) translateY(0px)';
-                        }}>
-
-                      <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-3 transition-transform duration-300 group-hover:scale-110 border" style={{
-                          background: 'linear-gradient(135deg, rgba(255, 33, 77, 0.2), rgba(255, 106, 69, 0.2))',
-                          borderColor: 'var(--ac-2)'
-                        }}>
-                        <Icon className="w-6 h-6" style={{ color: 'var(--ac-1)', filter: 'drop-shadow(0 0 5px var(--ac-1))' }} />
-                      </div>
-                      <span className="text-sm font-medium transition-colors" style={{ color: 'var(--tx-2)' }} onMouseEnter={(e) => (e.target as HTMLElement).style.color = 'var(--ac-1)'} onMouseLeave={(e) => (e.target as HTMLElement).style.color = 'var(--tx-2)'}>
-                        {item.label}
-                      </span>
-                    </Link>);
-
+                        className="flex flex-col items-center p-6 bg-white/10 backdrop-blur-xl border-2 border-blue-500/50 rounded-2xl transition-all duration-300 group hover:shadow-lg hover:shadow-blue-500/50 hover:scale-105"
+                      >
+                        <div className="w-12 h-12 bg-gradient-to-br from-blue-600/20 to-purple-600/20 border border-purple-500/50 rounded-2xl flex items-center justify-center mb-3 transition-transform duration-300 group-hover:scale-110">
+                          <Icon
+                            className="w-6 h-6 text-blue-400"
+                            style={{ filter: 'drop-shadow(0 0 5px #3b82f6)' }}
+                          />
+                        </div>
+                        <span className="text-sm font-medium text-gray-300 group-hover:text-blue-400 transition-colors">
+                          {item.label}
+                        </span>
+                      </Link>
+                    );
                   })}
                 </div>
               </motion.div>
             </div>
           </main>
 
-          {/* Neon Footer */}
-          <footer className="backdrop-blur-md border-t py-6" style={{
-            backgroundColor: 'rgba(10, 10, 11, 0.9)',
-            borderColor: 'rgba(255, 33, 77, 0.3)'
-          }}>
+          {/* Lydian Footer */}
+          <footer className="bg-black/90 backdrop-blur-md border-t border-blue-500/30 py-6">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="text-center">
-                <p style={{ color: 'var(--tx-2)' }}>&copy; 2025 Holiday.AILYDIAN. Tüm hakları saklıdır.</p>
-                <p className="mt-1 text-sm" style={{
-                  color: 'var(--ac-2)',
-                  textShadow: '0 0 10px var(--ac-2)'
-                }}>AI Destekli Seyahat Platformu</p>
+                <p className="text-gray-300">&copy; 2025 Holiday.AILYDIAN. Tüm hakları saklıdır.</p>
+                <p
+                  className="mt-1 text-sm text-purple-400"
+                  style={{ textShadow: '0 0 10px #8b5cf6' }}
+                >
+                  AI Destekli Seyahat Platformu
+                </p>
               </div>
             </div>
           </footer>
         </div>
       </div>
-    </>);
-
+    </>
+  );
 };
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
   return {
     props: {
-      ...(await serverSideTranslations(locale ?? 'tr', ['common']))
-    }
+      ...(await serverSideTranslations(locale ?? 'tr', ['common'])),
+    },
   };
 };
 

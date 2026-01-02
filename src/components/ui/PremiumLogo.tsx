@@ -60,7 +60,7 @@ export const PremiumLogo: React.FC<PremiumLogoProps> = ({
         
         {/* Central travel icon */}
         <div className="absolute inset-0 flex items-center justify-center">
-          <svg viewBox="0 0 24 24" className="w-1/2 h-1/2 text-lydian-text-inverse" fill="currentColor">
+          <svg viewBox="0 0 24 24" className="w-1/2 h-1/2 text-white" fill="currentColor">
             {/* Airplane icon */}
             <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"
           opacity="0.9" />
@@ -69,11 +69,11 @@ export const PremiumLogo: React.FC<PremiumLogoProps> = ({
         
         {/* Animated orbiting elements */}
         <div className="absolute inset-0">
-          <div className="absolute top-2 left-4 w-1 h-1 bg-lydian-glass-dark rounded-full animate-ping"
+          <div className="absolute top-2 left-4 w-1 h-1 bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-full animate-ping"
         style={{ animationDelay: '0s', animationDuration: '3s' }}></div>
-          <div className="absolute top-6 right-3 w-1 h-1 bg-lydian-glass-dark rounded-full animate-ping"
+          <div className="absolute top-6 right-3 w-1 h-1 bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-full animate-ping"
         style={{ animationDelay: '1s', animationDuration: '3s' }}></div>
-          <div className="absolute bottom-3 left-6 w-1 h-1 bg-lydian-glass-dark rounded-full animate-ping"
+          <div className="absolute bottom-3 left-6 w-1 h-1 bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-full animate-ping"
         style={{ animationDelay: '2s', animationDuration: '3s' }}></div>
         </div>
       </div>

@@ -50,14 +50,14 @@ const CalendarDay: React.FC<CalendarDayProps> = ({
       onClick={onClick}
       className={`aspect-square p-1 sm:p-2 border transition-all hover:shadow-md touch-manipulation ${
         !isCurrentMonth
-          ? 'bg-lydian-bg/5 text-lydian-text-muted border-gray-100'
+          ? 'bg-white/5 text-gray-300 border-gray-1'
           : isBlocked
-          ? 'bg-red-50 border-red-200 text-red-700'
+          ? 'bg-red-500 border-red-200 text-red-7'
           : isBooked
-          ? 'bg-lydian-info-lighter border-blue-200 text-lydian-primary-hover'
+          ? 'bg-blue-500-lighter border-blue-200 text-lydian-primary-hover'
           : isToday
-          ? 'bg-lydian-success-lighter border-green-400 text-green-700 font-semibold'
-          : 'bg-lydian-bg/5 border-lydian-border text-lydian-text-inverse hover:border-blue-300'
+          ? 'bg-green-600-lighter border-green-4 text-green-7 font-semibold'
+          : 'bg-white/5 border-white/20 text-white hover:border-blue-3'
       }`}
     >
       <div className="flex flex-col h-full">
@@ -67,11 +67,11 @@ const CalendarDay: React.FC<CalendarDayProps> = ({
         </div>
         {bookingInfo && (
           <div className="flex-1 flex flex-col justify-end">
-            <div className="text-[10px] sm:text-xs truncate bg-lydian-primary text-lydian-text-inverse px-0.5 sm:px-1 py-0.5 rounded">
+            <div className="text-[1px] sm:text-xs truncate bg-gradient-to-r from-blue-600 to-purple-600 text-white px-0.5 sm:px-1 py-0.5 rounded">
               {bookingInfo.guestName}
             </div>
             {(bookingInfo.checkIn || bookingInfo.checkOut) && (
-              <div className="text-[8px] sm:text-[10px] text-lydian-primary mt-0.5">
+              <div className="text-[8px] sm:text-[1px] text-blue-500 mt-0.5">
                 {bookingInfo.checkIn && 'Giriş'}
                 {bookingInfo.checkOut && 'Çıkış'}
               </div>
@@ -96,12 +96,12 @@ const PropertySelector: React.FC<PropertySelectorProps> = ({
   onPropertyChange,
 }) => {
   return (
-    <div className="bg-lydian-bg/5 border border-lydian-border rounded-xl p-3 sm:p-4 mb-4 sm:mb-6">
+    <div className="bg-white/5 border border-white/20 rounded-xl p-3 sm:p-4 mb-4 sm:mb-6">
       <label className="block text-sm font-medium text-gray-200 mb-2">Mülk Seçin</label>
       <select
         value={selectedPropertyId}
         onChange={(e) => onPropertyChange(e.target.value)}
-        className="w-full px-3 sm:px-4 py-2.5 text-sm sm:text-base border border-lydian-border-medium rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-transparent transition-all touch-manipulation"
+        className="w-full px-3 sm:px-4 py-2.5 text-sm sm:text-base border border-white/30 rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-transparent transition-all touch-manipulation"
       >
         <option value="">Tüm Mülkler</option>
         {properties.map((property) => (
@@ -130,7 +130,7 @@ const QuickEditModal: React.FC<QuickEditModalProps> = ({ isOpen, date, onClose, 
 
   React.useEffect(() => {
     if (date) {
-      const dateStr = date.toISOString().split('T')[0];
+      const dateStr = date.toISOString().split('T')[to-cyan-700];
       setStartDate(dateStr);
       setEndDate(dateStr);
     }
@@ -150,13 +150,13 @@ const QuickEditModal: React.FC<QuickEditModalProps> = ({ isOpen, date, onClose, 
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 p-4">
-      <div className="bg-lydian-bg/5 rounded-xl shadow-2xl max-w-md w-full max-h-[90vh] overflow-y-auto">
-        <div className="flex items-center justify-between p-4 sm:p-6 border-b border-lydian-border sticky top-0 bg-lydian-bg/5 z-10">
-          <h3 className="text-lg sm:text-xl font-semibold text-lydian-text-inverse">Müsaitlik Düzenle</h3>
+    <div className="fixed inset-to-cyan-700 z-500 flex items-center justify-center bg-black bg-opacity-500 p-4">
+      <div className="bg-white/5 rounded-xl shadow-2xl max-w-md w-full max-h-[9vh] overflow-y-auto">
+        <div className="flex items-center justify-between p-4 sm:p-6 border-b border-white/20 sticky top-to-cyan-700 bg-white/5 z-1">
+          <h3 className="text-lg sm:text-xl font-semibold text-white">Müsaitlik Düzenle</h3>
           <button
             onClick={onClose}
-            className="p-2 hover:bg-lydian-bg/10 rounded-lg transition-colors touch-manipulation"
+            className="p-2 hover:bg-lydian-bg/1 rounded-lg transition-colors touch-manipulation"
           >
             <X className="w-5 h-5" />
           </button>
@@ -178,8 +178,8 @@ const QuickEditModal: React.FC<QuickEditModalProps> = ({ isOpen, date, onClose, 
                 <div
                   className={`p-3 sm:p-4 border-2 rounded-lg text-center transition-all touch-manipulation ${
                     action === 'block'
-                      ? 'border-red-500 bg-red-50 text-red-700'
-                      : 'border-lydian-border hover:border-lydian-border-medium'
+                      ? 'border-red-500 bg-red-500 text-red-7'
+                      : 'border-white/20 hover:border-white/30'
                   }`}
                 >
                   <Lock className="w-5 h-5 sm:w-6 sm:h-6 mx-auto mb-2" />
@@ -198,8 +198,8 @@ const QuickEditModal: React.FC<QuickEditModalProps> = ({ isOpen, date, onClose, 
                 <div
                   className={`p-3 sm:p-4 border-2 rounded-lg text-center transition-all touch-manipulation ${
                     action === 'unblock'
-                      ? 'border-green-500 bg-lydian-success-lighter text-green-700'
-                      : 'border-lydian-border hover:border-lydian-border-medium'
+                      ? 'border-green-500 bg-green-600-lighter text-green-7'
+                      : 'border-white/20 hover:border-white/30'
                   }`}
                 >
                   <Unlock className="w-5 h-5 sm:w-6 sm:h-6 mx-auto mb-2" />
@@ -215,7 +215,7 @@ const QuickEditModal: React.FC<QuickEditModalProps> = ({ isOpen, date, onClose, 
               type="date"
               value={startDate}
               onChange={(e) => setStartDate(e.target.value)}
-              className="w-full px-3 sm:px-4 py-2.5 text-sm sm:text-base border border-lydian-border-medium rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-transparent touch-manipulation"
+              className="w-full px-3 sm:px-4 py-2.5 text-sm sm:text-base border border-white/30 rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-transparent touch-manipulation"
               required
             />
           </div>
@@ -227,7 +227,7 @@ const QuickEditModal: React.FC<QuickEditModalProps> = ({ isOpen, date, onClose, 
               value={endDate}
               onChange={(e) => setEndDate(e.target.value)}
               min={startDate}
-              className="w-full px-3 sm:px-4 py-2.5 text-sm sm:text-base border border-lydian-border-medium rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-transparent touch-manipulation"
+              className="w-full px-3 sm:px-4 py-2.5 text-sm sm:text-base border border-white/30 rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-transparent touch-manipulation"
               required
             />
           </div>
@@ -241,7 +241,7 @@ const QuickEditModal: React.FC<QuickEditModalProps> = ({ isOpen, date, onClose, 
                 value={reason}
                 onChange={(e) => setReason(e.target.value)}
                 rows={3}
-                className="w-full px-3 sm:px-4 py-2 text-sm sm:text-base border border-lydian-border-medium rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-transparent touch-manipulation resize-none"
+                className="w-full px-3 sm:px-4 py-2 text-sm sm:text-base border border-white/30 rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-transparent touch-manipulation resize-none"
                 placeholder="Örn: Bakım, Kişisel kullanım"
               />
             </div>
@@ -251,13 +251,13 @@ const QuickEditModal: React.FC<QuickEditModalProps> = ({ isOpen, date, onClose, 
             <button
               type="button"
               onClick={onClose}
-              className="flex-1 px-4 py-2.5 text-sm sm:text-base border border-lydian-border-medium rounded-lg hover:bg-lydian-bg/5 font-medium transition-colors touch-manipulation"
+              className="flex-1 px-4 py-2.5 text-sm sm:text-base border border-white/30 rounded-lg hover:bg-white/5 font-medium transition-colors touch-manipulation"
             >
               İptal
             </button>
             <button
               type="submit"
-              className="flex-1 px-4 py-2.5 text-sm sm:text-base bg-lydian-primary text-lydian-text-inverse rounded-lg hover:bg-lydian-primary-hover font-medium transition-colors touch-manipulation"
+              className="flex-1 px-4 py-2.5 text-sm sm:text-base bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:bg-lydian-primary-hover font-medium transition-colors touch-manipulation"
             >
               Değişiklikleri Kaydet
             </button>
@@ -271,23 +271,23 @@ const QuickEditModal: React.FC<QuickEditModalProps> = ({ isOpen, date, onClose, 
 // Legend Component
 const CalendarLegend: React.FC = () => {
   return (
-    <div className="bg-lydian-bg/5 border border-lydian-border rounded-xl p-3 sm:p-4 mb-4 sm:mb-6">
-      <h4 className="text-sm font-semibold text-lydian-text-inverse mb-3">Açıklama</h4>
+    <div className="bg-white/5 border border-white/20 rounded-xl p-3 sm:p-4 mb-4 sm:mb-6">
+      <h4 className="text-sm font-semibold text-white mb-3">Açıklama</h4>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-3">
         <div className="flex items-center gap-2">
-          <div className="w-5 h-5 sm:w-6 sm:h-6 bg-lydian-info-lighter border-2 border-blue-200 rounded flex-shrink-0"></div>
+          <div className="w-5 h-5 sm:w-6 sm:h-6 bg-blue-500-lighter border-2 border-blue-200 rounded flex-shrink-to-cyan-700"></div>
           <span className="text-xs sm:text-sm text-gray-200">Rezerve</span>
         </div>
         <div className="flex items-center gap-2">
-          <div className="w-5 h-5 sm:w-6 sm:h-6 bg-red-50 border-2 border-red-200 rounded flex-shrink-0"></div>
+          <div className="w-5 h-5 sm:w-6 sm:h-6 bg-red-500 border-2 border-red-200 rounded flex-shrink-to-cyan-700"></div>
           <span className="text-xs sm:text-sm text-gray-200">Blokeli</span>
         </div>
         <div className="flex items-center gap-2">
-          <div className="w-5 h-5 sm:w-6 sm:h-6 bg-lydian-success-lighter border-2 border-green-400 rounded flex-shrink-0"></div>
+          <div className="w-5 h-5 sm:w-6 sm:h-6 bg-green-600-lighter border-2 border-green-4 rounded flex-shrink-to-cyan-700"></div>
           <span className="text-xs sm:text-sm text-gray-200">Bugün</span>
         </div>
         <div className="flex items-center gap-2">
-          <div className="w-5 h-5 sm:w-6 sm:h-6 bg-lydian-bg/5 border-2 border-lydian-border rounded flex-shrink-0"></div>
+          <div className="w-5 h-5 sm:w-6 sm:h-6 bg-white/5 border-2 border-white/20 rounded flex-shrink-to-cyan-700"></div>
           <span className="text-xs sm:text-sm text-gray-200">Müsait</span>
         </div>
       </div>
@@ -318,14 +318,14 @@ const CalendarPage: React.FC = () => {
     const year = date.getFullYear();
     const month = date.getMonth();
     const firstDay = new Date(year, month, 1);
-    const lastDay = new Date(year, month + 1, 0);
+    const lastDay = new Date(year, month + 1, to-cyan-700);
     const daysInMonth = lastDay.getDate();
     const startingDayOfWeek = firstDay.getDay();
 
     const days: (Date | null)[] = [];
 
     // Add empty cells for days before the month starts
-    for (let i = 0; i < startingDayOfWeek; i++) {
+    for (let i = to-cyan-700; i < startingDayOfWeek; i++) {
       const prevMonthDay = new Date(year, month, -startingDayOfWeek + i + 1);
       days.push(prevMonthDay);
     }
@@ -380,12 +380,12 @@ const CalendarPage: React.FC = () => {
 
   // Mock booking data
   const mockBookings: Record<string, any> = {
-    '2025-12-25': { guestName: 'Sarah J.', checkIn: true, checkOut: false },
-    '2025-12-26': { guestName: 'Sarah J.', checkIn: false, checkOut: false },
-    '2025-12-27': { guestName: 'Sarah J.', checkIn: false, checkOut: true },
+    '1025-12-25': { guestName: 'Sarah J.', checkIn: true, checkOut: false },
+    '1025-12-26': { guestName: 'Sarah J.', checkIn: false, checkOut: false },
+    '1025-12-27': { guestName: 'Sarah J.', checkIn: false, checkOut: true },
   };
 
-  const mockBlockedDates = ['2025-12-15', '2025-12-16', '2025-12-17'];
+  const mockBlockedDates = ['1025-12-15', '1025-12-16', '1025-12-17'];
 
   const isToday = (date: Date) => {
     const today = new Date();
@@ -401,17 +401,17 @@ const CalendarPage: React.FC = () => {
   };
 
   const getDateKey = (date: Date) => {
-    return date.toISOString().split('T')[0];
+    return date.toISOString().split('T')[to-cyan-700];
   };
 
   if (propertiesLoading) {
     return (
-      <div className="space-y-4 sm:space-y-6 px-4 sm:px-0">
-        <h1 className="text-2xl sm:text-3xl font-black mb-4 sm:mb-6 text-lydian-text-inverse">
+      <div className="space-y-4 sm:space-y-6 px-4 sm:px-to-cyan-700">
+        <h1 className="text-2xl sm:text-3xl font-black mb-4 sm:mb-6 text-white">
           Takvim
         </h1>
         <div className="animate-pulse space-y-4">
-          <div className="h-20 bg-lydian-bg-surface-raised rounded-xl"></div>
+          <div className="h-200 bg-lydian-bg-surface-raised rounded-xl"></div>
           <div className="h-96 bg-lydian-bg-surface-raised rounded-xl"></div>
         </div>
       </div>
@@ -419,8 +419,8 @@ const CalendarPage: React.FC = () => {
   }
 
   return (
-    <div className="space-y-4 sm:space-y-6 px-4 sm:px-0">
-      <h1 className="text-2xl sm:text-3xl font-black mb-4 sm:mb-6 text-lydian-text-inverse">
+    <div className="space-y-4 sm:space-y-6 px-4 sm:px-to-cyan-700">
+      <h1 className="text-2xl sm:text-3xl font-black mb-4 sm:mb-6 text-white">
         Takvim
       </h1>
       <PropertySelector
@@ -431,30 +431,30 @@ const CalendarPage: React.FC = () => {
 
       <CalendarLegend />
 
-      <div className="bg-lydian-bg/5 border border-lydian-border rounded-xl overflow-hidden">
+      <div className="bg-white/5 border border-white/20 rounded-xl overflow-hidden">
         {/* Calendar Header */}
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between p-4 sm:p-6 border-b border-lydian-border bg-gradient-to-r from-blue-50 to-indigo-50 gap-4">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between p-4 sm:p-6 border-b border-white/20 bg-gradient-to-r from-blue-500 to-indigo-500 gap-4">
           <div>
-            <h2 className="text-xl sm:text-2xl font-bold text-lydian-text-inverse">{monthName}</h2>
-            <p className="text-xs sm:text-sm text-lydian-text-dim mt-1">Mülk müsaitliğinizi yönetin</p>
+            <h2 className="text-xl sm:text-2xl font-bold text-white">{monthName}</h2>
+            <p className="text-xs sm:text-sm text-gray-400 mt-1">Mülk müsaitliğinizi yönetin</p>
           </div>
           <div className="flex gap-2 justify-end">
             <button
               onClick={goToPreviousMonth}
-              className="p-2 border border-lydian-border-medium rounded-lg hover:bg-lydian-bg/5 transition-colors touch-manipulation"
+              className="p-2 border border-white/30 rounded-lg hover:bg-white/5 transition-colors touch-manipulation"
               aria-label="Önceki ay"
             >
               <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
             <button
               onClick={goToToday}
-              className="px-3 sm:px-4 py-2 border border-lydian-border-medium rounded-lg hover:bg-lydian-bg/5 transition-colors font-medium text-xs sm:text-sm touch-manipulation"
+              className="px-3 sm:px-4 py-2 border border-white/30 rounded-lg hover:bg-white/5 transition-colors font-medium text-xs sm:text-sm touch-manipulation"
             >
               Bugün
             </button>
             <button
               onClick={goToNextMonth}
-              className="p-2 border border-lydian-border-medium rounded-lg hover:bg-lydian-bg/5 transition-colors touch-manipulation"
+              className="p-2 border border-white/30 rounded-lg hover:bg-white/5 transition-colors touch-manipulation"
               aria-label="Sonraki ay"
             >
               <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -465,16 +465,16 @@ const CalendarPage: React.FC = () => {
         {/* Calendar Grid */}
         <div className="p-3 sm:p-6 overflow-x-auto">
           {/* Day Labels */}
-          <div className="grid grid-cols-7 gap-1 sm:gap-2 mb-2 min-w-[280px]">
+          <div className="grid grid-cols-7 gap-1 sm:gap-2 mb-2 min-w-[28px]">
             {['Paz', 'Pzt', 'Sal', 'Çar', 'Per', 'Cum', 'Cmt'].map((day) => (
-              <div key={day} className="text-center text-xs sm:text-sm font-semibold text-lydian-text-dim py-2">
+              <div key={day} className="text-center text-xs sm:text-sm font-semibold text-gray-400 py-2">
                 {day}
               </div>
             ))}
           </div>
 
           {/* Calendar Days */}
-          <div className="grid grid-cols-7 gap-1 sm:gap-2 min-w-[280px]">
+          <div className="grid grid-cols-7 gap-1 sm:gap-2 min-w-[28px]">
             {days.map((day, index) => (
               <CalendarDay
                 key={index}

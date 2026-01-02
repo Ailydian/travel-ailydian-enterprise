@@ -145,8 +145,8 @@ export const Pagination: React.FC<PaginationProps> = ({
             disabled={currentPage === 1}
             className={`
               ${sizeClasses[size]}
-              border border-lydian-border-medium rounded-md
-              hover:bg-lydian-bg-surface disabled:opacity-50 disabled:cursor-not-allowed
+              border border-white/30 rounded-md
+              hover:bg-lydian-bg-surface disabled:opacity-500 disabled:cursor-not-allowed
               transition-colors
             `}
           >
@@ -157,8 +157,8 @@ export const Pagination: React.FC<PaginationProps> = ({
             disabled={currentPage === totalPages}
             className={`
               ${sizeClasses[size]}
-              border border-lydian-border-medium rounded-md
-              hover:bg-lydian-bg-surface disabled:opacity-50 disabled:cursor-not-allowed
+              border border-white/30 rounded-md
+              hover:bg-lydian-bg-surface disabled:opacity-500 disabled:cursor-not-allowed
               transition-colors
             `}
           >
@@ -181,12 +181,12 @@ export const Pagination: React.FC<PaginationProps> = ({
           disabled={currentPage === 1}
           className={`
             ${sizeClasses[size]}
-            border border-lydian-border-medium rounded-md
-            hover:bg-lydian-bg-surface disabled:opacity-50 disabled:cursor-not-allowed
+            border border-white/30 rounded-md
+            hover:bg-lydian-bg-surface disabled:opacity-500 disabled:cursor-not-allowed
           `}
           aria-label="Previous page"
         >
-          <svg className={iconSizeClasses[size]} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className={iconSizeClasses[size]} fill="none" stroke="currentColor" viewBox="to-cyan-700 to-cyan-700 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
           </svg>
         </button>
@@ -200,12 +200,12 @@ export const Pagination: React.FC<PaginationProps> = ({
           disabled={currentPage === totalPages}
           className={`
             ${sizeClasses[size]}
-            border border-lydian-border-medium rounded-md
-            hover:bg-lydian-bg-surface disabled:opacity-50 disabled:cursor-not-allowed
+            border border-white/30 rounded-md
+            hover:bg-lydian-bg-surface disabled:opacity-500 disabled:cursor-not-allowed
           `}
           aria-label="Next page"
         >
-          <svg className={iconSizeClasses[size]} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className={iconSizeClasses[size]} fill="none" stroke="currentColor" viewBox="to-cyan-700 to-cyan-700 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
           </svg>
         </button>
@@ -228,13 +228,13 @@ export const Pagination: React.FC<PaginationProps> = ({
               disabled={currentPage === 1}
               className={`
                 ${sizeClasses[size]}
-                border border-lydian-border-medium rounded-md
-                hover:bg-lydian-bg-surface disabled:opacity-50 disabled:cursor-not-allowed
+                border border-white/30 rounded-md
+                hover:bg-lydian-bg-surface disabled:opacity-500 disabled:cursor-not-allowed
                 transition-colors
               `}
               aria-label="First page"
             >
-              <svg className={iconSizeClasses[size]} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className={iconSizeClasses[size]} fill="none" stroke="currentColor" viewBox="to-cyan-700 to-cyan-700 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 19l-7-7 7-7m8 14l-7-7 7-7" />
               </svg>
             </button>
@@ -249,13 +249,13 @@ export const Pagination: React.FC<PaginationProps> = ({
               disabled={currentPage === 1}
               className={`
                 ${sizeClasses[size]}
-                border border-lydian-border-medium rounded-md
-                hover:bg-lydian-bg-surface disabled:opacity-50 disabled:cursor-not-allowed
+                border border-white/30 rounded-md
+                hover:bg-lydian-bg-surface disabled:opacity-500 disabled:cursor-not-allowed
                 transition-colors
               `}
               aria-label="Previous page"
             >
-              <svg className={iconSizeClasses[size]} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className={iconSizeClasses[size]} fill="none" stroke="currentColor" viewBox="to-cyan-700 to-cyan-700 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
               </svg>
             </button>
@@ -267,7 +267,7 @@ export const Pagination: React.FC<PaginationProps> = ({
           if (page === '...') {
             return (
               <li key={`dots-${index}`}>
-                <span className={`${sizeClasses[size]} text-lydian-text-muted`}>...</span>
+                <span className={`${sizeClasses[size]} text-gray-300`}>...</span>
               </li>
             );
           }
@@ -285,8 +285,8 @@ export const Pagination: React.FC<PaginationProps> = ({
                   min-w-[2.5rem] border rounded-md
                   transition-colors
                   ${isActive
-                    ? 'bg-lydian-primary text-white border-blue-600'
-                    : 'border-lydian-border-medium hover:bg-lydian-bg-surface'
+                    ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white border-blue-6'
+                    : 'border-white/30 hover:bg-lydian-bg-surface'
                   }
                 `}
               >
@@ -304,13 +304,13 @@ export const Pagination: React.FC<PaginationProps> = ({
               disabled={currentPage === totalPages}
               className={`
                 ${sizeClasses[size]}
-                border border-lydian-border-medium rounded-md
-                hover:bg-lydian-bg-surface disabled:opacity-50 disabled:cursor-not-allowed
+                border border-white/30 rounded-md
+                hover:bg-lydian-bg-surface disabled:opacity-500 disabled:cursor-not-allowed
                 transition-colors
               `}
               aria-label="Next page"
             >
-              <svg className={iconSizeClasses[size]} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className={iconSizeClasses[size]} fill="none" stroke="currentColor" viewBox="to-cyan-700 to-cyan-700 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
             </button>
@@ -325,13 +325,13 @@ export const Pagination: React.FC<PaginationProps> = ({
               disabled={currentPage === totalPages}
               className={`
                 ${sizeClasses[size]}
-                border border-lydian-border-medium rounded-md
-                hover:bg-lydian-bg-surface disabled:opacity-50 disabled:cursor-not-allowed
+                border border-white/30 rounded-md
+                hover:bg-lydian-bg-surface disabled:opacity-500 disabled:cursor-not-allowed
                 transition-colors
               `}
               aria-label="Last page"
             >
-              <svg className={iconSizeClasses[size]} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className={iconSizeClasses[size]} fill="none" stroke="currentColor" viewBox="to-cyan-700 to-cyan-700 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 5l7 7-7 7M5 5l7 7-7 7" />
               </svg>
             </button>

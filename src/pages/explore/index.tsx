@@ -63,17 +63,17 @@ const ExplorePage: NextPage = () => {
 
       <ModernHeader />
 
-      <main className="min-h-screen bg-lydian-glass-dark">
+      <main className="min-h-screen bg-gradient-to-br from-slate-900 via-black to-slate-800">
         {/* Hero Section */}
         <ExploreHero />
 
         {/* Main Categories */}
         <section className="max-w-7xl mx-auto px-4 py-16">
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-black text-lydian-text-inverse mb-4">
+            <h2 className="text-3xl sm:text-4xl font-black text-white mb-4">
               {t('explore.categories.title')}
             </h2>
-            <p className="text-lydian-text-dim text-lg max-w-2xl mx-auto">
+            <p className="text-gray-300 text-lg max-w-2xl mx-auto">
               {t('explore.categories.subtitle')}
             </p>
           </div>
@@ -81,15 +81,15 @@ const ExplorePage: NextPage = () => {
         </section>
 
         {/* Trending Experiences */}
-        <section className="bg-lydian-bg-hover py-16">
+        <section className="bg-slate-900/50 py-16">
           <div className="max-w-7xl mx-auto px-4">
             <div className="flex items-center justify-between mb-8">
               <div>
                 <div className="flex items-center gap-3 mb-2">
-                  <TrendingUp className="w-8 h-8 text-lydian-primary" />
-                  <h2 className="text-3xl font-black text-lydian-text-inverse">{t('explore.trending')}</h2>
+                  <TrendingUp className="w-8 h-8 text-blue-400" />
+                  <h2 className="text-3xl font-black text-white">{t('explore.trending')}</h2>
                 </div>
-                <p className="text-lydian-text-dim">{t('explore.trendingDescription')}</p>
+                <p className="text-gray-300">{t('explore.trendingDescription')}</p>
               </div>
             </div>
 
@@ -98,22 +98,22 @@ const ExplorePage: NextPage = () => {
               <motion.div
                 key={tour.id}
                 whileHover={{ y: -4 }}
-                className="bg-lydian-bg-hover rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all">
+                className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:shadow-blue-500/20 transition-all">
 
                   <div className="relative h-56">
                     <img src={tour.images[0]} alt={tour.name} className="w-full h-full object-cover" />
-                    <div className="absolute top-3 right-3 bg-lydian-primary text-lydian-text-inverse px-3 py-1 rounded-full text-sm font-bold flex items-center gap-1">
+                    <div className="absolute top-3 right-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-3 py-1 rounded-full text-sm font-bold flex items-center gap-1 shadow-lg">
                       <Star className="w-4 h-4 fill-current" />
                       <span>{tour.rating}</span>
                     </div>
                   </div>
                   <div className="p-4">
-                    <h3 className="font-bold text-lg mb-2 line-clamp-2">{tour.name}</h3>
-                    <p className="text-sm text-lydian-text-dim mb-3 line-clamp-2">{tour.description}</p>
+                    <h3 className="font-bold text-lg mb-2 line-clamp-2 text-white">{tour.name}</h3>
+                    <p className="text-sm text-gray-300 mb-3 line-clamp-2">{tour.description}</p>
                     <div className="flex items-end justify-between">
-                      <div className="text-sm text-lydian-text-dim">{tour.duration}</div>
+                      <div className="text-sm text-gray-400">{tour.duration}</div>
                       <div className="text-right">
-                        <span className="text-2xl font-black text-lydian-primary">
+                        <span className="text-2xl font-black bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                           ₺{tour.pricing.travelLyDian}
                         </span>
                       </div>
@@ -131,16 +131,16 @@ const ExplorePage: NextPage = () => {
         </section>
 
         {/* Popular Destinations Map */}
-        <section className="bg-gradient-to-br from-lydian-primary via-lydian-secondary to-pink-500 py-16">
+        <section className="bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 py-16">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center mb-12">
               <div className="flex items-center justify-center gap-3 mb-4">
-                <Map className="w-8 h-8 text-lydian-text-inverse" />
-                <h2 className="text-3xl sm:text-4xl font-black text-lydian-text-inverse">
+                <Map className="w-8 h-8 text-white" />
+                <h2 className="text-3xl sm:text-4xl font-black text-white">
                   {t('explore.popularDestinations')}
                 </h2>
               </div>
-              <p className="text-lydian-text-inverse/90 text-lg">{t('explore.destinationsSubtitle')}</p>
+              <p className="text-white/90 text-lg">{t('explore.destinationsSubtitle')}</p>
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
@@ -153,12 +153,12 @@ const ExplorePage: NextPage = () => {
                     whileHover={{ scale: 1.05 }}
                     className="group">
 
-                    <div className="relative h-40 rounded-xl overflow-hidden shadow-lg">
+                    <div className="relative h-40 rounded-xl overflow-hidden shadow-lg border border-white/20">
                       <img src={dest.image} alt={destData.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
                       <div className="absolute bottom-3 left-3 right-3">
-                        <h3 className="font-bold text-lydian-text-inverse text-lg">{destData.name}</h3>
-                        <p className="text-lydian-text-inverse/80 text-xs line-clamp-1">{destData.description}</p>
+                        <h3 className="font-bold text-white text-lg">{destData.name}</h3>
+                        <p className="text-white/80 text-xs line-clamp-1">{destData.description}</p>
                       </div>
                     </div>
                   </motion.a>);
@@ -170,18 +170,18 @@ const ExplorePage: NextPage = () => {
 
         {/* Newsletter CTA */}
         <section className="max-w-4xl mx-auto px-4 py-16">
-          <div className="bg-gradient-to-r from-lydian-primary to-lydian-secondary rounded-2xl p-8 sm:p-12 text-center">
-            <h2 className="text-3xl font-black text-lydian-text-inverse mb-4">
+          <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 sm:p-12 text-center shadow-xl">
+            <h2 className="text-3xl font-black text-white mb-4">
               {t('explore.newsletter.title')}
             </h2>
-            <p className="text-lydian-text-inverse/90 mb-6">{t('explore.newsletter.subtitle')}</p>
+            <p className="text-white/90 mb-6">{t('explore.newsletter.subtitle')}</p>
             <div className="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto">
               <input
                 type="email"
                 placeholder={t('explore.newsletter.placeholder')}
-                className="flex-1 px-4 py-3 rounded-lg focus:ring-2 focus:ring-white" />
+                className="flex-1 px-4 py-3 rounded-lg bg-white/20 backdrop-blur-xl border border-white/30 text-white placeholder-gray-200 focus:ring-2 focus:ring-white focus:outline-none" />
 
-              <button className="px-6 py-3 bg-lydian-bg-hover text-lydian-primary rounded-lg font-bold hover:shadow-lg transition-all">
+              <button className="px-6 py-3 bg-white text-blue-600 rounded-lg font-bold hover:shadow-lg hover:scale-105 transition-all">
                 {t('explore.newsletter.subscribe')}
               </button>
             </div>

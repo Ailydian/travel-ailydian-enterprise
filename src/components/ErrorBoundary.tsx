@@ -164,11 +164,11 @@ function DefaultErrorFallback({ error, onReset }: DefaultErrorFallbackProps): JS
       role="alert"
       className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 px-4">
 
-      <div className="max-w-md w-full bg-lydian-bg dark:bg-gray-800 rounded-2xl shadow-2xl p-8 border border-lydian-border dark:border-gray-700">
+      <div className="max-w-md w-full bg-lydian-bg dark:bg-gray-800 rounded-2xl shadow-2xl p-8 border border-white/20 dark:border-gray-700">
         <div className="text-center mb-6">
           <div className="w-16 h-16 bg-lydian-error-light dark:bg-red-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
             <svg
-              className="w-8 h-8 text-lydian-primary dark:text-lydian-error"
+              className="w-8 h-8 text-blue-500 dark:text-lydian-error"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24">
@@ -182,25 +182,25 @@ function DefaultErrorFallback({ error, onReset }: DefaultErrorFallbackProps): JS
             </svg>
           </div>
 
-          <h1 className="text-2xl font-bold text-lydian-text dark:text-lydian-text-inverse mb-2">
+          <h1 className="text-2xl font-bold text-lydian-text dark:text-white mb-2">
             Oops! Something went wrong
           </h1>
 
-          <p className="text-lydian-text-secondary dark:text-lydian-text-muted mb-6">
+          <p className="text-lydian-text-secondary dark:text-gray-300 mb-6">
             We encountered an unexpected error. Please try again.
           </p>
         </div>
 
         {process.env.NODE_ENV === 'development' &&
-        <div className="mb-6 p-4 bg-lydian-bg-surface dark:bg-gray-900 rounded-lg border border-lydian-border dark:border-gray-700">
-            <h2 className="text-sm font-semibold text-lydian-text-secondary dark:text-lydian-text-dim mb-2">
+        <div className="mb-6 p-4 bg-lydian-bg-surface dark:bg-gray-900 rounded-lg border border-white/20 dark:border-gray-700">
+            <h2 className="text-sm font-semibold text-lydian-text-secondary dark:text-gray-400 mb-2">
               Error Details (Development Only)
             </h2>
-            <p className="text-xs font-mono text-lydian-primary dark:text-lydian-error break-all">
+            <p className="text-xs font-mono text-blue-500 dark:text-lydian-error break-all">
               {error.message}
             </p>
             {error.stack &&
-          <pre className="mt-2 text-xs text-lydian-text-secondary dark:text-lydian-text-muted overflow-auto max-h-32">
+          <pre className="mt-2 text-xs text-lydian-text-secondary dark:text-gray-300 overflow-auto max-h-32">
                 {error.stack}
               </pre>
           }
@@ -210,14 +210,14 @@ function DefaultErrorFallback({ error, onReset }: DefaultErrorFallbackProps): JS
         <div className="flex gap-3">
           <button
             onClick={onReset}
-            className="flex-1 bg-gradient-to-r from-lydian-primary to-lydian-primary-dark hover:from-lydian-primary-dark hover:to-blue-800 text-lydian-text-inverse font-medium py-3 px-6 rounded-lg transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-lydian-border-focus focus:ring-offset-2">
+            className="flex-1 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-600 hover:to-blue-800 text-white font-medium py-3 px-6 rounded-lg transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-lydian-border-focus focus:ring-offset-2">
 
             Try Again
           </button>
 
           <button
             onClick={() => window.location.href = '/'}
-            className="flex-1 bg-lydian-bg-active dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-lydian-text dark:text-lydian-text-inverse font-medium py-3 px-6 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2">
+            className="flex-1 bg-white/10 backdrop-blur-xl border border-white/20 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-lydian-text dark:text-white font-medium py-3 px-6 rounded-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2">
 
             Go Home
           </button>

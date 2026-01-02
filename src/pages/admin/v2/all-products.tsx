@@ -178,22 +178,22 @@ const AllProductsManagement = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50">
       {/* Header */}
-      <div className="bg-lydian-glass-dark border-b border-lydian-border sticky top-0 z-40 backdrop-blur-xl bg-lydian-bg/80">
+      <div className="bg-white/10 backdrop-blur-xl border border-b border-white/20 sticky top-0 z-40 backdrop-blur-xl bg-white/10 backdrop-blur-xl">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <Link href="/admin/v2">
-                <button className="flex items-center gap-2 px-4 py-2 text-lydian-text-secondary hover:text-lydian-text hover:bg-lydian-bg-surface-raised rounded-lg transition-all">
+                <button className="flex items-center gap-2 px-4 py-2 text-gray-300 hover:text-white hover:bg-white/5 backdrop-blur-xl rounded-lg transition-all">
                   <ArrowLeft className="w-5 h-5" />
                   <span className="font-medium">Dashboard'a Dön</span>
                 </button>
               </Link>
               <div className="h-8 w-px bg-slate-300" />
               <div>
-                <h1 className="text-2xl font-bold text-lydian-text">
+                <h1 className="text-2xl font-bold text-white">
                   Tüm Ürünler Yönetimi
                 </h1>
-                <p className="text-sm text-lydian-text-secondary">
+                <p className="text-sm text-gray-300">
                   {total} ürün • {productType}
                 </p>
               </div>
@@ -202,13 +202,13 @@ const AllProductsManagement = () => {
             <div className="flex items-center gap-3">
               <button
                 onClick={fetchData}
-                className="p-2 text-lydian-text-secondary hover:text-lydian-primary hover:bg-lydian-primary-lighter rounded-lg transition-all">
+                className="p-2 text-gray-300 hover:text-blue-400 hover:bg-gradient-to-r from-blue-600 to-purple-600-lighter rounded-lg transition-all">
 
                 <RefreshCw className="w-5 h-5" />
               </button>
               <button
                 onClick={() => setShowAddModal(true)}
-                className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] text-lydian-text-inverse rounded-lg hover:shadow-lg transition-all">
+                className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] text-white rounded-lg hover:shadow-lg transition-all">
 
                 <Plus className="w-5 h-5" />
                 Yeni Ürün Ekle
@@ -236,7 +236,7 @@ const AllProductsManagement = () => {
                   ${
                 isActive ?
                 `bg-gradient-to-r from-${cat.color}-500 to-${cat.color}-600 text-white shadow-lg scale-105` :
-                'bg-lydian-bg/5 text-slate-700 hover:bg-slate-50'}
+                'bg-white/5 text-slate-700 hover:bg-slate-50'}
                 `
                 }>
 
@@ -248,17 +248,17 @@ const AllProductsManagement = () => {
         </div>
 
         {/* Search Bar */}
-        <div className="bg-lydian-glass-dark rounded-xl shadow-sm p-4 mb-6">
+        <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl shadow-sm p-4 mb-6">
           <div className="flex items-center gap-3">
-            <Search className="w-5 h-5 text-lydian-text-muted" />
+            <Search className="w-5 h-5 text-gray-300" />
             <input
               type="text"
               placeholder="Ürün ara..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="flex-1 outline-none text-lydian-text placeholder-slate-400" />
+              className="flex-1 outline-none text-white placeholder-slate-400" />
 
-            <button className="px-4 py-2 bg-lydian-bg-surface-raised hover:bg-slate-200 rounded-lg text-lydian-text-secondary transition-all">
+            <button className="px-4 py-2 bg-white/5 backdrop-blur-xl hover:bg-slate-200 rounded-lg text-gray-300 transition-all">
               <Filter className="w-5 h-5" />
             </button>
           </div>
@@ -267,7 +267,7 @@ const AllProductsManagement = () => {
         {/* Loading State */}
         {loading &&
         <div className="flex items-center justify-center py-12">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-lydian-primary" />
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500" />
           </div>
         }
 
@@ -280,16 +280,16 @@ const AllProductsManagement = () => {
             layout
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-lydian-glass-dark rounded-xl shadow-sm hover:shadow-md transition-all overflow-hidden group">
+            className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl shadow-sm hover:shadow-md transition-all overflow-hidden group">
 
                 {/* Card Content */}
                 <div className="p-5">
                   <div className="flex items-start justify-between mb-3">
                     <div className="flex-1">
-                      <h3 className="font-bold text-lg text-lydian-text mb-1 line-clamp-1">
+                      <h3 className="font-bold text-lg text-white mb-1 line-clamp-1">
                         {item.name || item.flightNumber}
                       </h3>
-                      <p className="text-sm text-lydian-text-tertiary">
+                      <p className="text-sm text-white-tertiary">
                         {productType === 'hotels' && `${item.city}, ${item.region}`}
                         {productType === 'tours' && item.destination}
                         {productType === 'flights' && `${item.departureCity} → ${item.arrivalCity}`}
@@ -303,8 +303,8 @@ const AllProductsManagement = () => {
                         px-3 py-1 rounded-full text-xs font-medium transition-all
                         ${
                   item.isActive ?
-                  'bg-green-100 text-green-700 hover:bg-green-200' :
-                  'bg-red-100 text-red-700 hover:bg-red-200'}
+                  'bg-purple-500/30 text-green-700 hover:bg-green-200' :
+                  'bg-purple-500/30 text-purple-400 hover:bg-purple-500/20'}
                       `
                   }>
 
@@ -315,8 +315,8 @@ const AllProductsManagement = () => {
                   {/* Stats */}
                   <div className="grid grid-cols-2 gap-3 mb-4">
                     <div className="flex items-center gap-2 text-sm">
-                      <DollarSign className="w-4 h-4 text-lydian-success" />
-                      <span className="font-semibold text-lydian-text">
+                      <DollarSign className="w-4 h-4 text-purple-400" />
+                      <span className="font-semibold text-white">
                         {productType === 'hotels' && `₺${item.priceMin}-${item.priceMax}`}
                         {productType === 'tours' && `₺${item.priceAdult}`}
                         {productType === 'flights' && `₺${item.priceAdult}`}
@@ -326,8 +326,8 @@ const AllProductsManagement = () => {
 
                     {(productType === 'hotels' || productType === 'tours') &&
                 <div className="flex items-center gap-2 text-sm">
-                        <Star className="w-4 h-4 text-lydian-warning fill-yellow-500" />
-                        <span className="font-semibold text-lydian-text">
+                        <Star className="w-4 h-4 text-blue-400 fill-yellow-500" />
+                        <span className="font-semibold text-white">
                           {item.rating?.toFixed(1)} ({item.reviewCount})
                         </span>
                       </div>
@@ -335,29 +335,29 @@ const AllProductsManagement = () => {
 
                     {productType === 'hotels' &&
                 <div className="flex items-center gap-2 text-sm">
-                        <Home className="w-4 h-4 text-lydian-primary" />
-                        <span className="text-lydian-text-secondary">{item.roomCount} oda</span>
+                        <Home className="w-4 h-4 text-blue-400" />
+                        <span className="text-gray-300">{item.roomCount} oda</span>
                       </div>
                 }
 
                     {productType === 'tours' &&
                 <div className="flex items-center gap-2 text-sm">
                         <Clock className="w-4 h-4 text-purple-600" />
-                        <span className="text-lydian-text-secondary">{item.duration} gün</span>
+                        <span className="text-gray-300">{item.duration} gün</span>
                       </div>
                 }
 
                     {productType === 'flights' &&
                 <div className="flex items-center gap-2 text-sm">
-                        <Users className="w-4 h-4 text-lydian-primary" />
-                        <span className="text-lydian-text-secondary">{item.availableSeats} koltuk</span>
+                        <Users className="w-4 h-4 text-blue-400" />
+                        <span className="text-gray-300">{item.availableSeats} koltuk</span>
                       </div>
                 }
 
                     {productType === 'transfers' &&
                 <div className="flex items-center gap-2 text-sm">
                         <Car className="w-4 h-4 text-orange-600" />
-                        <span className="text-lydian-text-secondary">{item.vehicles?.length} araç</span>
+                        <span className="text-gray-300">{item.vehicles?.length} araç</span>
                       </div>
                 }
                   </div>
@@ -366,17 +366,17 @@ const AllProductsManagement = () => {
                   <div className="flex items-center gap-2 pt-3 border-t border-slate-100">
                     <button
                   onClick={() => setSelectedItem(item)}
-                  className="flex-1 flex items-center justify-center gap-2 px-3 py-2 bg-lydian-primary-lighter text-lydian-primary hover:bg-lydian-primary-light rounded-lg transition-all text-sm font-medium">
+                  className="flex-1 flex items-center justify-center gap-2 px-3 py-2 bg-gradient-to-r from-blue-600 to-purple-600-lighter text-blue-400 hover:bg-gradient-to-r from-blue-600 to-purple-600-light rounded-lg transition-all text-sm font-medium">
 
                       <Eye className="w-4 h-4" />
                       Görüntüle
                     </button>
-                    <button className="flex items-center justify-center gap-2 px-3 py-2 bg-lydian-success-lighter text-lydian-success hover:bg-lydian-success-light rounded-lg transition-all text-sm font-medium">
+                    <button className="flex items-center justify-center gap-2 px-3 py-2 bg-purple-500-lighter text-purple-400 hover:bg-purple-500-light rounded-lg transition-all text-sm font-medium">
                       <Edit className="w-4 h-4" />
                     </button>
                     <button
                   onClick={() => handleDelete(item.id)}
-                  className="flex items-center justify-center gap-2 px-3 py-2 bg-lydian-error-lighter text-lydian-primary hover:bg-lydian-error-light rounded-lg transition-all text-sm font-medium">
+                  className="flex items-center justify-center gap-2 px-3 py-2 bg-white/5 text-blue-400 hover:bg-white/10 rounded-lg transition-all text-sm font-medium">
 
                       <Trash2 className="w-4 h-4" />
                     </button>
@@ -389,17 +389,17 @@ const AllProductsManagement = () => {
 
         {/* Empty State */}
         {!loading && data.length === 0 &&
-        <div className="bg-lydian-glass-dark rounded-xl p-12 text-center">
-            <Package className="w-16 h-16 text-lydian-text-dim mx-auto mb-4" />
-            <h3 className="text-xl font-bold text-lydian-text mb-2">
+        <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl p-12 text-center">
+            <Package className="w-16 h-16 text-gray-400 mx-auto mb-4" />
+            <h3 className="text-xl font-bold text-white mb-2">
               Henüz ürün bulunmuyor
             </h3>
-            <p className="text-lydian-text-secondary mb-6">
+            <p className="text-gray-300 mb-6">
               İlk ürününüzü eklemek için yukarıdaki butonu kullanın
             </p>
             <button
             onClick={() => setShowAddModal(true)}
-            className="px-6 py-3 bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] text-lydian-text-inverse rounded-lg hover:shadow-lg transition-all">
+            className="px-6 py-3 bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] text-white rounded-lg hover:shadow-lg transition-all">
 
               <Plus className="w-5 h-5 inline-block mr-2" />
               Yeni Ürün Ekle
@@ -413,17 +413,17 @@ const AllProductsManagement = () => {
             <button
             onClick={() => setPage((p) => Math.max(1, p - 1))}
             disabled={page === 1}
-            className="px-4 py-2 bg-lydian-glass-dark rounded-lg text-lydian-text-secondary hover:bg-lydian-bg-surface disabled:opacity-50 disabled:cursor-not-allowed">
+            className="px-4 py-2 bg-white/10 backdrop-blur-xl border border-white/20 rounded-lg text-gray-300 hover:bg-white/5 disabled:opacity-50 disabled:cursor-not-allowed">
 
               Önceki
             </button>
-            <div className="px-4 py-2 bg-lydian-primary text-lydian-text-inverse rounded-lg">
+            <div className="px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg">
               {page}
             </div>
             <button
             onClick={() => setPage((p) => p + 1)}
             disabled={data.length < 20}
-            className="px-4 py-2 bg-lydian-glass-dark rounded-lg text-lydian-text-secondary hover:bg-lydian-bg-surface disabled:opacity-50 disabled:cursor-not-allowed">
+            className="px-4 py-2 bg-white/10 backdrop-blur-xl border border-white/20 rounded-lg text-gray-300 hover:bg-white/5 disabled:opacity-50 disabled:cursor-not-allowed">
 
               Sonraki
             </button>
@@ -498,12 +498,12 @@ const AddProductModal = ({
 
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-      <div className="bg-lydian-glass-dark rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-        <div className="p-6 border-b border-lydian-border flex items-center justify-between sticky top-0 bg-lydian-glass-dark">
-          <h2 className="text-2xl font-bold text-lydian-text">Yeni Ürün Ekle</h2>
+      <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+        <div className="p-6 border-b border-white/20 flex items-center justify-between sticky top-0 bg-white/10 backdrop-blur-xl border border-white/20">
+          <h2 className="text-2xl font-bold text-white">Yeni Ürün Ekle</h2>
           <button
             onClick={onClose}
-            className="p-2 hover:bg-lydian-bg-surface-raised rounded-lg transition-all">
+            className="p-2 hover:bg-white/5 backdrop-blur-xl rounded-lg transition-all">
 
             <X className="w-5 h-5" />
           </button>
@@ -513,7 +513,7 @@ const AddProductModal = ({
           <div className="space-y-4">
             {/* Common Fields */}
             <div>
-              <label className="block text-sm font-medium text-lydian-text-secondary mb-2">
+              <label className="block text-sm font-medium text-gray-300 mb-2">
                 Ürün Adı *
               </label>
               <input
@@ -521,12 +521,12 @@ const AddProductModal = ({
                 required
                 value={formData.name || ''}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="w-full px-4 py-2 border border-lydian-border-medium rounded-lg focus:outline-none focus:ring-2 focus:ring-lydian-border-focus" />
+                className="w-full px-4 py-2 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" />
 
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-lydian-text-secondary mb-2">
+              <label className="block text-sm font-medium text-gray-300 mb-2">
                 Açıklama *
               </label>
               <textarea
@@ -534,7 +534,7 @@ const AddProductModal = ({
                 rows={4}
                 value={formData.description || ''}
                 onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                className="w-full px-4 py-2 border border-lydian-border-medium rounded-lg focus:outline-none focus:ring-2 focus:ring-lydian-border-focus" />
+                className="w-full px-4 py-2 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" />
 
             </div>
 
@@ -544,14 +544,14 @@ const AddProductModal = ({
               <button
                 type="button"
                 onClick={onClose}
-                className="flex-1 px-4 py-3 bg-lydian-bg-surface-raised text-lydian-text-secondary rounded-lg hover:bg-slate-200 transition-all font-medium">
+                className="flex-1 px-4 py-3 bg-white/5 backdrop-blur-xl text-gray-300 rounded-lg hover:bg-slate-200 transition-all font-medium">
 
                 İptal
               </button>
               <button
                 type="submit"
                 disabled={submitting}
-                className="flex-1 px-4 py-3 bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] text-lydian-text-inverse rounded-lg hover:shadow-lg transition-all font-medium disabled:opacity-50">
+                className="flex-1 px-4 py-3 bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] text-white rounded-lg hover:shadow-lg transition-all font-medium disabled:opacity-50">
 
                 {submitting ? 'Ekleniyor...' : 'Ürün Ekle'}
               </button>
@@ -575,19 +575,19 @@ const ViewProductModal = ({
 }: {item: any;productType: ProductType;onClose: () => void;}) => {
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-      <div className="bg-lydian-glass-dark rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto">
-        <div className="p-6 border-b border-lydian-border flex items-center justify-between sticky top-0 bg-lydian-glass-dark">
-          <h2 className="text-2xl font-bold text-lydian-text">Ürün Detayları</h2>
+      <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto">
+        <div className="p-6 border-b border-white/20 flex items-center justify-between sticky top-0 bg-white/10 backdrop-blur-xl border border-white/20">
+          <h2 className="text-2xl font-bold text-white">Ürün Detayları</h2>
           <button
             onClick={onClose}
-            className="p-2 hover:bg-lydian-bg-surface-raised rounded-lg transition-all">
+            className="p-2 hover:bg-white/5 backdrop-blur-xl rounded-lg transition-all">
 
             <X className="w-5 h-5" />
           </button>
         </div>
 
         <div className="p-6">
-          <pre className="bg-lydian-bg-surface-raised p-4 rounded-lg overflow-x-auto text-sm">
+          <pre className="bg-white/5 backdrop-blur-xl p-4 rounded-lg overflow-x-auto text-sm">
             {JSON.stringify(item, null, 2)}
           </pre>
         </div>

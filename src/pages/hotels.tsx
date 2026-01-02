@@ -252,13 +252,13 @@ const HotelsNewPage: React.FC = () => {
 
       <Link
         href="/"
-        className="fixed top-24 left-6 z-50 flex items-center gap-2 px-4 py-2 bg-lydian-bg/90 backdrop-blur-sm rounded-xl shadow-lg border border-lydian-border text-lydian-text-muted hover:bg-lydian-glass-dark hover:text-lydian-primary transition-all duration-200">
+        className="fixed top-24 left-6 z-50 flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl shadow-lg text-gray-300 hover:bg-white/5 backdrop-blur-xl hover:text-blue-400 transition-all duration-200">
 
         <ArrowLeft className="w-4 h-4" />
         <span className="font-medium">Ana Sayfaya Dön</span>
       </Link>
 
-      <main className="min-h-screen bg-lydian-glass-dark">
+      <main className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-950 to-black">
         {/* Hero Section with NeoHero */}
         <NeoHero
           title="Hayalinizdeki Oteli Bulun"
@@ -270,51 +270,51 @@ const HotelsNewPage: React.FC = () => {
 
           {/* Search Form in Hero */}
           <div className="w-full max-w-6xl mx-auto mt-12">
-            <div className="bg-lydian-glass-dark-medium backdrop-blur-xl border border-lydian-border-light rounded-3xl p-6 sm:p-8 shadow-[0_20px_60px_-15px_rgba(236,72,153,0.3)]">
+            <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-6 sm:p-8 shadow-[0_20px_60px_-15px_rgba(59,130,246,0.3)]">
               <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                 <div className="relative group">
-                  <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 text-pink-400 w-5 h-5 transition-all group-hover:scale-110" />
+                  <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 text-blue-400 w-5 h-5 transition-all group-hover:scale-110" />
                   <input
                     type="text"
                     value={destination}
                     onChange={(e) => setDestination(e.target.value)}
                     placeholder="Nereye gidiyorsunuz?"
-                    className="w-full pl-10 pr-4 py-3 bg-lydian-bg/5 backdrop-blur-xl border border-white/10 rounded-xl text-lydian-text-inverse placeholder-lydian-text-muted focus:outline-none focus:ring-2 focus:ring-pink-500/50 focus:border-pink-500/50 transition-all hover:bg-lydian-bg/10" />
+                    className="w-full pl-10 pr-4 py-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all hover:bg-white/5 backdrop-blur-xl" />
 
                 </div>
 
                 <div className="relative group">
-                  <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-pink-400 w-5 h-5 transition-all group-hover:scale-110" />
+                  <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-blue-400 w-5 h-5 transition-all group-hover:scale-110" />
                   <input
                     type="date"
                     value={checkIn}
                     onChange={(e) => setCheckIn(e.target.value)}
-                    className="w-full pl-10 pr-4 py-3 bg-lydian-bg/5 backdrop-blur-xl border border-white/10 rounded-xl text-lydian-text-inverse focus:outline-none focus:ring-2 focus:ring-pink-500/50 focus:border-pink-500/50 transition-all hover:bg-lydian-bg/10" />
+                    className="w-full pl-10 pr-4 py-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all hover:bg-white/5 backdrop-blur-xl" />
 
                 </div>
 
                 <div className="relative group">
-                  <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-pink-400 w-5 h-5 transition-all group-hover:scale-110" />
+                  <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-blue-400 w-5 h-5 transition-all group-hover:scale-110" />
                   <input
                     type="date"
                     value={checkOut}
                     onChange={(e) => setCheckOut(e.target.value)}
-                    className="w-full pl-10 pr-4 py-3 bg-lydian-bg/5 backdrop-blur-xl border border-white/10 rounded-xl text-lydian-text-inverse focus:outline-none focus:ring-2 focus:ring-pink-500/50 focus:border-pink-500/50 transition-all hover:bg-lydian-bg/10" />
+                    className="w-full pl-10 pr-4 py-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all hover:bg-white/5 backdrop-blur-xl" />
 
                 </div>
 
                 <div className="relative group">
-                  <Users className="absolute left-3 top-1/2 transform -translate-y-1/2 text-pink-400 w-5 h-5 transition-all group-hover:scale-110" />
+                  <Users className="absolute left-3 top-1/2 transform -translate-y-1/2 text-blue-400 w-5 h-5 transition-all group-hover:scale-110" />
                   <select
                     value={guests}
                     onChange={(e) => setGuests(Number(e.target.value))}
-                    className="w-full pl-10 pr-4 py-3 bg-lydian-bg/5 backdrop-blur-xl border border-white/10 rounded-xl text-lydian-text-inverse focus:outline-none focus:ring-2 focus:ring-pink-500/50 focus:border-pink-500/50 transition-all hover:bg-lydian-bg/10 appearance-none cursor-pointer">
+                    className="w-full pl-10 pr-4 py-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all hover:bg-white/5 backdrop-blur-xl appearance-none cursor-pointer">
 
-                    <option value={1} className="bg-lydian-bg text-lydian-text-inverse">1 Misafir</option>
-                    <option value={2} className="bg-lydian-bg text-lydian-text-inverse">2 Misafir</option>
-                    <option value={3} className="bg-lydian-bg text-lydian-text-inverse">3 Misafir</option>
-                    <option value={4} className="bg-lydian-bg text-lydian-text-inverse">4 Misafir</option>
-                    <option value={5} className="bg-lydian-bg text-lydian-text-inverse">5+ Misafir</option>
+                    <option value={1} className="bg-gray-900 text-white">1 Misafir</option>
+                    <option value={2} className="bg-gray-900 text-white">2 Misafir</option>
+                    <option value={3} className="bg-gray-900 text-white">3 Misafir</option>
+                    <option value={4} className="bg-gray-900 text-white">4 Misafir</option>
+                    <option value={5} className="bg-gray-900 text-white">5+ Misafir</option>
                   </select>
                 </div>
               </div>
@@ -335,7 +335,7 @@ const HotelsNewPage: React.FC = () => {
         </NeoHero>
 
         {/* Filter Section - Neo-Glass Design */}
-        <section className="bg-lydian-glass-dark backdrop-blur-xl border-b border-lydian-border-light/10">
+        <section className="bg-white/10 backdrop-blur-xl border-b border-white/20">
           <div className="max-w-7xl mx-auto px-4 py-8">
             <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-6">
               <motion.div
@@ -343,14 +343,14 @@ const HotelsNewPage: React.FC = () => {
                 animate={{ opacity: 1, x: 0 }}
                 className="flex items-center gap-3">
 
-                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-pink-500/20 to-purple-500/20 backdrop-blur-xl border border-pink-500/30 flex items-center justify-center">
-                  <Building2 className="w-6 h-6 text-pink-400" />
+                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 backdrop-blur-xl border border-white/20 flex items-center justify-center">
+                  <Building2 className="w-6 h-6 text-blue-400" />
                 </div>
                 <div>
-                  <h2 className="text-3xl font-black text-lydian-text-inverse">
+                  <h2 className="text-3xl font-black text-white">
                     {filteredHotels.length} Otel
                   </h2>
-                  <p className="text-sm text-lydian-text-muted">Seçiminize uygun sonuçlar</p>
+                  <p className="text-sm text-gray-300">Seçiminize uygun sonuçlar</p>
                 </div>
               </motion.div>
 
@@ -358,15 +358,15 @@ const HotelsNewPage: React.FC = () => {
                 <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                   <button
                     onClick={() => setShowFilters(!showFilters)}
-                    className="flex items-center gap-2 px-5 py-3 bg-lydian-bg/5 backdrop-blur-xl border border-white/10 rounded-xl hover:bg-lydian-bg/10 hover:border-pink-500/50 transition-all relative group">
+                    className="flex items-center gap-2 px-5 py-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl hover:bg-white/5 backdrop-blur-xl hover:border-blue-500/50 transition-all relative group">
 
-                    <SlidersHorizontal className="w-4 h-4 text-pink-400 group-hover:rotate-90 transition-transform" />
-                    <span className="text-lydian-text-inverse font-medium">Filtreler</span>
+                    <SlidersHorizontal className="w-4 h-4 text-blue-400 group-hover:rotate-90 transition-transform" />
+                    <span className="text-white font-medium">Filtreler</span>
                     {activeFilterCount > 0 &&
                     <motion.span
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}
-                      className="absolute -top-2 -right-2 px-2 py-0.5 bg-gradient-to-r from-pink-500 to-purple-500 text-lydian-text-inverse rounded-full text-xs font-bold shadow-lg shadow-pink-500/50">
+                      className="absolute -top-2 -right-2 px-2 py-0.5 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full text-xs font-bold shadow-lg shadow-blue-500/50">
 
                         {activeFilterCount}
                       </motion.span>
@@ -375,16 +375,16 @@ const HotelsNewPage: React.FC = () => {
                 </motion.div>
 
                 <div className="relative group">
-                  <SlidersHorizontal className="absolute left-3 top-1/2 transform -translate-y-1/2 text-pink-400 w-4 h-4 transition-all group-hover:scale-110" />
+                  <SlidersHorizontal className="absolute left-3 top-1/2 transform -translate-y-1/2 text-blue-400 w-4 h-4 transition-all group-hover:scale-110" />
                   <select
                     value={sortBy}
                     onChange={(e) => setSortBy(e.target.value)}
-                    className="pl-10 pr-4 py-3 bg-lydian-bg/5 backdrop-blur-xl border border-white/10 rounded-xl text-lydian-text-inverse hover:bg-lydian-bg/10 hover:border-pink-500/50 transition-all appearance-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-pink-500/50">
+                    className="pl-10 pr-4 py-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl text-white hover:bg-white/5 backdrop-blur-xl hover:border-blue-500/50 transition-all appearance-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500/50">
 
-                    <option value="popularity" className="bg-lydian-bg text-lydian-text-inverse">Popülerlik</option>
-                    <option value="price-low" className="bg-lydian-bg text-lydian-text-inverse">Fiyat (Düşük-Yüksek)</option>
-                    <option value="price-high" className="bg-lydian-bg text-lydian-text-inverse">Fiyat (Yüksek-Düşük)</option>
-                    <option value="rating" className="bg-lydian-bg text-lydian-text-inverse">Puan</option>
+                    <option value="popularity" className="bg-gray-900 text-white">Popülerlik</option>
+                    <option value="price-low" className="bg-gray-900 text-white">Fiyat (Düşük-Yüksek)</option>
+                    <option value="price-high" className="bg-gray-900 text-white">Fiyat (Yüksek-Düşük)</option>
+                    <option value="rating" className="bg-gray-900 text-white">Puan</option>
                   </select>
                 </div>
               </div>
@@ -393,7 +393,7 @@ const HotelsNewPage: React.FC = () => {
         </section>
 
         {/* Hotels Grid - FuturisticCard Implementation */}
-        <section className="py-16 bg-lydian-glass-dark backdrop-blur-xl">
+        <section className="py-16 bg-gradient-to-b from-gray-950 to-gray-900">
           <div className="max-w-7xl mx-auto px-4">
             {loading ?
             <motion.div
@@ -404,10 +404,10 @@ const HotelsNewPage: React.FC = () => {
                 <motion.div
                   animate={{ rotate: 360 }}
                   transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
-                  className="w-20 h-20 rounded-full border-4 border-pink-500/20 border-t-pink-500 mb-6" />
+                  className="w-20 h-20 rounded-full border-4 border-blue-500/20 border-t-blue-500 mb-6" />
 
-                <p className="text-lydian-text-inverse text-xl font-medium">Oteller yükleniyor...</p>
-                <p className="text-lydian-text-muted text-sm mt-2">Sizin için en iyi seçenekleri buluyoruz</p>
+                <p className="text-white text-xl font-medium">Oteller yükleniyor...</p>
+                <p className="text-gray-300 text-sm mt-2">Sizin için en iyi seçenekleri buluyoruz</p>
               </motion.div> :
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -449,15 +449,55 @@ const HotelsNewPage: React.FC = () => {
 
                     badges={hotel.amenities?.slice(0, 3) || []}
                     onAddToCart={() => handleAddToCart(hotel)}
-                    onFavorite={() => {
-                      // TODO: Implement favorite functionality
-                      setToastMessage(`${hotel.name} favorilere eklendi!`);
-                      setShowToast(true);
-                      setTimeout(() => setShowToast(false), 3000);
+                    onFavorite={async () => {
+                      try {
+                        const response = await fetch('/api/favorites', {
+                          method: 'POST',
+                          headers: {
+                            'Content-Type': 'application/json',
+                          },
+                          body: JSON.stringify({
+                            type: 'hotel',
+                            itemId: hotel.id,
+                            data: {
+                              name: hotel.name,
+                              image: hotel.mainImage,
+                              price: hotel.price,
+                              currency: hotel.currency,
+                              rating: hotel.rating,
+                              location: hotel.location,
+                            },
+                          }),
+                        });
+
+                        if (!response.ok) {
+                          const error = await response.json();
+                          throw new Error(error.message || 'Failed to add to favorites');
+                        }
+
+                        const result = await response.json();
+
+                        if (result.success) {
+                          setToastMessage(`${hotel.name} favorilere eklendi!`);
+                          setShowToast(true);
+                          setTimeout(() => setShowToast(false), 3000);
+
+                          localStorage.setItem(
+                            `favorite_hotel_${hotel.id}`,
+                            JSON.stringify({ addedAt: new Date().toISOString() })
+                          );
+                        } else {
+                          throw new Error(result.error || 'Operation failed');
+                        }
+                      } catch (error) {
+                        logger.error('Add to favorites error:', error as Error, { component: 'Hotels' });
+                        setToastMessage('Favorilere eklenemedi. Lütfen tekrar deneyin.');
+                        setShowToast(true);
+                        setTimeout(() => setShowToast(false), 3000);
+                      }
                     }}
                     onClick={() => {
-                      // TODO: Navigate to hotel details
-                      router.push(`/hotels/${hotel.id}`);
+                      router.push(`/hotels/${hotel.id}?checkIn=${checkIn}&checkOut=${checkOut}&guests=${guests}`);
                     }} />
 
                 </motion.div>
@@ -471,14 +511,14 @@ const HotelsNewPage: React.FC = () => {
               animate={{ opacity: 1, scale: 1 }}
               className="text-center py-20">
 
-                <div className="bg-lydian-glass-dark-medium backdrop-blur-xl border border-lydian-border-light rounded-3xl p-12 max-w-2xl mx-auto">
-                  <div className="w-24 h-24 mx-auto mb-6 rounded-3xl bg-gradient-to-br from-pink-500/20 to-purple-500/20 border border-pink-500/30 flex items-center justify-center">
-                    <Building className="w-12 h-12 text-pink-400" />
+                <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-12 max-w-2xl mx-auto">
+                  <div className="w-24 h-24 mx-auto mb-6 rounded-3xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 border border-white/20 flex items-center justify-center">
+                    <Building className="w-12 h-12 text-blue-400" />
                   </div>
-                  <h2 className="text-3xl font-black text-lydian-text-inverse mb-4">
+                  <h2 className="text-3xl font-black text-white mb-4">
                     Aradığınız kriterlerde otel bulunamadı
                   </h2>
-                  <p className="text-lydian-text-muted mb-8 text-lg">
+                  <p className="text-gray-300 mb-8 text-lg">
                     Filtrelerinizi değiştirerek tekrar deneyin veya farklı bir destinasyon seçin
                   </p>
                   <FuturisticButton onClick={() => {
@@ -501,17 +541,17 @@ const HotelsNewPage: React.FC = () => {
         </section>
 
         {/* Terms & Conditions Section - Neo-Glass Design */}
-        <section className="max-w-7xl mx-auto px-4 py-20 border-t border-lydian-border-light/10">
+        <section className="max-w-7xl mx-auto px-4 py-20 border-t border-white/20">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="text-center mb-12">
 
-            <h2 className="text-4xl font-black text-lydian-text-inverse mb-4">
+            <h2 className="text-4xl font-black text-white mb-4">
               Güvenli Rezervasyon Garantisi
             </h2>
-            <p className="text-lydian-text-muted text-lg max-w-2xl mx-auto">
+            <p className="text-gray-300 text-lg max-w-2xl mx-auto">
               AI destekli blockchain teknolojisi ile korunan, şeffaf ve güvenli rezervasyon deneyimi
             </p>
           </motion.div>
@@ -522,30 +562,30 @@ const HotelsNewPage: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="bg-lydian-glass-dark-medium backdrop-blur-xl border border-lydian-border-light rounded-3xl p-8 hover:border-lydian-primary/50 transition-all group">
+              className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 hover:border-blue-500/50 transition-all group">
 
               <div className="flex items-center gap-4 mb-6">
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500/20 to-blue-600/20 border border-lydian-primary/30 flex items-center justify-center group-hover:scale-110 transition-transform">
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500/20 to-blue-600/20 border border-white/20 flex items-center justify-center group-hover:scale-110 transition-transform">
                   <FileText className="w-7 h-7 text-blue-400" />
                 </div>
-                <h3 className="text-2xl font-bold text-lydian-text-inverse">Rezervasyon Koşulları</h3>
+                <h3 className="text-2xl font-bold text-white">Rezervasyon Koşulları</h3>
               </div>
               <ul className="space-y-4">
                 <li className="flex items-start gap-3 group/item">
                   <CheckCircle className="w-5 h-5 mt-0.5 text-green-400 flex-shrink-0 group-hover/item:scale-110 transition-transform" />
-                  <span className="text-lydian-text-dim">Ücretsiz iptal: Check-in'den 48 saat öncesine kadar</span>
+                  <span className="text-gray-400">Ücretsiz iptal: Check-in'den 48 saat öncesine kadar</span>
                 </li>
                 <li className="flex items-start gap-3 group/item">
                   <CheckCircle className="w-5 h-5 mt-0.5 text-green-400 flex-shrink-0 group-hover/item:scale-110 transition-transform" />
-                  <span className="text-lydian-text-dim">Rezervasyon onayı: Anlık e-posta ve SMS bildirimi</span>
+                  <span className="text-gray-400">Rezervasyon onayı: Anlık e-posta ve SMS bildirimi</span>
                 </li>
                 <li className="flex items-start gap-3 group/item">
                   <CheckCircle className="w-5 h-5 mt-0.5 text-green-400 flex-shrink-0 group-hover/item:scale-110 transition-transform" />
-                  <span className="text-lydian-text-dim">Fiyat garantisi: Rezervasyon anındaki fiyat geçerlidir</span>
+                  <span className="text-gray-400">Fiyat garantisi: Rezervasyon anındaki fiyat geçerlidir</span>
                 </li>
                 <li className="flex items-start gap-3 group/item">
                   <CheckCircle className="w-5 h-5 mt-0.5 text-green-400 flex-shrink-0 group-hover/item:scale-110 transition-transform" />
-                  <span className="text-lydian-text-dim">Değişiklik: Rezervasyon tarihlerini değiştirme hakkı</span>
+                  <span className="text-gray-400">Değişiklik: Rezervasyon tarihlerini değiştirme hakkı</span>
                 </li>
               </ul>
             </motion.div>
@@ -556,30 +596,30 @@ const HotelsNewPage: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
               viewport={{ once: true }}
-              className="bg-lydian-glass-dark-medium backdrop-blur-xl border border-lydian-border-light rounded-3xl p-8 hover:border-green-500/50 transition-all group">
+              className="bg-white/10 backdrop-blur-xl border border-white/20 backdrop-blur-xl border border-white/20 rounded-3xl p-8 hover:border-green-500/50 transition-all group">
 
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-green-500/20 to-green-600/20 border border-green-500/30 flex items-center justify-center group-hover:scale-110 transition-transform">
                   <Shield className="w-7 h-7 text-green-400" />
                 </div>
-                <h3 className="text-2xl font-bold text-lydian-text-inverse">Ödeme & Güvenlik</h3>
+                <h3 className="text-2xl font-bold text-white">Ödeme & Güvenlik</h3>
               </div>
               <ul className="space-y-4">
                 <li className="flex items-start gap-3 group/item">
                   <CheckCircle className="w-5 h-5 mt-0.5 text-green-400 flex-shrink-0 group-hover/item:scale-110 transition-transform" />
-                  <span className="text-lydian-text-dim">SSL sertifikalı güvenli ödeme altyapısı</span>
+                  <span className="text-gray-400">SSL sertifikalı güvenli ödeme altyapısı</span>
                 </li>
                 <li className="flex items-start gap-3 group/item">
                   <CheckCircle className="w-5 h-5 mt-0.5 text-green-400 flex-shrink-0 group-hover/item:scale-110 transition-transform" />
-                  <span className="text-lydian-text-dim">Tüm kredi kartları ve kripto para kabul edilir</span>
+                  <span className="text-gray-400">Tüm kredi kartları ve kripto para kabul edilir</span>
                 </li>
                 <li className="flex items-start gap-3 group/item">
                   <CheckCircle className="w-5 h-5 mt-0.5 text-green-400 flex-shrink-0 group-hover/item:scale-110 transition-transform" />
-                  <span className="text-lydian-text-dim">3D Secure doğrulama ile ekstra güvenlik</span>
+                  <span className="text-gray-400">3D Secure doğrulama ile ekstra güvenlik</span>
                 </li>
                 <li className="flex items-start gap-3 group/item">
                   <CheckCircle className="w-5 h-5 mt-0.5 text-green-400 flex-shrink-0 group-hover/item:scale-110 transition-transform" />
-                  <span className="text-lydian-text-dim">Kişisel verileriniz KVKK kapsamında korunur</span>
+                  <span className="text-gray-400">Kişisel verileriniz KVKK kapsamında korunur</span>
                 </li>
               </ul>
             </motion.div>
@@ -590,30 +630,30 @@ const HotelsNewPage: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
               viewport={{ once: true }}
-              className="bg-lydian-glass-dark-medium backdrop-blur-xl border border-lydian-border-light rounded-3xl p-8 hover:border-pink-500/50 transition-all group">
+              className="bg-white/10 backdrop-blur-xl border border-white/20 backdrop-blur-xl border border-white/20 rounded-3xl p-8 hover:border-pink-500/50 transition-all group">
 
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-pink-500/20 to-pink-600/20 border border-pink-500/30 flex items-center justify-center group-hover:scale-110 transition-transform">
                   <UserCheck className="w-7 h-7 text-pink-400" />
                 </div>
-                <h3 className="text-2xl font-bold text-lydian-text-inverse">Destek & Yardım</h3>
+                <h3 className="text-2xl font-bold text-white">Destek & Yardım</h3>
               </div>
               <ul className="space-y-4">
                 <li className="flex items-start gap-3 group/item">
                   <CheckCircle className="w-5 h-5 mt-0.5 text-green-400 flex-shrink-0 group-hover/item:scale-110 transition-transform" />
-                  <span className="text-lydian-text-dim">7/24 Türkçe canlı destek hizmeti</span>
+                  <span className="text-gray-400">7/24 Türkçe canlı destek hizmeti</span>
                 </li>
                 <li className="flex items-start gap-3 group/item">
                   <CheckCircle className="w-5 h-5 mt-0.5 text-green-400 flex-shrink-0 group-hover/item:scale-110 transition-transform" />
-                  <span className="text-lydian-text-dim">AI destekli seyahat danışmanlığı</span>
+                  <span className="text-gray-400">AI destekli seyahat danışmanlığı</span>
                 </li>
                 <li className="flex items-start gap-3 group/item">
                   <CheckCircle className="w-5 h-5 mt-0.5 text-green-400 flex-shrink-0 group-hover/item:scale-110 transition-transform" />
-                  <span className="text-lydian-text-dim">Sorun çözümünde %100 memnuniyet garantisi</span>
+                  <span className="text-gray-400">Sorun çözümünde %100 memnuniyet garantisi</span>
                 </li>
                 <li className="flex items-start gap-3 group/item">
                   <CheckCircle className="w-5 h-5 mt-0.5 text-green-400 flex-shrink-0 group-hover/item:scale-110 transition-transform" />
-                  <span className="text-lydian-text-dim">WhatsApp ve e-posta ile hızlı iletişim</span>
+                  <span className="text-gray-400">WhatsApp ve e-posta ile hızlı iletişim</span>
                 </li>
               </ul>
             </motion.div>
@@ -624,7 +664,7 @@ const HotelsNewPage: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="mt-12 bg-gradient-to-br from-lydian-glass-dark-medium to-lydian-glass-dark backdrop-blur-xl border border-lydian-border-light rounded-3xl p-8 relative overflow-hidden group">
+            className="mt-12 bg-gradient-to-br from-lydian-glass-dark-medium to-lydian-glass-dark backdrop-blur-xl border border-white/20 rounded-3xl p-8 relative overflow-hidden group">
 
             {/* Animated background gradient */}
             <motion.div
@@ -641,8 +681,8 @@ const HotelsNewPage: React.FC = () => {
 
             <div className="relative flex items-center gap-4">
               <Sparkles className="w-8 h-8 text-pink-400 flex-shrink-0" />
-              <p className="text-lydian-text-dim text-base">
-                <strong className="font-bold text-lydian-text-inverse">Önemli Bilgi:</strong> Travel LyDian,
+              <p className="text-gray-400 text-base">
+                <strong className="font-bold text-white">Önemli Bilgi:</strong> Travel LyDian,
                 AI destekli blockchain tabanlı güvenli rezervasyon sistemi ile seyahatinizi güvence altına alır.
                 Tüm rezervasyonlarınız anında onaylanır ve blockchain ağında kayıt altına alınır.
                 Detaylı bilgi için{' '}
@@ -665,7 +705,7 @@ const HotelsNewPage: React.FC = () => {
           initial={{ opacity: 0, y: 50, scale: 0.9 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 50, scale: 0.9 }}
-          className="fixed bottom-8 right-8 z-50 bg-gradient-to-br from-green-500/90 to-emerald-500/90 backdrop-blur-xl border border-green-400/30 text-lydian-text-inverse px-6 py-4 rounded-2xl shadow-[0_20px_60px_-15px_rgba(34,197,94,0.5)] flex items-center gap-3">
+          className="fixed bottom-8 right-8 z-50 bg-gradient-to-br from-green-500/90 to-emerald-500/90 backdrop-blur-xl border border-green-400/30 text-white px-6 py-4 rounded-2xl shadow-[0_20px_60px_-15px_rgba(34,197,94,0.5)] flex items-center gap-3">
 
             <motion.div
               animate={{ scale: [1, 1.2, 1] }}

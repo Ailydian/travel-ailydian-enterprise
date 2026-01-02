@@ -404,29 +404,29 @@ export default function LocationPage({
         )}
       </Head>
 
-      <main className="min-h-screen bg-lydian-glass-dark">
+      <main className="min-h-screen bg-gradient-to-br from-slate-900 via-black to-slate-800">
         {/* Breadcrumb Navigation */}
-        <nav className="bg-lydian-bg-hover border-b border-lydian-border-light/10" aria-label="Breadcrumb">
+        <nav className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl border-b border-white/20/10" aria-label="Breadcrumb">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <ol className="flex items-center space-x-2 py-4 text-sm">
-              <li><Link href="/" className="text-lydian-text-muted hover:text-lydian-text-muted">Home</Link></li>
-              <li><span className="text-lydian-text-muted">/</span></li>
-              <li><a href={`/country/${location.city?.country?.code?.toLowerCase()}`} className="text-lydian-text-muted hover:text-lydian-text-muted">{countryName}</a></li>
-              <li><span className="text-lydian-text-muted">/</span></li>
-              <li><a href={`/city/${location.city?.slug}`} className="text-lydian-text-muted hover:text-lydian-text-muted">{cityName}</a></li>
-              <li><span className="text-lydian-text-muted">/</span></li>
-              <li><span className="text-lydian-text-inverse font-medium">{locationName}</span></li>
+              <li><Link href="/" className="text-gray-300 hover:text-gray-300">Home</Link></li>
+              <li><span className="text-gray-300">/</span></li>
+              <li><a href={`/country/${location.city?.country?.code?.toLowerCase()}`} className="text-gray-300 hover:text-gray-300">{countryName}</a></li>
+              <li><span className="text-gray-300">/</span></li>
+              <li><a href={`/city/${location.city?.slug}`} className="text-gray-300 hover:text-gray-300">{cityName}</a></li>
+              <li><span className="text-gray-300">/</span></li>
+              <li><span className="text-white font-medium">{locationName}</span></li>
             </ol>
           </div>
         </nav>
 
         {/* Hero Section */}
-        <section className="bg-lydian-glass-dark">
+        <section className="bg-gradient-to-br from-slate-900 via-black to-slate-800">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
             {/* Header */}
             <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-8">
               <div className="flex-1">
-                <h1 className="text-3xl lg:text-4xl font-bold text-lydian-text-inverse mb-2">
+                <h1 className="text-3xl lg:text-4xl font-bold text-white mb-2">
                   {locationName}
                 </h1>
                 
@@ -441,39 +441,39 @@ export default function LocationPage({
                         className={`h-5 w-5 ${
                         i < Math.floor(location.average_rating) ?
                         'text-yellow-400 fill-current' :
-                        'text-lydian-text-dim'}`
+                        'text-gray-400'}`
                         } />
 
                       )}
                       </div>
-                      <span className="ml-2 text-lg font-semibold text-lydian-text-inverse">
+                      <span className="ml-2 text-lg font-semibold text-white">
                         {location.average_rating.toFixed(1)}
                       </span>
-                      <span className="ml-1 text-lydian-text-dim">
+                      <span className="ml-1 text-gray-400">
                         ({location.total_reviews} {t('reviews')})
                       </span>
                     </div>
                   }
                   
                   {location.price_range > 0 &&
-                  <div className="text-lydian-text-dim">
+                  <div className="text-gray-400">
                       {reviewService.formatPriceRange(location.price_range)}
                     </div>
                   }
                   
-                  <span className="px-2 py-1 bg-lydian-primary-light text-blue-800 text-xs rounded-full">
+                  <span className="px-2 py-1 bg-blue-500/10 text-blue-800 text-xs rounded-full">
                     {categoryName}
                   </span>
 
                   {location.verified &&
-                  <span className="px-2 py-1 bg-lydian-success-light text-green-800 text-xs rounded-full">
+                  <span className="px-2 py-1 bg-green-600-light text-green-800 text-xs rounded-full">
                       ✓ {t('verified')}
                     </span>
                   }
                 </div>
 
                 {/* Location */}
-                <div className="flex items-start text-lydian-text-dim mb-4">
+                <div className="flex items-start text-gray-400 mb-4">
                   <MapPin className="h-5 w-5 mt-0.5 mr-2 flex-shrink-0" />
                   <div>
                     <p>{locationAddress}</p>
@@ -486,7 +486,7 @@ export default function LocationPage({
                   {location.phone &&
                   <a
                     href={`tel:${location.phone}`}
-                    className="flex items-center text-lydian-primary hover:text-lydian-primary-dark">
+                    className="flex items-center text-blue-500 hover:text-blue-600">
 
                       <Phone className="h-4 w-4 mr-1" />
                       {location.phone}
@@ -498,7 +498,7 @@ export default function LocationPage({
                     href={location.website}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center text-lydian-primary hover:text-lydian-primary-dark">
+                    className="flex items-center text-blue-500 hover:text-blue-600">
 
                       <Globe className="h-4 w-4 mr-1" />
                       {t('website')}
@@ -515,7 +515,7 @@ export default function LocationPage({
                   className={`flex items-center px-4 py-2 rounded-lg border ${
                   isFavorited ?
                   'bg-red-50 border-red-300 text-red-700' :
-                  'bg-lydian-bg/5 border-white/20 text-gray-200 hover:bg-lydian-bg/5'}`
+                  'bg-white/5 border-white/20 text-gray-200 hover:bg-white/5'}`
                   }>
 
                   <Heart className={`h-5 w-5 mr-2 ${isFavorited ? 'fill-current' : ''}`} />
@@ -524,7 +524,7 @@ export default function LocationPage({
 
                 <button
                   onClick={handleShare}
-                  className="flex items-center px-4 py-2 rounded-lg border border-lydian-border-light text-lydian-text-muted hover:bg-lydian-glass-dark">
+                  className="flex items-center px-4 py-2 rounded-lg border border-white/20 text-gray-300 hover:bg-gradient-to-br from-slate-900 via-black to-slate-800">
 
                   <Share2 className="h-5 w-5 mr-2" />
                   {t('share')}
@@ -532,7 +532,7 @@ export default function LocationPage({
 
                 <button
                   onClick={() => setShowWriteReview(true)}
-                  className="flex items-center px-6 py-2 bg-lydian-primary text-lydian-text-inverse rounded-lg hover:bg-lydian-primary-dark">
+                  className="flex items-center px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:bg-gradient-to-r from-blue-700 to-purple-700">
 
                   <Star className="h-5 w-5 mr-2" />
                   {t('writeReview')}
@@ -559,17 +559,17 @@ export default function LocationPage({
             <div className="lg:col-span-2 space-y-8">
               {/* Description */}
               {locationDescription &&
-              <section className="bg-lydian-bg-hover rounded-lg p-6 shadow-sm">
-                  <h2 className="text-2xl font-bold text-lydian-text-inverse mb-4">
+              <section className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-lg p-6 shadow-sm">
+                  <h2 className="text-2xl font-bold text-white mb-4">
                     {t('about')}
                   </h2>
-                  <div className={`text-lydian-text-muted leading-relaxed ${showFullDescription ? '' : 'line-clamp-4'}`}>
+                  <div className={`text-gray-300 leading-relaxed ${showFullDescription ? '' : 'line-clamp-4'}`}>
                     <p>{locationDescription}</p>
                   </div>
                   {locationDescription.length > 300 &&
                 <button
                   onClick={() => setShowFullDescription(!showFullDescription)}
-                  className="text-lydian-primary hover:text-lydian-primary-dark font-medium mt-2">
+                  className="text-blue-500 hover:text-blue-600 font-medium mt-2">
 
                       {showFullDescription ? t('showLess') : t('showMore')}
                     </button>
@@ -578,14 +578,14 @@ export default function LocationPage({
               }
 
               {/* Reviews Section */}
-              <section className="bg-lydian-bg-hover rounded-lg p-6 shadow-sm">
+              <section className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-lg p-6 shadow-sm">
                 <div className="flex items-center justify-between mb-6">
-                  <h2 className="text-2xl font-bold text-lydian-text-inverse">
+                  <h2 className="text-2xl font-bold text-white">
                     {t('reviews')} ({location.total_reviews})
                   </h2>
                   {location.total_reviews > 0 &&
                   <div className="text-right">
-                      <div className="text-3xl font-bold text-lydian-text-inverse">
+                      <div className="text-3xl font-bold text-white">
                         {location.average_rating.toFixed(1)}
                       </div>
                       <div className="flex items-center">
@@ -595,7 +595,7 @@ export default function LocationPage({
                         className={`h-4 w-4 ${
                         i < Math.floor(location.average_rating) ?
                         'text-yellow-400 fill-current' :
-                        'text-lydian-text-dim'}`
+                        'text-gray-400'}`
                         } />
 
                       )}
@@ -612,7 +612,7 @@ export default function LocationPage({
                 {/* External Platform Reviews */}
                 {(externalReviews.google.length > 0 || externalReviews.tripadvisor.length > 0) &&
                 <div className="mt-8 space-y-6">
-                    <h3 className="text-xl font-semibold text-lydian-text-inverse">
+                    <h3 className="text-xl font-semibold text-white">
                       {t('externalReviews', 'Reviews from Other Platforms')}
                     </h3>
                     
@@ -643,19 +643,19 @@ export default function LocationPage({
             {/* Sidebar */}
             <div className="space-y-6">
               {/* Quick Info */}
-              <div className="bg-lydian-bg-hover rounded-lg p-6 shadow-sm">
-                <h3 className="text-lg font-semibold text-lydian-text-inverse mb-4">
+              <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-lg p-6 shadow-sm">
+                <h3 className="text-lg font-semibold text-white mb-4">
                   {t('quickInfo')}
                 </h3>
                 
                 {/* Opening Hours */}
                 {location.opening_hours &&
                 <div className="mb-4">
-                    <h4 className="font-medium text-lydian-text-inverse mb-2 flex items-center">
+                    <h4 className="font-medium text-white mb-2 flex items-center">
                       <Clock className="h-4 w-4 mr-2" />
                       {t('openingHours')}
                     </h4>
-                    <div className="space-y-1 text-sm text-lydian-text-dim">
+                    <div className="space-y-1 text-sm text-gray-400">
                       {Object.entries(location.opening_hours).map(([day, hours]: [string, any]) =>
                     <div key={day} className="flex justify-between">
                           <span className="capitalize">{t(day)}</span>
@@ -671,14 +671,14 @@ export default function LocationPage({
                 {/* Features */}
                 {location.features && location.features.length > 0 &&
                 <div>
-                    <h4 className="font-medium text-lydian-text-inverse mb-2">
+                    <h4 className="font-medium text-white mb-2">
                       {t('amenities')}
                     </h4>
                     <div className="flex flex-wrap gap-2">
                       {location.features.map((feature) =>
                     <span
                       key={feature}
-                      className="px-2 py-1 bg-lydian-glass-dark-medium text-lydian-text-muted text-xs rounded">
+                      className="px-2 py-1 bg-white/10 backdrop-blur-xl border border-white/20 text-gray-300 text-xs rounded">
 
                           {t(`features.${feature}`, feature.replace('_', ' '))}
                         </span>
@@ -690,28 +690,28 @@ export default function LocationPage({
 
               {/* External Platforms */}
               {(location.google_place_id || location.tripadvisor_id) &&
-              <div className="bg-lydian-bg-hover rounded-lg p-6 shadow-sm">
-                  <h3 className="text-lg font-semibold text-lydian-text-inverse mb-4">
+              <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-lg p-6 shadow-sm">
+                  <h3 className="text-lg font-semibold text-white mb-4">
                     {t('externalPlatforms', 'External Platforms')}
                   </h3>
                   <div className="space-y-3">
                     {/* Google My Business */}
                     {location.google_place_id &&
-                  <div className="flex items-center justify-between p-3 border border-lydian-border-light/10 rounded-lg">
+                  <div className="flex items-center justify-between p-3 border border-white/20/10 rounded-lg">
                         <div className="flex items-center">
                           <div className="w-8 h-8 bg-lydian-error-light rounded-full flex items-center justify-center mr-3">
-                            <Globe className="h-4 w-4 text-lydian-primary" />
+                            <Globe className="h-4 w-4 text-blue-500" />
                           </div>
                           <div>
-                            <p className="font-medium text-lydian-text-inverse">Google My Business</p>
-                            <p className="text-sm text-lydian-text-dim">
+                            <p className="font-medium text-white">Google My Business</p>
+                            <p className="text-sm text-gray-400">
                               {syncStatus.google?.success ?
-                          <span className="flex items-center text-lydian-success">
+                          <span className="flex items-center text-green-500">
                                   <CheckCircle className="h-3 w-3 mr-1" />
                                   Last synced
                                 </span> :
                           syncStatus.google?.error ?
-                          <span className="flex items-center text-lydian-primary">
+                          <span className="flex items-center text-blue-500">
                                   <AlertCircle className="h-3 w-3 mr-1" />
                                   Sync failed
                                 </span> :
@@ -724,7 +724,7 @@ export default function LocationPage({
                         <button
                       onClick={handleGoogleSync}
                       disabled={syncingGoogle}
-                      className="flex items-center px-3 py-1.5 bg-lydian-primary text-lydian-text-inverse text-sm rounded-md hover:bg-lydian-primary-dark disabled:opacity-50">
+                      className="flex items-center px-3 py-1.5 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-sm rounded-md hover:bg-gradient-to-r from-blue-700 to-purple-700 disabled:opacity-50">
 
                           <RefreshCw className={`h-3 w-3 mr-1 ${syncingGoogle ? 'animate-spin' : ''}`} />
                           {syncingGoogle ? 'Syncing...' : 'Sync'}
@@ -734,21 +734,21 @@ export default function LocationPage({
                     
                     {/* TripAdvisor */}
                     {location.tripadvisor_id &&
-                  <div className="flex items-center justify-between p-3 border border-lydian-border-light/10 rounded-lg">
+                  <div className="flex items-center justify-between p-3 border border-white/20/10 rounded-lg">
                         <div className="flex items-center">
-                          <div className="w-8 h-8 bg-lydian-success-light rounded-full flex items-center justify-center mr-3">
-                            <Globe className="h-4 w-4 text-lydian-success" />
+                          <div className="w-8 h-8 bg-green-600-light rounded-full flex items-center justify-center mr-3">
+                            <Globe className="h-4 w-4 text-green-500" />
                           </div>
                           <div>
-                            <p className="font-medium text-lydian-text-inverse">TripAdvisor</p>
-                            <p className="text-sm text-lydian-text-dim">
+                            <p className="font-medium text-white">TripAdvisor</p>
+                            <p className="text-sm text-gray-400">
                               {syncStatus.tripAdvisor?.success ?
-                          <span className="flex items-center text-lydian-success">
+                          <span className="flex items-center text-green-500">
                                   <CheckCircle className="h-3 w-3 mr-1" />
                                   Last synced
                                 </span> :
                           syncStatus.tripAdvisor?.error ?
-                          <span className="flex items-center text-lydian-primary">
+                          <span className="flex items-center text-blue-500">
                                   <AlertCircle className="h-3 w-3 mr-1" />
                                   Sync failed
                                 </span> :
@@ -761,7 +761,7 @@ export default function LocationPage({
                         <button
                       onClick={handleTripAdvisorSync}
                       disabled={syncingTripAdvisor}
-                      className="flex items-center px-3 py-1.5 bg-lydian-success text-lydian-text-inverse text-sm rounded-md hover:bg-lydian-success-hover disabled:opacity-50">
+                      className="flex items-center px-3 py-1.5 bg-green-600 text-white text-sm rounded-md hover:bg-green-600-hover disabled:opacity-50">
 
                           <RefreshCw className={`h-3 w-3 mr-1 ${syncingTripAdvisor ? 'animate-spin' : ''}`} />
                           {syncingTripAdvisor ? 'Syncing...' : 'Sync'}
@@ -769,7 +769,7 @@ export default function LocationPage({
                       </div>
                   }
                     
-                    <p className="text-xs text-lydian-text-muted mt-2">
+                    <p className="text-xs text-gray-300 mt-2">
                       {t('syncDescription', 'Sync reviews and ratings from external platforms to keep your listing up-to-date.')}
                     </p>
                   </div>
@@ -777,8 +777,8 @@ export default function LocationPage({
               }
 
               {/* Map */}
-              <div className="bg-lydian-bg-hover rounded-lg p-6 shadow-sm">
-                <h3 className="text-lg font-semibold text-lydian-text-inverse mb-4">
+              <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-lg p-6 shadow-sm">
+                <h3 className="text-lg font-semibold text-white mb-4">
                   {t('location')}
                 </h3>
                 <LocationMap
@@ -790,8 +790,8 @@ export default function LocationPage({
 
               {/* Nearby Locations */}
               {nearbyLocations.length > 0 &&
-              <div className="bg-lydian-bg-hover rounded-lg p-6 shadow-sm">
-                  <h3 className="text-lg font-semibold text-lydian-text-inverse mb-4">
+              <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-lg p-6 shadow-sm">
+                  <h3 className="text-lg font-semibold text-white mb-4">
                     {t('nearbyLocations')}
                   </h3>
                   <div className="space-y-3">
@@ -799,12 +799,12 @@ export default function LocationPage({
                   <a
                     key={nearby.id}
                     href={`/location/${nearby.slug}`}
-                    className="block p-3 rounded-lg border border-lydian-border-light/10 hover:bg-lydian-glass-dark">
+                    className="block p-3 rounded-lg border border-white/20/10 hover:bg-gradient-to-br from-slate-900 via-black to-slate-800">
 
-                        <h4 className="font-medium text-lydian-text-inverse truncate">
+                        <h4 className="font-medium text-white truncate">
                           {getLocalizedContent(nearby.name)}
                         </h4>
-                        <div className="flex items-center text-sm text-lydian-text-dim mt-1">
+                        <div className="flex items-center text-sm text-gray-400 mt-1">
                           {nearby.average_rating > 0 &&
                       <div className="flex items-center mr-3">
                               <Star className="h-4 w-4 text-yellow-400 fill-current mr-1" />

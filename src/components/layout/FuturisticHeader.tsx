@@ -141,7 +141,7 @@ export const FuturisticHeader: React.FC = () => {
                 onClick={() => setSearchOpen(!searchOpen)}
                 whileHover={{ scale: 1.1, rotate: 180 }}
                 whileTap={{ scale: 0.9 }}
-                className="relative w-12 h-12 flex items-center justify-center bg-gradient-to-br from-[#667EEA]/20 to-[#00BAFF]/20 backdrop-blur-xl border border-lydian-border-light rounded-2xl shadow-lg group">
+                className="relative w-12 h-12 flex items-center justify-center bg-gradient-to-br from-[#667EEA]/20 to-[#00BAFF]/20 backdrop-blur-xl border border-white/20 rounded-2xl shadow-lg group">
 
                 <Search className="w-5 h-5 text-[#667EEA]" />
                 <motion.div
@@ -161,8 +161,8 @@ export const FuturisticHeader: React.FC = () => {
                   whileTap={{ scale: 0.95 }}
                   className="hidden md:flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#667EEA] to-[#00BAFF] rounded-xl shadow-lg cursor-pointer group relative overflow-hidden"
                 >
-                  <Users className="w-5 h-5 text-lydian-text-inverse" />
-                  <span className="text-sm font-bold text-lydian-text-inverse">Partner Ol</span>
+                  <Users className="w-5 h-5 text-white" />
+                  <span className="text-sm font-bold text-white">Partner Ol</span>
                   {/* Glow effect */}
                   <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </motion.div>
@@ -181,7 +181,7 @@ export const FuturisticHeader: React.FC = () => {
                   whileTap={{ scale: 0.95 }}
                   className="w-12 h-12 bg-gradient-to-br from-[#00BAFF] to-[#667EEA] rounded-2xl flex items-center justify-center shadow-lg cursor-pointer">
 
-                  <User className="w-5 h-5 text-lydian-text-inverse" />
+                  <User className="w-5 h-5 text-white" />
                 </motion.div>
               </Link>
 
@@ -190,7 +190,7 @@ export const FuturisticHeader: React.FC = () => {
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
-                className="lg:hidden w-12 h-12 flex items-center justify-center bg-lydian-glass-dark-medium backdrop-blur-xl border border-lydian-border-light rounded-2xl">
+                className="lg:hidden w-12 h-12 flex items-center justify-center bg-white/10 backdrop-blur-xl border border-white/20 backdrop-blur-xl border border-white/20 rounded-2xl">
 
                 {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </motion.button>
@@ -205,7 +205,7 @@ export const FuturisticHeader: React.FC = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="relative border-t border-lydian-border-light bg-lydian-glass-dark backdrop-blur-2xl">
+            className="relative border-t border-white/20 bg-gradient-to-br from-slate-900 via-black to-slate-800 backdrop-blur-2xl">
 
               <div className="max-w-4xl mx-auto px-6 py-6">
                 <div className="relative">
@@ -214,7 +214,7 @@ export const FuturisticHeader: React.FC = () => {
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="AI destekli arama... (örn: Antalya'da lüks otel)"
-                  className="w-full px-6 py-4 pl-14 bg-lydian-glass-dark-medium backdrop-blur-xl border-2 border-lydian-border-light rounded-3xl text-lydian-text-inverse placeholder-white/60 focus:border-[#667EEA] focus:ring-4 focus:ring-[#667EEA]/20 outline-none transition-all"
+                  className="w-full px-6 py-4 pl-14 bg-white/10 backdrop-blur-xl border border-white/20 backdrop-blur-xl border-2 border-white/20 rounded-3xl text-white placeholder-white/60 focus:border-[#667EEA] focus:ring-4 focus:ring-[#667EEA]/20 outline-none transition-all"
                   autoFocus />
 
                   <Sparkles className="absolute left-5 top-1/2 -translate-y-1/2 w-6 h-6 text-[#667EEA] animate-pulse" />
@@ -230,7 +230,7 @@ export const FuturisticHeader: React.FC = () => {
                   key={suggestion}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-4 py-2 bg-lydian-glass-dark backdrop-blur-sm border border-lydian-border-light rounded-full text-lydian-text-inverse/80 text-sm hover:bg-lydian-glass-dark-medium transition-all">
+                  className="px-4 py-2 bg-gradient-to-br from-slate-900 via-black to-slate-800 backdrop-blur-sm border border-white/20 rounded-full text-white/80 text-sm hover:bg-white/10 backdrop-blur-xl border border-white/20 transition-all">
 
                       <Zap className="w-3 h-3 inline mr-1" />
                       {suggestion}
@@ -311,7 +311,7 @@ const FloatingNavOrb: React.FC<FloatingNavOrbProps> = ({ item, isActive, index, 
             relative flex items-center gap-3 px-5 py-3 rounded-2xl backdrop-blur-xl border transition-all
             ${isActive ?
           'bg-gradient-to-br from-white/20 to-white/10 border-white/40 shadow-lg' :
-          'bg-lydian-bg/5 border-white/10 hover:bg-lydian-bg/10 hover:border-white/30'}
+          'bg-white/5 border-white/10 hover:bg-lydian-bg/10 hover:border-white/30'}
           `
           }>
 
@@ -324,7 +324,7 @@ const FloatingNavOrb: React.FC<FloatingNavOrbProps> = ({ item, isActive, index, 
           </motion.div>
 
           {/* Text */}
-          <span className={`font-semibold text-sm ${isActive ? 'text-lydian-text-inverse' : 'text-lydian-text-inverse/80'}`}>
+          <span className={`font-semibold text-sm ${isActive ? 'text-white' : 'text-white/80'}`}>
             {item.name}
           </span>
 
@@ -379,16 +379,16 @@ const FloatingOrb: React.FC<FloatingOrbProps> = ({ icon: Icon, href, color, badg
       <motion.div
         whileHover={{ scale: 1.1, y: -2 }}
         whileTap={{ scale: 0.95 }}
-        className="relative w-12 h-12 flex items-center justify-center bg-lydian-glass-dark-medium backdrop-blur-xl border border-lydian-border-light rounded-2xl shadow-lg cursor-pointer group">
+        className="relative w-12 h-12 flex items-center justify-center bg-white/10 backdrop-blur-xl border border-white/20 backdrop-blur-xl border border-white/20 rounded-2xl shadow-lg cursor-pointer group">
 
-        <Icon className="w-5 h-5 text-lydian-text-inverse" />
+        <Icon className="w-5 h-5 text-white" />
 
         {/* Badge */}
         {badge !== undefined && badge > 0 &&
         <motion.div
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
-          className="absolute -top-2 -right-2 w-6 h-6 flex items-center justify-center bg-gradient-to-br from-lydian-primary to-lydian-primary rounded-full text-lydian-text-inverse text-xs font-bold shadow-lg">
+          className="absolute -top-2 -right-2 w-6 h-6 flex items-center justify-center bg-gradient-to-br from-blue-600 to-purple-600 rounded-full text-white text-xs font-bold shadow-lg">
 
             {badge}
           </motion.div>

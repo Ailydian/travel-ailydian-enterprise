@@ -87,7 +87,7 @@ const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
       {/* Sidebar - mobile (drawer) and desktop */}
       <aside
         className={`
-          fixed inset-y-0 left-0 ${LAYOUT_CONSTANTS.sidebar.zIndex} flex flex-col bg-lydian-glass-dark dark:bg-gray-900 border-r border-lydian-border-light/10 dark:border-gray-800
+          fixed inset-y-0 left-0 ${LAYOUT_CONSTANTS.sidebar.zIndex} flex flex-col bg-gradient-to-br from-slate-900 via-black to-slate-800 dark:bg-gray-900 border-r border-white/20/10 dark:border-gray-800
           transition-all ${LAYOUT_CONSTANTS.sidebar.transitions.duration} ${LAYOUT_CONSTANTS.sidebar.transitions.timing}
           ${isOpen ? 'translate-x-0' : '-translate-x-full'}
           lg:translate-x-0 lg:static
@@ -97,23 +97,23 @@ const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
         aria-label="Sidebar navigation">
 
         {/* Logo and brand */}
-        <div className="flex h-16 items-center justify-between px-4 border-b border-lydian-border-light/10">
+        <div className="flex h-16 items-center justify-between px-4 border-b border-white/20/10">
           {!isCollapsed &&
           <Link href="/" className="flex items-center space-x-2">
-              <Building2 className="h-8 w-8 text-lydian-primary" />
-              <span className="text-xl font-bold text-lydian-text-inverse">LyDian</span>
+              <Building2 className="h-8 w-8 text-blue-500" />
+              <span className="text-xl font-bold text-white">LyDian</span>
             </Link>
           }
           {isCollapsed &&
           <Link href="/" className="flex items-center justify-center w-full">
-              <Building2 className="h-8 w-8 text-lydian-primary" />
+              <Building2 className="h-8 w-8 text-blue-500" />
             </Link>
           }
 
           {/* Desktop collapse toggle */}
           <button
             onClick={onToggleCollapse}
-            className="hidden lg:block p-1.5 rounded-md hover:bg-lydian-glass-dark-medium text-lydian-text-muted"
+            className="hidden lg:block p-1.5 rounded-md hover:bg-white/10 backdrop-blur-xl border border-white/20 text-gray-300"
             aria-label={isCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}>
 
             {isCollapsed ?
@@ -126,20 +126,20 @@ const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
 
         {/* Property switcher */}
         {!isCollapsed &&
-        <div className="px-3 py-4 border-b border-lydian-border-light/10">
+        <div className="px-3 py-4 border-b border-white/20/10">
             <div className="relative">
               <button
               onClick={() => setPropertyDropdownOpen(!propertyDropdownOpen)}
-              className="w-full flex items-center justify-between px-3 py-2 text-sm font-medium text-lydian-text-inverse bg-lydian-glass-dark rounded-lg hover:bg-lydian-glass-dark-medium transition-colors"
+              className="w-full flex items-center justify-between px-3 py-2 text-sm font-medium text-white bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-lg hover:bg-white/10 backdrop-blur-xl border border-white/20 transition-colors"
               aria-expanded={propertyDropdownOpen}
               aria-haspopup="true">
 
                 <div className="flex items-center space-x-2 flex-1 min-w-0">
-                  <Building2 className="h-5 w-5 text-lydian-text-muted flex-shrink-0" />
+                  <Building2 className="h-5 w-5 text-gray-300 flex-shrink-0" />
                   <span className="truncate">{selectedProperty}</span>
                 </div>
                 <ChevronDown
-                className={`h-4 w-4 text-lydian-text-muted transition-transform flex-shrink-0 ${
+                className={`h-4 w-4 text-gray-300 transition-transform flex-shrink-0 ${
                 propertyDropdownOpen ? 'rotate-180' : ''}`
                 } />
 
@@ -147,7 +147,7 @@ const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
 
               {/* Dropdown menu */}
               {propertyDropdownOpen &&
-            <div className="absolute z-10 mt-2 w-full bg-lydian-glass-dark rounded-lg shadow-lg border border-lydian-border-light/10 py-1">
+            <div className="absolute z-10 mt-2 w-full bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-lg shadow-lg border border-white/20/10 py-1">
                   {properties.map((property) =>
               <button
                 key={property}
@@ -155,9 +155,9 @@ const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
                   setSelectedProperty(property);
                   setPropertyDropdownOpen(false);
                 }}
-                className={`w-full text-left px-4 py-2 text-sm hover:bg-lydian-glass-dark transition-colors ${
+                className={`w-full text-left px-4 py-2 text-sm hover:bg-gradient-to-br from-slate-900 via-black to-slate-800 transition-colors ${
                 selectedProperty === property ?
-                'text-lydian-primary font-medium bg-blue-50' :
+                'text-blue-500 font-medium bg-blue-50' :
                 'text-gray-200'}`
                 }>
 
@@ -199,7 +199,7 @@ const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
                     aria-current={active ? 'page' : undefined}
                     title={isCollapsed ? item.name : undefined}>
 
-                    <Icon className={`h-5 w-5 flex-shrink-0 ${active ? 'text-lydian-primary-hover' : 'text-lydian-text-muted'}`} />
+                    <Icon className={`h-5 w-5 flex-shrink-0 ${active ? 'text-lydian-primary-hover' : 'text-gray-300'}`} />
                     {!isCollapsed && <span>{item.name}</span>}
                   </Link>
                 </li>);
@@ -209,11 +209,11 @@ const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
         </nav>
 
         {/* Add Property button */}
-        <div className="px-3 py-4 border-t border-lydian-border-light/10">
+        <div className="px-3 py-4 border-t border-white/20/10">
           <button
             className={`
-              w-full flex items-center justify-center px-4 py-2.5 bg-lydian-primary text-lydian-text-inverse rounded-lg
-              hover:bg-lydian-primary-dark transition-colors font-medium text-sm
+              w-full flex items-center justify-center px-4 py-2.5 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg
+              hover:bg-gradient-to-r from-blue-700 to-purple-700 transition-colors font-medium text-sm
               ${isCollapsed ? 'px-2' : 'space-x-2'}
             `}
             aria-label="Add new property">

@@ -126,7 +126,7 @@ export const FuturisticCard: React.FC<FuturisticCardProps> = ({
       className="relative group cursor-pointer">
 
       {/* Main Card Container - Dark Glassmorphism for Vision Pro - Mobile Optimized */}
-      <div className="relative bg-lydian-glass-dark backdrop-blur-xl md:backdrop-blur-3xl rounded-2xl md:rounded-3xl overflow-hidden border border-lydian-border-light/10 shadow-[0_8px_24px_-8px_rgba(102,126,234,0.2)] md:shadow-[0_20px_60px_-15px_rgba(102,126,234,0.3)]">
+      <div className="relative bg-gradient-to-br from-slate-900 via-black to-slate-800 backdrop-blur-xl md:backdrop-blur-3xl rounded-2xl md:rounded-3xl overflow-hidden border border-white/20/10 shadow-[0_8px_24px_-8px_rgba(102,126,234,0.2)] md:shadow-[0_20px_60px_-15px_rgba(102,126,234,0.3)]">
 
         {/* Animated Shine Effect - PERMANENT */}
         <motion.div
@@ -156,7 +156,7 @@ export const FuturisticCard: React.FC<FuturisticCardProps> = ({
           animate={{ scale: 1, rotate: 0 }}
           className="absolute top-4 left-4 z-30 px-4 py-2 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-2xl shadow-lg">
 
-            <span className="text-lydian-text-inverse font-bold text-sm flex items-center gap-1">
+            <span className="text-white font-bold text-sm flex items-center gap-1">
               <Sparkles className="w-4 h-4" />
               {badge}
             </span>
@@ -167,7 +167,7 @@ export const FuturisticCard: React.FC<FuturisticCardProps> = ({
         {category &&
         <motion.div
           whileHover={{ scale: 1.05, y: -2 }}
-          className="absolute top-4 right-4 z-30 px-3 py-1.5 rounded-xl backdrop-blur-xl border border-lydian-border-light/40"
+          className="absolute top-4 right-4 z-30 px-3 py-1.5 rounded-xl backdrop-blur-xl border border-white/20/40"
           style={{ backgroundColor: `${categoryColor}30` }}>
 
             <span className="text-xs font-semibold" style={{ color: categoryColor }}>
@@ -209,11 +209,11 @@ export const FuturisticCard: React.FC<FuturisticCardProps> = ({
             animate={{ opacity: 1, y: 0 }}
             className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 md:p-6 z-10">
 
-              <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-lydian-text-inverse mb-1 sm:mb-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] line-clamp-2">
+              <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-1 sm:mb-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] line-clamp-2">
                 {title}
               </h3>
               {description &&
-            <p className="text-xs sm:text-sm text-lydian-text-inverse/90 drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)] line-clamp-1">
+            <p className="text-xs sm:text-sm text-white/90 drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)] line-clamp-1">
                   {description}
                 </p>
             }
@@ -225,7 +225,7 @@ export const FuturisticCard: React.FC<FuturisticCardProps> = ({
             whileTap={{ scale: 0.9 }}
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 opacity-0 group-hover/image:opacity-100 transition-opacity duration-300">
 
-              <div className="w-16 h-16 rounded-2xl bg-lydian-bg/90 backdrop-blur-xl border border-lydian-border-light/40 shadow-2xl flex items-center justify-center">
+              <div className="w-16 h-16 rounded-2xl bg-white/10 backdrop-blur-xl border border-white/20/40 shadow-2xl flex items-center justify-center">
                 <Eye className="w-8 h-8 text-purple-600" />
               </div>
             </motion.button>
@@ -236,14 +236,14 @@ export const FuturisticCard: React.FC<FuturisticCardProps> = ({
         <div className="relative p-4 sm:p-5 md:p-6" style={{ transform: 'translateZ(20px)' }}>
           {/* Title - Only show if no image */}
           {!image &&
-          <h3 className="text-xl font-bold text-lydian-text-inverse mb-2 line-clamp-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-pink-400 transition-all">
+          <h3 className="text-xl font-bold text-white mb-2 line-clamp-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-pink-400 transition-all">
               {title}
             </h3>
           }
 
           {/* Description - Only show if no image */}
           {!image && description &&
-          <p className="text-sm text-lydian-text-dim mb-4 line-clamp-2">
+          <p className="text-sm text-gray-400 mb-4 line-clamp-2">
               {description}
             </p>
           }
@@ -257,7 +257,7 @@ export const FuturisticCard: React.FC<FuturisticCardProps> = ({
               initial={{ opacity: 0, x: -10 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: index * 0.1 }}
-              className="flex items-center gap-2 text-sm text-lydian-text-dim">
+              className="flex items-center gap-2 text-sm text-gray-400">
 
                   <div className="text-purple-400">{item.icon}</div>
                   <span className="truncate">{item.label}</span>
@@ -277,9 +277,9 @@ export const FuturisticCard: React.FC<FuturisticCardProps> = ({
 
               )}
               </div>
-              <span className="text-sm font-semibold text-lydian-text-inverse">{rating.toFixed(1)}</span>
+              <span className="text-sm font-semibold text-white">{rating.toFixed(1)}</span>
               {reviews &&
-            <span className="text-sm text-lydian-text-muted">({reviews})</span>
+            <span className="text-sm text-gray-300">({reviews})</span>
             }
             </div>
           }
@@ -290,7 +290,7 @@ export const FuturisticCard: React.FC<FuturisticCardProps> = ({
               {badges.map((badgeText, index) =>
             <span
               key={index}
-              className="px-3 py-1 text-xs font-medium rounded-full bg-gradient-to-r from-lydian-primary/20 to-cyan-500/20 text-cyan-300 border border-lydian-border-focus/30">
+              className="px-3 py-1 text-xs font-medium rounded-full bg-gradient-to-r from-blue-600/20 to-cyan-500/20 text-cyan-300 border border-blue-500/30">
 
                   {badgeText}
                 </span>
@@ -302,10 +302,10 @@ export const FuturisticCard: React.FC<FuturisticCardProps> = ({
           {children}
 
           {/* Price Section with Dynamic Glow - Mobile Responsive */}
-          <div className="flex items-center justify-between pt-3 sm:pt-4 border-t border-lydian-border-light/10">
+          <div className="flex items-center justify-between pt-3 sm:pt-4 border-t border-white/20/10">
             <div className="relative">
               {oldPrice &&
-              <span className="text-xs sm:text-sm text-lydian-text-muted line-through block mb-0.5 sm:mb-1">
+              <span className="text-xs sm:text-sm text-gray-300 line-through block mb-0.5 sm:mb-1">
                   {oldPrice}
                 </span>
               }
@@ -472,10 +472,10 @@ const FloatingActionButton: React.FC<FloatingActionButtonProps> = ({
       <motion.div
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
-        className="absolute bottom-full mb-2 right-0 px-3 py-1.5 bg-gray-900 text-lydian-text-inverse text-xs font-medium rounded-lg whitespace-nowrap shadow-xl">
+        className="absolute bottom-full mb-2 right-0 px-3 py-1.5 bg-gray-900 text-white text-xs font-medium rounded-lg whitespace-nowrap shadow-xl">
 
           {tooltip}
-          <div className="absolute top-full right-4 w-0 h-0 border-l-4 border-r-4 border-t-4 border-lydian-border border-t-gray-900" />
+          <div className="absolute top-full right-4 w-0 h-0 border-l-4 border-r-4 border-t-4 border-white/20 border-t-gray-900" />
         </motion.div>
       }
     </div>);

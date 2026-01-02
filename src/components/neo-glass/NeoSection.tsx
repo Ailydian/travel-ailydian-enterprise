@@ -33,10 +33,10 @@ export const NeoSection: React.FC<NeoSectionProps> = ({
   // Background styles - DARK THEME
   const backgrounds = {
     white: 'bg-transparent', // Transparent to show body gradient
-    gray: 'bg-lydian-bg/5', // Subtle glassmorphism
+    gray: 'bg-white/5', // Subtle glassmorphism
     gradient: 'bg-gradient-to-br from-purple-900/20 via-blue-900/20 to-cyan-900/20',
-    glass: 'bg-lydian-bg/5 backdrop-blur-2xl border-y border-white/10',
-    neo: 'bg-lydian-bg/5'
+    glass: 'bg-white/5 backdrop-blur-2xl border-y border-white/10',
+    neo: 'bg-white/5'
   };
 
   // Padding styles
@@ -72,14 +72,14 @@ export const NeoSection: React.FC<NeoSectionProps> = ({
               {/* Glowing underline decoration */}
               <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-[#00BAFF] via-[#667EEA] to-[#FF9500] rounded-full opacity-70 shadow-[0_0_20px_rgba(102,126,234,0.5)]" />
 
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-lydian-text-inverse leading-tight tracking-tight drop-shadow-[0_0_30px_rgba(102,126,234,0.3)]">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight tracking-tight drop-shadow-[0_0_30px_rgba(102,126,234,0.3)]">
                 {title}
               </h2>
             </div>
       }
 
           {subtitle &&
-      <p className="text-lg md:text-xl lg:text-2xl text-lydian-text-dim max-w-3xl mx-auto leading-relaxed font-light">
+      <p className="text-lg md:text-xl lg:text-2xl text-gray-400 max-w-3xl mx-auto leading-relaxed font-light">
               {subtitle}
             </p>
       }

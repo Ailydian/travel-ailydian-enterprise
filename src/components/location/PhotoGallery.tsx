@@ -14,8 +14,8 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({ photos, locationName }) => 
 
   if (!photos || photos.length === 0) {
     return (
-      <div className="bg-lydian-bg-active h-64 rounded-lg flex items-center justify-center">
-        <p className="text-lydian-text-muted">No photos available</p>
+      <div className="bg-white/10 backdrop-blur-xl border border-white/20 h-64 rounded-lg flex items-center justify-center">
+        <p className="text-gray-300">No photos available</p>
       </div>);
 
   }
@@ -44,7 +44,7 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({ photos, locationName }) => 
         {photos.slice(0, 6).map((photo, index) =>
         <div
           key={photo.id}
-          className="relative h-48 bg-lydian-bg-active rounded-lg overflow-hidden cursor-pointer group"
+          className="relative h-48 bg-white/10 backdrop-blur-xl border border-white/20 rounded-lg overflow-hidden cursor-pointer group"
           onClick={() => openGallery(index)}>
 
             <Image
@@ -55,7 +55,7 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({ photos, locationName }) => 
 
             {index === 5 && photos.length > 6 &&
           <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-                <span className="text-lydian-text-inverse text-lg font-semibold">
+                <span className="text-white text-lg font-semibold">
                   +{photos.length - 6} more
                 </span>
               </div>
@@ -71,7 +71,7 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({ photos, locationName }) => 
             {/* Close Button */}
             <button
             onClick={closeGallery}
-            className="absolute top-4 right-4 text-lydian-text-inverse bg-black bg-opacity-50 rounded-full p-2 hover:bg-opacity-70 z-10">
+            className="absolute top-4 right-4 text-white bg-black bg-opacity-50 rounded-full p-2 hover:bg-opacity-70 z-10">
 
               <X className="w-6 h-6" />
             </button>
@@ -80,7 +80,7 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({ photos, locationName }) => 
             {photos.length > 1 &&
           <button
             onClick={prevPhoto}
-            className="absolute left-4 text-lydian-text-inverse bg-black bg-opacity-50 rounded-full p-2 hover:bg-opacity-70 z-10">
+            className="absolute left-4 text-white bg-black bg-opacity-50 rounded-full p-2 hover:bg-opacity-70 z-10">
 
                 <ChevronLeft className="w-6 h-6" />
               </button>
@@ -101,14 +101,14 @@ const PhotoGallery: React.FC<PhotoGalleryProps> = ({ photos, locationName }) => 
             {photos.length > 1 &&
           <button
             onClick={nextPhoto}
-            className="absolute right-4 text-lydian-text-inverse bg-black bg-opacity-50 rounded-full p-2 hover:bg-opacity-70 z-10">
+            className="absolute right-4 text-white bg-black bg-opacity-50 rounded-full p-2 hover:bg-opacity-70 z-10">
 
                 <ChevronRight className="w-6 h-6" />
               </button>
           }
 
             {/* Photo Counter */}
-            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-lydian-text-inverse bg-black bg-opacity-50 px-4 py-2 rounded-full">
+            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white bg-black bg-opacity-50 px-4 py-2 rounded-full">
               {currentIndex + 1} / {photos.length}
             </div>
           </div>

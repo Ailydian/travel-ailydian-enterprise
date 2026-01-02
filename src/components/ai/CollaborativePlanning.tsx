@@ -352,7 +352,7 @@ const CollaborativePlanning: React.FC<CollaborativePlanningProps> = ({ tripId, c
   const getStatusColor = (status: string) => {
     switch (status) {
       case 'active':return 'bg-green-400';
-      case 'pending':return 'bg-lydian-warning';
+      case 'pending':return 'bg-yellow-500';
       case 'offline':return 'bg-gray-400';
       default:return 'bg-gray-400';
     }
@@ -373,12 +373,12 @@ const CollaborativePlanning: React.FC<CollaborativePlanningProps> = ({ tripId, c
         {/* Main Content */}
         <div className="lg:col-span-2 space-y-6">
           {/* Header */}
-          <div className="bg-lydian-glass-dark rounded-2xl shadow-lg p-6">
+          <div className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-2xl shadow-lg p-6">
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-2xl font-bold text-lydian-text-inverse">Collaborative Planning</h2>
+              <h2 className="text-2xl font-bold text-white">Collaborative Planning</h2>
               <button
                 onClick={() => setShowInviteModal(true)}
-                className="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-lydian-text-inverse rounded-lg flex items-center gap-2 transition-colors">
+                className="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg flex items-center gap-2 transition-colors">
 
                 <UserPlus className="w-4 h-4" />
                 Invite
@@ -392,11 +392,11 @@ const CollaborativePlanning: React.FC<CollaborativePlanningProps> = ({ tripId, c
                 type="text"
                 value={shareLink}
                 readOnly
-                className="flex-1 bg-lydian-bg-hover text-sm text-lydian-text-muted" />
+                className="flex-1 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl text-sm text-gray-300" />
 
               <button
                 onClick={copyShareLink}
-                className="px-3 py-1 bg-purple-600 hover:bg-purple-700 text-lydian-text-inverse rounded text-sm transition-colors">
+                className="px-3 py-1 bg-purple-600 hover:bg-purple-700 text-white rounded text-sm transition-colors">
 
                 Copy
               </button>
@@ -404,8 +404,8 @@ const CollaborativePlanning: React.FC<CollaborativePlanningProps> = ({ tripId, c
           </div>
 
           {/* Tabs */}
-          <div className="bg-lydian-glass-dark rounded-2xl shadow-lg p-6">
-            <div className="flex gap-2 border-b border-lydian-border-light/10 mb-6 overflow-x-auto">
+          <div className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-2xl shadow-lg p-6">
+            <div className="flex gap-2 border-b border-white/20/10 mb-6 overflow-x-auto">
               {[
               { key: 'collaborators', label: 'Collaborators', icon: Users },
               { key: 'chat', label: 'Group Chat', icon: MessageCircle },
@@ -421,7 +421,7 @@ const CollaborativePlanning: React.FC<CollaborativePlanningProps> = ({ tripId, c
                     className={`flex items-center gap-2 px-4 py-2 border-b-2 transition-colors whitespace-nowrap ${
                     activeTab === tab.key ?
                     'border-purple-600 text-purple-600' :
-                    'border-transparent text-lydian-text-dim hover:text-white'}`
+                    'border-transparent text-gray-400 hover:text-white'}`
                     }>
 
                     <Icon className="w-4 h-4" />
@@ -445,21 +445,21 @@ const CollaborativePlanning: React.FC<CollaborativePlanningProps> = ({ tripId, c
                   return (
                     <div
                       key={collaborator.id}
-                      className="flex items-center justify-between p-4 bg-lydian-glass-dark rounded-lg hover:bg-lydian-glass-dark-medium transition-colors">
+                      className="flex items-center justify-between p-4 bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-lg hover:bg-white/10 backdrop-blur-xl border border-white/20 transition-colors">
 
                         <div className="flex items-center gap-3">
                           <div className="relative">
-                            <div className="w-12 h-12 bg-gradient-to-br from-purple-400 to-blue-400 rounded-full flex items-center justify-center text-lydian-text-inverse font-semibold">
+                            <div className="w-12 h-12 bg-gradient-to-br from-purple-400 to-blue-400 rounded-full flex items-center justify-center text-white font-semibold">
                               {collaborator.name.charAt(0)}
                             </div>
-                            <div className={`absolute -bottom-1 -right-1 w-4 h-4 ${getStatusColor(collaborator.status)} rounded-full border-2 border-lydian-border-light`} />
+                            <div className={`absolute -bottom-1 -right-1 w-4 h-4 ${getStatusColor(collaborator.status)} rounded-full border-2 border-white/20`} />
                           </div>
                           <div>
                             <div className="flex items-center gap-2">
-                              <span className="font-semibold text-lydian-text-inverse">{collaborator.name}</span>
-                              <RoleIcon className="w-4 h-4 text-lydian-text-muted" />
+                              <span className="font-semibold text-white">{collaborator.name}</span>
+                              <RoleIcon className="w-4 h-4 text-gray-300" />
                             </div>
-                            <div className="text-sm text-lydian-text-dim">{collaborator.email}</div>
+                            <div className="text-sm text-gray-400">{collaborator.email}</div>
                             <div className="flex items-center gap-2 mt-1">
                               <span className={`text-xs px-2 py-0.5 rounded-full ${
                             collaborator.status === 'active' ? 'bg-green-100 text-green-700' :
@@ -468,12 +468,12 @@ const CollaborativePlanning: React.FC<CollaborativePlanningProps> = ({ tripId, c
                             }>
                                 {collaborator.status}
                               </span>
-                              <span className="text-xs text-lydian-text-muted capitalize">{collaborator.role}</span>
+                              <span className="text-xs text-gray-300 capitalize">{collaborator.role}</span>
                             </div>
                           </div>
                         </div>
-                        <button className="p-2 hover:bg-lydian-bg-active rounded-lg transition-colors">
-                          <MoreVertical className="w-4 h-4 text-lydian-text-muted" />
+                        <button className="p-2 hover:bg-white/10 backdrop-blur-xl border border-white/20 rounded-lg transition-colors">
+                          <MoreVertical className="w-4 h-4 text-gray-300" />
                         </button>
                       </div>);
 
@@ -495,13 +495,13 @@ const CollaborativePlanning: React.FC<CollaborativePlanningProps> = ({ tripId, c
                     key={msg.id}
                     className={`flex gap-3 ${msg.userId === currentUser.id ? 'flex-row-reverse' : ''}`}>
 
-                        <div className="w-8 h-8 bg-gradient-to-br from-purple-400 to-blue-400 rounded-full flex items-center justify-center text-lydian-text-inverse text-xs font-semibold flex-shrink-0">
+                        <div className="w-8 h-8 bg-gradient-to-br from-purple-400 to-blue-400 rounded-full flex items-center justify-center text-white text-xs font-semibold flex-shrink-0">
                           {msg.userName.charAt(0)}
                         </div>
                         <div className={`flex-1 ${msg.userId === currentUser.id ? 'text-right' : ''}`}>
                           <div className="flex items-baseline gap-2 mb-1">
-                            <span className="text-sm font-semibold text-lydian-text-inverse">{msg.userName}</span>
-                            <span className="text-xs text-lydian-text-muted">
+                            <span className="text-sm font-semibold text-white">{msg.userName}</span>
+                            <span className="text-xs text-gray-300">
                               {format(msg.timestamp, 'HH:mm')}
                             </span>
                           </div>
@@ -525,11 +525,11 @@ const CollaborativePlanning: React.FC<CollaborativePlanningProps> = ({ tripId, c
                     onChange={(e) => setNewMessage(e.target.value)}
                     onKeyPress={(e) => e.key === 'Enter' && sendMessage()}
                     placeholder="Type a message..."
-                    className="flex-1 px-4 py-2 border border-lydian-border-light rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-lydian-border" />
+                    className="flex-1 px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-white/20" />
 
                     <button
                     onClick={sendMessage}
-                    className="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-lydian-text-inverse rounded-lg transition-colors">
+                    className="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-colors">
 
                       <Send className="w-4 h-4" />
                     </button>
@@ -546,25 +546,25 @@ const CollaborativePlanning: React.FC<CollaborativePlanningProps> = ({ tripId, c
                 className="space-y-3">
 
                   {votes.length === 0 ?
-                <div className="text-center py-12 text-lydian-text-muted">
+                <div className="text-center py-12 text-gray-300">
                       <ThumbsUp className="w-12 h-12 mx-auto mb-3 opacity-50" />
                       <p>No votes yet. Be the first to vote on activities!</p>
                     </div> :
 
                 votes.map((vote) =>
-                <div key={vote.id} className="flex items-center justify-between p-4 bg-lydian-glass-dark rounded-lg">
+                <div key={vote.id} className="flex items-center justify-between p-4 bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-lg">
                         <div className="flex items-center gap-3">
-                          <div className="w-10 h-10 bg-gradient-to-br from-purple-400 to-blue-400 rounded-full flex items-center justify-center text-lydian-text-inverse font-semibold">
+                          <div className="w-10 h-10 bg-gradient-to-br from-purple-400 to-blue-400 rounded-full flex items-center justify-center text-white font-semibold">
                             {vote.userName.charAt(0)}
                           </div>
                           <div>
-                            <div className="font-semibold text-lydian-text-inverse">{vote.userName}</div>
-                            <div className="text-sm text-lydian-text-dim">
+                            <div className="font-semibold text-white">{vote.userName}</div>
+                            <div className="text-sm text-gray-400">
                               voted {vote.voteType.replace('_', ' ')} on an activity
                             </div>
                           </div>
                         </div>
-                        <div className="text-xs text-lydian-text-muted">
+                        <div className="text-xs text-gray-300">
                           {format(vote.timestamp, 'MMM dd, HH:mm')}
                         </div>
                       </div>
@@ -582,12 +582,12 @@ const CollaborativePlanning: React.FC<CollaborativePlanningProps> = ({ tripId, c
                 className="space-y-3">
 
                   {wishlist.map((item) =>
-                <div key={item.id} className="p-4 bg-lydian-glass-dark rounded-lg hover:bg-lydian-glass-dark-medium transition-colors">
+                <div key={item.id} className="p-4 bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-lg hover:bg-white/10 backdrop-blur-xl border border-white/20 transition-colors">
                       <div className="flex items-start justify-between mb-2">
                         <div className="flex-1">
-                          <h4 className="font-semibold text-lydian-text-inverse">{item.title}</h4>
-                          <p className="text-sm text-lydian-text-dim mt-1">{item.description}</p>
-                          <div className="flex items-center gap-4 mt-2 text-sm text-lydian-text-muted">
+                          <h4 className="font-semibold text-white">{item.title}</h4>
+                          <p className="text-sm text-gray-400 mt-1">{item.description}</p>
+                          <div className="flex items-center gap-4 mt-2 text-sm text-gray-300">
                             <div className="flex items-center gap-1">
                               <MapPin className="w-3 h-3" />
                               {item.location}
@@ -603,11 +603,11 @@ const CollaborativePlanning: React.FC<CollaborativePlanningProps> = ({ tripId, c
                             <ThumbsUp className="w-3 h-3" />
                             <span className="text-sm font-semibold">{item.votes}</span>
                           </button>
-                          <span className="text-xs text-lydian-text-muted">{item.category}</span>
+                          <span className="text-xs text-gray-300">{item.category}</span>
                         </div>
                       </div>
-                      <div className="flex items-center justify-between pt-2 border-t border-lydian-border-light/10">
-                        <span className="text-xs text-lydian-text-muted">
+                      <div className="flex items-center justify-between pt-2 border-t border-white/20/10">
+                        <span className="text-xs text-gray-300">
                           Added by {item.addedBy}
                         </span>
                         <button className="text-xs text-purple-600 hover:text-purple-700 font-medium">
@@ -629,18 +629,18 @@ const CollaborativePlanning: React.FC<CollaborativePlanningProps> = ({ tripId, c
 
                   <div className="bg-purple-50 rounded-lg p-4">
                     <div className="flex items-center justify-between mb-4">
-                      <span className="text-sm font-medium text-lydian-text-muted">Total Trip Cost</span>
+                      <span className="text-sm font-medium text-gray-300">Total Trip Cost</span>
                       <input
                       type="number"
                       value={totalCost}
                       onChange={(e) => setTotalCost(parseFloat(e.target.value))}
-                      className="w-32 px-3 py-2 border border-lydian-border-light rounded-lg text-right"
+                      className="w-32 px-3 py-2 border border-white/20 rounded-lg text-right"
                       placeholder="0.00" />
 
                     </div>
                     <button
                     onClick={calculateCostSplit}
-                    className="w-full py-2 bg-purple-600 hover:bg-purple-700 text-lydian-text-inverse rounded-lg font-medium transition-colors">
+                    className="w-full py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg font-medium transition-colors">
 
                       Calculate Split
                     </button>
@@ -648,26 +648,26 @@ const CollaborativePlanning: React.FC<CollaborativePlanningProps> = ({ tripId, c
 
                   {costSplits.length > 0 &&
                 <div className="space-y-3">
-                      <h4 className="font-semibold text-lydian-text-inverse">Cost Per Person</h4>
+                      <h4 className="font-semibold text-white">Cost Per Person</h4>
                       {costSplits.map((split) =>
-                  <div key={split.userId} className="flex items-center justify-between p-4 bg-lydian-glass-dark rounded-lg">
+                  <div key={split.userId} className="flex items-center justify-between p-4 bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-lg">
                           <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 bg-gradient-to-br from-purple-400 to-blue-400 rounded-full flex items-center justify-center text-lydian-text-inverse font-semibold">
+                            <div className="w-10 h-10 bg-gradient-to-br from-purple-400 to-blue-400 rounded-full flex items-center justify-center text-white font-semibold">
                               {split.userName.charAt(0)}
                             </div>
                             <div>
-                              <div className="font-semibold text-lydian-text-inverse">{split.userName}</div>
-                              <div className="text-sm text-lydian-text-dim">${split.amount.toFixed(2)}</div>
+                              <div className="font-semibold text-white">{split.userName}</div>
+                              <div className="text-sm text-gray-400">${split.amount.toFixed(2)}</div>
                             </div>
                           </div>
                           <div className="flex items-center gap-2">
                             {split.paid ?
-                      <span className="flex items-center gap-1 text-lydian-success text-sm font-medium">
+                      <span className="flex items-center gap-1 text-green-500 text-sm font-medium">
                                 <CheckCircle2 className="w-4 h-4" />
                                 Paid
                               </span> :
 
-                      <button className="px-3 py-1 bg-lydian-success hover:bg-lydian-success-hover text-lydian-text-inverse rounded text-sm transition-colors">
+                      <button className="px-3 py-1 bg-green-600 hover:bg-green-600-hover text-white rounded text-sm transition-colors">
                                 Mark Paid
                               </button>
                       }
@@ -682,23 +682,23 @@ const CollaborativePlanning: React.FC<CollaborativePlanningProps> = ({ tripId, c
           </div>
 
           {/* Comments Section */}
-          <div className="bg-lydian-glass-dark rounded-2xl shadow-lg p-6">
-            <h3 className="text-lg font-semibold text-lydian-text-inverse mb-4">Comments & Suggestions</h3>
+          <div className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-2xl shadow-lg p-6">
+            <h3 className="text-lg font-semibold text-white mb-4">Comments & Suggestions</h3>
 
             <div className="space-y-4 mb-4">
               {comments.map((comment) =>
               <div key={comment.id} className="flex gap-3">
-                  <div className="w-10 h-10 bg-gradient-to-br from-purple-400 to-blue-400 rounded-full flex items-center justify-center text-lydian-text-inverse font-semibold flex-shrink-0">
+                  <div className="w-10 h-10 bg-gradient-to-br from-purple-400 to-blue-400 rounded-full flex items-center justify-center text-white font-semibold flex-shrink-0">
                     {comment.userName.charAt(0)}
                   </div>
                   <div className="flex-1">
                     <div className="flex items-baseline gap-2 mb-1">
-                      <span className="font-semibold text-lydian-text-inverse">{comment.userName}</span>
-                      <span className="text-xs text-lydian-text-muted">
+                      <span className="font-semibold text-white">{comment.userName}</span>
+                      <span className="text-xs text-gray-300">
                         {format(comment.timestamp, 'MMM dd, yyyy HH:mm')}
                       </span>
                     </div>
-                    <p className="text-lydian-text-muted">{comment.content}</p>
+                    <p className="text-gray-300">{comment.content}</p>
                   </div>
                 </div>
               )}
@@ -711,11 +711,11 @@ const CollaborativePlanning: React.FC<CollaborativePlanningProps> = ({ tripId, c
                 onChange={(e) => setNewComment(e.target.value)}
                 onKeyPress={(e) => e.key === 'Enter' && addComment()}
                 placeholder="Add a comment or suggestion..."
-                className="flex-1 px-4 py-2 border border-lydian-border-light rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-lydian-border" />
+                className="flex-1 px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-white/20" />
 
               <button
                 onClick={addComment}
-                className="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-lydian-text-inverse rounded-lg transition-colors">
+                className="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-colors">
 
                 <Send className="w-4 h-4" />
               </button>
@@ -726,8 +726,8 @@ const CollaborativePlanning: React.FC<CollaborativePlanningProps> = ({ tripId, c
         {/* Sidebar */}
         <div className="space-y-6">
           {/* Active Collaborators */}
-          <div className="bg-lydian-glass-dark rounded-2xl shadow-lg p-6">
-            <h3 className="text-lg font-semibold text-lydian-text-inverse mb-4 flex items-center gap-2">
+          <div className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-2xl shadow-lg p-6">
+            <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
               <Users className="w-5 h-5" />
               Online Now
             </h3>
@@ -735,14 +735,14 @@ const CollaborativePlanning: React.FC<CollaborativePlanningProps> = ({ tripId, c
               {collaborators.filter((c) => c.status === 'active').map((collaborator) =>
               <div key={collaborator.id} className="flex items-center gap-3">
                   <div className="relative">
-                    <div className="w-10 h-10 bg-gradient-to-br from-purple-400 to-blue-400 rounded-full flex items-center justify-center text-lydian-text-inverse font-semibold">
+                    <div className="w-10 h-10 bg-gradient-to-br from-purple-400 to-blue-400 rounded-full flex items-center justify-center text-white font-semibold">
                       {collaborator.name.charAt(0)}
                     </div>
-                    <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-green-400 rounded-full border-2 border-lydian-border-light" />
+                    <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-green-400 rounded-full border-2 border-white/20" />
                   </div>
                   <div className="flex-1">
-                    <div className="font-medium text-lydian-text-inverse text-sm">{collaborator.name}</div>
-                    <div className="text-xs text-lydian-text-muted">Active now</div>
+                    <div className="font-medium text-white text-sm">{collaborator.name}</div>
+                    <div className="text-xs text-gray-300">Active now</div>
                   </div>
                 </div>
               )}
@@ -750,8 +750,8 @@ const CollaborativePlanning: React.FC<CollaborativePlanningProps> = ({ tripId, c
           </div>
 
           {/* Activity Feed */}
-          <div className="bg-lydian-glass-dark rounded-2xl shadow-lg p-6">
-            <h3 className="text-lg font-semibold text-lydian-text-inverse mb-4 flex items-center gap-2">
+          <div className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-2xl shadow-lg p-6">
+            <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2">
               <Bell className="w-5 h-5" />
               Recent Activity
             </h3>
@@ -760,21 +760,21 @@ const CollaborativePlanning: React.FC<CollaborativePlanningProps> = ({ tripId, c
                 <div className="w-2 h-2 bg-purple-600 rounded-full mt-1.5 flex-shrink-0" />
                 <div>
                   <span className="font-medium">Jane Smith</span> added a new activity
-                  <div className="text-xs text-lydian-text-muted mt-1">2 hours ago</div>
+                  <div className="text-xs text-gray-300 mt-1">2 hours ago</div>
                 </div>
               </div>
               <div className="flex gap-2">
-                <div className="w-2 h-2 bg-lydian-success rounded-full mt-1.5 flex-shrink-0" />
+                <div className="w-2 h-2 bg-green-600 rounded-full mt-1.5 flex-shrink-0" />
                 <div>
                   <span className="font-medium">Bob Johnson</span> voted on an activity
-                  <div className="text-xs text-lydian-text-muted mt-1">5 hours ago</div>
+                  <div className="text-xs text-gray-300 mt-1">5 hours ago</div>
                 </div>
               </div>
               <div className="flex gap-2">
-                <div className="w-2 h-2 bg-lydian-primary rounded-full mt-1.5 flex-shrink-0" />
+                <div className="w-2 h-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full mt-1.5 flex-shrink-0" />
                 <div>
                   <span className="font-medium">John Doe</span> updated the itinerary
-                  <div className="text-xs text-lydian-text-muted mt-1">1 day ago</div>
+                  <div className="text-xs text-gray-300 mt-1">1 day ago</div>
                 </div>
               </div>
             </div>
@@ -797,12 +797,12 @@ const CollaborativePlanning: React.FC<CollaborativePlanningProps> = ({ tripId, c
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
             onClick={(e) => e.stopPropagation()}
-            className="bg-lydian-glass-dark rounded-2xl p-6 max-w-md w-full">
+            className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-2xl p-6 max-w-md w-full">
 
-              <h3 className="text-xl font-bold text-lydian-text-inverse mb-4">Invite Collaborator</h3>
+              <h3 className="text-xl font-bold text-white mb-4">Invite Collaborator</h3>
               <div className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium text-lydian-text-muted mb-2">
+                  <label className="block text-sm font-medium text-gray-300 mb-2">
                     Email Address
                   </label>
                   <input
@@ -810,19 +810,19 @@ const CollaborativePlanning: React.FC<CollaborativePlanningProps> = ({ tripId, c
                   value={inviteEmail}
                   onChange={(e) => setInviteEmail(e.target.value)}
                   placeholder="friend@example.com"
-                  className="w-full px-4 py-2 border border-lydian-border-light rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-lydian-border" />
+                  className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-white/20" />
 
                 </div>
                 <div className="flex gap-3">
                   <button
                   onClick={inviteCollaborator}
-                  className="flex-1 py-2 bg-purple-600 hover:bg-purple-700 text-lydian-text-inverse rounded-lg font-medium transition-colors">
+                  className="flex-1 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg font-medium transition-colors">
 
                     Send Invite
                   </button>
                   <button
                   onClick={() => setShowInviteModal(false)}
-                  className="flex-1 py-2 bg-lydian-glass-dark-medium hover:bg-lydian-bg-active text-lydian-text-muted rounded-lg font-medium transition-colors">
+                  className="flex-1 py-2 bg-white/10 backdrop-blur-xl border border-white/20 hover:bg-white/10 backdrop-blur-xl border border-white/20 text-gray-300 rounded-lg font-medium transition-colors">
 
                     Cancel
                   </button>

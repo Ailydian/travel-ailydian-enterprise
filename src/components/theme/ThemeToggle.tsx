@@ -36,7 +36,7 @@ export const ThemeToggle: React.FC<ThemeToggleProps> = ({
       <div className="relative">
         <motion.button
           onClick={() => setShowDropdown(!showDropdown)}
-          className={`relative p-3 rounded-xl bg-lydian-bg/5 dark:bg-lydian-bg/5 backdrop-blur-xl border border-white/10 hover:bg-lydian-bg/10 dark:hover:bg-lydian-bg/10 transition-all duration-300 group ${className}`}
+          className={`relative p-3 rounded-xl bg-white/5 dark:bg-white/5 backdrop-blur-xl border border-white/10 hover:bg-lydian-bg/10 dark:hover:bg-lydian-bg/10 transition-all duration-300 group ${className}`}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
@@ -49,7 +49,7 @@ export const ThemeToggle: React.FC<ThemeToggleProps> = ({
                 exit={{ rotate: 180, opacity: 0, scale: 0 }}
                 transition={{ duration: 0.3, type: 'spring', stiffness: 200 }}
               >
-                <Icon className="w-6 h-6 text-lydian-text-dim dark:text-lydian-text-muted group-hover:text-white dark:group-hover:text-white" />
+                <Icon className="w-6 h-6 text-gray-400 dark:text-gray-300 group-hover:text-white dark:group-hover:text-white" />
               </motion.div>
             </AnimatePresence>
           </div>
@@ -90,7 +90,7 @@ export const ThemeToggle: React.FC<ThemeToggleProps> = ({
                       className={`w-full px-4 py-3 flex items-center gap-3 transition-all duration-200 ${
                         isActive
                           ? 'bg-gradient-to-r from-blue-500/20 to-purple-500/20 text-white'
-                          : 'text-lydian-text-dim dark:text-lydian-text-muted hover:bg-lydian-bg/5 dark:hover:bg-lydian-bg/5'
+                          : 'text-gray-400 dark:text-gray-300 hover:bg-white/5 dark:hover:bg-white/5'
                       }`}
                     >
                       <OptionIcon className="w-5 h-5" />
@@ -108,7 +108,7 @@ export const ThemeToggle: React.FC<ThemeToggleProps> = ({
 
                 {/* Footer hint */}
                 <div className="px-4 py-2 border-t border-white/10 dark:border-white/5">
-                  <p className="text-xs text-lydian-text-muted dark:text-lydian-text-muted">
+                  <p className="text-xs text-gray-300 dark:text-gray-300">
                     {theme === 'system' && (
                       <>Sistem: {resolvedTheme === 'dark' ? 'Karanlık' : 'Aydınlık'}</>
                     )}
@@ -132,7 +132,7 @@ export const ThemeToggle: React.FC<ThemeToggleProps> = ({
         else if (theme === 'dark') setTheme('light');
         else setTheme(resolvedTheme === 'dark' ? 'light' : 'dark');
       }}
-      className={`relative p-3 rounded-xl bg-lydian-bg/5 dark:bg-lydian-bg/5 backdrop-blur-xl border border-white/10 hover:bg-lydian-bg/10 dark:hover:bg-lydian-bg/10 transition-all duration-300 group ${className}`}
+      className={`relative p-3 rounded-xl bg-white/5 dark:bg-white/5 backdrop-blur-xl border border-white/10 hover:bg-lydian-bg/10 dark:hover:bg-lydian-bg/10 transition-all duration-300 group ${className}`}
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
       aria-label="Toggle theme"
@@ -149,7 +149,7 @@ export const ThemeToggle: React.FC<ThemeToggleProps> = ({
             {resolvedTheme === 'dark' ? (
               <Moon className="w-6 h-6 text-blue-400 dark:text-blue-300" />
             ) : (
-              <Sun className="w-6 h-6 text-lydian-warning" />
+              <Sun className="w-6 h-6 text-yellow-500" />
             )}
           </motion.div>
         </AnimatePresence>
@@ -160,7 +160,7 @@ export const ThemeToggle: React.FC<ThemeToggleProps> = ({
 
       {/* Label */}
       {showLabel && (
-        <span className="ml-2 text-sm font-medium text-lydian-text-dim dark:text-lydian-text-muted group-hover:text-white dark:group-hover:text-white">
+        <span className="ml-2 text-sm font-medium text-gray-400 dark:text-gray-300 group-hover:text-white dark:group-hover:text-white">
           {resolvedTheme === 'dark' ? 'Karanlık' : 'Aydınlık'}
         </span>
       )}

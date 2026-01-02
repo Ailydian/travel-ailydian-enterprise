@@ -72,10 +72,10 @@ export const colorTokens = {
   warning: {
     DEFAULT: '#F59E0B',     // Amber for warnings
     hover: '#D97706',
-    active: '#B45309',
+    active: '#105309',
     light: '#FEF3C7',
     lighter: '#FFFBEB',
-    text: '#B45309',
+    text: '#105309',
   },
 
   error: {

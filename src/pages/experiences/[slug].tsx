@@ -149,7 +149,7 @@ export default function ExperienceDetail({ experience, relatedExperiences }: Exp
 
       <ResponsiveHeaderBar />
 
-      <main className="pt-16 bg-lydian-glass-dark min-h-screen">
+      <main className="pt-16 bg-gradient-to-br from-slate-900 via-black to-slate-800 min-h-screen">
         {/* Hero Section */}
         <section className="relative h-[400px] bg-black">
           <Image
@@ -180,17 +180,17 @@ export default function ExperienceDetail({ experience, relatedExperiences }: Exp
           <div className="absolute inset-0 flex items-end">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8 w-full">
               <div className="flex items-end justify-between">
-                <div className="text-lydian-text-inverse flex-1">
+                <div className="text-white flex-1">
                   <div className="flex flex-wrap gap-2 mb-3">
                     {discountPercentage > 0 &&
                     <span className="px-3 py-1 bg-lydian-error rounded-full text-sm font-bold">
                         %{discountPercentage} İndirim
                       </span>
                     }
-                    <span className="px-3 py-1 bg-lydian-glass-dark-heavy backdrop-blur-sm rounded-full text-sm">
+                    <span className="px-3 py-1 bg-white/10 backdrop-blur-xl border border-white/20 backdrop-blur-sm rounded-full text-sm">
                       {experience.category}
                     </span>
-                    <span className="px-3 py-1 bg-lydian-glass-dark-heavy backdrop-blur-sm rounded-full text-sm">
+                    <span className="px-3 py-1 bg-white/10 backdrop-blur-xl border border-white/20 backdrop-blur-sm rounded-full text-sm">
                       {experience.difficulty}
                     </span>
                   </div>
@@ -205,7 +205,7 @@ export default function ExperienceDetail({ experience, relatedExperiences }: Exp
                     <div className="flex items-center gap-1">
                       <Star className="w-5 h-5 text-yellow-400 fill-current" />
                       <span className="font-semibold">{experience.rating}</span>
-                      <span className="text-lydian-text-dim">({experience.reviewCount} yorum)</span>
+                      <span className="text-gray-400">({experience.reviewCount} yorum)</span>
                     </div>
                     <div className="flex items-center gap-1">
                       <Clock className="w-5 h-5" />
@@ -217,12 +217,12 @@ export default function ExperienceDetail({ experience, relatedExperiences }: Exp
                 <div className="flex gap-2">
                   <button
                     onClick={() => setIsFavorite(!isFavorite)}
-                    className="p-3 bg-lydian-glass-dark-heavy backdrop-blur-sm rounded-full hover:bg-lydian-bg/30">
+                    className="p-3 bg-white/10 backdrop-blur-xl border border-white/20 backdrop-blur-sm rounded-full hover:bg-lydian-bg/30">
 
                     <Heart className={`w-6 h-6 ${isFavorite ? 'fill-red-500 text-red-500' : 'text-white'}`} />
                   </button>
-                  <button onClick={handleShare} className="p-3 bg-lydian-glass-dark-heavy backdrop-blur-sm rounded-full hover:bg-lydian-bg/30">
-                    <Share2 className="w-6 h-6 text-lydian-text-inverse" />
+                  <button onClick={handleShare} className="p-3 bg-white/10 backdrop-blur-xl border border-white/20 backdrop-blur-sm rounded-full hover:bg-lydian-bg/30">
+                    <Share2 className="w-6 h-6 text-white" />
                   </button>
                 </div>
               </div>
@@ -236,19 +236,19 @@ export default function ExperienceDetail({ experience, relatedExperiences }: Exp
             {/* Left Column */}
             <div className="lg:col-span-2 space-y-6">
               {/* Description */}
-              <div className="bg-lydian-bg-hover rounded-2xl shadow-sm p-6">
-                <h2 className="text-2xl font-bold text-lydian-text-inverse mb-4">Açıklama</h2>
-                <p className="text-lydian-text-muted leading-relaxed">{experience.description}</p>
+              <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-2xl shadow-sm p-6">
+                <h2 className="text-2xl font-bold text-white mb-4">Açıklama</h2>
+                <p className="text-gray-300 leading-relaxed">{experience.description}</p>
               </div>
 
               {/* Highlights */}
-              <div className="bg-lydian-bg-hover rounded-2xl shadow-sm p-6">
-                <h2 className="text-2xl font-bold text-lydian-text-inverse mb-4">Öne Çıkanlar</h2>
+              <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-2xl shadow-sm p-6">
+                <h2 className="text-2xl font-bold text-white mb-4">Öne Çıkanlar</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                   {experience.highlights.map((highlight, idx) =>
                   <div key={idx} className="flex items-start gap-3">
-                      <CheckCircle className="w-5 h-5 text-lydian-success flex-shrink-0 mt-0.5" />
-                      <span className="text-lydian-text-muted">{highlight}</span>
+                      <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-300">{highlight}</span>
                     </div>
                   )}
                 </div>
@@ -256,19 +256,19 @@ export default function ExperienceDetail({ experience, relatedExperiences }: Exp
 
               {/* Itinerary */}
               {experience.itinerary.length > 0 &&
-              <div className="bg-lydian-bg-hover rounded-2xl shadow-sm p-6">
-                  <h2 className="text-2xl font-bold text-lydian-text-inverse mb-6">Program</h2>
+              <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-2xl shadow-sm p-6">
+                  <h2 className="text-2xl font-bold text-white mb-6">Program</h2>
                   <div className="space-y-4">
                     {experience.itinerary.map((item, idx) =>
                   <div key={idx} className="flex gap-4">
                         <div className="flex-shrink-0">
                           <div className="w-16 h-16 rounded-full bg-lydian-primary/10 flex items-center justify-center">
-                            <span className="text-lydian-primary font-bold">{item.time}</span>
+                            <span className="text-blue-500 font-bold">{item.time}</span>
                           </div>
                         </div>
                         <div className="flex-1">
-                          <h3 className="font-bold text-lydian-text-inverse mb-1">{item.activity}</h3>
-                          <p className="text-lydian-text-dim text-sm">{item.description}</p>
+                          <h3 className="font-bold text-white mb-1">{item.activity}</h3>
+                          <p className="text-gray-400 text-sm">{item.description}</p>
                         </div>
                       </div>
                   )}
@@ -277,26 +277,26 @@ export default function ExperienceDetail({ experience, relatedExperiences }: Exp
               }
 
               {/* Included/Excluded */}
-              <div className="bg-lydian-bg-hover rounded-2xl shadow-sm p-6">
+              <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-2xl shadow-sm p-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <h3 className="text-lg font-bold text-lydian-text-inverse mb-4">Dahil Olanlar</h3>
+                    <h3 className="text-lg font-bold text-white mb-4">Dahil Olanlar</h3>
                     <div className="space-y-2">
                       {experience.included.map((item, idx) =>
                       <div key={idx} className="flex items-start gap-2">
-                          <Check className="w-5 h-5 text-lydian-success flex-shrink-0 mt-0.5" />
-                          <span className="text-lydian-text-muted text-sm">{item}</span>
+                          <Check className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                          <span className="text-gray-300 text-sm">{item}</span>
                         </div>
                       )}
                     </div>
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold text-lydian-text-inverse mb-4">Dahil Olmayanlar</h3>
+                    <h3 className="text-lg font-bold text-white mb-4">Dahil Olmayanlar</h3>
                     <div className="space-y-2">
                       {experience.excluded.map((item, idx) =>
                       <div key={idx} className="flex items-start gap-2">
-                          <X className="w-5 h-5 text-lydian-primary flex-shrink-0 mt-0.5" />
-                          <span className="text-lydian-text-muted text-sm">{item}</span>
+                          <X className="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" />
+                          <span className="text-gray-300 text-sm">{item}</span>
                         </div>
                       )}
                     </div>
@@ -305,15 +305,15 @@ export default function ExperienceDetail({ experience, relatedExperiences }: Exp
               </div>
 
               {/* Cancellation Policy */}
-              <div className="bg-lydian-primary-lighter rounded-2xl p-6">
-                <h3 className="text-lg font-bold text-lydian-text-inverse mb-3 flex items-center gap-2">
-                  <Info className="w-5 h-5 text-lydian-primary" />
+              <div className="bg-blue-500/10er rounded-2xl p-6">
+                <h3 className="text-lg font-bold text-white mb-3 flex items-center gap-2">
+                  <Info className="w-5 h-5 text-blue-500" />
                   İptal Politikası
                 </h3>
-                <p className="text-lydian-text-muted">
+                <p className="text-gray-300">
                   {experience.cancellationPolicy.freeCancellation ?
                   <>
-                      <span className="font-semibold text-lydian-success-text">Ücretsiz iptal!</span> Aktivite başlangıcından {experience.cancellationPolicy.hoursBeforeStart} saat önce iptal ederseniz %{experience.cancellationPolicy.refundPercentage} iade alırsınız.
+                      <span className="font-semibold text-green-500-text">Ücretsiz iptal!</span> Aktivite başlangıcından {experience.cancellationPolicy.hoursBeforeStart} saat önce iptal ederseniz %{experience.cancellationPolicy.refundPercentage} iade alırsınız.
                     </> :
 
                   'İptal için lütfen müşteri hizmetleri ile iletişime geçin.'
@@ -324,20 +324,20 @@ export default function ExperienceDetail({ experience, relatedExperiences }: Exp
 
             {/* Right Column - Booking Card */}
             <div>
-              <div className="bg-lydian-bg-hover rounded-2xl shadow-lg p-6 sticky top-24">
+              <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-2xl shadow-lg p-6 sticky top-24">
                 <div className="mb-6">
                   <div className="flex items-baseline gap-2 mb-2">
-                    <span className="text-3xl font-bold text-lydian-primary">₺{experience.pricing.adult}</span>
+                    <span className="text-3xl font-bold text-blue-500">₺{experience.pricing.adult}</span>
                     {experience.originalPrice &&
-                    <span className="text-lg text-lydian-text-muted line-through">₺{experience.originalPrice}</span>
+                    <span className="text-lg text-gray-300 line-through">₺{experience.originalPrice}</span>
                     }
                   </div>
-                  <span className="text-lydian-text-dim">kişi başı</span>
+                  <span className="text-gray-400">kişi başı</span>
                 </div>
 
                 {/* Date Selection */}
                 <div className="mb-4">
-                  <label className="block text-sm font-semibold text-lydian-text-muted mb-2">
+                  <label className="block text-sm font-semibold text-gray-300 mb-2">
                     Tarih Seçin
                   </label>
                   <input
@@ -345,7 +345,7 @@ export default function ExperienceDetail({ experience, relatedExperiences }: Exp
                     value={selectedDate}
                     onChange={(e) => setSelectedDate(e.target.value)}
                     min={new Date().toISOString().split('T')[0]}
-                    className="w-full px-4 py-3 border border-lydian-border-light rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-lydian-border" />
+                    className="w-full px-4 py-3 border border-white/20 rounded-lg focus:ring-2 focus:ring-lydian-primary focus:border-white/20" />
 
                 </div>
 
@@ -353,20 +353,20 @@ export default function ExperienceDetail({ experience, relatedExperiences }: Exp
                 <div className="space-y-3 mb-6">
                   <div className="flex items-center justify-between">
                     <div>
-                      <div className="font-semibold text-lydian-text-inverse">Yetişkin</div>
-                      <div className="text-sm text-lydian-text-dim">₺{experience.pricing.adult}</div>
+                      <div className="font-semibold text-white">Yetişkin</div>
+                      <div className="text-sm text-gray-400">₺{experience.pricing.adult}</div>
                     </div>
                     <div className="flex items-center gap-3">
                       <button
                         onClick={() => setAdults(Math.max(1, adults - 1))}
-                        className="w-8 h-8 rounded-full border border-lydian-border-light hover:bg-lydian-glass-dark-medium">
+                        className="w-8 h-8 rounded-full border border-white/20 hover:bg-white/10 backdrop-blur-xl border border-white/20">
 
                         -
                       </button>
                       <span className="w-8 text-center font-semibold">{adults}</span>
                       <button
                         onClick={() => setAdults(Math.min(experience.groupSize.max, adults + 1))}
-                        className="w-8 h-8 rounded-full border border-lydian-border-light hover:bg-lydian-glass-dark-medium">
+                        className="w-8 h-8 rounded-full border border-white/20 hover:bg-white/10 backdrop-blur-xl border border-white/20">
 
                         +
                       </button>
@@ -375,20 +375,20 @@ export default function ExperienceDetail({ experience, relatedExperiences }: Exp
 
                   <div className="flex items-center justify-between">
                     <div>
-                      <div className="font-semibold text-lydian-text-inverse">Çocuk</div>
-                      <div className="text-sm text-lydian-text-dim">₺{experience.pricing.child}</div>
+                      <div className="font-semibold text-white">Çocuk</div>
+                      <div className="text-sm text-gray-400">₺{experience.pricing.child}</div>
                     </div>
                     <div className="flex items-center gap-3">
                       <button
                         onClick={() => setChildren(Math.max(0, children - 1))}
-                        className="w-8 h-8 rounded-full border border-lydian-border-light hover:bg-lydian-glass-dark-medium">
+                        className="w-8 h-8 rounded-full border border-white/20 hover:bg-white/10 backdrop-blur-xl border border-white/20">
 
                         -
                       </button>
                       <span className="w-8 text-center font-semibold">{children}</span>
                       <button
                         onClick={() => setChildren(Math.min(experience.groupSize.max - adults, children + 1))}
-                        className="w-8 h-8 rounded-full border border-lydian-border-light hover:bg-lydian-glass-dark-medium">
+                        className="w-8 h-8 rounded-full border border-white/20 hover:bg-white/10 backdrop-blur-xl border border-white/20">
 
                         +
                       </button>
@@ -397,35 +397,35 @@ export default function ExperienceDetail({ experience, relatedExperiences }: Exp
                 </div>
 
                 {/* Total Price */}
-                <div className="border-t border-lydian-border-light/10 pt-4 mb-6">
+                <div className="border-t border-white/20/10 pt-4 mb-6">
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-lydian-text-dim">Toplam</span>
-                    <span className="text-2xl font-bold text-lydian-text-inverse">₺{totalPrice.toLocaleString()}</span>
+                    <span className="text-gray-400">Toplam</span>
+                    <span className="text-2xl font-bold text-white">₺{totalPrice.toLocaleString()}</span>
                   </div>
-                  <p className="text-xs text-lydian-text-muted">Vergi ve hizmet bedeli dahil</p>
+                  <p className="text-xs text-gray-300">Vergi ve hizmet bedeli dahil</p>
                 </div>
 
                 {/* Book Button */}
                 <button
                   onClick={handleBooking}
                   disabled={!selectedDate}
-                  className="w-full py-4 bg-lydian-primary text-lydian-text-inverse rounded-lg font-semibold hover:bg-lydian-dark transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed">
+                  className="w-full py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-semibold hover:bg-lydian-dark transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed">
 
                   Rezervasyon Yap
                 </button>
 
                 {/* Additional Info */}
-                <div className="mt-6 space-y-3 text-sm text-lydian-text-dim">
+                <div className="mt-6 space-y-3 text-sm text-gray-400">
                   <div className="flex items-center gap-2">
-                    <Shield className="w-4 h-4 text-lydian-success" />
+                    <Shield className="w-4 h-4 text-green-500" />
                     <span>%100 Güvenli Ödeme</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-lydian-success" />
+                    <CheckCircle className="w-4 h-4 text-green-500" />
                     <span>Anında Onay</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Globe className="w-4 h-4 text-lydian-primary" />
+                    <Globe className="w-4 h-4 text-blue-500" />
                     <span>Diller: {experience.languages.join(', ')}</span>
                   </div>
                   <div className="flex items-center gap-2">
@@ -440,29 +440,29 @@ export default function ExperienceDetail({ experience, relatedExperiences }: Exp
 
         {/* Related Experiences */}
         {relatedExperiences.length > 0 &&
-        <section className="bg-lydian-bg-hover py-12">
+        <section className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl py-12">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <h2 className="text-3xl font-bold text-lydian-text-inverse mb-8">Benzer Deneyimler</h2>
+              <h2 className="text-3xl font-bold text-white mb-8">Benzer Deneyimler</h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {relatedExperiences.map((exp) =>
               <Link
                 key={exp.id}
                 href={`/experiences/${exp.slug}`}
-                className="group bg-lydian-bg-hover rounded-2xl shadow-sm overflow-hidden hover:shadow-lg transition-all">
+                className="group bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-2xl shadow-sm overflow-hidden hover:shadow-lg transition-all">
 
                     <div className="relative h-48">
                       <Image src={exp.images.hero} alt={exp.title} fill className="object-cover group-hover:scale-110 transition-transform duration-300" />
                     </div>
                     <div className="p-6">
-                      <h3 className="font-bold text-lydian-text-inverse mb-2 line-clamp-2">{exp.title}</h3>
+                      <h3 className="font-bold text-white mb-2 line-clamp-2">{exp.title}</h3>
                       <div className="flex items-center gap-2 mb-3">
                         <Star className="w-4 h-4 text-yellow-400 fill-current" />
                         <span className="text-sm font-semibold">{exp.rating}</span>
-                        <span className="text-sm text-lydian-text-dim">({exp.reviewCount})</span>
+                        <span className="text-sm text-gray-400">({exp.reviewCount})</span>
                       </div>
                       <div className="flex items-center justify-between">
-                        <span className="text-sm text-lydian-text-dim">{exp.duration}</span>
-                        <span className="text-lg font-bold text-lydian-primary">₺{exp.pricing.adult}</span>
+                        <span className="text-sm text-gray-400">{exp.duration}</span>
+                        <span className="text-lg font-bold text-blue-500">₺{exp.pricing.adult}</span>
                       </div>
                     </div>
                   </Link>

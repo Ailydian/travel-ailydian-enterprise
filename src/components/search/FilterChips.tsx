@@ -45,7 +45,7 @@ const FilterChips: React.FC<FilterChipsProps> = ({
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.8 }}
           transition={{ duration: 0.2, delay: index * 0.02 }}
-          className="flex items-center gap-1.5 px-3 py-1.5 bg-lydian-primary/10 text-lydian-primary rounded-full text-sm font-medium border border-lydian-primary/20 group hover:bg-lydian-primary/20 transition-colors">
+          className="flex items-center gap-1.5 px-3 py-1.5 bg-lydian-primary/10 text-blue-500 rounded-full text-sm font-medium border border-blue-500/20 group hover:bg-lydian-primary/20 transition-colors">
 
             <span>{chip.label}</span>
             <button
@@ -64,7 +64,7 @@ const FilterChips: React.FC<FilterChipsProps> = ({
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         onClick={onClearAll}
-        className="flex items-center gap-1.5 px-3 py-1.5 bg-lydian-glass-dark-medium text-lydian-text-muted rounded-full text-sm font-medium hover:bg-lydian-bg-active transition-colors border border-lydian-border-light/10">
+        className="flex items-center gap-1.5 px-3 py-1.5 bg-white/10 backdrop-blur-xl border border-white/20 text-gray-300 rounded-full text-sm font-medium hover:bg-white/10 backdrop-blur-xl border border-white/20 transition-colors border border-white/20/10">
 
           <RotateCcw className="w-3 h-3" />
           Clear All

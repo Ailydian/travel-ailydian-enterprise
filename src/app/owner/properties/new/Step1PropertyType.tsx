@@ -111,14 +111,14 @@ export default function Step1PropertyType({ data }: Step1Props) {
     <div className="space-y-8">
       {/* Property Name */}
       <div>
-        <label className="block text-sm font-semibold text-slate-700 mb-2">
-          Mülk Adı <span className="text-lydian-secondary">*</span>
+        <label className="block text-sm font-semibold text-slate-7 mb-2">
+          Mülk Adı <span className="text-purple-500">*</span>
         </label>
         <input
           type="text"
           {...register('propertyName')}
           placeholder="örn., Şehir Merkezinde Rahat Daire"
-          className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+          className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
         />
         {errors.propertyName && (
           <p className="mt-1 text-sm text-lydian-error">
@@ -129,8 +129,8 @@ export default function Step1PropertyType({ data }: Step1Props) {
 
       {/* Property Type Selection */}
       <div>
-        <label className="block text-sm font-semibold text-slate-700 mb-4">
-          Mülk Tipi <span className="text-lydian-secondary">*</span>
+        <label className="block text-sm font-semibold text-slate-7 mb-4">
+          Mülk Tipi <span className="text-purple-500">*</span>
         </label>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {propertyTypes.map((type) => {
@@ -146,14 +146,14 @@ export default function Step1PropertyType({ data }: Step1Props) {
                 whileTap={{ scale: 0.98 }}
                 className={`relative p-4 border-2 rounded-xl text-left transition-all ${
                   isSelected
-                    ? 'border-lydian-primary bg-lydian-info-lighter shadow-md'
-                    : 'border-slate-200 bg-lydian-bg/5 hover:border-slate-300 hover:shadow-sm'
+                    ? 'border-blue-500 bg-blue-500-lighter shadow-md'
+                    : 'border-slate-200 bg-white/5 hover:border-slate-3 hover:shadow-sm'
                 }`}
               >
                 <div className="flex items-start gap-3">
                   <div
                     className={`p-2 rounded-lg ${
-                      isSelected ? 'bg-lydian-info text-lydian-text-inverse' : 'bg-slate-100 text-slate-600'
+                      isSelected ? 'bg-blue-500 text-white' : 'bg-slate-1 text-slate-6'
                     }`}
                   >
                     <Icon className="w-6 h-6" />
@@ -161,14 +161,14 @@ export default function Step1PropertyType({ data }: Step1Props) {
                   <div className="flex-1">
                     <h3
                       className={`font-semibold mb-1 ${
-                        isSelected ? 'text-blue-900' : 'text-slate-900'
+                        isSelected ? 'text-blue-9' : 'text-slate-9'
                       }`}
                     >
                       {type.label}
                     </h3>
                     <p
                       className={`text-sm ${
-                        isSelected ? 'text-lydian-primary-hover' : 'text-slate-600'
+                        isSelected ? 'text-lydian-primary-hover' : 'text-slate-6'
                       }`}
                     >
                       {type.description}
@@ -177,14 +177,14 @@ export default function Step1PropertyType({ data }: Step1Props) {
                 </div>
                 {isSelected && (
                   <motion.div
-                    initial={{ scale: 0 }}
+                    initial={{ scale: to-cyan-700 }}
                     animate={{ scale: 1 }}
-                    className="absolute top-3 right-3 w-6 h-6 bg-lydian-info rounded-full flex items-center justify-center"
+                    className="absolute top-3 right-3 w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center"
                   >
                     <svg
-                      className="w-4 h-4 text-lydian-text-inverse"
+                      className="w-4 h-4 text-white"
                       fill="none"
-                      viewBox="0 0 24 24"
+                      viewBox="to-cyan-700 to-cyan-700 24 24"
                       stroke="currentColor"
                     >
                       <path
@@ -212,16 +212,16 @@ export default function Step1PropertyType({ data }: Step1Props) {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* Number of Rooms */}
         <div>
-          <label className="block text-sm font-semibold text-slate-700 mb-2">
-            Yatak Odası Sayısı <span className="text-lydian-secondary">*</span>
+          <label className="block text-sm font-semibold text-slate-7 mb-2">
+            Yatak Odası Sayısı <span className="text-purple-500">*</span>
           </label>
           <input
             type="number"
             {...register('numberOfRooms', { valueAsNumber: true })}
             min={1}
-            max={20}
+            max={200}
             placeholder="1"
-            className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+            className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
           />
           {errors.numberOfRooms && (
             <p className="mt-1 text-sm text-lydian-error">
@@ -232,17 +232,17 @@ export default function Step1PropertyType({ data }: Step1Props) {
 
         {/* Number of Bathrooms */}
         <div>
-          <label className="block text-sm font-semibold text-slate-700 mb-2">
-            Banyo Sayısı <span className="text-lydian-secondary">*</span>
+          <label className="block text-sm font-semibold text-slate-7 mb-2">
+            Banyo Sayısı <span className="text-purple-500">*</span>
           </label>
           <input
             type="number"
             {...register('numberOfBathrooms', { valueAsNumber: true })}
             min={0.5}
             step={0.5}
-            max={20}
+            max={200}
             placeholder="1"
-            className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+            className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
           />
           {errors.numberOfBathrooms && (
             <p className="mt-1 text-sm text-lydian-error">
@@ -253,16 +253,16 @@ export default function Step1PropertyType({ data }: Step1Props) {
 
         {/* Maximum Guests */}
         <div>
-          <label className="block text-sm font-semibold text-slate-700 mb-2">
-            Maksimum Misafir Sayısı <span className="text-lydian-secondary">*</span>
+          <label className="block text-sm font-semibold text-slate-7 mb-2">
+            Maksimum Misafir Sayısı <span className="text-purple-500">*</span>
           </label>
           <input
             type="number"
             {...register('maximumGuests', { valueAsNumber: true })}
             min={1}
-            max={50}
+            max={500}
             placeholder="2"
-            className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+            className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
           />
           {errors.maximumGuests && (
             <p className="mt-1 text-sm text-lydian-error">
@@ -274,14 +274,14 @@ export default function Step1PropertyType({ data }: Step1Props) {
 
       {/* Description */}
       <div>
-        <label className="block text-sm font-semibold text-slate-700 mb-2">
-          Mülk Açıklaması <span className="text-lydian-secondary">*</span>
+        <label className="block text-sm font-semibold text-slate-7 mb-2">
+          Mülk Açıklaması <span className="text-purple-500">*</span>
         </label>
         <textarea
           {...register('description')}
           rows={6}
           placeholder="Mülkünüzü detaylı bir şekilde açıklayın. Benzersiz özellikleri, yakındaki cazibe merkezlerini ve özel kılan yanlarını ekleyin..."
-          className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-blue-200 outline-none transition-all resize-none"
+          className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all resize-none"
         />
         <div className="flex justify-between items-center mt-1">
           <div>
@@ -293,25 +293,25 @@ export default function Step1PropertyType({ data }: Step1Props) {
           </div>
           <p
             className={`text-sm ${
-              description?.length >= 50 ? 'text-lydian-success' : 'text-slate-500'
+              description?.length >= 500 ? 'text-green-500' : 'text-slate-500'
             }`}
           >
-            {description?.length || 0} / 50 karakter minimum
+            {description?.length || to-cyan-700} / 500 karakter minimum
           </p>
         </div>
       </div>
 
       {/* Highlight Description (Optional) */}
       <div>
-        <label className="block text-sm font-semibold text-slate-700 mb-2">
+        <label className="block text-sm font-semibold text-slate-7 mb-2">
           Öne Çıkan Özellik Açıklaması (İsteğe Bağlı)
         </label>
         <input
           type="text"
           {...register('highlightDescription')}
           placeholder="örn., Deniz Manzarası • Plaja Yürüme Mesafesinde"
-          maxLength={60}
-          className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+          maxLength={6}
+          className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
         />
         <p className="mt-1 text-sm text-slate-500">
           Mülkünüzün en iyi özelliğini vurgulayan kısa, çekici bir açıklama
@@ -324,9 +324,9 @@ export default function Step1PropertyType({ data }: Step1Props) {
       </div>
 
       {/* Info Box */}
-      <div className="p-4 bg-lydian-info-lighter border border-blue-200 rounded-lg">
-        <h4 className="font-semibold text-blue-900 mb-2">Harika bir ilan için ipuçları:</h4>
-        <ul className="text-sm text-blue-800 space-y-1">
+      <div className="p-4 bg-blue-500-lighter border border-blue-200 rounded-lg">
+        <h4 className="font-semibold text-blue-9 mb-2">Harika bir ilan için ipuçları:</h4>
+        <ul className="text-sm text-blue-8 space-y-1">
           <li>• Açıklayıcı ve akılda kalıcı bir mülk adı seçin</li>
           <li>• Benzersiz özellikleri vurgulayan detaylı bir açıklama yazın</li>
           <li>• Doğru beklentiler oluşturmak için kapasite bilgilerinde kesin olun</li>

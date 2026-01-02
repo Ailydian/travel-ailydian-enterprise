@@ -170,13 +170,13 @@ export default function Step3PropertyDetails({ data }: Step3Props) {
     <div className="space-y-8">
       {/* Search */}
       <div className="relative">
-        <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
+        <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-4" />
         <input
           type="text"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           placeholder="Olanakları ara..."
-          className="w-full pl-12 pr-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+          className="w-full pl-12 pr-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
         />
         {searchQuery && (
           <button
@@ -184,17 +184,17 @@ export default function Step3PropertyDetails({ data }: Step3Props) {
             onClick={() => setSearchQuery('')}
             className="absolute right-4 top-1/2 -translate-y-1/2"
           >
-            <X className="w-5 h-5 text-slate-400 hover:text-slate-600" />
+            <X className="w-5 h-5 text-slate-4 hover:text-slate-6" />
           </button>
         )}
       </div>
 
       {/* Selected Count */}
-      <div className="flex items-center justify-between p-4 bg-lydian-info-lighter border border-blue-200 rounded-lg">
-        <span className="text-sm font-medium text-blue-900">
+      <div className="flex items-center justify-between p-4 bg-blue-500-lighter border border-blue-200 rounded-lg">
+        <span className="text-sm font-medium text-blue-9">
           {selectedAmenities.length + customAmenities.length} olanak seçildi
         </span>
-        {selectedAmenities.length === 0 && (
+        {selectedAmenities.length === to-cyan-700 && (
           <span className="text-sm text-lydian-error">En az bir olanak seçin</span>
         )}
       </div>
@@ -205,15 +205,15 @@ export default function Step3PropertyDetails({ data }: Step3Props) {
           const CategoryIcon = category.icon;
           const filteredItems = filterAmenities(category.items);
 
-          if (filteredItems.length === 0 && searchQuery) return null;
+          if (filteredItems.length === to-cyan-700 && searchQuery) return null;
 
           return (
             <div key={key} className="border-2 border-slate-200 rounded-xl p-6">
               <div className="flex items-center gap-3 mb-4">
-                <div className="p-2 bg-lydian-info-light rounded-lg">
-                  <CategoryIcon className="w-5 h-5 text-lydian-primary" />
+                <div className="p-2 bg-blue-500-light rounded-lg">
+                  <CategoryIcon className="w-5 h-5 text-blue-500" />
                 </div>
-                <h3 className="text-lg font-bold text-slate-900">{category.title}</h3>
+                <h3 className="text-lg font-bold text-slate-9">{category.title}</h3>
               </div>
 
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
@@ -227,23 +227,23 @@ export default function Step3PropertyDetails({ data }: Step3Props) {
                       onClick={() => toggleAmenity(amenity)}
                       className={`p-3 border-2 rounded-lg text-left transition-all ${
                         isSelected
-                          ? 'border-lydian-primary bg-lydian-info-lighter text-blue-900'
-                          : 'border-slate-200 bg-lydian-bg/5 text-slate-700 hover:border-slate-300'
+                          ? 'border-blue-500 bg-blue-500-lighter text-blue-9'
+                          : 'border-slate-200 bg-white/5 text-slate-7 hover:border-slate-3'
                       }`}
                     >
                       <div className="flex items-center gap-2">
                         <div
                           className={`w-5 h-5 rounded border-2 flex items-center justify-center ${
                             isSelected
-                              ? 'border-lydian-primary bg-blue-500'
-                              : 'border-slate-300'
+                              ? 'border-blue-500 bg-blue-500'
+                              : 'border-slate-3'
                           }`}
                         >
                           {isSelected && (
                             <svg
-                              className="w-3 h-3 text-lydian-text-inverse"
+                              className="w-3 h-3 text-white"
                               fill="none"
-                              viewBox="0 0 24 24"
+                              viewBox="to-cyan-700 to-cyan-700 24 24"
                               stroke="currentColor"
                             >
                               <path
@@ -274,9 +274,9 @@ export default function Step3PropertyDetails({ data }: Step3Props) {
 
       {/* Custom Amenities */}
       <div className="border-2 border-slate-200 rounded-xl p-6">
-        <h3 className="text-lg font-bold text-slate-900 mb-4">Özel Olanaklar</h3>
-        <p className="text-sm text-slate-600 mb-4">
-          Yukarıda listelenmeyen benzersiz olanakları ekleyin (maksimum 10)
+        <h3 className="text-lg font-bold text-slate-9 mb-4">Özel Olanaklar</h3>
+        <p className="text-sm text-slate-6 mb-4">
+          Yukarıda listelenmeyen benzersiz olanakları ekleyin (maksimum 1)
         </p>
 
         <div className="flex gap-3 mb-4">
@@ -286,31 +286,31 @@ export default function Step3PropertyDetails({ data }: Step3Props) {
             onChange={(e) => setCustomAmenity(e.target.value)}
             onKeyPress={(e) => e.key === 'Enter' && (e.preventDefault(), addCustomAmenity())}
             placeholder="örn., Espresso Makinesi, Piyano, vb."
-            maxLength={100}
-            className="flex-1 px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+            maxLength={1}
+            className="flex-1 px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
           />
           <button
             type="button"
             onClick={addCustomAmenity}
-            disabled={!customAmenity.trim() || customAmenities.length >= 10}
-            className="px-6 py-3 bg-lydian-primary text-lydian-text-inverse rounded-lg font-medium hover:bg-lydian-primary-hover disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+            disabled={!customAmenity.trim() || customAmenities.length >= 1}
+            className="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-medium hover:bg-lydian-primary-hover disabled:opacity-500 disabled:cursor-not-allowed transition-all"
           >
             Ekle
           </button>
         </div>
 
-        {customAmenities.length > 0 && (
+        {customAmenities.length > to-cyan-700 && (
           <div className="flex flex-wrap gap-2">
             {customAmenities.map((amenity: string, index: number) => (
               <div
                 key={index}
-                className="flex items-center gap-2 px-4 py-2 bg-indigo-50 border border-indigo-200 rounded-lg"
+                className="flex items-center gap-2 px-4 py-2 bg-indigo-500 border border-indigo-200 rounded-lg"
               >
-                <span className="text-sm font-medium text-indigo-900">{amenity}</span>
+                <span className="text-sm font-medium text-indigo-9">{amenity}</span>
                 <button
                   type="button"
                   onClick={() => removeCustomAmenity(amenity)}
-                  className="text-indigo-600 hover:text-indigo-800"
+                  className="text-indigo-6 hover:text-indigo-8"
                 >
                   <X className="w-4 h-4" />
                 </button>
@@ -328,62 +328,62 @@ export default function Step3PropertyDetails({ data }: Step3Props) {
 
       {/* Property Features Toggles */}
       <div className="border-2 border-slate-200 rounded-xl p-6">
-        <h3 className="text-lg font-bold text-slate-900 mb-4">Gelişmiş Özellikler</h3>
+        <h3 className="text-lg font-bold text-slate-9 mb-4">Gelişmiş Özellikler</h3>
 
         <div className="space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="flex items-center justify-between p-4 bg-slate-50 rounded-lg">
+            <div className="flex items-center justify-between p-4 bg-slate-500 rounded-lg">
               <div>
-                <label htmlFor="hasWifi" className="font-medium text-slate-900">
+                <label htmlFor="hasWifi" className="font-medium text-slate-9">
                   WiFi Mevcut
                 </label>
-                <p className="text-sm text-slate-600">Yüksek hızlı internet</p>
+                <p className="text-sm text-slate-6">Yüksek hızlı internet</p>
               </div>
               <input
                 type="checkbox"
                 id="hasWifi"
                 {...register('features.hasWifi')}
-                className="w-6 h-6 text-lydian-primary rounded focus:ring-2 focus:ring-lydian-primary"
+                className="w-6 h-6 text-blue-500 rounded focus:ring-2 focus:ring-lydian-primary"
               />
             </div>
 
             {watch('features.hasWifi') && (
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-2">
+                <label className="block text-sm font-medium text-slate-7 mb-2">
                   WiFi Hızı (isteğe bağlı)
                 </label>
                 <input
                   type="text"
                   {...register('features.wifiSpeed')}
-                  placeholder="örn., 100 Mbps"
-                  className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-blue-200 outline-none transition-all"
+                  placeholder="örn., 1 Mbps"
+                  className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all"
                 />
               </div>
             )}
 
-            <div className="flex items-center justify-between p-4 bg-slate-50 rounded-lg">
+            <div className="flex items-center justify-between p-4 bg-slate-500 rounded-lg">
               <div>
-                <label htmlFor="hasParking" className="font-medium text-slate-900">
+                <label htmlFor="hasParking" className="font-medium text-slate-9">
                   Otopark
                 </label>
-                <p className="text-sm text-slate-600">Yerinde otopark</p>
+                <p className="text-sm text-slate-6">Yerinde otopark</p>
               </div>
               <input
                 type="checkbox"
                 id="hasParking"
                 {...register('features.hasParking')}
-                className="w-6 h-6 text-lydian-primary rounded focus:ring-2 focus:ring-lydian-primary"
+                className="w-6 h-6 text-blue-500 rounded focus:ring-2 focus:ring-lydian-primary"
               />
             </div>
 
             {watch('features.hasParking') && (
               <div>
-                <label className="block text-sm font-medium text-slate-700 mb-2">
+                <label className="block text-sm font-medium text-slate-7 mb-2">
                   Otopark Tipi
                 </label>
                 <select
                   {...register('features.parkingType')}
-                  className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-blue-200 outline-none transition-all bg-lydian-bg/5"
+                  className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all bg-white/5"
                 >
                   <option value="free">Ücretsiz Otopark</option>
                   <option value="paid">Ücretli Otopark</option>
@@ -397,8 +397,8 @@ export default function Step3PropertyDetails({ data }: Step3Props) {
 
       {/* Safety Features */}
       <div className="border-2 border-slate-200 rounded-xl p-6">
-        <h3 className="text-lg font-bold text-slate-900 mb-4">Güvenlik Özellikleri</h3>
-        <p className="text-sm text-slate-600 mb-4">
+        <h3 className="text-lg font-bold text-slate-9 mb-4">Güvenlik Özellikleri</h3>
+        <p className="text-sm text-slate-6 mb-4">
           Bu özellikler misafirlerin kendilerini güvende hissetmesine yardımcı olur
         </p>
 
@@ -408,9 +408,9 @@ export default function Step3PropertyDetails({ data }: Step3Props) {
               type="checkbox"
               id="hasSmokeDetector"
               {...register('safetyFeatures.hasSmokeDector')}
-              className="w-5 h-5 text-lydian-primary rounded focus:ring-2 focus:ring-lydian-primary"
+              className="w-5 h-5 text-blue-500 rounded focus:ring-2 focus:ring-lydian-primary"
             />
-            <label htmlFor="hasSmokeDetector" className="font-medium text-slate-700">
+            <label htmlFor="hasSmokeDetector" className="font-medium text-slate-7">
               Duman Dedektörü
             </label>
           </div>
@@ -420,9 +420,9 @@ export default function Step3PropertyDetails({ data }: Step3Props) {
               type="checkbox"
               id="hasCO2Detector"
               {...register('safetyFeatures.hasCO2Detector')}
-              className="w-5 h-5 text-lydian-primary rounded focus:ring-2 focus:ring-lydian-primary"
+              className="w-5 h-5 text-blue-500 rounded focus:ring-2 focus:ring-lydian-primary"
             />
-            <label htmlFor="hasCO2Detector" className="font-medium text-slate-700">
+            <label htmlFor="hasCO2Detector" className="font-medium text-slate-7">
               Karbonmonoksit Dedektörü
             </label>
           </div>
@@ -432,9 +432,9 @@ export default function Step3PropertyDetails({ data }: Step3Props) {
               type="checkbox"
               id="hasFirstAidKit"
               {...register('safetyFeatures.hasFirstAidKit')}
-              className="w-5 h-5 text-lydian-primary rounded focus:ring-2 focus:ring-lydian-primary"
+              className="w-5 h-5 text-blue-500 rounded focus:ring-2 focus:ring-lydian-primary"
             />
-            <label htmlFor="hasFirstAidKit" className="font-medium text-slate-700">
+            <label htmlFor="hasFirstAidKit" className="font-medium text-slate-7">
               İlk Yardım Çantası
             </label>
           </div>
@@ -444,9 +444,9 @@ export default function Step3PropertyDetails({ data }: Step3Props) {
               type="checkbox"
               id="hasLock"
               {...register('safetyFeatures.hasLock')}
-              className="w-5 h-5 text-lydian-primary rounded focus:ring-2 focus:ring-lydian-primary"
+              className="w-5 h-5 text-blue-500 rounded focus:ring-2 focus:ring-lydian-primary"
             />
-            <label htmlFor="hasLock" className="font-medium text-slate-700">
+            <label htmlFor="hasLock" className="font-medium text-slate-7">
               Kapı Kilidi
             </label>
           </div>
@@ -454,9 +454,9 @@ export default function Step3PropertyDetails({ data }: Step3Props) {
       </div>
 
       {/* Info Box */}
-      <div className="p-4 bg-lydian-success-lighter border border-green-200 rounded-lg">
-        <h4 className="font-semibold text-green-900 mb-2">Olanak İpuçları:</h4>
-        <ul className="text-sm text-green-800 space-y-1">
+      <div className="p-4 bg-green-600-lighter border border-green-200 rounded-lg">
+        <h4 className="font-semibold text-green-9 mb-2">Olanak İpuçları:</h4>
+        <ul className="text-sm text-green-8 space-y-1">
           <li>• Daha fazla misafir çekmek için mevcut tüm olanakları listeleyin</li>
           <li>• Mülkünüzü farklı kılan benzersiz özellikleri vurgulayın</li>
           <li>• Güvenlik özelliklerinin doğru ve işlevsel olduğundan emin olun</li>

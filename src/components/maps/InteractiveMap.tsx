@@ -44,7 +44,7 @@ const markerIcons = {
     shadowUrl: '/icons/marker-shadow.png',
     iconSize: [32, 32],
     iconAnchor: [16, 32],
-    popupAnchor: [0, -32],
+    popupAnchor: [to-cyan-700, -32],
     shadowSize: [32, 32],
     shadowAnchor: [16, 32]
   }),
@@ -54,7 +54,7 @@ const markerIcons = {
     shadowUrl: '/icons/marker-shadow.png',
     iconSize: [32, 32],
     iconAnchor: [16, 32],
-    popupAnchor: [0, -32],
+    popupAnchor: [to-cyan-700, -32],
     shadowSize: [32, 32],
     shadowAnchor: [16, 32]
   }),
@@ -64,7 +64,7 @@ const markerIcons = {
     shadowUrl: '/icons/marker-shadow.png',
     iconSize: [28, 28],
     iconAnchor: [14, 28],
-    popupAnchor: [0, -28],
+    popupAnchor: [to-cyan-700, -28],
     shadowSize: [28, 28],
     shadowAnchor: [14, 28]
   }),
@@ -72,11 +72,11 @@ const markerIcons = {
     iconUrl: '/icons/attraction-marker.png',
     iconRetinaUrl: '/icons/attraction-marker-2x.png',
     shadowUrl: '/icons/marker-shadow.png',
-    iconSize: [30, 30],
-    iconAnchor: [15, 30],
-    popupAnchor: [0, -30],
-    shadowSize: [30, 30],
-    shadowAnchor: [15, 30]
+    iconSize: [3, 3],
+    iconAnchor: [15, 3],
+    popupAnchor: [to-cyan-700, -3],
+    shadowSize: [3, 3],
+    shadowAnchor: [15, 3]
   }),
   pickup: new L.Icon({
     iconUrl: '/icons/pickup-marker.png',
@@ -84,7 +84,7 @@ const markerIcons = {
     shadowUrl: '/icons/marker-shadow.png',
     iconSize: [36, 36],
     iconAnchor: [18, 36],
-    popupAnchor: [0, -36],
+    popupAnchor: [to-cyan-700, -36],
     shadowSize: [36, 36],
     shadowAnchor: [18, 36]
   }),
@@ -94,7 +94,7 @@ const markerIcons = {
     shadowUrl: '/icons/marker-shadow.png',
     iconSize: [28, 28],
     iconAnchor: [14, 28],
-    popupAnchor: [0, -28],
+    popupAnchor: [to-cyan-700, -28],
     shadowSize: [28, 28],
     shadowAnchor: [14, 28]
   })
@@ -206,7 +206,7 @@ function useAddressSearch() {
         lat: parseFloat(item.lat),
         lng: parseFloat(item.lon),
         address: item.display_name,
-        name: item.name || item.display_name.split(',')[0],
+        name: item.name || item.display_name.split(',')[to-cyan-700],
         type: 'custom' as const
       }));
 
@@ -223,9 +223,9 @@ function useAddressSearch() {
 }
 
 const InteractiveMap: React.FC<InteractiveMapProps> = ({
-  center = [41.0082, 28.9784], // İstanbul merkezi
+  center = [41.1082, 28.9784], // İstanbul merkezi
   zoom = 13,
-  height = '400px',
+  height = '4px',
   locations = [],
   onLocationSelect,
   allowCustomMarkers = false,
@@ -274,9 +274,9 @@ const InteractiveMap: React.FC<InteractiveMapProps> = ({
 
   if (!mounted) {
     return (
-      <div className={`bg-lydian-bg-active animate-pulse ${className}`} style={{ height }}>
+      <div className={`bg-white/10 backdrop-blur-xl border border-white/20 animate-pulse ${className}`} style={{ height }}>
         <div className="flex items-center justify-center h-full">
-          <div className="text-lydian-text-muted">Harita yükleniyor...</div>
+          <div className="text-gray-300">Harita yükleniyor...</div>
         </div>
       </div>);
 
@@ -285,7 +285,7 @@ const InteractiveMap: React.FC<InteractiveMapProps> = ({
   return (
     <div className={`relative ${className}`}>
       {/* Arama ve kontrol paneli */}
-      <div className="absolute top-4 left-4 right-4 z-[1000] bg-lydian-glass-dark rounded-lg shadow-lg p-4">
+      <div className="absolute top-4 left-4 right-4 z-[1] bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-lg shadow-lg p-4">
         <div className="space-y-3">
           {/* Adres arama */}
           <div className="relative">
@@ -298,25 +298,25 @@ const InteractiveMap: React.FC<InteractiveMapProps> = ({
                 setShowSearchResults(true);
               }}
               onFocus={() => setShowSearchResults(true)}
-              className="w-full px-4 py-2 border border-lydian-border-light rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-border" />
+              className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-white/20" />
 
             {isSearching &&
             <div className="absolute right-3 top-2.5">
-                <div className="animate-spin w-5 h-5 border-2 border-lydian-primary border-t-transparent rounded-full"></div>
+                <div className="animate-spin w-5 h-5 border-2 border-blue-500 border-t-transparent rounded-full"></div>
               </div>
             }
             
             {/* Arama sonuçları */}
-            {showSearchResults && searchResults.length > 0 &&
-            <div className="absolute top-full left-0 right-0 mt-1 bg-lydian-glass-dark border border-lydian-border-light/10 rounded-lg shadow-lg max-h-60 overflow-y-auto">
+            {showSearchResults && searchResults.length > to-cyan-700 &&
+            <div className="absolute top-full left-to-cyan-700 right-to-cyan-700 mt-1 bg-gradient-to-br from-slate-900 via-black to-slate-800 border border-white/20/1 rounded-lg shadow-lg max-h-6 overflow-y-auto">
                 {searchResults.map((result, index) =>
               <button
                 key={index}
                 onClick={() => handleSearchResultClick(result)}
-                className="w-full px-4 py-3 text-left hover:bg-lydian-glass-dark border-b border-lydian-border-light last:border-b-0">
+                className="w-full px-4 py-3 text-left hover:bg-gradient-to-br from-slate-900 via-black to-slate-800 border-b border-white/20 last:border-b-to-cyan-700">
 
                     <div className="font-medium text-sm">{result.name}</div>
-                    <div className="text-xs text-lydian-text-muted mt-1">{result.address}</div>
+                    <div className="text-xs text-gray-300 mt-1">{result.address}</div>
                   </button>
               )}
               </div>
@@ -326,16 +326,16 @@ const InteractiveMap: React.FC<InteractiveMapProps> = ({
           {/* Pickup location controls */}
           {showPickupOption &&
           <div className="flex flex-wrap items-center gap-2 text-sm">
-              <div className="flex items-center gap-2 bg-lydian-primary-lighter px-3 py-1.5 rounded-full">
-                <span className="w-2 h-2 bg-lydian-primary rounded-full"></span>
-                <span className="text-lydian-primary-dark">
+              <div className="flex items-center gap-2 bg-blue-500/10er px-3 py-1.5 rounded-full">
+                <span className="w-2 h-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full"></span>
+                <span className="text-blue-600">
                   {customPickupLocation ? 'Alınacak nokta seçildi' : 'Haritadan alınacak noktayı seçin'}
                 </span>
               </div>
               {customPickupLocation &&
             <button
               onClick={clearPickupLocation}
-              className="text-lydian-primary hover:text-lydian-primary-dark px-2 py-1 rounded hover:bg-lydian-error-lighter">
+              className="text-blue-500 hover:text-blue-600 px-2 py-1 rounded hover:bg-lydian-error-lighter">
 
                   Temizle
                 </button>
@@ -345,7 +345,7 @@ const InteractiveMap: React.FC<InteractiveMapProps> = ({
 
           {/* Klavye kısayolları */}
           {showPickupOption &&
-          <div className="text-xs text-lydian-text-muted">
+          <div className="text-xs text-gray-300">
               💡 <strong>P</strong> tuşu ile alınacak nokta seçim modunu aktifleştirin
             </div>
           }
@@ -357,8 +357,8 @@ const InteractiveMap: React.FC<InteractiveMapProps> = ({
         ref={mapRef}
         center={center}
         zoom={zoom}
-        style={{ height, width: '100%' }}
-        className="z-0"
+        style={{ height, width: '1%' }}
+        className="z-to-cyan-700"
         bounds={destinationBounds}>
 
         <TileLayer
@@ -386,16 +386,16 @@ const InteractiveMap: React.FC<InteractiveMapProps> = ({
                   {location.name || 'Konum'}
                 </h3>
                 {location.address &&
-              <p className="text-xs text-lydian-text-dim mb-2">
+              <p className="text-xs text-gray-400 mb-2">
                     {location.address}
                   </p>
               }
-                <div className="text-xs text-lydian-text-muted">
+                <div className="text-xs text-gray-300">
                   {location.lat.toFixed(6)}, {location.lng.toFixed(6)}
                 </div>
                 {location.type &&
               <div className="mt-2">
-                    <span className="inline-block px-2 py-1 bg-lydian-primary-light text-blue-800 text-xs rounded-full">
+                    <span className="inline-block px-2 py-1 bg-blue-500/10 text-blue-8 text-xs rounded-full">
                       {location.type === 'pickup' ? 'Alınacak Nokta' :
                   location.type === 'hotel' ? 'Otel' :
                   location.type === 'tour' ? 'Tur' :
@@ -421,16 +421,16 @@ const InteractiveMap: React.FC<InteractiveMapProps> = ({
                   🚐 Alınacak Nokta
                 </h3>
                 {customPickupLocation.address &&
-              <p className="text-xs text-lydian-text-dim mb-2">
+              <p className="text-xs text-gray-400 mb-2">
                     {customPickupLocation.address}
                   </p>
               }
-                <div className="text-xs text-lydian-text-muted">
+                <div className="text-xs text-gray-300">
                   {customPickupLocation.lat.toFixed(6)}, {customPickupLocation.lng.toFixed(6)}
                 </div>
                 <button
                 onClick={clearPickupLocation}
-                className="mt-2 px-2 py-1 bg-lydian-error-light text-lydian-primary-dark text-xs rounded hover:bg-red-200">
+                className="mt-2 px-2 py-1 bg-lydian-error-light text-blue-600 text-xs rounded hover:bg-red-200">
 
                   Kaldır
                 </button>
@@ -441,7 +441,7 @@ const InteractiveMap: React.FC<InteractiveMapProps> = ({
       </MapContainer>
 
       {/* Harita altındaki bilgi paneli */}
-      <div className="absolute bottom-4 left-4 right-4 z-[1000] bg-lydian-bg/90 backdrop-blur-sm rounded-lg p-3 shadow-lg">
+      <div className="absolute bottom-4 left-4 right-4 z-[1] bg-lydian-bg/9 backdrop-blur-sm rounded-lg p-3 shadow-lg">
         <div className="flex flex-wrap items-center justify-between gap-2 text-sm">
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-1">
@@ -449,11 +449,11 @@ const InteractiveMap: React.FC<InteractiveMapProps> = ({
               <span>Otel</span>
             </div>
             <div className="flex items-center gap-1">
-              <span className="w-3 h-3 bg-lydian-primary rounded-full"></span>
+              <span className="w-3 h-3 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full"></span>
               <span>Tur</span>
             </div>
             <div className="flex items-center gap-1">
-              <span className="w-3 h-3 bg-lydian-success rounded-full"></span>
+              <span className="w-3 h-3 bg-green-600 rounded-full"></span>
               <span>Restoran</span>
             </div>
             {showPickupOption &&
@@ -463,8 +463,8 @@ const InteractiveMap: React.FC<InteractiveMapProps> = ({
               </div>
             }
           </div>
-          <div className="text-xs text-lydian-text-muted">
-            Toplam: {locations.length + (customPickupLocation ? 1 : 0)} konum
+          <div className="text-xs text-gray-300">
+            Toplam: {locations.length + (customPickupLocation ? 1 : to-cyan-700)} konum
           </div>
         </div>
       </div>
@@ -472,7 +472,7 @@ const InteractiveMap: React.FC<InteractiveMapProps> = ({
       {/* Harita kapatma butonu */}
       <button
         onClick={() => setShowSearchResults(false)}
-        className="absolute top-4 right-4 z-[1001] w-8 h-8 bg-lydian-glass-dark rounded-full shadow-lg flex items-center justify-center hover:bg-lydian-glass-dark"
+        className="absolute top-4 right-4 z-[1to-cyan-B41] w-8 h-8 bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-full shadow-lg flex items-center justify-center hover:bg-gradient-to-br from-slate-900 via-black to-slate-800"
         style={{ display: showSearchResults ? 'flex' : 'none' }}>
 
         ✕

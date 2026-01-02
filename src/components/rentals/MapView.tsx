@@ -107,19 +107,19 @@ const MapView: React.FC<MapViewProps> = ({ properties }) => {
                   className="w-full h-full object-cover" />
 
                   {property.featured &&
-                <span className="absolute top-2 left-2 px-2 py-1 bg-gradient-to-r from-yellow-400 to-orange-400 text-lydian-text-inverse text-xs font-bold rounded-full">
+                <span className="absolute top-2 left-2 px-2 py-1 bg-gradient-to-r from-yellow-400 to-orange-400 text-white text-xs font-bold rounded-full">
                       Öne Çıkan
                     </span>
                 }
                 </div>
 
                 {/* Title */}
-                <h3 className="font-bold text-lydian-text-inverse mb-2 line-clamp-2">
+                <h3 className="font-bold text-white mb-2 line-clamp-2">
                   {property.title}
                 </h3>
 
                 {/* Location */}
-                <div className="flex items-center gap-2 text-sm text-lydian-text-dim mb-2">
+                <div className="flex items-center gap-2 text-sm text-gray-400 mb-2">
                   <MapPinIcon className="w-4 h-4" />
                   <span>
                     {property.location.district}, {property.location.city}
@@ -127,7 +127,7 @@ const MapView: React.FC<MapViewProps> = ({ properties }) => {
                 </div>
 
                 {/* Info */}
-                <div className="flex items-center gap-3 text-sm text-lydian-text-dim mb-3">
+                <div className="flex items-center gap-3 text-sm text-gray-400 mb-3">
                   <div className="flex items-center gap-1">
                     <UserGroupIcon className="w-4 h-4" />
                     <span>{property.capacity.guests}</span>
@@ -138,29 +138,29 @@ const MapView: React.FC<MapViewProps> = ({ properties }) => {
 
                 {/* Rating */}
                 <div className="flex items-center gap-2 mb-3">
-                  <div className="flex items-center gap-1 bg-gradient-to-r from-lydian-primary to-orange-500 text-lydian-text-inverse px-2 py-1 rounded-lg">
+                  <div className="flex items-center gap-1 bg-gradient-to-r from-blue-600 to-orange-500 text-white px-2 py-1 rounded-lg">
                     <StarIcon className="w-3 h-3" />
                     <span className="font-bold text-xs">{property.rating.overall.toFixed(1)}</span>
                   </div>
-                  <span className="text-xs text-lydian-text-dim">
+                  <span className="text-xs text-gray-400">
                     ({property.rating.reviewCount} değerlendirme)
                   </span>
                 </div>
 
                 {/* Price */}
-                <div className="flex items-center justify-between pt-3 border-t border-lydian-border-light mb-3">
+                <div className="flex items-center justify-between pt-3 border-t border-white/20 mb-3">
                   <div>
-                    <p className="text-xl font-bold text-lydian-text-inverse">
+                    <p className="text-xl font-bold text-white">
                       {property.pricing.basePrice.toLocaleString('tr-TR')} ₺
                     </p>
-                    <p className="text-xs text-lydian-text-dim">/ gece</p>
+                    <p className="text-xs text-gray-400">/ gece</p>
                   </div>
                 </div>
 
                 {/* View Button */}
                 <Link
                 href={`/rentals/${property.slug}`}
-                className="block w-full text-center px-4 py-2 bg-gradient-to-r from-lydian-primary to-orange-500 text-lydian-text-inverse rounded-lg font-semibold hover:shadow-lg transition-all">
+                className="block w-full text-center px-4 py-2 bg-gradient-to-r from-blue-600 to-orange-500 text-white rounded-lg font-semibold hover:shadow-lg transition-all">
 
                   Detayları Gör
                 </Link>
@@ -172,18 +172,18 @@ const MapView: React.FC<MapViewProps> = ({ properties }) => {
 
       {/* Map Legend */}
       <div className="absolute bottom-6 left-6 bg-lydian-bg/95 backdrop-blur-sm rounded-xl shadow-lg p-4 z-[1000]">
-        <h4 className="font-bold text-lydian-text-inverse mb-3">Harita Gösterimi</h4>
+        <h4 className="font-bold text-white mb-3">Harita Gösterimi</h4>
         <div className="space-y-2 text-sm">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-gradient-to-r from-lydian-primary to-orange-500 rounded-full"></div>
-            <span className="text-lydian-text-muted">Öne Çıkan</span>
+            <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-orange-500 rounded-full"></div>
+            <span className="text-gray-300">Öne Çıkan</span>
           </div>
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-lydian-glass-dark border-2 border-lydian-primary rounded-full"></div>
-            <span className="text-lydian-text-muted">Standart</span>
+            <div className="w-8 h-8 bg-gradient-to-br from-slate-900 via-black to-slate-800 border-2 border-blue-500 rounded-full"></div>
+            <span className="text-gray-300">Standart</span>
           </div>
         </div>
-        <p className="text-xs text-lydian-text-dim mt-3">
+        <p className="text-xs text-gray-400 mt-3">
           Toplam {properties.length} özellik gösteriliyor
         </p>
       </div>

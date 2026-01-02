@@ -93,8 +93,8 @@ export const BookingProductCard: React.FC<ProductCardProps> = ({
   };
 
   const getRatingColor = (score: number) => {
-    if (score >= 9) return 'bg-lydian-success-hover';
-    if (score >= 8) return 'bg-lydian-success';
+    if (score >= 9) return 'bg-green-600-hover';
+    if (score >= 8) return 'bg-green-600';
     if (score >= 7) return 'bg-lydian-primary';
     return 'bg-gray-600';
   };
@@ -114,7 +114,7 @@ export const BookingProductCard: React.FC<ProductCardProps> = ({
     <Link href={href} className="block">
       <motion.div
         whileHover={{ y: -4 }}
-        className="bg-lydian-glass-dark rounded-lg border border-lydian-border-light/10 hover:border-lydian-primary hover:shadow-xl transition-all duration-200 overflow-hidden group">
+        className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-lg border border-white/20/10 hover:border-blue-500 hover:shadow-xl transition-all duration-200 overflow-hidden group">
 
         <div className="flex flex-col md:flex-row">
           {/* Image Section - Left Side */}
@@ -136,15 +136,15 @@ export const BookingProductCard: React.FC<ProductCardProps> = ({
               <>
                   <button
                   onClick={prevImage}
-                  className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-lydian-bg/90 hover:bg-lydian-glass-dark rounded-full flex items-center justify-center shadow-lg transition-all z-10">
+                  className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-white/10 hover:bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-full flex items-center justify-center shadow-lg transition-all z-10">
 
-                    <ChevronLeft className="w-5 h-5 text-lydian-text-dim" />
+                    <ChevronLeft className="w-5 h-5 text-gray-400" />
                   </button>
                   <button
                   onClick={nextImage}
-                  className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-lydian-bg/90 hover:bg-lydian-glass-dark rounded-full flex items-center justify-center shadow-lg transition-all z-10">
+                  className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-white/10 hover:bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-full flex items-center justify-center shadow-lg transition-all z-10">
 
-                    <ChevronRight className="w-5 h-5 text-lydian-text-dim" />
+                    <ChevronRight className="w-5 h-5 text-gray-400" />
                   </button>
                 </>
               }
@@ -156,7 +156,7 @@ export const BookingProductCard: React.FC<ProductCardProps> = ({
                 <div
                   key={index}
                   className={`w-1.5 h-1.5 rounded-full transition-all ${
-                  index === currentImageIndex ? 'bg-lydian-bg/5 w-3' : 'bg-lydian-bg/60'}`
+                  index === currentImageIndex ? 'bg-white/5 w-3' : 'bg-lydian-bg/60'}`
                   } />
 
                 )}
@@ -170,7 +170,7 @@ export const BookingProductCard: React.FC<ProductCardProps> = ({
                 e.preventDefault();
                 onFavorite?.();
               }}
-              className="absolute top-3 right-3 w-9 h-9 bg-lydian-bg/90 hover:bg-lydian-glass-dark rounded-full flex items-center justify-center shadow-lg transition-all z-10">
+              className="absolute top-3 right-3 w-9 h-9 bg-white/10 hover:bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-full flex items-center justify-center shadow-lg transition-all z-10">
 
               <Heart
                 className={`w-5 h-5 transition-all ${
@@ -181,7 +181,7 @@ export const BookingProductCard: React.FC<ProductCardProps> = ({
 
             {/* Discount Badge */}
             {discountPercentage > 0 &&
-            <div className="absolute top-3 left-3 bg-lydian-primary text-lydian-text-inverse px-3 py-1 rounded-md font-bold text-sm shadow-lg z-10">
+            <div className="absolute top-3 left-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-3 py-1 rounded-md font-bold text-sm shadow-lg z-10">
                 -{discountPercentage}%
               </div>
             }
@@ -192,7 +192,7 @@ export const BookingProductCard: React.FC<ProductCardProps> = ({
                 {badges.slice(0, 2).map((badge, index) =>
               <span
                 key={index}
-                className="px-2 py-1 bg-lydian-bg/95 text-lydian-text-dim rounded text-xs font-semibold shadow-sm">
+                className="px-2 py-1 bg-lydian-bg/95 text-gray-400 rounded text-xs font-semibold shadow-sm">
 
                     {badge}
                   </span>
@@ -205,10 +205,10 @@ export const BookingProductCard: React.FC<ProductCardProps> = ({
           <div className="flex-1 p-4 md:p-5 flex flex-col">
             {/* Title & Location */}
             <div className="mb-3">
-              <h3 className="text-xl font-bold text-lydian-text-inverse mb-1 line-clamp-2 group-hover:text-lydian-primary transition-colors">
+              <h3 className="text-xl font-bold text-white mb-1 line-clamp-2 group-hover:text-blue-500 transition-colors">
                 {title}
               </h3>
-              <div className="flex items-center gap-1 text-sm text-lydian-text-dim">
+              <div className="flex items-center gap-1 text-sm text-gray-400">
                 <MapPin className="w-4 h-4" />
                 <span>{location}</span>
               </div>
@@ -217,13 +217,13 @@ export const BookingProductCard: React.FC<ProductCardProps> = ({
             {/* Rating & Reviews */}
             {rating > 0 &&
             <div className="flex items-center gap-3 mb-3">
-                <div className={`${getRatingColor(rating)} text-lydian-text-inverse px-2 py-1 rounded-md font-bold text-sm`}>
+                <div className={`${getRatingColor(rating)} text-white px-2 py-1 rounded-md font-bold text-sm`}>
                   {rating.toFixed(1)}
                 </div>
                 <div>
-                  <div className="text-sm font-semibold text-lydian-text-inverse">{getRatingText(rating)}</div>
+                  <div className="text-sm font-semibold text-white">{getRatingText(rating)}</div>
                   {reviewCount > 0 &&
-                <div className="text-xs text-lydian-text-dim">{reviewCount.toLocaleString()} değerlendirme</div>
+                <div className="text-xs text-gray-400">{reviewCount.toLocaleString()} değerlendirme</div>
                 }
                 </div>
                 {reviewScore &&
@@ -237,7 +237,7 @@ export const BookingProductCard: React.FC<ProductCardProps> = ({
 
             {/* Description */}
             {description &&
-            <p className="text-sm text-lydian-text-dim mb-3 line-clamp-2">
+            <p className="text-sm text-gray-400 mb-3 line-clamp-2">
                 {description}
               </p>
             }
@@ -246,8 +246,8 @@ export const BookingProductCard: React.FC<ProductCardProps> = ({
             {features.length > 0 &&
             <div className="flex flex-wrap gap-3 mb-3">
                 {features.slice(0, 4).map((feature, index) =>
-              <div key={index} className="flex items-center gap-1 text-xs text-lydian-text-muted">
-                    <Check className="w-3 h-3 text-lydian-success" />
+              <div key={index} className="flex items-center gap-1 text-xs text-gray-300">
+                    <Check className="w-3 h-3 text-green-500" />
                     <span>{feature}</span>
                   </div>
               )}
@@ -263,11 +263,11 @@ export const BookingProductCard: React.FC<ProductCardProps> = ({
                 animate={{ opacity: 1, x: 0 }}
                 className="flex items-center gap-2 text-xs">
 
-                  <div className="flex items-center gap-1 px-2 py-1 bg-lydian-success-lighter text-lydian-success-text rounded-md">
+                  <div className="flex items-center gap-1 px-2 py-1 bg-green-600-lighter text-green-500-text rounded-md">
                     <TrendingDown className="w-3 h-3" />
                     <span className="font-semibold">Fiyat Düştü</span>
                   </div>
-                  <span className="text-lydian-text-dim">Son 24 saatte %{Math.round((Number(originalPrice) - Number(price)) / Number(originalPrice) * 100)} indirim</span>
+                  <span className="text-gray-400">Son 24 saatte %{Math.round((Number(originalPrice) - Number(price)) / Number(originalPrice) * 100)} indirim</span>
                 </motion.div>
               }
 
@@ -277,12 +277,12 @@ export const BookingProductCard: React.FC<ProductCardProps> = ({
                 initial={{ opacity: 0, x: -10 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.1 }}
-                className="flex items-center gap-2 text-xs text-lydian-text-muted">
+                className="flex items-center gap-2 text-xs text-gray-300">
 
                   <div className="flex items-center gap-1">
-                    <Eye className="w-3 h-3 text-lydian-primary" />
+                    <Eye className="w-3 h-3 text-blue-500" />
                     <div className="flex items-center">
-                      <span className="font-semibold text-lydian-primary">{Math.floor(Math.random() * 20) + 10}</span>
+                      <span className="font-semibold text-blue-500">{Math.floor(Math.random() * 20) + 10}</span>
                       <span className="ml-1">kişi şu anda bakıyor</span>
                     </div>
                   </div>
@@ -295,7 +295,7 @@ export const BookingProductCard: React.FC<ProductCardProps> = ({
                 initial={{ opacity: 0, x: -10 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.2 }}
-                className="flex items-center gap-2 text-xs text-lydian-text-muted">
+                className="flex items-center gap-2 text-xs text-gray-300">
 
                   <div className="flex items-center gap-1">
                     <Clock className="w-3 h-3 text-orange-600" />
@@ -315,7 +315,7 @@ export const BookingProductCard: React.FC<ProductCardProps> = ({
                 transition={{ delay: 0.3 }}
                 className="flex items-center gap-2 text-xs">
 
-                  <div className="flex items-center gap-1 px-2 py-1 bg-lydian-error-lighter text-lydian-primary rounded-md">
+                  <div className="flex items-center gap-1 px-2 py-1 bg-lydian-error-lighter text-blue-500 rounded-md">
                     <Flame className="w-3 h-3" />
                     <span className="font-semibold">Yüksek Talep - Sadece {Math.floor(Math.random() * 5) + 2} koltuk kaldı!</span>
                   </div>
@@ -324,7 +324,7 @@ export const BookingProductCard: React.FC<ProductCardProps> = ({
 
               {/* Custom Urgency Text */}
               {urgencyText &&
-              <div className="flex items-center gap-2 text-sm text-lydian-primary font-medium">
+              <div className="flex items-center gap-2 text-sm text-blue-500 font-medium">
                   <Zap className="w-4 h-4" />
                   <span>{urgencyText}</span>
                 </div>
@@ -335,20 +335,20 @@ export const BookingProductCard: React.FC<ProductCardProps> = ({
             <div className="flex-1" />
 
             {/* Price & Action */}
-            <div className="flex items-end justify-between mt-4 pt-4 border-t border-lydian-border-light">
+            <div className="flex items-end justify-between mt-4 pt-4 border-t border-white/20">
               <div>
                 {originalPrice &&
-                <div className="text-sm text-lydian-text-muted line-through">
+                <div className="text-sm text-gray-300 line-through">
                     {currency}{typeof originalPrice === 'number' ? originalPrice.toLocaleString() : originalPrice}
                   </div>
                 }
                 <div className="flex items-baseline gap-1">
-                  <span className="text-2xl font-bold text-lydian-text-inverse">
+                  <span className="text-2xl font-bold text-white">
                     {currency}{typeof price === 'number' ? price.toLocaleString() : price}
                   </span>
-                  <span className="text-sm text-lydian-text-dim">/ gece</span>
+                  <span className="text-sm text-gray-400">/ gece</span>
                 </div>
-                <div className="text-xs text-lydian-text-muted mt-1">Vergiler dahil</div>
+                <div className="text-xs text-gray-300 mt-1">Vergiler dahil</div>
               </div>
 
               <div className="flex gap-2">
@@ -359,7 +359,7 @@ export const BookingProductCard: React.FC<ProductCardProps> = ({
                     e.preventDefault();
                     window.location.href = href;
                   }}
-                  className="px-6 py-2.5 bg-lydian-primary text-lydian-text-inverse rounded-md font-semibold hover:bg-lydian-dark transition-all shadow-sm hover:shadow-md">
+                  className="px-6 py-2.5 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-md font-semibold hover:bg-lydian-dark transition-all shadow-sm hover:shadow-md">
 
                   Müsaitliği Gör
                 </motion.button>

@@ -88,7 +88,7 @@ export const BookingSearchForm: React.FC<SearchFormProps> = ({
     <div className="relative w-full max-w-6xl mx-auto">
       {/* Premium Gradient Background */}
       <motion.div
-        className="absolute inset-0 bg-gradient-to-br from-lydian-primary via-lydian-secondary to-pink-600 opacity-95 rounded-lg"
+        className="absolute inset-0 bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 opacity-95 rounded-lg"
         animate={{
           backgroundPosition: ['0% 0%', '100% 100%']
         }}
@@ -112,7 +112,7 @@ export const BookingSearchForm: React.FC<SearchFormProps> = ({
       {/* Content with relative positioning */}
       <div className="relative z-10">
         {/* Tabs - Premium Animated */}
-        <div className="flex gap-1 bg-lydian-glass-dark-medium backdrop-blur-sm p-1 rounded-t-lg overflow-x-auto scrollbar-hide">
+        <div className="flex gap-1 bg-white/10 backdrop-blur-xl border border-white/20 backdrop-blur-sm p-1 rounded-t-lg overflow-x-auto scrollbar-hide">
           {tabs.map((tab, index) => {
             const Icon = tab.icon;
             const isActive = activeTab === tab.id;
@@ -128,8 +128,8 @@ export const BookingSearchForm: React.FC<SearchFormProps> = ({
                 className={`
                   relative flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 px-3 sm:px-6 py-2 sm:py-3 rounded-t-md font-bold transition-all whitespace-nowrap min-w-[70px] sm:min-w-0
                   ${isActive ?
-                'bg-lydian-bg/5 text-lydian-primary shadow-lg' :
-                'bg-lydian-bg/90 text-gray-200 hover:bg-lydian-bg/5 hover:text-white'}
+                'bg-white/5 text-blue-500 shadow-lg' :
+                'bg-white/10 text-gray-200 hover:bg-white/5 hover:text-white'}
                 `
                 }>
 
@@ -152,7 +152,7 @@ export const BookingSearchForm: React.FC<SearchFormProps> = ({
                 }
                 {isActive &&
                 <motion.div
-                  className="absolute -bottom-1 left-0 right-0 h-1 bg-gradient-to-r from-lydian-primary via-lydian-secondary to-pink-600"
+                  className="absolute -bottom-1 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600"
                   layoutId="activeTabUnderline"
                   transition={{ type: "spring", stiffness: 300, damping: 30 }} />
 
@@ -163,74 +163,74 @@ export const BookingSearchForm: React.FC<SearchFormProps> = ({
         </div>
 
       {/* Search Form */}
-      <div className="bg-lydian-glass-dark rounded-b-lg rounded-tr-lg shadow-2xl p-6">
+      <div className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-b-lg rounded-tr-lg shadow-2xl p-6">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
           {/* Destination */}
           <div className="md:col-span-4">
-            <label className="block text-sm font-semibold text-lydian-text-muted mb-2">
+            <label className="block text-sm font-semibold text-gray-300 mb-2">
               {activeTab === 'hotels' ? 'Nereye gidiyorsunuz?' :
                 activeTab === 'tours' ? 'Hangi şehir?' :
                 activeTab === 'cars' ? 'Nereden alacaksınız?' :
                 activeTab === 'transfers' ? 'Nereden?' : 'Konum'}
             </label>
             <div className="relative">
-              <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-lydian-text-muted" />
+              <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-300" />
               <input
                   type="text"
                   value={destination}
                   onChange={(e) => setDestination(e.target.value)}
                   placeholder="Şehir, otel, bölge..."
-                  className="w-full pl-11 pr-4 py-3 border-2 border-lydian-border-light/10 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-lydian-primary/20 outline-none transition-all text-lydian-text-inverse font-medium" />
+                  className="w-full pl-11 pr-4 py-3 border-2 border-white/20/10 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-lydian-primary/20 outline-none transition-all text-white font-medium" />
 
             </div>
           </div>
 
           {/* Check-in Date */}
           <div className="md:col-span-3">
-            <label className="block text-sm font-semibold text-lydian-text-muted mb-2">
+            <label className="block text-sm font-semibold text-gray-300 mb-2">
               Giriş Tarihi
             </label>
             <div className="relative">
-              <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-lydian-text-muted" />
+              <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-300" />
               <input
                   type="date"
                   value={checkIn}
                   onChange={(e) => setCheckIn(e.target.value)}
-                  className="w-full pl-11 pr-4 py-3 border-2 border-lydian-border-light/10 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-lydian-primary/20 outline-none transition-all text-lydian-text-inverse font-medium" />
+                  className="w-full pl-11 pr-4 py-3 border-2 border-white/20/10 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-lydian-primary/20 outline-none transition-all text-white font-medium" />
 
             </div>
           </div>
 
           {/* Check-out Date */}
           <div className="md:col-span-3">
-            <label className="block text-sm font-semibold text-lydian-text-muted mb-2">
+            <label className="block text-sm font-semibold text-gray-300 mb-2">
               Çıkış Tarihi
             </label>
             <div className="relative">
-              <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-lydian-text-muted" />
+              <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-300" />
               <input
                   type="date"
                   value={checkOut}
                   onChange={(e) => setCheckOut(e.target.value)}
-                  className="w-full pl-11 pr-4 py-3 border-2 border-lydian-border-light/10 rounded-lg focus:border-lydian-primary focus:ring-2 focus:ring-lydian-primary/20 outline-none transition-all text-lydian-text-inverse font-medium" />
+                  className="w-full pl-11 pr-4 py-3 border-2 border-white/20/10 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-lydian-primary/20 outline-none transition-all text-white font-medium" />
 
             </div>
           </div>
 
           {/* Guests Selector */}
           <div className="md:col-span-2 relative">
-            <label className="block text-sm font-semibold text-lydian-text-muted mb-2">
+            <label className="block text-sm font-semibold text-gray-300 mb-2">
               Misafirler
             </label>
             <button
                 onClick={() => setShowGuestPicker(!showGuestPicker)}
-                className="w-full flex items-center justify-between px-4 py-3 border-2 border-lydian-border-light/10 rounded-lg hover:border-lydian-primary focus:border-lydian-primary focus:ring-2 focus:ring-lydian-primary/20 outline-none transition-all text-lydian-text-inverse font-medium">
+                className="w-full flex items-center justify-between px-4 py-3 border-2 border-white/20/10 rounded-lg hover:border-blue-500 focus:border-blue-500 focus:ring-2 focus:ring-lydian-primary/20 outline-none transition-all text-white font-medium">
 
               <div className="flex items-center gap-2">
-                <Users className="w-5 h-5 text-lydian-text-muted" />
+                <Users className="w-5 h-5 text-gray-300" />
                 <span>{guests.adults + guests.children} kişi</span>
               </div>
-              <ChevronDown className={`w-4 h-4 text-lydian-text-muted transition-transform ${showGuestPicker ? 'rotate-180' : ''}`} />
+              <ChevronDown className={`w-4 h-4 text-gray-300 transition-transform ${showGuestPicker ? 'rotate-180' : ''}`} />
             </button>
 
             {/* Guest Picker Dropdown */}
@@ -240,25 +240,25 @@ export const BookingSearchForm: React.FC<SearchFormProps> = ({
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
-                  className="absolute top-full left-0 right-0 mt-2 bg-lydian-glass-dark border-2 border-lydian-border-light/10 rounded-lg shadow-xl p-4 z-50">
+                  className="absolute top-full left-0 right-0 mt-2 bg-gradient-to-br from-slate-900 via-black to-slate-800 border-2 border-white/20/10 rounded-lg shadow-xl p-4 z-50">
 
                   {/* Adults */}
                   <div className="flex items-center justify-between py-3 border-b">
                     <div>
-                      <div className="font-semibold text-lydian-text-inverse">Yetişkinler</div>
-                      <div className="text-xs text-lydian-text-muted">18 yaş ve üzeri</div>
+                      <div className="font-semibold text-white">Yetişkinler</div>
+                      <div className="text-xs text-gray-300">18 yaş ve üzeri</div>
                     </div>
                     <div className="flex items-center gap-3">
                       <button
                         onClick={() => setGuests({ ...guests, adults: Math.max(1, guests.adults - 1) })}
-                        className="w-8 h-8 flex items-center justify-center border-2 border-lydian-primary text-lydian-primary rounded-full hover:bg-lydian-primary hover:text-lydian-text-inverse transition-all">
+                        className="w-8 h-8 flex items-center justify-center border-2 border-blue-500 text-blue-500 rounded-full hover:bg-gradient-to-r from-blue-600 to-purple-600 hover:text-white transition-all">
 
                         <Minus className="w-4 h-4" />
                       </button>
                       <span className="w-8 text-center font-semibold">{guests.adults}</span>
                       <button
                         onClick={() => setGuests({ ...guests, adults: guests.adults + 1 })}
-                        className="w-8 h-8 flex items-center justify-center border-2 border-lydian-primary text-lydian-primary rounded-full hover:bg-lydian-primary hover:text-lydian-text-inverse transition-all">
+                        className="w-8 h-8 flex items-center justify-center border-2 border-blue-500 text-blue-500 rounded-full hover:bg-gradient-to-r from-blue-600 to-purple-600 hover:text-white transition-all">
 
                         <Plus className="w-4 h-4" />
                       </button>
@@ -268,20 +268,20 @@ export const BookingSearchForm: React.FC<SearchFormProps> = ({
                   {/* Children */}
                   <div className="flex items-center justify-between py-3 border-b">
                     <div>
-                      <div className="font-semibold text-lydian-text-inverse">Çocuklar</div>
-                      <div className="text-xs text-lydian-text-muted">0-17 yaş</div>
+                      <div className="font-semibold text-white">Çocuklar</div>
+                      <div className="text-xs text-gray-300">0-17 yaş</div>
                     </div>
                     <div className="flex items-center gap-3">
                       <button
                         onClick={() => setGuests({ ...guests, children: Math.max(0, guests.children - 1) })}
-                        className="w-8 h-8 flex items-center justify-center border-2 border-lydian-primary text-lydian-primary rounded-full hover:bg-lydian-primary hover:text-lydian-text-inverse transition-all">
+                        className="w-8 h-8 flex items-center justify-center border-2 border-blue-500 text-blue-500 rounded-full hover:bg-gradient-to-r from-blue-600 to-purple-600 hover:text-white transition-all">
 
                         <Minus className="w-4 h-4" />
                       </button>
                       <span className="w-8 text-center font-semibold">{guests.children}</span>
                       <button
                         onClick={() => setGuests({ ...guests, children: guests.children + 1 })}
-                        className="w-8 h-8 flex items-center justify-center border-2 border-lydian-primary text-lydian-primary rounded-full hover:bg-lydian-primary hover:text-lydian-text-inverse transition-all">
+                        className="w-8 h-8 flex items-center justify-center border-2 border-blue-500 text-blue-500 rounded-full hover:bg-gradient-to-r from-blue-600 to-purple-600 hover:text-white transition-all">
 
                         <Plus className="w-4 h-4" />
                       </button>
@@ -291,20 +291,20 @@ export const BookingSearchForm: React.FC<SearchFormProps> = ({
                   {/* Rooms */}
                   <div className="flex items-center justify-between py-3">
                     <div>
-                      <div className="font-semibold text-lydian-text-inverse">Odalar</div>
-                      <div className="text-xs text-lydian-text-muted">Kaç oda?</div>
+                      <div className="font-semibold text-white">Odalar</div>
+                      <div className="text-xs text-gray-300">Kaç oda?</div>
                     </div>
                     <div className="flex items-center gap-3">
                       <button
                         onClick={() => setGuests({ ...guests, rooms: Math.max(1, guests.rooms - 1) })}
-                        className="w-8 h-8 flex items-center justify-center border-2 border-lydian-primary text-lydian-primary rounded-full hover:bg-lydian-primary hover:text-lydian-text-inverse transition-all">
+                        className="w-8 h-8 flex items-center justify-center border-2 border-blue-500 text-blue-500 rounded-full hover:bg-gradient-to-r from-blue-600 to-purple-600 hover:text-white transition-all">
 
                         <Minus className="w-4 h-4" />
                       </button>
                       <span className="w-8 text-center font-semibold">{guests.rooms}</span>
                       <button
                         onClick={() => setGuests({ ...guests, rooms: guests.rooms + 1 })}
-                        className="w-8 h-8 flex items-center justify-center border-2 border-lydian-primary text-lydian-primary rounded-full hover:bg-lydian-primary hover:text-lydian-text-inverse transition-all">
+                        className="w-8 h-8 flex items-center justify-center border-2 border-blue-500 text-blue-500 rounded-full hover:bg-gradient-to-r from-blue-600 to-purple-600 hover:text-white transition-all">
 
                         <Plus className="w-4 h-4" />
                       </button>
@@ -313,7 +313,7 @@ export const BookingSearchForm: React.FC<SearchFormProps> = ({
 
                   <button
                     onClick={() => setShowGuestPicker(false)}
-                    className="w-full mt-2 px-4 py-2 bg-lydian-primary text-lydian-text-inverse rounded-lg font-semibold hover:bg-lydian-dark transition-all">
+                    className="w-full mt-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-semibold hover:bg-lydian-dark transition-all">
 
                     Tamam
                   </button>
@@ -329,7 +329,7 @@ export const BookingSearchForm: React.FC<SearchFormProps> = ({
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               onClick={handleSearch}
-              className="w-full md:w-auto px-12 py-4 bg-gradient-to-r from-lydian-primary to-lydian-secondary text-lydian-text-inverse rounded-lg font-bold text-lg shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-3">
+              className="w-full md:w-auto px-12 py-4 bg-gradient-to-r from-blue-600 to-purple-700 text-white rounded-lg font-bold text-lg shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-3">
 
             <Search className="w-6 h-6" />
             <span>Ara</span>
@@ -338,12 +338,12 @@ export const BookingSearchForm: React.FC<SearchFormProps> = ({
 
         {/* Quick Tips */}
         <div className="mt-4 flex flex-wrap gap-2">
-          <span className="text-xs text-lydian-text-muted">Popüler aramalar:</span>
+          <span className="text-xs text-gray-300">Popüler aramalar:</span>
           {['İstanbul', 'Antalya', 'Kapadokya', 'Bodrum'].map((city) =>
             <button
               key={city}
               onClick={() => setDestination(city)}
-              className="text-xs px-3 py-1 bg-lydian-glass-dark-medium hover:bg-lydian-bg-active text-lydian-text-muted rounded-full transition-colors">
+              className="text-xs px-3 py-1 bg-white/10 backdrop-blur-xl border border-white/20 hover:bg-white/10 backdrop-blur-xl border border-white/20 text-gray-300 rounded-full transition-colors">
 
               {city}
             </button>

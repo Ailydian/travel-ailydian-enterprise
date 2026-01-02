@@ -83,7 +83,7 @@ export const LyDianLogo: React.FC<LyDianLogoProps> = ({
 
 
         {/* Icon Container */}
-        <div className="relative w-full h-full flex items-center justify-center backdrop-blur-sm rounded-2xl border border-lydian-border-light">
+        <div className="relative w-full h-full flex items-center justify-center backdrop-blur-sm rounded-2xl border border-white/20">
           <motion.div
             animate={animated ? {
               y: [0, -4, 0],
@@ -95,7 +95,7 @@ export const LyDianLogo: React.FC<LyDianLogoProps> = ({
               ease: 'easeInOut'
             } : undefined}>
 
-            <Sparkles className={`${config.iconInner} text-lydian-text-inverse drop-shadow-lg`} />
+            <Sparkles className={`${config.iconInner} text-white drop-shadow-lg`} />
           </motion.div>
 
           {/* Shimmer Effect */}
@@ -144,7 +144,7 @@ export const LyDianLogo: React.FC<LyDianLogoProps> = ({
 
 
           {/* Icon */}
-          <div className="relative w-full h-full flex items-center justify-center backdrop-blur-sm rounded-2xl border border-lydian-border-light">
+          <div className="relative w-full h-full flex items-center justify-center backdrop-blur-sm rounded-2xl border border-white/20">
             <motion.div
               animate={animated ? {
                 y: [0, -4, 0],
@@ -156,7 +156,7 @@ export const LyDianLogo: React.FC<LyDianLogoProps> = ({
                 ease: 'easeInOut'
               } : undefined}>
 
-              <Sparkles className={`${config.iconInner} text-lydian-text-inverse drop-shadow-lg`} />
+              <Sparkles className={`${config.iconInner} text-white drop-shadow-lg`} />
             </motion.div>
           </div>
         </motion.div>
@@ -209,7 +209,7 @@ export const LyDianLogo: React.FC<LyDianLogoProps> = ({
 
 
         {/* Icon */}
-        <div className="relative w-full h-full flex items-center justify-center backdrop-blur-sm rounded-2xl border border-lydian-border-light">
+        <div className="relative w-full h-full flex items-center justify-center backdrop-blur-sm rounded-2xl border border-white/20">
           <motion.div
             animate={animated ? {
               y: [0, -4, 0],
@@ -221,7 +221,7 @@ export const LyDianLogo: React.FC<LyDianLogoProps> = ({
               ease: 'easeInOut'
             } : undefined}>
 
-            <Sparkles className={`${config.iconInner} text-lydian-text-inverse drop-shadow-lg`} />
+            <Sparkles className={`${config.iconInner} text-white drop-shadow-lg`} />
           </motion.div>
 
           {/* Shimmer Effect */}

@@ -78,7 +78,7 @@ export const ParachuteAnimation: React.FC<ParachuteAnimationProps> = ({ classNam
             <line x1="105" y1="195" x2="108" y2="210" stroke="#2E3A59" strokeWidth="3" strokeLinecap="round" />
             
             {/* Harness */}
-            <ellipse cx="100" cy="180" rx="10" ry="8" fill="none" stroke="#8B4513" strokeWidth="2" />
+            <ellipse cx="100" cy="180" rx="10" ry="8" fill="none" stroke="#810513" strokeWidth="2" />
           </g>
           
           {/* Dekoratif Bulutlar */}

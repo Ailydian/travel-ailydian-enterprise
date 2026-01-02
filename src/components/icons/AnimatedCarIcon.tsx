@@ -22,7 +22,7 @@ export const AnimatedCarIcon: React.FC<AnimatedCarIconProps> = ({
   return (
     <div className={`relative ${sizeClasses[size]} ${className}`}>
       {/* Premium Background Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-lydian-primary/10 via-purple-500/10 to-pink-500/10 rounded-2xl blur-xl" />
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 via-purple-500/10 to-pink-500/10 rounded-2xl blur-xl" />
 
       {/* Main Container */}
       <div className="relative w-full h-full flex items-center justify-center">
@@ -215,11 +215,11 @@ export const AnimatedCarIcon: React.FC<AnimatedCarIconProps> = ({
           transition={{ duration: 0.8, delay: 0.5 }}>
 
           <div className="text-center">
-            <div className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-lydian-primary via-lydian-secondary to-pink-600 text-xl">
+            <div className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-xl">
               Travel LyDian
             </div>
             <motion.div
-              className="h-1 bg-gradient-to-r from-lydian-primary via-purple-500 to-pink-500 rounded-full mt-1"
+              className="h-1 bg-gradient-to-r from-blue-600 via-purple-500 to-pink-500 rounded-full mt-1"
               animate={{ scaleX: [0.8, 1, 0.8] }}
               transition={{ duration: 2, repeat: Infinity }} />
 

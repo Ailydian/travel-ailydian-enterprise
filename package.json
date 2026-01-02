@@ -32,7 +32,12 @@
     "cypress:headless": "cypress run",
     "e2e": "start-server-and-test dev http://localhost:3100 cypress",
     "e2e:headless": "start-server-and-test dev http://localhost:3100 cypress:headless",
-    "test:all": "npm run test:ci && npm run e2e:headless"
+    "test:all": "npm run test:ci && npm run e2e:headless",
+    "content:test": "ts-node scripts/content-generation/test-generation.ts",
+    "content:cli": "ts-node scripts/content-generation/cli.ts",
+    "content:generate": "ts-node scripts/content-generation/run-batch.ts",
+    "content:generate:test": "BATCH_SIZE=10 ts-node scripts/content-generation/run-batch.ts",
+    "content:generate:full": "BATCH_SIZE=1000 CONCURRENCY=15 ts-node scripts/content-generation/run-batch.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.71.2",

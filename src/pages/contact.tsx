@@ -114,7 +114,7 @@ export default function Contact() {
 
       <ModernHeader />
 
-      <main className="min-h-screen bg-lydian-glass-dark">
+      <main className="min-h-screen bg-gradient-to-br from-slate-900 via-black to-slate-800">
         {/* Hero Section */}
         <NeoHero
           title="Bize Ulaşın"
@@ -142,7 +142,7 @@ export default function Contact() {
         </NeoHero>
 
         {/* Contact Form & Info Section */}
-        <section className="py-20 bg-lydian-glass-dark backdrop-blur-xl border-b border-lydian-border-light/10">
+        <section className="py-20 bg-gradient-to-br from-slate-900 via-black to-slate-800 backdrop-blur-xl border-b border-white/20/10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
               {/* Contact Form */}
@@ -151,24 +151,24 @@ export default function Contact() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className="bg-lydian-glass-dark-medium backdrop-blur-xl border border-lydian-border-light rounded-3xl p-8 md:p-10"
+                className="bg-white/10 backdrop-blur-xl border border-white/20 backdrop-blur-xl border border-white/20 rounded-3xl p-8 md:p-10"
               >
                 <div className="flex items-center gap-3 mb-8">
                   <div className="w-12 h-12 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-2xl flex items-center justify-center border border-cyan-500/30">
                     <Send className="w-6 h-6 text-cyan-400" />
                   </div>
-                  <h2 className="text-3xl font-black text-lydian-text-inverse">Mesaj Gönderin</h2>
+                  <h2 className="text-3xl font-black text-white">Mesaj Gönderin</h2>
                 </div>
 
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
-                    <label className="block text-sm font-semibold text-lydian-text-inverse mb-2">
+                    <label className="block text-sm font-semibold text-white mb-2">
                       Ad Soyad
                     </label>
                     <input
                       type="text"
                       required
-                      className="w-full px-4 py-3 bg-lydian-bg/50 backdrop-blur-sm border border-lydian-border-light rounded-xl focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-500/50 transition-all text-lydian-text-inverse placeholder-lydian-text-tertiary outline-none"
+                      className="w-full px-4 py-3 bg-white/50 backdrop-blur-sm border border-white/20 rounded-xl focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-500/50 transition-all text-white placeholder-lydian-text-tertiary outline-none"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder="Adınız ve soyadınız"
@@ -176,13 +176,13 @@ export default function Contact() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-semibold text-lydian-text-inverse mb-2">
+                    <label className="block text-sm font-semibold text-white mb-2">
                       E-posta
                     </label>
                     <input
                       type="email"
                       required
-                      className="w-full px-4 py-3 bg-lydian-bg/50 backdrop-blur-sm border border-lydian-border-light rounded-xl focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-500/50 transition-all text-lydian-text-inverse placeholder-lydian-text-tertiary outline-none"
+                      className="w-full px-4 py-3 bg-white/50 backdrop-blur-sm border border-white/20 rounded-xl focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-500/50 transition-all text-white placeholder-lydian-text-tertiary outline-none"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="ornek@email.com"
@@ -190,12 +190,12 @@ export default function Contact() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-semibold text-lydian-text-inverse mb-2">
+                    <label className="block text-sm font-semibold text-white mb-2">
                       Konu
                     </label>
                     <select
                       required
-                      className="w-full px-4 py-3 bg-lydian-bg/50 backdrop-blur-sm border border-lydian-border-light rounded-xl focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-500/50 transition-all text-lydian-text-inverse outline-none appearance-none cursor-pointer"
+                      className="w-full px-4 py-3 bg-white/50 backdrop-blur-sm border border-white/20 rounded-xl focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-500/50 transition-all text-white outline-none appearance-none cursor-pointer"
                       value={formData.subject}
                       onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                     >
@@ -210,13 +210,13 @@ export default function Contact() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-semibold text-lydian-text-inverse mb-2">
+                    <label className="block text-sm font-semibold text-white mb-2">
                       Mesaj
                     </label>
                     <textarea
                       required
                       rows={5}
-                      className="w-full px-4 py-3 bg-lydian-bg/50 backdrop-blur-sm border border-lydian-border-light rounded-xl focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-500/50 transition-all text-lydian-text-inverse placeholder-lydian-text-tertiary outline-none resize-none"
+                      className="w-full px-4 py-3 bg-white/50 backdrop-blur-sm border border-white/20 rounded-xl focus:ring-2 focus:ring-cyan-500/50 focus:border-cyan-500/50 transition-all text-white placeholder-lydian-text-tertiary outline-none resize-none"
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       placeholder="Mesajınızı buraya yazın..."
@@ -264,20 +264,20 @@ export default function Contact() {
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
                     whileHover={{ scale: 1.02, y: -5 }}
-                    className="bg-lydian-glass-dark-medium backdrop-blur-xl border border-lydian-border-light rounded-3xl p-6 group cursor-default"
+                    className="bg-white/10 backdrop-blur-xl border border-white/20 backdrop-blur-xl border border-white/20 rounded-3xl p-6 group cursor-default"
                   >
                     <div className="flex items-start gap-4">
                       <div
                         className={`w-14 h-14 bg-gradient-to-br ${info.color} rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform shadow-lg`}
                       >
-                        <info.icon className="w-7 h-7 text-lydian-text-inverse" />
+                        <info.icon className="w-7 h-7 text-white" />
                       </div>
                       <div className="flex-1">
-                        <h3 className="text-xl font-bold text-lydian-text-inverse mb-3">
+                        <h3 className="text-xl font-bold text-white mb-3">
                           {info.title}
                         </h3>
                         {info.details.map((detail, idx) => (
-                          <p key={idx} className="text-lydian-text-dim text-base leading-relaxed">
+                          <p key={idx} className="text-gray-400 text-base leading-relaxed">
                             {detail}
                           </p>
                         ))}
@@ -306,17 +306,17 @@ export default function Contact() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.15 }}
                 whileHover={{ scale: 1.05, y: -10 }}
-                className="bg-lydian-glass-dark-medium backdrop-blur-xl border border-lydian-border-light rounded-3xl p-8 text-center group cursor-pointer"
+                className="bg-white/10 backdrop-blur-xl border border-white/20 backdrop-blur-xl border border-white/20 rounded-3xl p-8 text-center group cursor-pointer"
               >
                 <div
                   className={`w-20 h-20 bg-gradient-to-br ${channel.color} rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform shadow-lg`}
                 >
-                  <channel.icon className="w-10 h-10 text-lydian-text-inverse" />
+                  <channel.icon className="w-10 h-10 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-lydian-text-inverse mb-3">
+                <h3 className="text-2xl font-bold text-white mb-3">
                   {channel.title}
                 </h3>
-                <p className="text-lydian-text-dim mb-6">{channel.description}</p>
+                <p className="text-gray-400 mb-6">{channel.description}</p>
                 <FuturisticButton variant="outline" size="md" fullWidth>
                   {channel.action}
                 </FuturisticButton>
@@ -326,17 +326,17 @@ export default function Contact() {
         </NeoSection>
 
         {/* Quick Links */}
-        <section className="py-20 bg-lydian-glass-dark backdrop-blur-xl border-t border-lydian-border-light/10">
+        <section className="py-20 bg-gradient-to-br from-slate-900 via-black to-slate-800 backdrop-blur-xl border-t border-white/20/10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="bg-lydian-glass-dark-medium backdrop-blur-xl border border-lydian-border-light rounded-3xl p-8"
+              className="bg-white/10 backdrop-blur-xl border border-white/20 backdrop-blur-xl border border-white/20 rounded-3xl p-8"
             >
               <div className="flex items-center gap-3 mb-8">
                 <Globe className="w-8 h-8 text-cyan-400" />
-                <h2 className="text-3xl font-black text-lydian-text-inverse">Hızlı Bağlantılar</h2>
+                <h2 className="text-3xl font-black text-white">Hızlı Bağlantılar</h2>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -345,13 +345,13 @@ export default function Contact() {
                     <motion.div
                       whileHover={{ scale: 1.05, x: 5 }}
                       whileTap={{ scale: 0.95 }}
-                      className="flex items-center gap-3 px-5 py-4 bg-lydian-bg/5 backdrop-blur-sm border border-lydian-border-light rounded-xl hover:bg-lydian-bg/10 hover:border-cyan-500/50 transition-all group"
+                      className="flex items-center gap-3 px-5 py-4 bg-white/5 backdrop-blur-sm border border-white/20 rounded-xl hover:bg-lydian-bg/10 hover:border-cyan-500/50 transition-all group"
                     >
                       <link.icon className="w-5 h-5 text-cyan-400 group-hover:scale-110 transition-transform" />
-                      <span className="text-lydian-text-inverse font-medium group-hover:text-cyan-400 transition-colors">
+                      <span className="text-white font-medium group-hover:text-cyan-400 transition-colors">
                         {link.title}
                       </span>
-                      <ArrowRight className="w-4 h-4 text-lydian-text-muted ml-auto group-hover:translate-x-2 transition-transform" />
+                      <ArrowRight className="w-4 h-4 text-gray-300 ml-auto group-hover:translate-x-2 transition-transform" />
                     </motion.div>
                   </Link>
                 ))}

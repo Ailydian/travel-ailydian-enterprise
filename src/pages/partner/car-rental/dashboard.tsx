@@ -149,43 +149,43 @@ const CarRentalDashboard: React.FC = () => {
 
   if (loading || !fleetStats || !revenueStats) {
     return (
-      <div className="min-h-screen bg-lydian-glass-dark flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-black to-slate-800 flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-lydian-primary mx-auto mb-4"></div>
-          <p className="text-lydian-text-dim">Yükleniyor...</p>
+          <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-blue-500 mx-auto mb-4"></div>
+          <p className="text-gray-400">Yükleniyor...</p>
         </div>
       </div>);
 
   }
 
   return (
-    <div className="min-h-screen bg-lydian-glass-dark">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-black to-slate-800">
       {/* Header */}
-      <div className="bg-lydian-glass-dark border-b border-lydian-border sticky top-0 z-50">
+      <div className="bg-gradient-to-br from-slate-900 via-black to-slate-800 border-b border-white/20 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center gap-4">
-              <Car className="h-6 w-6 text-lydian-primary" />
-              <h1 className="text-xl font-bold text-lydian-text-inverse">Araç Kiralama Dashboard</h1>
+              <Car className="h-6 w-6 text-blue-500" />
+              <h1 className="text-xl font-bold text-white">Araç Kiralama Dashboard</h1>
 
               {/* Sync Status */}
               <div className="flex items-center gap-2 text-sm">
                 {syncStatus === 'synced' ?
                 <>
-                    <div className="w-2 h-2 bg-lydian-success rounded-full animate-pulse"></div>
-                    <span className="text-lydian-success font-medium">Senkronize</span>
+                    <div className="w-2 h-2 bg-green-600 rounded-full animate-pulse"></div>
+                    <span className="text-green-500 font-medium">Senkronize</span>
                   </> :
 
                 <>
-                    <div className="w-2 h-2 bg-lydian-warning-hover rounded-full animate-pulse"></div>
-                    <span className="text-lydian-warning font-medium">Güncelleniyor...</span>
+                    <div className="w-2 h-2 bg-yellow-500-hover rounded-full animate-pulse"></div>
+                    <span className="text-yellow-500 font-medium">Güncelleniyor...</span>
                   </>
                 }
               </div>
             </div>
 
             <div className="flex items-center gap-4">
-              <button className="relative p-2 text-lydian-text-dim hover:bg-lydian-glass-dark-medium rounded-lg">
+              <button className="relative p-2 text-gray-400 hover:bg-white/10 backdrop-blur-xl border border-white/20 rounded-lg">
                 <Bell className="h-5 w-5" />
                 {maintenanceAlerts.length > 0 &&
                 <span className="absolute top-1 right-1 w-2 h-2 bg-lydian-error rounded-full"></span>
@@ -194,7 +194,7 @@ const CarRentalDashboard: React.FC = () => {
 
               <button
                 onClick={() => router.push('/partner/car-rental/settings')}
-                className="p-2 text-lydian-text-dim hover:bg-lydian-glass-dark-medium rounded-lg">
+                className="p-2 text-gray-400 hover:bg-white/10 backdrop-blur-xl border border-white/20 rounded-lg">
 
                 <Settings className="h-5 w-5" />
               </button>
@@ -210,17 +210,17 @@ const CarRentalDashboard: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-lydian-glass-dark rounded-xl p-6 shadow-md">
+            className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-xl p-6 shadow-md">
 
             <div className="flex items-center justify-between mb-4">
-              <Car className="h-8 w-8 text-lydian-primary" />
-              <span className="text-xs font-semibold text-lydian-primary bg-lydian-primary-light px-2 py-1 rounded-full">
+              <Car className="h-8 w-8 text-blue-500" />
+              <span className="text-xs font-semibold text-blue-500 bg-blue-500/10 px-2 py-1 rounded-full">
                 FILO
               </span>
             </div>
-            <p className="text-lydian-text-dim text-sm mb-1">Toplam Araç</p>
-            <p className="text-3xl font-bold text-lydian-text-inverse">{fleetStats.total}</p>
-            <p className="text-xs text-lydian-text-muted mt-2">
+            <p className="text-gray-400 text-sm mb-1">Toplam Araç</p>
+            <p className="text-3xl font-bold text-white">{fleetStats.total}</p>
+            <p className="text-xs text-gray-300 mt-2">
               {fleetStats.available} müsait · {fleetStats.booked} kiralanmış
             </p>
           </motion.div>
@@ -230,17 +230,17 @@ const CarRentalDashboard: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="bg-lydian-glass-dark rounded-xl p-6 shadow-md">
+            className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-xl p-6 shadow-md">
 
             <div className="flex items-center justify-between mb-4">
-              <PieChart className="h-8 w-8 text-lydian-success" />
-              <TrendingUp className="h-5 w-5 text-lydian-success" />
+              <PieChart className="h-8 w-8 text-green-500" />
+              <TrendingUp className="h-5 w-5 text-green-500" />
             </div>
-            <p className="text-lydian-text-dim text-sm mb-1">Kullanım Oranı</p>
-            <p className="text-3xl font-bold text-lydian-text-inverse">%{fleetStats.utilizationRate}</p>
-            <div className="w-full bg-lydian-bg-active rounded-full h-2 mt-2">
+            <p className="text-gray-400 text-sm mb-1">Kullanım Oranı</p>
+            <p className="text-3xl font-bold text-white">%{fleetStats.utilizationRate}</p>
+            <div className="w-full bg-white/10 backdrop-blur-xl border border-white/20 rounded-full h-2 mt-2">
               <div
-                className="bg-lydian-success h-2 rounded-full"
+                className="bg-green-600 h-2 rounded-full"
                 style={{ width: `${fleetStats.utilizationRate}%` }}>
               </div>
             </div>
@@ -251,7 +251,7 @@ const CarRentalDashboard: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="bg-gradient-to-br from-lydian-primary to-lydian-primary-dark rounded-xl p-6 shadow-lg text-lydian-text-inverse">
+            className="bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl p-6 shadow-lg text-white">
 
             <div className="flex items-center justify-between mb-4">
               <DollarSign className="h-8 w-8 opacity-80" />
@@ -282,20 +282,20 @@ const CarRentalDashboard: React.FC = () => {
             <div className="flex items-center justify-between mb-4">
               <Wrench
                 className={`h-8 w-8 ${
-                maintenanceAlerts.length > 0 ? 'text-lydian-error' : 'text-lydian-text-muted'}`
+                maintenanceAlerts.length > 0 ? 'text-lydian-error' : 'text-gray-300'}`
                 } />
 
               {maintenanceAlerts.length > 0 &&
-              <AlertTriangle className="h-5 w-5 text-lydian-primary" />
+              <AlertTriangle className="h-5 w-5 text-blue-500" />
               }
             </div>
-            <p className="text-lydian-text-dim text-sm mb-1">Bakım Uyarıları</p>
+            <p className="text-gray-400 text-sm mb-1">Bakım Uyarıları</p>
             <p className={`text-3xl font-bold ${
             maintenanceAlerts.length > 0 ? 'text-lydian-error' : 'text-white'}`
             }>
               {maintenanceAlerts.length}
             </p>
-            <p className="text-xs text-lydian-text-muted mt-2">
+            <p className="text-xs text-gray-300 mt-2">
               {maintenanceAlerts.length === 0 ? 'Tüm araçlar sağlıklı' : 'Dikkat gerekiyor'}
             </p>
           </motion.div>
@@ -304,19 +304,19 @@ const CarRentalDashboard: React.FC = () => {
         {/* Fleet & Revenue Charts */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
           {/* Fleet Status Chart */}
-          <div className="bg-lydian-glass-dark rounded-xl p-6 shadow-md">
-            <h3 className="text-lg font-bold text-lydian-text-inverse mb-4">Filo Durumu</h3>
+          <div className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-xl p-6 shadow-md">
+            <h3 className="text-lg font-bold text-white mb-4">Filo Durumu</h3>
             <Doughnut data={fleetChartData} options={fleetChartOptions} />
           </div>
 
           {/* Revenue Chart */}
-          <div className="lg:col-span-2 bg-lydian-glass-dark rounded-xl p-6 shadow-md">
+          <div className="lg:col-span-2 bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-xl p-6 shadow-md">
             <div className="flex items-center justify-between mb-4">
               <div>
-                <h3 className="text-lg font-bold text-lydian-text-inverse">Gelir Trendi</h3>
-                <p className="text-sm text-lydian-text-muted">Son 30 gün</p>
+                <h3 className="text-lg font-bold text-white">Gelir Trendi</h3>
+                <p className="text-sm text-gray-300">Son 30 gün</p>
               </div>
-              <BarChart3 className="h-5 w-5 text-lydian-primary" />
+              <BarChart3 className="h-5 w-5 text-blue-500" />
             </div>
             <Line data={revenueChartData} />
           </div>
@@ -330,7 +330,7 @@ const CarRentalDashboard: React.FC = () => {
           className="bg-lydian-error-lighter border-l-4 border-lydian-secondary rounded-lg p-6 mb-8">
 
             <div className="flex items-start gap-4">
-              <AlertTriangle className="h-6 w-6 text-lydian-primary flex-shrink-0 mt-1" />
+              <AlertTriangle className="h-6 w-6 text-blue-500 flex-shrink-0 mt-1" />
               <div className="flex-1">
                 <h3 className="text-lg font-bold text-red-900 mb-3">
                   Acil Bakım Gerektiren Araçlar ({maintenanceAlerts.length})
@@ -339,11 +339,11 @@ const CarRentalDashboard: React.FC = () => {
                   {maintenanceAlerts.map((alert, index) =>
                 <div
                   key={index}
-                  className="flex items-center justify-between p-3 bg-lydian-glass-dark rounded-lg">
+                  className="flex items-center justify-between p-3 bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-lg">
 
                       <div>
-                        <p className="font-semibold text-lydian-text-inverse">{alert.vehicleName}</p>
-                        <p className="text-sm text-lydian-text-dim">{alert.description}</p>
+                        <p className="font-semibold text-white">{alert.vehicleName}</p>
+                        <p className="text-sm text-gray-400">{alert.description}</p>
                       </div>
                       <div className="text-right">
                         <span
@@ -361,7 +361,7 @@ const CarRentalDashboard: React.FC = () => {
                       'ACİL' :
                       'PLANLI'}
                         </span>
-                        <p className="text-xs text-lydian-text-muted mt-1">{alert.dueDate}</p>
+                        <p className="text-xs text-gray-300 mt-1">{alert.dueDate}</p>
                       </div>
                     </div>
                 )}
@@ -372,47 +372,47 @@ const CarRentalDashboard: React.FC = () => {
         }
 
         {/* Vehicle List */}
-        <div className="bg-lydian-glass-dark rounded-xl shadow-md overflow-hidden">
-          <div className="p-6 border-b border-lydian-border">
-            <h3 className="text-lg font-bold text-lydian-text-inverse">Araç Filosu</h3>
-            <p className="text-sm text-lydian-text-muted">Tüm araçlarınızın detaylı durumu</p>
+        <div className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-xl shadow-md overflow-hidden">
+          <div className="p-6 border-b border-white/20">
+            <h3 className="text-lg font-bold text-white">Araç Filosu</h3>
+            <p className="text-sm text-gray-300">Tüm araçlarınızın detaylı durumu</p>
           </div>
 
           <div className="overflow-x-auto">
             <table className="w-full">
-              <thead className="bg-lydian-glass-dark">
+              <thead className="bg-gradient-to-br from-slate-900 via-black to-slate-800">
                 <tr>
-                  <th className="px-6 py-3 text-left text-xs font-semibold text-lydian-text-dim uppercase">
+                  <th className="px-6 py-3 text-left text-xs font-semibold text-gray-400 uppercase">
                     Araç
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-semibold text-lydian-text-dim uppercase">
+                  <th className="px-6 py-3 text-left text-xs font-semibold text-gray-400 uppercase">
                     Durum
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-semibold text-lydian-text-dim uppercase">
+                  <th className="px-6 py-3 text-left text-xs font-semibold text-gray-400 uppercase">
                     Mevcut Kiralama
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-semibold text-lydian-text-dim uppercase">
+                  <th className="px-6 py-3 text-left text-xs font-semibold text-gray-400 uppercase">
                     Km
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-semibold text-lydian-text-dim uppercase">
+                  <th className="px-6 py-3 text-left text-xs font-semibold text-gray-400 uppercase">
                     Bu Ay Gelir
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-semibold text-lydian-text-dim uppercase">
+                  <th className="px-6 py-3 text-left text-xs font-semibold text-gray-400 uppercase">
                     Kullanım %
                   </th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-lydian-border">
                 {vehicles.map((vehicle) =>
-                <tr key={vehicle.id} className="hover:bg-lydian-glass-dark">
+                <tr key={vehicle.id} className="hover:bg-gradient-to-br from-slate-900 via-black to-slate-800">
                     <td className="px-6 py-4">
                       <div className="flex items-center gap-3">
-                        <Car className="h-5 w-5 text-lydian-text-muted" />
+                        <Car className="h-5 w-5 text-gray-300" />
                         <div>
-                          <p className="font-semibold text-lydian-text-inverse">
+                          <p className="font-semibold text-white">
                             {vehicle.make} {vehicle.model}
                           </p>
-                          <p className="text-xs text-lydian-text-muted">
+                          <p className="text-xs text-gray-300">
                             {vehicle.year} · {vehicle.plateNumber}
                           </p>
                         </div>
@@ -421,13 +421,13 @@ const CarRentalDashboard: React.FC = () => {
 
                     <td className="px-6 py-4">
                       {vehicle.status === 'available' &&
-                    <span className="flex items-center gap-1 text-lydian-success-text bg-lydian-success-light text-xs font-semibold px-2 py-1 rounded-full w-fit">
+                    <span className="flex items-center gap-1 text-green-500-text bg-green-600-light text-xs font-semibold px-2 py-1 rounded-full w-fit">
                           <CheckCircle className="h-3 w-3" />
                           Müsait
                         </span>
                     }
                       {vehicle.status === 'booked' &&
-                    <span className="flex items-center gap-1 text-lydian-primary-dark bg-lydian-primary-light text-xs font-semibold px-2 py-1 rounded-full w-fit">
+                    <span className="flex items-center gap-1 text-blue-600 bg-blue-500/10 text-xs font-semibold px-2 py-1 rounded-full w-fit">
                           <Calendar className="h-3 w-3" />
                           Kiralanmış
                         </span>
@@ -443,40 +443,40 @@ const CarRentalDashboard: React.FC = () => {
                     <td className="px-6 py-4">
                       {vehicle.currentBooking ?
                     <div className="text-sm">
-                          <p className="font-medium text-lydian-text-inverse">
+                          <p className="font-medium text-white">
                             {vehicle.currentBooking.guestName}
                           </p>
-                          <p className="text-xs text-lydian-text-muted">
+                          <p className="text-xs text-gray-300">
                             {new Date(vehicle.currentBooking.startDate).toLocaleDateString('tr-TR')} -{' '}
                             {new Date(vehicle.currentBooking.endDate).toLocaleDateString('tr-TR')}
                           </p>
                         </div> :
 
-                    <span className="text-sm text-lydian-text-muted">-</span>
+                    <span className="text-sm text-gray-300">-</span>
                     }
                     </td>
 
                     <td className="px-6 py-4">
-                      <span className="text-sm text-lydian-text-inverse">
+                      <span className="text-sm text-white">
                         {vehicle.totalKm.toLocaleString()} km
                       </span>
                     </td>
 
                     <td className="px-6 py-4">
-                      <span className="text-sm font-semibold text-lydian-text-inverse">
+                      <span className="text-sm font-semibold text-white">
                         ₺{vehicle.revenueThisMonth.toLocaleString()}
                       </span>
                     </td>
 
                     <td className="px-6 py-4">
                       <div className="flex items-center gap-2">
-                        <div className="flex-1 bg-lydian-bg-active rounded-full h-2">
+                        <div className="flex-1 bg-white/10 backdrop-blur-xl border border-white/20 rounded-full h-2">
                           <div
-                          className="bg-lydian-primary h-2 rounded-full"
+                          className="bg-gradient-to-r from-blue-600 to-purple-600 h-2 rounded-full"
                           style={{ width: `${vehicle.utilizationRate}%` }}>
                         </div>
                         </div>
-                        <span className="text-xs font-medium text-lydian-text-dim">
+                        <span className="text-xs font-medium text-gray-400">
                           %{vehicle.utilizationRate}
                         </span>
                       </div>

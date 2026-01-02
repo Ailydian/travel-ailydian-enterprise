@@ -49,7 +49,7 @@ export const AIAnswerBlock: React.FC<AIAnswerBlockProps> = ({
 }) => {
   return (
     <article
-      className="ai-answer-block bg-lydian-glass-dark backdrop-blur-sm border border-lydian-border-light/10 rounded-2xl p-8 my-8"
+      className="ai-answer-block bg-gradient-to-br from-slate-900 via-black to-slate-800 backdrop-blur-sm border border-white/20/10 rounded-2xl p-8 my-8"
       itemScope
       itemType="https://schema.org/Article">
 
@@ -64,7 +64,7 @@ export const AIAnswerBlock: React.FC<AIAnswerBlockProps> = ({
       {/* AI-Optimized Header */}
       <header className="mb-6">
         <h2
-          className="text-3xl font-bold text-lydian-text-inverse mb-4"
+          className="text-3xl font-bold text-white mb-4"
           itemProp="headline">
 
           {topic}
@@ -72,10 +72,10 @@ export const AIAnswerBlock: React.FC<AIAnswerBlockProps> = ({
 
         {/* Short Answer - Optimized for AI snippet extraction */}
         <div
-          className="ai-short-answer bg-gradient-to-r from-lydian-primary/10 to-lydian-secondary/10 border-l-4 border-lydian-primary rounded-lg p-4 mb-4"
+          className="ai-short-answer bg-gradient-to-r from-blue-600/10 to-purple-700/10 border-l-4 border-blue-500 rounded-lg p-4 mb-4"
           itemProp="abstract">
 
-          <p className="text-lg font-semibold text-lydian-text-inverse leading-relaxed">
+          <p className="text-lg font-semibold text-white leading-relaxed">
             {shortAnswer}
           </p>
         </div>
@@ -84,7 +84,7 @@ export const AIAnswerBlock: React.FC<AIAnswerBlockProps> = ({
       {/* Expanded Answer - Citation-Ready Content */}
       <section className="mb-6" itemProp="articleBody">
         <div className="prose prose-invert max-w-none">
-          <p className="text-lydian-text-muted leading-relaxed text-base">
+          <p className="text-gray-300 leading-relaxed text-base">
             {expandedAnswer}
           </p>
         </div>
@@ -93,18 +93,18 @@ export const AIAnswerBlock: React.FC<AIAnswerBlockProps> = ({
       {/* Key Facts - Bullet Points for AI Extraction */}
       {keyFacts.length > 0 &&
       <section className="mb-6">
-          <h3 className="text-xl font-semibold text-lydian-text-inverse mb-4 flex items-center gap-2">
-            <CheckCircle className="w-5 h-5 text-lydian-primary" />
+          <h3 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
+            <CheckCircle className="w-5 h-5 text-blue-500" />
             Önemli Noktalar
           </h3>
           <ul className="space-y-2" itemProp="mentions">
             {keyFacts.map((fact, index) =>
           <li
             key={index}
-            className="flex items-start gap-3 text-lydian-text-muted"
+            className="flex items-start gap-3 text-gray-300"
             itemProp="about">
 
-                <span className="text-lydian-primary mt-1">•</span>
+                <span className="text-blue-500 mt-1">•</span>
                 <span className="flex-1">{fact}</span>
               </li>
           )}
@@ -119,13 +119,13 @@ export const AIAnswerBlock: React.FC<AIAnswerBlockProps> = ({
             {trustSignals.map((signal, index) =>
           <div
             key={index}
-            className="bg-lydian-glass-dark backdrop-blur-sm border border-lydian-border-light/10 rounded-xl p-4 text-center">
+            className="bg-gradient-to-br from-slate-900 via-black to-slate-800 backdrop-blur-sm border border-white/20/10 rounded-xl p-4 text-center">
 
-                <div className="flex justify-center mb-2 text-lydian-primary">
+                <div className="flex justify-center mb-2 text-blue-500">
                   {signal.icon}
                 </div>
-                <div className="text-sm text-lydian-text-dim mb-1">{signal.label}</div>
-                <div className="text-lg font-bold text-lydian-text-inverse">{signal.value}</div>
+                <div className="text-sm text-gray-400 mb-1">{signal.label}</div>
+                <div className="text-lg font-bold text-white">{signal.value}</div>
               </div>
           )}
           </div>
@@ -139,29 +139,29 @@ export const AIAnswerBlock: React.FC<AIAnswerBlockProps> = ({
         itemScope
         itemType="https://schema.org/FAQPage">
 
-          <h3 className="text-xl font-semibold text-lydian-text-inverse mb-4">
+          <h3 className="text-xl font-semibold text-white mb-4">
             Sık Sorulan Sorular
           </h3>
           <div className="space-y-4">
             {faqItems.map((faq, index) =>
           <details
             key={index}
-            className="bg-lydian-glass-dark backdrop-blur-sm border border-lydian-border-light/10 rounded-lg p-4 group"
+            className="bg-gradient-to-br from-slate-900 via-black to-slate-800 backdrop-blur-sm border border-white/20/10 rounded-lg p-4 group"
             itemScope
             itemProp="mainEntity"
             itemType="https://schema.org/Question">
 
                 <summary
-              className="font-semibold text-lydian-text-inverse cursor-pointer list-none flex items-center justify-between"
+              className="font-semibold text-white cursor-pointer list-none flex items-center justify-between"
               itemProp="name">
 
                   <span>{faq.question}</span>
-                  <span className="text-lydian-primary group-open:rotate-180 transition-transform">
+                  <span className="text-blue-500 group-open:rotate-180 transition-transform">
                     ▼
                   </span>
                 </summary>
                 <div
-              className="mt-3 text-lydian-text-muted leading-relaxed"
+              className="mt-3 text-gray-300 leading-relaxed"
               itemScope
               itemProp="acceptedAnswer"
               itemType="https://schema.org/Answer">
@@ -176,18 +176,18 @@ export const AIAnswerBlock: React.FC<AIAnswerBlockProps> = ({
 
       {/* Citations - Source Attribution */}
       {citations.length > 0 &&
-      <footer className="mt-6 pt-6 border-t border-lydian-border-light/10">
-          <h4 className="text-sm font-semibold text-lydian-text-dim mb-3">Kaynaklar:</h4>
+      <footer className="mt-6 pt-6 border-t border-white/20/10">
+          <h4 className="text-sm font-semibold text-gray-400 mb-3">Kaynaklar:</h4>
           <ul className="space-y-2">
             {citations.map((citation, index) =>
           <li
             key={index}
-            className="text-sm text-lydian-text-muted"
+            className="text-sm text-gray-300"
             itemProp="citation">
 
                 <a
               href={citation.url}
-              className="hover:text-lydian-primary transition-colors"
+              className="hover:text-blue-500 transition-colors"
               target="_blank"
               rel="noopener noreferrer">
 

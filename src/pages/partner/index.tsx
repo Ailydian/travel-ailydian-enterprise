@@ -269,9 +269,9 @@ const PartnerIndexPage = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="flex items-center gap-2 px-6 py-3 bg-lydian-bg/90 backdrop-blur-lg border border-lydian-border rounded-full shadow-xl hover:shadow-2xl transition-all group">
+              className="flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-lg border border-white/20 rounded-full shadow-xl hover:shadow-2xl transition-all group">
 
-              <Home className="w-5 h-5 text-lydian-primary group-hover:-translate-x-1 transition-transform" />
+              <Home className="w-5 h-5 text-blue-500 group-hover:-translate-x-1 transition-transform" />
               <span className="font-semibold text-lydian-text-secondary">Anasayfa'ya Dön</span>
             </motion.button>
           </Link>
@@ -304,7 +304,7 @@ const PartnerIndexPage = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] text-lydian-text-inverse rounded-full text-sm font-semibold mb-6">
+              className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] text-white rounded-full text-sm font-semibold mb-6">
 
               <Sparkles className="w-4 h-4" />
               <span>Türkiye'nin En Yenilikçi Partner Platformu</span>
@@ -318,7 +318,7 @@ const PartnerIndexPage = () => {
 
               Turizm Gelirlerinizi
               <br />
-              <span className="bg-gradient-to-r from-lydian-primary via-lydian-secondary to-pink-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">
                 3X Artırın
               </span>
             </motion.h1>
@@ -330,7 +330,7 @@ const PartnerIndexPage = () => {
               className="text-xl md:text-2xl text-lydian-text-secondary mb-8 max-w-3xl mx-auto leading-relaxed">
 
               AI destekli araçlar, %0 komisyon fırsatı ve 24/7 premium destek ile
-              <span className="font-semibold text-lydian-primary"> 5,000+ partner</span> kazançlarını artırdı.
+              <span className="font-semibold text-blue-500"> 5,000+ partner</span> kazançlarını artırdı.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -344,7 +344,7 @@ const PartnerIndexPage = () => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="group flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] text-lydian-text-inverse rounded-full font-bold text-lg shadow-2xl hover:shadow-blue-500/50 transition-all">
+                  className="group flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] text-white rounded-full font-bold text-lg shadow-2xl hover:shadow-blue-500/50 transition-all">
 
                   <span>Hemen Başla</span>
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -355,9 +355,9 @@ const PartnerIndexPage = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setShowVideo(true)}
-                className="group flex items-center gap-3 px-8 py-4 bg-lydian-bg-hover border-2 border-lydian-border text-lydian-text-secondary rounded-full font-semibold text-lg shadow-xl hover:shadow-2xl transition-all">
+                className="group flex items-center gap-3 px-8 py-4 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl border-2 border-white/20 text-lydian-text-secondary rounded-full font-semibold text-lg shadow-xl hover:shadow-2xl transition-all">
 
-                <Play className="w-5 h-5 text-lydian-primary" />
+                <Play className="w-5 h-5 text-blue-500" />
                 <span>Nasıl Çalışır?</span>
               </motion.button>
             </motion.div>
@@ -378,7 +378,7 @@ const PartnerIndexPage = () => {
               <motion.div
                 key={index}
                 whileHover={{ y: -5 }}
-                className="bg-lydian-bg/80 backdrop-blur-lg rounded-2xl p-6 shadow-xl border border-slate-100">
+                className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 shadow-xl border border-slate-100">
 
                   <stat.icon className={`w-8 h-8 text-${stat.color}-600 mb-2 mx-auto`} />
                   <div className="text-3xl font-bold text-lydian-text mb-1">{stat.value}</div>
@@ -424,13 +424,13 @@ const PartnerIndexPage = () => {
                 whileHover={{ y: -10 }}
                 className="group relative">
 
-                  <div className="relative bg-lydian-bg-hover rounded-3xl p-8 shadow-2xl border border-slate-100 hover:shadow-blue-500/20 transition-all overflow-hidden">
+                  <div className="relative bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-3xl p-8 shadow-2xl border border-slate-100 hover:shadow-blue-500/20 transition-all overflow-hidden">
                     {/* Gradient Background */}
                     <div className={`absolute top-0 right-0 w-64 h-64 bg-gradient-to-br ${partner.gradient} opacity-10 rounded-full blur-3xl group-hover:opacity-20 transition-opacity`} />
 
                     {/* Icon & Title */}
                     <div className="relative flex items-start gap-4 mb-6">
-                      <div className={`p-4 bg-gradient-to-br ${partner.gradient} rounded-2xl shadow-xl text-lydian-text-inverse`}>
+                      <div className={`p-4 bg-gradient-to-br ${partner.gradient} rounded-2xl shadow-xl text-white`}>
                         <partner.icon className="w-8 h-8" />
                       </div>
                       <div className="flex-1">
@@ -473,9 +473,9 @@ const PartnerIndexPage = () => {
 
                     {/* Commission */}
                     <div className="mb-6">
-                      <div className="flex items-center justify-between bg-lydian-primary-lighter rounded-xl p-3">
+                      <div className="flex items-center justify-between bg-blue-500/10er rounded-xl p-3">
                         <span className="text-sm font-semibold text-blue-900">Komisyon Oranı</span>
-                        <span className="text-lg font-bold text-lydian-primary">{partner.commission}</span>
+                        <span className="text-lg font-bold text-blue-500">{partner.commission}</span>
                       </div>
                     </div>
 
@@ -498,7 +498,7 @@ const PartnerIndexPage = () => {
                         <motion.button
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
-                        className={`w-full flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r ${partner.gradient} text-lydian-text-inverse rounded-xl font-bold shadow-lg hover:shadow-xl transition-all`}>
+                        className={`w-full flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r ${partner.gradient} text-white rounded-xl font-bold shadow-lg hover:shadow-xl transition-all`}>
 
                           <span>Başvuru Yap</span>
                           <ArrowRight className="w-5 h-5" />
@@ -519,7 +519,7 @@ const PartnerIndexPage = () => {
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: 'auto', opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      className="overflow-hidden mt-6 pt-6 border-t border-lydian-border">
+                      className="overflow-hidden mt-6 pt-6 border-t border-white/20">
 
                           <div className="mb-6">
                             <h4 className="text-lg font-bold text-lydian-text mb-3">Detaylı Açıklama</h4>
@@ -552,7 +552,7 @@ const PartnerIndexPage = () => {
 
                           <div className="mt-6 flex gap-3">
                             <Link href={partner.loginUrl} className="flex-1">
-                              <button className="w-full px-6 py-3 bg-lydian-bg-hover border-2 border-lydian-border text-lydian-text-secondary rounded-xl font-semibold hover:border-lydian-border-medium transition-all">
+                              <button className="w-full px-6 py-3 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl border-2 border-white/20 text-lydian-text-secondary rounded-xl font-semibold hover:border-white/30 transition-all">
                                 Giriş Yap
                               </button>
                             </Link>
@@ -632,10 +632,10 @@ const PartnerIndexPage = () => {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ y: -10 }}
-                className="bg-lydian-bg-hover rounded-2xl p-8 shadow-xl border border-slate-100 hover:shadow-2xl transition-all">
+                className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-2xl p-8 shadow-xl border border-slate-100 hover:shadow-2xl transition-all">
 
                   <div className={`inline-flex p-4 bg-gradient-to-br ${item.color} rounded-2xl mb-4`}>
-                    <item.icon className="w-8 h-8 text-lydian-text-inverse" />
+                    <item.icon className="w-8 h-8 text-white" />
                   </div>
                   <h3 className="text-xl font-bold text-lydian-text mb-3">{item.title}</h3>
                   <p className="text-lydian-text-secondary leading-relaxed">{item.description}</p>
@@ -652,20 +652,20 @@ const PartnerIndexPage = () => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="relative bg-gradient-to-r from-lydian-primary via-lydian-secondary to-pink-600 rounded-3xl p-12 text-center overflow-hidden">
+              className="relative bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-3xl p-12 text-center overflow-hidden">
 
               <div className="relative z-10">
-                <h2 className="text-4xl md:text-5xl font-bold text-lydian-text-inverse mb-6">
+                <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
                   Hemen Başlayın, İlk 6 Ay %0 Komisyon!
                 </h2>
-                <p className="text-xl text-lydian-text-inverse/90 mb-8">
+                <p className="text-xl text-white/90 mb-8">
                   Başvurunuzu yapın, onay alın ve 24 saat içinde kazanmaya başlayın
                 </p>
                 <Link href="#partner-types">
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="px-12 py-4 bg-lydian-bg-hover text-lydian-primary rounded-full font-bold text-lg shadow-2xl hover:shadow-white/30 transition-all">
+                    className="px-12 py-4 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl text-blue-500 rounded-full font-bold text-lg shadow-2xl hover:shadow-white/30 transition-all">
 
                     Partner Başvurusu Yap
                   </motion.button>
@@ -676,12 +676,12 @@ const PartnerIndexPage = () => {
               <motion.div
                 animate={{ rotate: 360 }}
                 transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                className="absolute top-0 right-0 w-64 h-64 bg-lydian-glass-dark-medium rounded-full blur-3xl" />
+                className="absolute top-0 right-0 w-64 h-64 bg-white/10 backdrop-blur-xl border border-white/20 rounded-full blur-3xl" />
 
               <motion.div
                 animate={{ rotate: -360 }}
                 transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-                className="absolute bottom-0 left-0 w-64 h-64 bg-lydian-glass-dark-medium rounded-full blur-3xl" />
+                className="absolute bottom-0 left-0 w-64 h-64 bg-white/10 backdrop-blur-xl border border-white/20 rounded-full blur-3xl" />
 
             </motion.div>
           </div>
@@ -692,7 +692,7 @@ const PartnerIndexPage = () => {
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
               <div>
-                <Phone className="w-12 h-12 text-lydian-primary mx-auto mb-4" />
+                <Phone className="w-12 h-12 text-blue-500 mx-auto mb-4" />
                 <h3 className="font-bold text-lydian-text mb-2">Telefon</h3>
                 <p className="text-lydian-text-secondary">0850 XXX XX XX</p>
               </div>

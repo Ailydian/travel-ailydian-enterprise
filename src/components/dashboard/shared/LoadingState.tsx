@@ -21,18 +21,18 @@ export interface LoadingStateProps {
  * Card skeleton component
  */
 const CardSkeleton: React.FC = () =>
-<div className="bg-lydian-glass-dark rounded-lg border border-lydian-border overflow-hidden animate-pulse">
-    <div className="h-48 bg-lydian-bg-active" />
+<div className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-lg border border-white/20 overflow-hidden animate-pulse">
+    <div className="h-48 bg-white/10 backdrop-blur-xl border border-white/20" />
     <div className="p-4 space-y-3">
-      <div className="h-6 bg-lydian-bg-active rounded w-3/4" />
-      <div className="h-4 bg-lydian-bg-active rounded w-1/2" />
+      <div className="h-6 bg-white/10 backdrop-blur-xl border border-white/20 rounded w-3/4" />
+      <div className="h-4 bg-white/10 backdrop-blur-xl border border-white/20 rounded w-1/2" />
       <div className="flex items-center justify-between">
-        <div className="h-6 bg-lydian-bg-active rounded w-24" />
-        <div className="h-5 bg-lydian-bg-active rounded w-16" />
+        <div className="h-6 bg-white/10 backdrop-blur-xl border border-white/20 rounded w-24" />
+        <div className="h-5 bg-white/10 backdrop-blur-xl border border-white/20 rounded w-16" />
       </div>
       <div className="flex gap-2 pt-2">
-        <div className="h-9 bg-lydian-bg-active rounded flex-1" />
-        <div className="h-9 bg-lydian-bg-active rounded flex-1" />
+        <div className="h-9 bg-white/10 backdrop-blur-xl border border-white/20 rounded flex-1" />
+        <div className="h-9 bg-white/10 backdrop-blur-xl border border-white/20 rounded flex-1" />
       </div>
     </div>
   </div>;
@@ -43,15 +43,15 @@ const CardSkeleton: React.FC = () =>
  */
 const TableRowSkeleton: React.FC = () =>
 <div className="animate-pulse">
-    <div className="flex items-center space-x-4 p-4 border-b border-lydian-border">
-      <div className="h-10 w-10 bg-lydian-bg-active rounded-full flex-shrink-0" />
+    <div className="flex items-center space-x-4 p-4 border-b border-white/20">
+      <div className="h-10 w-10 bg-white/10 backdrop-blur-xl border border-white/20 rounded-full flex-shrink-0" />
       <div className="flex-1 space-y-2">
-        <div className="h-4 bg-lydian-bg-active rounded w-1/4" />
-        <div className="h-3 bg-lydian-bg-active rounded w-1/3" />
+        <div className="h-4 bg-white/10 backdrop-blur-xl border border-white/20 rounded w-1/4" />
+        <div className="h-3 bg-white/10 backdrop-blur-xl border border-white/20 rounded w-1/3" />
       </div>
-      <div className="h-4 bg-lydian-bg-active rounded w-24" />
-      <div className="h-4 bg-lydian-bg-active rounded w-20" />
-      <div className="h-8 w-8 bg-lydian-bg-active rounded" />
+      <div className="h-4 bg-white/10 backdrop-blur-xl border border-white/20 rounded w-24" />
+      <div className="h-4 bg-white/10 backdrop-blur-xl border border-white/20 rounded w-20" />
+      <div className="h-8 w-8 bg-white/10 backdrop-blur-xl border border-white/20 rounded" />
     </div>
   </div>;
 
@@ -60,15 +60,15 @@ const TableRowSkeleton: React.FC = () =>
  * List item skeleton component
  */
 const ListSkeleton: React.FC = () =>
-<div className="bg-lydian-glass-dark rounded-lg border border-lydian-border p-4 animate-pulse">
+<div className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-lg border border-white/20 p-4 animate-pulse">
     <div className="flex items-center space-x-4">
-      <div className="h-12 w-12 bg-lydian-bg-active rounded-full flex-shrink-0" />
+      <div className="h-12 w-12 bg-white/10 backdrop-blur-xl border border-white/20 rounded-full flex-shrink-0" />
       <div className="flex-1 space-y-2">
-        <div className="h-5 bg-lydian-bg-active rounded w-1/3" />
-        <div className="h-4 bg-lydian-bg-active rounded w-1/2" />
-        <div className="h-3 bg-lydian-bg-active rounded w-1/4" />
+        <div className="h-5 bg-white/10 backdrop-blur-xl border border-white/20 rounded w-1/3" />
+        <div className="h-4 bg-white/10 backdrop-blur-xl border border-white/20 rounded w-1/2" />
+        <div className="h-3 bg-white/10 backdrop-blur-xl border border-white/20 rounded w-1/4" />
       </div>
-      <div className="h-8 bg-lydian-bg-active rounded w-20" />
+      <div className="h-8 bg-white/10 backdrop-blur-xl border border-white/20 rounded w-20" />
     </div>
   </div>;
 
@@ -78,9 +78,9 @@ const ListSkeleton: React.FC = () =>
  */
 const TextSkeleton: React.FC = () =>
 <div className="animate-pulse space-y-2">
-    <div className="h-4 bg-lydian-bg-active rounded w-full" />
-    <div className="h-4 bg-lydian-bg-active rounded w-5/6" />
-    <div className="h-4 bg-lydian-bg-active rounded w-4/6" />
+    <div className="h-4 bg-white/10 backdrop-blur-xl border border-white/20 rounded w-full" />
+    <div className="h-4 bg-white/10 backdrop-blur-xl border border-white/20 rounded w-5/6" />
+    <div className="h-4 bg-white/10 backdrop-blur-xl border border-white/20 rounded w-4/6" />
   </div>;
 
 
@@ -88,14 +88,14 @@ const TextSkeleton: React.FC = () =>
  * Stat card skeleton component
  */
 const StatSkeleton: React.FC = () =>
-<div className="bg-lydian-glass-dark rounded-lg border border-lydian-border p-6 animate-pulse">
+<div className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-lg border border-white/20 p-6 animate-pulse">
     <div className="flex items-center justify-between space-x-4">
       <div className="flex-1 space-y-3">
-        <div className="h-4 bg-lydian-bg-active rounded w-24" />
-        <div className="h-8 bg-lydian-bg-active rounded w-32" />
-        <div className="h-3 bg-lydian-bg-active rounded w-20" />
+        <div className="h-4 bg-white/10 backdrop-blur-xl border border-white/20 rounded w-24" />
+        <div className="h-8 bg-white/10 backdrop-blur-xl border border-white/20 rounded w-32" />
+        <div className="h-3 bg-white/10 backdrop-blur-xl border border-white/20 rounded w-20" />
       </div>
-      <div className="h-12 w-12 bg-lydian-bg-active rounded-full" />
+      <div className="h-12 w-12 bg-white/10 backdrop-blur-xl border border-white/20 rounded-full" />
     </div>
   </div>;
 
@@ -148,7 +148,7 @@ export const LoadingState: React.FC<LoadingStateProps> = ({
       case 'card':
         return 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6';
       case 'table':
-        return 'bg-lydian-bg/5 rounded-lg border border-lydian-border overflow-hidden';
+        return 'bg-white/5 rounded-lg border border-white/20 overflow-hidden';
       case 'list':
         return 'space-y-4';
       case 'text':

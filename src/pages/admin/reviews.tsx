@@ -265,11 +265,11 @@ export default function AdminReviews() {
           className={`w-4 h-4 ${
           star <= rating ?
           'fill-current text-yellow-400' :
-          'text-lydian-text-dim'}`
+          'text-gray-400'}`
           } />
 
         )}
-        <span className="ml-2 text-sm font-medium text-lydian-text-dim">({rating})</span>
+        <span className="ml-2 text-sm font-medium text-gray-400">({rating})</span>
       </div>);
 
   };
@@ -302,11 +302,11 @@ export default function AdminReviews() {
       <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
         <div className="text-center">
           <div className="relative">
-            <div className="w-20 h-20 border-4 border-lydian-border-light/10 border-t-transparent rounded-full animate-spin mx-auto mb-6"></div>
-            <div className="absolute inset-0 w-20 h-20 border-4 border-lydian-border border-t-red-500 rounded-full animate-spin mx-auto" style={{ animationDuration: '1.5s' }}></div>
+            <div className="w-20 h-20 border-4 border-white/20/10 border-t-transparent rounded-full animate-spin mx-auto mb-6"></div>
+            <div className="absolute inset-0 w-20 h-20 border-4 border-white/20 border-t-red-500 rounded-full animate-spin mx-auto" style={{ animationDuration: '1.5s' }}></div>
           </div>
-          <h3 className="text-xl font-semibold text-lydian-text-dim mb-2">Değerlendirmeler Yükleniyor</h3>
-          <p className="text-lydian-text-dim">Değerlendirme verileri hazırlanıyor...</p>
+          <h3 className="text-xl font-semibold text-gray-400 mb-2">Değerlendirmeler Yükleniyor</h3>
+          <p className="text-gray-400">Değerlendirme verileri hazırlanıyor...</p>
         </div>
       </div>);
 
@@ -314,16 +314,16 @@ export default function AdminReviews() {
 
   if (error) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-lydian-primary-lighter to-gray-100 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-blue-600-lighter to-gray-100 flex items-center justify-center">
         <div className="text-center max-w-md mx-auto p-8">
-          <div className="w-20 h-20 bg-lydian-error-light rounded-full flex items-center justify-center mx-auto mb-6">
-            <MessageSquare className="w-10 h-10 text-lydian-primary" />
+          <div className="w-20 h-20 bg-white/10 rounded-full flex items-center justify-center mx-auto mb-6">
+            <MessageSquare className="w-10 h-10 text-blue-400" />
           </div>
-          <h3 className="text-xl font-semibold text-lydian-text-dim mb-2">Bir Hata Oluştu</h3>
-          <p className="text-lydian-primary mb-6">{error}</p>
+          <h3 className="text-xl font-semibold text-gray-400 mb-2">Bir Hata Oluştu</h3>
+          <p className="text-blue-400 mb-6">{error}</p>
           <button
             onClick={fetchReviewsData}
-            className="px-6 py-3 bg-gradient-to-r from-lydian-primary to-pink-600 text-lydian-text-inverse rounded-lg hover:from-red-700 hover:to-pink-700 transition-all transform hover:scale-105 font-semibold">
+            className="px-6 py-3 bg-gradient-to-r from-blue-600 to-pink-600 text-white rounded-lg hover:from-purple-700 hover:to-pink-700 transition-all transform hover:scale-105 font-semibold">
 
             <RefreshCw className="w-4 h-4 mr-2 inline" />
             Tekrar Dene
@@ -342,12 +342,12 @@ export default function AdminReviews() {
 
       <div className="min-h-screen" style={{ background: `linear-gradient(135deg, ${AILYDIAN_COLORS.dark} 0%, #1f1f23 50%, #2d2d35 100%)` }}>
         {/* Top Navigation */}
-        <nav className="bg-lydian-bg/95 backdrop-blur-sm shadow-lg border-b border-lydian-border-light/10">
+        <nav className="bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 backdrop-blur-sm shadow-lg border-b border-white/20/10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center h-16">
               <div className="flex items-center space-x-4">
                 <div className="w-8 h-8 rounded-lg" style={{ background: `linear-gradient(45deg, ${AILYDIAN_COLORS.primary}, ${AILYDIAN_COLORS.secondary})` }}>
-                  <MessageSquare className="w-5 h-5 text-lydian-text-inverse m-1.5" />
+                  <MessageSquare className="w-5 h-5 text-white m-1.5" />
                 </div>
                 <h1 className="text-xl font-bold bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">
                   Değerlendirme Yönetimi
@@ -355,14 +355,14 @@ export default function AdminReviews() {
               </div>
               <div className="flex items-center space-x-4">
                 <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 bg-lydian-success rounded-full animate-pulse"></div>
-                  <span className="text-sm text-lydian-text-dim">
+                  <div className="w-2 h-2 bg-purple-500 rounded-full animate-pulse"></div>
+                  <span className="text-sm text-gray-400">
                     {adminData?.email}
                   </span>
                 </div>
                 <button
                   onClick={handleLogout}
-                  className="flex items-center space-x-1 px-3 py-1.5 text-lydian-text-dim hover:text-lydian-primary rounded-lg hover:bg-lydian-error-lighter transition-all">
+                  className="flex items-center space-x-1 px-3 py-1.5 text-gray-400 hover:text-blue-400 rounded-lg hover:bg-white/5 transition-all">
 
                   <span>Çıkış</span>
                 </button>
@@ -376,23 +376,23 @@ export default function AdminReviews() {
           <nav className="bg-gray-900/95 backdrop-blur-sm w-64 min-h-screen border-r border-gray-700">
             <div className="p-4">
               <div className="space-y-2">
-                <Link href="/admin/dashboard" className="flex items-center space-x-3 text-lydian-text-dim hover:text-lydian-text-inverse hover:bg-gray-700/80 rounded-lg px-3 py-2 transition-all hover:translate-x-1">
+                <Link href="/admin/dashboard" className="flex items-center space-x-3 text-gray-400 hover:text-white hover:bg-gray-700/80 rounded-lg px-3 py-2 transition-all hover:translate-x-1">
                   <BarChart3 className="w-5 h-5" />
                   <span>Kontrol Paneli</span>
                 </Link>
-                <Link href="/admin/locations" className="flex items-center space-x-3 text-lydian-text-dim hover:text-lydian-text-inverse hover:bg-gray-700/80 rounded-lg px-3 py-2 transition-all hover:translate-x-1">
+                <Link href="/admin/locations" className="flex items-center space-x-3 text-gray-400 hover:text-white hover:bg-gray-700/80 rounded-lg px-3 py-2 transition-all hover:translate-x-1">
                   <MapPin className="w-5 h-5" />
                   <span>Lokasyonlar</span>
                 </Link>
-                <Link href="/admin/users" className="flex items-center space-x-3 text-lydian-text-dim hover:text-lydian-text-inverse hover:bg-gray-700/80 rounded-lg px-3 py-2 transition-all hover:translate-x-1">
+                <Link href="/admin/users" className="flex items-center space-x-3 text-gray-400 hover:text-white hover:bg-gray-700/80 rounded-lg px-3 py-2 transition-all hover:translate-x-1">
                   <Users className="w-5 h-5" />
                   <span>Kullanıcılar</span>
                 </Link>
-                <Link href="/admin/reviews" className="flex items-center space-x-3 text-lydian-text-inverse rounded-lg px-3 py-2" style={{ background: `linear-gradient(45deg, ${AILYDIAN_COLORS.primary}40, ${AILYDIAN_COLORS.secondary}40)`, border: `1px solid ${AILYDIAN_COLORS.primary}60` }}>
+                <Link href="/admin/reviews" className="flex items-center space-x-3 text-white rounded-lg px-3 py-2" style={{ background: `linear-gradient(45deg, ${AILYDIAN_COLORS.primary}40, ${AILYDIAN_COLORS.secondary}40)`, border: `1px solid ${AILYDIAN_COLORS.primary}60` }}>
                   <MessageSquare className="w-5 h-5" />
                   <span className="font-medium">Değerlendirmeler</span>
                 </Link>
-                <Link href="/admin/platforms" className="flex items-center space-x-3 text-lydian-text-dim hover:text-lydian-text-inverse hover:bg-gray-700/80 rounded-lg px-3 py-2 transition-all hover:translate-x-1">
+                <Link href="/admin/platforms" className="flex items-center space-x-3 text-gray-400 hover:text-white hover:bg-gray-700/80 rounded-lg px-3 py-2 transition-all hover:translate-x-1">
                   <Globe className="w-5 h-5" />
                   <span>Harici Platformlar</span>
                 </Link>
@@ -406,109 +406,109 @@ export default function AdminReviews() {
             <>
                 {/* Stats Cards */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-7 gap-6 mb-8">
-                  <div className="bg-lydian-bg/90 backdrop-blur-sm rounded-xl shadow-lg p-6 hover:shadow-xl transition-all">
+                  <div className="bg-white/10 backdrop-blur-xl border border-white/20 backdrop-blur-sm rounded-xl shadow-lg p-6 hover:shadow-xl transition-all">
                     <div className="flex items-center">
                       <div className="p-3 rounded-full" style={{ background: `linear-gradient(45deg, ${AILYDIAN_COLORS.blue}20, ${AILYDIAN_COLORS.blue}40)` }}>
                         <MessageSquare className="w-6 h-6" style={{ color: AILYDIAN_COLORS.blue }} />
                       </div>
                       <div className="ml-4">
-                        <p className="text-sm font-semibold text-lydian-text-dim uppercase">Toplam</p>
-                        <p className="text-2xl font-bold text-lydian-text-inverse">{formatNumber(reviewsData.stats.total)}</p>
+                        <p className="text-sm font-semibold text-gray-400 uppercase">Toplam</p>
+                        <p className="text-2xl font-bold text-white">{formatNumber(reviewsData.stats.total)}</p>
                       </div>
                     </div>
                   </div>
 
-                  <div className="bg-lydian-bg/90 backdrop-blur-sm rounded-xl shadow-lg p-6 hover:shadow-xl transition-all">
+                  <div className="bg-white/10 backdrop-blur-xl border border-white/20 backdrop-blur-sm rounded-xl shadow-lg p-6 hover:shadow-xl transition-all">
                     <div className="flex items-center">
                       <div className="p-3 rounded-full" style={{ background: `linear-gradient(45deg, ${AILYDIAN_COLORS.warning}20, ${AILYDIAN_COLORS.warning}40)` }}>
                         <Clock className="w-6 h-6" style={{ color: AILYDIAN_COLORS.warning }} />
                       </div>
                       <div className="ml-4">
-                        <p className="text-sm font-semibold text-lydian-text-dim uppercase">Bekliyor</p>
-                        <p className="text-2xl font-bold text-lydian-text-inverse">{reviewsData.stats.pending}</p>
+                        <p className="text-sm font-semibold text-gray-400 uppercase">Bekliyor</p>
+                        <p className="text-2xl font-bold text-white">{reviewsData.stats.pending}</p>
                       </div>
                     </div>
                   </div>
 
-                  <div className="bg-lydian-bg/90 backdrop-blur-sm rounded-xl shadow-lg p-6 hover:shadow-xl transition-all">
+                  <div className="bg-white/10 backdrop-blur-xl border border-white/20 backdrop-blur-sm rounded-xl shadow-lg p-6 hover:shadow-xl transition-all">
                     <div className="flex items-center">
                       <div className="p-3 rounded-full" style={{ background: `linear-gradient(45deg, ${AILYDIAN_COLORS.success}20, ${AILYDIAN_COLORS.success}40)` }}>
                         <CheckCircle className="w-6 h-6" style={{ color: AILYDIAN_COLORS.success }} />
                       </div>
                       <div className="ml-4">
-                        <p className="text-sm font-semibold text-lydian-text-dim uppercase">Onaylı</p>
-                        <p className="text-2xl font-bold text-lydian-text-inverse">{formatNumber(reviewsData.stats.approved)}</p>
+                        <p className="text-sm font-semibold text-gray-400 uppercase">Onaylı</p>
+                        <p className="text-2xl font-bold text-white">{formatNumber(reviewsData.stats.approved)}</p>
                       </div>
                     </div>
                   </div>
 
-                  <div className="bg-lydian-bg/90 backdrop-blur-sm rounded-xl shadow-lg p-6 hover:shadow-xl transition-all">
+                  <div className="bg-white/10 backdrop-blur-xl border border-white/20 backdrop-blur-sm rounded-xl shadow-lg p-6 hover:shadow-xl transition-all">
                     <div className="flex items-center">
                       <div className="p-3 rounded-full" style={{ background: `linear-gradient(45deg, ${AILYDIAN_COLORS.error}20, ${AILYDIAN_COLORS.error}40)` }}>
                         <XCircle className="w-6 h-6" style={{ color: AILYDIAN_COLORS.error }} />
                       </div>
                       <div className="ml-4">
-                        <p className="text-sm font-semibold text-lydian-text-dim uppercase">Reddedildi</p>
-                        <p className="text-2xl font-bold text-lydian-text-inverse">{reviewsData.stats.rejected}</p>
+                        <p className="text-sm font-semibold text-gray-400 uppercase">Reddedildi</p>
+                        <p className="text-2xl font-bold text-white">{reviewsData.stats.rejected}</p>
                       </div>
                     </div>
                   </div>
 
-                  <div className="bg-lydian-bg/90 backdrop-blur-sm rounded-xl shadow-lg p-6 hover:shadow-xl transition-all">
+                  <div className="bg-white/10 backdrop-blur-xl border border-white/20 backdrop-blur-sm rounded-xl shadow-lg p-6 hover:shadow-xl transition-all">
                     <div className="flex items-center">
                       <div className="p-3 rounded-full" style={{ background: `linear-gradient(45deg, ${AILYDIAN_COLORS.primary}20, ${AILYDIAN_COLORS.secondary}40)` }}>
                         <Flag className="w-6 h-6" style={{ color: AILYDIAN_COLORS.primary }} />
                       </div>
                       <div className="ml-4">
-                        <p className="text-sm font-semibold text-lydian-text-dim uppercase">Bayraklı</p>
-                        <p className="text-2xl font-bold text-lydian-text-inverse">{reviewsData.stats.flagged}</p>
+                        <p className="text-sm font-semibold text-gray-400 uppercase">Bayraklı</p>
+                        <p className="text-2xl font-bold text-white">{reviewsData.stats.flagged}</p>
                       </div>
                     </div>
                   </div>
 
-                  <div className="bg-lydian-bg/90 backdrop-blur-sm rounded-xl shadow-lg p-6 hover:shadow-xl transition-all">
+                  <div className="bg-white/10 backdrop-blur-xl border border-white/20 backdrop-blur-sm rounded-xl shadow-lg p-6 hover:shadow-xl transition-all">
                     <div className="flex items-center">
                       <div className="p-3 rounded-full" style={{ background: `linear-gradient(45deg, ${AILYDIAN_COLORS.warning}20, ${AILYDIAN_COLORS.warning}40)` }}>
                         <Star className="w-6 h-6" style={{ color: AILYDIAN_COLORS.warning }} />
                       </div>
                       <div className="ml-4">
-                        <p className="text-sm font-semibold text-lydian-text-dim uppercase">Ort. Puan</p>
-                        <p className="text-2xl font-bold text-lydian-text-inverse">{reviewsData.stats.averageRating.toFixed(1)}</p>
+                        <p className="text-sm font-semibold text-gray-400 uppercase">Ort. Puan</p>
+                        <p className="text-2xl font-bold text-white">{reviewsData.stats.averageRating.toFixed(1)}</p>
                       </div>
                     </div>
                   </div>
 
-                  <div className="bg-lydian-bg/90 backdrop-blur-sm rounded-xl shadow-lg p-6 hover:shadow-xl transition-all">
+                  <div className="bg-white/10 backdrop-blur-xl border border-white/20 backdrop-blur-sm rounded-xl shadow-lg p-6 hover:shadow-xl transition-all">
                     <div className="flex items-center">
                       <div className="p-3 rounded-full" style={{ background: `linear-gradient(45deg, ${AILYDIAN_COLORS.purple}20, ${AILYDIAN_COLORS.purple}40)` }}>
                         <Brain className="w-6 h-6" style={{ color: AILYDIAN_COLORS.purple }} />
                       </div>
                       <div className="ml-4">
-                        <p className="text-sm font-semibold text-lydian-text-dim uppercase">AI Modereli</p>
-                        <p className="text-2xl font-bold text-lydian-text-inverse">{formatNumber(reviewsData.stats.aiModerated)}</p>
+                        <p className="text-sm font-semibold text-gray-400 uppercase">AI Modereli</p>
+                        <p className="text-2xl font-bold text-white">{formatNumber(reviewsData.stats.aiModerated)}</p>
                       </div>
                     </div>
                   </div>
                 </div>
 
                 {/* Filters and Search */}
-                <div className="bg-lydian-bg/90 backdrop-blur-sm rounded-xl shadow-lg p-6 mb-8">
+                <div className="bg-white/10 backdrop-blur-xl border border-white/20 backdrop-blur-sm rounded-xl shadow-lg p-6 mb-8">
                   <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                     <div className="relative">
-                      <Search className="w-5 h-5 absolute left-3 top-3 text-lydian-text-muted" />
+                      <Search className="w-5 h-5 absolute left-3 top-3 text-gray-300" />
                       <input
                       type="text"
                       placeholder="Değerlendirme ara..."
                       value={searchTerm}
                       onChange={(e) => setSearchTerm(e.target.value)}
-                      className="w-full pl-10 pr-4 py-2 border border-lydian-border-light rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-primary" />
+                      className="w-full pl-10 pr-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-blue-500" />
 
                     </div>
 
                     <select
                     value={statusFilter}
                     onChange={(e) => setStatusFilter(e.target.value)}
-                    className="w-full px-4 py-2 border border-lydian-border-light rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-primary">
+                    className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-blue-500">
 
                       <option value="all">Tüm Durumlar</option>
                       <option value="pending">Bekliyor</option>
@@ -520,7 +520,7 @@ export default function AdminReviews() {
                     <select
                     value={ratingFilter}
                     onChange={(e) => setRatingFilter(e.target.value)}
-                    className="w-full px-4 py-2 border border-lydian-border-light rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-primary">
+                    className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-blue-500">
 
                       <option value="all">Tüm Puanlar</option>
                       <option value="5">5 Yıldız</option>
@@ -532,13 +532,13 @@ export default function AdminReviews() {
 
                     <div className="flex space-x-2">
                       <button
-                      className="flex-1 px-4 py-2 text-lydian-text-inverse rounded-lg font-semibold hover:shadow-lg transition-all"
+                      className="flex-1 px-4 py-2 text-white rounded-lg font-semibold hover:shadow-lg transition-all"
                       style={{ background: `linear-gradient(45deg, ${AILYDIAN_COLORS.primary}, ${AILYDIAN_COLORS.secondary})` }}>
 
                         <Filter className="w-4 h-4 mr-2 inline" />
                         Filtrele
                       </button>
-                      <button className="px-4 py-2 border border-lydian-border-light rounded-lg hover:bg-lydian-glass-dark">
+                      <button className="px-4 py-2 border border-white/20 rounded-lg hover:bg-white/10 backdrop-blur-xl border border-white/20">
                         <Download className="w-4 h-4" />
                       </button>
                     </div>
@@ -548,28 +548,28 @@ export default function AdminReviews() {
                 {/* Reviews List */}
                 <div className="space-y-6">
                   {reviewsData.reviews.map((review) =>
-                <div key={review.id} className="bg-lydian-bg/90 backdrop-blur-sm rounded-xl shadow-lg p-6 hover:shadow-xl transition-all">
+                <div key={review.id} className="bg-white/10 backdrop-blur-xl border border-white/20 backdrop-blur-sm rounded-xl shadow-lg p-6 hover:shadow-xl transition-all">
                       {/* Review Header */}
                       <div className="flex items-start justify-between mb-4">
                         <div className="flex items-start space-x-4">
                           <div className="w-12 h-12 bg-gradient-to-r from-gray-300 to-gray-400 rounded-full flex items-center justify-center">
-                            <User className="w-6 h-6 text-lydian-text-inverse" />
+                            <User className="w-6 h-6 text-white" />
                           </div>
                           <div>
                             <div className="flex items-center space-x-2">
-                              <h4 className="font-semibold text-lydian-text-inverse">{review.user.name}</h4>
+                              <h4 className="font-semibold text-white">{review.user.name}</h4>
                               {review.user.isVerified &&
-                          <CheckCircle className="w-4 h-4 text-lydian-primary" />
+                          <CheckCircle className="w-4 h-4 text-blue-400" />
                           }
-                              <span className="text-lydian-text-muted text-sm">@{review.user.email}</span>
+                              <span className="text-gray-300 text-sm">@{review.user.email}</span>
                             </div>
                             <div className="flex items-center space-x-2 mt-1">
-                              <MapPin className="w-4 h-4 text-lydian-text-muted" />
-                              <span className="text-sm text-lydian-text-dim">{review.location.name}, {review.location.city}</span>
+                              <MapPin className="w-4 h-4 text-gray-300" />
+                              <span className="text-sm text-gray-400">{review.location.name}, {review.location.city}</span>
                             </div>
                             <div className="flex items-center space-x-2 mt-1">
-                              <Calendar className="w-4 h-4 text-lydian-text-muted" />
-                              <span className="text-sm text-lydian-text-dim">{formatDate(review.createdAt)}</span>
+                              <Calendar className="w-4 h-4 text-gray-300" />
+                              <span className="text-sm text-gray-400">{formatDate(review.createdAt)}</span>
                             </div>
                           </div>
                         </div>
@@ -590,18 +590,18 @@ export default function AdminReviews() {
                           {getRatingStars(review.rating)}
                           {getSentimentBadge(review.sentimentScore)}
                         </div>
-                        <h5 className="font-semibold text-lydian-text-inverse mb-2">{review.title}</h5>
-                        <p className="text-lydian-text-muted leading-relaxed">{review.content}</p>
+                        <h5 className="font-semibold text-white mb-2">{review.title}</h5>
+                        <p className="text-gray-300 leading-relaxed">{review.content}</p>
                         
                         {review.photos && review.photos.length > 0 &&
                     <div className="flex space-x-2 mt-3">
                             {review.photos.slice(0, 3).map((photo, index) =>
-                      <div key={index} className="w-16 h-16 bg-lydian-bg-active rounded-lg flex items-center justify-center">
-                                <Eye className="w-6 h-6 text-lydian-text-muted" />
+                      <div key={index} className="w-16 h-16 bg-white/20 rounded-lg flex items-center justify-center">
+                                <Eye className="w-6 h-6 text-gray-300" />
                               </div>
                       )}
                             {review.photos.length > 3 &&
-                      <div className="w-16 h-16 bg-lydian-glass-dark-medium rounded-lg flex items-center justify-center text-sm font-medium text-lydian-text-dim">
+                      <div className="w-16 h-16 bg-white/5 rounded-lg flex items-center justify-center text-sm font-medium text-gray-400">
                                 +{review.photos.length - 3}
                               </div>
                       }
@@ -610,15 +610,15 @@ export default function AdminReviews() {
                       </div>
 
                       {/* Review Stats and Actions */}
-                      <div className="flex items-center justify-between pt-4 border-t border-lydian-border-light/10">
-                        <div className="flex items-center space-x-6 text-sm text-lydian-text-dim">
+                      <div className="flex items-center justify-between pt-4 border-t border-white/20/10">
+                        <div className="flex items-center space-x-6 text-sm text-gray-400">
                           <div className="flex items-center space-x-1">
                             <ThumbsUp className="w-4 h-4" />
                             <span>{review.helpfulVotes}/{review.totalVotes} faydalı</span>
                           </div>
                           {review.flagCount > 0 &&
                       <div className="flex items-center space-x-1">
-                              <Flag className="w-4 h-4 text-lydian-error" />
+                              <Flag className="w-4 h-4 text-gray-400" />
                               <span>{review.flagCount} bayrak</span>
                             </div>
                       }
@@ -631,23 +631,23 @@ export default function AdminReviews() {
                         <div className="flex items-center space-x-2">
                           {review.status === 'pending' &&
                       <>
-                              <button className="px-4 py-2 bg-lydian-success text-lydian-text-inverse rounded-lg hover:bg-lydian-success transition-colors font-medium">
+                              <button className="px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-500 transition-colors font-medium">
                                 <CheckCircle className="w-4 h-4 mr-2 inline" />
                                 Onayla
                               </button>
-                              <button className="px-4 py-2 bg-lydian-error text-lydian-text-inverse rounded-lg hover:bg-lydian-primary transition-colors font-medium">
+                              <button className="px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gradient-to-r from-blue-600 to-purple-600 transition-colors font-medium">
                                 <XCircle className="w-4 h-4 mr-2 inline" />
                                 Reddet
                               </button>
                             </>
                       }
-                          <button className="p-2 text-lydian-primary hover:bg-lydian-primary-lighter rounded-lg">
+                          <button className="p-2 text-blue-400 hover:bg-gradient-to-r from-blue-600 to-purple-600-lighter rounded-lg">
                             <Eye className="w-4 h-4" />
                           </button>
-                          <button className="p-2 text-lydian-success hover:bg-lydian-success-lighter rounded-lg">
+                          <button className="p-2 text-purple-400 hover:bg-purple-500-lighter rounded-lg">
                             <Edit className="w-4 h-4" />
                           </button>
-                          <button className="p-2 text-lydian-primary hover:bg-lydian-error-lighter rounded-lg">
+                          <button className="p-2 text-blue-400 hover:bg-white/5 rounded-lg">
                             <Trash2 className="w-4 h-4" />
                           </button>
                         </div>
@@ -655,16 +655,16 @@ export default function AdminReviews() {
 
                       {/* Moderation Info */}
                       {review.moderatedAt &&
-                  <div className="mt-4 p-3 bg-lydian-glass-dark rounded-lg">
+                  <div className="mt-4 p-3 bg-white/10 backdrop-blur-xl border border-white/20 rounded-lg">
                           <div className="flex items-center justify-between text-sm">
                             <div className="flex items-center space-x-2">
-                              <Zap className="w-4 h-4 text-lydian-text-muted" />
-                              <span className="text-lydian-text-dim">
+                              <Zap className="w-4 h-4 text-gray-300" />
+                              <span className="text-gray-400">
                                 Modere edildi: {formatDate(review.moderatedAt)} - {review.moderatedBy}
                               </span>
                             </div>
                             {review.moderationReason &&
-                      <span className="text-lydian-text-muted">Sebep: {review.moderationReason}</span>
+                      <span className="text-gray-300">Sebep: {review.moderationReason}</span>
                       }
                           </div>
                         </div>

@@ -215,11 +215,11 @@ const TravelBlockchain: React.FC = () => {
   // Get rarity color
   const getRarityColor = (rarity: string) => {
     switch (rarity) {
-      case 'common':return 'text-lydian-text-dim bg-lydian-bg/10';
-      case 'rare':return 'text-lydian-primary bg-blue-100';
+      case 'common':return 'text-gray-400 bg-lydian-bg/10';
+      case 'rare':return 'text-blue-500 bg-blue-100';
       case 'epic':return 'text-purple-600 bg-purple-100';
-      case 'legendary':return 'text-lydian-warning bg-yellow-100';
-      default:return 'text-lydian-text-dim bg-lydian-bg/10';
+      case 'legendary':return 'text-yellow-500 bg-yellow-100';
+      default:return 'text-gray-400 bg-lydian-bg/10';
     }
   };
 
@@ -235,7 +235,7 @@ const TravelBlockchain: React.FC = () => {
   };
 
   const NFTCard: React.FC<{nft: TravelNFT;}> = ({ nft }) =>
-  <div className="bg-lydian-glass-dark rounded-2xl shadow-lg overflow-hidden cursor-pointer hover:shadow-xl transition-shadow" onClick={() => setSelectedNFT(nft)}>
+  <div className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-2xl shadow-lg overflow-hidden cursor-pointer hover:shadow-xl transition-shadow" onClick={() => setSelectedNFT(nft)}>
       <motion.div
       layoutId={nft.id}
       whileHover={{ y: -4 }}
@@ -254,7 +254,7 @@ const TravelBlockchain: React.FC = () => {
         </div>
         {nft.isListed &&
         <div className="absolute top-3 right-3">
-            <span className="px-2 py-1 bg-lydian-success text-lydian-text-inverse rounded-full text-xs font-medium">
+            <span className="px-2 py-1 bg-green-600 text-white rounded-full text-xs font-medium">
               SATILIKTA
             </span>
           </div>
@@ -262,20 +262,20 @@ const TravelBlockchain: React.FC = () => {
       </div>
       
       <div className="p-4">
-        <h3 className="font-bold text-lydian-text-inverse mb-2">{nft.title}</h3>
-        <div className="flex items-center gap-2 text-sm text-lydian-text-dim mb-2">
+        <h3 className="font-bold text-white mb-2">{nft.title}</h3>
+        <div className="flex items-center gap-2 text-sm text-gray-400 mb-2">
           <MapPin className="w-4 h-4" />
           <span>{nft.location}</span>
         </div>
-        <div className="flex items-center gap-2 text-sm text-lydian-text-dim mb-3">
+        <div className="flex items-center gap-2 text-sm text-gray-400 mb-3">
           <Calendar className="w-4 h-4" />
           <span>{new Date(nft.date).toLocaleDateString()}</span>
         </div>
         
         <div className="flex items-center justify-between">
-          <span className="text-xs text-lydian-text-muted">#{nft.tokenId}</span>
+          <span className="text-xs text-gray-300">#{nft.tokenId}</span>
           {nft.price &&
-          <span className="font-bold text-lydian-primary">{nft.price} ETH</span>
+          <span className="font-bold text-blue-500">{nft.price} ETH</span>
           }
         </div>
       </div>
@@ -288,13 +288,13 @@ const TravelBlockchain: React.FC = () => {
       {/* Header */}
       <div className="flex items-center justify-between mb-8">
         <div>
-          <h1 className="text-3xl font-bold text-lydian-text-inverse flex items-center gap-3">
-            <div className="p-3 bg-gradient-to-r from-purple-500 to-lydian-primary rounded-2xl">
-              <Coins className="w-8 h-8 text-lydian-text-inverse" />
+          <h1 className="text-3xl font-bold text-white flex items-center gap-3">
+            <div className="p-3 bg-gradient-to-r from-purple-500 to-purple-600 rounded-2xl">
+              <Coins className="w-8 h-8 text-white" />
             </div>
             Travel Blockchain
           </h1>
-          <p className="text-lydian-text-dim mt-2">
+          <p className="text-gray-400 mt-2">
             NFT seyahat anıları, kripto ödemeler ve merkezi olmayan değerlendirmeler
           </p>
         </div>
@@ -303,10 +303,10 @@ const TravelBlockchain: React.FC = () => {
         <button
           onClick={connectWallet}
           disabled={isLoading}
-          className="flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-lydian-secondary to-lydian-primary text-lydian-text-inverse rounded-xl font-medium hover:shadow-lg transition-all disabled:opacity-50 transform hover:scale-105">
+          className="flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-purple-600 to-purple-600 text-white rounded-xl font-medium hover:shadow-lg transition-all disabled:opacity-50 transform hover:scale-105">
 
             {isLoading ?
-          <div className="w-5 h-5 border-2 border-lydian-border-light border-t-transparent rounded-full animate-spin" /> :
+          <div className="w-5 h-5 border-2 border-white/20 border-t-transparent rounded-full animate-spin" /> :
 
           <Wallet className="w-5 h-5" />
           }
@@ -316,9 +316,9 @@ const TravelBlockchain: React.FC = () => {
         <div className="text-right">
             <div className="flex items-center gap-2 mb-2">
               <div className="w-3 h-3 bg-green-400 rounded-full"></div>
-              <span className="text-sm font-medium text-lydian-text-inverse">Bağlandı</span>
+              <span className="text-sm font-medium text-white">Bağlandı</span>
             </div>
-            <div className="text-xs text-lydian-text-muted mb-1">
+            <div className="text-xs text-gray-300 mb-1">
               {walletAddress.slice(0, 6)}...{walletAddress.slice(-4)}
             </div>
             <div className="text-sm font-medium">
@@ -330,11 +330,11 @@ const TravelBlockchain: React.FC = () => {
 
       {!isConnected ?
       <div className="text-center py-20">
-          <div className="w-20 h-20 bg-gradient-to-r from-purple-500 to-lydian-primary rounded-2xl mx-auto mb-6 flex items-center justify-center">
-            <Wallet className="w-10 h-10 text-lydian-text-inverse" />
+          <div className="w-20 h-20 bg-gradient-to-r from-purple-500 to-purple-600 rounded-2xl mx-auto mb-6 flex items-center justify-center">
+            <Wallet className="w-10 h-10 text-white" />
           </div>
-          <h2 className="text-2xl font-bold text-lydian-text-inverse mb-4">Cüzdanınızı Bağlayın</h2>
-          <p className="text-lydian-text-dim mb-8 max-w-md mx-auto">
+          <h2 className="text-2xl font-bold text-white mb-4">Cüzdanınızı Bağlayın</h2>
+          <p className="text-gray-400 mb-8 max-w-md mx-auto">
             NFT seyahat anılarınızı mint etmek, kripto ödemeler yapmak ve merkezi olmayan değerlendirmeleri görüntülemek için cüzdanınızı bağlayın.
           </p>
           
@@ -343,28 +343,28 @@ const TravelBlockchain: React.FC = () => {
               <div className="w-16 h-16 bg-purple-100 rounded-2xl mx-auto mb-4 flex items-center justify-center">
                 <Image className="w-8 h-8 text-purple-600" />
               </div>
-              <h3 className="font-semibold text-lydian-text-inverse mb-2">NFT Anılar</h3>
-                <p className="text-sm text-lydian-text-dim">
+              <h3 className="font-semibold text-white mb-2">NFT Anılar</h3>
+                <p className="text-sm text-gray-400">
                   Seyahat deneyimlerinizi benzersiz NFT&apos;ler olarak kaydedin
                 </p>
             </div>
             
             <div className="text-center p-6">
-              <div className="w-16 h-16 bg-lydian-primary-light rounded-2xl mx-auto mb-4 flex items-center justify-center">
-                <CreditCard className="w-8 h-8 text-lydian-primary" />
+              <div className="w-16 h-16 bg-blue-500/10 rounded-2xl mx-auto mb-4 flex items-center justify-center">
+                <CreditCard className="w-8 h-8 text-blue-500" />
               </div>
-              <h3 className="font-semibold text-lydian-text-inverse mb-2">Kripto Ödemeler</h3>
-              <p className="text-sm text-lydian-text-dim">
+              <h3 className="font-semibold text-white mb-2">Kripto Ödemeler</h3>
+              <p className="text-sm text-gray-400">
                 ETH, BTC ve stable coin&apos;lerle güvenli ödemeler yapın
               </p>
             </div>
             
             <div className="text-center p-6">
-              <div className="w-16 h-16 bg-lydian-success-light rounded-2xl mx-auto mb-4 flex items-center justify-center">
-                <Shield className="w-8 h-8 text-lydian-success" />
+              <div className="w-16 h-16 bg-green-600-light rounded-2xl mx-auto mb-4 flex items-center justify-center">
+                <Shield className="w-8 h-8 text-green-500" />
               </div>
-              <h3 className="font-semibold text-lydian-text-inverse mb-2">Güvenilir Yorumlar</h3>
-              <p className="text-sm text-lydian-text-dim">
+              <h3 className="font-semibold text-white mb-2">Güvenilir Yorumlar</h3>
+              <p className="text-sm text-gray-400">
                 Blockchain ile doğrulanmış gerçek kullanıcı yorumları
               </p>
             </div>
@@ -373,7 +373,7 @@ const TravelBlockchain: React.FC = () => {
 
       <>
           {/* Navigation */}
-          <div className="flex items-center gap-1 mb-8 bg-lydian-glass-dark-medium p-1 rounded-xl">
+          <div className="flex items-center gap-1 mb-8 bg-white/10 backdrop-blur-xl border border-white/20 p-1 rounded-xl">
             {[
           { key: 'nfts', label: 'NFT Koleksiyonum', icon: Image, count: myNFTs.length },
           { key: 'payments', label: 'Kripto Ödemeler', icon: CreditCard, count: 0 },
@@ -386,8 +386,8 @@ const TravelBlockchain: React.FC = () => {
                 onClick={() => setActiveTab(tab.key as any)}
                 className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-lg font-medium transition-colors transform hover:scale-105 ${
                 activeTab === tab.key ?
-                'bg-lydian-bg/5 text-purple-600 shadow-sm' :
-                'text-lydian-text-dim hover:text-white'}`
+                'bg-white/5 text-purple-600 shadow-sm' :
+                'text-gray-400 hover:text-white'}`
                 }>
 
                   <Icon className="w-5 h-5" />
@@ -406,10 +406,10 @@ const TravelBlockchain: React.FC = () => {
           {activeTab === 'nfts' &&
         <div>
               <div className="flex items-center justify-between mb-6">
-                <h2 className="text-2xl font-bold text-lydian-text-inverse">NFT Koleksiyonum</h2>
+                <h2 className="text-2xl font-bold text-white">NFT Koleksiyonum</h2>
                 <button
               onClick={() => setShowMintModal(true)}
-              className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-lydian-secondary to-lydian-primary text-lydian-text-inverse rounded-xl font-medium hover:shadow-lg transition-all transform hover:scale-105">
+              className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-600 to-purple-600 text-white rounded-xl font-medium hover:shadow-lg transition-all transform hover:scale-105">
 
                   <Sparkles className="w-5 h-5" />
                   Yeni NFT Mint Et
@@ -423,11 +423,11 @@ const TravelBlockchain: React.FC = () => {
                 
                 {myNFTs.length === 0 &&
             <div className="col-span-full text-center py-12">
-                    <div className="w-20 h-20 bg-lydian-glass-dark-medium rounded-2xl mx-auto mb-6 flex items-center justify-center">
-                      <Image className="w-10 h-10 text-lydian-text-muted" />
+                    <div className="w-20 h-20 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl mx-auto mb-6 flex items-center justify-center">
+                      <Image className="w-10 h-10 text-gray-300" />
                     </div>
-                    <h3 className="text-xl font-semibold text-lydian-text-inverse mb-2">Henüz NFT&apos;niz yok</h3>
-                    <p className="text-lydian-text-dim mb-6">
+                    <h3 className="text-xl font-semibold text-white mb-2">Henüz NFT&apos;niz yok</h3>
+                    <p className="text-gray-400 mb-6">
                       İlk seyahat anınızı NFT olarak mint edin!
                     </p>
                   </div>
@@ -440,13 +440,13 @@ const TravelBlockchain: React.FC = () => {
           {activeTab === 'payments' &&
         <div>
               <div className="flex items-center justify-between mb-6">
-                <h2 className="text-2xl font-bold text-lydian-text-inverse">Kripto Ödemeler</h2>
+                <h2 className="text-2xl font-bold text-white">Kripto Ödemeler</h2>
                 <button
               onClick={() => {
                 setPaymentData({ amount: 250, description: 'Seyahat Rezervasyonu' });
                 setShowPaymentModal(true);
               }}
-              className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-lydian-success to-lydian-primary text-lydian-text-inverse rounded-xl font-medium hover:shadow-lg transition-all transform hover:scale-105">
+              className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-lydian-success to-purple-600 text-white rounded-xl font-medium hover:shadow-lg transition-all transform hover:scale-105">
 
                   <CreditCard className="w-5 h-5" />
                   Demo Ödeme Yap
@@ -455,52 +455,52 @@ const TravelBlockchain: React.FC = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {/* Payment History Cards */}
-                <div className="bg-lydian-glass-dark rounded-2xl shadow-lg p-6">
+                <div className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-2xl shadow-lg p-6">
                   <div className="flex items-center justify-between mb-4">
-                    <div className="w-12 h-12 bg-lydian-success-light rounded-xl flex items-center justify-center">
-                      <CheckCircle className="w-6 h-6 text-lydian-success" />
+                    <div className="w-12 h-12 bg-green-600-light rounded-xl flex items-center justify-center">
+                      <CheckCircle className="w-6 h-6 text-green-500" />
                     </div>
-                    <span className="text-sm text-lydian-success bg-lydian-success-light px-2 py-1 rounded-full font-medium">
+                    <span className="text-sm text-green-500 bg-green-600-light px-2 py-1 rounded-full font-medium">
                       Tamamlandı
                     </span>
                   </div>
-                  <h3 className="font-semibold text-lydian-text-inverse mb-2">Otel Rezervasyonu</h3>
-                  <p className="text-sm text-lydian-text-dim mb-4">Kapadokya Cave Hotel - 3 gece</p>
+                  <h3 className="font-semibold text-white mb-2">Otel Rezervasyonu</h3>
+                  <p className="text-sm text-gray-400 mb-4">Kapadokya Cave Hotel - 3 gece</p>
                   <div className="flex items-center justify-between">
-                    <span className="text-lg font-bold text-lydian-text-inverse">$420.50</span>
-                    <span className="text-sm text-lydian-text-muted">ETH</span>
+                    <span className="text-lg font-bold text-white">$420.50</span>
+                    <span className="text-sm text-gray-300">ETH</span>
                   </div>
                 </div>
 
-                <div className="bg-lydian-glass-dark rounded-2xl shadow-lg p-6">
+                <div className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-2xl shadow-lg p-6">
                   <div className="flex items-center justify-between mb-4">
-                    <div className="w-12 h-12 bg-lydian-primary-light rounded-xl flex items-center justify-center">
-                      <Clock className="w-6 h-6 text-lydian-primary" />
+                    <div className="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center">
+                      <Clock className="w-6 h-6 text-blue-500" />
                     </div>
-                    <span className="text-sm text-lydian-primary bg-lydian-primary-light px-2 py-1 rounded-full font-medium">
+                    <span className="text-sm text-blue-500 bg-blue-500/10 px-2 py-1 rounded-full font-medium">
                       Beklemede
                     </span>
                   </div>
-                  <h3 className="font-semibold text-lydian-text-inverse mb-2">Balon Turu</h3>
-                  <p className="text-sm text-lydian-text-dim mb-4">Kapadokya Hot Air Balloon</p>
+                  <h3 className="font-semibold text-white mb-2">Balon Turu</h3>
+                  <p className="text-sm text-gray-400 mb-4">Kapadokya Hot Air Balloon</p>
                   <div className="flex items-center justify-between">
-                    <span className="text-lg font-bold text-lydian-text-inverse">$180.00</span>
-                    <span className="text-sm text-lydian-text-muted">USDC</span>
+                    <span className="text-lg font-bold text-white">$180.00</span>
+                    <span className="text-sm text-gray-300">USDC</span>
                   </div>
                 </div>
 
-                <div className="bg-lydian-glass-dark rounded-2xl shadow-lg p-6 border-2 border-dashed border-lydian-border-light flex flex-col items-center justify-center text-center">
-                  <div className="w-12 h-12 bg-lydian-glass-dark-medium rounded-xl flex items-center justify-center mb-4">
-                    <CreditCard className="w-6 h-6 text-lydian-text-muted" />
+                <div className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-2xl shadow-lg p-6 border-2 border-dashed border-white/20 flex flex-col items-center justify-center text-center">
+                  <div className="w-12 h-12 bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl flex items-center justify-center mb-4">
+                    <CreditCard className="w-6 h-6 text-gray-300" />
                   </div>
-                  <h3 className="font-semibold text-lydian-text-inverse mb-2">Yeni Ödeme</h3>
-                  <p className="text-sm text-lydian-text-dim mb-4">Kripto ile güvenli ödeme yapın</p>
+                  <h3 className="font-semibold text-white mb-2">Yeni Ödeme</h3>
+                  <p className="text-sm text-gray-400 mb-4">Kripto ile güvenli ödeme yapın</p>
                   <button
                 onClick={() => {
                   setPaymentData({ amount: 150, description: 'Yeni Rezervasyon' });
                   setShowPaymentModal(true);
                 }}
-                className="px-4 py-2 bg-lydian-primary text-lydian-text-inverse rounded-lg font-medium hover:bg-lydian-primary-dark transition-colors">
+                className="px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-medium hover:bg-gradient-to-r from-blue-700 to-purple-700 transition-colors">
 
                     <motion.div
                   whileHover={{ scale: 1.05 }}
@@ -514,7 +514,7 @@ const TravelBlockchain: React.FC = () => {
 
               {/* Supported Cryptocurrencies */}
               <div className="mt-8">
-                <h3 className="text-lg font-semibold text-lydian-text-inverse mb-4">Desteklenen Kripto Para Birimleri</h3>
+                <h3 className="text-lg font-semibold text-white mb-4">Desteklenen Kripto Para Birimleri</h3>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                   {[
               { name: 'Ethereum', symbol: 'ETH', icon: '🔷', color: 'bg-blue-100 text-lydian-primary-hover' },
@@ -522,12 +522,12 @@ const TravelBlockchain: React.FC = () => {
               { name: 'Tether', symbol: 'USDT', icon: '💚', color: 'bg-green-100 text-green-700' },
               { name: 'Bitcoin', symbol: 'BTC', icon: '₿', color: 'bg-orange-100 text-orange-700' }].
               map((crypto) =>
-              <div key={crypto.symbol} className="bg-lydian-glass-dark rounded-xl p-4 text-center shadow-sm border">
+              <div key={crypto.symbol} className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-xl p-4 text-center shadow-sm border">
                       <div className={`w-12 h-12 rounded-xl mx-auto mb-2 flex items-center justify-center text-xl ${crypto.color}`}>
                         {crypto.icon}
                       </div>
-                      <div className="font-medium text-lydian-text-inverse">{crypto.symbol}</div>
-                      <div className="text-xs text-lydian-text-dim">{crypto.name}</div>
+                      <div className="font-medium text-white">{crypto.symbol}</div>
+                      <div className="text-xs text-gray-400">{crypto.name}</div>
                     </div>
               )}
                 </div>
@@ -551,7 +551,7 @@ const TravelBlockchain: React.FC = () => {
 
             <div
             onClick={(e) => e.stopPropagation()}
-            className="bg-lydian-glass-dark rounded-2xl p-6 w-full max-w-md">
+            className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-2xl p-6 w-full max-w-md">
 
               <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
@@ -559,56 +559,56 @@ const TravelBlockchain: React.FC = () => {
               exit={{ scale: 0.9, opacity: 0 }}>
 
               <div className="flex items-center justify-between mb-6">
-                <h3 className="text-xl font-bold text-lydian-text-inverse">Seyahat NFT&apos;si Mint Et</h3>
+                <h3 className="text-xl font-bold text-white">Seyahat NFT&apos;si Mint Et</h3>
                 <button
                   onClick={() => setShowMintModal(false)}
-                  className="p-2 hover:bg-lydian-glass-dark-medium rounded-lg transition-colors">
+                  className="p-2 hover:bg-white/10 backdrop-blur-xl border border-white/20 rounded-lg transition-colors">
 
-                  <X className="w-5 h-5 text-lydian-text-muted" />
+                  <X className="w-5 h-5 text-gray-300" />
                 </button>
               </div>
 
               <div className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium text-lydian-text-muted mb-2">
+                  <label className="block text-sm font-medium text-gray-300 mb-2">
                     Başlık *
                   </label>
                   <input
                     type="text"
                     value={mintingData.title}
                     onChange={(e) => setMintingData((prev) => ({ ...prev, title: e.target.value }))}
-                    className="w-full p-3 border border-lydian-border-light rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-lydian-border"
+                    className="w-full p-3 border border-white/20 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-white/20"
                     placeholder="Örn: Kapadokya Balon Turu" />
 
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-lydian-text-muted mb-2">
+                  <label className="block text-sm font-medium text-gray-300 mb-2">
                     Açıklama
                   </label>
                   <textarea
                     value={mintingData.description}
                     onChange={(e) => setMintingData((prev) => ({ ...prev, description: e.target.value }))}
-                    className="w-full p-3 border border-lydian-border-light rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-lydian-border"
+                    className="w-full p-3 border border-white/20 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-white/20"
                     rows={3}
                     placeholder="Bu deneyimi anlatan bir açıklama yazın..." />
 
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-lydian-text-muted mb-2">
+                  <label className="block text-sm font-medium text-gray-300 mb-2">
                     Lokasyon *
                   </label>
                   <input
                     type="text"
                     value={mintingData.location}
                     onChange={(e) => setMintingData((prev) => ({ ...prev, location: e.target.value }))}
-                    className="w-full p-3 border border-lydian-border-light rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-lydian-border"
+                    className="w-full p-3 border border-white/20 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-white/20"
                     placeholder="Örn: Göreme, Kapadokya" />
 
                 </div>
 
-                <div className="bg-lydian-warning-lighter border border-yellow-200 rounded-lg p-4">
+                <div className="bg-yellow-500-lighter border border-yellow-200 rounded-lg p-4">
                   <div className="flex items-center gap-2 text-yellow-800 text-sm">
                     <AlertTriangle className="w-4 h-4" />
                     <span className="font-medium">Mint Ücreti: 0.05 ETH + Gas Fee</span>
@@ -619,14 +619,14 @@ const TravelBlockchain: React.FC = () => {
               <div className="flex gap-3 mt-6">
                 <button
                   onClick={() => setShowMintModal(false)}
-                  className="flex-1 px-4 py-2 border border-lydian-border-light rounded-lg font-medium hover:bg-lydian-glass-dark transition-colors">
+                  className="flex-1 px-4 py-2 border border-white/20 rounded-lg font-medium hover:bg-gradient-to-br from-slate-900 via-black to-slate-800 transition-colors">
 
                   İptal
                 </button>
                 <button
                   onClick={mintTravelNFT}
                   disabled={isLoading || !mintingData.title || !mintingData.location}
-                  className="flex-1 px-4 py-2 bg-gradient-to-r from-lydian-secondary to-lydian-primary text-lydian-text-inverse rounded-lg font-medium hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2">
+                  className="flex-1 px-4 py-2 bg-gradient-to-r from-purple-600 to-purple-600 text-white rounded-lg font-medium hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2">
 
                   <motion.div
                     whileHover={{ scale: 1.02 }}
@@ -634,7 +634,7 @@ const TravelBlockchain: React.FC = () => {
 
                     <div className="flex items-center gap-2">
                     {isLoading ?
-                      <div className="w-5 h-5 border-2 border-lydian-border-light border-t-transparent rounded-full animate-spin" /> :
+                      <div className="w-5 h-5 border-2 border-white/20 border-t-transparent rounded-full animate-spin" /> :
 
                       <Sparkles className="w-5 h-5" />
                       }
@@ -658,7 +658,7 @@ const TravelBlockchain: React.FC = () => {
 
             <div
             onClick={(e) => e.stopPropagation()}
-            className="bg-lydian-glass-dark rounded-2xl overflow-hidden w-full max-w-2xl max-h-[90vh] overflow-y-auto">
+            className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-2xl overflow-hidden w-full max-w-2xl max-h-[90vh] overflow-y-auto">
 
               <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
@@ -674,7 +674,7 @@ const TravelBlockchain: React.FC = () => {
 
                 <button
                   onClick={() => setSelectedNFT(null)}
-                  className="absolute top-4 right-4 p-2 bg-black/50 text-lydian-text-inverse rounded-full hover:bg-black/70 transition-colors">
+                  className="absolute top-4 right-4 p-2 bg-black/50 text-white rounded-full hover:bg-black/70 transition-colors">
 
                   <X className="w-5 h-5" />
                 </button>
@@ -683,55 +683,55 @@ const TravelBlockchain: React.FC = () => {
               <div className="p-6">
                 <div className="flex items-start justify-between mb-4">
                   <div>
-                    <h2 className="text-2xl font-bold text-lydian-text-inverse mb-2">{selectedNFT.title}</h2>
+                    <h2 className="text-2xl font-bold text-white mb-2">{selectedNFT.title}</h2>
                     <span className={`px-3 py-1 rounded-full text-sm font-medium ${getRarityColor(selectedNFT.rarity)}`}>
                       {getRarityEmoji(selectedNFT.rarity)} {selectedNFT.rarity.toUpperCase()}
                     </span>
                   </div>
                   <div className="text-right">
-                    <div className="text-sm text-lydian-text-muted mb-1">Token ID</div>
+                    <div className="text-sm text-gray-300 mb-1">Token ID</div>
                     <div className="font-mono text-lg font-bold">#{selectedNFT.tokenId}</div>
                   </div>
                 </div>
 
-                <p className="text-lydian-text-muted mb-6">{selectedNFT.description}</p>
+                <p className="text-gray-300 mb-6">{selectedNFT.description}</p>
 
                 <div className="grid grid-cols-2 gap-6 mb-6">
                   <div>
-                    <h3 className="font-semibold text-lydian-text-inverse mb-3">Özellikler</h3>
+                    <h3 className="font-semibold text-white mb-3">Özellikler</h3>
                     <div className="space-y-2 text-sm">
                       <div className="flex items-center justify-between">
-                        <span className="text-lydian-text-dim">Destinasyon</span>
+                        <span className="text-gray-400">Destinasyon</span>
                         <span className="font-medium">{selectedNFT.attributes.destination}</span>
                       </div>
                       <div className="flex items-center justify-between">
-                        <span className="text-lydian-text-dim">Aktivite</span>
+                        <span className="text-gray-400">Aktivite</span>
                         <span className="font-medium">{selectedNFT.attributes.activity}</span>
                       </div>
                       <div className="flex items-center justify-between">
-                        <span className="text-lydian-text-dim">Mevsim</span>
+                        <span className="text-gray-400">Mevsim</span>
                         <span className="font-medium">{selectedNFT.attributes.season}</span>
                       </div>
                       <div className="flex items-center justify-between">
-                        <span className="text-lydian-text-dim">Hava Durumu</span>
+                        <span className="text-gray-400">Hava Durumu</span>
                         <span className="font-medium">{selectedNFT.attributes.weather}</span>
                       </div>
                     </div>
                   </div>
 
                   <div>
-                    <h3 className="font-semibold text-lydian-text-inverse mb-3">Detaylar</h3>
+                    <h3 className="font-semibold text-white mb-3">Detaylar</h3>
                     <div className="space-y-2 text-sm">
                       <div className="flex items-center gap-2">
-                        <MapPin className="w-4 h-4 text-lydian-text-muted" />
+                        <MapPin className="w-4 h-4 text-gray-300" />
                         <span>{selectedNFT.location}</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <Calendar className="w-4 h-4 text-lydian-text-muted" />
+                        <Calendar className="w-4 h-4 text-gray-300" />
                         <span>{new Date(selectedNFT.date).toLocaleDateString()}</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <Users className="w-4 h-4 text-lydian-text-muted" />
+                        <Users className="w-4 h-4 text-gray-300" />
                         <span>{selectedNFT.attributes.companions} kişi</span>
                       </div>
                     </div>
@@ -739,16 +739,16 @@ const TravelBlockchain: React.FC = () => {
                 </div>
 
                 <div className="flex gap-3">
-                  <button className="flex items-center gap-2 px-4 py-2 border border-lydian-border-light rounded-lg font-medium hover:bg-lydian-glass-dark transition-colors">
+                  <button className="flex items-center gap-2 px-4 py-2 border border-white/20 rounded-lg font-medium hover:bg-gradient-to-br from-slate-900 via-black to-slate-800 transition-colors">
                     <Share2 className="w-4 h-4" />
                     Paylaş
                   </button>
-                  <button className="flex items-center gap-2 px-4 py-2 border border-lydian-border-light rounded-lg font-medium hover:bg-lydian-glass-dark transition-colors">
+                  <button className="flex items-center gap-2 px-4 py-2 border border-white/20 rounded-lg font-medium hover:bg-gradient-to-br from-slate-900 via-black to-slate-800 transition-colors">
                     <Download className="w-4 h-4" />
                     İndir
                   </button>
                   {!selectedNFT.isListed &&
-                  <button className="flex-1 px-4 py-2 bg-gradient-to-r from-lydian-secondary to-lydian-primary text-lydian-text-inverse rounded-lg font-medium hover:shadow-lg transition-all">
+                  <button className="flex-1 px-4 py-2 bg-gradient-to-r from-purple-600 to-purple-600 text-white rounded-lg font-medium hover:shadow-lg transition-all">
                       Satışa Çıkar
                     </button>
                   }
@@ -769,7 +769,7 @@ const TravelBlockchain: React.FC = () => {
 
             <div
             onClick={(e) => e.stopPropagation()}
-            className="bg-lydian-glass-dark rounded-2xl overflow-hidden w-full max-w-4xl max-h-[90vh] overflow-y-auto">
+            className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-2xl overflow-hidden w-full max-w-4xl max-h-[90vh] overflow-y-auto">
 
               <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
@@ -777,12 +777,12 @@ const TravelBlockchain: React.FC = () => {
               exit={{ scale: 0.9, opacity: 0 }}>
 
               <div className="flex items-center justify-between p-6 border-b">
-                <h3 className="text-2xl font-bold text-lydian-text-inverse">Kripto Ödeme</h3>
+                <h3 className="text-2xl font-bold text-white">Kripto Ödeme</h3>
                 <button
                   onClick={() => setShowPaymentModal(false)}
-                  className="p-2 hover:bg-lydian-glass-dark-medium rounded-lg transition-colors">
+                  className="p-2 hover:bg-white/10 backdrop-blur-xl border border-white/20 rounded-lg transition-colors">
 
-                  <X className="w-6 h-6 text-lydian-text-muted" />
+                  <X className="w-6 h-6 text-gray-300" />
                 </button>
               </div>
               

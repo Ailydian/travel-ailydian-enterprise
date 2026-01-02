@@ -187,8 +187,8 @@ const CarRentalEditPage = () => {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 to-blue-50">
         <div className="text-center">
-          <Car className="w-12 h-12 text-lydian-primary animate-spin mx-auto mb-4" />
-          <p className="text-lydian-text-secondary">Yükleniyor...</p>
+          <Car className="w-12 h-12 text-blue-400 animate-spin mx-auto mb-4" />
+          <p className="text-gray-300">Yükleniyor...</p>
         </div>
       </div>);
 
@@ -197,23 +197,23 @@ const CarRentalEditPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
       {/* Header */}
-      <header className="bg-lydian-glass-dark border-b border-lydian-border sticky top-0 z-50 shadow-sm">
+      <header className="bg-white/10 backdrop-blur-xl border border-b border-white/20 sticky top-0 z-50 shadow-sm">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <Link href="/admin/v2/car-rentals">
-                <button className="p-2 hover:bg-lydian-bg-surface-raised rounded-lg transition-colors">
-                  <ArrowLeft className="w-5 h-5 text-lydian-text-secondary" />
+                <button className="p-2 hover:bg-white/5 backdrop-blur-xl rounded-lg transition-colors">
+                  <ArrowLeft className="w-5 h-5 text-gray-300" />
                 </button>
               </Link>
               <div>
-                <h1 className="text-2xl font-bold text-lydian-text">Araç Düzenle</h1>
-                <p className="text-sm text-lydian-text-secondary">ID: {id}</p>
+                <h1 className="text-2xl font-bold text-white">Araç Düzenle</h1>
+                <p className="text-sm text-gray-300">ID: {id}</p>
               </div>
             </div>
             <div className="flex items-center gap-3">
               <Link href="/admin/v2/car-rentals">
-                <button className="flex items-center gap-2 px-4 py-2 border border-lydian-border-medium rounded-lg hover:bg-lydian-bg-surface transition-colors">
+                <button className="flex items-center gap-2 px-4 py-2 border border-white/20 rounded-lg hover:bg-white/5 transition-colors">
                   <X className="w-4 h-4" />
                   <span className="text-sm font-medium">İptal</span>
                 </button>
@@ -221,7 +221,7 @@ const CarRentalEditPage = () => {
               <button
                 onClick={handleSubmit}
                 disabled={saving}
-                className="flex items-center gap-2 px-4 py-2 bg-lydian-primary text-lydian-text-inverse rounded-lg hover:bg-lydian-primary-dark transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+                className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:bg-gradient-to-r from-blue-600 to-purple-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
 
                 <Save className="w-4 h-4" />
                 <span className="text-sm font-medium">{saving ? 'Kaydediliyor...' : 'Kaydet'}</span>
@@ -234,18 +234,18 @@ const CarRentalEditPage = () => {
       {/* Alerts */}
       {error &&
       <div className="max-w-7xl mx-auto px-6 py-4">
-          <div className="bg-lydian-error-lighter border border-red-200 rounded-lg p-4 flex items-center gap-3">
-            <AlertCircle className="w-5 h-5 text-lydian-primary" />
-            <p className="text-lydian-primary-active">{error}</p>
+          <div className="bg-white/5 border border-purple-400 rounded-lg p-4 flex items-center gap-3">
+            <AlertCircle className="w-5 h-5 text-blue-400" />
+            <p className="text-blue-400-active">{error}</p>
           </div>
         </div>
       }
 
       {success &&
       <div className="max-w-7xl mx-auto px-6 py-4">
-          <div className="bg-lydian-success-lighter border border-green-200 rounded-lg p-4 flex items-center gap-3">
-            <CheckCircle className="w-5 h-5 text-lydian-success" />
-            <p className="text-green-800">Başarıyla kaydedildi! Yönlendiriliyorsunuz...</p>
+          <div className="bg-purple-500-lighter border border-purple-400 rounded-lg p-4 flex items-center gap-3">
+            <CheckCircle className="w-5 h-5 text-purple-400" />
+            <p className="text-purple-300">Başarıyla kaydedildi! Yönlendiriliyorsunuz...</p>
           </div>
         </div>
       }
@@ -254,65 +254,65 @@ const CarRentalEditPage = () => {
       <main className="max-w-7xl mx-auto px-6 py-8">
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Basic Info */}
-          <div className="bg-lydian-glass-dark rounded-xl border border-lydian-border p-6">
-            <h2 className="text-lg font-bold text-lydian-text mb-6 flex items-center gap-2">
-              <Car className="w-5 h-5 text-lydian-primary" />
+          <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl border border-white/20 p-6">
+            <h2 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
+              <Car className="w-5 h-5 text-blue-400" />
               Temel Bilgiler
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label className="block text-sm font-medium text-lydian-text-secondary mb-2">Araç Adı *</label>
+                <label className="block text-sm font-medium text-gray-300 mb-2">Araç Adı *</label>
                 <input
                   type="text"
                   name="name"
                   value={formData.name}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-2 border border-lydian-border rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-primary outline-none"
+                  className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-blue-500 outline-none"
                   placeholder="Örn: BMW 5 Serisi" />
 
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-lydian-text-secondary mb-2">Slug (URL)</label>
+                <label className="block text-sm font-medium text-gray-300 mb-2">Slug (URL)</label>
                 <input
                   type="text"
                   name="slug"
                   value={formData.slug}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-2 border border-lydian-border rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-primary outline-none"
+                  className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-blue-500 outline-none"
                   placeholder="bmw-5-serisi" />
 
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-lydian-text-secondary mb-2">Marka *</label>
+                <label className="block text-sm font-medium text-gray-300 mb-2">Marka *</label>
                 <input
                   type="text"
                   name="brand"
                   value={formData.brand}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-2 border border-lydian-border rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-primary outline-none"
+                  className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-blue-500 outline-none"
                   placeholder="BMW" />
 
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-lydian-text-secondary mb-2">Model *</label>
+                <label className="block text-sm font-medium text-gray-300 mb-2">Model *</label>
                 <input
                   type="text"
                   name="model"
                   value={formData.model}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-2 border border-lydian-border rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-primary outline-none"
+                  className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-blue-500 outline-none"
                   placeholder="5 Serisi" />
 
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-lydian-text-secondary mb-2">Yıl *</label>
+                <label className="block text-sm font-medium text-gray-300 mb-2">Yıl *</label>
                 <input
                   type="number"
                   name="year"
@@ -321,18 +321,18 @@ const CarRentalEditPage = () => {
                   required
                   min="1990"
                   max={new Date().getFullYear() + 1}
-                  className="w-full px-4 py-2 border border-lydian-border rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-primary outline-none" />
+                  className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-blue-500 outline-none" />
 
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-lydian-text-secondary mb-2">Kategori *</label>
+                <label className="block text-sm font-medium text-gray-300 mb-2">Kategori *</label>
                 <select
                   name="category"
                   value={formData.category}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-2 border border-lydian-border rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-primary outline-none">
+                  className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-blue-500 outline-none">
 
                   <option value="sedan">Sedan</option>
                   <option value="suv">SUV</option>
@@ -345,13 +345,13 @@ const CarRentalEditPage = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-lydian-text-secondary mb-2">Vites *</label>
+                <label className="block text-sm font-medium text-gray-300 mb-2">Vites *</label>
                 <select
                   name="transmission"
                   value={formData.transmission}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-2 border border-lydian-border rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-primary outline-none">
+                  className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-blue-500 outline-none">
 
                   <option value="manual">Manuel</option>
                   <option value="automatic">Otomatik</option>
@@ -359,13 +359,13 @@ const CarRentalEditPage = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-lydian-text-secondary mb-2">Yakıt Tipi *</label>
+                <label className="block text-sm font-medium text-gray-300 mb-2">Yakıt Tipi *</label>
                 <select
                   name="fuelType"
                   value={formData.fuelType}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-2 border border-lydian-border rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-primary outline-none">
+                  className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-blue-500 outline-none">
 
                   <option value="gasoline">Benzin</option>
                   <option value="diesel">Dizel</option>
@@ -375,7 +375,7 @@ const CarRentalEditPage = () => {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-lydian-text-secondary mb-2">Koltuk Sayısı *</label>
+                <label className="block text-sm font-medium text-gray-300 mb-2">Koltuk Sayısı *</label>
                 <input
                   type="number"
                   name="seats"
@@ -384,24 +384,24 @@ const CarRentalEditPage = () => {
                   required
                   min="2"
                   max="50"
-                  className="w-full px-4 py-2 border border-lydian-border rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-primary outline-none" />
+                  className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-blue-500 outline-none" />
 
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-lydian-text-secondary mb-2">Konum</label>
+                <label className="block text-sm font-medium text-gray-300 mb-2">Konum</label>
                 <input
                   type="text"
                   name="location"
                   value={formData.location}
                   onChange={handleInputChange}
-                  className="w-full px-4 py-2 border border-lydian-border rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-primary outline-none"
+                  className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-blue-500 outline-none"
                   placeholder="İstanbul, Türkiye" />
 
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-lydian-text-secondary mb-2">Stok Adedi *</label>
+                <label className="block text-sm font-medium text-gray-300 mb-2">Stok Adedi *</label>
                 <input
                   type="number"
                   name="availableCount"
@@ -409,18 +409,18 @@ const CarRentalEditPage = () => {
                   onChange={handleInputChange}
                   required
                   min="0"
-                  className="w-full px-4 py-2 border border-lydian-border rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-primary outline-none" />
+                  className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-blue-500 outline-none" />
 
               </div>
 
               <div className="md:col-span-2">
-                <label className="block text-sm font-medium text-lydian-text-secondary mb-2">Açıklama</label>
+                <label className="block text-sm font-medium text-gray-300 mb-2">Açıklama</label>
                 <textarea
                   name="description"
                   value={formData.description}
                   onChange={handleInputChange}
                   rows={4}
-                  className="w-full px-4 py-2 border border-lydian-border rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-primary outline-none"
+                  className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-blue-500 outline-none"
                   placeholder="Araç hakkında detaylı bilgi..." />
 
               </div>
@@ -428,14 +428,14 @@ const CarRentalEditPage = () => {
           </div>
 
           {/* Pricing */}
-          <div className="bg-lydian-glass-dark rounded-xl border border-lydian-border p-6">
-            <h2 className="text-lg font-bold text-lydian-text mb-6 flex items-center gap-2">
-              <DollarSign className="w-5 h-5 text-lydian-success" />
+          <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl border border-white/20 p-6">
+            <h2 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
+              <DollarSign className="w-5 h-5 text-purple-400" />
               Fiyatlandırma
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label className="block text-sm font-medium text-lydian-text-secondary mb-2">Günlük Fiyat *</label>
+                <label className="block text-sm font-medium text-gray-300 mb-2">Günlük Fiyat *</label>
                 <input
                   type="number"
                   name="pricePerDay"
@@ -444,18 +444,18 @@ const CarRentalEditPage = () => {
                   required
                   min="0"
                   step="0.01"
-                  className="w-full px-4 py-2 border border-lydian-border rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-primary outline-none" />
+                  className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-blue-500 outline-none" />
 
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-lydian-text-secondary mb-2">Para Birimi *</label>
+                <label className="block text-sm font-medium text-gray-300 mb-2">Para Birimi *</label>
                 <select
                   name="currency"
                   value={formData.currency}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-2 border border-lydian-border rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-primary outline-none">
+                  className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-blue-500 outline-none">
 
                   <option value="TRY">₺ TRY</option>
                   <option value="USD">$ USD</option>
@@ -466,8 +466,8 @@ const CarRentalEditPage = () => {
           </div>
 
           {/* Features */}
-          <div className="bg-lydian-glass-dark rounded-xl border border-lydian-border p-6">
-            <h2 className="text-lg font-bold text-lydian-text mb-6 flex items-center gap-2">
+          <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl border border-white/20 p-6">
+            <h2 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
               <Star className="w-5 h-5 text-amber-600" />
               Özellikler
             </h2>
@@ -478,13 +478,13 @@ const CarRentalEditPage = () => {
                 value={newFeature}
                 onChange={(e) => setNewFeature(e.target.value)}
                 onKeyPress={(e) => e.key === 'Enter' && (e.preventDefault(), addFeature())}
-                className="flex-1 px-4 py-2 border border-lydian-border rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-primary outline-none"
+                className="flex-1 px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-blue-500 outline-none"
                 placeholder="Yeni özellik ekle (örn: Klima, GPS)" />
 
               <button
                 type="button"
                 onClick={addFeature}
-                className="px-4 py-2 bg-lydian-primary text-lydian-text-inverse rounded-lg hover:bg-lydian-primary-dark transition-colors">
+                className="px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:bg-gradient-to-r from-blue-600 to-purple-600 transition-colors">
 
                 <Plus className="w-5 h-5" />
               </button>
@@ -494,13 +494,13 @@ const CarRentalEditPage = () => {
               {formData.features.map((feature, index) =>
               <span
                 key={index}
-                className="inline-flex items-center gap-2 px-3 py-1 bg-lydian-primary-lighter text-lydian-primary-dark rounded-full text-sm">
+                className="inline-flex items-center gap-2 px-3 py-1 bg-gradient-to-r from-blue-600 to-purple-600-lighter text-blue-400 rounded-full text-sm">
 
                   {feature}
                   <button
                   type="button"
                   onClick={() => removeFeature(index)}
-                  className="hover:text-lydian-primary transition-colors">
+                  className="hover:text-blue-400 transition-colors">
 
                     <X className="w-4 h-4" />
                   </button>
@@ -510,39 +510,39 @@ const CarRentalEditPage = () => {
           </div>
 
           {/* Images */}
-          <div className="bg-lydian-glass-dark rounded-xl border border-lydian-border p-6">
-            <h2 className="text-lg font-bold text-lydian-text mb-6 flex items-center gap-2">
+          <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl border border-white/20 p-6">
+            <h2 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
               <ImageIcon className="w-5 h-5 text-purple-600" />
               Görseller
             </h2>
 
             <div className="mb-6">
-              <label className="block text-sm font-medium text-lydian-text-secondary mb-2">Ana Görsel URL</label>
+              <label className="block text-sm font-medium text-gray-300 mb-2">Ana Görsel URL</label>
               <input
                 type="text"
                 name="mainImage"
                 value={formData.mainImage}
                 onChange={handleInputChange}
-                className="w-full px-4 py-2 border border-lydian-border rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-primary outline-none"
+                className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-blue-500 outline-none"
                 placeholder="https://example.com/image.jpg" />
 
             </div>
 
             <div className="mb-4">
-              <label className="block text-sm font-medium text-lydian-text-secondary mb-2">Ek Görseller</label>
+              <label className="block text-sm font-medium text-gray-300 mb-2">Ek Görseller</label>
               <div className="flex gap-2">
                 <input
                   type="text"
                   value={newImage}
                   onChange={(e) => setNewImage(e.target.value)}
                   onKeyPress={(e) => e.key === 'Enter' && (e.preventDefault(), addImage())}
-                  className="flex-1 px-4 py-2 border border-lydian-border rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-primary outline-none"
+                  className="flex-1 px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-blue-500 outline-none"
                   placeholder="Görsel URL ekle" />
 
                 <button
                   type="button"
                   onClick={addImage}
-                  className="px-4 py-2 bg-purple-600 text-lydian-text-inverse rounded-lg hover:bg-purple-700 transition-colors">
+                  className="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors">
 
                   <Plus className="w-5 h-5" />
                 </button>
@@ -555,7 +555,7 @@ const CarRentalEditPage = () => {
                   <img
                   src={image}
                   alt={`Image ${index + 1}`}
-                  className="w-full h-32 object-cover rounded-lg border border-lydian-border"
+                  className="w-full h-32 object-cover rounded-lg border border-white/20"
                   onError={(e) => {
                     (e.target as HTMLImageElement).src = '/placeholder-car.jpg';
                   }} />
@@ -563,7 +563,7 @@ const CarRentalEditPage = () => {
                   <button
                   type="button"
                   onClick={() => removeImage(index)}
-                  className="absolute top-2 right-2 p-1 bg-lydian-error text-lydian-text-inverse rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+                  className="absolute top-2 right-2 p-1 bg-gray-500 text-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
 
                     <Trash2 className="w-4 h-4" />
                   </button>
@@ -573,9 +573,9 @@ const CarRentalEditPage = () => {
           </div>
 
           {/* Status */}
-          <div className="bg-lydian-glass-dark rounded-xl border border-lydian-border p-6">
-            <h2 className="text-lg font-bold text-lydian-text mb-6 flex items-center gap-2">
-              <Settings className="w-5 h-5 text-lydian-text-secondary" />
+          <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl border border-white/20 p-6">
+            <h2 className="text-lg font-bold text-white mb-6 flex items-center gap-2">
+              <Settings className="w-5 h-5 text-gray-300" />
               Durum Ayarları
             </h2>
             <div className="space-y-4">
@@ -585,9 +585,9 @@ const CarRentalEditPage = () => {
                   name="isActive"
                   checked={formData.isActive}
                   onChange={handleInputChange}
-                  className="w-5 h-5 text-lydian-primary border-lydian-border-medium rounded focus:ring-2 focus:ring-lydian-border-focus" />
+                  className="w-5 h-5 text-blue-400 border-white/20 rounded focus:ring-2 focus:ring-purple-500" />
 
-                <span className="text-sm font-medium text-lydian-text-secondary">Aktif (Sitede göster)</span>
+                <span className="text-sm font-medium text-gray-300">Aktif (Sitede göster)</span>
               </label>
 
               <label className="flex items-center gap-3">
@@ -596,9 +596,9 @@ const CarRentalEditPage = () => {
                   name="isFeatured"
                   checked={formData.isFeatured}
                   onChange={handleInputChange}
-                  className="w-5 h-5 text-lydian-primary border-lydian-border-medium rounded focus:ring-2 focus:ring-lydian-border-focus" />
+                  className="w-5 h-5 text-blue-400 border-white/20 rounded focus:ring-2 focus:ring-purple-500" />
 
-                <span className="text-sm font-medium text-lydian-text-secondary">Öne Çıkan</span>
+                <span className="text-sm font-medium text-gray-300">Öne Çıkan</span>
               </label>
             </div>
           </div>

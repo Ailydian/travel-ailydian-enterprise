@@ -43,9 +43,6 @@ import {
 '@/lib/seo-config';
 import antalyaCarRentals from '@/data/antalya-car-rentals';
 import logger from '../../lib/logger';
-import { NeoHero } from '@/components/neo-glass/NeoHero';
-import { FuturisticCard } from '@/components/neo-glass/FuturisticCard';
-import { FuturisticButton } from '@/components/neo-glass/FuturisticButton';
 
 // Real vehicle data interface
 interface Vehicle {
@@ -230,44 +227,66 @@ const CarRentalsPage: React.FC = () => {
 
       <ModernHeader />
 
-      <main className="min-h-screen bg-lydian-glass-dark">
-        {/* NeoHero Section */}
-        <NeoHero
-          title="Hayalinizdeki Arabayı Şimdi Kiralayın"
-          subtitle="14+ araç kategorisi, binlerce doğrulanmış araç sahibi. Ekonomik sedan'dan lüks spor arabalara kadar."
-          gradient="sunset"
-          height="70vh"
-          overlayOpacity={0.3}
-          showFloatingElements={true}>
+      <main className="min-h-screen bg-gradient-to-br from-slate-900 via-black to-slate-800">
+        {/* Hero Section */}
+        <section className="relative bg-gradient-to-br from-blue-600 via-purple-600 to-blue-800 text-white py-24 min-h-[70vh] flex items-center">
+          <div className="max-w-7xl mx-auto px-4 w-full">
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-12">
 
-          {/* Advanced Search Engine */}
-          <div className="max-w-6xl mx-auto w-full mt-8">
-            <CarRentalSearchEngine
-              onSearch={(searchData: CarRentalSearchData) => {
-                logger.debug('Search data:', { component: 'Index', metadata: { searchData } });
-                setShowFilters(true);
-              }} />
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-xl rounded-full mb-6">
+                <Car className="w-5 h-5" />
+                <span className="text-sm font-medium">Araç Kiralama</span>
+              </div>
 
+              <h1 className="text-5xl md:text-6xl font-black mb-6 leading-tight">
+                Hayalinizdeki Arabayı
+                <br />
+                <span className="text-blue-200">Şimdi Kiralayın</span>
+              </h1>
+
+              <p className="text-xl text-blue-50 mb-2 leading-relaxed max-w-3xl mx-auto">
+                14+ araç kategorisi, binlerce doğrulanmış araç sahibi. Ekonomik sedan'dan lüks spor arabalara kadar.
+              </p>
+            </motion.div>
+
+            {/* Advanced Search Engine */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="max-w-6xl mx-auto w-full">
+
+              <CarRentalSearchEngine
+                onSearch={(searchData: CarRentalSearchData) => {
+                  logger.debug('Search data:', { component: 'Index', metadata: { searchData } });
+                  setShowFilters(true);
+                }} />
+
+            </motion.div>
           </div>
-        </NeoHero>
+        </section>
 
         {/* Owner CTA Banner */}
-        <section className="bg-gradient-to-r from-lydian-bg-hover/50 to-lydian-glass-dark/50 border-y border-lydian-border-light/20 backdrop-blur-xl">
+        <section className="bg-gradient-to-r from-white/50 to-white/50 border-y border-white/20 backdrop-blur-xl">
           <div className="max-w-7xl mx-auto px-4 py-8">
             <div className="flex flex-col md:flex-row items-center justify-between gap-6">
               <div className="flex items-center gap-4">
                 <motion.div
                   whileHover={{ rotate: 360, scale: 1.1 }}
                   transition={{ duration: 0.6 }}
-                  className="w-16 h-16 bg-gradient-to-br from-lydian-primary to-lydian-primary-hover rounded-2xl flex items-center justify-center shadow-lg shadow-lydian-primary/30">
+                  className="w-16 h-16 bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg shadow-blue-500/30">
 
-                  <Car className="w-8 h-8 text-lydian-text-inverse" />
+                  <Car className="w-8 h-8 text-white" />
                 </motion.div>
                 <div>
-                  <h3 className="text-2xl font-bold text-lydian-text-inverse mb-1">
+                  <h3 className="text-2xl font-bold text-white mb-1">
                     Aracınızı Kiraya Verin
                   </h3>
-                  <p className="text-lydian-text-dim">
+                  <p className="text-gray-400">
                     Profesyonel Property Owner Dashboard ile kiralık araçlarınızı yönetin
                   </p>
                 </div>
@@ -275,13 +294,12 @@ const CarRentalsPage: React.FC = () => {
 
               <div className="flex items-center gap-4">
                 <div className="text-right">
-                  <div className="text-sm text-lydian-text-muted">Ortalama Aylık Gelir</div>
-                  <div className="text-2xl font-bold text-lydian-primary">₺8,500</div>
+                  <div className="text-sm text-gray-300">Ortalama Aylık Gelir</div>
+                  <div className="text-2xl font-bold text-blue-500">₺8,500</div>
                 </div>
-                <Link href="/vehicle-owner">
-                  <FuturisticButton variant="secondary" size="md" leftIcon={<ArrowRight className="w-5 h-5" />} iconPosition="right">
-                    Kayıt Ol
-                  </FuturisticButton>
+                <Link href="/vehicle-owner" className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-xl font-semibold transition-all shadow-lg hover:shadow-xl">
+                  Kayıt Ol
+                  <ArrowRight className="w-5 h-5" />
                 </Link>
               </div>
             </div>
@@ -289,14 +307,14 @@ const CarRentalsPage: React.FC = () => {
         </section>
 
         {/* Promotional Content Section with Animated Images */}
-        <section className="bg-lydian-bg-hover py-16">
+        <section className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl py-16">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center mb-12">
               <motion.h2
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="text-4xl font-black text-lydian-text-inverse mb-4">
+                className="text-4xl font-black text-white mb-4">
 
                 Neden LyDian Car Rental?
               </motion.h2>
@@ -305,7 +323,7 @@ const CarRentalsPage: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.1 }}
-                className="text-xl text-lydian-text-dim">
+                className="text-xl text-gray-400">
 
                 Premium araç kiralama deneyiminin tüm avantajları
               </motion.p>
@@ -318,24 +336,24 @@ const CarRentalsPage: React.FC = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.2 }}
-                className="relative overflow-hidden rounded-2xl bg-lydian-glass-dark backdrop-blur-xl border border-lydian-border-light/20 p-8">
+                className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-900 via-black to-slate-800 backdrop-blur-xl border border-white/20 p-8">
 
                 <motion.div
                   animate={{ y: [0, -10, 0] }}
                   transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute top-4 right-4 w-24 h-24 bg-lydian-primary/20 rounded-full opacity-50 blur-2xl" />
+                  className="absolute top-4 right-4 w-24 h-24 bg-blue-500/20 rounded-full opacity-50 blur-2xl" />
 
                 <div className="relative z-10">
-                  <div className="w-16 h-16 bg-gradient-to-br from-lydian-primary to-lydian-primary-hover rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-lydian-primary/30">
-                    <CheckCircle className="w-8 h-8 text-lydian-text-inverse" />
+                  <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-blue-500/30">
+                    <CheckCircle className="w-8 h-8 text-white" />
                   </div>
-                  <h3 className="text-2xl font-bold text-lydian-text-inverse mb-3">
+                  <h3 className="text-2xl font-bold text-white mb-3">
                     Doğrulanmış Araç Sahipleri
                   </h3>
-                  <p className="text-lydian-text-dim leading-relaxed">
+                  <p className="text-gray-400 leading-relaxed">
                     Tüm araç sahiplerimiz kimlik doğrulamasından geçer. Sigortasız, ruhsatsız araç yok. %100 güvenilir platform.
                   </p>
-                  <div className="mt-6 flex items-center gap-2 text-sm text-lydian-primary font-semibold">
+                  <div className="mt-6 flex items-center gap-2 text-sm text-blue-500 font-semibold">
                     <Shield className="w-5 h-5" />
                     <span>1,200+ Doğrulanmış Araç</span>
                   </div>
@@ -348,24 +366,24 @@ const CarRentalsPage: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.3 }}
-                className="relative overflow-hidden rounded-2xl bg-lydian-glass-dark backdrop-blur-xl border border-lydian-border-light/20 p-8">
+                className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-900 via-black to-slate-800 backdrop-blur-xl border border-white/20 p-8">
 
                 <motion.div
                   animate={{ scale: [1, 1.2, 1] }}
                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute bottom-4 left-4 w-32 h-32 bg-lydian-info/20 rounded-full opacity-40 blur-3xl" />
+                  className="absolute bottom-4 left-4 w-32 h-32 bg-blue-500/20 rounded-full opacity-40 blur-3xl" />
 
                 <div className="relative z-10">
-                  <div className="w-16 h-16 bg-gradient-to-br from-lydian-info to-lydian-info-hover rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-lydian-info/30">
-                    <Zap className="w-8 h-8 text-lydian-text-inverse" />
+                  <div className="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-blue-400/30">
+                    <Zap className="w-8 h-8 text-white" />
                   </div>
-                  <h3 className="text-2xl font-bold text-lydian-text-inverse mb-3">
+                  <h3 className="text-2xl font-bold text-white mb-3">
                     Anında Rezervasyon
                   </h3>
-                  <p className="text-lydian-text-dim leading-relaxed">
+                  <p className="text-gray-400 leading-relaxed">
                     Beklemeden, onay süreçleri olmadan anında kiralayın. Araç sahibiyle görüşmeye gerek yok. Dijital anahtarla hemen yola çıkın.
                   </p>
-                  <div className="mt-6 flex items-center gap-2 text-sm text-lydian-info font-semibold">
+                  <div className="mt-6 flex items-center gap-2 text-sm text-blue-400 font-semibold">
                     <Clock className="w-5 h-5" />
                     <span>2 Dakikada Kiralama</span>
                   </div>
@@ -378,24 +396,24 @@ const CarRentalsPage: React.FC = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.4 }}
-                className="relative overflow-hidden rounded-2xl bg-lydian-glass-dark backdrop-blur-xl border border-lydian-border-light/20 p-8">
+                className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-900 via-black to-slate-800 backdrop-blur-xl border border-white/20 p-8">
 
                 <motion.div
                   animate={{ rotate: [0, 360] }}
                   transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                  className="absolute top-1/2 right-1/2 w-40 h-40 bg-lydian-success/20 rounded-full opacity-30 blur-3xl" />
+                  className="absolute top-1/2 right-1/2 w-40 h-40 bg-green-600/20 rounded-full opacity-30 blur-3xl" />
 
                 <div className="relative z-10">
-                  <div className="w-16 h-16 bg-gradient-to-br from-lydian-success to-lydian-success-hover rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-lydian-success/30">
-                    <DollarSign className="w-8 h-8 text-lydian-text-inverse" />
+                  <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-green-500/30">
+                    <DollarSign className="w-8 h-8 text-white" />
                   </div>
-                  <h3 className="text-2xl font-bold text-lydian-text-inverse mb-3">
+                  <h3 className="text-2xl font-bold text-white mb-3">
                     En Uygun Fiyatlar
                   </h3>
-                  <p className="text-lydian-text-dim leading-relaxed">
+                  <p className="text-gray-400 leading-relaxed">
                     Aracılık komisyonu yok. Doğrudan araç sahibinden kiralayın. Ekonomik sedan ₺350/gün, lüks araçlar ₺1,200/gün.
                   </p>
-                  <div className="mt-6 flex items-center gap-2 text-sm text-lydian-success font-semibold">
+                  <div className="mt-6 flex items-center gap-2 text-sm text-green-500 font-semibold">
                     <TrendingUp className="w-5 h-5" />
                     <span>%40 Daha Ekonomik</span>
                   </div>
@@ -409,9 +427,9 @@ const CarRentalsPage: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.5 }}
-              className="mt-16 bg-lydian-glass-dark backdrop-blur-xl border border-lydian-border-light/20 rounded-3xl p-12">
+              className="mt-16 bg-gradient-to-br from-slate-900 via-black to-slate-800 backdrop-blur-xl border border-white/20 rounded-3xl p-12">
 
-              <h3 className="text-3xl font-black text-lydian-text-inverse mb-8 text-center">
+              <h3 className="text-3xl font-black text-white mb-8 text-center">
                 Nasıl Çalışır?
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
@@ -419,45 +437,45 @@ const CarRentalsPage: React.FC = () => {
                   <motion.div
                     whileHover={{ scale: 1.1, rotate: 360 }}
                     transition={{ duration: 0.6 }}
-                    className="w-16 h-16 bg-gradient-to-br from-lydian-primary to-lydian-primary-hover rounded-full flex items-center justify-center mx-auto mb-4 text-lydian-text-inverse text-2xl font-bold shadow-lg shadow-lydian-primary/30">
+                    className="w-16 h-16 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl font-bold shadow-lg shadow-blue-500/30">
 
                     1
                   </motion.div>
-                  <h4 className="font-bold text-lydian-text-inverse mb-2">Araç Seçin</h4>
-                  <p className="text-sm text-lydian-text-dim">14+ kategoriden istediğiniz aracı bulun</p>
+                  <h4 className="font-bold text-white mb-2">Araç Seçin</h4>
+                  <p className="text-sm text-gray-400">14+ kategoriden istediğiniz aracı bulun</p>
                 </div>
                 <div className="text-center">
                   <motion.div
                     whileHover={{ scale: 1.1, rotate: 360 }}
                     transition={{ duration: 0.6 }}
-                    className="w-16 h-16 bg-gradient-to-br from-lydian-primary to-lydian-primary-hover rounded-full flex items-center justify-center mx-auto mb-4 text-lydian-text-inverse text-2xl font-bold shadow-lg shadow-lydian-primary/30">
+                    className="w-16 h-16 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl font-bold shadow-lg shadow-blue-500/30">
 
                     2
                   </motion.div>
-                  <h4 className="font-bold text-lydian-text-inverse mb-2">Rezervasyon</h4>
-                  <p className="text-sm text-lydian-text-dim">Anında onay, ödeme güvenli</p>
+                  <h4 className="font-bold text-white mb-2">Rezervasyon</h4>
+                  <p className="text-sm text-gray-400">Anında onay, ödeme güvenli</p>
                 </div>
                 <div className="text-center">
                   <motion.div
                     whileHover={{ scale: 1.1, rotate: 360 }}
                     transition={{ duration: 0.6 }}
-                    className="w-16 h-16 bg-gradient-to-br from-lydian-primary to-lydian-primary-hover rounded-full flex items-center justify-center mx-auto mb-4 text-lydian-text-inverse text-2xl font-bold shadow-lg shadow-lydian-primary/30">
+                    className="w-16 h-16 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl font-bold shadow-lg shadow-blue-500/30">
 
                     3
                   </motion.div>
-                  <h4 className="font-bold text-lydian-text-inverse mb-2">Dijital Anahtar</h4>
-                  <p className="text-sm text-lydian-text-dim">Mobil uygulama ile kilidi açın</p>
+                  <h4 className="font-bold text-white mb-2">Dijital Anahtar</h4>
+                  <p className="text-sm text-gray-400">Mobil uygulama ile kilidi açın</p>
                 </div>
                 <div className="text-center">
                   <motion.div
                     whileHover={{ scale: 1.1, rotate: 360 }}
                     transition={{ duration: 0.6 }}
-                    className="w-16 h-16 bg-gradient-to-br from-lydian-primary to-lydian-primary-hover rounded-full flex items-center justify-center mx-auto mb-4 text-lydian-text-inverse text-2xl font-bold shadow-lg shadow-lydian-primary/30">
+                    className="w-16 h-16 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl font-bold shadow-lg shadow-blue-500/30">
 
                     4
                   </motion.div>
-                  <h4 className="font-bold text-lydian-text-inverse mb-2">Yola Çıkın</h4>
-                  <p className="text-sm text-lydian-text-dim">Maceranızı başlatın!</p>
+                  <h4 className="font-bold text-white mb-2">Yola Çıkın</h4>
+                  <p className="text-sm text-gray-400">Maceranızı başlatın!</p>
                 </div>
               </div>
             </motion.div>
@@ -465,7 +483,7 @@ const CarRentalsPage: React.FC = () => {
         </section>
 
         {/* Filters Bar - Glassmorphism */}
-        <section className="bg-lydian-glass-dark backdrop-blur-xl border-b border-lydian-border-light/20 sticky top-20 z-40">
+        <section className="bg-gradient-to-br from-slate-900 via-black to-slate-800 backdrop-blur-xl border-b border-white/20 sticky top-20 z-40">
           <div className="max-w-7xl mx-auto px-4 py-4">
             <div className="flex items-center justify-between gap-4">
               <div className="flex items-center gap-2 flex-wrap">
@@ -477,8 +495,8 @@ const CarRentalsPage: React.FC = () => {
                   whileTap={{ scale: 0.95 }}
                   className={`px-4 py-2 rounded-xl text-sm font-medium transition-all backdrop-blur-xl ${
                   filters.vehicleType === cat.value ?
-                  'bg-gradient-to-r from-lydian-primary to-lydian-primary-hover text-lydian-text-inverse shadow-lg shadow-lydian-primary/30' :
-                  'bg-lydian-glass-dark-medium border border-lydian-border-light/30 text-lydian-text-inverse hover:border-lydian-primary/50'}`
+                  'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg shadow-blue-500/30' :
+                  'bg-white/10 backdrop-blur-xl border border-white/20 border border-white/20/30 text-white hover:border-blue-500/50'}`
                   }>
 
                     {cat.label}
@@ -490,10 +508,10 @@ const CarRentalsPage: React.FC = () => {
                 onClick={() => setShowFilters(!showFilters)}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="flex items-center gap-2 px-4 py-2 bg-lydian-glass-dark-medium backdrop-blur-xl border border-lydian-border-light/30 rounded-xl hover:border-lydian-primary/50 transition-all">
+                className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl shadow-lg shadow-blue-500/30 hover:shadow-xl hover:shadow-blue-500/50 transition-all">
 
-                <Filter className="w-5 h-5 text-lydian-text-inverse" />
-                <span className="text-sm font-medium text-lydian-text-inverse">Filtreler</span>
+                <Filter className="w-5 h-5 text-white" />
+                <span className="text-sm font-medium text-white">Filtreler</span>
               </motion.button>
             </div>
           </div>
@@ -505,11 +523,11 @@ const CarRentalsPage: React.FC = () => {
             <motion.h2
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              className="text-2xl font-bold text-lydian-text-inverse">
+              className="text-2xl font-bold text-white">
 
               {filteredVehicles.length} Araç Bulundu
             </motion.h2>
-            <p className="text-lydian-text-dim">En iyi seçenekler sizin için</p>
+            <p className="text-gray-400">En iyi seçenekler sizin için</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -520,87 +538,88 @@ const CarRentalsPage: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.05, duration: 0.4 }}>
 
-                <FuturisticCard
-                image={vehicle.mainImage}
-                title={vehicle.name}
-                description={`${vehicle.brand} • ${vehicle.year}`}
-                price={`₺${parseInt(vehicle.pricePerDay).toLocaleString('tr-TR')}/gün`}
-                badge={vehicle.isFeatured ? 'Öne Çıkan' : vehicle.isPopular ? 'Popüler' : undefined}
-                badges={[
-                  vehicle.availableCount > 0 ? `${vehicle.availableCount} Müsait` : ''
-                ].filter(Boolean)}
-                category={vehicle.category}
-                categoryColor="var(--lydian-primary)"
-                rating={parseFloat(vehicle.rating)}
-                reviews={vehicle.reviewCount}
-                metadata={[
-                  {
-                    icon: <MapPin className="w-4 h-4" />,
-                    label: vehicle.pickupLocations[0] || 'Antalya'
-                  },
-                  {
-                    icon: <Users className="w-4 h-4" />,
-                    label: `${vehicle.seats} Koltuk`
-                  },
-                  {
-                    icon: <Settings className="w-4 h-4" />,
-                    label: vehicle.transmission === 'AUTOMATIC' ? 'Otomatik' : 'Manuel'
-                  },
-                  {
-                    icon: <Fuel className="w-4 h-4" />,
-                    label: vehicle.fuelType
-                  }
-                ]}
-                onClick={() => router.push(`/car-rentals/${vehicle.slug}`)}
-                onFavorite={(e) => {
-                  e.stopPropagation();
-                  toggleFavorite(vehicle.id);
-                }}
-                isFavorite={favorites.has(vehicle.id)}>
+                <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl overflow-hidden hover:shadow-xl transition-all cursor-pointer" onClick={() => router.push(`/car-rentals/${vehicle.slug}`)}>
+                  {/* Image */}
+                  <div className="relative h-48 overflow-hidden">
+                    <img src={vehicle.mainImage} alt={vehicle.name} className="w-full h-full object-cover" />
+                    {(vehicle.isFeatured || vehicle.isPopular) && (
+                      <div className="absolute top-3 left-3 px-3 py-1 bg-blue-500/90 text-white text-xs font-semibold rounded-full">
+                        {vehicle.isFeatured ? 'Öne Çıkan' : 'Popüler'}
+                      </div>
+                    )}
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        toggleFavorite(vehicle.id);
+                      }}
+                      className="absolute top-3 right-3 w-10 h-10 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/20 transition-colors">
+                      <Heart className={`w-5 h-5 ${favorites.has(vehicle.id) ? 'fill-blue-500 text-blue-500' : 'text-gray-400'}`} />
+                    </button>
+                  </div>
 
-                  {/* Custom CTA Button */}
-                  <div className="mt-4">
-                    <Link href={`/car-rentals/${vehicle.slug}`}>
-                      <FuturisticButton variant="secondary"
-                      size="md"
-                      fullWidth
-                      leftIcon={<ArrowRight className="w-4 h-4" />}
-                      iconPosition="right">
+                  {/* Content */}
+                  <div className="p-5">
+                    <div className="flex items-center justify-between mb-3">
+                      <h3 className="font-bold text-lg text-white">{vehicle.name}</h3>
+                      <div className="flex items-center gap-1">
+                        <Star className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                        <span className="font-semibold text-white">{vehicle.rating}</span>
+                      </div>
+                    </div>
+                    <p className="text-sm text-gray-400 mb-4">{vehicle.brand} • {vehicle.year}</p>
 
+                    {/* Metadata */}
+                    <div className="grid grid-cols-2 gap-2 mb-4 text-sm text-gray-400">
+                      <div className="flex items-center gap-2">
+                        <MapPin className="w-4 h-4" />
+                        <span>{vehicle.pickupLocations[0] || 'Antalya'}</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Users className="w-4 h-4" />
+                        <span>{vehicle.seats} Koltuk</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Settings className="w-4 h-4" />
+                        <span>{vehicle.transmission === 'AUTOMATIC' ? 'Otomatik' : 'Manuel'}</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Fuel className="w-4 h-4" />
+                        <span>{vehicle.fuelType}</span>
+                      </div>
+                    </div>
+
+                    {/* Vehicle Features Badges */}
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {vehicle.insuranceIncluded && (
+                        <span className="px-3 py-1 bg-green-500/20 border border-green-500/30 text-green-500 rounded-xl text-xs font-medium flex items-center gap-1">
+                          <Shield className="w-3 h-3" />
+                          Sigorta Dahil
+                        </span>
+                      )}
+                      {vehicle.gps && (
+                        <span className="px-3 py-1 bg-blue-400/20 border border-blue-400/30 text-blue-400 rounded-xl text-xs font-medium flex items-center gap-1">
+                          🗺️ GPS
+                        </span>
+                      )}
+                      {vehicle.airConditioning && (
+                        <span className="px-3 py-1 bg-yellow-500/20 border border-yellow-500/30 text-yellow-500 rounded-xl text-xs font-medium flex items-center gap-1">
+                          ❄️ Klima
+                        </span>
+                      )}
+                    </div>
+
+                    {/* Price and CTA */}
+                    <div className="pt-4 border-t border-white/10">
+                      <div className="flex items-center justify-between mb-3">
+                        <div className="text-2xl font-bold text-white">₺{parseInt(vehicle.pricePerDay).toLocaleString('tr-TR')}<span className="text-sm text-gray-400">/gün</span></div>
+                      </div>
+                      <Link href={`/car-rentals/${vehicle.slug}`} className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-xl font-semibold transition-all shadow-lg hover:shadow-xl" onClick={(e) => e.stopPropagation()}>
                         Kirala
-                      </FuturisticButton>
-                    </Link>
+                        <ArrowRight className="w-4 h-4" />
+                      </Link>
+                    </div>
                   </div>
-
-                  {/* Vehicle Features Badges */}
-                  <div className="flex flex-wrap gap-2 mt-3">
-                    {vehicle.insuranceIncluded &&
-                    <motion.span
-                      whileHover={{ scale: 1.05 }}
-                      className="px-3 py-1 bg-gradient-to-r from-lydian-success/20 to-lydian-success-hover/20 border border-lydian-success/30 text-lydian-success rounded-xl text-xs font-medium flex items-center gap-1 backdrop-blur-xl">
-
-                        <Shield className="w-3 h-3" />
-                        Sigorta Dahil
-                      </motion.span>
-                    }
-                    {vehicle.gps &&
-                    <motion.span
-                      whileHover={{ scale: 1.05 }}
-                      className="px-3 py-1 bg-gradient-to-r from-lydian-info/20 to-lydian-info-hover/20 border border-lydian-info/30 text-lydian-info rounded-xl text-xs font-medium flex items-center gap-1 backdrop-blur-xl">
-
-                        🗺️ GPS
-                      </motion.span>
-                    }
-                    {vehicle.airConditioning &&
-                    <motion.span
-                      whileHover={{ scale: 1.05 }}
-                      className="px-3 py-1 bg-gradient-to-r from-lydian-warning/20 to-lydian-warning-hover/20 border border-lydian-warning/30 text-lydian-warning rounded-xl text-xs font-medium flex items-center gap-1 backdrop-blur-xl">
-
-                        ❄️ Klima
-                      </motion.span>
-                    }
-                  </div>
-                </FuturisticCard>
+                </div>
               </motion.div>
             )}
           </div>
@@ -608,12 +627,12 @@ const CarRentalsPage: React.FC = () => {
 
         {/* Owner CTA Banner */}
         <section className="max-w-7xl mx-auto px-4 py-16">
-          <div className="relative bg-gradient-to-r from-lydian-primary to-lydian-primary-hover rounded-3xl overflow-hidden">
+          <div className="relative bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl overflow-hidden">
             {/* Animated background orbs */}
             <motion.div
               animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
               transition={{ duration: 4, repeat: Infinity }}
-              className="absolute top-0 right-0 w-96 h-96 bg-lydian-bg/20 rounded-full blur-3xl" />
+              className="absolute top-0 right-0 w-96 h-96 bg-white/20 rounded-full blur-3xl" />
 
             <motion.div
               animate={{ scale: [1.2, 1, 1.2], opacity: [0.2, 0.4, 0.2] }}
@@ -630,16 +649,16 @@ const CarRentalsPage: React.FC = () => {
                 <motion.div
                   whileHover={{ rotate: 360, scale: 1.1 }}
                   transition={{ duration: 0.8 }}
-                  className="inline-flex items-center justify-center w-20 h-20 bg-lydian-bg/20 backdrop-blur-xl rounded-2xl mb-6 shadow-lg">
+                  className="inline-flex items-center justify-center w-20 h-20 bg-white/20 backdrop-blur-xl rounded-2xl mb-6 shadow-lg">
 
-                  <Car className="w-10 h-10 text-lydian-text-inverse" />
+                  <Car className="w-10 h-10 text-white" />
                 </motion.div>
 
-                <h2 className="text-3xl md:text-4xl font-bold text-lydian-text-inverse mb-4">
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
                   Aracınızı Kiraya Vererek Para Kazanın
                 </h2>
 
-                <p className="text-lg text-lydian-text-inverse/90 mb-8 max-w-2xl mx-auto">
+                <p className="text-lg text-white/90 mb-8 max-w-2xl mx-auto">
                   Binlerce araç sahibi LyDian ile pasif gelir elde ediyor.
                   Siz de aracınızı listeleyerek aylık ortalama ₺8,500 kazanabilirsiniz.
                 </p>
@@ -647,21 +666,21 @@ const CarRentalsPage: React.FC = () => {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-8">
                   <motion.div
                     whileHover={{ scale: 1.05 }}
-                    className="flex items-center gap-2 text-lydian-text-inverse bg-lydian-bg/10 backdrop-blur-xl px-4 py-2 rounded-xl">
+                    className="flex items-center gap-2 text-white bg-white/10 backdrop-blur-xl px-4 py-2 rounded-xl">
 
                     <CheckCircle className="w-5 h-5" />
                     <span className="font-medium">%12-15 Komisyon</span>
                   </motion.div>
                   <motion.div
                     whileHover={{ scale: 1.05 }}
-                    className="flex items-center gap-2 text-lydian-text-inverse bg-lydian-bg/10 backdrop-blur-xl px-4 py-2 rounded-xl">
+                    className="flex items-center gap-2 text-white bg-white/10 backdrop-blur-xl px-4 py-2 rounded-xl">
 
                     <CheckCircle className="w-5 h-5" />
                     <span className="font-medium">Güvenli Ödeme</span>
                   </motion.div>
                   <motion.div
                     whileHover={{ scale: 1.05 }}
-                    className="flex items-center gap-2 text-lydian-text-inverse bg-lydian-bg/10 backdrop-blur-xl px-4 py-2 rounded-xl">
+                    className="flex items-center gap-2 text-white bg-white/10 backdrop-blur-xl px-4 py-2 rounded-xl">
 
                     <CheckCircle className="w-5 h-5" />
                     <span className="font-medium">7/24 Destek</span>
@@ -669,29 +688,20 @@ const CarRentalsPage: React.FC = () => {
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Link href="/vehicle-owner/auth/register">
-                    <FuturisticButton variant="glass"
-                      size="lg"
-                      leftIcon={<ArrowRight className="w-5 h-5" />}
-                      iconPosition="right">
-
-                      Ücretsiz Kayıt Ol
-                    </FuturisticButton>
+                  <Link href="/vehicle-owner/auth/register" className="inline-flex items-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-xl text-white rounded-xl font-bold text-lg hover:bg-white/20 transition-all border-2 border-white/20">
+                    Ücretsiz Kayıt Ol
+                    <ArrowRight className="w-5 h-5" />
                   </Link>
 
-                  <Link href="/vehicle-owner/auth/login">
-                    <FuturisticButton variant="outline"
-                      size="lg">
-
-                      Giriş Yap
-                    </FuturisticButton>
+                  <Link href="/vehicle-owner/auth/login" className="inline-flex items-center gap-2 px-8 py-4 bg-transparent border-2 border-white/40 text-white rounded-xl font-bold text-lg hover:bg-white/10 transition-all">
+                    Giriş Yap
                   </Link>
                 </div>
 
                 <motion.p
                   animate={{ opacity: [0.7, 1, 0.7] }}
                   transition={{ duration: 2, repeat: Infinity }}
-                  className="text-sm text-lydian-text-inverse/90 mt-6 font-medium">
+                  className="text-sm text-white/90 mt-6 font-medium">
 
                   2000+ araç sahibi bize güveniyor
                 </motion.p>

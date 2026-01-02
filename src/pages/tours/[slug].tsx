@@ -230,7 +230,7 @@ export default function TourDetailPage({ tour }: TourDetailPageProps) {
 
       <ModernHeader />
 
-      <main className="min-h-screen bg-lydian-glass-dark">
+      <main className="min-h-screen bg-gradient-to-br from-slate-900 via-black to-slate-800">
         {/* ProductHero Component */}
         <ProductHero
           title={tour.name}
@@ -266,13 +266,13 @@ export default function TourDetailPage({ tour }: TourDetailPageProps) {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="bg-lydian-glass-dark/95 backdrop-blur-xl rounded-2xl p-6 sm:p-8 shadow-lg border border-lydian-border-light/20"
+                className="bg-white/10 backdrop-blur-xl rounded-2xl p-6 sm:p-8 shadow-lg border border-white/20"
               >
-                <h2 className="text-2xl font-bold text-lydian-text-inverse mb-4">
+                <h2 className="text-2xl font-bold text-white mb-4">
                   {t('tour.description') || 'Açıklama'}
                 </h2>
                 <div className="prose prose-gray dark:prose-invert max-w-none">
-                  <p className="text-lydian-text-muted leading-relaxed whitespace-pre-line">
+                  <p className="text-gray-300 leading-relaxed whitespace-pre-line">
                     {tour.longDescription || tour.description}
                   </p>
                 </div>
@@ -284,7 +284,7 @@ export default function TourDetailPage({ tour }: TourDetailPageProps) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.3 }}
-                className="bg-lydian-glass-dark/95 backdrop-blur-xl rounded-2xl p-6 sm:p-8 shadow-lg border border-lydian-border-light/20"
+                className="bg-white/10 backdrop-blur-xl rounded-2xl p-6 sm:p-8 shadow-lg border border-white/20"
               >
                 <FeatureGrid
                   title={t('tour.highlights') || 'Öne Çıkanlar'}
@@ -303,9 +303,9 @@ export default function TourDetailPage({ tour }: TourDetailPageProps) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.4 }}
-                className="bg-lydian-glass-dark/95 backdrop-blur-xl rounded-2xl p-6 sm:p-8 shadow-lg border border-lydian-border-light/20"
+                className="bg-white/10 backdrop-blur-xl rounded-2xl p-6 sm:p-8 shadow-lg border border-white/20"
               >
-                <h2 className="text-2xl font-bold text-lydian-text-inverse mb-6">
+                <h2 className="text-2xl font-bold text-white mb-6">
                   {t('tour.itinerary.title') || 'Program'}
                 </h2>
                 <div className="space-y-4">
@@ -321,24 +321,24 @@ export default function TourDetailPage({ tour }: TourDetailPageProps) {
                         className="flex gap-4"
                       >
                         <div className="flex flex-col items-center">
-                          <div className="w-12 h-12 rounded-full bg-gradient-to-br from-lydian-primary to-lydian-accent-purple flex items-center justify-center text-lydian-text-inverse font-bold flex-shrink-0">
+                          <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-600 to-lydian-accent-purple flex items-center justify-center text-white font-bold flex-shrink-0">
                             {index + 1}
                           </div>
                           {index !== itinerary.length - 1 && (
-                            <div className="w-0.5 h-full bg-gradient-to-b from-lydian-primary to-lydian-accent-purple mt-2" />
+                            <div className="w-0.5 h-full bg-gradient-to-b from-blue-600 to-lydian-accent-purple mt-2" />
                           )}
                         </div>
                         <div className="flex-1 pb-8">
                           <div className="flex items-center gap-2 mb-2">
-                            <span className="px-2 py-1 bg-lydian-primary-lighter text-lydian-primary rounded text-xs font-semibold">
+                            <span className="px-2 py-1 bg-blue-500/10er text-blue-500 rounded text-xs font-semibold">
                               {item.time}
                             </span>
                           </div>
-                          <h3 className="text-lg font-bold text-lydian-text-inverse mb-1 flex items-center gap-2">
-                            <Icon className="w-5 h-5 text-lydian-primary" />
+                          <h3 className="text-lg font-bold text-white mb-1 flex items-center gap-2">
+                            <Icon className="w-5 h-5 text-blue-500" />
                             {item.title}
                           </h3>
-                          <p className="text-lydian-text-muted">{item.description}</p>
+                          <p className="text-gray-300">{item.description}</p>
                         </div>
                       </motion.div>
                     );
@@ -353,7 +353,7 @@ export default function TourDetailPage({ tour }: TourDetailPageProps) {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.5 }}
-                  className="bg-lydian-glass-dark/95 backdrop-blur-xl rounded-2xl p-6 shadow-lg border border-lydian-border-light/20"
+                  className="bg-white/10 backdrop-blur-xl rounded-2xl p-6 shadow-lg border border-white/20"
                 >
                   <FeatureGrid
                     title={t('tour.included') || 'Dahil Olanlar'}
@@ -371,7 +371,7 @@ export default function TourDetailPage({ tour }: TourDetailPageProps) {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.6 }}
-                  className="bg-lydian-glass-dark/95 backdrop-blur-xl rounded-2xl p-6 shadow-lg border border-lydian-border-light/20"
+                  className="bg-white/10 backdrop-blur-xl rounded-2xl p-6 shadow-lg border border-white/20"
                 >
                   <FeatureGrid
                     title={t('tour.excluded') || 'Dahil Olmayanlar'}
@@ -391,13 +391,13 @@ export default function TourDetailPage({ tour }: TourDetailPageProps) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.7 }}
-                className="bg-lydian-glass-dark/95 backdrop-blur-xl rounded-2xl p-6 sm:p-8 shadow-lg border border-lydian-border-light/20"
+                className="bg-white/10 backdrop-blur-xl rounded-2xl p-6 sm:p-8 shadow-lg border border-white/20"
               >
-                <h3 className="text-xl font-bold text-lydian-text-inverse mb-4 flex items-center gap-2">
-                  <Navigation className="w-6 h-6 text-lydian-primary" />
+                <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                  <Navigation className="w-6 h-6 text-blue-500" />
                   {t('tour.meetingPoint') || 'Buluşma Noktası'}
                 </h3>
-                <p className="text-lydian-text-muted mb-4">{tour.meetingPoint}</p>
+                <p className="text-gray-300 mb-4">{tour.meetingPoint}</p>
                 <a
                   href={`https://www.google.com/maps/search/${encodeURIComponent(tour.meetingPoint + ', ' + tour.region)}`}
                   target="_blank"
@@ -458,13 +458,17 @@ export default function TourDetailPage({ tour }: TourDetailPageProps) {
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = allTours.map((tour) => ({
-    params: { slug: tour.slug }
-  }));
+  const locales = ['tr', 'en', 'de', 'ru', 'ar', 'fa', 'fr', 'el'];
+  const paths = allTours.flatMap((tour) =>
+    locales.map((locale) => ({
+      params: { slug: tour.slug },
+      locale
+    }))
+  );
 
   return {
     paths,
-    fallback: false
+    fallback: 'blocking'
   };
 };
 

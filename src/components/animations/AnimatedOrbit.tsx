@@ -47,7 +47,7 @@ export const AnimatedOrbit: React.FC<AnimatedOrbitProps> = ({
       >
       {/* Orbit Path */}
       <div 
-        className="absolute inset-0 rounded-full border border-lydian-primary/20 shadow-neon"
+        className="absolute inset-0 rounded-full border border-blue-500/20 shadow-neon"
         style={{ 
           boxShadow: '0 0 20px rgba(255, 33, 77, 0.2), inset 0 0 20px rgba(255, 33, 77, 0.1)' 
         }}
@@ -59,7 +59,7 @@ export const AnimatedOrbit: React.FC<AnimatedOrbitProps> = ({
           variants={counterRotateVariants}
           animate="animate"
         >
-          <div className="w-4 h-4 bg-gradient-to-r from-lydian-primary to-lydian-secondary rounded-full shadow-neon-lg animate-pulse-glow" />
+          <div className="w-4 h-4 bg-gradient-to-r from-blue-600 to-purple-700 rounded-full shadow-neon-lg animate-pulse-glow" />
         </motion.div>
         
         <motion.div
@@ -83,7 +83,7 @@ export const AnimatedOrbit: React.FC<AnimatedOrbitProps> = ({
           variants={counterRotateVariants}
           animate="animate"
         >
-          <div className="w-3 h-3 bg-lydian-secondary rounded-full shadow-neon-orange animate-pulse-glow" />
+          <div className="w-3 h-3 bg-purple-600 rounded-full shadow-neon-orange animate-pulse-glow" />
         </motion.div>
 
         {/* Center Content */}

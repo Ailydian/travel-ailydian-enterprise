@@ -121,15 +121,15 @@ const VirtualTourViewer: React.FC<VirtualTourViewerProps> = ({
           <button
             key={hotspot.id}
             onClick={() => handleHotspotClick(hotspot)}
-            className="absolute w-12 h-12 bg-lydian-bg/90 hover:bg-lydian-glass-dark rounded-full shadow-lg flex items-center justify-center transform -translate-x-1/2 -translate-y-1/2 hover:scale-110 transition-all"
+            className="absolute w-12 h-12 bg-white/10 hover:bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-full shadow-lg flex items-center justify-center transform -translate-x-1/2 -translate-y-1/2 hover:scale-110 transition-all"
             style={{
               left: `${50 + hotspot.position.yaw / 180 * 50}%`,
               top: `${50 - hotspot.position.pitch / 90 * 50}%`
             }}>
 
-              {hotspot.icon === 'info' && <Info className="h-6 w-6 text-lydian-primary" />}
+              {hotspot.icon === 'info' && <Info className="h-6 w-6 text-blue-500" />}
               {hotspot.icon === 'arrow-right' && <ChevronRight className="h-6 w-6 text-purple-600" />}
-              {hotspot.icon === 'play' && <Play className="h-6 w-6 text-lydian-success" />}
+              {hotspot.icon === 'play' && <Play className="h-6 w-6 text-green-500" />}
             </button>
           )}
         </div>
@@ -138,21 +138,21 @@ const VirtualTourViewer: React.FC<VirtualTourViewerProps> = ({
       {/* Top Bar */}
       <div className="absolute top-0 left-0 right-0 p-4 bg-gradient-to-b from-black/70 to-transparent">
         <div className="flex items-center justify-between">
-          <div className="text-lydian-text-inverse">
+          <div className="text-white">
             <h2 className="text-xl font-bold">{tour.title}</h2>
-            <p className="text-sm text-lydian-text-dim">{currentScene.title}</p>
+            <p className="text-sm text-gray-400">{currentScene.title}</p>
           </div>
 
           <div className="flex items-center gap-2">
             <div className="flex items-center gap-1 bg-black/50 backdrop-blur-sm px-3 py-2 rounded-lg">
-              <Eye className="h-4 w-4 text-lydian-text-dim" />
-              <span className="text-sm text-lydian-text-inverse">{tour.views.toLocaleString()}</span>
+              <Eye className="h-4 w-4 text-gray-400" />
+              <span className="text-sm text-white">{tour.views.toLocaleString()}</span>
             </div>
 
             {onClose &&
             <button
               onClick={onClose}
-              className="p-2 bg-black/50 backdrop-blur-sm hover:bg-black/70 text-lydian-text-inverse rounded-lg transition-colors">
+              className="p-2 bg-black/50 backdrop-blur-sm hover:bg-black/70 text-white rounded-lg transition-colors">
 
                 <X className="h-6 w-6" />
               </button>
@@ -185,14 +185,14 @@ const VirtualTourViewer: React.FC<VirtualTourViewerProps> = ({
           <div className="flex items-center gap-2">
             <button
               onClick={() => setIsPlaying(!isPlaying)}
-              className="p-3 bg-lydian-glass-dark-heavy backdrop-blur-sm hover:bg-lydian-bg/30 text-lydian-text-inverse rounded-lg transition-colors">
+              className="p-3 bg-white/10 backdrop-blur-xl border border-white/20 backdrop-blur-sm hover:bg-lydian-bg/30 text-white rounded-lg transition-colors">
 
               {isPlaying ? <Pause className="h-5 w-5" /> : <Play className="h-5 w-5" />}
             </button>
 
             <button
               onClick={resetView}
-              className="p-3 bg-lydian-glass-dark-heavy backdrop-blur-sm hover:bg-lydian-bg/30 text-lydian-text-inverse rounded-lg transition-colors"
+              className="p-3 bg-white/10 backdrop-blur-xl border border-white/20 backdrop-blur-sm hover:bg-lydian-bg/30 text-white rounded-lg transition-colors"
               title="Reset View">
 
               <RotateCw className="h-5 w-5" />
@@ -200,7 +200,7 @@ const VirtualTourViewer: React.FC<VirtualTourViewerProps> = ({
 
             <button
               onClick={() => setShowHotspots(!showHotspots)}
-              className={`p-3 backdrop-blur-sm text-lydian-text-inverse rounded-lg transition-colors ${
+              className={`p-3 backdrop-blur-sm text-white rounded-lg transition-colors ${
               showHotspots ? 'bg-purple-600' : 'bg-lydian-bg/20 hover:bg-lydian-bg/30'}`
               }
               title="Toggle Hotspots">
@@ -212,7 +212,7 @@ const VirtualTourViewer: React.FC<VirtualTourViewerProps> = ({
           <div className="flex items-center gap-2">
             <button
               onClick={handleFullscreen}
-              className="p-3 bg-lydian-glass-dark-heavy backdrop-blur-sm hover:bg-lydian-bg/30 text-lydian-text-inverse rounded-lg transition-colors">
+              className="p-3 bg-white/10 backdrop-blur-xl border border-white/20 backdrop-blur-sm hover:bg-lydian-bg/30 text-white rounded-lg transition-colors">
 
               {isFullscreen ? <Minimize className="h-5 w-5" /> : <Maximize className="h-5 w-5" />}
             </button>
@@ -224,7 +224,7 @@ const VirtualTourViewer: React.FC<VirtualTourViewerProps> = ({
       {currentSceneIndex > 0 &&
       <button
         onClick={() => handleSceneChange(currentSceneIndex - 1)}
-        className="absolute left-4 top-1/2 -translate-y-1/2 p-3 bg-black/50 backdrop-blur-sm hover:bg-black/70 text-lydian-text-inverse rounded-lg transition-colors">
+        className="absolute left-4 top-1/2 -translate-y-1/2 p-3 bg-black/50 backdrop-blur-sm hover:bg-black/70 text-white rounded-lg transition-colors">
 
           <ChevronLeft className="h-6 w-6" />
         </button>
@@ -233,7 +233,7 @@ const VirtualTourViewer: React.FC<VirtualTourViewerProps> = ({
       {currentSceneIndex < tour.scenes.length - 1 &&
       <button
         onClick={() => handleSceneChange(currentSceneIndex + 1)}
-        className="absolute right-4 top-1/2 -translate-y-1/2 p-3 bg-black/50 backdrop-blur-sm hover:bg-black/70 text-lydian-text-inverse rounded-lg transition-colors">
+        className="absolute right-4 top-1/2 -translate-y-1/2 p-3 bg-black/50 backdrop-blur-sm hover:bg-black/70 text-white rounded-lg transition-colors">
 
           <ChevronRight className="h-6 w-6" />
         </button>
@@ -251,23 +251,23 @@ const VirtualTourViewer: React.FC<VirtualTourViewerProps> = ({
 
             <motion.div
             onClick={(e) => e.stopPropagation()}
-            className="bg-lydian-glass-dark rounded-xl shadow-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto">
+            className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-xl shadow-2xl max-w-2xl w-full max-h-[80vh] overflow-y-auto">
 
               <div className="p-6">
                 <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-2xl font-bold text-lydian-text-inverse">
+                  <h3 className="text-2xl font-bold text-white">
                     {selectedHotspot.title}
                   </h3>
                   <button
                   onClick={() => setSelectedHotspot(null)}
-                  className="p-2 hover:bg-lydian-glass-dark-medium rounded-lg transition-colors">
+                  className="p-2 hover:bg-white/10 backdrop-blur-xl border border-white/20 rounded-lg transition-colors">
 
-                    <X className="h-6 w-6 text-lydian-text-dim" />
+                    <X className="h-6 w-6 text-gray-400" />
                   </button>
                 </div>
 
                 {selectedHotspot.type === 'info' && selectedHotspot.content &&
-              <p className="text-lydian-text-muted">{selectedHotspot.content}</p>
+              <p className="text-gray-300">{selectedHotspot.content}</p>
               }
 
                 {selectedHotspot.type === 'image' && selectedHotspot.imageUrl &&
@@ -293,7 +293,7 @@ const VirtualTourViewer: React.FC<VirtualTourViewerProps> = ({
 
       {/* Loading Indicator */}
       <div className="absolute bottom-20 left-1/2 -translate-x-1/2">
-        <div className="bg-black/50 backdrop-blur-sm text-lydian-text-inverse px-4 py-2 rounded-lg text-sm">
+        <div className="bg-black/50 backdrop-blur-sm text-white px-4 py-2 rounded-lg text-sm">
           360° Sanal Tur • {currentSceneIndex + 1}/{tour.scenes.length} Sahne
         </div>
       </div>

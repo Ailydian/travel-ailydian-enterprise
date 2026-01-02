@@ -143,9 +143,9 @@ export default function Blog() {
 
       <ModernHeader />
 
-      <main className="min-h-screen bg-lydian-glass-dark">
+      <main className="min-h-screen bg-gradient-to-br from-slate-900 via-black to-slate-800">
         {/* Hero Section */}
-        <div className="bg-gradient-to-r from-lydian-primary to-lydian-dark text-lydian-text-inverse py-20">
+        <div className="bg-gradient-to-r from-blue-600 to-lydian-dark text-white py-20">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center max-w-3xl mx-auto">
               <h1 className="text-5xl md:text-6xl font-bold mb-6">
@@ -159,13 +159,13 @@ export default function Blog() {
               {/* Search Bar */}
               <div className="max-w-2xl mx-auto">
                 <div className="relative">
-                  <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-lydian-text-muted" />
+                  <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-300" />
                   <input
                     type="text"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     placeholder="Blog yazılarında ara..."
-                    className="w-full pl-12 pr-4 py-4 rounded-lg text-lydian-text-inverse focus:outline-none focus:ring-2 focus:ring-white" />
+                    className="w-full pl-12 pr-4 py-4 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-white" />
 
                 </div>
               </div>
@@ -176,10 +176,10 @@ export default function Blog() {
         {/* Featured Posts */}
         {searchQuery === '' && selectedCategory === 'all' &&
         <div className="max-w-7xl mx-auto px-4 -mt-16 relative z-10 mb-16">
-            <div className="bg-lydian-bg-hover rounded-xl shadow-xl p-8">
+            <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-xl shadow-xl p-8">
               <div className="flex items-center gap-2 mb-6">
-                <TrendingUp className="w-6 h-6 text-lydian-primary" />
-                <h2 className="text-2xl font-bold text-lydian-text-inverse">Öne Çıkan Yazılar</h2>
+                <TrendingUp className="w-6 h-6 text-blue-500" />
+                <h2 className="text-2xl font-bold text-white">Öne Çıkan Yazılar</h2>
               </div>
 
               <div className="grid md:grid-cols-2 gap-6">
@@ -193,18 +193,18 @@ export default function Blog() {
                     className="object-cover group-hover:scale-105 transition-transform duration-300" />
 
                       <div className="absolute top-4 left-4">
-                        <span className="px-3 py-1 bg-lydian-primary text-lydian-text-inverse text-sm font-semibold rounded-full">
+                        <span className="px-3 py-1 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-sm font-semibold rounded-full">
                           {post.category}
                         </span>
                       </div>
                     </div>
-                    <h3 className="text-xl font-bold text-lydian-text-inverse mb-2 group-hover:text-lydian-primary transition-colors">
+                    <h3 className="text-xl font-bold text-white mb-2 group-hover:text-blue-500 transition-colors">
                       {post.title}
                     </h3>
-                    <p className="text-lydian-text-dim mb-4 line-clamp-2">
+                    <p className="text-gray-400 mb-4 line-clamp-2">
                       {post.excerpt}
                     </p>
-                    <div className="flex items-center gap-4 text-sm text-lydian-text-muted">
+                    <div className="flex items-center gap-4 text-sm text-gray-300">
                       <span className="flex items-center gap-1">
                         <User className="w-4 h-4" />
                         {post.author}
@@ -234,8 +234,8 @@ export default function Blog() {
               onClick={() => setSelectedCategory(category)}
               className={`px-6 py-2 rounded-full font-medium transition-colors ${
               selectedCategory === category ?
-              'bg-lydian-primary text-white' :
-              'bg-lydian-bg/5 text-gray-200 hover:bg-lydian-bg/10'}`
+              'bg-gradient-to-r from-blue-600 to-purple-600 text-white' :
+              'bg-white/5 text-white hover:bg-lydian-bg/10'}`
               }>
 
                 {category === 'all' ? 'Tümü' : category}
@@ -248,7 +248,7 @@ export default function Blog() {
         <div className="max-w-7xl mx-auto px-4 pb-16">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredPosts.map((post) =>
-            <article key={post.id} className="bg-lydian-bg-hover rounded-lg shadow-md hover:shadow-xl transition-shadow overflow-hidden group cursor-pointer">
+            <article key={post.id} className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-lg shadow-md hover:shadow-xl transition-shadow overflow-hidden group cursor-pointer">
                 <div className="relative h-48 overflow-hidden">
                   <Image
                   src={post.image}
@@ -257,21 +257,21 @@ export default function Blog() {
                   className="object-cover group-hover:scale-105 transition-transform duration-300" />
 
                   <div className="absolute top-4 left-4">
-                    <span className="px-3 py-1 bg-lydian-bg/90 backdrop-blur text-lydian-primary text-sm font-semibold rounded-full">
+                    <span className="px-3 py-1 bg-white/10 backdrop-blur text-blue-500 text-sm font-semibold rounded-full">
                       {post.category}
                     </span>
                   </div>
                 </div>
 
                 <div className="p-6">
-                  <h3 className="text-lg font-bold text-lydian-text-inverse mb-3 group-hover:text-lydian-primary transition-colors line-clamp-2">
+                  <h3 className="text-lg font-bold text-white mb-3 group-hover:text-blue-500 transition-colors line-clamp-2">
                     {post.title}
                   </h3>
-                  <p className="text-lydian-text-dim mb-4 line-clamp-3 text-sm">
+                  <p className="text-gray-400 mb-4 line-clamp-3 text-sm">
                     {post.excerpt}
                   </p>
 
-                  <div className="space-y-2 text-sm text-lydian-text-muted mb-4">
+                  <div className="space-y-2 text-sm text-gray-300 mb-4">
                     <div className="flex items-center gap-1">
                       <User className="w-4 h-4" />
                       {post.author}
@@ -288,7 +288,7 @@ export default function Blog() {
                     </div>
                   </div>
 
-                  <button className="inline-flex items-center gap-2 text-lydian-primary font-semibold hover:gap-3 transition-all">
+                  <button className="inline-flex items-center gap-2 text-blue-500 font-semibold hover:gap-3 transition-all">
                     Devamını Oku
                     <ArrowRight className="w-4 h-4" />
                   </button>
@@ -299,7 +299,7 @@ export default function Blog() {
 
           {filteredPosts.length === 0 &&
           <div className="text-center py-12">
-              <p className="text-lydian-text-muted text-lg">
+              <p className="text-gray-300 text-lg">
                 Aradığınız kriterlere uygun blog yazısı bulunamadı.
               </p>
             </div>
@@ -307,9 +307,9 @@ export default function Blog() {
         </div>
 
         {/* Newsletter Section */}
-        <div className="bg-lydian-bg-hover py-16 border-t border-lydian-border">
+        <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl py-16 border-t border-white/20">
           <div className="max-w-4xl mx-auto px-4">
-            <div className="bg-gradient-to-r from-lydian-primary to-lydian-dark text-lydian-text-inverse rounded-2xl p-8 md:p-12 text-center">
+            <div className="bg-gradient-to-r from-blue-600 to-lydian-dark text-white rounded-2xl p-8 md:p-12 text-center">
               <h2 className="text-3xl font-bold mb-4">
                 Blog Yazılarımızı Kaçırmayın
               </h2>
@@ -320,9 +320,9 @@ export default function Blog() {
                 <input
                   type="email"
                   placeholder="E-posta adresiniz"
-                  className="flex-1 px-4 py-3 rounded-lg text-lydian-text-inverse focus:outline-none focus:ring-2 focus:ring-white" />
+                  className="flex-1 px-4 py-3 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-white" />
 
-                <button className="bg-lydian-bg-hover text-lydian-primary px-6 py-3 rounded-lg font-semibold hover:bg-lydian-primary-lighter transition-colors whitespace-nowrap">
+                <button className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl text-blue-500 px-6 py-3 rounded-lg font-semibold hover:bg-blue-500/10er transition-colors whitespace-nowrap">
                   Abone Ol
                 </button>
               </div>
@@ -331,9 +331,9 @@ export default function Blog() {
         </div>
 
         {/* Popular Tags */}
-        <div className="bg-lydian-glass-dark py-12">
+        <div className="bg-gradient-to-br from-slate-900 via-black to-slate-800 py-12">
           <div className="max-w-7xl mx-auto px-4">
-            <h2 className="text-2xl font-bold text-lydian-text-inverse mb-6 text-center">
+            <h2 className="text-2xl font-bold text-white mb-6 text-center">
               Popüler Etiketler
             </h2>
             <div className="flex flex-wrap gap-3 justify-center">
@@ -355,7 +355,7 @@ export default function Blog() {
               map((tag, index) =>
               <button
                 key={index}
-                className="px-4 py-2 bg-lydian-bg-hover rounded-full text-sm text-lydian-text-muted hover:bg-lydian-primary hover:text-lydian-text-inverse transition-colors flex items-center gap-2">
+                className="px-4 py-2 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-full text-sm text-gray-300 hover:bg-gradient-to-r from-blue-600 to-purple-600 hover:text-white transition-colors flex items-center gap-2">
 
                   <Tag className="w-4 h-4" />
                   {tag}

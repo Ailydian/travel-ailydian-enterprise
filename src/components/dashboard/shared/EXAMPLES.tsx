@@ -290,7 +290,7 @@ export const UsersDataTableExample = () => {
     key: 'role',
     label: 'Role',
     render: (user) =>
-    <span className="px-2 py-1 bg-lydian-primary-light text-blue-800 rounded-full text-xs font-medium">
+    <span className="px-2 py-1 bg-blue-500/10 text-blue-800 rounded-full text-xs font-medium">
           {user.role}
         </span>
 
@@ -406,12 +406,12 @@ export const CompleteDashboardExample = () => {
   const [activeTab, setActiveTab] = useState('overview');
 
   return (
-    <div className="min-h-screen bg-lydian-glass-dark p-6">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-black to-slate-800 p-6">
       <div className="max-w-7xl mx-auto space-y-6">
         {/* Header */}
-        <div className="bg-lydian-glass-dark rounded-lg shadow p-6">
-          <h1 className="text-3xl font-bold text-lydian-text-inverse">Dashboard</h1>
-          <p className="text-lydian-text-dim mt-1">
+        <div className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-lg shadow p-6">
+          <h1 className="text-3xl font-bold text-white">Dashboard</h1>
+          <p className="text-gray-400 mt-1">
             Welcome back! Here's what's happening with your properties.
           </p>
         </div>
@@ -420,8 +420,8 @@ export const CompleteDashboardExample = () => {
         <DashboardStatsExample />
 
         {/* Tabs */}
-        <div className="bg-lydian-glass-dark rounded-lg shadow">
-          <div className="border-b border-lydian-border">
+        <div className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-lg shadow">
+          <div className="border-b border-white/20">
             <nav className="flex space-x-8 px-6" aria-label="Tabs">
               {['overview', 'properties', 'bookings'].map((tab) =>
               <button
@@ -429,8 +429,8 @@ export const CompleteDashboardExample = () => {
                 onClick={() => setActiveTab(tab)}
                 className={`py-4 px-1 border-b-2 font-medium text-sm capitalize ${
                 activeTab === tab ?
-                'border-lydian-primary text-lydian-primary' :
-                'border-transparent text-lydian-text-muted hover:text-gray-200 hover:border-lydian-border-medium'}`
+                'border-blue-500 text-lydian-primary' :
+                'border-transparent text-gray-300 hover:text-gray-200 hover:border-white/30'}`
                 }>
 
                   {tab}

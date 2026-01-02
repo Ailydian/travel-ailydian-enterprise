@@ -202,7 +202,7 @@ export const BookingWidget: React.FC<BookingWidgetProps> = ({
         initial={{ opacity: 0, x: 20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 0.3 }}
-        className="bg-lydian-glass-dark/95 backdrop-blur-xl rounded-2xl shadow-2xl p-6 border border-lydian-border-light/20"
+        className="bg-lydian-glass-dark/95 backdrop-blur-xl rounded-2xl shadow-2xl p-6 border border-white/20/20"
       >
         {/* Savings Badge */}
         {savingsPercentage && savingsPercentage > 0 && (
@@ -215,17 +215,17 @@ export const BookingWidget: React.FC<BookingWidgetProps> = ({
         {/* Price Display */}
         <div className="mb-6">
           <div className="flex items-baseline gap-2 mb-1">
-            <span className="text-4xl font-bold text-lydian-text-inverse">
+            <span className="text-4xl font-bold text-white">
               {currency === 'TRY' ? '₺' : currency}{basePrice.toLocaleString()}
             </span>
             {savings && savings > 0 && (
-              <span className="text-lg text-lydian-text-muted line-through">
+              <span className="text-lg text-gray-300 line-through">
                 {currency === 'TRY' ? '₺' : currency}{(basePrice + savings).toLocaleString()}
               </span>
             )}
           </div>
           <div className="flex items-center gap-2">
-            <span className="text-sm text-lydian-text-muted">{priceLabel}</span>
+            <span className="text-sm text-gray-300">{priceLabel}</span>
             {savingsPercentage && savingsPercentage > 0 && (
               <span className="px-2 py-0.5 bg-red-500/20 text-red-400 rounded text-xs font-bold">
                 %{savingsPercentage} İndirim
@@ -237,7 +237,7 @@ export const BookingWidget: React.FC<BookingWidgetProps> = ({
         {/* Vehicle Selection (for transfers/car rentals) */}
         {requiresVehicle && vehicleOptions.length > 0 && (
           <div className="mb-4">
-            <label className="block text-sm font-semibold text-lydian-text-inverse mb-2">
+            <label className="block text-sm font-semibold text-white mb-2">
               Araç Seçimi
             </label>
             <div className="space-y-2">
@@ -248,12 +248,12 @@ export const BookingWidget: React.FC<BookingWidgetProps> = ({
                   className={`w-full text-left p-3 rounded-xl border-2 transition-all ${
                     selectedVehicle === vehicle.id
                       ? 'border-blue-600 bg-blue-50/10 shadow-lg'
-                      : 'border-lydian-border-light/20 hover:border-blue-300 hover:bg-white/5'
+                      : 'border-white/20/20 hover:border-blue-300 hover:bg-white/5'
                   }`}
                 >
                   <div className="flex items-center justify-between mb-1">
                     <span className={`font-semibold text-sm ${
-                      selectedVehicle === vehicle.id ? 'text-blue-400' : 'text-lydian-text-muted'
+                      selectedVehicle === vehicle.id ? 'text-blue-400' : 'text-gray-300'
                     }`}>
                       {vehicle.name}
                     </span>
@@ -261,7 +261,7 @@ export const BookingWidget: React.FC<BookingWidgetProps> = ({
                       <CheckCircle className="w-5 h-5 text-blue-500" />
                     )}
                   </div>
-                  <div className="text-xl font-bold text-lydian-text-inverse">
+                  <div className="text-xl font-bold text-white">
                     ₺{vehicle.price.toLocaleString()}
                   </div>
                 </button>
@@ -273,17 +273,17 @@ export const BookingWidget: React.FC<BookingWidgetProps> = ({
         {/* Date Selection */}
         {requiresDate && (
           <div className="mb-4">
-            <label className="block text-sm font-semibold text-lydian-text-inverse mb-2">
+            <label className="block text-sm font-semibold text-white mb-2">
               {productType === 'hotel' || productType === 'car-rental' || productType === 'rental' ? 'Başlangıç Tarihi' : 'Tarih Seçin'}
             </label>
             <div className="relative">
-              <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-lydian-text-muted" />
+              <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-300" />
               <input
                 type="date"
                 value={selectedDate}
                 onChange={(e) => setSelectedDate(e.target.value)}
                 min={new Date().toISOString().split('T')[0]}
-                className="w-full pl-10 pr-4 py-3 bg-white/5 border border-lydian-border-light/20 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-lydian-text-inverse"
+                className="w-full pl-10 pr-4 py-3 bg-white/5 border border-white/20/20 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-white"
               />
             </div>
           </div>
@@ -292,17 +292,17 @@ export const BookingWidget: React.FC<BookingWidgetProps> = ({
         {/* Return Date (for hotels/rentals) */}
         {(productType === 'hotel' || productType === 'car-rental' || productType === 'rental') && (
           <div className="mb-4">
-            <label className="block text-sm font-semibold text-lydian-text-inverse mb-2">
+            <label className="block text-sm font-semibold text-white mb-2">
               Bitiş Tarihi
             </label>
             <div className="relative">
-              <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-lydian-text-muted" />
+              <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-300" />
               <input
                 type="date"
                 value={returnDate}
                 onChange={(e) => setReturnDate(e.target.value)}
                 min={selectedDate || new Date().toISOString().split('T')[0]}
-                className="w-full pl-10 pr-4 py-3 bg-white/5 border border-lydian-border-light/20 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-lydian-text-inverse"
+                className="w-full pl-10 pr-4 py-3 bg-white/5 border border-white/20/20 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-white"
               />
             </div>
           </div>
@@ -311,26 +311,26 @@ export const BookingWidget: React.FC<BookingWidgetProps> = ({
         {/* Guest Selection */}
         {requiresGuests && (
           <div className="mb-6">
-            <label className="block text-sm font-semibold text-lydian-text-inverse mb-2">
+            <label className="block text-sm font-semibold text-white mb-2">
               Misafir Sayısı
             </label>
             <div className="flex items-center gap-3">
               <button
                 onClick={() => setGuests(Math.max(1, guests - 1))}
                 disabled={guests <= 1}
-                className="p-2 border border-lydian-border-light/20 rounded-lg hover:bg-white/5 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                className="p-2 border border-white/20/20 rounded-lg hover:bg-white/5 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                <ChevronLeft className="w-5 h-5 text-lydian-text-inverse" />
+                <ChevronLeft className="w-5 h-5 text-white" />
               </button>
               <div className="flex-1 text-center">
-                <span className="text-2xl font-bold text-lydian-text-inverse">{guests}</span>
-                <span className="text-sm text-lydian-text-muted ml-1">kişi</span>
+                <span className="text-2xl font-bold text-white">{guests}</span>
+                <span className="text-sm text-gray-300 ml-1">kişi</span>
               </div>
               <button
                 onClick={() => setGuests(guests + 1)}
-                className="p-2 border border-lydian-border-light/20 rounded-lg hover:bg-white/5 transition-colors"
+                className="p-2 border border-white/20/20 rounded-lg hover:bg-white/5 transition-colors"
               >
-                <ChevronRight className="w-5 h-5 text-lydian-text-inverse" />
+                <ChevronRight className="w-5 h-5 text-white" />
               </button>
             </div>
           </div>
@@ -338,8 +338,8 @@ export const BookingWidget: React.FC<BookingWidgetProps> = ({
 
         {/* Addons/Extras */}
         {addons.length > 0 && (
-          <div className="border-t border-lydian-border-light/10 pt-4 mb-6">
-            <h3 className="font-semibold text-lydian-text-inverse mb-3">Ekstra Hizmetler</h3>
+          <div className="border-t border-white/20/10 pt-4 mb-6">
+            <h3 className="font-semibold text-white mb-3">Ekstra Hizmetler</h3>
             <div className="space-y-2">
               {addons.map(addon => (
                 <label key={addon.id} className="flex items-center gap-3 cursor-pointer">
@@ -349,7 +349,7 @@ export const BookingWidget: React.FC<BookingWidgetProps> = ({
                     onChange={() => toggleAddon(addon.id)}
                     className="w-4 h-4 text-blue-600 rounded focus:ring-blue-500"
                   />
-                  <span className="text-sm text-lydian-text-muted flex-1">
+                  <span className="text-sm text-gray-300 flex-1">
                     {addon.name} (+₺{addon.price}{addon.perDay ? '/gün' : ''})
                   </span>
                 </label>
@@ -362,22 +362,22 @@ export const BookingWidget: React.FC<BookingWidgetProps> = ({
         {days > 0 && (
           <div className="bg-white/5 rounded-lg p-4 mb-6">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-sm text-lydian-text-muted">{days} gün</span>
-              <span className="text-sm text-lydian-text-inverse">
+              <span className="text-sm text-gray-300">{days} gün</span>
+              <span className="text-sm text-white">
                 ₺{(basePrice * (requiresGuests ? guests : 1) * days).toLocaleString()}
               </span>
             </div>
             {selectedAddons.size > 0 && (
               <div className="flex items-center justify-between mb-2">
-                <span className="text-sm text-lydian-text-muted">Ekstralar</span>
-                <span className="text-sm text-lydian-text-inverse">
+                <span className="text-sm text-gray-300">Ekstralar</span>
+                <span className="text-sm text-white">
                   ₺{(total - basePrice * (requiresGuests ? guests : 1) * days).toLocaleString()}
                 </span>
               </div>
             )}
-            <div className="border-t border-lydian-border-light/20 pt-2 mt-2">
+            <div className="border-t border-white/20/20 pt-2 mt-2">
               <div className="flex items-center justify-between">
-                <span className="font-semibold text-lydian-text-inverse">Toplam</span>
+                <span className="font-semibold text-white">Toplam</span>
                 <span className="text-2xl font-bold text-blue-400">₺{total.toLocaleString()}</span>
               </div>
             </div>
@@ -394,16 +394,16 @@ export const BookingWidget: React.FC<BookingWidgetProps> = ({
         </button>
 
         {cancellationPolicy && (
-          <p className="text-xs text-center text-lydian-text-muted mt-3">
+          <p className="text-xs text-center text-gray-300 mt-3">
             {cancellationPolicy}
           </p>
         )}
 
         {/* Trust Badges */}
         {badges.length > 0 && (
-          <div className="mt-6 pt-6 border-t border-lydian-border-light/10 space-y-3">
+          <div className="mt-6 pt-6 border-t border-white/20/10 space-y-3">
             {badges.map((badge, index) => (
-              <div key={index} className="flex items-center gap-3 text-sm text-lydian-text-muted">
+              <div key={index} className="flex items-center gap-3 text-sm text-gray-300">
                 {badge.icon}
                 {badge.text}
               </div>
@@ -413,18 +413,18 @@ export const BookingWidget: React.FC<BookingWidgetProps> = ({
 
         {/* Contact */}
         {(phone || email) && (
-          <div className="mt-6 pt-6 border-t border-lydian-border-light/10">
-            <p className="text-sm text-lydian-text-muted mb-3 font-medium">
+          <div className="mt-6 pt-6 border-t border-white/20/10">
+            <p className="text-sm text-gray-300 mb-3 font-medium">
               Sorularınız mı var?
             </p>
             <div className="space-y-2">
               {phone && (
-                <button className="w-full px-4 py-2 border border-lydian-border-light/10 rounded-lg font-semibold text-lydian-text-muted hover:bg-white/5 transition-colors flex items-center justify-center gap-2">
+                <button className="w-full px-4 py-2 border border-white/20/10 rounded-lg font-semibold text-gray-300 hover:bg-white/5 transition-colors flex items-center justify-center gap-2">
                   <Phone className="w-5 h-5" />
                   Bizi Arayın
                 </button>
               )}
-              <button className="w-full px-4 py-2 border border-lydian-border-light/10 rounded-lg font-semibold text-lydian-text-muted hover:bg-white/5 transition-colors flex items-center justify-center gap-2">
+              <button className="w-full px-4 py-2 border border-white/20/10 rounded-lg font-semibold text-gray-300 hover:bg-white/5 transition-colors flex items-center justify-center gap-2">
                 <MessageCircle className="w-5 h-5" />
                 Canlı Destek
               </button>
@@ -435,17 +435,17 @@ export const BookingWidget: React.FC<BookingWidgetProps> = ({
 
       {/* Trust Badges Below Widget */}
       <div className="mt-4 grid grid-cols-3 gap-2">
-        <div className="bg-lydian-glass-dark/80 backdrop-blur-xl rounded-lg p-3 text-center shadow-sm border border-lydian-border-light/10">
+        <div className="bg-lydian-glass-dark/80 backdrop-blur-xl rounded-lg p-3 text-center shadow-sm border border-white/20/10">
           <Shield className="w-6 h-6 text-green-500 mx-auto mb-1" />
-          <p className="text-xs font-semibold text-lydian-text-muted">Güvenli Ödeme</p>
+          <p className="text-xs font-semibold text-gray-300">Güvenli Ödeme</p>
         </div>
-        <div className="bg-lydian-glass-dark/80 backdrop-blur-xl rounded-lg p-3 text-center shadow-sm border border-lydian-border-light/10">
+        <div className="bg-lydian-glass-dark/80 backdrop-blur-xl rounded-lg p-3 text-center shadow-sm border border-white/20/10">
           <Zap className="w-6 h-6 text-blue-500 mx-auto mb-1" />
-          <p className="text-xs font-semibold text-lydian-text-muted">Anında Onay</p>
+          <p className="text-xs font-semibold text-gray-300">Anında Onay</p>
         </div>
-        <div className="bg-lydian-glass-dark/80 backdrop-blur-xl rounded-lg p-3 text-center shadow-sm border border-lydian-border-light/10">
+        <div className="bg-lydian-glass-dark/80 backdrop-blur-xl rounded-lg p-3 text-center shadow-sm border border-white/20/10">
           <Award className="w-6 h-6 text-yellow-500 mx-auto mb-1" />
-          <p className="text-xs font-semibold text-lydian-text-muted">En İyi Fiyat</p>
+          <p className="text-xs font-semibold text-gray-300">En İyi Fiyat</p>
         </div>
       </div>
     </div>

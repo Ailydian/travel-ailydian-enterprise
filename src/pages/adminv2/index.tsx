@@ -74,7 +74,7 @@ export default function AdminV2Dashboard() {
       change: -2.1,
       trend: 'down',
       icon: Eye,
-      color: 'from-orange-500 to-red-600',
+      color: 'from-orange-500 to-purple-600',
     },
   ];
 
@@ -116,7 +116,7 @@ export default function AdminV2Dashboard() {
               <motion.h1
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="text-4xl font-black text-lydian-text-inverse bg-clip-text text-transparent bg-gradient-to-r from-lydian-primary via-lydian-accent to-lydian-primary"
+                className="text-4xl font-black text-white bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-lydian-accent to-purple-600"
               >
                 Dashboard
               </motion.h1>
@@ -124,7 +124,7 @@ export default function AdminV2Dashboard() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.1 }}
-                className="text-lydian-text-muted mt-2 flex items-center gap-2"
+                className="text-gray-300 mt-2 flex items-center gap-2"
               >
                 <Calendar className="w-4 h-4" />
                 {new Date().toLocaleDateString('tr-TR', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
@@ -136,7 +136,7 @@ export default function AdminV2Dashboard() {
               animate={{ opacity: 1, scale: 1 }}
               className="flex items-center gap-3"
             >
-              <button className="px-6 py-3 bg-gradient-to-r from-lydian-primary to-lydian-accent text-lydian-text-inverse rounded-xl font-semibold hover:shadow-lg hover:shadow-lydian-primary/30 transition-all flex items-center gap-2">
+              <button className="px-6 py-3 bg-gradient-to-r from-blue-600 to-lydian-accent text-white rounded-xl font-semibold hover:shadow-lg hover:shadow-lydian-primary/30 transition-all flex items-center gap-2">
                 <Sparkles className="w-5 h-5" />
                 AI Insights
               </button>
@@ -158,25 +158,25 @@ export default function AdminV2Dashboard() {
                   className="group relative"
                 >
                   {/* Glass Card */}
-                  <div className="relative bg-lydian-glass-light/40 backdrop-blur-xl rounded-2xl p-6 border border-lydian-border-light/20 hover:border-lydian-primary/30 transition-all overflow-hidden">
+                  <div className="relative bg-white/10 backdrop-blur-xl backdrop-blur-xl rounded-2xl p-6 border border-white/20 hover:border-blue-500/30 transition-all overflow-hidden">
                     {/* Gradient Background */}
                     <div className={`absolute inset-0 bg-gradient-to-br ${stat.color} opacity-0 group-hover:opacity-5 transition-opacity`} />
 
                     {/* Icon */}
                     <div className={`absolute top-4 right-4 p-3 rounded-xl bg-gradient-to-br ${stat.color} opacity-10`}>
-                      <Icon className="w-6 h-6 text-lydian-text-inverse" />
+                      <Icon className="w-6 h-6 text-white" />
                     </div>
 
                     {/* Content */}
                     <div className="relative">
-                      <p className="text-sm text-lydian-text-muted mb-2">{stat.title}</p>
-                      <p className="text-3xl font-bold text-lydian-text-inverse mb-3">{stat.value}</p>
+                      <p className="text-sm text-gray-300 mb-2">{stat.title}</p>
+                      <p className="text-3xl font-bold text-white mb-3">{stat.value}</p>
 
                       {/* Change Indicator */}
-                      <div className={`flex items-center gap-1 text-sm font-semibold ${stat.trend === 'up' ? 'text-green-400' : 'text-red-400'}`}>
+                      <div className={`flex items-center gap-1 text-sm font-semibold ${stat.trend === 'up' ? 'text-green-400' : 'text-purple-300'}`}>
                         <TrendIcon className="w-4 h-4" />
                         <span>{Math.abs(stat.change)}%</span>
-                        <span className="text-lydian-text-dim font-normal">vs last month</span>
+                        <span className="text-gray-400 font-normal">vs last month</span>
                       </div>
                     </div>
                   </div>
@@ -192,14 +192,14 @@ export default function AdminV2Dashboard() {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.3 }}
-              className="xl:col-span-2 bg-lydian-glass-light/40 backdrop-blur-xl rounded-2xl p-6 border border-lydian-border-light/20"
+              className="xl:col-span-2 bg-white/10 backdrop-blur-xl backdrop-blur-xl rounded-2xl p-6 border border-white/20"
             >
               <div className="flex items-center justify-between mb-6">
-                <h2 className="text-xl font-bold text-lydian-text-inverse flex items-center gap-2">
-                  <Activity className="w-5 h-5 text-lydian-primary" />
+                <h2 className="text-xl font-bold text-white flex items-center gap-2">
+                  <Activity className="w-5 h-5 text-blue-400" />
                   Recent Activity
                 </h2>
-                <button className="text-sm text-lydian-primary hover:text-lydian-primary-hover flex items-center gap-1">
+                <button className="text-sm text-blue-400 hover:text-blue-400-hover flex items-center gap-1">
                   View All
                   <ArrowUpRight className="w-4 h-4" />
                 </button>
@@ -214,16 +214,16 @@ export default function AdminV2Dashboard() {
                       initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 0.4 + index * 0.1 }}
-                      className="flex items-center gap-4 p-4 rounded-xl bg-lydian-glass-dark/30 hover:bg-lydian-glass-dark/50 transition-all"
+                      className="flex items-center gap-4 p-4 rounded-xl bg-white/5 backdrop-blur-xl hover:bg-white/10/50 transition-all"
                     >
-                      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-lydian-primary/20 to-lydian-accent/20 flex items-center justify-center">
-                        <Icon className="w-5 h-5 text-lydian-primary" />
+                      <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-600/20 to-lydian-accent/20 flex items-center justify-center">
+                        <Icon className="w-5 h-5 text-blue-400" />
                       </div>
                       <div className="flex-1">
-                        <p className="text-sm font-semibold text-lydian-text-inverse">{activity.user}</p>
-                        <p className="text-xs text-lydian-text-muted">{activity.action}</p>
+                        <p className="text-sm font-semibold text-white">{activity.user}</p>
+                        <p className="text-xs text-gray-300">{activity.action}</p>
                       </div>
-                      <div className="flex items-center gap-1 text-xs text-lydian-text-dim">
+                      <div className="flex items-center gap-1 text-xs text-gray-400">
                         <Clock className="w-3 h-3" />
                         {activity.time}
                       </div>
@@ -238,11 +238,11 @@ export default function AdminV2Dashboard() {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.4 }}
-              className="bg-lydian-glass-light/40 backdrop-blur-xl rounded-2xl p-6 border border-lydian-border-light/20"
+              className="bg-white/10 backdrop-blur-xl backdrop-blur-xl rounded-2xl p-6 border border-white/20"
             >
               <div className="flex items-center justify-between mb-6">
-                <h2 className="text-xl font-bold text-lydian-text-inverse flex items-center gap-2">
-                  <Globe className="w-5 h-5 text-lydian-accent" />
+                <h2 className="text-xl font-bold text-white flex items-center gap-2">
+                  <Globe className="w-5 h-5 text-blue-400" />
                   Top Destinations
                 </h2>
               </div>
@@ -258,24 +258,24 @@ export default function AdminV2Dashboard() {
                   >
                     <div className="flex items-center justify-between mb-2">
                       <div className="flex items-center gap-2">
-                        <MapPin className="w-4 h-4 text-lydian-accent" />
-                        <span className="font-semibold text-lydian-text-inverse">{dest.name}</span>
+                        <MapPin className="w-4 h-4 text-blue-400" />
+                        <span className="font-semibold text-white">{dest.name}</span>
                       </div>
-                      <span className={`text-xs font-semibold ${dest.growth >= 0 ? 'text-green-400' : 'text-red-400'}`}>
+                      <span className={`text-xs font-semibold ${dest.growth >= 0 ? 'text-green-400' : 'text-purple-300'}`}>
                         {dest.growth >= 0 ? '+' : ''}{dest.growth}%
                       </span>
                     </div>
                     <div className="flex items-center justify-between text-sm">
-                      <span className="text-lydian-text-muted">{dest.bookings} bookings</span>
-                      <span className="text-lydian-text-inverse font-semibold">{dest.revenue}</span>
+                      <span className="text-gray-300">{dest.bookings} bookings</span>
+                      <span className="text-white font-semibold">{dest.revenue}</span>
                     </div>
                     {/* Progress Bar */}
-                    <div className="mt-2 h-1.5 bg-lydian-glass-dark rounded-full overflow-hidden">
+                    <div className="mt-2 h-1.5 bg-white/10 backdrop-blur-xl border border-white/20 rounded-full overflow-hidden">
                       <motion.div
                         initial={{ width: 0 }}
                         animate={{ width: `${(dest.bookings / 456) * 100}%` }}
                         transition={{ delay: 0.6 + index * 0.1, duration: 0.8 }}
-                        className="h-full bg-gradient-to-r from-lydian-primary to-lydian-accent rounded-full"
+                        className="h-full bg-gradient-to-r from-blue-600 to-lydian-accent rounded-full"
                       />
                     </div>
                   </motion.div>
@@ -289,10 +289,10 @@ export default function AdminV2Dashboard() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
-            className="bg-lydian-glass-light/40 backdrop-blur-xl rounded-2xl p-6 border border-lydian-border-light/20"
+            className="bg-white/10 backdrop-blur-xl backdrop-blur-xl rounded-2xl p-6 border border-white/20"
           >
-            <h2 className="text-xl font-bold text-lydian-text-inverse mb-6 flex items-center gap-2">
-              <Zap className="w-5 h-5 text-lydian-warning" />
+            <h2 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
+              <Zap className="w-5 h-5 text-blue-400" />
               Quick Actions
             </h2>
 
@@ -313,12 +313,12 @@ export default function AdminV2Dashboard() {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     onClick={() => router.push(action.href)}
-                    className="p-6 bg-lydian-glass-dark/30 hover:bg-lydian-glass-dark/50 rounded-xl border border-lydian-border-light/10 hover:border-lydian-primary/30 transition-all flex flex-col items-center gap-3 group"
+                    className="p-6 bg-white/5 backdrop-blur-xl hover:bg-white/10/50 rounded-xl border border-white/10 hover:border-blue-500/30 transition-all flex flex-col items-center gap-3 group"
                   >
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-lydian-primary/20 to-lydian-accent/20 flex items-center justify-center group-hover:scale-110 transition-transform">
-                      <Icon className="w-6 h-6 text-lydian-primary" />
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600/20 to-lydian-accent/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <Icon className="w-6 h-6 text-blue-400" />
                     </div>
-                    <span className="text-sm font-semibold text-lydian-text-inverse">{action.label}</span>
+                    <span className="text-sm font-semibold text-white">{action.label}</span>
                   </motion.button>
                 );
               })}

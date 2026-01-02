@@ -286,7 +286,7 @@ const TravelSocialHub: React.FC = () => {
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}>
 
-      <div className="bg-lydian-glass-dark rounded-2xl shadow-lg overflow-hidden mb-6">
+      <div className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-2xl shadow-lg overflow-hidden mb-6">
       {/* Header */}
       <div className="p-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
@@ -297,12 +297,12 @@ const TravelSocialHub: React.FC = () => {
               className="w-10 h-10 rounded-full object-cover" />
 
             {post.user.isOnline &&
-            <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-green-400 rounded-full border-2 border-lydian-border-light" />
+            <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-green-400 rounded-full border-2 border-white/20" />
             }
           </div>
           <div>
-            <h4 className="font-semibold text-lydian-text-inverse">{post.user.name}</h4>
-            <div className="flex items-center gap-2 text-sm text-lydian-text-muted">
+            <h4 className="font-semibold text-white">{post.user.name}</h4>
+            <div className="flex items-center gap-2 text-sm text-gray-300">
               {post.location &&
               <div className="flex items-center gap-1">
                   <MapPin className="w-3 h-3" />
@@ -315,14 +315,14 @@ const TravelSocialHub: React.FC = () => {
           </div>
         </div>
         
-        <button className="p-2 hover:bg-lydian-glass-dark-medium rounded-full transition-colors">
-          <MoreHorizontal className="w-5 h-5 text-lydian-text-muted" />
+        <button className="p-2 hover:bg-white/10 backdrop-blur-xl border border-white/20 rounded-full transition-colors">
+          <MoreHorizontal className="w-5 h-5 text-gray-300" />
         </button>
       </div>
 
       {/* Content */}
       <div className="px-4 pb-3">
-        <p className="text-lydian-text-inverse leading-relaxed">{post.content}</p>
+        <p className="text-white leading-relaxed">{post.content}</p>
         
         {/* Tags */}
         {post.tags.length > 0 &&
@@ -330,7 +330,7 @@ const TravelSocialHub: React.FC = () => {
             {post.tags.map((tag, index) =>
           <span
             key={index}
-            className="text-lydian-primary text-sm font-medium cursor-pointer hover:text-lydian-primary-dark">
+            className="text-blue-500 text-sm font-medium cursor-pointer hover:text-blue-600">
 
                 #{tag}
               </span>
@@ -351,7 +351,7 @@ const TravelSocialHub: React.FC = () => {
       }
 
       {/* Actions */}
-      <div className="p-4 border-t border-lydian-border-light">
+      <div className="p-4 border-t border-white/20">
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-4">
             <motion.div
@@ -360,7 +360,7 @@ const TravelSocialHub: React.FC = () => {
 
               <button
                 onClick={() => handleLikePost(post.id)}
-                className="flex items-center gap-2 text-lydian-text-dim hover:text-lydian-error transition-colors">
+                className="flex items-center gap-2 text-gray-400 hover:text-lydian-error transition-colors">
 
               <Heart
                   className={`w-5 h-5 ${post.isLiked ? 'fill-red-500 text-red-500' : ''}`} />
@@ -369,12 +369,12 @@ const TravelSocialHub: React.FC = () => {
               </button>
             </motion.div>
             
-            <button className="flex items-center gap-2 text-lydian-text-dim hover:text-lydian-primary transition-colors">
+            <button className="flex items-center gap-2 text-gray-400 hover:text-blue-500 transition-colors">
               <MessageCircle className="w-5 h-5" />
               <span className="text-sm font-medium">{post.comments.length}</span>
             </button>
             
-            <button className="flex items-center gap-2 text-lydian-text-dim hover:text-green-500 transition-colors">
+            <button className="flex items-center gap-2 text-gray-400 hover:text-green-500 transition-colors">
               <Share2 className="w-5 h-5" />
               <span className="text-sm font-medium">{post.shares}</span>
             </button>
@@ -386,10 +386,10 @@ const TravelSocialHub: React.FC = () => {
 
             <button
               onClick={() => handleBookmarkPost(post.id)}
-              className="text-lydian-text-dim hover:text-lydian-warning transition-colors">
+              className="text-gray-400 hover:text-yellow-500 transition-colors">
 
             <Bookmark
-                className={`w-5 h-5 ${post.isBookmarked ? 'fill-yellow-500 text-lydian-warning' : ''}`} />
+                className={`w-5 h-5 ${post.isBookmarked ? 'fill-yellow-500 text-yellow-500' : ''}`} />
 
             </button>
           </motion.div>
@@ -397,7 +397,7 @@ const TravelSocialHub: React.FC = () => {
 
         {/* Comments */}
         {post.comments.length > 0 &&
-        <div className="space-y-3 pt-3 border-t border-lydian-border-light">
+        <div className="space-y-3 pt-3 border-t border-white/20">
             {post.comments.slice(0, 2).map((comment) =>
           <div key={comment.id} className="flex gap-3">
                 <img
@@ -406,16 +406,16 @@ const TravelSocialHub: React.FC = () => {
               className="w-6 h-6 rounded-full object-cover" />
 
                 <div className="flex-1">
-                  <span className="font-medium text-sm text-lydian-text-inverse">{comment.user.name}</span>
-                  <span className="text-lydian-text-muted text-sm ml-2">{comment.content}</span>
+                  <span className="font-medium text-sm text-white">{comment.user.name}</span>
+                  <span className="text-gray-300 text-sm ml-2">{comment.content}</span>
                   <div className="flex items-center gap-3 mt-1">
-                    <span className="text-xs text-lydian-text-muted">
+                    <span className="text-xs text-gray-300">
                       {new Date(comment.timestamp).toLocaleDateString()}
                     </span>
-                    <button className="text-xs text-lydian-text-muted hover:text-lydian-text-muted">
+                    <button className="text-xs text-gray-300 hover:text-gray-300">
                       Beğen
                     </button>
-                    <button className="text-xs text-lydian-text-muted hover:text-lydian-text-muted">
+                    <button className="text-xs text-gray-300 hover:text-gray-300">
                       Yanıtla
                     </button>
                   </div>
@@ -434,7 +434,7 @@ const TravelSocialHub: React.FC = () => {
     initial={{ opacity: 0, scale: 0.9 }}
     animate={{ opacity: 1, scale: 1 }}>
 
-      <div className="bg-lydian-glass-dark rounded-2xl shadow-lg p-6 mb-4">
+      <div className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-2xl shadow-lg p-6 mb-4">
       <div className="flex items-start justify-between mb-4">
         <div className="flex items-center gap-4">
           <div className="relative">
@@ -444,19 +444,19 @@ const TravelSocialHub: React.FC = () => {
               className="w-16 h-16 rounded-full object-cover" />
 
             {user.isOnline &&
-            <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-400 rounded-full border-2 border-lydian-border-light" />
+            <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-400 rounded-full border-2 border-white/20" />
             }
           </div>
           <div>
-            <h3 className="font-bold text-lydian-text-inverse text-lg">{user.name}</h3>
-            <div className="flex items-center gap-1 text-lydian-text-dim mb-1">
+            <h3 className="font-bold text-white text-lg">{user.name}</h3>
+            <div className="flex items-center gap-1 text-gray-400 mb-1">
               <MapPin className="w-4 h-4" />
               <span className="text-sm">{user.location}</span>
             </div>
             <div className="flex items-center gap-2">
               <div className="flex items-center gap-1">
-                <Star className="w-4 h-4 text-lydian-warning" />
-                <span className="text-sm font-medium text-lydian-text-muted">{user.compatibility}% uyumlu</span>
+                <Star className="w-4 h-4 text-yellow-500" />
+                <span className="text-sm font-medium text-gray-300">{user.compatibility}% uyumlu</span>
               </div>
             </div>
           </div>
@@ -468,7 +468,7 @@ const TravelSocialHub: React.FC = () => {
 
           <button
             onClick={() => handleFollowUser(user.id)}
-            className="flex items-center gap-2 px-4 py-2 bg-lydian-primary text-lydian-text-inverse rounded-xl font-medium hover:bg-lydian-primary-dark transition-colors">
+            className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-medium hover:bg-gradient-to-r from-blue-700 to-purple-700 transition-colors">
 
             <UserPlus className="w-4 h-4" />
             Takip Et
@@ -476,16 +476,16 @@ const TravelSocialHub: React.FC = () => {
         </motion.div>
       </div>
 
-      <p className="text-lydian-text-muted mb-4">{user.bio}</p>
+      <p className="text-gray-300 mb-4">{user.bio}</p>
 
       {/* Travel Interests */}
       <div className="mb-4">
-        <h4 className="font-medium text-lydian-text-inverse mb-2">Seyahat Tarzı</h4>
+        <h4 className="font-medium text-white mb-2">Seyahat Tarzı</h4>
         <div className="flex flex-wrap gap-2">
           {user.travelStyle.map((style, index) =>
           <span
             key={index}
-            className="px-3 py-1 bg-lydian-primary-light text-lydian-primary-dark text-sm rounded-full">
+            className="px-3 py-1 bg-blue-500/10 text-blue-600 text-sm rounded-full">
 
               {style}
             </span>
@@ -496,12 +496,12 @@ const TravelSocialHub: React.FC = () => {
       {/* Mutual Interests */}
       {user.mutualInterests.length > 0 &&
       <div className="mb-4">
-          <h4 className="font-medium text-lydian-text-inverse mb-2">Ortak İlgi Alanları</h4>
+          <h4 className="font-medium text-white mb-2">Ortak İlgi Alanları</h4>
           <div className="flex flex-wrap gap-2">
             {user.mutualInterests.map((interest, index) =>
           <span
             key={index}
-            className="px-3 py-1 bg-lydian-success-light text-lydian-success-text text-sm rounded-full">
+            className="px-3 py-1 bg-green-600-light text-green-500-text text-sm rounded-full">
 
                 {interest}
               </span>
@@ -512,10 +512,10 @@ const TravelSocialHub: React.FC = () => {
 
       {/* Countries */}
       <div>
-        <h4 className="font-medium text-lydian-text-inverse mb-2">Ziyaret Ettiği Ülkeler</h4>
+        <h4 className="font-medium text-white mb-2">Ziyaret Ettiği Ülkeler</h4>
         <div className="flex items-center gap-2">
-          <Globe className="w-4 h-4 text-lydian-text-muted" />
-          <span className="text-sm text-lydian-text-dim">{user.countries.length} ülke</span>
+          <Globe className="w-4 h-4 text-gray-300" />
+          <span className="text-sm text-gray-400">{user.countries.length} ülke</span>
         </div>
       </div>
       </div>
@@ -526,11 +526,11 @@ const TravelSocialHub: React.FC = () => {
     <div className="max-w-6xl mx-auto p-6">
       {/* Header */}
       <div className="flex items-center justify-between mb-8">
-        <h1 className="text-3xl font-bold text-lydian-text-inverse">Sosyal Seyahat</h1>
+        <h1 className="text-3xl font-bold text-white">Sosyal Seyahat</h1>
         
         <div className="flex items-center gap-4">
-          <button className="relative p-2 hover:bg-lydian-glass-dark-medium rounded-lg transition-colors">
-            <Bell className="w-6 h-6 text-lydian-text-dim" />
+          <button className="relative p-2 hover:bg-white/10 backdrop-blur-xl border border-white/20 rounded-lg transition-colors">
+            <Bell className="w-6 h-6 text-gray-400" />
             <div className="absolute -top-1 -right-1 w-3 h-3 bg-lydian-error rounded-full" />
           </button>
           
@@ -540,7 +540,7 @@ const TravelSocialHub: React.FC = () => {
 
             <button
               onClick={() => setShowNewPostModal(true)}
-              className="flex items-center gap-2 px-6 py-3 bg-lydian-primary text-lydian-text-inverse rounded-xl font-medium hover:bg-lydian-primary-dark transition-colors">
+              className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-medium hover:bg-gradient-to-r from-blue-700 to-purple-700 transition-colors">
 
             <Plus className="w-5 h-5" />
             Paylaş
@@ -550,7 +550,7 @@ const TravelSocialHub: React.FC = () => {
       </div>
 
       {/* Navigation Tabs */}
-      <div className="flex items-center gap-1 mb-8 bg-lydian-glass-dark-medium p-1 rounded-xl">
+      <div className="flex items-center gap-1 mb-8 bg-white/10 backdrop-blur-xl border border-white/20 p-1 rounded-xl">
         {[
         { key: 'feed', label: 'Ana Sayfa', icon: Users },
         { key: 'discover', label: 'Keşfet', icon: Compass },
@@ -568,8 +568,8 @@ const TravelSocialHub: React.FC = () => {
                 onClick={() => setActiveTab(tab.key as any)}
                 className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-lg font-medium transition-colors ${
                 activeTab === tab.key ?
-                'bg-lydian-bg/5 text-lydian-primary shadow-sm' :
-                'text-lydian-text-dim hover:text-white'}`
+                'bg-white/5 text-blue-500 shadow-sm' :
+                'text-gray-400 hover:text-white'}`
                 }>
 
               <Icon className="w-5 h-5" />
@@ -594,7 +594,7 @@ const TravelSocialHub: React.FC = () => {
 
           {activeTab === 'discover' &&
           <div>
-              <h2 className="text-2xl font-bold text-lydian-text-inverse mb-6">Seyahat Arkadaşları Keşfet</h2>
+              <h2 className="text-2xl font-bold text-white mb-6">Seyahat Arkadaşları Keşfet</h2>
               {users.map((user) =>
             <UserCard key={user.id} user={user} />
             )}
@@ -603,11 +603,11 @@ const TravelSocialHub: React.FC = () => {
 
           {activeTab === 'plans' &&
           <div>
-              <h2 className="text-2xl font-bold text-lydian-text-inverse mb-6">Grup Seyahat Planları</h2>
-              <div className="text-center text-lydian-text-muted py-12">
-                <Calendar className="w-12 h-12 mx-auto mb-4 text-lydian-text-muted" />
+              <h2 className="text-2xl font-bold text-white mb-6">Grup Seyahat Planları</h2>
+              <div className="text-center text-gray-300 py-12">
+                <Calendar className="w-12 h-12 mx-auto mb-4 text-gray-300" />
                 <p>Henüz aktif seyahat planı yok</p>
-                <button className="mt-4 px-6 py-3 bg-lydian-primary text-lydian-text-inverse rounded-xl font-medium">
+                <button className="mt-4 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-medium">
                   Yeni Plan Oluştur
                 </button>
               </div>
@@ -616,9 +616,9 @@ const TravelSocialHub: React.FC = () => {
 
           {activeTab === 'chat' &&
           <div>
-              <h2 className="text-2xl font-bold text-lydian-text-inverse mb-6">Mesajlar</h2>
-              <div className="text-center text-lydian-text-muted py-12">
-                <MessageCircle className="w-12 h-12 mx-auto mb-4 text-lydian-text-muted" />
+              <h2 className="text-2xl font-bold text-white mb-6">Mesajlar</h2>
+              <div className="text-center text-gray-300 py-12">
+                <MessageCircle className="w-12 h-12 mx-auto mb-4 text-gray-300" />
                 <p>Henüz mesaj yok</p>
               </div>
             </div>
@@ -628,8 +628,8 @@ const TravelSocialHub: React.FC = () => {
         {/* Sidebar */}
         <div className="space-y-6">
           {/* Online Users */}
-          <div className="bg-lydian-glass-dark rounded-2xl shadow-lg p-6">
-            <h3 className="font-bold text-lydian-text-inverse mb-4">Online Seyahat Arkadaşları</h3>
+          <div className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-2xl shadow-lg p-6">
+            <h3 className="font-bold text-white mb-4">Online Seyahat Arkadaşları</h3>
             <div className="space-y-3">
               {users.filter((user) => user.isOnline).map((user) =>
               <div key={user.id} className="flex items-center gap-3">
@@ -639,11 +639,11 @@ const TravelSocialHub: React.FC = () => {
                     alt={user.name}
                     className="w-8 h-8 rounded-full object-cover" />
 
-                    <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-green-400 rounded-full border-2 border-lydian-border-light" />
+                    <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-green-400 rounded-full border-2 border-white/20" />
                   </div>
                   <div className="flex-1">
-                    <p className="font-medium text-lydian-text-inverse text-sm">{user.name}</p>
-                    <p className="text-xs text-lydian-text-muted">{user.location}</p>
+                    <p className="font-medium text-white text-sm">{user.name}</p>
+                    <p className="text-xs text-gray-300">{user.location}</p>
                   </div>
                 </div>
               )}
@@ -651,8 +651,8 @@ const TravelSocialHub: React.FC = () => {
           </div>
 
           {/* Trending Destinations */}
-          <div className="bg-lydian-glass-dark rounded-2xl shadow-lg p-6">
-            <h3 className="font-bold text-lydian-text-inverse mb-4">Trend Destinasyonlar</h3>
+          <div className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-2xl shadow-lg p-6">
+            <h3 className="font-bold text-white mb-4">Trend Destinasyonlar</h3>
             <div className="space-y-3">
               {[
               { name: 'Kapadokya', count: 124, trend: '+12%' },
@@ -662,10 +662,10 @@ const TravelSocialHub: React.FC = () => {
               map((destination, index) =>
               <div key={index} className="flex items-center justify-between">
                   <div>
-                    <p className="font-medium text-lydian-text-inverse">{destination.name}</p>
-                    <p className="text-sm text-lydian-text-muted">{destination.count} gönderi</p>
+                    <p className="font-medium text-white">{destination.name}</p>
+                    <p className="text-sm text-gray-300">{destination.count} gönderi</p>
                   </div>
-                  <span className="text-sm font-medium text-lydian-success">{destination.trend}</span>
+                  <span className="text-sm font-medium text-green-500">{destination.trend}</span>
                 </div>
               )}
             </div>
@@ -692,15 +692,15 @@ const TravelSocialHub: React.FC = () => {
 
               <div
                 onClick={(e) => e.stopPropagation()}
-                className="bg-lydian-glass-dark rounded-2xl p-6 w-full max-w-lg">
+                className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-2xl p-6 w-full max-w-lg">
 
               <div className="flex items-center justify-between mb-6">
-                <h3 className="text-xl font-bold text-lydian-text-inverse">Yeni Gönderi</h3>
+                <h3 className="text-xl font-bold text-white">Yeni Gönderi</h3>
                 <button
                     onClick={() => setShowNewPostModal(false)}
-                    className="p-2 hover:bg-lydian-glass-dark-medium rounded-lg transition-colors">
+                    className="p-2 hover:bg-white/10 backdrop-blur-xl border border-white/20 rounded-lg transition-colors">
 
-                  <X className="w-5 h-5 text-lydian-text-muted" />
+                  <X className="w-5 h-5 text-gray-300" />
                 </button>
               </div>
 
@@ -708,17 +708,17 @@ const TravelSocialHub: React.FC = () => {
                   value={newPostContent}
                   onChange={(e) => setNewPostContent(e.target.value)}
                   placeholder="Seyahat deneyimlerinizi paylaşın..."
-                  className="w-full p-4 border border-lydian-border-light rounded-xl focus:outline-none focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-border resize-none"
+                  className="w-full p-4 border border-white/20 rounded-xl focus:outline-none focus:ring-2 focus:ring-lydian-border-focus focus:border-white/20 resize-none"
                   rows={4} />
 
 
               <div className="flex items-center justify-between mt-6">
                 <div className="flex items-center gap-4">
-                  <button className="p-2 hover:bg-lydian-glass-dark-medium rounded-lg transition-colors">
-                    <Camera className="w-5 h-5 text-lydian-text-dim" />
+                  <button className="p-2 hover:bg-white/10 backdrop-blur-xl border border-white/20 rounded-lg transition-colors">
+                    <Camera className="w-5 h-5 text-gray-400" />
                   </button>
-                  <button className="p-2 hover:bg-lydian-glass-dark-medium rounded-lg transition-colors">
-                    <MapPin className="w-5 h-5 text-lydian-text-dim" />
+                  <button className="p-2 hover:bg-white/10 backdrop-blur-xl border border-white/20 rounded-lg transition-colors">
+                    <MapPin className="w-5 h-5 text-gray-400" />
                   </button>
                 </div>
 
@@ -729,7 +729,7 @@ const TravelSocialHub: React.FC = () => {
                   <button
                       onClick={createNewPost}
                       disabled={!newPostContent.trim()}
-                      className="px-6 py-2 bg-lydian-primary text-lydian-text-inverse rounded-xl font-medium hover:bg-lydian-primary-dark transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+                      className="px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-medium hover:bg-gradient-to-r from-blue-700 to-purple-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
 
                   Paylaş
                   </button>

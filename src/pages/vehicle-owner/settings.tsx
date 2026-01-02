@@ -178,7 +178,7 @@ export default function VehicleOwnerSettings() {
 
 
   return (
-    <div className="min-h-screen bg-lydian-glass-dark p-6">
+    <div className="min-h-screen bg-white/10 backdrop-blur-xl border border-white/20 p-6">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-8">
@@ -202,9 +202,9 @@ export default function VehicleOwnerSettings() {
               borderColor: toast.type === 'success' ? 'var(--lydian-success)' : toast.type === 'error' ? 'var(--lydian-secondary)' : 'var(--lydian-warning)'
             }}>
 
-                {toast.type === 'success' && <CheckCircle2 className="w-5 h-5 text-lydian-success" />}
-                {toast.type === 'error' && <XCircle className="w-5 h-5 text-lydian-error" />}
-                {toast.type === 'warning' && <AlertCircle className="w-5 h-5 text-lydian-warning" />}
+                {toast.type === 'success' && <CheckCircle2 className="w-5 h-5 text-purple-400" />}
+                {toast.type === 'error' && <XCircle className="w-5 h-5 text-gray-400" />}
+                {toast.type === 'warning' && <AlertCircle className="w-5 h-5 text-blue-400" />}
                 <span className="flex-1 font-medium" style={{ color: '#000000' }}>{toast.message}</span>
                 <button onClick={() => setToasts((prev) => prev.filter((t) => t.id !== toast.id))}>
                   <X className="w-4 h-4" style={{ color: '#666666' }} />
@@ -215,7 +215,7 @@ export default function VehicleOwnerSettings() {
         }
 
         {/* Tabs */}
-        <div className="bg-lydian-bg-hover rounded-2xl border-2 shadow-sm mb-6" style={{ borderColor: 'var(--lydian-border)' }}>
+        <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl border-2 shadow-sm mb-6" style={{ borderColor: 'var(--lydian-border)' }}>
           <div className="flex overflow-x-auto">
             {tabs.map((tab) => {
               const Icon = tab.icon;
@@ -240,7 +240,7 @@ export default function VehicleOwnerSettings() {
         </div>
 
         {/* Tab Content */}
-        <div className="bg-lydian-bg-hover rounded-2xl border-2 shadow-sm p-8" style={{ borderColor: 'var(--lydian-border)' }}>
+        <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl border-2 shadow-sm p-8" style={{ borderColor: 'var(--lydian-border)' }}>
           {/* Account Tab */}
           {activeTab === 'account' &&
           <div className="space-y-8">
@@ -253,7 +253,7 @@ export default function VehicleOwnerSettings() {
                   <div className="flex items-center gap-4">
                     <div className="w-24 h-24 rounded-full flex items-center justify-center"
                   style={{ background: 'linear-gradient(135deg, var(--lydian-success-hover), var(--lydian-success))' }}>
-                      <User className="w-12 h-12 text-lydian-text-inverse" />
+                      <User className="w-12 h-12 text-white" />
                     </div>
                     <button className="flex items-center gap-2 px-4 py-2 rounded-xl font-bold transition-all hover:scale-105"
                   style={{
@@ -502,7 +502,7 @@ export default function VehicleOwnerSettings() {
                       style={{ backgroundColor: businessData.autoAccept ? 'var(--lydian-success-hover)' : 'var(--lydian-border)' }}>
 
                         <div
-                        className="absolute top-1 w-6 h-6 bg-lydian-bg-hover rounded-full transition-transform"
+                        className="absolute top-1 w-6 h-6 bg-white/10 backdrop-blur-xl border border-white/20 rounded-full transition-transform"
                         style={{ transform: businessData.autoAccept ? 'translateX(24px)' : 'translateX(4px)' }} />
 
                       </button>
@@ -691,7 +691,7 @@ export default function VehicleOwnerSettings() {
                           style={{ backgroundColor: value ? 'var(--lydian-success-hover)' : 'var(--lydian-border)' }}>
 
                             <div
-                            className="absolute top-1 w-6 h-6 bg-lydian-bg-hover rounded-full transition-transform"
+                            className="absolute top-1 w-6 h-6 bg-white/10 backdrop-blur-xl border border-white/20 rounded-full transition-transform"
                             style={{ transform: value ? 'translateX(24px)' : 'translateX(4px)' }} />
 
                           </button>
@@ -726,7 +726,7 @@ export default function VehicleOwnerSettings() {
                           style={{ backgroundColor: value ? 'var(--lydian-success-hover)' : 'var(--lydian-border)' }}>
 
                             <div
-                            className="absolute top-1 w-6 h-6 bg-lydian-bg-hover rounded-full transition-transform"
+                            className="absolute top-1 w-6 h-6 bg-white/10 backdrop-blur-xl border border-white/20 rounded-full transition-transform"
                             style={{ transform: value ? 'translateX(24px)' : 'translateX(4px)' }} />
 
                           </button>
@@ -762,7 +762,7 @@ export default function VehicleOwnerSettings() {
                           style={{ backgroundColor: value ? 'var(--lydian-success-hover)' : '#E5E7EB' }}>
 
                             <div
-                            className="absolute top-1 w-6 h-6 bg-lydian-bg-hover rounded-full transition-transform"
+                            className="absolute top-1 w-6 h-6 bg-white/10 backdrop-blur-xl border border-white/20 rounded-full transition-transform"
                             style={{ transform: value ? 'translateX(24px)' : 'translateX(4px)' }} />
 
                           </button>
@@ -837,7 +837,7 @@ export default function VehicleOwnerSettings() {
                     style={{ backgroundColor: securityData.twoFactorEnabled ? 'var(--lydian-success-hover)' : '#E5E7EB' }}>
 
                       <div
-                      className="absolute top-1 w-6 h-6 bg-lydian-bg-hover rounded-full transition-transform"
+                      className="absolute top-1 w-6 h-6 bg-white/10 backdrop-blur-xl border border-white/20 rounded-full transition-transform"
                       style={{ transform: securityData.twoFactorEnabled ? 'translateX(24px)' : 'translateX(4px)' }} />
 
                     </button>
@@ -858,7 +858,7 @@ export default function VehicleOwnerSettings() {
                             <p className="font-bold" style={{ color: '#000000' }}>{login.device}</p>
                             <p className="text-sm" style={{ color: '#666666' }}>{login.date}</p>
                           </div>
-                          <CheckCircle className="w-5 h-5 text-lydian-success" />
+                          <CheckCircle className="w-5 h-5 text-purple-400" />
                         </div>
                         <div className="flex items-center gap-4 text-sm" style={{ color: '#666666' }}>
                           <span className="flex items-center gap-1">
@@ -888,7 +888,7 @@ export default function VehicleOwnerSettings() {
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-4">
                       <div className="p-3 rounded-xl" style={{ background: 'linear-gradient(135deg, var(--lydian-success-hover), var(--lydian-success))' }}>
-                        <FileText className="w-6 h-6 text-lydian-text-inverse" />
+                        <FileText className="w-6 h-6 text-white" />
                       </div>
                       <div>
                         <h3 className="font-bold mb-1" style={{ color: '#000000' }}>Kullanım Koşulları</h3>
@@ -907,7 +907,7 @@ export default function VehicleOwnerSettings() {
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-4">
                       <div className="p-3 rounded-xl" style={{ background: 'linear-gradient(135deg, var(--lydian-success-hover), #10B981)' }}>
-                        <Shield className="w-6 h-6 text-lydian-text-inverse" />
+                        <Shield className="w-6 h-6 text-white" />
                       </div>
                       <div>
                         <h3 className="font-bold mb-1" style={{ color: '#000000' }}>Gizlilik Politikası</h3>
@@ -926,7 +926,7 @@ export default function VehicleOwnerSettings() {
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-4">
                       <div className="p-3 rounded-xl" style={{ background: 'linear-gradient(135deg, #059669, #10B981)' }}>
-                        <Lock className="w-6 h-6 text-lydian-text-inverse" />
+                        <Lock className="w-6 h-6 text-white" />
                       </div>
                       <div>
                         <h3 className="font-bold mb-1" style={{ color: '#000000' }}>KVKK Aydınlatma Metni</h3>
@@ -945,7 +945,7 @@ export default function VehicleOwnerSettings() {
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-4">
                       <div className="p-3 rounded-xl" style={{ background: 'linear-gradient(135deg, #059669, #10B981)' }}>
-                        <FileText className="w-6 h-6 text-lydian-text-inverse" />
+                        <FileText className="w-6 h-6 text-white" />
                       </div>
                       <div>
                         <h3 className="font-bold mb-1" style={{ color: '#000000' }}>Araç Kiralama Sözleşmesi</h3>
@@ -964,7 +964,7 @@ export default function VehicleOwnerSettings() {
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-4">
                       <div className="p-3 rounded-xl" style={{ background: 'linear-gradient(135deg, #059669, #10B981)' }}>
-                        <CreditCard className="w-6 h-6 text-lydian-text-inverse" />
+                        <CreditCard className="w-6 h-6 text-white" />
                       </div>
                       <div>
                         <h3 className="font-bold mb-1" style={{ color: '#000000' }}>Ödeme Şartları</h3>
@@ -987,7 +987,7 @@ export default function VehicleOwnerSettings() {
       {/* Password Change Modal */}
       {showModal && modalAction === 'password' &&
       <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <div className="bg-lydian-bg-hover rounded-2xl p-8 max-w-md w-full" style={{ maxHeight: '90vh', overflowY: 'auto' }}>
+          <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-8 max-w-md w-full" style={{ maxHeight: '90vh', overflowY: 'auto' }}>
             <h3 className="text-2xl font-bold mb-6" style={{ color: '#000000' }}>Şifre Değiştir</h3>
 
             <div className="space-y-4">

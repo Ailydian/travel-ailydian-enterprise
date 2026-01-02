@@ -138,7 +138,7 @@ export const Modal: React.FC<ModalProps> = ({
       >
         {/* Header */}
         {(title || showCloseButton) && (
-          <div className="flex items-center justify-between px-6 py-4 border-b border-lydian-border">
+          <div className="flex items-center justify-between px-6 py-4 border-b border-white/20">
             {title && (
               <h2
                 id="modal-title"
@@ -151,7 +151,7 @@ export const Modal: React.FC<ModalProps> = ({
             {showCloseButton && (
               <button
                 onClick={onClose}
-                className="ml-auto p-2 rounded-lg text-lydian-text-muted hover:text-lydian-text-secondary hover:bg-lydian-bg-surface-raised transition-colors"
+                className="ml-auto p-2 rounded-lg text-gray-300 hover:text-lydian-text-secondary hover:bg-lydian-bg-surface-raised transition-colors"
                 aria-label="Close modal"
               >
                 <svg
@@ -177,7 +177,7 @@ export const Modal: React.FC<ModalProps> = ({
 
         {/* Footer */}
         {footer && (
-          <div className="flex items-center justify-end gap-3 px-6 py-4 border-t border-lydian-border bg-lydian-bg-surface rounded-b-2xl">
+          <div className="flex items-center justify-end gap-3 px-6 py-4 border-t border-white/20 bg-lydian-bg-surface rounded-b-2xl">
             {footer}
           </div>
         )}

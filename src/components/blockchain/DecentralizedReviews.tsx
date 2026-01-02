@@ -243,14 +243,14 @@ const DecentralizedReviews: React.FC = () => {
     <Star
       key={i}
       className={`w-4 h-4 ${
-      i < rating ? 'text-lydian-warning fill-current' : 'text-lydian-text-dim'}`
+      i < rating ? 'text-yellow-500 fill-current' : 'text-gray-400'}`
       } />
 
     );
   };
 
   const ReviewCard: React.FC<{review: DecentralizedReview;}> = ({ review }) =>
-  <div className="bg-lydian-glass-dark rounded-2xl shadow-lg p-6 cursor-pointer hover:shadow-xl transition-all" onClick={() => setSelectedReview(review)}>
+  <div className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-2xl shadow-lg p-6 cursor-pointer hover:shadow-xl transition-all" onClick={() => setSelectedReview(review)}>
       <motion.div
       layoutId={review.id}
       whileHover={{ y: -4 }}
@@ -259,24 +259,24 @@ const DecentralizedReviews: React.FC = () => {
       {/* Header */}
       <div className="flex items-start justify-between mb-4">
         <div className="flex items-center gap-3">
-          <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-lydian-primary rounded-xl flex items-center justify-center text-lydian-text-inverse font-bold">
+          <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-purple-600 rounded-xl flex items-center justify-center text-white font-bold">
             {review.reviewer.nickname.charAt(0)}
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <span className="font-semibold text-lydian-text-inverse">{review.reviewer.nickname}</span>
+              <span className="font-semibold text-white">{review.reviewer.nickname}</span>
               {review.reviewer.verifiedTraveler &&
-              <CheckCircle className="w-4 h-4 text-lydian-success" />
+              <CheckCircle className="w-4 h-4 text-green-500" />
               }
               {review.nftProof &&
               <Award className="w-4 h-4 text-lydian-accent-purple" />
               }
             </div>
-            <div className="flex items-center gap-2 text-xs text-lydian-text-muted">
+            <div className="flex items-center gap-2 text-xs text-gray-300">
               <span>{review.reviewer.totalReviews} yorum</span>
               <span>•</span>
               <div className="flex items-center gap-1">
-                <Star className="w-3 h-3 text-lydian-warning fill-current" />
+                <Star className="w-3 h-3 text-yellow-500 fill-current" />
                 <span>{review.reviewer.reputation}</span>
               </div>
             </div>
@@ -288,8 +288,8 @@ const DecentralizedReviews: React.FC = () => {
             {getBusinessTypeIcon(review.businessType)} {review.businessType}
           </div>
           {review.isVerified &&
-          <div className="w-6 h-6 bg-lydian-success-light rounded-full flex items-center justify-center">
-              <Shield className="w-3 h-3 text-lydian-success" />
+          <div className="w-6 h-6 bg-green-600-light rounded-full flex items-center justify-center">
+              <Shield className="w-3 h-3 text-green-500" />
             </div>
           }
         </div>
@@ -297,8 +297,8 @@ const DecentralizedReviews: React.FC = () => {
 
       {/* Business Info */}
       <div className="mb-3">
-        <h3 className="font-semibold text-lydian-text-inverse mb-1">{review.businessName}</h3>
-        <div className="flex items-center gap-2 text-sm text-lydian-text-dim">
+        <h3 className="font-semibold text-white mb-1">{review.businessName}</h3>
+        <div className="flex items-center gap-2 text-sm text-gray-400">
           <MapPin className="w-4 h-4" />
           <span>{review.location.city}, {review.location.country}</span>
         </div>
@@ -310,13 +310,13 @@ const DecentralizedReviews: React.FC = () => {
           <div className="flex items-center gap-1">
             {renderStars(review.rating)}
           </div>
-          <span className="text-sm font-medium text-lydian-text-muted">{review.rating}/5</span>
+          <span className="text-sm font-medium text-gray-300">{review.rating}/5</span>
         </div>
-        <h4 className="font-medium text-lydian-text-inverse">{review.title}</h4>
+        <h4 className="font-medium text-white">{review.title}</h4>
       </div>
 
       {/* Content Preview */}
-      <p className="text-lydian-text-muted text-sm line-clamp-3 mb-4">
+      <p className="text-gray-300 text-sm line-clamp-3 mb-4">
         {review.content}
       </p>
 
@@ -332,7 +332,7 @@ const DecentralizedReviews: React.FC = () => {
 
         )}
           {review.images.length > 3 &&
-        <div className="w-16 h-16 bg-lydian-glass-dark-medium rounded-lg flex items-center justify-center text-xs text-lydian-text-muted flex-shrink-0">
+        <div className="w-16 h-16 bg-white/10 backdrop-blur-xl border border-white/20 rounded-lg flex items-center justify-center text-xs text-gray-300 flex-shrink-0">
               +{review.images.length - 3}
             </div>
         }
@@ -341,7 +341,7 @@ const DecentralizedReviews: React.FC = () => {
 
       {/* Footer */}
       <div className="flex items-center justify-between pt-4 border-t">
-        <div className="flex items-center gap-4 text-sm text-lydian-text-muted">
+        <div className="flex items-center gap-4 text-sm text-gray-300">
           <div className="flex items-center gap-1">
             <ThumbsUp className="w-4 h-4" />
             <span>{review.votes.helpful}</span>
@@ -358,7 +358,7 @@ const DecentralizedReviews: React.FC = () => {
               NFT Kanıt
             </div>
           }
-          <Eye className="w-4 h-4 text-lydian-text-muted" />
+          <Eye className="w-4 h-4 text-gray-300" />
         </div>
       </div>
       </motion.div>
@@ -370,20 +370,20 @@ const DecentralizedReviews: React.FC = () => {
       {/* Header */}
       <div className="flex items-center justify-between mb-8">
         <div>
-          <h1 className="text-3xl font-bold text-lydian-text-inverse flex items-center gap-3">
-            <div className="p-3 bg-gradient-to-r from-green-500 to-lydian-primary rounded-2xl">
-              <Shield className="w-8 h-8 text-lydian-text-inverse" />
+          <h1 className="text-3xl font-bold text-white flex items-center gap-3">
+            <div className="p-3 bg-gradient-to-r from-green-500 to-purple-600 rounded-2xl">
+              <Shield className="w-8 h-8 text-white" />
             </div>
             Merkezi Olmayan Yorumlar
           </h1>
-          <p className="text-lydian-text-dim mt-2">
+          <p className="text-gray-400 mt-2">
             Blockchain ile doğrulanmış, değiştirilemez seyahat deneyimleri
           </p>
         </div>
 
         <button
           onClick={() => setShowWriteReview(true)}
-          className="flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-lydian-success to-lydian-primary text-lydian-text-inverse rounded-xl font-medium hover:shadow-lg transition-all transform hover:scale-105">
+          className="flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-lydian-success to-purple-600 text-white rounded-xl font-medium hover:shadow-lg transition-all transform hover:scale-105">
 
           <Plus className="w-5 h-5" />
           Yorum Yaz
@@ -392,40 +392,40 @@ const DecentralizedReviews: React.FC = () => {
 
       {/* Stats */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-        <div className="bg-lydian-glass-dark rounded-2xl p-6 text-center shadow-lg">
-          <div className="text-3xl font-bold text-lydian-text-inverse mb-2">{reviews.length}</div>
-          <div className="text-sm text-lydian-text-dim">Toplam Yorum</div>
+        <div className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-2xl p-6 text-center shadow-lg">
+          <div className="text-3xl font-bold text-white mb-2">{reviews.length}</div>
+          <div className="text-sm text-gray-400">Toplam Yorum</div>
         </div>
-        <div className="bg-lydian-glass-dark rounded-2xl p-6 text-center shadow-lg">
-          <div className="text-3xl font-bold text-lydian-success mb-2">
+        <div className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-2xl p-6 text-center shadow-lg">
+          <div className="text-3xl font-bold text-green-500 mb-2">
             {reviews.filter((r) => r.isVerified).length}
           </div>
-          <div className="text-sm text-lydian-text-dim">Doğrulanmış</div>
+          <div className="text-sm text-gray-400">Doğrulanmış</div>
         </div>
-        <div className="bg-lydian-glass-dark rounded-2xl p-6 text-center shadow-lg">
+        <div className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-2xl p-6 text-center shadow-lg">
           <div className="text-3xl font-bold text-purple-600 mb-2">
             {reviews.filter((r) => r.nftProof).length}
           </div>
-          <div className="text-sm text-lydian-text-dim">NFT Kanıtlı</div>
+          <div className="text-sm text-gray-400">NFT Kanıtlı</div>
         </div>
-        <div className="bg-lydian-glass-dark rounded-2xl p-6 text-center shadow-lg">
-          <div className="text-3xl font-bold text-lydian-primary mb-2">4.7</div>
-          <div className="text-sm text-lydian-text-dim">Ortalama Puan</div>
+        <div className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-2xl p-6 text-center shadow-lg">
+          <div className="text-3xl font-bold text-blue-500 mb-2">4.7</div>
+          <div className="text-sm text-gray-400">Ortalama Puan</div>
         </div>
       </div>
 
       {/* Filters and Search */}
-      <div className="bg-lydian-glass-dark rounded-2xl shadow-lg p-6 mb-8">
+      <div className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-2xl shadow-lg p-6 mb-8">
         <div className="flex flex-col md:flex-row gap-4">
           {/* Search */}
           <div className="flex-1 relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-lydian-text-muted" />
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-300" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Yorum, işletme adı veya içerik ara..."
-              className="w-full pl-10 pr-4 py-3 border border-lydian-border-light rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-border" />
+              className="w-full pl-10 pr-4 py-3 border border-white/20 rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-white/20" />
 
           </div>
 
@@ -433,7 +433,7 @@ const DecentralizedReviews: React.FC = () => {
           <select
             value={filter}
             onChange={(e) => setFilter(e.target.value as any)}
-            className="px-4 py-3 border border-lydian-border-light rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-border">
+            className="px-4 py-3 border border-white/20 rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-white/20">
 
             <option value="all">Tüm Yorumlar</option>
             <option value="verified">Doğrulanmış</option>
@@ -444,7 +444,7 @@ const DecentralizedReviews: React.FC = () => {
           <select
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value as any)}
-            className="px-4 py-3 border border-lydian-border-light rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-border">
+            className="px-4 py-3 border border-white/20 rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-white/20">
 
             <option value="newest">En Yeni</option>
             <option value="rating">En Yüksek Puan</option>
@@ -456,7 +456,7 @@ const DecentralizedReviews: React.FC = () => {
       {/* Reviews Grid */}
       {isLoading ?
       <div className="flex items-center justify-center py-20">
-          <div className="w-12 h-12 border-4 border-lydian-primary border-t-transparent rounded-full animate-spin"></div>
+          <div className="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
         </div> :
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -475,7 +475,7 @@ const DecentralizedReviews: React.FC = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}>
 
-              <div className="bg-lydian-glass-dark rounded-2xl overflow-hidden w-full max-w-4xl max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
+              <div className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-2xl overflow-hidden w-full max-w-4xl max-h-[90vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
                 <motion.div
                 layoutId={selectedReview.id}
                 style={{ width: '100%' }}>
@@ -483,17 +483,17 @@ const DecentralizedReviews: React.FC = () => {
                 {/* Modal content would go here */}
                 <div className="p-6">
                 <div className="flex items-center justify-between mb-6">
-                  <h3 className="text-2xl font-bold text-lydian-text-inverse">Yorum Detayı</h3>
+                  <h3 className="text-2xl font-bold text-white">Yorum Detayı</h3>
                   <button
                       onClick={() => setSelectedReview(null)}
-                      className="p-2 hover:bg-lydian-glass-dark-medium rounded-lg transition-colors">
+                      className="p-2 hover:bg-white/10 backdrop-blur-xl border border-white/20 rounded-lg transition-colors">
 
-                    <X className="w-6 h-6 text-lydian-text-muted" />
+                    <X className="w-6 h-6 text-gray-300" />
                   </button>
                 </div>
                 
                 {/* Full review content would be implemented here */}
-                <div className="text-center py-8 text-lydian-text-muted">
+                <div className="text-center py-8 text-gray-300">
                   Detaylı yorum görünümü burada yer alacak...
                 </div>
                 </div>
@@ -513,7 +513,7 @@ const DecentralizedReviews: React.FC = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}>
 
-              <div className="bg-lydian-glass-dark rounded-2xl p-6 w-full max-w-2xl" onClick={(e) => e.stopPropagation()}>
+              <div className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-2xl p-6 w-full max-w-2xl" onClick={(e) => e.stopPropagation()}>
                 <motion.div
                 initial={{ scale: 0.9, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
@@ -521,16 +521,16 @@ const DecentralizedReviews: React.FC = () => {
                 style={{ width: '100%' }}>
 
               <div className="flex items-center justify-between mb-6">
-                <h3 className="text-2xl font-bold text-lydian-text-inverse">Yeni Yorum Yaz</h3>
+                <h3 className="text-2xl font-bold text-white">Yeni Yorum Yaz</h3>
                 <button
                     onClick={() => setShowWriteReview(false)}
-                    className="p-2 hover:bg-lydian-glass-dark-medium rounded-lg transition-colors">
+                    className="p-2 hover:bg-white/10 backdrop-blur-xl border border-white/20 rounded-lg transition-colors">
 
-                  <X className="w-6 h-6 text-lydian-text-muted" />
+                  <X className="w-6 h-6 text-gray-300" />
                 </button>
               </div>
               
-              <div className="text-center py-8 text-lydian-text-muted">
+              <div className="text-center py-8 text-gray-300">
                 Yorum yazma formu burada yer alacak...
               </div>
                 </motion.div>

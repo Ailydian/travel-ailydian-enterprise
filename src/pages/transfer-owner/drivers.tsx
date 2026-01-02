@@ -403,7 +403,7 @@ export default function DriversPage() {
             initial={{ opacity: 0, y: -50, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, scale: 0.9 }}
-            className="bg-lydian-bg-hover rounded-xl shadow-2xl border-2 p-4 min-w-[320px]"
+            className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl shadow-2xl border-2 p-4 min-w-[320px]"
             style={{
               borderColor: toast.type === 'success' ? 'var(--lydian-success)' : 'var(--lydian-secondary)'
             }}>
@@ -418,22 +418,22 @@ export default function DriversPage() {
                 }}>
 
                   {toast.type === 'success' ?
-                <CheckCircle className="w-5 h-5 text-lydian-text-inverse" /> :
+                <CheckCircle className="w-5 h-5 text-white" /> :
 
-                <AlertCircle className="w-5 h-5 text-lydian-text-inverse" />
+                <AlertCircle className="w-5 h-5 text-white" />
                 }
                 </div>
                 <div className="flex-1">
-                  <h4 className="font-bold text-lydian-text-inverse">{toast.title}</h4>
+                  <h4 className="font-bold text-white">{toast.title}</h4>
                   {toast.message &&
-                <p className="text-sm text-lydian-text-dim mt-1">{toast.message}</p>
+                <p className="text-sm text-gray-400 mt-1">{toast.message}</p>
                 }
                 </div>
                 <button
                 onClick={() => removeToast(toast.id)}
-                className="p-1 hover:bg-lydian-glass-dark-medium rounded">
+                className="p-1 hover:bg-white/5 rounded">
 
-                  <X className="w-4 h-4 text-lydian-text-muted" />
+                  <X className="w-4 h-4 text-gray-300" />
                 </button>
               </div>
             </motion.div>
@@ -519,7 +519,7 @@ export default function DriversPage() {
             placeholder="Sürücü ara (isim, telefon, email, ehliyet)..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-12 pr-4 py-3 rounded-xl border-2 transition-all focus:border-lydian-primary"
+            className="w-full pl-12 pr-4 py-3 rounded-xl border-2 transition-all focus:border-blue-500"
             style={{
               backgroundColor: 'var(--lydian-text-inverse)',
               borderColor: 'var(--lydian-border)',
@@ -532,7 +532,7 @@ export default function DriversPage() {
           <select
             value={filterStatus}
             onChange={(e) => setFilterStatus(e.target.value as any)}
-            className="px-4 py-3 rounded-xl border-2 transition-all focus:border-lydian-primary"
+            className="px-4 py-3 rounded-xl border-2 transition-all focus:border-blue-500"
             style={{
               backgroundColor: 'var(--lydian-text-inverse)',
               borderColor: 'var(--lydian-border)',
@@ -612,18 +612,18 @@ export default function DriversPage() {
               }}>
 
                 {/* Header with Photo */}
-                <div className="relative h-32 bg-gradient-to-r from-lydian-primary to-cyan-600">
+                <div className="relative h-32 bg-gradient-to-r from-blue-600 to-cyan-600">
                   <div className="absolute -bottom-12 left-6">
                     <div className="relative">
                       {driver.photo ?
                     <img
                       src={driver.photo}
                       alt={driver.fullName}
-                      className="w-24 h-24 rounded-xl border-4 border-lydian-border-light object-cover" /> :
+                      className="w-24 h-24 rounded-xl border-4 border-white/20 object-cover" /> :
 
 
-                    <div className="w-24 h-24 rounded-xl border-4 border-lydian-border-light bg-gradient-to-br from-lydian-primary to-cyan-600 flex items-center justify-center">
-                          <Users className="w-12 h-12 text-lydian-text-inverse" />
+                    <div className="w-24 h-24 rounded-xl border-4 border-white/20 bg-gradient-to-br from-blue-600 to-cyan-600 flex items-center justify-center">
+                          <Users className="w-12 h-12 text-white" />
                         </div>
                     }
                       <div
@@ -816,7 +816,7 @@ export default function DriversPage() {
                 const licenseExpiringSoon = isLicenseExpiringSoon(driver.licenseExpiry);
 
                 return (
-                  <tr key={driver.id} className="hover:bg-lydian-glass-dark transition-colors">
+                  <tr key={driver.id} className="hover:bg-white/10 transition-colors">
                       <td className="px-6 py-4">
                         <div className="flex items-center gap-3">
                           {driver.photo ?
@@ -826,8 +826,8 @@ export default function DriversPage() {
                           className="w-12 h-12 rounded-lg object-cover" /> :
 
 
-                        <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-lydian-primary to-cyan-600 flex items-center justify-center">
-                              <Users className="w-6 h-6 text-lydian-text-inverse" />
+                        <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-blue-600 to-cyan-600 flex items-center justify-center">
+                              <Users className="w-6 h-6 text-white" />
                             </div>
                         }
                           <div>
@@ -951,7 +951,7 @@ export default function DriversPage() {
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
             onClick={(e) => e.stopPropagation()}
-            className="bg-lydian-bg-hover rounded-2xl p-6 max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+            className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-6 max-w-2xl w-full max-h-[90vh] overflow-y-auto">
 
               <div className="flex items-center justify-between mb-6">
                 <h2 className="text-2xl font-black" style={{ color: '#000000' }}>
@@ -959,7 +959,7 @@ export default function DriversPage() {
                 </h2>
                 <button
                 onClick={() => setShowAddModal(false)}
-                className="p-2 hover:bg-lydian-glass-dark-medium rounded-lg">
+                className="p-2 hover:bg-white/5 rounded-lg">
 
                   <X className="w-5 h-5" />
                 </button>
@@ -1161,7 +1161,7 @@ export default function DriversPage() {
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
             onClick={(e) => e.stopPropagation()}
-            className="bg-lydian-bg-hover rounded-2xl p-6 max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+            className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-6 max-w-2xl w-full max-h-[90vh] overflow-y-auto">
 
               <div className="flex items-center justify-between mb-6">
                 <h2 className="text-2xl font-black" style={{ color: '#000000' }}>
@@ -1169,7 +1169,7 @@ export default function DriversPage() {
                 </h2>
                 <button
                 onClick={() => setShowEditModal(false)}
-                className="p-2 hover:bg-lydian-glass-dark-medium rounded-lg">
+                className="p-2 hover:bg-white/5 rounded-lg">
 
                   <X className="w-5 h-5" />
                 </button>

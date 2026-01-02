@@ -13,11 +13,11 @@ export const Checkbox: React.FC<CheckboxProps> = ({
     <div className="flex items-center">
       <input
         type="checkbox"
-        className={`h-4 w-4 rounded border-lydian-border-light text-lydian-primary focus:ring-2 focus:ring-lydian-border-focus ${className}`}
+        className={`h-4 w-4 rounded border-white/20 text-blue-500 focus:ring-2 focus:ring-lydian-border-focus ${className}`}
         {...props} />
 
       {label &&
-      <label className="ml-2 text-sm text-lydian-text-muted">
+      <label className="ml-2 text-sm text-gray-300">
           {label}
         </label>
       }

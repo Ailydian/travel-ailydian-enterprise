@@ -72,18 +72,18 @@ const HotelDetailPage: NextPage<HotelDetailPageProps> = ({ hotel }) => {
 
       <ModernHeader />
 
-      <main className="min-h-screen bg-lydian-glass-dark">
+      <main className="min-h-screen bg-gradient-to-br from-slate-900 via-black to-slate-800">
         {/* Breadcrumbs */}
-        <div className="bg-lydian-bg-hover border-b border-lydian-border-light/10">
+        <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl border-b border-white/20/10">
           <div className="max-w-7xl mx-auto px-4 py-3">
-            <div className="flex items-center gap-2 text-sm text-lydian-text-dim">
-              <Link href="/" className="hover:text-lydian-primary">{currentLang === 'tr' ? 'Ana Sayfa' : 'Home'}</Link>
+            <div className="flex items-center gap-2 text-sm text-gray-400">
+              <Link href="/" className="hover:text-blue-500">{currentLang === 'tr' ? 'Ana Sayfa' : 'Home'}</Link>
               <span>/</span>
-              <Link href="/explore" className="hover:text-lydian-primary">{currentLang === 'tr' ? 'Keşfet' : 'Explore'}</Link>
+              <Link href="/explore" className="hover:text-blue-500">{currentLang === 'tr' ? 'Keşfet' : 'Explore'}</Link>
               <span>/</span>
-              <Link href="/explore/places-to-stay" className="hover:text-lydian-primary">{currentLang === 'tr' ? 'Konaklama' : 'Places to Stay'}</Link>
+              <Link href="/explore/places-to-stay" className="hover:text-blue-500">{currentLang === 'tr' ? 'Konaklama' : 'Places to Stay'}</Link>
               <span>/</span>
-              <span className="text-lydian-text-inverse font-semibold">{hotel.name[currentLang]}</span>
+              <span className="text-white font-semibold">{hotel.name[currentLang]}</span>
             </div>
           </div>
         </div>
@@ -100,13 +100,13 @@ const HotelDetailPage: NextPage<HotelDetailPageProps> = ({ hotel }) => {
 
               <button
                 onClick={prevImage}
-                className="absolute left-4 top-1/2 -translate-y-1/2 bg-lydian-bg/90 hover:bg-lydian-glass-dark p-3 rounded-full shadow-lg transition">
+                className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-gradient-to-br from-slate-900 via-black to-slate-800 p-3 rounded-full shadow-lg transition">
 
                 <ChevronLeft className="w-6 h-6" />
               </button>
               <button
                 onClick={nextImage}
-                className="absolute right-4 top-1/2 -translate-y-1/2 bg-lydian-bg/90 hover:bg-lydian-glass-dark p-3 rounded-full shadow-lg transition">
+                className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-gradient-to-br from-slate-900 via-black to-slate-800 p-3 rounded-full shadow-lg transition">
 
                 <ChevronRight className="w-6 h-6" />
               </button>
@@ -114,7 +114,7 @@ const HotelDetailPage: NextPage<HotelDetailPageProps> = ({ hotel }) => {
                 {hotel.images.map((_, idx) =>
                 <div
                   key={idx}
-                  className={`w-2 h-2 rounded-full ${idx === currentImageIndex ? 'bg-lydian-bg' : 'bg-lydian-bg/50'}`} />
+                  className={`w-2 h-2 rounded-full ${idx === currentImageIndex ? 'bg-lydian-bg' : 'bg-white/50'}`} />
 
                 )}
               </div>
@@ -142,20 +142,20 @@ const HotelDetailPage: NextPage<HotelDetailPageProps> = ({ hotel }) => {
             {/* Main Content */}
             <div className="lg:col-span-2">
               {/* Title & Rating */}
-              <div className="bg-lydian-bg-hover rounded-2xl p-6 mb-6 shadow-sm">
+              <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-2xl p-6 mb-6 shadow-sm">
                 <div className="flex items-start justify-between mb-4">
                   <div>
-                    <h1 className="text-3xl font-black text-lydian-text-inverse mb-2">{hotel.name[currentLang]}</h1>
-                    <div className="flex items-center gap-2 text-lydian-text-dim">
+                    <h1 className="text-3xl font-black text-white mb-2">{hotel.name[currentLang]}</h1>
+                    <div className="flex items-center gap-2 text-gray-400">
                       <MapPin className="w-5 h-5" />
                       <span>{hotel.location.address[currentLang]}</span>
                     </div>
                   </div>
                   <div className="flex gap-2">
-                    <button className="p-3 rounded-full hover:bg-lydian-glass-dark-medium transition">
+                    <button className="p-3 rounded-full hover:bg-white/10 backdrop-blur-xl border border-white/20 transition">
                       <Share2 className="w-5 h-5" />
                     </button>
-                    <button className="p-3 rounded-full hover:bg-lydian-glass-dark-medium transition">
+                    <button className="p-3 rounded-full hover:bg-white/10 backdrop-blur-xl border border-white/20 transition">
                       <Heart className="w-5 h-5" />
                     </button>
                   </div>
@@ -168,45 +168,45 @@ const HotelDetailPage: NextPage<HotelDetailPageProps> = ({ hotel }) => {
                     )}
                   </div>
                   <div className="flex items-center gap-2">
-                    <div className="px-3 py-1 bg-lydian-primary text-lydian-text-inverse font-bold rounded-lg">
+                    <div className="px-3 py-1 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-lg">
                       {hotel.rating}
                     </div>
-                    <span className="text-lydian-text-dim">({hotel.reviewCount} {currentLang === 'tr' ? 'değerlendirme' : 'reviews'})</span>
+                    <span className="text-gray-400">({hotel.reviewCount} {currentLang === 'tr' ? 'değerlendirme' : 'reviews'})</span>
                   </div>
                 </div>
               </div>
 
               {/* Description */}
-              <div className="bg-lydian-bg-hover rounded-2xl p-6 mb-6 shadow-sm">
+              <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-2xl p-6 mb-6 shadow-sm">
                 <h2 className="text-2xl font-bold mb-4">{currentLang === 'tr' ? 'Açıklama' : 'Description'}</h2>
-                <p className="text-lydian-text-muted leading-relaxed">{hotel.longDescription[currentLang]}</p>
+                <p className="text-gray-300 leading-relaxed">{hotel.longDescription[currentLang]}</p>
               </div>
 
               {/* Features */}
-              <div className="bg-lydian-bg-hover rounded-2xl p-6 mb-6 shadow-sm">
+              <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-2xl p-6 mb-6 shadow-sm">
                 <h2 className="text-2xl font-bold mb-4">{currentLang === 'tr' ? 'Özellikler' : 'Features'}</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                   {hotel.features[currentLang].map((feature, idx) =>
                   <div key={idx} className="flex items-start gap-3">
-                      <Check className="w-5 h-5 text-lydian-success flex-shrink-0 mt-0.5" />
-                      <span className="text-lydian-text-muted">{feature}</span>
+                      <Check className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-300">{feature}</span>
                     </div>
                   )}
                 </div>
               </div>
 
               {/* Amenities */}
-              <div className="bg-lydian-bg-hover rounded-2xl p-6 mb-6 shadow-sm">
+              <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-2xl p-6 mb-6 shadow-sm">
                 <h2 className="text-2xl font-bold mb-4">{currentLang === 'tr' ? 'Olanaklar' : 'Amenities'}</h2>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                   {hotel.amenities[currentLang].map((amenity, idx) =>
-                  <div key={idx} className="flex flex-col items-center gap-2 p-4 bg-lydian-glass-dark rounded-xl">
+                  <div key={idx} className="flex flex-col items-center gap-2 p-4 bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-xl">
                       <div className="w-12 h-12 bg-lydian-primary/10 rounded-full flex items-center justify-center">
-                        {idx % 5 === 0 && <Wifi className="w-6 h-6 text-lydian-primary" />}
-                        {idx % 5 === 1 && <Waves className="w-6 h-6 text-lydian-primary" />}
-                        {idx % 5 === 2 && <UtensilsCrossed className="w-6 h-6 text-lydian-primary" />}
-                        {idx % 5 === 3 && <Dumbbell className="w-6 h-6 text-lydian-primary" />}
-                        {idx % 5 === 4 && <Car className="w-6 h-6 text-lydian-primary" />}
+                        {idx % 5 === 0 && <Wifi className="w-6 h-6 text-blue-500" />}
+                        {idx % 5 === 1 && <Waves className="w-6 h-6 text-blue-500" />}
+                        {idx % 5 === 2 && <UtensilsCrossed className="w-6 h-6 text-blue-500" />}
+                        {idx % 5 === 3 && <Dumbbell className="w-6 h-6 text-blue-500" />}
+                        {idx % 5 === 4 && <Car className="w-6 h-6 text-blue-500" />}
                       </div>
                       <span className="text-sm text-center font-medium">{amenity}</span>
                     </div>
@@ -215,29 +215,29 @@ const HotelDetailPage: NextPage<HotelDetailPageProps> = ({ hotel }) => {
               </div>
 
               {/* Policies */}
-              <div className="bg-lydian-bg-hover rounded-2xl p-6 mb-6 shadow-sm">
+              <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-2xl p-6 mb-6 shadow-sm">
                 <h2 className="text-2xl font-bold mb-4">{currentLang === 'tr' ? 'Otel Politikaları' : 'Hotel Policies'}</h2>
                 <div className="space-y-3">
                   {hotel.policies[currentLang].map((policy, idx) =>
                   <div key={idx} className="flex items-start gap-3">
-                      <Shield className="w-5 h-5 text-lydian-primary flex-shrink-0 mt-0.5" />
-                      <span className="text-lydian-text-muted">{policy}</span>
+                      <Shield className="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-300">{policy}</span>
                     </div>
                   )}
                 </div>
               </div>
 
               {/* Nearby Attractions */}
-              <div className="bg-lydian-bg-hover rounded-2xl p-6 shadow-sm">
+              <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-2xl p-6 shadow-sm">
                 <h2 className="text-2xl font-bold mb-4">{currentLang === 'tr' ? 'Yakındaki Yerler' : 'Nearby Attractions'}</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {hotel.nearbyAttractions.map((attraction, idx) =>
-                  <div key={idx} className="flex items-center justify-between p-4 bg-lydian-glass-dark rounded-xl">
+                  <div key={idx} className="flex items-center justify-between p-4 bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-xl">
                       <div className="flex items-center gap-3">
-                        <MapPin className="w-5 h-5 text-lydian-primary" />
+                        <MapPin className="w-5 h-5 text-blue-500" />
                         <span className="font-medium">{attraction.name}</span>
                       </div>
-                      <span className="text-sm text-lydian-text-dim">{attraction.distance}</span>
+                      <span className="text-sm text-gray-400">{attraction.distance}</span>
                     </div>
                   )}
                 </div>
@@ -247,13 +247,13 @@ const HotelDetailPage: NextPage<HotelDetailPageProps> = ({ hotel }) => {
             {/* Booking Sidebar */}
             <div className="lg:col-span-1">
               <div className="sticky top-24">
-                <div className="bg-lydian-bg-hover rounded-2xl p-6 shadow-lg border-2 border-lydian-border-light">
+                <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-2xl p-6 shadow-lg border-2 border-white/20">
                   <div className="mb-6">
-                    <div className="text-sm text-lydian-text-dim mb-1">{currentLang === 'tr' ? 'Fiyat' : 'Price'}</div>
-                    <div className="text-4xl font-black text-lydian-primary">
+                    <div className="text-sm text-gray-400 mb-1">{currentLang === 'tr' ? 'Fiyat' : 'Price'}</div>
+                    <div className="text-4xl font-black text-blue-500">
                       ₺{selectedRoomType.price.toLocaleString()}
                     </div>
-                    <div className="text-sm text-lydian-text-dim">{currentLang === 'tr' ? 'Gecelik' : 'Per night'}</div>
+                    <div className="text-sm text-gray-400">{currentLang === 'tr' ? 'Gecelik' : 'Per night'}</div>
                   </div>
 
                   {/* Room Type Selection */}
@@ -265,7 +265,7 @@ const HotelDetailPage: NextPage<HotelDetailPageProps> = ({ hotel }) => {
                         const room = hotel.roomTypes.find((r) => r.name[currentLang] === e.target.value);
                         if (room) setSelectedRoomType(room);
                       }}
-                      className="w-full px-4 py-3 border border-lydian-border-light rounded-xl focus:ring-2 focus:ring-lydian-primary focus:border-lydian-border">
+                      className="w-full px-4 py-3 border border-white/20 rounded-xl focus:ring-2 focus:ring-lydian-primary focus:border-white/20">
 
                       {hotel.roomTypes.map((room, idx) =>
                       <option key={idx} value={room.name[currentLang]}>
@@ -278,8 +278,8 @@ const HotelDetailPage: NextPage<HotelDetailPageProps> = ({ hotel }) => {
                   {/* Guest Count */}
                   <div className="mb-6">
                     <label className="block text-sm font-semibold mb-2">{currentLang === 'tr' ? 'Misafir Sayısı' : 'Guests'}</label>
-                    <div className="flex items-center gap-2 p-4 border border-lydian-border-light rounded-xl">
-                      <Users className="w-5 h-5 text-lydian-text-dim" />
+                    <div className="flex items-center gap-2 p-4 border border-white/20 rounded-xl">
+                      <Users className="w-5 h-5 text-gray-400" />
                       <span>{selectedRoomType.capacity} {currentLang === 'tr' ? 'kişi' : 'people'}</span>
                     </div>
                   </div>
@@ -288,15 +288,15 @@ const HotelDetailPage: NextPage<HotelDetailPageProps> = ({ hotel }) => {
                   <div className="mb-6 grid grid-cols-2 gap-4">
                     <div>
                       <label className="block text-sm font-semibold mb-2">{currentLang === 'tr' ? 'Giriş' : 'Check-in'}</label>
-                      <div className="flex items-center gap-2 p-3 border border-lydian-border-light rounded-xl">
-                        <Clock className="w-5 h-5 text-lydian-text-dim" />
+                      <div className="flex items-center gap-2 p-3 border border-white/20 rounded-xl">
+                        <Clock className="w-5 h-5 text-gray-400" />
                         <span className="text-sm">{hotel.checkInTime}</span>
                       </div>
                     </div>
                     <div>
                       <label className="block text-sm font-semibold mb-2">{currentLang === 'tr' ? 'Çıkış' : 'Check-out'}</label>
-                      <div className="flex items-center gap-2 p-3 border border-lydian-border-light rounded-xl">
-                        <Clock className="w-5 h-5 text-lydian-text-dim" />
+                      <div className="flex items-center gap-2 p-3 border border-white/20 rounded-xl">
+                        <Clock className="w-5 h-5 text-gray-400" />
                         <span className="text-sm">{hotel.checkOutTime}</span>
                       </div>
                     </div>
@@ -307,12 +307,12 @@ const HotelDetailPage: NextPage<HotelDetailPageProps> = ({ hotel }) => {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     onClick={handleBooking}
-                    className="w-full bg-lydian-primary hover:bg-lydian-dark text-lydian-text-inverse font-bold py-4 px-6 rounded-xl transition-colors mb-4">
+                    className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:bg-lydian-dark text-white font-bold py-4 px-6 rounded-xl transition-colors mb-4">
 
                     {currentLang === 'tr' ? 'Rezervasyon Yap' : 'Book Now'}
                   </motion.button>
 
-                  <p className="text-xs text-center text-lydian-text-dim">
+                  <p className="text-xs text-center text-gray-400">
                     {currentLang === 'tr' ? 'Şimdi ödeme yapmayacaksınız' : 'You won\'t be charged yet'}
                   </p>
                 </div>

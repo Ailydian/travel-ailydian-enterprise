@@ -402,7 +402,7 @@ export default function PropertyDetailPage({ property }: PropertyDetailPageProps
 
       <ModernHeader />
 
-      <main className="min-h-screen bg-lydian-glass-dark">
+      <main className="min-h-screen bg-gradient-to-br from-slate-900 via-black to-slate-800">
         {/* ProductHero Component - BLUE/PURPLE GRADIENT (NO RED!) */}
         <ProductHero
           title={property.title}
@@ -438,9 +438,9 @@ export default function PropertyDetailPage({ property }: PropertyDetailPageProps
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="bg-lydian-glass-dark/95 backdrop-blur-xl rounded-2xl p-6 sm:p-8 shadow-lg border border-lydian-border-light/20"
+                className="bg-lydian-glass-dark/95 backdrop-blur-xl rounded-2xl p-6 sm:p-8 shadow-lg border border-white/20/20"
               >
-                <h2 className="text-2xl font-bold text-lydian-text-inverse mb-4">
+                <h2 className="text-2xl font-bold text-white mb-4">
                   {property.type === 'VILLA' ? 'Villa' : property.type === 'APARTMENT' ? 'Apartman' : 'Ev'} - {property.city}
                 </h2>
                 <div className="flex items-center gap-4 mb-6">
@@ -448,10 +448,10 @@ export default function PropertyDetailPage({ property }: PropertyDetailPageProps
                     {property.hostName.charAt(0)}
                   </div>
                   <div>
-                    <h3 className="font-bold text-lydian-text-inverse">
+                    <h3 className="font-bold text-white">
                       {t('host.title') || 'Ev sahibi'}: {property.hostName}
                     </h3>
-                    <p className="text-sm text-lydian-text-muted">{property.hostResponseTime} yanıt verir</p>
+                    <p className="text-sm text-gray-300">{property.hostResponseTime} yanıt verir</p>
                   </div>
                   {property.hostSuperhost && (
                     <div className="ml-auto px-4 py-2 bg-gradient-to-r from-purple-500 to-purple-600 text-white rounded-xl text-sm font-bold flex items-center gap-2">
@@ -460,7 +460,7 @@ export default function PropertyDetailPage({ property }: PropertyDetailPageProps
                     </div>
                   )}
                 </div>
-                <p className="text-lydian-text-muted leading-relaxed">{property.description}</p>
+                <p className="text-gray-300 leading-relaxed">{property.description}</p>
               </motion.div>
 
               {/* Essential Amenities */}
@@ -469,7 +469,7 @@ export default function PropertyDetailPage({ property }: PropertyDetailPageProps
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.3 }}
-                className="bg-lydian-glass-dark/95 backdrop-blur-xl rounded-2xl p-6 sm:p-8 shadow-lg border border-lydian-border-light/20"
+                className="bg-lydian-glass-dark/95 backdrop-blur-xl rounded-2xl p-6 sm:p-8 shadow-lg border border-white/20/20"
               >
                 <FeatureGrid
                   title={t('amenities.essential') || 'Temel Olanaklar'}
@@ -485,7 +485,7 @@ export default function PropertyDetailPage({ property }: PropertyDetailPageProps
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.4 }}
-                className="bg-lydian-glass-dark/95 backdrop-blur-xl rounded-2xl p-6 sm:p-8 shadow-lg border border-lydian-border-light/20"
+                className="bg-lydian-glass-dark/95 backdrop-blur-xl rounded-2xl p-6 sm:p-8 shadow-lg border border-white/20/20"
               >
                 <FeatureGrid
                   title={t('amenities.features') || 'Özellikler'}
@@ -501,51 +501,51 @@ export default function PropertyDetailPage({ property }: PropertyDetailPageProps
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.5 }}
-                className="bg-lydian-glass-dark/95 backdrop-blur-xl rounded-2xl p-6 sm:p-8 shadow-lg border border-lydian-border-light/20"
+                className="bg-lydian-glass-dark/95 backdrop-blur-xl rounded-2xl p-6 sm:p-8 shadow-lg border border-white/20/20"
               >
-                <h2 className="text-2xl font-bold text-lydian-text-inverse mb-6">
+                <h2 className="text-2xl font-bold text-white mb-6">
                   {t('rules.title') || 'Ev Kuralları'}
                 </h2>
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div className="flex items-center gap-3">
-                    <Clock className="w-5 h-5 text-lydian-primary" />
+                    <Clock className="w-5 h-5 text-blue-500" />
                     <div>
-                      <p className="font-semibold text-lydian-text-inverse">{t('rules.checkIn') || 'Giriş Saati'}</p>
-                      <p className="text-lydian-text-muted">{property.checkInTime}</p>
+                      <p className="font-semibold text-white">{t('rules.checkIn') || 'Giriş Saati'}</p>
+                      <p className="text-gray-300">{property.checkInTime}</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
-                    <Clock className="w-5 h-5 text-lydian-primary" />
+                    <Clock className="w-5 h-5 text-blue-500" />
                     <div>
-                      <p className="font-semibold text-lydian-text-inverse">{t('rules.checkOut') || 'Çıkış Saati'}</p>
-                      <p className="text-lydian-text-muted">{property.checkOutTime}</p>
+                      <p className="font-semibold text-white">{t('rules.checkOut') || 'Çıkış Saati'}</p>
+                      <p className="text-gray-300">{property.checkOutTime}</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
-                    <Calendar className="w-5 h-5 text-lydian-primary" />
+                    <Calendar className="w-5 h-5 text-blue-500" />
                     <div>
-                      <p className="font-semibold text-lydian-text-inverse">{t('rules.minimumStay') || 'Minimum Konaklama'}</p>
-                      <p className="text-lydian-text-muted">{property.minimumStay} gece</p>
+                      <p className="font-semibold text-white">{t('rules.minimumStay') || 'Minimum Konaklama'}</p>
+                      <p className="text-gray-300">{property.minimumStay} gece</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
-                    <Calendar className="w-5 h-5 text-lydian-primary" />
+                    <Calendar className="w-5 h-5 text-blue-500" />
                     <div>
-                      <p className="font-semibold text-lydian-text-inverse">{t('rules.maximumStay') || 'Maksimum Konaklama'}</p>
-                      <p className="text-lydian-text-muted">{property.maximumStay} gece</p>
+                      <p className="font-semibold text-white">{t('rules.maximumStay') || 'Maksimum Konaklama'}</p>
+                      <p className="text-gray-300">{property.maximumStay} gece</p>
                     </div>
                   </div>
                 </div>
-                <div className="mt-6 pt-6 border-t border-lydian-border-light/20">
+                <div className="mt-6 pt-6 border-t border-white/20/20">
                   <div className="grid grid-cols-2 gap-3">
                     {houseRules.map((rule, idx) => (
                       <div key={idx} className="flex items-center gap-2">
                         {rule.included ? (
-                          <CheckCircle2 className="w-5 h-5 text-lydian-success" />
+                          <CheckCircle2 className="w-5 h-5 text-green-500" />
                         ) : (
-                          <X className="w-5 h-5 text-lydian-text-muted" />
+                          <X className="w-5 h-5 text-gray-300" />
                         )}
-                        <span className="text-sm text-lydian-text-muted">{rule.title}</span>
+                        <span className="text-sm text-gray-300">{rule.title}</span>
                       </div>
                     ))}
                   </div>
@@ -558,16 +558,16 @@ export default function PropertyDetailPage({ property }: PropertyDetailPageProps
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.6 }}
-                className="bg-lydian-glass-dark/95 backdrop-blur-xl rounded-2xl p-6 sm:p-8 shadow-lg border border-lydian-border-light/20"
+                className="bg-lydian-glass-dark/95 backdrop-blur-xl rounded-2xl p-6 sm:p-8 shadow-lg border border-white/20/20"
               >
-                <h2 className="text-2xl font-bold text-lydian-text-inverse mb-4">
+                <h2 className="text-2xl font-bold text-white mb-4">
                   {t('location.title') || 'Konum'}
                 </h2>
                 <div className="flex items-start gap-2 mb-4">
-                  <MapPin className="w-5 h-5 text-lydian-primary mt-0.5" />
+                  <MapPin className="w-5 h-5 text-blue-500 mt-0.5" />
                   <div>
-                    <p className="font-semibold text-lydian-text-inverse">{property.district}, {property.city}</p>
-                    <p className="text-sm text-lydian-text-muted">{property.address}</p>
+                    <p className="font-semibold text-white">{property.district}, {property.city}</p>
+                    <p className="text-sm text-gray-300">{property.address}</p>
                   </div>
                 </div>
                 <div className="h-96 bg-white/5 rounded-xl overflow-hidden">

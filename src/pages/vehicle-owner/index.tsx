@@ -524,7 +524,7 @@ export default function VehicleOwnerDashboard() {
             </thead>
             <tbody>
               {recentRentals.map((rental) =>
-              <tr key={rental.id} style={{ borderBottom: '1px solid var(--lydian-border)' }} className="hover:bg-lydian-glass-dark transition-colors">
+              <tr key={rental.id} style={{ borderBottom: '1px solid var(--lydian-border)' }} className="hover:bg-white/10 transition-colors">
                   <td className="py-3 px-4">
                     <p className="font-medium" style={{ color: '#000000' }}>{rental.renter}</p>
                   </td>
@@ -563,7 +563,7 @@ export default function VehicleOwnerDashboard() {
 
           <div className="flex items-center gap-4">
             <div className="p-3 rounded-xl" style={{ background: 'linear-gradient(135deg, #059669, #10B981)' }}>
-              <Plus className="w-6 h-6 text-lydian-text-inverse" />
+              <Plus className="w-6 h-6 text-white" />
             </div>
             <div>
               <h4 className="font-bold mb-1" style={{ color: '#000000' }}>Yeni Araç Ekle</h4>
@@ -583,7 +583,7 @@ export default function VehicleOwnerDashboard() {
 
           <div className="flex items-center gap-4">
             <div className="p-3 rounded-xl" style={{ background: 'linear-gradient(135deg, #059669, #10B981)' }}>
-              <Car className="w-6 h-6 text-lydian-text-inverse" />
+              <Car className="w-6 h-6 text-white" />
             </div>
             <div>
               <h4 className="font-bold mb-1" style={{ color: '#000000' }}>Tüm Araçları Gör</h4>
@@ -603,7 +603,7 @@ export default function VehicleOwnerDashboard() {
 
           <div className="flex items-center gap-4">
             <div className="p-3 rounded-xl" style={{ background: 'linear-gradient(135deg, #059669, #10B981)' }}>
-              <Users className="w-6 h-6 text-lydian-text-inverse" />
+              <Users className="w-6 h-6 text-white" />
             </div>
             <div>
               <h4 className="font-bold mb-1" style={{ color: '#000000' }}>Ayarlar</h4>

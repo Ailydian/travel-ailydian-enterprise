@@ -47,7 +47,7 @@ export const TransferCarCard: React.FC<TransferCarCardProps> = ({
       viewport={{ once: true }}
       whileHover={{ y: -8, boxShadow: '0 20px 40px rgba(0,0,0,0.15)' }}
       transition={{ duration: 0.3 }}
-      className={`group relative bg-lydian-glass-dark rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 ${className}`}>
+      className={`group relative bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 ${className}`}>
 
       {/* Popular Badge */}
       {popular &&
@@ -55,7 +55,7 @@ export const TransferCarCard: React.FC<TransferCarCardProps> = ({
           <motion.div
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
-          className="bg-gradient-to-r from-yellow-400 to-orange-500 text-lydian-text-inverse px-3 py-1 rounded-full text-xs font-bold shadow-lg">
+          className="bg-gradient-to-r from-yellow-400 to-orange-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
 
             ⭐ POPÜLER
           </motion.div>
@@ -65,7 +65,7 @@ export const TransferCarCard: React.FC<TransferCarCardProps> = ({
       {/* Category Badge */}
       {category &&
       <div className="absolute top-4 left-4 z-10">
-          <div className="bg-lydian-bg/90 backdrop-blur-sm text-lydian-text-dim px-3 py-1 rounded-full text-xs font-semibold shadow-md">
+          <div className="bg-white/10 backdrop-blur-sm text-gray-400 px-3 py-1 rounded-full text-xs font-semibold shadow-md">
             {category}
           </div>
         </div>
@@ -79,14 +79,14 @@ export const TransferCarCard: React.FC<TransferCarCardProps> = ({
       {/* Content */}
       <div className="p-6">
         {/* Title */}
-        <h3 className="text-xl font-bold text-lydian-text-inverse mb-3 line-clamp-2 group-hover:text-lydian-primary transition-colors">
+        <h3 className="text-xl font-bold text-white mb-3 line-clamp-2 group-hover:text-blue-500 transition-colors">
           {title}
         </h3>
 
         {/* Route Info */}
         {(from || to || route) &&
-        <div className="flex items-start gap-2 mb-4 text-sm text-lydian-text-dim">
-            <MapPin className="w-4 h-4 mt-0.5 text-lydian-primary flex-shrink-0" />
+        <div className="flex items-start gap-2 mb-4 text-sm text-gray-400">
+            <MapPin className="w-4 h-4 mt-0.5 text-blue-500 flex-shrink-0" />
             <div className="flex-1">
               {route ||
             <>
@@ -106,14 +106,14 @@ export const TransferCarCard: React.FC<TransferCarCardProps> = ({
         {/* Features Grid */}
         <div className="grid grid-cols-2 gap-3 mb-4">
           {duration &&
-          <div className="flex items-center gap-2 text-sm text-lydian-text-dim">
-              <Clock className="w-4 h-4 text-lydian-primary" />
+          <div className="flex items-center gap-2 text-sm text-gray-400">
+              <Clock className="w-4 h-4 text-blue-500" />
               <span>{duration}</span>
             </div>
           }
           {capacity &&
-          <div className="flex items-center gap-2 text-sm text-lydian-text-dim">
-              <Users className="w-4 h-4 text-lydian-primary" />
+          <div className="flex items-center gap-2 text-sm text-gray-400">
+              <Users className="w-4 h-4 text-blue-500" />
               <span>{capacity} Kişi</span>
             </div>
           }
@@ -124,19 +124,19 @@ export const TransferCarCard: React.FC<TransferCarCardProps> = ({
         <div className="flex items-center gap-2 mb-4">
             <div className="flex items-center gap-1">
               <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-              <span className="font-semibold text-lydian-text-inverse">{rating.toFixed(1)}</span>
+              <span className="font-semibold text-white">{rating.toFixed(1)}</span>
             </div>
             {reviews > 0 &&
-          <span className="text-sm text-lydian-text-muted">({reviews} değerlendirme)</span>
+          <span className="text-sm text-gray-300">({reviews} değerlendirme)</span>
           }
           </div>
         }
 
         {/* Price & CTA */}
-        <div className="flex items-center justify-between pt-4 border-t border-lydian-border-light">
+        <div className="flex items-center justify-between pt-4 border-t border-white/20">
           <div>
-            <div className="text-sm text-lydian-text-muted">Başlangıç fiyatı</div>
-            <div className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-lydian-primary to-lydian-secondary">
+            <div className="text-sm text-gray-300">Başlangıç fiyatı</div>
+            <div className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-700">
               {price}
             </div>
           </div>
@@ -144,7 +144,7 @@ export const TransferCarCard: React.FC<TransferCarCardProps> = ({
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-gradient-to-r from-lydian-primary to-lydian-secondary text-lydian-text-inverse px-6 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2 group">
+              className="bg-gradient-to-r from-blue-600 to-purple-700 text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2 group">
 
               Detay Gör
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -155,7 +155,7 @@ export const TransferCarCard: React.FC<TransferCarCardProps> = ({
 
       {/* Hover Effect Gradient Border */}
       <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-        <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-lydian-primary via-purple-500 to-pink-500 opacity-20 blur-xl" />
+        <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-600 via-purple-500 to-pink-500 opacity-20 blur-xl" />
       </div>
     </motion.div>);
 

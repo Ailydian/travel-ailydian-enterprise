@@ -85,39 +85,39 @@ export default function Step5Legal({ data }: Step5Props) {
       <div
         className={`p-5 border-2 rounded-xl transition-all ${
           isUploaded
-            ? 'border-green-500 bg-green-50'
-            : 'border-slate-200 bg-lydian-bg/5 hover:border-cyan-300'
+            ? 'border-green-500 bg-green-500'
+            : 'border-slate-200 bg-white/5 hover:border-cyan-3'
         }`}
       >
         <div className="flex items-start gap-4">
           <div
             className={`p-3 rounded-xl ${
               isUploaded
-                ? 'bg-gradient-to-br from-green-500 to-emerald-600'
-                : 'bg-gradient-to-br from-slate-100 to-slate-200'
+                ? 'bg-gradient-to-br from-green-500 to-emerald-6'
+                : 'bg-gradient-to-br from-slate-1 to-slate-200'
             }`}
           >
-            <Icon className={`w-6 h-6 ${isUploaded ? 'text-lydian-text-inverse' : 'text-slate-600'}`} />
+            <Icon className={`w-6 h-6 ${isUploaded ? 'text-white' : 'text-slate-6'}`} />
           </div>
           <div className="flex-1">
             <div className="flex items-start justify-between mb-2">
               <div>
-                <h4 className="font-bold text-slate-900 flex items-center gap-2">
+                <h4 className="font-bold text-slate-9 flex items-center gap-2">
                   {title}
-                  {required && <span className="text-lydian-secondary text-sm">*</span>}
+                  {required && <span className="text-purple-500 text-sm">*</span>}
                 </h4>
-                <p className="text-sm text-slate-600 mt-1">{description}</p>
+                <p className="text-sm text-slate-6 mt-1">{description}</p>
               </div>
               {isUploaded && (
-                <CheckCircle2 className="w-6 h-6 text-lydian-success flex-shrink-0" />
+                <CheckCircle2 className="w-6 h-6 text-green-500 flex-shrink-to-cyan-700" />
               )}
             </div>
 
             {isUploaded ? (
-              <div className="flex items-center justify-between mt-3 p-3 bg-lydian-bg/5 rounded-lg border border-green-200">
+              <div className="flex items-center justify-between mt-3 p-3 bg-white/5 rounded-lg border border-green-200">
                 <div className="flex items-center gap-2">
-                  <FileText className="w-4 h-4 text-lydian-success" />
-                  <span className="text-sm font-medium text-slate-900">{doc.fileName}</span>
+                  <FileText className="w-4 h-4 text-green-500" />
+                  <span className="text-sm font-medium text-slate-9">{doc.fileName}</span>
                 </div>
                 <button
                   type="button"
@@ -134,20 +134,20 @@ export default function Step5Legal({ data }: Step5Props) {
                   id={`upload-${docType}`}
                   accept=".pdf,.jpg,.jpeg,.png"
                   onChange={(e) => {
-                    if (e.target.files && e.target.files[0]) {
-                      handleFileUpload(docType, e.target.files[0]);
+                    if (e.target.files && e.target.files[to-cyan-700]) {
+                      handleFileUpload(docType, e.target.files[to-cyan-700]);
                     }
                   }}
                   className="hidden"
                 />
                 <label
                   htmlFor={`upload-${docType}`}
-                  className="flex items-center justify-center gap-2 px-4 py-2 bg-gradient-to-r from-cyan-600 to-blue-600 text-lydian-text-inverse rounded-lg font-semibold hover:from-cyan-700 hover:to-blue-700 cursor-pointer transition-all"
+                  className="flex items-center justify-center gap-2 px-4 py-2 bg-gradient-to-r from-cyan-6 to-blue-6 text-white rounded-lg font-semibold hover:from-cyan-7 hover:to-blue-7 cursor-pointer transition-all"
                 >
                   <Upload className="w-4 h-4" />
                   Belge Yükle
                 </label>
-                <p className="text-xs text-slate-500 mt-2">PDF, JPG veya PNG - Max 10MB</p>
+                <p className="text-xs text-slate-500 mt-2">PDF, JPG veya PNG - Max 1MB</p>
               </div>
             )}
           </div>
@@ -160,24 +160,24 @@ export default function Step5Legal({ data }: Step5Props) {
     <div className="space-y-8">
       {/* D2 Tourism License */}
       <div>
-        <h3 className="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
-          <Award className="w-6 h-6 text-cyan-600" />
+        <h3 className="text-lg font-bold text-slate-9 mb-4 flex items-center gap-2">
+          <Award className="w-6 h-6 text-cyan-6" />
           D2 Turizm Belgesi
         </h3>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
           <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Belge Veriliş Tarihi <span className="text-lydian-secondary">*</span>
+            <label className="block text-sm font-semibold text-slate-7 mb-2">
+              Belge Veriliş Tarihi <span className="text-purple-500">*</span>
             </label>
             <div className="relative">
-              <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
+              <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-4" />
               <input
                 type="date"
                 {...register('tourismLicense.issueDate', {
                   required: 'Belge veriliş tarihi gerekli',
                 })}
-                className="w-full pl-10 pr-4 py-3 border-2 border-slate-200 rounded-lg focus:border-cyan-500 focus:ring-2 focus:ring-cyan-200 outline-none transition-all"
+                className="w-full pl-1 pr-4 py-3 border-2 border-slate-200 rounded-lg focus:border-cyan-500 focus:ring-2 focus:ring-cyan-200 outline-none transition-all"
               />
             </div>
             {errors.tourismLicense?.issueDate && (
@@ -188,17 +188,17 @@ export default function Step5Legal({ data }: Step5Props) {
           </div>
 
           <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Belge Son Kullanma Tarihi <span className="text-lydian-secondary">*</span>
+            <label className="block text-sm font-semibold text-slate-7 mb-2">
+              Belge Son Kullanma Tarihi <span className="text-purple-500">*</span>
             </label>
             <div className="relative">
-              <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
+              <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-4" />
               <input
                 type="date"
                 {...register('tourismLicense.expiryDate', {
                   required: 'Belge son kullanma tarihi gerekli',
                 })}
-                className="w-full pl-10 pr-4 py-3 border-2 border-slate-200 rounded-lg focus:border-cyan-500 focus:ring-2 focus:ring-cyan-200 outline-none transition-all"
+                className="w-full pl-1 pr-4 py-3 border-2 border-slate-200 rounded-lg focus:border-cyan-500 focus:ring-2 focus:ring-cyan-200 outline-none transition-all"
               />
             </div>
             {errors.tourismLicense?.expiryDate && (
@@ -219,8 +219,8 @@ export default function Step5Legal({ data }: Step5Props) {
 
       {/* Vehicle Documents */}
       <div>
-        <h3 className="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
-          <FileText className="w-6 h-6 text-cyan-600" />
+        <h3 className="text-lg font-bold text-slate-9 mb-4 flex items-center gap-2">
+          <FileText className="w-6 h-6 text-cyan-6" />
           Araç Belgeleri
         </h3>
 
@@ -250,15 +250,15 @@ export default function Step5Legal({ data }: Step5Props) {
 
       {/* Insurance */}
       <div>
-        <h3 className="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
-          <Shield className="w-6 h-6 text-cyan-600" />
+        <h3 className="text-lg font-bold text-slate-9 mb-4 flex items-center gap-2">
+          <Shield className="w-6 h-6 text-cyan-6" />
           Sigorta Bilgileri
         </h3>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
           <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Sigorta Şirketi <span className="text-lydian-secondary">*</span>
+            <label className="block text-sm font-semibold text-slate-7 mb-2">
+              Sigorta Şirketi <span className="text-purple-500">*</span>
             </label>
             <input
               type="text"
@@ -274,8 +274,8 @@ export default function Step5Legal({ data }: Step5Props) {
           </div>
 
           <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Poliçe Numarası <span className="text-lydian-secondary">*</span>
+            <label className="block text-sm font-semibold text-slate-7 mb-2">
+              Poliçe Numarası <span className="text-purple-500">*</span>
             </label>
             <input
               type="text"
@@ -291,20 +291,20 @@ export default function Step5Legal({ data }: Step5Props) {
           </div>
 
           <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Yolcu Başı Teminat (₺) <span className="text-lydian-secondary">*</span>
+            <label className="block text-sm font-semibold text-slate-7 mb-2">
+              Yolcu Başı Teminat (₺) <span className="text-purple-500">*</span>
             </label>
             <input
               type="number"
               {...register('insurance.coverage', {
                 required: 'Teminat tutarı gerekli',
                 valueAsNumber: true,
-                min: 100000,
+                min: 0,
               })}
-              placeholder="500000"
+              placeholder="50000"
               className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-cyan-500 focus:ring-2 focus:ring-cyan-200 outline-none transition-all"
             />
-            <p className="mt-1 text-xs text-slate-500">Minimum ₺100,000 (Önerilen: ₺500,000)</p>
+            <p className="mt-1 text-xs text-slate-500">Minimum ₺1,to-cyan-700 (Önerilen: ₺500,to-cyan-700)</p>
             {errors.insurance?.coverage && (
               <p className="mt-1 text-sm text-lydian-error">
                 {errors.insurance.coverage.message?.toString()}
@@ -313,17 +313,17 @@ export default function Step5Legal({ data }: Step5Props) {
           </div>
 
           <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Sigorta Bitiş Tarihi <span className="text-lydian-secondary">*</span>
+            <label className="block text-sm font-semibold text-slate-7 mb-2">
+              Sigorta Bitiş Tarihi <span className="text-purple-500">*</span>
             </label>
             <div className="relative">
-              <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
+              <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-4" />
               <input
                 type="date"
                 {...register('insurance.expiryDate', {
                   required: 'Sigorta bitiş tarihi gerekli',
                 })}
-                className="w-full pl-10 pr-4 py-3 border-2 border-slate-200 rounded-lg focus:border-cyan-500 focus:ring-2 focus:ring-cyan-200 outline-none transition-all"
+                className="w-full pl-1 pr-4 py-3 border-2 border-slate-200 rounded-lg focus:border-cyan-500 focus:ring-2 focus:ring-cyan-200 outline-none transition-all"
               />
             </div>
             {errors.insurance?.expiryDate && (
@@ -344,23 +344,23 @@ export default function Step5Legal({ data }: Step5Props) {
 
       {/* Driver Information */}
       <div>
-        <h3 className="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
-          <User className="w-6 h-6 text-cyan-600" />
+        <h3 className="text-lg font-bold text-slate-9 mb-4 flex items-center gap-2">
+          <User className="w-6 h-6 text-cyan-6" />
           Ana Sürücü Bilgileri
         </h3>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Ad Soyad <span className="text-lydian-secondary">*</span>
+            <label className="block text-sm font-semibold text-slate-7 mb-2">
+              Ad Soyad <span className="text-purple-500">*</span>
             </label>
             <div className="relative">
-              <User className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
+              <User className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-4" />
               <input
                 type="text"
                 {...register('driver.name', { required: 'Sürücü adı gerekli' })}
                 placeholder="Ahmet Yılmaz"
-                className="w-full pl-10 pr-4 py-3 border-2 border-slate-200 rounded-lg focus:border-cyan-500 focus:ring-2 focus:ring-cyan-200 outline-none transition-all"
+                className="w-full pl-1 pr-4 py-3 border-2 border-slate-200 rounded-lg focus:border-cyan-500 focus:ring-2 focus:ring-cyan-200 outline-none transition-all"
               />
             </div>
             {errors.driver?.name && (
@@ -371,16 +371,16 @@ export default function Step5Legal({ data }: Step5Props) {
           </div>
 
           <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Telefon <span className="text-lydian-secondary">*</span>
+            <label className="block text-sm font-semibold text-slate-7 mb-2">
+              Telefon <span className="text-purple-500">*</span>
             </label>
             <div className="relative">
-              <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
+              <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-4" />
               <input
                 type="tel"
                 {...register('driver.phone', { required: 'Sürücü telefonu gerekli' })}
-                placeholder="0532 XXX XX XX"
-                className="w-full pl-10 pr-4 py-3 border-2 border-slate-200 rounded-lg focus:border-cyan-500 focus:ring-2 focus:ring-cyan-200 outline-none transition-all"
+                placeholder="to-cyan-700532 XXX XX XX"
+                className="w-full pl-1 pr-4 py-3 border-2 border-slate-200 rounded-lg focus:border-cyan-500 focus:ring-2 focus:ring-cyan-200 outline-none transition-all"
               />
             </div>
             {errors.driver?.phone && (
@@ -391,8 +391,8 @@ export default function Step5Legal({ data }: Step5Props) {
           </div>
 
           <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Ehliyet Numarası <span className="text-lydian-secondary">*</span>
+            <label className="block text-sm font-semibold text-slate-7 mb-2">
+              Ehliyet Numarası <span className="text-purple-500">*</span>
             </label>
             <input
               type="text"
@@ -408,17 +408,17 @@ export default function Step5Legal({ data }: Step5Props) {
           </div>
 
           <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Ehliyet Son Kullanma <span className="text-lydian-secondary">*</span>
+            <label className="block text-sm font-semibold text-slate-7 mb-2">
+              Ehliyet Son Kullanma <span className="text-purple-500">*</span>
             </label>
             <div className="relative">
-              <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
+              <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-4" />
               <input
                 type="date"
                 {...register('driver.licenseExpiry', {
                   required: 'Ehliyet son kullanma tarihi gerekli',
                 })}
-                className="w-full pl-10 pr-4 py-3 border-2 border-slate-200 rounded-lg focus:border-cyan-500 focus:ring-2 focus:ring-cyan-200 outline-none transition-all"
+                className="w-full pl-1 pr-4 py-3 border-2 border-slate-200 rounded-lg focus:border-cyan-500 focus:ring-2 focus:ring-cyan-200 outline-none transition-all"
               />
             </div>
             {errors.driver?.licenseExpiry && (
@@ -429,16 +429,16 @@ export default function Step5Legal({ data }: Step5Props) {
           </div>
 
           <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-2">
-              SRC-4 Belge No <span className="text-lydian-secondary">*</span>
+            <label className="block text-sm font-semibold text-slate-7 mb-2">
+              SRC-4 Belge No <span className="text-purple-500">*</span>
             </label>
             <div className="relative">
-              <ClipboardCheck className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
+              <ClipboardCheck className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-4" />
               <input
                 type="text"
                 {...register('driver.src4Number', { required: 'SRC-4 belgesi gerekli' })}
                 placeholder="SRC4-XXXXXX"
-                className="w-full pl-10 pr-4 py-3 border-2 border-slate-200 rounded-lg focus:border-cyan-500 focus:ring-2 focus:ring-cyan-200 outline-none transition-all"
+                className="w-full pl-1 pr-4 py-3 border-2 border-slate-200 rounded-lg focus:border-cyan-500 focus:ring-2 focus:ring-cyan-200 outline-none transition-all"
               />
             </div>
             <p className="mt-1 text-xs text-slate-500">Mesleki Yeterlilik Belgesi</p>
@@ -450,18 +450,18 @@ export default function Step5Legal({ data }: Step5Props) {
           </div>
 
           <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Psikoteknik Belge No <span className="text-lydian-secondary">*</span>
+            <label className="block text-sm font-semibold text-slate-7 mb-2">
+              Psikoteknik Belge No <span className="text-purple-500">*</span>
             </label>
             <div className="relative">
-              <Brain className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
+              <Brain className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-4" />
               <input
                 type="text"
                 {...register('driver.psychotechNumber', {
                   required: 'Psikoteknik belgesi gerekli',
                 })}
                 placeholder="PSY-XXXXXX"
-                className="w-full pl-10 pr-4 py-3 border-2 border-slate-200 rounded-lg focus:border-cyan-500 focus:ring-2 focus:ring-cyan-200 outline-none transition-all"
+                className="w-full pl-1 pr-4 py-3 border-2 border-slate-200 rounded-lg focus:border-cyan-500 focus:ring-2 focus:ring-cyan-200 outline-none transition-all"
               />
             </div>
             {errors.driver?.psychotechNumber && (
@@ -474,38 +474,38 @@ export default function Step5Legal({ data }: Step5Props) {
       </div>
 
       {/* Info Box */}
-      <div className="p-5 bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-200 rounded-xl">
+      <div className="p-5 bg-gradient-to-br from-amber-500 to-orange-500 border border-amber-200 rounded-xl">
         <div className="flex items-start gap-3">
-          <AlertCircle className="w-6 h-6 text-amber-600 flex-shrink-0 mt-0.5" />
+          <AlertCircle className="w-6 h-6 text-amber-6 flex-shrink-to-cyan-700 mt-0.5" />
           <div>
-            <h4 className="font-semibold text-amber-900 mb-2">Önemli Yasal Gereklilikler</h4>
-            <ul className="text-sm text-amber-800 space-y-2">
+            <h4 className="font-semibold text-amber-9 mb-2">Önemli Yasal Gereklilikler</h4>
+            <ul className="text-sm text-amber-8 space-y-2">
               <li className="flex items-start gap-2">
-                <span className="text-amber-600 mt-0.5">•</span>
+                <span className="text-amber-6 mt-0.5">•</span>
                 <span>
                   Tüm belgeler <strong>güncel ve geçerli</strong> olmalıdır
                 </span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-amber-600 mt-0.5">•</span>
+                <span className="text-amber-6 mt-0.5">•</span>
                 <span>
                   D2 turizm belgesi ve ticari plaka <strong>zorunludur</strong>
                 </span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-amber-600 mt-0.5">•</span>
+                <span className="text-amber-6 mt-0.5">•</span>
                 <span>
-                  Yolcu sigortası minimum <strong>₺100,000</strong> teminat içermelidir
+                  Yolcu sigortası minimum <strong>₺1,to-cyan-700</strong> teminat içermelidir
                 </span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-amber-600 mt-0.5">•</span>
+                <span className="text-amber-6 mt-0.5">•</span>
                 <span>
                   Sürücü <strong>SRC-4</strong> mesleki yeterlilik belgesine sahip olmalıdır
                 </span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-amber-600 mt-0.5">•</span>
+                <span className="text-amber-6 mt-0.5">•</span>
                 <span>Belgeler sistem tarafından doğrulanacaktır</span>
               </li>
             </ul>

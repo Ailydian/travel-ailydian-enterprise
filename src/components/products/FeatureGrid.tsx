@@ -26,19 +26,19 @@ const variantStyles = {
     bg: 'bg-blue-500/10',
     border: 'border-blue-500/20',
     icon: 'text-blue-500',
-    text: 'text-lydian-text-inverse'
+    text: 'text-white'
   },
   included: {
     bg: 'bg-green-500/10',
     border: 'border-green-500/20',
     icon: 'text-green-500',
-    text: 'text-lydian-text-inverse'
+    text: 'text-white'
   },
   excluded: {
     bg: 'bg-red-500/10',
     border: 'border-red-500/20',
     icon: 'text-red-500',
-    text: 'text-lydian-text-muted'
+    text: 'text-gray-400'
   }
 };
 
@@ -59,7 +59,7 @@ export const FeatureGrid: React.FC<FeatureGridProps> = ({
   return (
     <div>
       {title && (
-        <h2 className="text-2xl font-bold text-lydian-text-inverse mb-6">{title}</h2>
+        <h2 className="text-2xl font-bold text-white mb-6">{title}</h2>
       )}
       <div className={`grid ${gridCols[columns]} gap-4`}>
         {features.map((feature, index) => (
@@ -89,7 +89,7 @@ export const FeatureGrid: React.FC<FeatureGridProps> = ({
                 {feature.title}
               </p>
               {feature.description && (
-                <p className="text-xs text-lydian-text-muted mt-1">
+                <p className="text-xs text-gray-400 mt-1">
                   {feature.description}
                 </p>
               )}

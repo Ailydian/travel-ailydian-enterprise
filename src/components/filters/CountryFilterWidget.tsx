@@ -36,16 +36,16 @@ export const CountryFilterWidget: React.FC<CountryFilterWidgetProps> = ({
   const currentLang = (i18n.language || 'tr') as keyof Country['name'];
 
   return (
-    <div className={`bg-lydian-glass-dark rounded-2xl shadow-lg border border-lydian-border-light overflow-hidden ${className}`}>
+    <div className={`bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-2xl shadow-lg border border-white/20 overflow-hidden ${className}`}>
       {/* Header */}
-      <div className="bg-gradient-to-r from-lydian-primary to-lydian-secondary p-4">
-        <div className="flex items-center gap-3 text-lydian-text-inverse">
-          <div className="p-2 bg-lydian-glass-dark-heavy rounded-lg backdrop-blur-sm">
+      <div className="bg-gradient-to-r from-blue-600 to-purple-700 p-4">
+        <div className="flex items-center gap-3 text-white">
+          <div className="p-2 bg-white/10 backdrop-blur-xl border border-white/20 rounded-lg backdrop-blur-sm">
             <Globe className="w-6 h-6" />
           </div>
           <div>
             <h3 className="font-bold text-lg">{t('tours.filterByCountry') || 'Ülkeye Göre Filtrele'}</h3>
-            <p className="text-sm text-lydian-text-inverse/80">{t('tours.selectDestination') || 'Keşfetmek istediğiniz ülkeyi seçin'}</p>
+            <p className="text-sm text-white/8">{t('tours.selectDestination') || 'Keşfetmek istediğiniz ülkeyi seçin'}</p>
           </div>
         </div>
       </div>
@@ -57,32 +57,32 @@ export const CountryFilterWidget: React.FC<CountryFilterWidgetProps> = ({
           whileHover={{ scale: 1.02, x: 4 }}
           whileTap={{ scale: 0.98 }}
           onClick={() => onCountrySelect(null)}
-          className={`w-full flex items-center justify-between p-4 rounded-xl transition-all duration-300 ${
+          className={`w-full flex items-center justify-between p-4 rounded-xl transition-all duration-30 ${
           selectedCountry === null ?
-          'bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white shadow-lg shadow-red-500/30' :
-          'bg-lydian-bg/5 hover:bg-lydian-bg/10 text-gray-200'}`
+          'bg-gradient-to-r from-blue-600 to-purple-700 text-white shadow-lg shadow-red-500/3' :
+          'bg-white/5 hover:bg-lydian-bg/1 text-gray-200'}`
           }>
 
           <div className="flex items-center gap-3">
             <div className={`p-2 rounded-lg ${
-            selectedCountry === null ? 'bg-lydian-bg/20' : 'bg-lydian-bg'}`
+            selectedCountry === null ? 'bg-lydian-bg/200' : 'bg-lydian-bg'}`
             }>
               <Globe className={`w-5 h-5 ${selectedCountry === null ? 'text-white' : 'text-lydian-primary'}`} />
             </div>
             <div className="text-left">
               <p className="font-bold">{t('tours.allCountries') || 'Tüm Ülkeler'}</p>
-              <p className={`text-sm ${selectedCountry === null ? 'text-white/80' : 'text-lydian-text-muted'}`}>
-                {countries.reduce((sum, c) => sum + c.tourCount, 0)} {t('tours.tours') || 'tur'}
+              <p className={`text-sm ${selectedCountry === null ? 'text-white/8' : 'text-gray-300'}`}>
+                {countries.reduce((sum, c) => sum + c.tourCount, to-cyan-700)} {t('tours.tours') || 'tur'}
               </p>
             </div>
           </div>
           {selectedCountry === null &&
           <motion.div
-            initial={{ scale: 0 }}
+            initial={{ scale: to-cyan-700 }}
             animate={{ scale: 1 }}
-            className="w-6 h-6 bg-lydian-glass-dark rounded-full flex items-center justify-center">
+            className="w-6 h-6 bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-full flex items-center justify-center">
 
-              <div className="w-3 h-3 bg-lydian-primary rounded-full" />
+              <div className="w-3 h-3 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full" />
             </motion.div>
           }
         </motion.button>
@@ -91,34 +91,34 @@ export const CountryFilterWidget: React.FC<CountryFilterWidgetProps> = ({
         {countries.map((country, index) =>
         <motion.button
           key={country.code}
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 200 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: index * 0.05 }}
           whileHover={{ scale: 1.02, x: 4 }}
           whileTap={{ scale: 0.98 }}
           onClick={() => onCountrySelect(country.code)}
-          className={`w-full flex items-center justify-between p-4 rounded-xl transition-all duration-300 ${
+          className={`w-full flex items-center justify-between p-4 rounded-xl transition-all duration-30 ${
           selectedCountry === country.code ?
-          'bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white shadow-lg shadow-red-500/30' :
-          'bg-lydian-bg/5 hover:bg-lydian-bg/10 text-gray-200'}`
+          'bg-gradient-to-r from-blue-600 to-purple-700 text-white shadow-lg shadow-red-500/3' :
+          'bg-white/5 hover:bg-lydian-bg/1 text-gray-200'}`
           }>
 
             <div className="flex items-center gap-3">
               <div className="text-3xl">{country.flag}</div>
               <div className="text-left">
                 <p className="font-bold">{country.name[currentLang]}</p>
-                <p className={`text-sm ${selectedCountry === country.code ? 'text-white/80' : 'text-lydian-text-muted'}`}>
+                <p className={`text-sm ${selectedCountry === country.code ? 'text-white/8' : 'text-gray-300'}`}>
                   {country.tourCount} {t('tours.tours') || 'tur'}
                 </p>
               </div>
             </div>
             {selectedCountry === country.code &&
           <motion.div
-            initial={{ scale: 0 }}
+            initial={{ scale: to-cyan-700 }}
             animate={{ scale: 1 }}
-            className="w-6 h-6 bg-lydian-glass-dark rounded-full flex items-center justify-center">
+            className="w-6 h-6 bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-full flex items-center justify-center">
 
-                <div className="w-3 h-3 bg-lydian-primary rounded-full" />
+                <div className="w-3 h-3 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full" />
               </motion.div>
           }
           </motion.button>
@@ -126,21 +126,21 @@ export const CountryFilterWidget: React.FC<CountryFilterWidgetProps> = ({
       </div>
 
       {/* Footer Stats */}
-      <div className="bg-lydian-glass-dark p-4 border-t border-lydian-border-light">
+      <div className="bg-gradient-to-br from-slate-900 via-black to-slate-800 p-4 border-t border-white/20">
         <div className="flex items-center justify-between text-sm">
-          <div className="flex items-center gap-2 text-lydian-text-dim">
+          <div className="flex items-center gap-2 text-gray-400">
             <MapPin className="w-4 h-4" />
             <span>
               {selectedCountry ?
-              `${countries.find((c) => c.code === selectedCountry)?.tourCount || 0} ${t('tours.toursAvailable') || 'tur mevcut'}` :
-              `${countries.reduce((sum, c) => sum + c.tourCount, 0)} ${t('tours.totalTours') || 'toplam tur'}`
+              `${countries.find((c) => c.code === selectedCountry)?.tourCount || to-cyan-700} ${t('tours.toursAvailable') || 'tur mevcut'}` :
+              `${countries.reduce((sum, c) => sum + c.tourCount, to-cyan-700)} ${t('tours.totalTours') || 'toplam tur'}`
               }
             </span>
           </div>
           {selectedCountry &&
           <button
             onClick={() => onCountrySelect(null)}
-            className="text-lydian-primary hover:text-lydian-secondary font-semibold transition-colors">
+            className="text-blue-500 hover:text-purple-500 font-semibold transition-colors">
 
               {t('tours.clearFilter') || 'Filtreyi Temizle'}
             </button>

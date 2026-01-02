@@ -115,14 +115,14 @@ const DateRangePicker: React.FC<{
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 px-4 py-3 bg-lydian-bg/80 dark:bg-gray-800/80 hover:bg-lydian-bg dark:hover:bg-gray-800 rounded-xl w-full text-left transition-all duration-200 border-2 border-white/50 dark:border-gray-700 hover:border-lydian-primary/50"
+        className="flex items-center gap-2 px-4 py-3 bg-white/10 dark:bg-gray-800/80 hover:bg-lydian-bg dark:hover:bg-gray-800 rounded-xl w-full text-left transition-all duration-200 border-2 border-white/50 dark:border-gray-700 hover:border-blue-500/50"
       >
-        <Calendar className="w-5 h-5 text-lydian-primary" />
+        <Calendar className="w-5 h-5 text-blue-500" />
         <div className="flex-1">
-          <div className="text-xs text-lydian-text-secondary dark:text-lydian-text-muted">Tarihler</div>
-          <div className="text-sm font-medium text-lydian-text dark:text-lydian-text-inverse">{formatDateRange()}</div>
+          <div className="text-xs text-lydian-text-secondary dark:text-gray-300">Tarihler</div>
+          <div className="text-sm font-medium text-lydian-text dark:text-white">{formatDateRange()}</div>
         </div>
-        <ChevronDown className={`w-4 h-4 text-lydian-text-muted transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+        <ChevronDown className={`w-4 h-4 text-gray-300 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
       </button>
 
       <AnimatePresence>
@@ -131,34 +131,34 @@ const DateRangePicker: React.FC<{
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="absolute top-full mt-2 left-0 bg-lydian-bg dark:bg-gray-900 border border-lydian-border dark:border-gray-800 rounded-xl p-4 shadow-2xl z-50 min-w-[280px]"
+            className="absolute top-full mt-2 left-0 bg-lydian-bg dark:bg-gray-900 border border-white/20 dark:border-gray-800 rounded-xl p-4 shadow-2xl z-50 min-w-[280px]"
           >
             <div className="space-y-3">
               <div>
-                <label className="text-xs font-medium text-lydian-text-secondary dark:text-lydian-text-muted mb-1 block">
+                <label className="text-xs font-medium text-lydian-text-secondary dark:text-gray-300 mb-1 block">
                   Başlangıç Tarihi
                 </label>
                 <input
                   type="date"
                   value={tempFrom ? format(tempFrom, 'yyyy-MM-dd') : ''}
                   onChange={(e) => setTempFrom(e.target.value ? new Date(e.target.value) : undefined)}
-                  className="w-full px-3 py-2 bg-lydian-bg-surface dark:bg-gray-800 border border-lydian-border dark:border-gray-700 rounded-lg text-sm"
+                  className="w-full px-3 py-2 bg-lydian-bg-surface dark:bg-gray-800 border border-white/20 dark:border-gray-700 rounded-lg text-sm"
                 />
               </div>
               <div>
-                <label className="text-xs font-medium text-lydian-text-secondary dark:text-lydian-text-muted mb-1 block">
+                <label className="text-xs font-medium text-lydian-text-secondary dark:text-gray-300 mb-1 block">
                   Bitiş Tarihi
                 </label>
                 <input
                   type="date"
                   value={tempTo ? format(tempTo, 'yyyy-MM-dd') : ''}
                   onChange={(e) => setTempTo(e.target.value ? new Date(e.target.value) : undefined)}
-                  className="w-full px-3 py-2 bg-lydian-bg-surface dark:bg-gray-800 border border-lydian-border dark:border-gray-700 rounded-lg text-sm"
+                  className="w-full px-3 py-2 bg-lydian-bg-surface dark:bg-gray-800 border border-white/20 dark:border-gray-700 rounded-lg text-sm"
                 />
               </div>
               <button
                 onClick={handleApply}
-                className="w-full px-4 py-2 bg-lydian-primary hover:bg-lydian-primary-dark text-lydian-text-inverse rounded-lg font-medium transition-colors"
+                className="w-full px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:bg-gradient-to-r from-blue-700 to-purple-700 text-white rounded-lg font-medium transition-colors"
               >
                 Uygula
               </button>
@@ -213,14 +213,14 @@ const GuestSelector: React.FC<{
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 px-4 py-3 bg-lydian-bg/80 dark:bg-gray-800/80 hover:bg-lydian-bg dark:hover:bg-gray-800 rounded-xl w-full text-left transition-all duration-200 border-2 border-white/50 dark:border-gray-700 hover:border-lydian-primary/50"
+        className="flex items-center gap-2 px-4 py-3 bg-white/10 dark:bg-gray-800/80 hover:bg-lydian-bg dark:hover:bg-gray-800 rounded-xl w-full text-left transition-all duration-200 border-2 border-white/50 dark:border-gray-700 hover:border-blue-500/50"
       >
-        <Users className="w-5 h-5 text-lydian-primary" />
+        <Users className="w-5 h-5 text-blue-500" />
         <div className="flex-1">
-          <div className="text-xs text-lydian-text-secondary dark:text-lydian-text-muted">Misafirler</div>
-          <div className="text-sm font-medium text-lydian-text dark:text-lydian-text-inverse">{guestSummary()}</div>
+          <div className="text-xs text-lydian-text-secondary dark:text-gray-300">Misafirler</div>
+          <div className="text-sm font-medium text-lydian-text dark:text-white">{guestSummary()}</div>
         </div>
-        <ChevronDown className={`w-4 h-4 text-lydian-text-muted transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+        <ChevronDown className={`w-4 h-4 text-gray-300 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
       </button>
 
       <AnimatePresence>
@@ -229,12 +229,12 @@ const GuestSelector: React.FC<{
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="absolute top-full mt-2 left-0 bg-lydian-bg dark:bg-gray-900 border border-lydian-border dark:border-gray-800 rounded-xl p-4 shadow-2xl z-50 min-w-[280px]"
+            className="absolute top-full mt-2 left-0 bg-lydian-bg dark:bg-gray-900 border border-white/20 dark:border-gray-800 rounded-xl p-4 shadow-2xl z-50 min-w-[280px]"
           >
             <div className="space-y-4">
               {(['adults', 'children', 'rooms'] as const).map((field) => (
                 <div key={field} className="flex items-center justify-between">
-                  <span className="text-sm font-medium text-lydian-text-secondary dark:text-lydian-text-dim capitalize">
+                  <span className="text-sm font-medium text-lydian-text-secondary dark:text-gray-400 capitalize">
                     {field === 'adults' ? 'Yetişkin' : field === 'children' ? 'Çocuk' : 'Oda'}
                   </span>
                   <div className="flex items-center gap-3">
@@ -243,16 +243,16 @@ const GuestSelector: React.FC<{
                       disabled={field === 'adults' ? value[field] <= 1 : value[field] <= 0}
                       className="p-1 rounded-lg bg-lydian-bg-surface-raised dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                     >
-                      <Minus className="w-4 h-4 text-lydian-text-secondary dark:text-lydian-text-dim" />
+                      <Minus className="w-4 h-4 text-lydian-text-secondary dark:text-gray-400" />
                     </button>
-                    <span className="w-8 text-center font-medium text-lydian-text dark:text-lydian-text-inverse">
+                    <span className="w-8 text-center font-medium text-lydian-text dark:text-white">
                       {value[field]}
                     </span>
                     <button
                       onClick={() => updateGuests(field, 1)}
                       className="p-1 rounded-lg bg-lydian-bg-surface-raised dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
                     >
-                      <Plus className="w-4 h-4 text-lydian-text-secondary dark:text-lydian-text-dim" />
+                      <Plus className="w-4 h-4 text-lydian-text-secondary dark:text-gray-400" />
                     </button>
                   </div>
                 </div>
@@ -426,8 +426,8 @@ export const HeroSearch: React.FC<HeroSearchProps> = ({ className = '', onSearch
                 transition-all duration-300 border-2
                 ${
                   isActive
-                    ? 'bg-lydian-primary text-lydian-text-inverse border-lydian-primary shadow-lg scale-105'
-                    : 'bg-lydian-bg/80 dark:bg-gray-800/80 text-lydian-text-secondary dark:text-lydian-text-dim border-white/50 dark:border-gray-700 hover:border-lydian-primary/50 hover:bg-lydian-bg dark:hover:bg-gray-800'
+                    ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white border-blue-500 shadow-lg scale-105'
+                    : 'bg-white/10 dark:bg-gray-800/80 text-lydian-text-secondary dark:text-gray-400 border-white/50 dark:border-gray-700 hover:border-blue-500/50 hover:bg-lydian-bg dark:hover:bg-gray-800'
                 }
               `}
             >
@@ -443,16 +443,16 @@ export const HeroSearch: React.FC<HeroSearchProps> = ({ className = '', onSearch
         {/* Glass Morphism Search Box */}
         <div
           className={`
-            relative bg-lydian-bg/90 dark:bg-gray-900/90 backdrop-blur-xl
+            relative bg-white/10 dark:bg-gray-900/90 backdrop-blur-xl
             rounded-2xl shadow-2xl border-2 transition-all duration-300
-            ${isFocused ? 'border-lydian-primary shadow-lydian-primary/20' : 'border-white/50 dark:border-gray-800'}
+            ${isFocused ? 'border-blue-500 shadow-lydian-primary/20' : 'border-white/50 dark:border-gray-800'}
           `}
         >
           {/* Search Input */}
           <div className="flex items-center gap-4 p-4 sm:p-6">
             {/* Icon */}
             <div className="flex-shrink-0">
-              <Search className="w-6 h-6 text-lydian-primary" />
+              <Search className="w-6 h-6 text-blue-500" />
             </div>
 
             {/* Input */}
@@ -464,13 +464,13 @@ export const HeroSearch: React.FC<HeroSearchProps> = ({ className = '', onSearch
               onFocus={() => setIsFocused(true)}
               onKeyDown={handleKeyDown}
               placeholder="Nereye gitmek istersiniz? (Otel, tur, destinasyon...)"
-              className="flex-1 text-lg font-medium bg-transparent outline-none text-lydian-text dark:text-lydian-text-inverse placeholder-gray-400 dark:placeholder-gray-500"
+              className="flex-1 text-lg font-medium bg-transparent outline-none text-lydian-text dark:text-white placeholder-gray-400 dark:placeholder-gray-500"
               autoComplete="off"
             />
 
             {/* Loading Spinner */}
             {isLoading && (
-              <Loader2 className="w-5 h-5 text-lydian-primary animate-spin flex-shrink-0" />
+              <Loader2 className="w-5 h-5 text-blue-500 animate-spin flex-shrink-0" />
             )}
 
             {/* Clear Button */}
@@ -480,7 +480,7 @@ export const HeroSearch: React.FC<HeroSearchProps> = ({ className = '', onSearch
                 className="flex-shrink-0 p-2 hover:bg-lydian-bg-surface-raised dark:hover:bg-gray-800 rounded-lg transition-colors"
                 aria-label="Clear search"
               >
-                <X className="w-5 h-5 text-lydian-text-muted" />
+                <X className="w-5 h-5 text-gray-300" />
               </button>
             )}
 
@@ -488,7 +488,7 @@ export const HeroSearch: React.FC<HeroSearchProps> = ({ className = '', onSearch
             <button
               onClick={handleSearchSubmit}
               disabled={!query.trim()}
-              className="flex-shrink-0 px-6 py-3 bg-lydian-primary hover:bg-lydian-primary-dark text-lydian-text-inverse rounded-xl font-semibold transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-lg"
+              className="flex-shrink-0 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:bg-gradient-to-r from-blue-700 to-purple-700 text-white rounded-xl font-semibold transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-lg"
             >
               Ara
             </button>
@@ -515,7 +515,7 @@ export const HeroSearch: React.FC<HeroSearchProps> = ({ className = '', onSearch
               {/* Search Results */}
               {results.length > 0 && (
                 <div className="p-2">
-                  <div className="px-4 py-2 text-xs font-semibold text-lydian-text-tertiary dark:text-lydian-text-muted uppercase tracking-wider">
+                  <div className="px-4 py-2 text-xs font-semibold text-lydian-text-tertiary dark:text-gray-300 uppercase tracking-wider">
                     Arama Sonuçları
                   </div>
                   {results.map((result, index) => (
@@ -533,29 +533,29 @@ export const HeroSearch: React.FC<HeroSearchProps> = ({ className = '', onSearch
                           className="w-16 h-16 rounded-lg object-cover flex-shrink-0"
                         />
                       ) : (
-                        <div className="w-16 h-16 rounded-lg bg-gradient-to-br from-lydian-primary to-blue-600 flex items-center justify-center text-2xl flex-shrink-0">
+                        <div className="w-16 h-16 rounded-lg bg-gradient-to-br from-blue-600 to-blue-600 flex items-center justify-center text-2xl flex-shrink-0">
                           {getCategoryIcon(result.category)}
                         </div>
                       )}
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2">
-                          <h4 className="font-semibold text-lydian-text dark:text-lydian-text-inverse truncate">
+                          <h4 className="font-semibold text-lydian-text dark:text-white truncate">
                             {result.title}
                           </h4>
                           {result.rating && (
                             <div className="flex items-center gap-1 text-xs">
-                              <Star className="w-3 h-3 text-lydian-warning fill-current" />
-                              <span className="text-lydian-text-secondary dark:text-lydian-text-muted">{result.rating}</span>
+                              <Star className="w-3 h-3 text-yellow-500 fill-current" />
+                              <span className="text-lydian-text-secondary dark:text-gray-300">{result.rating}</span>
                             </div>
                           )}
                         </div>
-                        <p className="text-sm text-lydian-text-secondary dark:text-lydian-text-muted truncate">
+                        <p className="text-sm text-lydian-text-secondary dark:text-gray-300 truncate">
                           {result.subtitle}
                         </p>
                       </div>
                       {result.price && (
                         <div className="text-right flex-shrink-0">
-                          <p className="font-bold text-lydian-primary">{result.price}</p>
+                          <p className="font-bold text-blue-500">{result.price}</p>
                         </div>
                       )}
                     </button>
@@ -566,11 +566,11 @@ export const HeroSearch: React.FC<HeroSearchProps> = ({ className = '', onSearch
               {/* Recent Searches */}
               {query.trim() === '' && recentSearches.length > 0 && (
                 <div className="p-2 border-t border-lydian-border/50 dark:border-gray-800">
-                  <div className="px-4 py-2 text-xs font-semibold text-lydian-text-tertiary dark:text-lydian-text-muted uppercase tracking-wider flex items-center justify-between">
+                  <div className="px-4 py-2 text-xs font-semibold text-lydian-text-tertiary dark:text-gray-300 uppercase tracking-wider flex items-center justify-between">
                     <span>Son Aramalar</span>
                     <button
                       onClick={() => recentSearches.forEach(removeFromHistory)}
-                      className="text-lydian-primary hover:underline text-xs normal-case"
+                      className="text-blue-500 hover:underline text-xs normal-case"
                     >
                       Temizle
                     </button>
@@ -581,8 +581,8 @@ export const HeroSearch: React.FC<HeroSearchProps> = ({ className = '', onSearch
                       onClick={() => handlePopularSearchClick(search)}
                       className="w-full px-4 py-3 flex items-center gap-3 hover:bg-lydian-bg-surface-raised dark:hover:bg-gray-800 rounded-lg transition-colors text-left"
                     >
-                      <Clock className="w-4 h-4 text-lydian-text-muted flex-shrink-0" />
-                      <span className="text-lydian-text-secondary dark:text-lydian-text-dim flex-1">{search}</span>
+                      <Clock className="w-4 h-4 text-gray-300 flex-shrink-0" />
+                      <span className="text-lydian-text-secondary dark:text-gray-400 flex-1">{search}</span>
                       <button
                         onClick={(e) => {
                           e.stopPropagation();
@@ -590,7 +590,7 @@ export const HeroSearch: React.FC<HeroSearchProps> = ({ className = '', onSearch
                         }}
                         className="p-1 hover:bg-gray-200 dark:hover:bg-gray-700 rounded"
                       >
-                        <X className="w-4 h-4 text-lydian-text-muted" />
+                        <X className="w-4 h-4 text-gray-300" />
                       </button>
                     </button>
                   ))}
@@ -600,7 +600,7 @@ export const HeroSearch: React.FC<HeroSearchProps> = ({ className = '', onSearch
               {/* Popular Searches */}
               {query.trim() === '' && (
                 <div className="p-2 border-t border-lydian-border/50 dark:border-gray-800">
-                  <div className="px-4 py-2 text-xs font-semibold text-lydian-text-tertiary dark:text-lydian-text-muted uppercase tracking-wider">
+                  <div className="px-4 py-2 text-xs font-semibold text-lydian-text-tertiary dark:text-gray-300 uppercase tracking-wider">
                     Popüler Aramalar
                   </div>
                   {popularSearches.slice(0, 6).map((search, index) => (
@@ -609,8 +609,8 @@ export const HeroSearch: React.FC<HeroSearchProps> = ({ className = '', onSearch
                       onClick={() => handlePopularSearchClick(search)}
                       className="w-full px-4 py-3 flex items-center gap-3 hover:bg-lydian-bg-surface-raised dark:hover:bg-gray-800 rounded-lg transition-colors text-left"
                     >
-                      <TrendingUp className="w-4 h-4 text-lydian-primary flex-shrink-0" />
-                      <span className="text-lydian-text-secondary dark:text-lydian-text-dim">{search}</span>
+                      <TrendingUp className="w-4 h-4 text-blue-500 flex-shrink-0" />
+                      <span className="text-lydian-text-secondary dark:text-gray-400">{search}</span>
                     </button>
                   ))}
                 </div>
@@ -619,7 +619,7 @@ export const HeroSearch: React.FC<HeroSearchProps> = ({ className = '', onSearch
               {/* Popular Destinations */}
               {query.trim() === '' && (
                 <div className="p-2 border-t border-lydian-border/50 dark:border-gray-800">
-                  <div className="px-4 py-2 text-xs font-semibold text-lydian-text-tertiary dark:text-lydian-text-muted uppercase tracking-wider">
+                  <div className="px-4 py-2 text-xs font-semibold text-lydian-text-tertiary dark:text-gray-300 uppercase tracking-wider">
                     Popüler Destinasyonlar
                   </div>
                   <div className="grid grid-cols-2 gap-2 px-2">
@@ -627,14 +627,14 @@ export const HeroSearch: React.FC<HeroSearchProps> = ({ className = '', onSearch
                       <button
                         key={destination.name}
                         onClick={() => handlePopularSearchClick(destination.name)}
-                        className="flex items-center gap-3 px-4 py-3 bg-gradient-to-br from-lydian-primary/10 to-blue-500/10 hover:from-lydian-primary/20 hover:to-blue-500/20 rounded-lg transition-all"
+                        className="flex items-center gap-3 px-4 py-3 bg-gradient-to-br from-blue-600/10 to-blue-500/10 hover:from-blue-600/20 hover:to-blue-500/20 rounded-lg transition-all"
                       >
                         <span className="text-2xl">{destination.icon}</span>
                         <div className="text-left">
-                          <p className="font-semibold text-lydian-text dark:text-lydian-text-inverse">
+                          <p className="font-semibold text-lydian-text dark:text-white">
                             {destination.name}
                           </p>
-                          <p className="text-xs text-lydian-text-secondary dark:text-lydian-text-muted">
+                          <p className="text-xs text-lydian-text-secondary dark:text-gray-300">
                             {destination.count}+ seçenek
                           </p>
                         </div>
@@ -647,8 +647,8 @@ export const HeroSearch: React.FC<HeroSearchProps> = ({ className = '', onSearch
               {/* No Results */}
               {query.trim() !== '' && results.length === 0 && !isLoading && (
                 <div className="p-8 text-center">
-                  <Search className="w-12 h-12 text-lydian-text-dim dark:text-lydian-text-secondary mx-auto mb-3" />
-                  <p className="text-lydian-text-secondary dark:text-lydian-text-muted mb-2">Sonuç bulunamadı</p>
+                  <Search className="w-12 h-12 text-gray-400 dark:text-lydian-text-secondary mx-auto mb-3" />
+                  <p className="text-lydian-text-secondary dark:text-gray-300 mb-2">Sonuç bulunamadı</p>
                   <p className="text-sm text-lydian-text-tertiary dark:text-lydian-text-tertiary">
                     &quot;{query}&quot; için farklı anahtar kelimeler deneyin
                   </p>

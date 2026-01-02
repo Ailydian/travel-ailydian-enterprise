@@ -155,11 +155,11 @@ export default function FlightDetail() {
 
   if (!flight) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-lydian-glass-dark">
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-black to-slate-800">
         <div className="text-center">
-          <Plane className="w-24 h-24 text-lydian-text-dim mx-auto mb-6" />
-          <h1 className="text-2xl font-bold text-lydian-text-inverse mb-4">Uçuş Bulunamadı</h1>
-          <Link href="/flights" className="text-lydian-primary hover:underline">
+          <Plane className="w-24 h-24 text-gray-400 mx-auto mb-6" />
+          <h1 className="text-2xl font-bold text-white mb-4">Uçuş Bulunamadı</h1>
+          <Link href="/flights" className="text-blue-500 hover:underline">
             Uçuş listesine dön
           </Link>
         </div>
@@ -195,11 +195,11 @@ export default function FlightDetail() {
       <SimplifiedHeader />
 
       {/* Return Button */}
-      <div className="sticky top-16 z-40 bg-lydian-bg-hover border-b border-lydian-border-light/10 shadow-sm">
+      <div className="sticky top-16 z-40 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl border-b border-white/20/10 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 py-3">
           <Link
             href="/flights"
-            className="inline-flex items-center gap-2 text-lydian-text-muted hover:text-lydian-primary transition-colors">
+            className="inline-flex items-center gap-2 text-gray-300 hover:text-blue-500 transition-colors">
 
             <ArrowLeft className="w-4 h-4" />
             <span className="font-medium">Uçuşlara Dön</span>
@@ -213,23 +213,23 @@ export default function FlightDetail() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-lydian-bg-hover rounded-2xl shadow-lg p-6 mb-6">
+            className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-2xl shadow-lg p-6 mb-6">
 
             <div className="flex items-center justify-between mb-6">
               <div className="flex items-center gap-4">
-                <div className="w-16 h-16 rounded-xl overflow-hidden bg-lydian-glass-dark-medium flex items-center justify-center">
+                <div className="w-16 h-16 rounded-xl overflow-hidden bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center">
                   <img src={flight.logo} alt={flight.airline} className="w-full h-full object-cover" />
                 </div>
                 <div>
-                  <h1 className="text-2xl font-bold text-lydian-text-inverse">{flight.airline}</h1>
-                  <p className="text-lydian-text-dim">{flight.flightNumber} • {flight.aircraft}</p>
+                  <h1 className="text-2xl font-bold text-white">{flight.airline}</h1>
+                  <p className="text-gray-400">{flight.flightNumber} • {flight.aircraft}</p>
                 </div>
               </div>
               <div className="flex items-center gap-2">
-                <span className="bg-lydian-success-light text-green-800 px-4 py-2 rounded-full text-sm font-semibold">
+                <span className="bg-green-600-light text-green-800 px-4 py-2 rounded-full text-sm font-semibold">
                   {flight.type}
                 </span>
-                <div className="bg-lydian-primary-light text-blue-800 px-4 py-2 rounded-full flex items-center gap-2">
+                <div className="bg-blue-500/10 text-blue-800 px-4 py-2 rounded-full flex items-center gap-2">
                   <Shield className="w-4 h-4" />
                   <span className="text-sm font-semibold">Blockchain Güvenli</span>
                 </div>
@@ -242,15 +242,15 @@ export default function FlightDetail() {
                 {/* Departure */}
                 <div className="text-left">
                   <div className="flex items-center gap-2 mb-2">
-                    <PlaneTakeoff className="w-5 h-5 text-lydian-primary" />
-                    <span className="text-sm font-medium text-lydian-text-dim">Kalkış</span>
+                    <PlaneTakeoff className="w-5 h-5 text-blue-500" />
+                    <span className="text-sm font-medium text-gray-400">Kalkış</span>
                   </div>
-                  <div className="text-4xl font-bold text-lydian-text-inverse mb-1">{flight.departure.time}</div>
-                  <div className="text-lg font-semibold text-lydian-text-muted">{flight.from.code}</div>
-                  <div className="text-sm text-lydian-text-dim">{flight.from.city}</div>
-                  <div className="text-xs text-lydian-text-muted mt-1">{flight.from.airport}</div>
-                  <div className="text-xs text-lydian-text-muted">{flight.from.terminal}</div>
-                  <div className="text-xs text-lydian-text-muted mt-1">
+                  <div className="text-4xl font-bold text-white mb-1">{flight.departure.time}</div>
+                  <div className="text-lg font-semibold text-gray-300">{flight.from.code}</div>
+                  <div className="text-sm text-gray-400">{flight.from.city}</div>
+                  <div className="text-xs text-gray-300 mt-1">{flight.from.airport}</div>
+                  <div className="text-xs text-gray-300">{flight.from.terminal}</div>
+                  <div className="text-xs text-gray-300 mt-1">
                     <Calendar className="w-3 h-3 inline mr-1" />
                     {flight.departure.date}
                   </div>
@@ -259,35 +259,35 @@ export default function FlightDetail() {
                 {/* Duration & Flight Path */}
                 <div className="text-center relative">
                   <div className="flex items-center justify-center mb-2">
-                    <div className="flex-1 h-0.5 bg-gradient-to-r from-lydian-primary to-blue-400"></div>
+                    <div className="flex-1 h-0.5 bg-gradient-to-r from-blue-600 to-blue-400"></div>
                     <motion.div
                       animate={{ x: [0, 20, 0] }}
                       transition={{ duration: 2, repeat: Infinity }}
                       className="mx-2">
 
-                      <Plane className="w-6 h-6 text-lydian-primary transform rotate-90" />
+                      <Plane className="w-6 h-6 text-blue-500 transform rotate-90" />
                     </motion.div>
-                    <div className="flex-1 h-0.5 bg-gradient-to-r from-blue-400 to-lydian-primary"></div>
+                    <div className="flex-1 h-0.5 bg-gradient-to-r from-blue-400 to-purple-600"></div>
                   </div>
-                  <div className="flex items-center justify-center gap-2 text-lydian-text-dim">
+                  <div className="flex items-center justify-center gap-2 text-gray-400">
                     <Clock className="w-4 h-4" />
                     <span className="font-semibold">{flight.duration}</span>
                   </div>
-                  <div className="text-xs text-lydian-text-muted mt-1">{flight.type} Uçuş</div>
+                  <div className="text-xs text-gray-300 mt-1">{flight.type} Uçuş</div>
                 </div>
 
                 {/* Arrival */}
                 <div className="text-right">
                   <div className="flex items-center gap-2 mb-2 justify-end">
-                    <span className="text-sm font-medium text-lydian-text-dim">Varış</span>
-                    <PlaneLanding className="w-5 h-5 text-lydian-primary" />
+                    <span className="text-sm font-medium text-gray-400">Varış</span>
+                    <PlaneLanding className="w-5 h-5 text-blue-500" />
                   </div>
-                  <div className="text-4xl font-bold text-lydian-text-inverse mb-1">{flight.arrival.time}</div>
-                  <div className="text-lg font-semibold text-lydian-text-muted">{flight.to.code}</div>
-                  <div className="text-sm text-lydian-text-dim">{flight.to.city}</div>
-                  <div className="text-xs text-lydian-text-muted mt-1">{flight.to.airport}</div>
-                  <div className="text-xs text-lydian-text-muted">{flight.to.terminal}</div>
-                  <div className="text-xs text-lydian-text-muted mt-1">
+                  <div className="text-4xl font-bold text-white mb-1">{flight.arrival.time}</div>
+                  <div className="text-lg font-semibold text-gray-300">{flight.to.code}</div>
+                  <div className="text-sm text-gray-400">{flight.to.city}</div>
+                  <div className="text-xs text-gray-300 mt-1">{flight.to.airport}</div>
+                  <div className="text-xs text-gray-300">{flight.to.terminal}</div>
+                  <div className="text-xs text-gray-300 mt-1">
                     <Calendar className="w-3 h-3 inline mr-1" />
                     {flight.arrival.date}
                   </div>
@@ -296,15 +296,15 @@ export default function FlightDetail() {
             </div>
 
             {/* Amenities */}
-            <div className="mt-6 pt-6 border-t border-lydian-border-light/10">
-              <h3 className="text-sm font-semibold text-lydian-text-muted mb-3">Uçuş İmkanları</h3>
+            <div className="mt-6 pt-6 border-t border-white/20/10">
+              <h3 className="text-sm font-semibold text-gray-300 mb-3">Uçuş İmkanları</h3>
               <div className="flex flex-wrap gap-3">
                 {flight.amenities.map((amenity: string) =>
-                <div key={amenity} className="flex items-center gap-2 bg-lydian-primary-lighter px-4 py-2 rounded-full">
-                    {amenity.includes('WiFi') && <Wifi className="w-4 h-4 text-lydian-primary" />}
-                    {amenity.includes('Yemek') && <UtensilsCrossed className="w-4 h-4 text-lydian-primary" />}
-                    {amenity.includes('Eğlence') && <MonitorPlay className="w-4 h-4 text-lydian-primary" />}
-                    {amenity.includes('USB') && <Coffee className="w-4 h-4 text-lydian-primary" />}
+                <div key={amenity} className="flex items-center gap-2 bg-blue-500/10er px-4 py-2 rounded-full">
+                    {amenity.includes('WiFi') && <Wifi className="w-4 h-4 text-blue-500" />}
+                    {amenity.includes('Yemek') && <UtensilsCrossed className="w-4 h-4 text-blue-500" />}
+                    {amenity.includes('Eğlence') && <MonitorPlay className="w-4 h-4 text-blue-500" />}
+                    {amenity.includes('USB') && <Coffee className="w-4 h-4 text-blue-500" />}
                     <span className="text-sm font-medium text-blue-900">{amenity}</span>
                   </div>
                 )}
@@ -320,9 +320,9 @@ export default function FlightDetail() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
-                className="bg-lydian-bg-hover rounded-2xl shadow-lg p-6">
+                className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-2xl shadow-lg p-6">
 
-                <h2 className="text-xl font-bold text-lydian-text-inverse mb-6">Ücret Sınıfı Seçin</h2>
+                <h2 className="text-xl font-bold text-white mb-6">Ücret Sınıfı Seçin</h2>
                 <div className="grid md:grid-cols-3 gap-4">
                   {flight.fareClasses.map((fare: any) =>
                   <motion.button
@@ -332,24 +332,24 @@ export default function FlightDetail() {
                     whileTap={{ scale: 0.98 }}
                     className={`relative p-6 rounded-xl border-2 transition-all ${
                     selectedFareClass === fare.type ?
-                    'border-lydian-primary bg-blue-50' :
+                    'border-blue-500 bg-blue-50' :
                     'border-white/10 hover:border-white/20'}`
                     }>
 
                       {selectedFareClass === fare.type &&
                     <div className="absolute top-3 right-3">
-                          <div className="w-6 h-6 bg-lydian-primary rounded-full flex items-center justify-center">
-                            <Check className="w-4 h-4 text-lydian-text-inverse" />
+                          <div className="w-6 h-6 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center">
+                            <Check className="w-4 h-4 text-white" />
                           </div>
                         </div>
                     }
-                      <h3 className="font-bold text-lg text-lydian-text-inverse mb-2">{fare.name}</h3>
+                      <h3 className="font-bold text-lg text-white mb-2">{fare.name}</h3>
                       {fare.originalPrice &&
-                    <div className="text-sm text-lydian-text-muted line-through mb-1">₺{fare.originalPrice}</div>
+                    <div className="text-sm text-gray-300 line-through mb-1">₺{fare.originalPrice}</div>
                     }
-                      <div className="text-3xl font-bold text-lydian-primary mb-1">₺{fare.price}</div>
-                      <div className="text-xs text-lydian-text-muted">kişi başına</div>
-                      <div className="mt-4 text-xs text-lydian-text-dim">
+                      <div className="text-3xl font-bold text-blue-500 mb-1">₺{fare.price}</div>
+                      <div className="text-xs text-gray-300">kişi başına</div>
+                      <div className="mt-4 text-xs text-gray-400">
                         <div className="flex items-center gap-1 mb-1">
                           <Luggage className="w-3 h-3" />
                           <span>{fare.features[0]}</span>
@@ -366,21 +366,21 @@ export default function FlightDetail() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="bg-lydian-bg-hover rounded-2xl shadow-lg p-6">
+                className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-2xl shadow-lg p-6">
 
-                  <h2 className="text-xl font-bold text-lydian-text-inverse mb-4">
+                  <h2 className="text-xl font-bold text-white mb-4">
                     {selectedFare.name} - Dahil Olan Hizmetler
                   </h2>
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
-                      <h3 className="font-semibold text-lydian-text-inverse mb-3 flex items-center gap-2">
-                        <Check className="w-5 h-5 text-lydian-success" />
+                      <h3 className="font-semibold text-white mb-3 flex items-center gap-2">
+                        <Check className="w-5 h-5 text-green-500" />
                         Dahil Olanlar
                       </h3>
                       <ul className="space-y-2">
                         {selectedFare.features.map((feature: string, idx: number) =>
-                      <li key={idx} className="flex items-start gap-2 text-sm text-lydian-text-muted">
-                            <CircleDot className="w-4 h-4 text-lydian-success flex-shrink-0 mt-0.5" />
+                      <li key={idx} className="flex items-start gap-2 text-sm text-gray-300">
+                            <CircleDot className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
                             <span>{feature}</span>
                           </li>
                       )}
@@ -388,14 +388,14 @@ export default function FlightDetail() {
                     </div>
                     {selectedFare.restrictions.length > 0 &&
                   <div>
-                        <h3 className="font-semibold text-lydian-text-inverse mb-3 flex items-center gap-2">
-                          <X className="w-5 h-5 text-lydian-primary" />
+                        <h3 className="font-semibold text-white mb-3 flex items-center gap-2">
+                          <X className="w-5 h-5 text-blue-500" />
                           Kısıtlamalar
                         </h3>
                         <ul className="space-y-2">
                           {selectedFare.restrictions.map((restriction: string, idx: number) =>
-                      <li key={idx} className="flex items-start gap-2 text-sm text-lydian-text-muted">
-                              <X className="w-4 h-4 text-lydian-primary flex-shrink-0 mt-0.5" />
+                      <li key={idx} className="flex items-start gap-2 text-sm text-gray-300">
+                              <X className="w-4 h-4 text-blue-500 flex-shrink-0 mt-0.5" />
                               <span>{restriction}</span>
                             </li>
                       )}
@@ -411,28 +411,28 @@ export default function FlightDetail() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="bg-lydian-bg-hover rounded-2xl shadow-lg p-6">
+                className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-2xl shadow-lg p-6">
 
-                <h2 className="text-xl font-bold text-lydian-text-inverse mb-4 flex items-center gap-2">
-                  <Luggage className="w-6 h-6 text-lydian-primary" />
+                <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+                  <Luggage className="w-6 h-6 text-blue-500" />
                   Bagaj Bilgileri
                 </h2>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="bg-gradient-to-br from-blue-50 to-indigo-50 p-4 rounded-xl">
-                    <h3 className="font-semibold text-lydian-text-inverse mb-2">Kabin Bagajı</h3>
-                    <p className="text-2xl font-bold text-lydian-primary mb-1">{flight.baggage.cabin}</p>
-                    <p className="text-sm text-lydian-text-dim">Dahil</p>
+                    <h3 className="font-semibold text-white mb-2">Kabin Bagajı</h3>
+                    <p className="text-2xl font-bold text-blue-500 mb-1">{flight.baggage.cabin}</p>
+                    <p className="text-sm text-gray-400">Dahil</p>
                   </div>
                   <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-4 rounded-xl">
-                    <h3 className="font-semibold text-lydian-text-inverse mb-2">Kontrol Edilen Bagaj</h3>
-                    <p className="text-2xl font-bold text-lydian-success mb-1">{flight.baggage.checked}</p>
-                    <p className="text-sm text-lydian-text-dim">Ücret sınıfına göre değişir</p>
+                    <h3 className="font-semibold text-white mb-2">Kontrol Edilen Bagaj</h3>
+                    <p className="text-2xl font-bold text-green-500 mb-1">{flight.baggage.checked}</p>
+                    <p className="text-sm text-gray-400">Ücret sınıfına göre değişir</p>
                   </div>
                 </div>
-                <div className="mt-4 p-4 bg-lydian-warning-lighter border border-yellow-200 rounded-lg">
+                <div className="mt-4 p-4 bg-yellow-500-lighter border border-yellow-200 rounded-lg">
                   <div className="flex gap-2">
-                    <Info className="w-5 h-5 text-lydian-warning flex-shrink-0" />
-                    <div className="text-sm text-lydian-text-muted">
+                    <Info className="w-5 h-5 text-yellow-500 flex-shrink-0" />
+                    <div className="text-sm text-gray-300">
                       <p className="font-medium mb-1">Ek Bagaj</p>
                       <p>Ek bagaj ücreti: <span className="font-semibold">₺{flight.baggage.additionalFee}</span> / adet</p>
                     </div>
@@ -445,33 +445,33 @@ export default function FlightDetail() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
-                className="bg-lydian-bg-hover rounded-2xl shadow-lg p-6">
+                className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-2xl shadow-lg p-6">
 
-                <h2 className="text-xl font-bold text-lydian-text-inverse mb-4">İptal Politikası</h2>
+                <h2 className="text-xl font-bold text-white mb-4">İptal Politikası</h2>
                 <div className="space-y-3">
                   <div className="flex items-start gap-3">
                     {flight.cancellationPolicy.refundable ?
-                    <Check className="w-5 h-5 text-lydian-success flex-shrink-0" /> :
+                    <Check className="w-5 h-5 text-green-500 flex-shrink-0" /> :
 
-                    <X className="w-5 h-5 text-lydian-primary flex-shrink-0" />
+                    <X className="w-5 h-5 text-blue-500 flex-shrink-0" />
                     }
                     <div>
-                      <p className="font-medium text-lydian-text-inverse">
+                      <p className="font-medium text-white">
                         {flight.cancellationPolicy.refundable ? 'İade Edilebilir' : 'İade Edilemez'}
                       </p>
-                      <p className="text-sm text-lydian-text-dim mt-1">
+                      <p className="text-sm text-gray-400 mt-1">
                         {flight.cancellationPolicy.refundable ?
                         'Bu bilet iptal edilebilir ve iade alınabilir.' :
                         'Bu bilet iptal edilemez ve iade alınamaz.'}
                       </p>
                     </div>
                   </div>
-                  <div className="pt-3 border-t border-lydian-border-light/10">
-                    <p className="text-sm text-lydian-text-dim">
+                  <div className="pt-3 border-t border-white/20/10">
+                    <p className="text-sm text-gray-400">
                       İptal süresi: <span className="font-semibold">{flight.cancellationPolicy.deadline}</span>
                     </p>
                     {flight.cancellationPolicy.cancellationFee > 0 &&
-                    <p className="text-sm text-lydian-text-dim mt-1">
+                    <p className="text-sm text-gray-400 mt-1">
                         İptal ücreti: <span className="font-semibold">₺{flight.cancellationPolicy.cancellationFee}</span>
                       </p>
                     }
@@ -486,66 +486,66 @@ export default function FlightDetail() {
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.2 }}
-                className="bg-lydian-bg-hover rounded-2xl shadow-lg p-6 sticky top-24">
+                className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-2xl shadow-lg p-6 sticky top-24">
 
-                <h2 className="text-xl font-bold text-lydian-text-inverse mb-6">Rezervasyon Özeti</h2>
+                <h2 className="text-xl font-bold text-white mb-6">Rezervasyon Özeti</h2>
 
                 {/* Passenger Selection */}
                 <div className="mb-6">
-                  <h3 className="font-semibold text-lydian-text-inverse mb-3 flex items-center gap-2">
+                  <h3 className="font-semibold text-white mb-3 flex items-center gap-2">
                     <Users className="w-5 h-5" />
                     Yolcu Sayısı
                   </h3>
                   <div className="space-y-3">
                     <div className="flex items-center justify-between">
-                      <span className="text-sm text-lydian-text-muted">Yetişkin (12+)</span>
+                      <span className="text-sm text-gray-300">Yetişkin (12+)</span>
                       <div className="flex items-center gap-3">
                         <button
                           onClick={() => setPassengers((p) => ({ ...p, adults: Math.max(1, p.adults - 1) }))}
-                          className="w-8 h-8 rounded-full border border-lydian-border-light flex items-center justify-center hover:bg-lydian-glass-dark-medium">
+                          className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 backdrop-blur-xl border border-white/20">
 
                           -
                         </button>
                         <span className="w-8 text-center font-semibold">{passengers.adults}</span>
                         <button
                           onClick={() => setPassengers((p) => ({ ...p, adults: Math.min(9, p.adults + 1) }))}
-                          className="w-8 h-8 rounded-full border border-lydian-border-light flex items-center justify-center hover:bg-lydian-glass-dark-medium">
+                          className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 backdrop-blur-xl border border-white/20">
 
                           +
                         </button>
                       </div>
                     </div>
                     <div className="flex items-center justify-between">
-                      <span className="text-sm text-lydian-text-muted">Çocuk (2-11)</span>
+                      <span className="text-sm text-gray-300">Çocuk (2-11)</span>
                       <div className="flex items-center gap-3">
                         <button
                           onClick={() => setPassengers((p) => ({ ...p, children: Math.max(0, p.children - 1) }))}
-                          className="w-8 h-8 rounded-full border border-lydian-border-light flex items-center justify-center hover:bg-lydian-glass-dark-medium">
+                          className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 backdrop-blur-xl border border-white/20">
 
                           -
                         </button>
                         <span className="w-8 text-center font-semibold">{passengers.children}</span>
                         <button
                           onClick={() => setPassengers((p) => ({ ...p, children: Math.min(9, p.children + 1) }))}
-                          className="w-8 h-8 rounded-full border border-lydian-border-light flex items-center justify-center hover:bg-lydian-glass-dark-medium">
+                          className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 backdrop-blur-xl border border-white/20">
 
                           +
                         </button>
                       </div>
                     </div>
                     <div className="flex items-center justify-between">
-                      <span className="text-sm text-lydian-text-muted">Bebek (0-2)</span>
+                      <span className="text-sm text-gray-300">Bebek (0-2)</span>
                       <div className="flex items-center gap-3">
                         <button
                           onClick={() => setPassengers((p) => ({ ...p, infants: Math.max(0, p.infants - 1) }))}
-                          className="w-8 h-8 rounded-full border border-lydian-border-light flex items-center justify-center hover:bg-lydian-glass-dark-medium">
+                          className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 backdrop-blur-xl border border-white/20">
 
                           -
                         </button>
                         <span className="w-8 text-center font-semibold">{passengers.infants}</span>
                         <button
                           onClick={() => setPassengers((p) => ({ ...p, infants: Math.min(passengers.adults, p.infants + 1) }))}
-                          className="w-8 h-8 rounded-full border border-lydian-border-light flex items-center justify-center hover:bg-lydian-glass-dark-medium">
+                          className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:bg-white/10 backdrop-blur-xl border border-white/20">
 
                           +
                         </button>
@@ -555,32 +555,32 @@ export default function FlightDetail() {
                 </div>
 
                 {/* Price Breakdown */}
-                <div className="border-t border-lydian-border-light/10 pt-4 mb-6">
-                  <h3 className="font-semibold text-lydian-text-inverse mb-3">Fiyat Detayı</h3>
+                <div className="border-t border-white/20/10 pt-4 mb-6">
+                  <h3 className="font-semibold text-white mb-3">Fiyat Detayı</h3>
                   <div className="space-y-2 text-sm">
                     {passengers.adults > 0 &&
                     <div className="flex justify-between">
-                        <span className="text-lydian-text-dim">{passengers.adults} Yetişkin x ₺{selectedFare?.price}</span>
+                        <span className="text-gray-400">{passengers.adults} Yetişkin x ₺{selectedFare?.price}</span>
                         <span className="font-semibold">₺{passengers.adults * (selectedFare?.price || 0)}</span>
                       </div>
                     }
                     {passengers.children > 0 &&
                     <div className="flex justify-between">
-                        <span className="text-lydian-text-dim">{passengers.children} Çocuk x ₺{selectedFare?.price}</span>
+                        <span className="text-gray-400">{passengers.children} Çocuk x ₺{selectedFare?.price}</span>
                         <span className="font-semibold">₺{passengers.children * (selectedFare?.price || 0)}</span>
                       </div>
                     }
                     {passengers.infants > 0 &&
                     <div className="flex justify-between">
-                        <span className="text-lydian-text-dim">{passengers.infants} Bebek x ₺50</span>
+                        <span className="text-gray-400">{passengers.infants} Bebek x ₺50</span>
                         <span className="font-semibold">₺{passengers.infants * 50}</span>
                       </div>
                     }
                   </div>
-                  <div className="border-t border-lydian-border-light/10 mt-4 pt-4">
+                  <div className="border-t border-white/20/10 mt-4 pt-4">
                     <div className="flex justify-between items-center">
-                      <span className="font-bold text-lydian-text-inverse">Toplam</span>
-                      <span className="text-2xl font-bold text-lydian-primary">₺{totalPrice}</span>
+                      <span className="font-bold text-white">Toplam</span>
+                      <span className="text-2xl font-bold text-blue-500">₺{totalPrice}</span>
                     </div>
                   </div>
                 </div>
@@ -590,14 +590,14 @@ export default function FlightDetail() {
                   onClick={handleBooking}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full bg-gradient-to-r from-lydian-primary to-lydian-secondary text-lydian-text-inverse py-4 rounded-xl font-bold text-lg hover:shadow-lg transition-all flex items-center justify-center gap-2">
+                  className="w-full bg-gradient-to-r from-blue-600 to-purple-700 text-white py-4 rounded-xl font-bold text-lg hover:shadow-lg transition-all flex items-center justify-center gap-2">
 
                   Rezervasyon Yap
                   <ChevronRight className="w-5 h-5" />
                 </motion.button>
 
                 <div className="mt-4 text-center">
-                  <div className="flex items-center justify-center gap-2 text-xs text-lydian-text-muted">
+                  <div className="flex items-center justify-center gap-2 text-xs text-gray-300">
                     <Shield className="w-4 h-4" />
                     Blockchain ile güvenli rezervasyon
                   </div>
@@ -609,7 +609,7 @@ export default function FlightDetail() {
                     <Info className="w-5 h-5" />
                     <span className="font-semibold text-sm">Kalan Koltuk</span>
                   </div>
-                  <p className="text-sm text-lydian-text-muted">
+                  <p className="text-sm text-gray-300">
                     {selectedFareClass === 'economy' && `${flight.seatsAvailable.economy} ekonomi koltuk`}
                     {selectedFareClass === 'business' && `${flight.seatsAvailable.business} business koltuk`}
                     {selectedFareClass === 'first' && `${flight.seatsAvailable.first} first class koltuk`}

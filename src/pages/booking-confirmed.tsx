@@ -132,10 +132,10 @@ END:VCALENDAR`;
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-lydian-glass-dark">
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-black to-slate-800">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#00BAFF] mx-auto"></div>
-          <p className="mt-4 text-lydian-text-dim">Loading your booking details...</p>
+          <p className="mt-4 text-gray-400">Loading your booking details...</p>
         </div>
       </div>
     );
@@ -143,9 +143,9 @@ END:VCALENDAR`;
 
   if (!booking) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-lydian-glass-dark">
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-black to-slate-800">
         <div className="text-center">
-          <p className="text-lydian-text-dim">Booking not found</p>
+          <p className="text-gray-400">Booking not found</p>
           <Link href="/" className="text-[#00BAFF] hover:underline mt-4 inline-block">
             Go to Home
           </Link>
@@ -163,7 +163,7 @@ END:VCALENDAR`;
 
       <ModernHeader />
 
-      <div className="min-h-screen bg-lydian-glass-dark py-12">
+      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-black to-slate-800 py-12">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Success Animation */}
           <motion.div
@@ -192,7 +192,7 @@ END:VCALENDAR`;
                   className="absolute inset-0 bg-gradient-to-r from-green-400 to-emerald-500 rounded-full blur-2xl opacity-50"
                 />
                 <div className="relative w-24 h-24 bg-gradient-to-r from-green-400 to-emerald-500 rounded-full flex items-center justify-center shadow-lg shadow-green-500/50">
-                  <CheckCircle className="w-16 h-16 text-lydian-text-inverse" strokeWidth={2} />
+                  <CheckCircle className="w-16 h-16 text-white" strokeWidth={2} />
                 </div>
               </div>
             </motion.div>
@@ -201,7 +201,7 @@ END:VCALENDAR`;
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="text-4xl md:text-5xl font-bold text-lydian-text-inverse mb-4"
+              className="text-4xl md:text-5xl font-bold text-white mb-4"
             >
               Booking Confirmed!
             </motion.h1>
@@ -210,7 +210,7 @@ END:VCALENDAR`;
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              className="text-xl text-lydian-text-dim mb-2"
+              className="text-xl text-gray-400 mb-2"
             >
               Your adventure awaits
             </motion.p>
@@ -222,7 +222,7 @@ END:VCALENDAR`;
               className="inline-flex items-center gap-2 px-6 py-3 bg-lydian-bg/10 backdrop-blur-xl border border-white/20 rounded-full shadow-lg"
             >
               <Sparkles className="w-5 h-5 text-yellow-400" />
-              <span className="font-semibold text-lydian-text-inverse">
+              <span className="font-semibold text-white">
                 Confirmation sent to your email
               </span>
               <Mail className="w-5 h-5 text-[#00BAFF]" />
@@ -237,7 +237,7 @@ END:VCALENDAR`;
             className="bg-lydian-bg/10 backdrop-blur-xl rounded-2xl shadow-xl border border-white/10 p-8 mb-6"
           >
             <div className="text-center mb-6">
-              <p className="text-sm text-lydian-text-muted mb-2">Your Booking Reference</p>
+              <p className="text-sm text-gray-300 mb-2">Your Booking Reference</p>
               <div className="flex items-center justify-center gap-3">
                 <h2 className="text-3xl font-bold text-[#00BAFF] font-mono">
                   {booking.bookingReference}
@@ -250,11 +250,11 @@ END:VCALENDAR`;
                   {copied ? (
                     <CheckCircle className="w-5 h-5 text-green-400" />
                   ) : (
-                    <FileText className="w-5 h-5 text-lydian-text-muted" />
+                    <FileText className="w-5 h-5 text-gray-300" />
                   )}
                 </button>
               </div>
-              <p className="text-xs text-lydian-text-muted mt-2">
+              <p className="text-xs text-gray-300 mt-2">
                 Please save this reference number for your records
               </p>
             </div>
@@ -296,26 +296,26 @@ END:VCALENDAR`;
             transition={{ delay: 0.7 }}
             className="bg-lydian-bg/10 backdrop-blur-xl rounded-2xl shadow-xl border border-white/10 p-8 mb-6"
           >
-            <h3 className="text-2xl font-bold text-lydian-text-inverse mb-6">Booking Details</h3>
+            <h3 className="text-2xl font-bold text-white mb-6">Booking Details</h3>
 
             <div className="space-y-4">
               {/* Items */}
               {booking.metaData?.items?.map((item: any, index: number) => (
                 <div
                   key={index}
-                  className="flex justify-between items-start p-4 bg-lydian-bg/5 backdrop-blur-xl rounded-xl border border-white/10"
+                  className="flex justify-between items-start p-4 bg-white/5 backdrop-blur-xl rounded-xl border border-white/10"
                 >
                   <div>
-                    <p className="font-semibold text-lydian-text-inverse">{item.title}</p>
-                    <p className="text-sm text-lydian-text-dim">{item.guests} guests</p>
+                    <p className="font-semibold text-white">{item.title}</p>
+                    <p className="text-sm text-gray-400">{item.guests} guests</p>
                   </div>
-                  <span className="font-bold text-lydian-text-inverse">{item.price} TRY</span>
+                  <span className="font-bold text-white">{item.price} TRY</span>
                 </div>
               ))}
 
               {/* Summary */}
               <div className="border-t border-white/10 pt-4 space-y-3">
-                <div className="flex items-center gap-3 text-lydian-text-dim">
+                <div className="flex items-center gap-3 text-gray-400">
                   <Calendar className="w-5 h-5 text-[#00BAFF]" />
                   <span className="font-medium">Check-in:</span>
                   <span>
@@ -331,7 +331,7 @@ END:VCALENDAR`;
                 </div>
 
                 {booking.checkOutDate && (
-                  <div className="flex items-center gap-3 text-lydian-text-dim">
+                  <div className="flex items-center gap-3 text-gray-400">
                     <Calendar className="w-5 h-5 text-[#00BAFF]" />
                     <span className="font-medium">Check-out:</span>
                     <span>
@@ -345,13 +345,13 @@ END:VCALENDAR`;
                   </div>
                 )}
 
-                <div className="flex items-center gap-3 text-lydian-text-dim">
+                <div className="flex items-center gap-3 text-gray-400">
                   <Users className="w-5 h-5 text-[#EC4899]" />
                   <span className="font-medium">Guests:</span>
                   <span>{booking.guestCount} people</span>
                 </div>
 
-                <div className="flex items-center gap-3 text-lydian-text-dim">
+                <div className="flex items-center gap-3 text-gray-400">
                   <CreditCard className="w-5 h-5 text-green-400" />
                   <span className="font-medium">Total Paid:</span>
                   <span className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-500">
@@ -375,10 +375,10 @@ END:VCALENDAR`;
                   <Gift className="w-8 h-8 text-[#FF9500]" />
                 </div>
                 <div>
-                  <h4 className="text-2xl font-bold mb-1 text-lydian-text-inverse">
+                  <h4 className="text-2xl font-bold mb-1 text-white">
                     Congratulations!
                   </h4>
-                  <p className="text-lydian-text-dim">
+                  <p className="text-gray-400">
                     You earned loyalty points with this booking
                   </p>
                 </div>
@@ -387,7 +387,7 @@ END:VCALENDAR`;
                 <p className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#FF9500] to-[#EC4899]">
                   {Math.floor(booking.totalAmount * 0.1)}
                 </p>
-                <p className="text-lydian-text-dim text-sm">Points</p>
+                <p className="text-gray-400 text-sm">Points</p>
               </div>
             </div>
           </motion.div>
@@ -402,10 +402,10 @@ END:VCALENDAR`;
             <div className="flex items-start gap-4">
               <Mail className="w-6 h-6 text-[#00BAFF] flex-shrink-0 mt-1" />
               <div>
-                <h4 className="font-semibold text-lydian-text-inverse mb-2">
+                <h4 className="font-semibold text-white mb-2">
                   Email Confirmation Sent
                 </h4>
-                <p className="text-lydian-text-dim text-sm leading-relaxed">
+                <p className="text-gray-400 text-sm leading-relaxed">
                   A detailed confirmation email has been sent to your registered email address. Please
                   check your inbox (and spam folder) for complete booking details, important
                   information, and next steps for your journey.
@@ -421,39 +421,39 @@ END:VCALENDAR`;
             transition={{ delay: 1.0 }}
             className="bg-lydian-bg/10 backdrop-blur-xl rounded-2xl shadow-xl border border-white/10 p-8 mb-6"
           >
-            <h3 className="text-2xl font-bold text-lydian-text-inverse mb-6">What's Next?</h3>
+            <h3 className="text-2xl font-bold text-white mb-6">What's Next?</h3>
             <div className="space-y-4">
               <div className="flex items-start gap-4">
-                <div className="w-8 h-8 bg-gradient-to-r from-[#667EEA] to-[#00BAFF] text-lydian-text-inverse rounded-full flex items-center justify-center font-bold flex-shrink-0">
+                <div className="w-8 h-8 bg-gradient-to-r from-[#667EEA] to-[#00BAFF] text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">
                   1
                 </div>
                 <div>
-                  <p className="font-semibold text-lydian-text-inverse">Check Your Email</p>
-                  <p className="text-sm text-lydian-text-dim">
+                  <p className="font-semibold text-white">Check Your Email</p>
+                  <p className="text-sm text-gray-400">
                     Review your booking details and save important documents
                   </p>
                 </div>
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-8 h-8 bg-gradient-to-r from-[#EC4899] to-[#FF9500] text-lydian-text-inverse rounded-full flex items-center justify-center font-bold flex-shrink-0">
+                <div className="w-8 h-8 bg-gradient-to-r from-[#EC4899] to-[#FF9500] text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">
                   2
                 </div>
                 <div>
-                  <p className="font-semibold text-lydian-text-inverse">Prepare for Your Trip</p>
-                  <p className="text-sm text-lydian-text-dim">
+                  <p className="font-semibold text-white">Prepare for Your Trip</p>
+                  <p className="text-sm text-gray-400">
                     Check travel requirements, weather, and pack accordingly
                   </p>
                 </div>
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-8 h-8 bg-gradient-to-r from-green-400 to-emerald-500 text-lydian-text-inverse rounded-full flex items-center justify-center font-bold flex-shrink-0">
+                <div className="w-8 h-8 bg-gradient-to-r from-green-400 to-emerald-500 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">
                   3
                 </div>
                 <div>
-                  <p className="font-semibold text-lydian-text-inverse">Arrive and Enjoy</p>
-                  <p className="text-sm text-lydian-text-dim">
+                  <p className="font-semibold text-white">Arrive and Enjoy</p>
+                  <p className="text-sm text-gray-400">
                     Present your booking reference at check-in and enjoy your experience
                   </p>
                 </div>
@@ -493,7 +493,7 @@ END:VCALENDAR`;
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.2 }}
-            className="text-center mt-8 text-sm text-lydian-text-dim"
+            className="text-center mt-8 text-sm text-gray-400"
           >
             <p>Need help? Contact our 24/7 support team at support@holiday.ailydian.com</p>
           </motion.div>

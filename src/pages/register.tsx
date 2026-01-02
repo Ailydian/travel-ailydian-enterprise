@@ -105,7 +105,7 @@ export default function Register() {
         {/* Return to Home Button */}
         <Link
           href="/"
-          className="fixed top-6 left-6 z-50 flex items-center gap-2 px-4 py-2 bg-lydian-bg/10 backdrop-blur-xl rounded-xl border border-white/20 text-lydian-text-inverse hover:bg-lydian-bg/20 transition-all duration-200"
+          className="fixed top-6 left-6 z-50 flex items-center gap-2 px-4 py-2 bg-lydian-bg/10 backdrop-blur-xl rounded-xl border border-white/20 text-white hover:bg-lydian-bg/20 transition-all duration-200"
         >
           <ArrowLeft className="w-4 h-4" />
           <span className="font-medium">Ana Sayfaya Dön</span>
@@ -123,17 +123,17 @@ export default function Register() {
               <Link href="/" className="inline-block mb-6">
                 <div className="flex items-center justify-center space-x-3">
                   <div className="w-12 h-12 bg-gradient-to-r from-[#667EEA] to-[#764BA2] rounded-xl flex items-center justify-center">
-                    <span className="text-lydian-text-inverse font-bold text-xl">A</span>
+                    <span className="text-white font-bold text-xl">A</span>
                   </div>
                   <div>
-                    <h1 className="text-2xl font-bold text-lydian-text-inverse">AILYDIAN Holiday</h1>
-                    <p className="text-xs text-lydian-text-inverse/70">AI-Powered Enterprise</p>
+                    <h1 className="text-2xl font-bold text-white">AILYDIAN Holiday</h1>
+                    <p className="text-xs text-white/70">AI-Powered Enterprise</p>
                   </div>
                 </div>
               </Link>
 
-              <h2 className="text-3xl font-bold text-lydian-text-inverse mb-2">AILYDIAN Holiday'a Katılın</h2>
-              <p className="text-lydian-text-inverse/80">Ücretsiz hesap oluşturun ve avantajlardan yararlanın</p>
+              <h2 className="text-3xl font-bold text-white mb-2">AILYDIAN Holiday'a Katılın</h2>
+              <p className="text-white/80">Ücretsiz hesap oluşturun ve avantajlardan yararlanın</p>
             </motion.div>
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -217,7 +217,7 @@ export default function Register() {
                           <button
                             type="button"
                             onClick={() => setShowPassword(!showPassword)}
-                            className="absolute right-3 top-10 text-lydian-text-inverse/60 hover:text-lydian-text-inverse transition-colors"
+                            className="absolute right-3 top-10 text-white/60 hover:text-white transition-colors"
                           >
                             {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                           </button>
@@ -237,7 +237,7 @@ export default function Register() {
                           <button
                             type="button"
                             onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                            className="absolute right-3 top-10 text-lydian-text-inverse/60 hover:text-lydian-text-inverse transition-colors"
+                            className="absolute right-3 top-10 text-white/60 hover:text-white transition-colors"
                           >
                             {showConfirmPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                           </button>
@@ -256,9 +256,9 @@ export default function Register() {
                         />
 
                         <div className="w-full">
-                          <label className="block text-sm font-semibold text-lydian-text-inverse/70 mb-2 px-4">Cinsiyet</label>
+                          <label className="block text-sm font-semibold text-white/70 mb-2 px-4">Cinsiyet</label>
                           <select
-                            className="w-full px-4 py-3 bg-lydian-bg/10 backdrop-blur-xl border-2 border-white/30 rounded-2xl text-lydian-text-inverse outline-none transition-all duration-300 focus:border-[#667EEA] focus:ring-4 focus:ring-[#667EEA]/20"
+                            className="w-full px-4 py-3 bg-lydian-bg/10 backdrop-blur-xl border-2 border-white/30 rounded-2xl text-white outline-none transition-all duration-300 focus:border-[#667EEA] focus:ring-4 focus:ring-[#667EEA]/20"
                             value={formData.gender}
                             onChange={(e) => setFormData({ ...formData, gender: e.target.value })}
                           >
@@ -281,7 +281,7 @@ export default function Register() {
                             onChange={(e) => setFormData({ ...formData, terms: e.target.checked })}
                             className="mt-1 rounded border-white/30 bg-lydian-bg/10 text-[#667EEA] focus:ring-[#667EEA] focus:ring-offset-0"
                           />
-                          <label htmlFor="terms" className="ml-3 text-sm text-lydian-text-inverse/70">
+                          <label htmlFor="terms" className="ml-3 text-sm text-white/70">
                             <Link href="/terms" className="text-transparent bg-clip-text bg-gradient-to-r from-[#00BAFF] to-[#667EEA] hover:from-[#667EEA] hover:to-[#764BA2]">
                               Kullanım Şartları
                             </Link>
@@ -305,7 +305,7 @@ export default function Register() {
                             onChange={(e) => setFormData({ ...formData, newsletter: e.target.checked })}
                             className="mt-1 rounded border-white/30 bg-lydian-bg/10 text-[#667EEA] focus:ring-[#667EEA] focus:ring-offset-0"
                           />
-                          <label htmlFor="newsletter" className="ml-3 text-sm text-lydian-text-inverse/70">
+                          <label htmlFor="newsletter" className="ml-3 text-sm text-white/70">
                             Özel kampanya ve fırsatlardan haberdar olmak istiyorum
                           </label>
                         </div>
@@ -323,7 +323,7 @@ export default function Register() {
                     </form>
 
                     <div className="mt-6 text-center">
-                      <p className="text-lydian-text-inverse/70">
+                      <p className="text-white/70">
                         Zaten hesabınız var mı?{' '}
                         <Link
                           href="/login"
@@ -346,7 +346,7 @@ export default function Register() {
                   categoryColor="var(--lydian-success)"
                 >
                   <div className="p-6 text-center">
-                    <h3 className="text-xl font-bold text-lydian-text-inverse mb-4">Üye Avantajları</h3>
+                    <h3 className="text-xl font-bold text-white mb-4">Üye Avantajları</h3>
                     <div className="space-y-3 text-left">
                       {[
                         'Özel indirimlerden yararlanın',
@@ -368,7 +368,7 @@ export default function Register() {
                               <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                             </svg>
                           </div>
-                          <span className="text-sm text-lydian-text-inverse/80">{benefit}</span>
+                          <span className="text-sm text-white/80">{benefit}</span>
                         </motion.div>
                       ))}
                     </div>
@@ -382,13 +382,13 @@ export default function Register() {
                   categoryColor="#667EEA"
                 >
                   <div className="p-6">
-                    <h3 className="text-lg font-bold text-lydian-text-inverse mb-2">Güvenliğiniz Önceliğimiz</h3>
-                    <p className="text-sm text-lydian-text-inverse/70 mb-4">
+                    <h3 className="text-lg font-bold text-white mb-2">Güvenliğiniz Önceliğimiz</h3>
+                    <p className="text-sm text-white/70 mb-4">
                       Kişisel bilgileriniz SSL şifreleme ile korunur ve blockchain teknolojisi
                       ile güvence altına alınır. KVKK uyumlu veri politikamız gereği
                       verileriniz asla üçüncü taraflarla paylaşılmaz.
                     </p>
-                    <div className="flex flex-wrap gap-2 text-xs text-lydian-text-inverse/60">
+                    <div className="flex flex-wrap gap-2 text-xs text-white/60">
                       <span className="bg-lydian-bg/10 px-2 py-1 rounded-lg">SSL Şifreleme</span>
                       <span className="bg-lydian-bg/10 px-2 py-1 rounded-lg">KVKK Uyumlu</span>
                       <span className="bg-lydian-bg/10 px-2 py-1 rounded-lg">Blockchain Güvenlik</span>

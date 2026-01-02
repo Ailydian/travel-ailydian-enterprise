@@ -52,7 +52,7 @@ export default function PaymentCheckoutPage() {
           </p>
           <button
             onClick={() => router.back()}
-            className="w-full bg-lydian-primary hover:bg-lydian-primary-hover text-lydian-text-inverse font-semibold py-3 px-6 rounded-lg"
+            className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:bg-lydian-primary-hover text-white font-semibold py-3 px-6 rounded-lg"
           >
             Go Back
           </button>
@@ -104,10 +104,10 @@ export default function PaymentCheckoutPage() {
                 <span className="font-medium">{email}</span>
               </div>
 
-              <div className="pt-3 border-t border-lydian-border">
+              <div className="pt-3 border-t border-white/20">
                 <div className="flex justify-between items-center">
                   <span className="text-lg font-semibold text-lydian-text">Total:</span>
-                  <span className="text-2xl font-bold text-lydian-primary">
+                  <span className="text-2xl font-bold text-blue-500">
                     ${parseFloat(amount as string).toFixed(2)}
                   </span>
                 </div>
@@ -133,7 +133,7 @@ export default function PaymentCheckoutPage() {
           </div>
 
           {/* Security Notice */}
-          <div className="mt-6 text-center text-sm text-lydian-text-muted">
+          <div className="mt-6 text-center text-sm text-gray-300">
             <p>
               Your payment information is encrypted and secured by Stripe.
               <br />

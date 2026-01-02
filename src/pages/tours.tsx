@@ -147,11 +147,11 @@ const allComprehensiveTours = [
 const tours = allComprehensiveTours;
 
 const categories = [
-{ id: 'all', name: 'Tümü', icon: Globe, color: 'from-lydian-primary to-lydian-secondary' },
+{ id: 'all', name: 'Tümü', icon: Globe, color: 'from-blue-600 to-purple-700' },
 { id: 'cultural', name: 'Kültürel', icon: Camera, color: 'from-lydian-info to-lydian-info-hover' },
-{ id: 'adventure', name: 'Macera', icon: Zap, color: 'from-lydian-warning to-lydian-primary' },
+{ id: 'adventure', name: 'Macera', icon: Zap, color: 'from-lydian-warning to-purple-600' },
 { id: 'nature', name: 'Doğa', icon: MapPin, color: 'from-lydian-success to-lydian-success-hover' },
-{ id: 'culinary', name: 'Gastronomi', icon: Utensils, color: 'from-lydian-accent-purple to-lydian-primary' }];
+{ id: 'culinary', name: 'Gastronomi', icon: Utensils, color: 'from-lydian-accent-purple to-purple-600' }];
 
 
 const difficulties = ['Tümü', 'Kolay', 'Orta', 'Zor'];
@@ -305,13 +305,13 @@ export default function Tours() {
 
   const getBadgeColor = (badge: string) => {
     const colors: any = {
-      'Popüler': 'from-lydian-primary to-lydian-secondary',
+      'Popüler': 'from-blue-600 to-purple-700',
       'En Çok Satan': 'from-lydian-warning to-lydian-warning-hover',
       'Kültür': 'from-lydian-info to-lydian-info-hover',
-      'Macera': 'from-lydian-warning to-lydian-primary',
+      'Macera': 'from-lydian-warning to-purple-600',
       'Doğa': 'from-lydian-success to-lydian-success-hover',
-      'Gastronomi': 'from-lydian-accent-purple to-lydian-primary',
-      'Keşif': 'from-lydian-accent-cyan to-lydian-info',
+      'Gastronomi': 'from-lydian-accent-purple to-purple-600',
+      'Keşif': 'from-cyan-600 to-lydian-info',
       'Tarih': 'from-lydian-info to-lydian-accent-purple'
     };
     return colors[badge] || 'from-lydian-text-muted to-lydian-text-dim';
@@ -423,31 +423,31 @@ export default function Tours() {
           {/* Stats Cards with Glassmorphism */}
           <div className="flex flex-wrap justify-center gap-6 mt-12">
             <motion.div
-              className="bg-lydian-glass-dark-medium backdrop-blur-xl border border-lydian-border-light rounded-3xl px-8 py-6 shadow-[0_8px_32px_0_rgba(31,38,135,0.2)]"
+              className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl px-8 py-6 shadow-[0_8px_32px_0_rgba(31,38,135,0.2)]"
               whileHover={{ scale: 1.05, y: -5 }}>
 
-              <div className="text-5xl font-black text-lydian-text-inverse mb-2">{tours.length}</div>
-              <div className="text-sm uppercase tracking-widest text-lydian-text-inverse/80">Benzersiz Tur</div>
+              <div className="text-5xl font-black text-white mb-2">{tours.length}</div>
+              <div className="text-sm uppercase tracking-widest text-white/80">Benzersiz Tur</div>
             </motion.div>
 
             <motion.div
-              className="bg-lydian-glass-dark-medium backdrop-blur-xl border border-lydian-border-light rounded-3xl px-8 py-6 shadow-[0_8px_32px_0_rgba(31,38,135,0.2)]"
+              className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl px-8 py-6 shadow-[0_8px_32px_0_rgba(31,38,135,0.2)]"
               whileHover={{ scale: 1.05, y: -5 }}>
 
-              <div className="text-5xl font-black text-lydian-text-inverse mb-2">
+              <div className="text-5xl font-black text-white mb-2">
                 {(tours.reduce((sum, tour) => sum + tour.rating, 0) / tours.length).toFixed(1)}
               </div>
-              <div className="text-sm uppercase tracking-widest text-lydian-text-inverse/80">Ortalama Puan</div>
+              <div className="text-sm uppercase tracking-widest text-white/80">Ortalama Puan</div>
             </motion.div>
 
             <motion.div
-              className="bg-lydian-glass-dark-medium backdrop-blur-xl border border-lydian-border-light rounded-3xl px-8 py-6 shadow-[0_8px_32px_0_rgba(31,38,135,0.2)]"
+              className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl px-8 py-6 shadow-[0_8px_32px_0_rgba(31,38,135,0.2)]"
               whileHover={{ scale: 1.05, y: -5 }}>
 
-              <div className="text-5xl font-black text-lydian-text-inverse mb-2">
+              <div className="text-5xl font-black text-white mb-2">
                 {tours.reduce((sum, tour) => sum + tour.reviews, 0).toLocaleString('tr-TR')}
               </div>
-              <div className="text-sm uppercase tracking-widest text-lydian-text-inverse/80">Mutlu Misafir</div>
+              <div className="text-sm uppercase tracking-widest text-white/80">Mutlu Misafir</div>
             </motion.div>
           </div>
         </NeoHero>
@@ -462,13 +462,13 @@ export default function Tours() {
           {/* Search Bar */}
           <div className="mb-8">
             <div className="relative max-w-2xl mx-auto">
-              <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 w-6 h-6 text-lydian-text-muted" />
+              <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 w-6 h-6 text-gray-400" />
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Tur, destinasyon veya aktivite ara..."
-                className="w-full pl-14 pr-4 py-4 border-2 border-lydian-border rounded-2xl text-lg focus:ring-2 focus:ring-lydian-primary focus:border-lydian-border shadow-lg hover:shadow-xl transition-all" />
+                className="w-full pl-14 pr-4 py-4 bg-white/10 backdrop-blur-xl border-2 border-white/20 rounded-2xl text-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-lg hover:shadow-xl transition-all" />
 
             </div>
           </div>
@@ -495,8 +495,8 @@ export default function Tours() {
                   whileTap={{ scale: 0.95 }}
                   className={`flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all shadow-lg ${
                   isActive ?
-                  `bg-gradient-to-r ${category.color} text-lydian-text-inverse shadow-neon` :
-                  'bg-lydian-glass-dark text-lydian-text-dim hover:shadow-xl border border-lydian-border'}`
+                  `bg-gradient-to-r ${category.color} text-white shadow-neon` :
+                  'bg-white/10 backdrop-blur-xl text-gray-400 hover:shadow-xl border border-white/20'}`
                   }>
 
                   <Icon className="w-5 h-5" />
@@ -513,7 +513,7 @@ export default function Tours() {
               <select
                 value={selectedDifficulty}
                 onChange={(e) => setSelectedDifficulty(e.target.value)}
-                className="px-4 py-2.5 bg-lydian-bg-hover border-2 border-lydian-border rounded-xl text-sm font-medium focus:ring-2 focus:ring-lydian-primary focus:border-lydian-border shadow-sm hover:shadow-md transition-all">
+                className="px-4 py-2.5 bg-white/5 backdrop-blur-xl border-2 border-white/20 rounded-xl text-sm font-medium text-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm hover:shadow-md transition-all">
 
                 {difficulties.map((diff) =>
                 <option key={diff} value={diff}>Zorluk: {diff}</option>
@@ -524,7 +524,7 @@ export default function Tours() {
               <select
                 value={selectedDuration}
                 onChange={(e) => setSelectedDuration(e.target.value)}
-                className="px-4 py-2.5 bg-lydian-bg-hover border-2 border-lydian-border rounded-xl text-sm font-medium focus:ring-2 focus:ring-lydian-primary focus:border-lydian-border shadow-sm hover:shadow-md transition-all">
+                className="px-4 py-2.5 bg-white/5 backdrop-blur-xl border-2 border-white/20 rounded-xl text-sm font-medium text-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm hover:shadow-md transition-all">
 
                 {durations.map((dur) =>
                 <option key={dur} value={dur}>Süre: {dur}</option>
@@ -533,7 +533,7 @@ export default function Tours() {
 
               {/* Active Filter Count */}
               {activeFilterCount > 0 &&
-              <div className="flex items-center gap-2 px-4 py-2.5 bg-lydian-primary/10 text-lydian-primary rounded-xl font-semibold">
+              <div className="flex items-center gap-2 px-4 py-2.5 bg-blue-500/10 text-blue-400 rounded-xl font-semibold">
                   <Filter className="w-4 h-4" />
                   <span>{activeFilterCount} Filtre Aktif</span>
                 </div>
@@ -542,11 +542,11 @@ export default function Tours() {
 
             {/* Sort */}
             <div className="flex items-center gap-3">
-              <span className="text-sm font-medium text-lydian-text-dim">Sırala:</span>
+              <span className="text-sm font-medium text-gray-400">Sırala:</span>
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
-                className="px-4 py-2.5 bg-lydian-bg-hover border-2 border-lydian-border rounded-xl text-sm font-medium focus:ring-2 focus:ring-lydian-primary focus:border-lydian-border shadow-sm hover:shadow-md transition-all">
+                className="px-4 py-2.5 bg-white/5 backdrop-blur-xl border-2 border-white/20 rounded-xl text-sm font-medium text-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm hover:shadow-md transition-all">
 
                 <option value="popularity">Popülerlik</option>
                 <option value="rating">Puan (Yüksek-Düşük)</option>
@@ -559,8 +559,8 @@ export default function Tours() {
 
           {/* Results Count */}
           <div className="text-center mb-8">
-            <p className="text-lg text-lydian-text-dim">
-              <span className="font-bold text-lydian-primary">{sortedTours.length}</span> tur bulundu
+            <p className="text-lg text-gray-400">
+              <span className="font-bold text-blue-400">{sortedTours.length}</span> tur bulundu
             </p>
           </div>
 
@@ -617,11 +617,11 @@ export default function Tours() {
             animate={{ opacity: 1, y: 0 }}
             className="text-center py-20">
 
-              <Camera className="w-32 h-32 text-lydian-text-dim mx-auto mb-6" />
-              <h2 className="text-3xl font-bold text-lydian-text-inverse mb-4">
+              <Camera className="w-32 h-32 text-gray-400 mx-auto mb-6" />
+              <h2 className="text-3xl font-bold text-white mb-4">
                 Aradığınız kriterlerde tur bulunamadı
               </h2>
-              <p className="text-lydian-text-dim mb-8 max-w-md mx-auto text-lg">
+              <p className="text-gray-400 mb-8 max-w-md mx-auto text-lg">
                 Arama kriterlerinizi değiştirerek tekrar deneyin
               </p>
               <button
@@ -632,7 +632,7 @@ export default function Tours() {
                 setSelectedDuration('Tümü');
                 setSelectedCountry(null);
               }}
-              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-lydian-primary to-lydian-secondary text-lydian-text-inverse rounded-xl font-bold hover:shadow-xl transition-all text-lg">
+              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-bold hover:shadow-xl transition-all text-lg">
 
                 Filtreleri Temizle
                 <ArrowRight className="w-5 h-5" />
@@ -649,14 +649,14 @@ export default function Tours() {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 50 }}
-          className="fixed bottom-8 right-8 z-[100] bg-gradient-to-r from-lydian-success to-lydian-success-hover text-lydian-text-inverse px-6 py-4 rounded-xl shadow-2xl flex items-center gap-4">
+          className="fixed bottom-8 right-8 z-[100] bg-gradient-to-r from-green-500 to-emerald-600 text-white px-6 py-4 rounded-xl shadow-2xl flex items-center gap-4">
 
             <CheckCircle className="w-6 h-6" />
             <span className="font-semibold">{toastMessage}</span>
             {toastMessage.includes('sepete eklendi') &&
           <button
             onClick={() => router.push('/cart')}
-            className="flex items-center gap-2 px-4 py-2 bg-lydian-bg-hover text-lydian-success rounded-lg font-semibold hover:bg-lydian-glass-dark-medium transition-colors ml-2">
+            className="flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-xl text-white rounded-lg font-semibold hover:bg-white/20 transition-colors ml-2">
 
                 <Eye className="w-4 h-4" />
                 Sepeti Gör

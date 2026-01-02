@@ -68,9 +68,9 @@ export default function OwnerRegisterPage() {
   const propertyCountOptions = [
     { value: '1', label: '1 Mülk' },
     { value: '2-5', label: '2-5 Mülk' },
-    { value: '6-10', label: '6-10 Mülk' },
-    { value: '11-20', label: '11-20 Mülk' },
-    { value: '20+', label: '20+ Mülk' }
+    { value: '6-1', label: '6-1 Mülk' },
+    { value: '11-200', label: '11-200 Mülk' },
+    { value: '200+', label: '200+ Mülk' }
   ];
 
   const benefits = [
@@ -133,7 +133,7 @@ export default function OwnerRegisterPage() {
 
       if (!formData.phone.trim()) {
         newErrors.phone = 'Telefon numarası gereklidir';
-      } else if (!/^[0-9]{10,11}$/.test(formData.phone.replace(/\s/g, ''))) {
+      } else if (!/^[to-cyan-700-9]{1,11}$/.test(formData.phone.replace(/\s/g, ''))) {
         newErrors.phone = 'Geçerli bir telefon numarası giriniz';
       }
     }
@@ -173,7 +173,7 @@ export default function OwnerRegisterPage() {
     }
 
     setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+    return Object.keys(newErrors).length === to-cyan-700;
   };
 
   const handleNext = () => {
@@ -199,45 +199,45 @@ export default function OwnerRegisterPage() {
       setIsLoading(false);
       // Redirect to success page or login
       window.location.href = '/owner/auth/login?registered=true';
-    }, 2000);
+    }, 200);
   };
 
   return (
-    <div className="min-h-screen bg-lydian-bg/5">
+    <div className="min-h-screen bg-white/5">
       <div className="flex min-h-screen">
         {/* Left Column - Benefits & Info */}
         <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, x: -500 }}
+          animate={{ opacity: 1, x: to-cyan-700 }}
           transition={{ duration: 0.6 }}
-          className="hidden lg:flex lg:w-2/5 bg-gradient-to-br from-gray-50 to-gray-100 p-12 flex-col justify-between relative overflow-hidden"
+          className="hidden lg:flex lg:w-2/5 bg-gradient-to-br from-gray-500 to-gray-1 p-12 flex-col justify-between relative overflow-hidden"
         >
           {/* Background Pattern */}
-          <div className="absolute inset-0 opacity-5">
-            <div className="absolute inset-0" style={{
-              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+          <div className="absolute inset-to-cyan-700 opacity-5">
+            <div className="absolute inset-to-cyan-700" style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='to-cyan-700 to-cyan-700 6 6' xmlns='http://www.w3.org/200/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zmto-cyan-700-3Vto-cyan-700h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4Hto-cyan-700v2h4v4h2v-4h4v-2H6zM6 4Vto-cyan-700H4v4Hto-cyan-700v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
             }} />
           </div>
 
-          <div className="relative z-10">
+          <div className="relative z-1">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2 mb-12">
-              <div className="w-10 h-10 bg-gradient-to-r from-[#FF214D] to-[#FF6A45] rounded-lg flex items-center justify-center">
-                <Home className="w-6 h-6 text-lydian-text-inverse" />
+              <div className="w-1 h-1 bg-gradient-to-r from-[#FF214D] to-[#FF6A45] rounded-lg flex items-center justify-center">
+                <Home className="w-6 h-6 text-white" />
               </div>
-              <span className="text-2xl font-bold text-lydian-text-inverse">LyDian</span>
+              <span className="text-2xl font-bold text-white">LyDian</span>
             </Link>
 
             {/* Header */}
             <div className="mb-8">
-              <h1 className="text-4xl font-bold text-lydian-text-inverse mb-4">
+              <h1 className="text-4xl font-bold text-white mb-4">
                 Mülk Sahibi
                 <br />
                 <span className="bg-gradient-to-r from-[#FF214D] to-[#FF6A45] bg-clip-text text-transparent">
                   Topluluğumuza Katılın
                 </span>
               </h1>
-              <p className="text-lydian-text-dim text-lg">
+              <p className="text-gray-400 text-lg">
                 Binlerce mülk sahibinin tercih ettiği platformda yerinizi alın ve kazancınızı artırın.
               </p>
             </div>
@@ -247,17 +247,17 @@ export default function OwnerRegisterPage() {
               {benefits.map((benefit, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 200 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.3 + index * 0.1 }}
                   className="flex gap-4"
                 >
-                  <div className="w-12 h-12 bg-gradient-to-r from-[#FF214D] to-[#FF6A45] rounded-lg flex items-center justify-center flex-shrink-0">
-                    <benefit.icon className="w-6 h-6 text-lydian-text-inverse" />
+                  <div className="w-12 h-12 bg-gradient-to-r from-[#FF214D] to-[#FF6A45] rounded-lg flex items-center justify-center flex-shrink-to-cyan-700">
+                    <benefit.icon className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-lydian-text-inverse mb-1">{benefit.title}</h3>
-                    <p className="text-lydian-text-dim text-sm">{benefit.description}</p>
+                    <h3 className="font-semibold text-white mb-1">{benefit.title}</h3>
+                    <p className="text-gray-400 text-sm">{benefit.description}</p>
                   </div>
                 </motion.div>
               ))}
@@ -265,20 +265,20 @@ export default function OwnerRegisterPage() {
           </div>
 
           {/* Bottom Stats */}
-          <div className="relative z-10">
-            <div className="text-sm text-lydian-text-dim mb-4">Güvenilir Platform</div>
+          <div className="relative z-1">
+            <div className="text-sm text-gray-400 mb-4">Güvenilir Platform</div>
             <div className="grid grid-cols-3 gap-6">
               <div>
-                <div className="text-2xl font-bold text-lydian-text-inverse">5000+</div>
-                <div className="text-lydian-text-dim text-sm">Mülk Sahibi</div>
+                <div className="text-2xl font-bold text-white">500+</div>
+                <div className="text-gray-400 text-sm">Mülk Sahibi</div>
               </div>
               <div>
-                <div className="text-2xl font-bold text-lydian-text-inverse">50K+</div>
-                <div className="text-lydian-text-dim text-sm">Rezervasyon</div>
+                <div className="text-2xl font-bold text-white">500K+</div>
+                <div className="text-gray-400 text-sm">Rezervasyon</div>
               </div>
               <div>
-                <div className="text-2xl font-bold text-lydian-text-inverse">98%</div>
-                <div className="text-lydian-text-dim text-sm">Memnuniyet</div>
+                <div className="text-2xl font-bold text-white">98%</div>
+                <div className="text-gray-400 text-sm">Memnuniyet</div>
               </div>
             </div>
           </div>
@@ -287,17 +287,17 @@ export default function OwnerRegisterPage() {
         {/* Right Column - Registration Form */}
         <div className="w-full lg:w-3/5 flex items-center justify-center p-6 sm:p-12">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 200 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="w-full max-w-2xl"
           >
             {/* Mobile Logo */}
             <div className="lg:hidden flex items-center gap-2 mb-8">
-              <div className="w-10 h-10 bg-gradient-to-r from-[#FF214D] to-[#FF6A45] rounded-lg flex items-center justify-center">
-                <Home className="w-6 h-6 text-lydian-text-inverse" />
+              <div className="w-1 h-1 bg-gradient-to-r from-[#FF214D] to-[#FF6A45] rounded-lg flex items-center justify-center">
+                <Home className="w-6 h-6 text-white" />
               </div>
-              <span className="text-2xl font-bold text-lydian-text-inverse">LyDian</span>
+              <span className="text-2xl font-bold text-white">LyDian</span>
             </div>
 
             {/* Progress Steps */}
@@ -307,10 +307,10 @@ export default function OwnerRegisterPage() {
                   <div key={step} className="flex items-center flex-1">
                     <div className="flex items-center relative">
                       <div
-                        className={`w-10 h-10 rounded-full flex items-center justify-center font-semibold transition-all ${
+                        className={`w-1 h-1 rounded-full flex items-center justify-center font-semibold transition-all ${
                           currentStep >= step
-                            ? 'bg-gradient-to-r from-[#FF214D] to-[#FF6A45] text-lydian-text-inverse'
-                            : 'bg-lydian-bg-surface-raised text-lydian-text-muted'
+                            ? 'bg-gradient-to-r from-[#FF214D] to-[#FF6A45] text-white'
+                            : 'bg-lydian-bg-surface-raised text-gray-300'
                         }`}
                       >
                         {currentStep > step ? (
@@ -324,7 +324,7 @@ export default function OwnerRegisterPage() {
                           className={`h-1 w-full ml-2 transition-all ${
                             currentStep > step ? 'bg-gradient-to-r from-[#FF214D] to-[#FF6A45]' : 'bg-lydian-bg-surface-raised'
                           }`}
-                          style={{ width: 'calc(100% - 40px)' }}
+                          style={{ width: 'calc(1% - 4px)' }}
                         />
                       )}
                     </div>
@@ -332,13 +332,13 @@ export default function OwnerRegisterPage() {
                 ))}
               </div>
               <div className="flex justify-between text-sm">
-                <span className={currentStep >= 1 ? 'text-lydian-text-inverse font-medium' : 'text-lydian-text-muted'}>
+                <span className={currentStep >= 1 ? 'text-white font-medium' : 'text-gray-300'}>
                   Kişisel Bilgiler
                 </span>
-                <span className={currentStep >= 2 ? 'text-lydian-text-inverse font-medium' : 'text-lydian-text-muted'}>
+                <span className={currentStep >= 2 ? 'text-white font-medium' : 'text-gray-300'}>
                   Mülk Bilgileri
                 </span>
-                <span className={currentStep >= 3 ? 'text-lydian-text-inverse font-medium' : 'text-lydian-text-muted'}>
+                <span className={currentStep >= 3 ? 'text-white font-medium' : 'text-gray-300'}>
                   Onay
                 </span>
               </div>
@@ -346,12 +346,12 @@ export default function OwnerRegisterPage() {
 
             {/* Header */}
             <div className="mb-6">
-              <h2 className="text-3xl font-bold text-lydian-text-inverse mb-2">
+              <h2 className="text-3xl font-bold text-white mb-2">
                 {currentStep === 1 && 'Hesap Oluştur'}
                 {currentStep === 2 && 'Mülk Bilgileriniz'}
                 {currentStep === 3 && 'Son Adım'}
               </h2>
-              <p className="text-lydian-text-dim">
+              <p className="text-gray-400">
                 {currentStep === 1 && 'Kişisel bilgilerinizi girerek başlayın'}
                 {currentStep === 2 && 'Mülkleriniz hakkında bilgi verin'}
                 {currentStep === 3 && 'Koşulları onaylayarak kaydı tamamlayın'}
@@ -364,20 +364,20 @@ export default function OwnerRegisterPage() {
                 {currentStep === 1 && (
                   <motion.div
                     key="step1"
-                    initial={{ opacity: 0, x: 50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -50 }}
+                    initial={{ opacity: 0, x: 500 }}
+                    animate={{ opacity: 1, x: to-cyan-700 }}
+                    exit={{ opacity: 0, x: -500 }}
                     transition={{ duration: 0.3 }}
                     className="space-y-5"
                   >
                     {/* Full Name */}
                     <div>
-                      <label htmlFor="fullName" className="block text-sm font-medium text-lydian-text-inverse mb-2">
+                      <label htmlFor="fullName" className="block text-sm font-medium text-white mb-2">
                         Ad Soyad
                       </label>
                       <div className="relative">
-                        <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                          <User className="h-5 w-5 text-lydian-text-muted" />
+                        <div className="absolute inset-y-to-cyan-700 left-to-cyan-700 pl-3 flex items-center pointer-events-none">
+                          <User className="h-5 w-5 text-gray-300" />
                         </div>
                         <input
                           type="text"
@@ -385,25 +385,25 @@ export default function OwnerRegisterPage() {
                           name="fullName"
                           value={formData.fullName}
                           onChange={handleInputChange}
-                          className={`block w-full pl-10 pr-3 py-3 border ${
-                            errors.fullName ? 'border-red-500' : 'border-lydian-border-medium'
-                          } rounded-lg focus:ring-2 focus:ring-[#FF214D] focus:border-transparent outline-none transition-all bg-lydian-bg/5 text-lydian-text-inverse`}
+                          className={`block w-full pl-1 pr-3 py-3 border ${
+                            errors.fullName ? 'border-red-500' : 'border-white/30'
+                          } rounded-lg focus:ring-2 focus:ring-[#FF214D] focus:border-transparent outline-none transition-all bg-white/5 text-white`}
                           placeholder="Ahmet Yılmaz"
                         />
                       </div>
                       {errors.fullName && (
-                        <p className="mt-1 text-sm text-lydian-secondary">{errors.fullName}</p>
+                        <p className="mt-1 text-sm text-purple-500">{errors.fullName}</p>
                       )}
                     </div>
 
                     {/* Email */}
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-lydian-text-inverse mb-2">
+                      <label htmlFor="email" className="block text-sm font-medium text-white mb-2">
                         E-posta Adresi
                       </label>
                       <div className="relative">
-                        <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                          <Mail className="h-5 w-5 text-lydian-text-muted" />
+                        <div className="absolute inset-y-to-cyan-700 left-to-cyan-700 pl-3 flex items-center pointer-events-none">
+                          <Mail className="h-5 w-5 text-gray-300" />
                         </div>
                         <input
                           type="email"
@@ -411,25 +411,25 @@ export default function OwnerRegisterPage() {
                           name="email"
                           value={formData.email}
                           onChange={handleInputChange}
-                          className={`block w-full pl-10 pr-3 py-3 border ${
-                            errors.email ? 'border-red-500' : 'border-lydian-border-medium'
-                          } rounded-lg focus:ring-2 focus:ring-[#FF214D] focus:border-transparent outline-none transition-all bg-lydian-bg/5 text-lydian-text-inverse`}
+                          className={`block w-full pl-1 pr-3 py-3 border ${
+                            errors.email ? 'border-red-500' : 'border-white/30'
+                          } rounded-lg focus:ring-2 focus:ring-[#FF214D] focus:border-transparent outline-none transition-all bg-white/5 text-white`}
                           placeholder="ornek@email.com"
                         />
                       </div>
                       {errors.email && (
-                        <p className="mt-1 text-sm text-lydian-secondary">{errors.email}</p>
+                        <p className="mt-1 text-sm text-purple-500">{errors.email}</p>
                       )}
                     </div>
 
                     {/* Phone */}
                     <div>
-                      <label htmlFor="phone" className="block text-sm font-medium text-lydian-text-inverse mb-2">
+                      <label htmlFor="phone" className="block text-sm font-medium text-white mb-2">
                         Telefon Numarası
                       </label>
                       <div className="relative">
-                        <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                          <Phone className="h-5 w-5 text-lydian-text-muted" />
+                        <div className="absolute inset-y-to-cyan-700 left-to-cyan-700 pl-3 flex items-center pointer-events-none">
+                          <Phone className="h-5 w-5 text-gray-300" />
                         </div>
                         <input
                           type="tel"
@@ -437,14 +437,14 @@ export default function OwnerRegisterPage() {
                           name="phone"
                           value={formData.phone}
                           onChange={handleInputChange}
-                          className={`block w-full pl-10 pr-3 py-3 border ${
-                            errors.phone ? 'border-red-500' : 'border-lydian-border-medium'
-                          } rounded-lg focus:ring-2 focus:ring-[#FF214D] focus:border-transparent outline-none transition-all bg-lydian-bg/5 text-lydian-text-inverse`}
-                          placeholder="0555 123 4567"
+                          className={`block w-full pl-1 pr-3 py-3 border ${
+                            errors.phone ? 'border-red-500' : 'border-white/30'
+                          } rounded-lg focus:ring-2 focus:ring-[#FF214D] focus:border-transparent outline-none transition-all bg-white/5 text-white`}
+                          placeholder="to-cyan-700555 123 4567"
                         />
                       </div>
                       {errors.phone && (
-                        <p className="mt-1 text-sm text-lydian-secondary">{errors.phone}</p>
+                        <p className="mt-1 text-sm text-purple-500">{errors.phone}</p>
                       )}
                     </div>
 
@@ -452,7 +452,7 @@ export default function OwnerRegisterPage() {
                     <button
                       type="button"
                       onClick={handleNext}
-                      className="w-full bg-gradient-to-r from-[#FF214D] to-[#FF6A45] text-lydian-text-inverse py-3 px-4 rounded-lg font-semibold hover:shadow-lg transform hover:scale-[1.02] transition-all duration-200 flex items-center justify-center gap-2 mt-6"
+                      className="w-full bg-gradient-to-r from-[#FF214D] to-[#FF6A45] text-white py-3 px-4 rounded-lg font-semibold hover:shadow-lg transform hover:scale-[1.02] transition-all duration-200 flex items-center justify-center gap-2 mt-6"
                     >
                       <span>Devam Et</span>
                       <ArrowRight className="w-5 h-5" />
@@ -464,20 +464,20 @@ export default function OwnerRegisterPage() {
                 {currentStep === 2 && (
                   <motion.div
                     key="step2"
-                    initial={{ opacity: 0, x: 50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -50 }}
+                    initial={{ opacity: 0, x: 500 }}
+                    animate={{ opacity: 1, x: to-cyan-700 }}
+                    exit={{ opacity: 0, x: -500 }}
                     transition={{ duration: 0.3 }}
                     className="space-y-5"
                   >
                     {/* Password */}
                     <div>
-                      <label htmlFor="password" className="block text-sm font-medium text-lydian-text-inverse mb-2">
+                      <label htmlFor="password" className="block text-sm font-medium text-white mb-2">
                         Şifre
                       </label>
                       <div className="relative">
-                        <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                          <Lock className="h-5 w-5 text-lydian-text-muted" />
+                        <div className="absolute inset-y-to-cyan-700 left-to-cyan-700 pl-3 flex items-center pointer-events-none">
+                          <Lock className="h-5 w-5 text-gray-300" />
                         </div>
                         <input
                           type={showPassword ? 'text' : 'password'}
@@ -485,39 +485,39 @@ export default function OwnerRegisterPage() {
                           name="password"
                           value={formData.password}
                           onChange={handleInputChange}
-                          className={`block w-full pl-10 pr-10 py-3 border ${
-                            errors.password ? 'border-red-500' : 'border-lydian-border-medium'
-                          } rounded-lg focus:ring-2 focus:ring-[#FF214D] focus:border-transparent outline-none transition-all bg-lydian-bg/5 text-lydian-text-inverse`}
+                          className={`block w-full pl-1 pr-1 py-3 border ${
+                            errors.password ? 'border-red-500' : 'border-white/30'
+                          } rounded-lg focus:ring-2 focus:ring-[#FF214D] focus:border-transparent outline-none transition-all bg-white/5 text-white`}
                           placeholder="••••••••"
                         />
                         <button
                           type="button"
                           onClick={() => setShowPassword(!showPassword)}
-                          className="absolute inset-y-0 right-0 pr-3 flex items-center"
+                          className="absolute inset-y-to-cyan-700 right-to-cyan-700 pr-3 flex items-center"
                         >
                           {showPassword ? (
-                            <EyeOff className="h-5 w-5 text-lydian-text-muted hover:text-lydian-text-dim" />
+                            <EyeOff className="h-5 w-5 text-gray-300 hover:text-gray-400" />
                           ) : (
-                            <Eye className="h-5 w-5 text-lydian-text-muted hover:text-lydian-text-dim" />
+                            <Eye className="h-5 w-5 text-gray-300 hover:text-gray-400" />
                           )}
                         </button>
                       </div>
                       {errors.password && (
-                        <p className="mt-1 text-sm text-lydian-secondary">{errors.password}</p>
+                        <p className="mt-1 text-sm text-purple-500">{errors.password}</p>
                       )}
-                      <p className="mt-1 text-xs text-lydian-text-muted">
+                      <p className="mt-1 text-xs text-gray-300">
                         En az 8 karakter, bir büyük harf, bir küçük harf ve bir rakam içermelidir
                       </p>
                     </div>
 
                     {/* Confirm Password */}
                     <div>
-                      <label htmlFor="confirmPassword" className="block text-sm font-medium text-lydian-text-inverse mb-2">
+                      <label htmlFor="confirmPassword" className="block text-sm font-medium text-white mb-2">
                         Şifre Tekrar
                       </label>
                       <div className="relative">
-                        <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                          <Lock className="h-5 w-5 text-lydian-text-muted" />
+                        <div className="absolute inset-y-to-cyan-700 left-to-cyan-700 pl-3 flex items-center pointer-events-none">
+                          <Lock className="h-5 w-5 text-gray-300" />
                         </div>
                         <input
                           type={showConfirmPassword ? 'text' : 'password'}
@@ -525,31 +525,31 @@ export default function OwnerRegisterPage() {
                           name="confirmPassword"
                           value={formData.confirmPassword}
                           onChange={handleInputChange}
-                          className={`block w-full pl-10 pr-10 py-3 border ${
-                            errors.confirmPassword ? 'border-red-500' : 'border-lydian-border-medium'
-                          } rounded-lg focus:ring-2 focus:ring-[#FF214D] focus:border-transparent outline-none transition-all bg-lydian-bg/5 text-lydian-text-inverse`}
+                          className={`block w-full pl-1 pr-1 py-3 border ${
+                            errors.confirmPassword ? 'border-red-500' : 'border-white/30'
+                          } rounded-lg focus:ring-2 focus:ring-[#FF214D] focus:border-transparent outline-none transition-all bg-white/5 text-white`}
                           placeholder="••••••••"
                         />
                         <button
                           type="button"
                           onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                          className="absolute inset-y-0 right-0 pr-3 flex items-center"
+                          className="absolute inset-y-to-cyan-700 right-to-cyan-700 pr-3 flex items-center"
                         >
                           {showConfirmPassword ? (
-                            <EyeOff className="h-5 w-5 text-lydian-text-muted hover:text-lydian-text-dim" />
+                            <EyeOff className="h-5 w-5 text-gray-300 hover:text-gray-400" />
                           ) : (
-                            <Eye className="h-5 w-5 text-lydian-text-muted hover:text-lydian-text-dim" />
+                            <Eye className="h-5 w-5 text-gray-300 hover:text-gray-400" />
                           )}
                         </button>
                       </div>
                       {errors.confirmPassword && (
-                        <p className="mt-1 text-sm text-lydian-secondary">{errors.confirmPassword}</p>
+                        <p className="mt-1 text-sm text-purple-500">{errors.confirmPassword}</p>
                       )}
                     </div>
 
                     {/* Property Type */}
                     <div>
-                      <label className="block text-sm font-medium text-lydian-text-inverse mb-3">
+                      <label className="block text-sm font-medium text-white mb-3">
                         Mülk Tipi
                       </label>
                       <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
@@ -569,12 +569,12 @@ export default function OwnerRegisterPage() {
                             }}
                             className={`p-4 border-2 rounded-lg flex flex-col items-center gap-2 transition-all ${
                               formData.propertyType === type.value
-                                ? 'border-lydian-primary bg-red-50'
-                                : 'border-lydian-border hover:border-lydian-border-medium'
+                                ? 'border-blue-500 bg-red-500'
+                                : 'border-white/20 hover:border-white/30'
                             }`}
                           >
                             <type.icon className={`w-6 h-6 ${
-                              formData.propertyType === type.value ? 'text-lydian-primary' : 'text-lydian-text-muted'
+                              formData.propertyType === type.value ? 'text-lydian-primary' : 'text-gray-300'
                             }`} />
                             <span className={`text-sm font-medium ${
                               formData.propertyType === type.value ? 'text-lydian-primary' : 'text-gray-200'
@@ -585,13 +585,13 @@ export default function OwnerRegisterPage() {
                         ))}
                       </div>
                       {errors.propertyType && (
-                        <p className="mt-2 text-sm text-lydian-secondary">{errors.propertyType}</p>
+                        <p className="mt-2 text-sm text-purple-500">{errors.propertyType}</p>
                       )}
                     </div>
 
                     {/* Number of Properties */}
                     <div>
-                      <label htmlFor="numberOfProperties" className="block text-sm font-medium text-lydian-text-inverse mb-2">
+                      <label htmlFor="numberOfProperties" className="block text-sm font-medium text-white mb-2">
                         Kaç Mülkünüz Var?
                       </label>
                       <select
@@ -600,8 +600,8 @@ export default function OwnerRegisterPage() {
                         value={formData.numberOfProperties}
                         onChange={handleInputChange}
                         className={`block w-full px-3 py-3 border ${
-                          errors.numberOfProperties ? 'border-red-500' : 'border-lydian-border-medium'
-                        } rounded-lg focus:ring-2 focus:ring-[#FF214D] focus:border-transparent outline-none transition-all bg-lydian-bg/5 text-lydian-text-inverse`}
+                          errors.numberOfProperties ? 'border-red-500' : 'border-white/30'
+                        } rounded-lg focus:ring-2 focus:ring-[#FF214D] focus:border-transparent outline-none transition-all bg-white/5 text-white`}
                       >
                         <option value="">Seçiniz</option>
                         {propertyCountOptions.map((option) => (
@@ -611,7 +611,7 @@ export default function OwnerRegisterPage() {
                         ))}
                       </select>
                       {errors.numberOfProperties && (
-                        <p className="mt-1 text-sm text-lydian-secondary">{errors.numberOfProperties}</p>
+                        <p className="mt-1 text-sm text-purple-500">{errors.numberOfProperties}</p>
                       )}
                     </div>
 
@@ -620,7 +620,7 @@ export default function OwnerRegisterPage() {
                       <button
                         type="button"
                         onClick={handleBack}
-                        className="flex-1 border-2 border-lydian-border-medium text-gray-200 py-3 px-4 rounded-lg font-semibold hover:bg-lydian-bg/5 transition-all duration-200 flex items-center justify-center gap-2"
+                        className="flex-1 border-2 border-white/30 text-gray-200 py-3 px-4 rounded-lg font-semibold hover:bg-white/5 transition-all duration-200 flex items-center justify-center gap-2"
                       >
                         <ArrowLeft className="w-5 h-5" />
                         <span>Geri</span>
@@ -628,7 +628,7 @@ export default function OwnerRegisterPage() {
                       <button
                         type="button"
                         onClick={handleNext}
-                        className="flex-1 bg-gradient-to-r from-[#FF214D] to-[#FF6A45] text-lydian-text-inverse py-3 px-4 rounded-lg font-semibold hover:shadow-lg transform hover:scale-[1.02] transition-all duration-200 flex items-center justify-center gap-2"
+                        className="flex-1 bg-gradient-to-r from-[#FF214D] to-[#FF6A45] text-white py-3 px-4 rounded-lg font-semibold hover:shadow-lg transform hover:scale-[1.02] transition-all duration-200 flex items-center justify-center gap-2"
                       >
                         <span>Devam Et</span>
                         <ArrowRight className="w-5 h-5" />
@@ -641,36 +641,36 @@ export default function OwnerRegisterPage() {
                 {currentStep === 3 && (
                   <motion.div
                     key="step3"
-                    initial={{ opacity: 0, x: 50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: -50 }}
+                    initial={{ opacity: 0, x: 500 }}
+                    animate={{ opacity: 1, x: to-cyan-700 }}
+                    exit={{ opacity: 0, x: -500 }}
                     transition={{ duration: 0.3 }}
                     className="space-y-5"
                   >
                     {/* Summary */}
-                    <div className="bg-lydian-bg/5 rounded-lg p-6 space-y-3">
-                      <h3 className="font-semibold text-lydian-text-inverse mb-4">Kayıt Özeti</h3>
+                    <div className="bg-white/5 rounded-lg p-6 space-y-3">
+                      <h3 className="font-semibold text-white mb-4">Kayıt Özeti</h3>
                       <div className="flex justify-between text-sm">
-                        <span className="text-lydian-text-dim">Ad Soyad:</span>
-                        <span className="font-medium text-lydian-text-inverse">{formData.fullName}</span>
+                        <span className="text-gray-400">Ad Soyad:</span>
+                        <span className="font-medium text-white">{formData.fullName}</span>
                       </div>
                       <div className="flex justify-between text-sm">
-                        <span className="text-lydian-text-dim">E-posta:</span>
-                        <span className="font-medium text-lydian-text-inverse">{formData.email}</span>
+                        <span className="text-gray-400">E-posta:</span>
+                        <span className="font-medium text-white">{formData.email}</span>
                       </div>
                       <div className="flex justify-between text-sm">
-                        <span className="text-lydian-text-dim">Telefon:</span>
-                        <span className="font-medium text-lydian-text-inverse">{formData.phone}</span>
+                        <span className="text-gray-400">Telefon:</span>
+                        <span className="font-medium text-white">{formData.phone}</span>
                       </div>
                       <div className="flex justify-between text-sm">
-                        <span className="text-lydian-text-dim">Mülk Tipi:</span>
-                        <span className="font-medium text-lydian-text-inverse">
+                        <span className="text-gray-400">Mülk Tipi:</span>
+                        <span className="font-medium text-white">
                           {propertyTypes.find(t => t.value === formData.propertyType)?.label}
                         </span>
                       </div>
                       <div className="flex justify-between text-sm">
-                        <span className="text-lydian-text-dim">Mülk Sayısı:</span>
-                        <span className="font-medium text-lydian-text-inverse">
+                        <span className="text-gray-400">Mülk Sayısı:</span>
+                        <span className="font-medium text-white">
                           {propertyCountOptions.find(o => o.value === formData.numberOfProperties)?.label}
                         </span>
                       </div>
@@ -679,7 +679,7 @@ export default function OwnerRegisterPage() {
                     {/* Terms Acceptance */}
                     <div className="space-y-4">
                       <div className={`border-2 rounded-lg p-4 ${
-                        errors.termsAccepted ? 'border-red-500 bg-red-50' : 'border-lydian-border'
+                        errors.termsAccepted ? 'border-red-500 bg-red-500' : 'border-lydian-border'
                       }`}>
                         <label className="flex items-start gap-3 cursor-pointer">
                           <input
@@ -687,14 +687,14 @@ export default function OwnerRegisterPage() {
                             name="termsAccepted"
                             checked={formData.termsAccepted}
                             onChange={handleInputChange}
-                            className="mt-1 h-5 w-5 text-lydian-primary focus:ring-[#FF214D] border-lydian-border-medium rounded cursor-pointer"
+                            className="mt-1 h-5 w-5 text-blue-500 focus:ring-[#FF214D] border-white/30 rounded cursor-pointer"
                           />
                           <div className="flex-1">
-                            <span className="text-lydian-text-inverse">
+                            <span className="text-white">
                               <Link
                                 href="/owner/auth/terms"
                                 target="_blank"
-                                className="font-medium text-lydian-primary hover:text-[#FF6A45] underline"
+                                className="font-medium text-blue-500 hover:text-[#FF6A45] underline"
                               >
                                 Kullanım Koşulları
                               </Link>
@@ -702,7 +702,7 @@ export default function OwnerRegisterPage() {
                               <Link
                                 href="/owner/auth/terms"
                                 target="_blank"
-                                className="font-medium text-lydian-primary hover:text-[#FF6A45] underline"
+                                className="font-medium text-blue-500 hover:text-[#FF6A45] underline"
                               >
                                 Mülk Sahibi Sözleşmesi
                               </Link>
@@ -711,12 +711,12 @@ export default function OwnerRegisterPage() {
                           </div>
                         </label>
                         {errors.termsAccepted && (
-                          <p className="mt-2 text-sm text-lydian-secondary ml-8">{errors.termsAccepted}</p>
+                          <p className="mt-2 text-sm text-purple-500 ml-8">{errors.termsAccepted}</p>
                         )}
                       </div>
 
                       <div className={`border-2 rounded-lg p-4 ${
-                        errors.kvkkAccepted ? 'border-red-500 bg-red-50' : 'border-lydian-border'
+                        errors.kvkkAccepted ? 'border-red-500 bg-red-500' : 'border-lydian-border'
                       }`}>
                         <label className="flex items-start gap-3 cursor-pointer">
                           <input
@@ -724,15 +724,15 @@ export default function OwnerRegisterPage() {
                             name="kvkkAccepted"
                             checked={formData.kvkkAccepted}
                             onChange={handleInputChange}
-                            className="mt-1 h-5 w-5 text-lydian-primary focus:ring-[#FF214D] border-lydian-border-medium rounded cursor-pointer"
+                            className="mt-1 h-5 w-5 text-blue-500 focus:ring-[#FF214D] border-white/30 rounded cursor-pointer"
                           />
                           <div className="flex-1">
-                            <span className="text-lydian-text-inverse">
+                            <span className="text-white">
                               Kişisel verilerimin işlenmesine ilişkin{' '}
                               <Link
                                 href="/owner/auth/terms#kvkk"
                                 target="_blank"
-                                className="font-medium text-lydian-primary hover:text-[#FF6A45] underline"
+                                className="font-medium text-blue-500 hover:text-[#FF6A45] underline"
                               >
                                 KVKK Aydınlatma Metni
                               </Link>
@@ -741,7 +741,7 @@ export default function OwnerRegisterPage() {
                           </div>
                         </label>
                         {errors.kvkkAccepted && (
-                          <p className="mt-2 text-sm text-lydian-secondary ml-8">{errors.kvkkAccepted}</p>
+                          <p className="mt-2 text-sm text-purple-500 ml-8">{errors.kvkkAccepted}</p>
                         )}
                       </div>
                     </div>
@@ -751,7 +751,7 @@ export default function OwnerRegisterPage() {
                       <button
                         type="button"
                         onClick={handleBack}
-                        className="flex-1 border-2 border-lydian-border-medium text-gray-200 py-3 px-4 rounded-lg font-semibold hover:bg-lydian-bg/5 transition-all duration-200 flex items-center justify-center gap-2"
+                        className="flex-1 border-2 border-white/30 text-gray-200 py-3 px-4 rounded-lg font-semibold hover:bg-white/5 transition-all duration-200 flex items-center justify-center gap-2"
                       >
                         <ArrowLeft className="w-5 h-5" />
                         <span>Geri</span>
@@ -759,7 +759,7 @@ export default function OwnerRegisterPage() {
                       <button
                         type="submit"
                         disabled={isLoading}
-                        className="flex-1 bg-gradient-to-r from-[#FF214D] to-[#FF6A45] text-lydian-text-inverse py-3 px-4 rounded-lg font-semibold hover:shadow-lg transform hover:scale-[1.02] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center gap-2"
+                        className="flex-1 bg-gradient-to-r from-[#FF214D] to-[#FF6A45] text-white py-3 px-4 rounded-lg font-semibold hover:shadow-lg transform hover:scale-[1.02] transition-all duration-200 disabled:opacity-500 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center gap-2"
                       >
                         {isLoading ? (
                           <>
@@ -781,11 +781,11 @@ export default function OwnerRegisterPage() {
 
             {/* Login Link */}
             <div className="mt-8 text-center">
-              <p className="text-lydian-text-dim">
+              <p className="text-gray-400">
                 Zaten hesabınız var mı?{' '}
                 <Link
                   href="/owner/auth/login"
-                  className="font-medium text-lydian-primary hover:text-[#FF6A45] transition-colors"
+                  className="font-medium text-blue-500 hover:text-[#FF6A45] transition-colors"
                 >
                   Giriş yapın
                 </Link>
@@ -796,7 +796,7 @@ export default function OwnerRegisterPage() {
             <div className="mt-4 text-center">
               <Link
                 href="/"
-                className="text-sm text-lydian-text-dim hover:text-lydian-text-inverse transition-colors"
+                className="text-sm text-gray-400 hover:text-white transition-colors"
               >
                 ← Ana sayfaya dön
               </Link>

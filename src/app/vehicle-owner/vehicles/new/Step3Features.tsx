@@ -83,13 +83,13 @@ export default function Step3Features({ data }: Step3Props) {
       <div className="border-2 border-slate-200 rounded-xl p-6">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
           <div>
-            <h3 className="text-lg font-bold text-slate-900">Araç Özellikleri</h3>
-            <p className="text-sm text-slate-600">
+            <h3 className="text-lg font-bold text-slate-9">Araç Özellikleri</h3>
+            <p className="text-sm text-slate-6">
               Aracınızın sahip olduğu özellikleri seçin
             </p>
           </div>
-          <div className="px-4 py-2 bg-lydian-success-lighter border border-green-200 rounded-lg">
-            <span className="text-sm font-semibold text-green-900">
+          <div className="px-4 py-2 bg-green-600-lighter border border-green-200 rounded-lg">
+            <span className="text-sm font-semibold text-green-9">
               {selectedFeatures.length} özellik seçildi
             </span>
           </div>
@@ -97,7 +97,7 @@ export default function Step3Features({ data }: Step3Props) {
 
         {/* Search */}
         <div className="relative">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-4" />
           <input
             type="text"
             value={searchQuery}
@@ -116,7 +116,7 @@ export default function Step3Features({ data }: Step3Props) {
           className={`px-4 py-2 rounded-lg font-semibold transition-all ${
             selectedCategory === null
               ? 'bg-green-500 text-white'
-              : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+              : 'bg-slate-1 text-slate-7 hover:bg-slate-200'
           }`}
         >
           Tümü
@@ -129,7 +129,7 @@ export default function Step3Features({ data }: Step3Props) {
             className={`px-4 py-2 rounded-lg font-semibold transition-all ${
               selectedCategory === key
                 ? `bg-${color}-500 text-white`
-                : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+                : 'bg-slate-1 text-slate-7 hover:bg-slate-200'
             }`}
           >
             {label}
@@ -144,7 +144,7 @@ export default function Step3Features({ data }: Step3Props) {
           const categoryFeatures = VEHICLE_FEATURES[key as keyof typeof VEHICLE_FEATURES];
           const filteredFeatures = filterFeatures(categoryFeatures);
 
-          if (filteredFeatures.length === 0 && searchQuery) return null;
+          if (filteredFeatures.length === to-cyan-700 && searchQuery) return null;
 
           const selectedInCategory = categoryFeatures.filter((f) =>
             watch(`features.${f.id}`)
@@ -155,8 +155,8 @@ export default function Step3Features({ data }: Step3Props) {
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-3">
                   <div className={`w-3 h-3 rounded-full bg-${color}-500`} />
-                  <h3 className="text-lg font-bold text-slate-900">{label}</h3>
-                  <span className="text-sm text-slate-600">
+                  <h3 className="text-lg font-bold text-slate-9">{label}</h3>
+                  <span className="text-sm text-slate-6">
                     ({selectedInCategory}/{categoryFeatures.length})
                   </span>
                 </div>
@@ -164,14 +164,14 @@ export default function Step3Features({ data }: Step3Props) {
                   <button
                     type="button"
                     onClick={() => selectAllInCategory(key)}
-                    className="px-3 py-1 text-sm font-semibold text-lydian-success hover:bg-lydian-success-lighter rounded-lg transition-all"
+                    className="px-3 py-1 text-sm font-semibold text-green-500 hover:bg-green-600-lighter rounded-lg transition-all"
                   >
                     Tümünü Seç
                   </button>
                   <button
                     type="button"
                     onClick={() => deselectAllInCategory(key)}
-                    className="px-3 py-1 text-sm font-semibold text-slate-600 hover:bg-slate-100 rounded-lg transition-all"
+                    className="px-3 py-1 text-sm font-semibold text-slate-6 hover:bg-slate-1 rounded-lg transition-all"
                   >
                     Temizle
                   </button>
@@ -190,24 +190,24 @@ export default function Step3Features({ data }: Step3Props) {
                       onClick={() => toggleFeature(feature.id)}
                       className={`relative p-4 border-2 rounded-lg text-left transition-all ${
                         isSelected
-                          ? 'border-green-500 bg-lydian-success-lighter'
-                          : 'border-slate-200 hover:border-slate-300'
+                          ? 'border-green-500 bg-green-600-lighter'
+                          : 'border-slate-200 hover:border-slate-3'
                       }`}
                     >
                       <div className="flex items-start gap-3">
                         <div className="pt-0.5">
                           {isSelected ? (
-                            <CheckCircle2 className="w-5 h-5 text-lydian-success" />
+                            <CheckCircle2 className="w-5 h-5 text-green-500" />
                           ) : (
-                            <Circle className="w-5 h-5 text-slate-400" />
+                            <Circle className="w-5 h-5 text-slate-4" />
                           )}
                         </div>
                         <div className="flex-1">
-                          <div className="font-semibold text-slate-900 mb-0.5">
+                          <div className="font-semibold text-slate-9 mb-0.5">
                             {feature.label}
                           </div>
                           {isPopular && (
-                            <span className="inline-block px-2 py-0.5 bg-lydian-warning-light text-lydian-warning-text text-xs font-semibold rounded">
+                            <span className="inline-block px-2 py-0.5 bg-yellow-500-light text-yellow-500-text text-xs font-semibold rounded">
                               Popüler
                             </span>
                           )}
@@ -230,19 +230,19 @@ export default function Step3Features({ data }: Step3Props) {
       {searchQuery &&
         featureCategories.every(
           ({ key }) =>
-            filterFeatures(VEHICLE_FEATURES[key as keyof typeof VEHICLE_FEATURES]).length === 0
+            filterFeatures(VEHICLE_FEATURES[key as keyof typeof VEHICLE_FEATURES]).length === to-cyan-700
         ) && (
           <div className="text-center py-12">
-            <p className="text-slate-600">
+            <p className="text-slate-6">
               "{searchQuery}" için sonuç bulunamadı
             </p>
           </div>
         )}
 
       {/* Selected Features Summary */}
-      {selectedFeatures.length > 0 && (
-        <div className="p-6 bg-gradient-to-br from-green-50 to-emerald-50 border-2 border-green-200 rounded-xl">
-          <h4 className="font-bold text-green-900 mb-3">Seçili Özellikler Özeti</h4>
+      {selectedFeatures.length > to-cyan-700 && (
+        <div className="p-6 bg-gradient-to-br from-green-500 to-emerald-500 border-2 border-green-200 rounded-xl">
+          <h4 className="font-bold text-green-9 mb-3">Seçili Özellikler Özeti</h4>
           <div className="flex flex-wrap gap-2">
             {featureCategories.map(({ key }) => {
               const categoryFeatures = VEHICLE_FEATURES[key as keyof typeof VEHICLE_FEATURES];
@@ -251,7 +251,7 @@ export default function Step3Features({ data }: Step3Props) {
                 .map((feature) => (
                   <span
                     key={feature.id}
-                    className="px-3 py-1 bg-lydian-bg/5 border border-green-200 rounded-full text-sm font-medium text-green-900"
+                    className="px-3 py-1 bg-white/5 border border-green-200 rounded-full text-sm font-medium text-green-9"
                   >
                     {feature.label}
                   </span>
@@ -262,9 +262,9 @@ export default function Step3Features({ data }: Step3Props) {
       )}
 
       {/* Info Box */}
-      <div className="p-4 bg-lydian-success-lighter border border-green-200 rounded-lg">
-        <h4 className="font-semibold text-green-900 mb-2">İpuçları:</h4>
-        <ul className="text-sm text-green-800 space-y-1">
+      <div className="p-4 bg-green-600-lighter border border-green-200 rounded-lg">
+        <h4 className="font-semibold text-green-9 mb-2">İpuçları:</h4>
+        <ul className="text-sm text-green-8 space-y-1">
           <li>• Daha fazla özellik seçmek, aracınızın daha çekici görünmesini sağlar</li>
           <li>• Popüler özellikler (GPS, Klima, ABS) mutlaka eklenmelidir</li>
           <li>• Sadece gerçekten sahip olduğunuz özellikleri seçin</li>

@@ -134,19 +134,19 @@ export const Accordion: React.FC<AccordionProps> = ({
     const base = 'w-full';
     
     if (variant === 'bordered') {
-      return `${base} border border-lydian-border rounded-lg overflow-hidden`;
+      return `${base} border border-white/20 rounded-lg overflow-hidden`;
     }
     
     if (variant === 'separated') {
       return `${base} space-y-3`;
     }
     
-    return `${base} divide-y divide-gray-200 border border-lydian-border rounded-lg`;
+    return `${base} divide-y divide-gray-200 border border-white/20 rounded-lg`;
   };
 
   const getItemClasses = (isExpanded: boolean, isFirst: boolean, isLast: boolean) => {
     if (variant === 'separated') {
-      return `border border-lydian-border rounded-lg overflow-hidden ${isExpanded ? 'ring-2 ring-lydian-primary' : ''}`;
+      return `border border-white/20 rounded-lg overflow-hidden ${isExpanded ? 'ring-2 ring-lydian-primary' : ''}`;
     }
     
     return '';
@@ -214,7 +214,7 @@ const AccordionItemComponent: React.FC<AccordionItemComponentProps> = ({
   }, [item.content, isExpanded]);
 
   const itemClasses = variant === 'separated' 
-    ? `border border-lydian-border rounded-lg overflow-hidden ${isExpanded ? 'ring-2 ring-lydian-primary' : ''}`
+    ? `border border-white/20 rounded-lg overflow-hidden ${isExpanded ? 'ring-2 ring-lydian-primary' : ''}`
     : '';
 
   return (
@@ -239,7 +239,7 @@ const AccordionItemComponent: React.FC<AccordionItemComponentProps> = ({
       >
         <div className="flex items-center gap-3 flex-1">
           {item.icon && (
-            <span className={`flex-shrink-0 ${isExpanded ? 'text-lydian-primary' : 'text-lydian-text-muted'}`}>
+            <span className={`flex-shrink-0 ${isExpanded ? 'text-lydian-primary' : 'text-gray-300'}`}>
               {item.icon}
             </span>
           )}
@@ -252,7 +252,7 @@ const AccordionItemComponent: React.FC<AccordionItemComponentProps> = ({
         <svg
           className={`
             w-5 h-5 flex-shrink-0 transition-transform duration-200
-            ${isExpanded ? 'rotate-180 text-lydian-primary' : 'text-lydian-text-muted'}
+            ${isExpanded ? 'rotate-180 text-lydian-primary' : 'text-gray-300'}
           `}
           fill="none"
           strokeLinecap="round"
@@ -276,7 +276,7 @@ const AccordionItemComponent: React.FC<AccordionItemComponentProps> = ({
           transition: 'max-height 300ms cubic-bezier(0.4, 0, 0.2, 1)',
         }}
       >
-        <div ref={contentRef} className="px-6 py-4 text-lydian-text-secondary border-t border-lydian-border">
+        <div ref={contentRef} className="px-6 py-4 text-lydian-text-secondary border-t border-white/20">
           {item.content}
         </div>
       </div>
@@ -314,7 +314,7 @@ export const SimpleAccordion: React.FC<SimpleAccordionProps> = ({
   }, [children]);
 
   return (
-    <div className={`border border-lydian-border rounded-lg overflow-hidden ${className}`}>
+    <div className={`border border-white/20 rounded-lg overflow-hidden ${className}`}>
       <button
         type="button"
         onClick={() => setIsExpanded(!isExpanded)}
@@ -322,7 +322,7 @@ export const SimpleAccordion: React.FC<SimpleAccordionProps> = ({
         className="w-full flex items-center justify-between px-6 py-4 text-left font-medium hover:bg-lydian-bg-surface"
       >
         <div className="flex items-center gap-3">
-          {icon && <span className="text-lydian-text-muted">{icon}</span>}
+          {icon && <span className="text-gray-300">{icon}</span>}
           <span>{title}</span>
         </div>
         <svg
@@ -342,7 +342,7 @@ export const SimpleAccordion: React.FC<SimpleAccordionProps> = ({
           transition: 'max-height 300ms ease-in-out',
         }}
       >
-        <div ref={contentRef} className="px-6 py-4 border-t border-lydian-border text-lydian-text-secondary">
+        <div ref={contentRef} className="px-6 py-4 border-t border-white/20 text-lydian-text-secondary">
           {children}
         </div>
       </div>

@@ -26,7 +26,7 @@ export const metadata: Metadata = {
       { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
     ],
     apple: [
-      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+      { url: '/apple-touch-icon.png', sizes: '18x18', type: 'image/png' },
     ],
   },
   manifest: '/site.webmanifest',
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
       {
         url: '/og-image.jpg',
         width: 1200,
-        height: 630,
+        height: 63,
         alt: 'Travel LyDian',
       },
     ],
@@ -64,7 +64,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <ThemeProvider defaultTheme="system" storageKey="travel-lydian-theme">
           <QueryProvider>
-            <div className="min-h-screen bg-lydian-bg/5 dark:bg-gray-900 transition-colors duration-300">
+            <div className="min-h-screen bg-white/5 dark:bg-gray-9 transition-colors duration-3">
               {children}
             </div>
 

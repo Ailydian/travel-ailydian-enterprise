@@ -411,8 +411,8 @@ const CarRentalBookingPage: React.FC = () => {
         <ResponsiveHeaderBar />
         <div className="min-h-screen bg-gradient-to-br from-blue-50 to-cyan-50 flex items-center justify-center">
           <div className="text-center">
-            <div className="w-16 h-16 border-4 border-lydian-primary border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-            <p className="text-lydian-text-dim">Rezervasyon sayfası hazırlanıyor...</p>
+            <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+            <p className="text-gray-400">Rezervasyon sayfası hazırlanıyor...</p>
           </div>
         </div>
       </>);
@@ -441,7 +441,7 @@ const CarRentalBookingPage: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-lydian-bg-hover rounded-2xl shadow-sm p-6 mb-8">
+            className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-2xl shadow-sm p-6 mb-8">
 
             <div className="flex items-center justify-between">
               {steps.map((step, index) =>
@@ -451,7 +451,7 @@ const CarRentalBookingPage: React.FC = () => {
                     className={`w-12 h-12 rounded-full flex items-center justify-center font-bold transition-all ${
                     currentStep >= step.number ?
                     'bg-gradient-to-r from-blue-600 to-cyan-600 text-white shadow-lg' :
-                    'bg-lydian-bg-surface-raised text-lydian-text-muted'}`
+                    'bg-lydian-bg-surface-raised text-gray-300'}`
                     }>
 
                       {currentStep > step.number ?
@@ -463,9 +463,9 @@ const CarRentalBookingPage: React.FC = () => {
                     <span className="text-sm font-medium mt-2 hidden sm:block">{step.title}</span>
                   </div>
                   {index < steps.length - 1 &&
-                <div className="flex-1 h-1 mx-4 bg-lydian-bg-active relative">
+                <div className="flex-1 h-1 mx-4 bg-white/10 backdrop-blur-xl border border-white/20 relative">
                       <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-lydian-primary to-cyan-600"
+                    className="absolute inset-0 bg-gradient-to-r from-blue-600 to-cyan-600"
                     initial={{ scaleX: 0 }}
                     animate={{ scaleX: currentStep > step.number ? 1 : 0 }}
                     transition={{ duration: 0.3 }}
@@ -489,20 +489,20 @@ const CarRentalBookingPage: React.FC = () => {
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -20 }}
-                  className="bg-lydian-bg-hover rounded-2xl shadow-sm p-6">
+                  className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-2xl shadow-sm p-6">
 
-                    <h2 className="text-2xl font-bold text-lydian-text-inverse mb-6">Kiralama Detayları</h2>
+                    <h2 className="text-2xl font-bold text-white mb-6">Kiralama Detayları</h2>
 
                     <div className="space-y-6">
                       {/* Pickup Details */}
-                      <div className="border border-lydian-border-light/10 rounded-xl p-6">
-                        <h3 className="font-semibold text-lg text-lydian-text-inverse mb-4 flex items-center gap-2">
-                          <MapPin className="w-5 h-5 text-lydian-success" />
+                      <div className="border border-white/20/10 rounded-xl p-6">
+                        <h3 className="font-semibold text-lg text-white mb-4 flex items-center gap-2">
+                          <MapPin className="w-5 h-5 text-green-500" />
                           Teslim Alma
                         </h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                           <div className="md:col-span-2">
-                            <label className="block text-sm font-medium text-lydian-text-muted mb-2">Lokasyon *</label>
+                            <label className="block text-sm font-medium text-gray-300 mb-2">Lokasyon *</label>
                             <select
                             value={bookingData.pickupLocation}
                             onChange={(e) => setBookingData({ ...bookingData, pickupLocation: e.target.value })}
@@ -516,7 +516,7 @@ const CarRentalBookingPage: React.FC = () => {
                             </select>
                           </div>
                           <div>
-                            <label className="block text-sm font-medium text-lydian-text-muted mb-2">Tarih *</label>
+                            <label className="block text-sm font-medium text-gray-300 mb-2">Tarih *</label>
                             <input
                             type="date"
                             value={bookingData.pickupDate}
@@ -527,7 +527,7 @@ const CarRentalBookingPage: React.FC = () => {
 
                           </div>
                           <div>
-                            <label className="block text-sm font-medium text-lydian-text-muted mb-2">Saat *</label>
+                            <label className="block text-sm font-medium text-gray-300 mb-2">Saat *</label>
                             <select
                             value={bookingData.pickupTime}
                             onChange={(e) => setBookingData({ ...bookingData, pickupTime: e.target.value })}
@@ -544,14 +544,14 @@ const CarRentalBookingPage: React.FC = () => {
                       </div>
 
                       {/* Return Details */}
-                      <div className="border border-lydian-border-light/10 rounded-xl p-6">
-                        <h3 className="font-semibold text-lg text-lydian-text-inverse mb-4 flex items-center gap-2">
-                          <MapPin className="w-5 h-5 text-lydian-primary" />
+                      <div className="border border-white/20/10 rounded-xl p-6">
+                        <h3 className="font-semibold text-lg text-white mb-4 flex items-center gap-2">
+                          <MapPin className="w-5 h-5 text-blue-500" />
                           İade
                         </h3>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                           <div className="md:col-span-2">
-                            <label className="block text-sm font-medium text-lydian-text-muted mb-2">Lokasyon *</label>
+                            <label className="block text-sm font-medium text-gray-300 mb-2">Lokasyon *</label>
                             <select
                             value={bookingData.returnLocation}
                             onChange={(e) => setBookingData({ ...bookingData, returnLocation: e.target.value })}
@@ -565,7 +565,7 @@ const CarRentalBookingPage: React.FC = () => {
                             </select>
                           </div>
                           <div>
-                            <label className="block text-sm font-medium text-lydian-text-muted mb-2">Tarih *</label>
+                            <label className="block text-sm font-medium text-gray-300 mb-2">Tarih *</label>
                             <input
                             type="date"
                             value={bookingData.returnDate}
@@ -579,7 +579,7 @@ const CarRentalBookingPage: React.FC = () => {
                           }
                           </div>
                           <div>
-                            <label className="block text-sm font-medium text-lydian-text-muted mb-2">Saat *</label>
+                            <label className="block text-sm font-medium text-gray-300 mb-2">Saat *</label>
                             <select
                             value={bookingData.returnTime}
                             onChange={(e) => setBookingData({ ...bookingData, returnTime: e.target.value })}
@@ -596,8 +596,8 @@ const CarRentalBookingPage: React.FC = () => {
                       </div>
 
                       {pricing.days > 0 &&
-                    <div className="bg-lydian-primary-lighter border border-blue-200 rounded-xl p-4 flex items-center gap-3">
-                          <Info className="w-5 h-5 text-lydian-primary" />
+                    <div className="bg-blue-500/10er border border-blue-200 rounded-xl p-4 flex items-center gap-3">
+                          <Info className="w-5 h-5 text-blue-500" />
                           <p className="text-sm text-blue-900">
                             Kiralama süresi: <strong>{pricing.days} gün</strong>
                           </p>
@@ -617,9 +617,9 @@ const CarRentalBookingPage: React.FC = () => {
                   className="space-y-6">
 
                     {/* Insurance Options */}
-                    <div className="bg-lydian-bg-hover rounded-2xl shadow-sm p-6">
-                      <h2 className="text-2xl font-bold text-lydian-text-inverse mb-6 flex items-center gap-2">
-                        <Shield className="w-6 h-6 text-lydian-primary" />
+                    <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-2xl shadow-sm p-6">
+                      <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
+                        <Shield className="w-6 h-6 text-blue-500" />
                         Sigorta Seçenekleri
                       </h2>
                       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -636,28 +636,28 @@ const CarRentalBookingPage: React.FC = () => {
                         }>
 
                             {option.badge &&
-                        <div className="absolute -top-3 right-4 bg-gradient-to-r from-orange-500 to-lydian-primary text-lydian-text-inverse px-3 py-1 rounded-full text-xs font-bold">
+                        <div className="absolute -top-3 right-4 bg-gradient-to-r from-orange-500 to-purple-600 text-white px-3 py-1 rounded-full text-xs font-bold">
                                 {option.badge}
                               </div>
                         }
                             <div className="mb-4">
-                              <h3 className="font-bold text-lg text-lydian-text-inverse">{option.name}</h3>
-                              <p className="text-sm text-lydian-text-dim mb-2">{option.description}</p>
-                              <p className="text-2xl font-bold text-lydian-primary">
+                              <h3 className="font-bold text-lg text-white">{option.name}</h3>
+                              <p className="text-sm text-gray-400 mb-2">{option.description}</p>
+                              <p className="text-2xl font-bold text-blue-500">
                                 {option.price === 0 ? 'Ücretsiz' : `₺${option.price}/gün`}
                               </p>
                             </div>
                             <ul className="space-y-2">
                               {option.features.map((feature, idx) =>
                           <li key={idx} className="flex items-start gap-2 text-sm">
-                                  <Check className="w-4 h-4 text-lydian-success flex-shrink-0 mt-0.5" />
-                                  <span className="text-lydian-text-muted">{feature}</span>
+                                  <Check className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
+                                  <span className="text-gray-300">{feature}</span>
                                 </li>
                           )}
                             </ul>
                             {bookingData.insurance === option.id &&
-                        <div className="absolute top-4 left-4 w-6 h-6 bg-lydian-primary rounded-full flex items-center justify-center">
-                                <Check className="w-4 h-4 text-lydian-text-inverse" />
+                        <div className="absolute top-4 left-4 w-6 h-6 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center">
+                                <Check className="w-4 h-4 text-white" />
                               </div>
                         }
                           </motion.div>
@@ -666,8 +666,8 @@ const CarRentalBookingPage: React.FC = () => {
                     </div>
 
                     {/* Extra Options */}
-                    <div className="bg-lydian-bg-hover rounded-2xl shadow-sm p-6">
-                      <h2 className="text-2xl font-bold text-lydian-text-inverse mb-6 flex items-center gap-2">
+                    <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-2xl shadow-sm p-6">
+                      <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-2">
                         <Sparkles className="w-6 h-6 text-purple-600" />
                         Ekstra Hizmetler
                       </h2>
@@ -688,19 +688,19 @@ const CarRentalBookingPage: React.FC = () => {
 
                               <div className="flex items-start gap-4">
                                 <div className={`w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 ${
-                              isSelected ? 'bg-purple-600 text-white' : 'bg-lydian-bg/10 text-lydian-text-dim'}`
+                              isSelected ? 'bg-purple-600 text-white' : 'bg-lydian-bg/10 text-gray-400'}`
                               }>
                                   <extra.icon className="w-6 h-6" />
                                 </div>
                                 <div className="flex-1">
-                                  <h3 className="font-semibold text-lydian-text-inverse mb-1">{extra.name}</h3>
-                                  <p className="text-sm text-lydian-text-dim mb-2">{extra.description}</p>
+                                  <h3 className="font-semibold text-white mb-1">{extra.name}</h3>
+                                  <p className="text-sm text-gray-400 mb-2">{extra.description}</p>
                                   <p className="font-bold text-purple-600">₺{extra.price}/gün</p>
                                 </div>
                                 <div className={`w-6 h-6 rounded-full border-2 flex items-center justify-center flex-shrink-0 ${
                               isSelected ? 'border-purple-600 bg-purple-600' : 'border-white/20'}`
                               }>
-                                  {isSelected && <Check className="w-4 h-4 text-lydian-text-inverse" />}
+                                  {isSelected && <Check className="w-4 h-4 text-white" />}
                                 </div>
                               </div>
                             </motion.div>);
@@ -718,12 +718,12 @@ const CarRentalBookingPage: React.FC = () => {
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -20 }}
-                  className="bg-lydian-bg-hover rounded-2xl shadow-sm p-6">
+                  className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-2xl shadow-sm p-6">
 
-                    <h2 className="text-2xl font-bold text-lydian-text-inverse mb-6">Sürücü Bilgileri</h2>
+                    <h2 className="text-2xl font-bold text-white mb-6">Sürücü Bilgileri</h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
-                        <label className="block text-sm font-medium text-lydian-text-muted mb-2">Ad Soyad *</label>
+                        <label className="block text-sm font-medium text-gray-300 mb-2">Ad Soyad *</label>
                         <input
                         type="text"
                         value={bookingData.driver.name}
@@ -740,7 +740,7 @@ const CarRentalBookingPage: React.FC = () => {
                       </div>
 
                       <div>
-                        <label className="block text-sm font-medium text-lydian-text-muted mb-2">E-posta *</label>
+                        <label className="block text-sm font-medium text-gray-300 mb-2">E-posta *</label>
                         <input
                         type="email"
                         value={bookingData.driver.email}
@@ -757,7 +757,7 @@ const CarRentalBookingPage: React.FC = () => {
                       </div>
 
                       <div>
-                        <label className="block text-sm font-medium text-lydian-text-muted mb-2">Telefon *</label>
+                        <label className="block text-sm font-medium text-gray-300 mb-2">Telefon *</label>
                         <input
                         type="tel"
                         value={bookingData.driver.phone}
@@ -774,7 +774,7 @@ const CarRentalBookingPage: React.FC = () => {
                       </div>
 
                       <div>
-                        <label className="block text-sm font-medium text-lydian-text-muted mb-2">Yaş *</label>
+                        <label className="block text-sm font-medium text-gray-300 mb-2">Yaş *</label>
                         <input
                         type="number"
                         value={bookingData.driver.age || ''}
@@ -792,7 +792,7 @@ const CarRentalBookingPage: React.FC = () => {
                       </div>
 
                       <div>
-                        <label className="block text-sm font-medium text-lydian-text-muted mb-2">Ehliyet Numarası *</label>
+                        <label className="block text-sm font-medium text-gray-300 mb-2">Ehliyet Numarası *</label>
                         <input
                         type="text"
                         value={bookingData.driver.licenseNumber}
@@ -809,7 +809,7 @@ const CarRentalBookingPage: React.FC = () => {
                       </div>
 
                       <div>
-                        <label className="block text-sm font-medium text-lydian-text-muted mb-2">Ehliyet Bitiş Tarihi *</label>
+                        <label className="block text-sm font-medium text-gray-300 mb-2">Ehliyet Bitiş Tarihi *</label>
                         <input
                         type="date"
                         value={bookingData.driver.licenseExpiry}
@@ -830,9 +830,9 @@ const CarRentalBookingPage: React.FC = () => {
                           type="checkbox"
                           checked={termsAccepted}
                           onChange={(e) => setTermsAccepted(e.target.checked)}
-                          className="w-5 h-5 text-lydian-primary rounded focus:ring-lydian-border-focus" />
+                          className="w-5 h-5 text-blue-500 rounded focus:ring-lydian-border-focus" />
 
-                          <span className="text-sm text-lydian-text-muted">
+                          <span className="text-sm text-gray-300">
                             Kiralama şartlarını ve koşullarını okudum ve kabul ediyorum *
                           </span>
                         </label>
@@ -840,9 +840,9 @@ const CarRentalBookingPage: React.FC = () => {
                       </div>
                     </div>
 
-                    <div className="mt-6 bg-lydian-primary-lighter border border-blue-200 rounded-xl p-4">
+                    <div className="mt-6 bg-blue-500/10er border border-blue-200 rounded-xl p-4">
                       <div className="flex items-start gap-3">
-                        <FileText className="w-5 h-5 text-lydian-primary flex-shrink-0 mt-0.5" />
+                        <FileText className="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" />
                         <div className="text-sm text-blue-900">
                           <p className="font-semibold mb-2">Gerekli Belgeler (Araç Tesliminde):</p>
                           <ul className="space-y-1 ml-4 list-disc">
@@ -866,42 +866,42 @@ const CarRentalBookingPage: React.FC = () => {
                   className="space-y-6">
 
                     {/* Vehicle Summary */}
-                    <div className="bg-lydian-bg-hover rounded-2xl shadow-sm p-6">
-                      <h2 className="text-2xl font-bold text-lydian-text-inverse mb-6">Rezervasyon Özeti</h2>
-                      <div className="flex items-center gap-6 p-4 bg-lydian-glass-dark rounded-xl">
+                    <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-2xl shadow-sm p-6">
+                      <h2 className="text-2xl font-bold text-white mb-6">Rezervasyon Özeti</h2>
+                      <div className="flex items-center gap-6 p-4 bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-xl">
                         <div className="w-32 h-24 bg-gradient-to-br from-gray-200 to-gray-300 rounded-lg flex items-center justify-center">
-                          <Car className="w-16 h-16 text-lydian-text-muted" />
+                          <Car className="w-16 h-16 text-gray-300" />
                         </div>
                         <div>
-                          <h3 className="font-bold text-xl text-lydian-text-inverse">{bookingData.carName}</h3>
-                          <p className="text-lydian-text-dim">{bookingData.carCategory.replace(/_/g, ' ')}</p>
+                          <h3 className="font-bold text-xl text-white">{bookingData.carName}</h3>
+                          <p className="text-gray-400">{bookingData.carCategory.replace(/_/g, ' ')}</p>
                         </div>
                       </div>
                     </div>
 
                     {/* Rental Details Summary */}
-                    <div className="bg-lydian-bg-hover rounded-2xl shadow-sm p-6">
+                    <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-2xl shadow-sm p-6">
                       <div className="flex items-center justify-between mb-4">
                         <h3 className="font-semibold text-lg">Kiralama Detayları</h3>
                         <button
                         onClick={() => setCurrentStep(1)}
-                        className="text-lydian-primary hover:text-lydian-primary-dark text-sm font-medium">
+                        className="text-blue-500 hover:text-blue-600 text-sm font-medium">
 
                           Düzenle
                         </button>
                       </div>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
-                          <p className="text-sm text-lydian-text-dim mb-1">Teslim Alma</p>
-                          <p className="font-medium text-lydian-text-inverse">{bookingData.pickupLocation}</p>
-                          <p className="text-sm text-lydian-text-dim">
+                          <p className="text-sm text-gray-400 mb-1">Teslim Alma</p>
+                          <p className="font-medium text-white">{bookingData.pickupLocation}</p>
+                          <p className="text-sm text-gray-400">
                             {bookingData.pickupDate} • {bookingData.pickupTime}
                           </p>
                         </div>
                         <div>
-                          <p className="text-sm text-lydian-text-dim mb-1">İade</p>
-                          <p className="font-medium text-lydian-text-inverse">{bookingData.returnLocation}</p>
-                          <p className="text-sm text-lydian-text-dim">
+                          <p className="text-sm text-gray-400 mb-1">İade</p>
+                          <p className="font-medium text-white">{bookingData.returnLocation}</p>
+                          <p className="text-sm text-gray-400">
                             {bookingData.returnDate} • {bookingData.returnTime}
                           </p>
                         </div>
@@ -909,19 +909,19 @@ const CarRentalBookingPage: React.FC = () => {
                     </div>
 
                     {/* Insurance & Extras Summary */}
-                    <div className="bg-lydian-bg-hover rounded-2xl shadow-sm p-6">
+                    <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-2xl shadow-sm p-6">
                       <div className="flex items-center justify-between mb-4">
                         <h3 className="font-semibold text-lg">Sigorta & Ekstralar</h3>
                         <button
                         onClick={() => setCurrentStep(2)}
-                        className="text-lydian-primary hover:text-lydian-primary-dark text-sm font-medium">
+                        className="text-blue-500 hover:text-blue-600 text-sm font-medium">
 
                           Düzenle
                         </button>
                       </div>
                       <div className="space-y-3">
                         <div className="flex items-center justify-between">
-                          <span className="text-lydian-text-muted">
+                          <span className="text-gray-300">
                             {INSURANCE_OPTIONS.find((opt) => opt.id === bookingData.insurance)?.name}
                           </span>
                           <span className="font-semibold">
@@ -933,44 +933,44 @@ const CarRentalBookingPage: React.FC = () => {
                         const extra = EXTRA_OPTIONS.find((opt) => opt.id === extraId);
                         return extra ?
                         <div key={extraId} className="flex items-center justify-between">
-                                <span className="text-lydian-text-muted">{extra.name}</span>
+                                <span className="text-gray-300">{extra.name}</span>
                                 <span className="font-semibold">₺{(extra.price * pricing.days).toLocaleString('tr-TR')}</span>
                               </div> :
                         null;
                       }) :
 
-                      <p className="text-sm text-lydian-text-muted">Ekstra hizmet seçilmedi</p>
+                      <p className="text-sm text-gray-300">Ekstra hizmet seçilmedi</p>
                       }
                       </div>
                     </div>
 
                     {/* Driver Info Summary */}
-                    <div className="bg-lydian-bg-hover rounded-2xl shadow-sm p-6">
+                    <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-2xl shadow-sm p-6">
                       <div className="flex items-center justify-between mb-4">
                         <h3 className="font-semibold text-lg">Sürücü Bilgileri</h3>
                         <button
                         onClick={() => setCurrentStep(3)}
-                        className="text-lydian-primary hover:text-lydian-primary-dark text-sm font-medium">
+                        className="text-blue-500 hover:text-blue-600 text-sm font-medium">
 
                           Düzenle
                         </button>
                       </div>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
-                          <p className="text-sm text-lydian-text-dim">Ad Soyad</p>
-                          <p className="font-medium text-lydian-text-inverse">{bookingData.driver.name}</p>
+                          <p className="text-sm text-gray-400">Ad Soyad</p>
+                          <p className="font-medium text-white">{bookingData.driver.name}</p>
                         </div>
                         <div>
-                          <p className="text-sm text-lydian-text-dim">E-posta</p>
-                          <p className="font-medium text-lydian-text-inverse">{bookingData.driver.email}</p>
+                          <p className="text-sm text-gray-400">E-posta</p>
+                          <p className="font-medium text-white">{bookingData.driver.email}</p>
                         </div>
                         <div>
-                          <p className="text-sm text-lydian-text-dim">Telefon</p>
-                          <p className="font-medium text-lydian-text-inverse">{bookingData.driver.phone}</p>
+                          <p className="text-sm text-gray-400">Telefon</p>
+                          <p className="font-medium text-white">{bookingData.driver.phone}</p>
                         </div>
                         <div>
-                          <p className="text-sm text-lydian-text-dim">Yaş</p>
-                          <p className="font-medium text-lydian-text-inverse">{bookingData.driver.age}</p>
+                          <p className="text-sm text-gray-400">Yaş</p>
+                          <p className="font-medium text-white">{bookingData.driver.age}</p>
                         </div>
                       </div>
                     </div>
@@ -983,14 +983,14 @@ const CarRentalBookingPage: React.FC = () => {
                 {currentStep > 1 ?
                 <button
                   onClick={handleBack}
-                  className="flex items-center gap-2 px-6 py-3 border border-lydian-border-light text-lydian-text-muted rounded-lg hover:bg-lydian-glass-dark transition-colors">
+                  className="flex items-center gap-2 px-6 py-3 border border-white/20 text-gray-300 rounded-lg hover:bg-gradient-to-br from-slate-900 via-black to-slate-800 transition-colors">
 
                     <ChevronLeft className="w-5 h-5" />
                     Geri
                   </button> :
 
                 <Link href={`/car-rentals/${slug}`}>
-                    <button className="flex items-center gap-2 px-6 py-3 border border-lydian-border-light text-lydian-text-muted rounded-lg hover:bg-lydian-glass-dark transition-colors">
+                    <button className="flex items-center gap-2 px-6 py-3 border border-white/20 text-gray-300 rounded-lg hover:bg-gradient-to-br from-slate-900 via-black to-slate-800 transition-colors">
                       <ChevronLeft className="w-5 h-5" />
                       Araç Detayı
                     </button>
@@ -1000,7 +1000,7 @@ const CarRentalBookingPage: React.FC = () => {
                 {currentStep < 4 ?
                 <button
                   onClick={handleNext}
-                  className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-lydian-primary to-cyan-600 text-lydian-text-inverse rounded-lg hover:opacity-90 transition-opacity">
+                  className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-cyan-600 text-white rounded-lg hover:opacity-90 transition-opacity">
 
                     Devam Et
                     <ChevronRight className="w-5 h-5" />
@@ -1008,7 +1008,7 @@ const CarRentalBookingPage: React.FC = () => {
 
                 <button
                   onClick={handleCheckout}
-                  className="flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-lydian-success to-lydian-success text-lydian-text-inverse rounded-lg hover:opacity-90 transition-opacity font-bold text-lg shadow-lg">
+                  className="flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-lydian-success to-lydian-success text-white rounded-lg hover:opacity-90 transition-opacity font-bold text-lg shadow-lg">
 
                     <Lock className="w-5 h-5" />
                     Ödemeye Geç
@@ -1020,38 +1020,38 @@ const CarRentalBookingPage: React.FC = () => {
 
             {/* Sidebar - Price Summary */}
             <div className="lg:col-span-1">
-              <div className="bg-lydian-bg-hover rounded-2xl shadow-lg p-6 sticky top-24">
-                <h3 className="font-bold text-lg text-lydian-text-inverse mb-6">Fiyat Özeti</h3>
+              <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-2xl shadow-lg p-6 sticky top-24">
+                <h3 className="font-bold text-lg text-white mb-6">Fiyat Özeti</h3>
 
                 <div className="space-y-4 mb-6">
                   <div className="flex items-center justify-between text-sm">
-                    <span className="text-lydian-text-dim">Günlük kiralama ({pricing.days} gün)</span>
+                    <span className="text-gray-400">Günlük kiralama ({pricing.days} gün)</span>
                     <span className="font-semibold">₺{pricing.basePrice.toLocaleString('tr-TR')}</span>
                   </div>
 
                   {pricing.insurance > 0 &&
                   <div className="flex items-center justify-between text-sm">
-                      <span className="text-lydian-text-dim">Sigorta</span>
+                      <span className="text-gray-400">Sigorta</span>
                       <span className="font-semibold">₺{pricing.insurance.toLocaleString('tr-TR')}</span>
                     </div>
                   }
 
                   {pricing.extras > 0 &&
                   <div className="flex items-center justify-between text-sm">
-                      <span className="text-lydian-text-dim">Ekstra hizmetler</span>
+                      <span className="text-gray-400">Ekstra hizmetler</span>
                       <span className="font-semibold">₺{pricing.extras.toLocaleString('tr-TR')}</span>
                     </div>
                   }
 
                   <div className="flex items-center justify-between text-sm">
-                    <span className="text-lydian-text-dim">KDV (%18)</span>
+                    <span className="text-gray-400">KDV (%18)</span>
                     <span className="font-semibold">₺{pricing.tax.toLocaleString('tr-TR')}</span>
                   </div>
 
-                  <div className="border-t border-lydian-border-light/10 pt-4">
+                  <div className="border-t border-white/20/10 pt-4">
                     <div className="flex items-center justify-between">
-                      <span className="font-bold text-lg text-lydian-text-inverse">Toplam</span>
-                      <span className="text-2xl font-bold text-lydian-primary">
+                      <span className="font-bold text-lg text-white">Toplam</span>
+                      <span className="text-2xl font-bold text-blue-500">
                         ₺{pricing.total.toLocaleString('tr-TR')}
                       </span>
                     </div>
@@ -1060,30 +1060,30 @@ const CarRentalBookingPage: React.FC = () => {
 
                 <div className="space-y-3 mb-6 p-4 bg-gradient-to-br from-green-50 to-blue-50 rounded-xl">
                   <div className="flex items-center gap-2 text-sm">
-                    <CheckCircle className="w-4 h-4 text-lydian-success" />
-                    <span className="text-lydian-text-muted">Ücretsiz iptal (24 saat öncesine kadar)</span>
+                    <CheckCircle className="w-4 h-4 text-green-500" />
+                    <span className="text-gray-300">Ücretsiz iptal (24 saat öncesine kadar)</span>
                   </div>
                   <div className="flex items-center gap-2 text-sm">
-                    <CheckCircle className="w-4 h-4 text-lydian-success" />
-                    <span className="text-lydian-text-muted">Fiyat garantisi</span>
+                    <CheckCircle className="w-4 h-4 text-green-500" />
+                    <span className="text-gray-300">Fiyat garantisi</span>
                   </div>
                   <div className="flex items-center gap-2 text-sm">
-                    <CheckCircle className="w-4 h-4 text-lydian-success" />
-                    <span className="text-lydian-text-muted">Anında onay</span>
+                    <CheckCircle className="w-4 h-4 text-green-500" />
+                    <span className="text-gray-300">Anında onay</span>
                   </div>
                 </div>
 
                 {currentStep === 4 &&
                 <button
                   onClick={handleCheckout}
-                  className="w-full py-4 bg-gradient-to-r from-lydian-success to-lydian-success text-lydian-text-inverse rounded-xl font-bold hover:opacity-90 transition-opacity flex items-center justify-center gap-2 shadow-lg">
+                  className="w-full py-4 bg-gradient-to-r from-lydian-success to-lydian-success text-white rounded-xl font-bold hover:opacity-90 transition-opacity flex items-center justify-center gap-2 shadow-lg">
 
                     <Lock className="w-5 h-5" />
                     Ödemeye Geç
                   </button>
                 }
 
-                <p className="text-xs text-lydian-text-muted text-center mt-4">
+                <p className="text-xs text-gray-300 text-center mt-4">
                   256-bit SSL ile güvenli rezervasyon
                 </p>
               </div>

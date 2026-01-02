@@ -333,7 +333,7 @@ export default function CarRentalDetailPage({ car }: CarRentalDetailPageProps) {
 
       <ModernHeader />
 
-      <main className="min-h-screen bg-lydian-glass-dark">
+      <main className="min-h-screen bg-gradient-to-br from-slate-900 via-black to-slate-800">
         {/* ProductHero Component */}
         <ProductHero
           title={`${car.brand} ${car.model.tr}`}
@@ -385,12 +385,12 @@ export default function CarRentalDetailPage({ car }: CarRentalDetailPageProps) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.3 }}
-                className="bg-lydian-glass-dark/95 backdrop-blur-xl rounded-2xl p-6 sm:p-8 shadow-lg border border-lydian-border-light/20"
+                className="bg-lydian-glass-dark/95 backdrop-blur-xl rounded-2xl p-6 sm:p-8 shadow-lg border border-white/20/20"
               >
-                <h2 className="text-2xl font-bold text-lydian-text-inverse mb-4">
+                <h2 className="text-2xl font-bold text-white mb-4">
                   {t('car.description') || 'Araç Açıklaması'}
                 </h2>
-                <p className="text-lydian-text-muted leading-relaxed">
+                <p className="text-gray-300 leading-relaxed">
                   {car.seo.metaDescription.tr}
                 </p>
               </motion.div>
@@ -401,7 +401,7 @@ export default function CarRentalDetailPage({ car }: CarRentalDetailPageProps) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.4 }}
-                className="bg-lydian-glass-dark/95 backdrop-blur-xl rounded-2xl p-6 sm:p-8 shadow-lg border border-lydian-border-light/20"
+                className="bg-lydian-glass-dark/95 backdrop-blur-xl rounded-2xl p-6 sm:p-8 shadow-lg border border-white/20/20"
               >
                 <FeatureGrid
                   title={t('car.features') || 'Araç Özellikleri'}
@@ -417,9 +417,9 @@ export default function CarRentalDetailPage({ car }: CarRentalDetailPageProps) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.5 }}
-                className="bg-lydian-glass-dark/95 backdrop-blur-xl rounded-2xl p-6 sm:p-8 shadow-lg border border-lydian-border-light/20"
+                className="bg-lydian-glass-dark/95 backdrop-blur-xl rounded-2xl p-6 sm:p-8 shadow-lg border border-white/20/20"
               >
-                <h2 className="text-2xl font-bold text-lydian-text-inverse mb-6">
+                <h2 className="text-2xl font-bold text-white mb-6">
                   {t('car.insurance') || 'Sigorta Seçenekleri'}
                 </h2>
                 <div className="space-y-4">
@@ -428,18 +428,18 @@ export default function CarRentalDetailPage({ car }: CarRentalDetailPageProps) {
                       key={idx}
                       className={`flex items-start gap-4 p-4 rounded-xl ${
                         option.included
-                          ? 'bg-lydian-success-lighter border border-green-200 dark:border-green-800'
-                          : 'bg-lydian-bg-hover border border-lydian-border-light/20'
+                          ? 'bg-green-600-lighter border border-green-200 dark:border-green-800'
+                          : 'bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl border border-white/20/20'
                       }`}
                     >
                       {option.included ? (
-                        <CheckCircle className="w-6 h-6 text-lydian-success flex-shrink-0 mt-1" />
+                        <CheckCircle className="w-6 h-6 text-green-500 flex-shrink-0 mt-1" />
                       ) : (
-                        <Shield className="w-6 h-6 text-lydian-primary flex-shrink-0 mt-1" />
+                        <Shield className="w-6 h-6 text-blue-500 flex-shrink-0 mt-1" />
                       )}
                       <div className="flex-1">
-                        <h3 className="font-bold text-lydian-text-inverse mb-1">{option.title}</h3>
-                        <p className="text-sm text-lydian-text-muted">{option.description}</p>
+                        <h3 className="font-bold text-white mb-1">{option.title}</h3>
+                        <p className="text-sm text-gray-300">{option.description}</p>
                       </div>
                     </div>
                   ))}
@@ -452,16 +452,16 @@ export default function CarRentalDetailPage({ car }: CarRentalDetailPageProps) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.6 }}
-                className="bg-lydian-glass-dark/95 backdrop-blur-xl rounded-2xl p-6 sm:p-8 shadow-lg border border-lydian-border-light/20"
+                className="bg-lydian-glass-dark/95 backdrop-blur-xl rounded-2xl p-6 sm:p-8 shadow-lg border border-white/20/20"
               >
-                <h2 className="text-2xl font-bold text-lydian-text-inverse mb-6">
+                <h2 className="text-2xl font-bold text-white mb-6">
                   {t('car.requirements') || 'Kiralama Gereksinimleri'}
                 </h2>
                 <div className="space-y-4">
                   {rentalRequirements.map((req, idx) => (
                     <div key={idx} className="flex items-center gap-3">
                       <div className={req.color}>{req.icon}</div>
-                      <span className="text-lydian-text-muted">{req.text}</span>
+                      <span className="text-gray-300">{req.text}</span>
                     </div>
                   ))}
                 </div>

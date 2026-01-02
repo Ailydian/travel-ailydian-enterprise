@@ -195,11 +195,11 @@ const B2BPartnersPage = () => {
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case 'active':return 'text-lydian-success bg-green-50 border-green-200';
+      case 'active':return 'text-purple-400 bg-purple-500/20 border-purple-400';
       case 'pending':return 'text-amber-600 bg-amber-50 border-amber-200';
-      case 'inactive':return 'text-lydian-text-dim bg-lydian-bg/5 border-lydian-border';
-      case 'suspended':return 'text-lydian-error bg-red-50 border-red-200';
-      default:return 'text-lydian-text-dim bg-lydian-bg/5 border-lydian-border';
+      case 'inactive':return 'text-gray-400 bg-white/5 border-white/20';
+      case 'suspended':return 'text-gray-400 bg-purple-500/20 border-purple-400';
+      default:return 'text-gray-400 bg-white/5 border-white/20';
     }
   };
 
@@ -216,26 +216,26 @@ const B2BPartnersPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
       {/* Header */}
-      <header className="bg-lydian-glass-dark border-b border-lydian-border sticky top-0 z-50 shadow-sm">
+      <header className="bg-white/10 backdrop-blur-xl border border-b border-white/20 sticky top-0 z-50 shadow-sm">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <Link href="/admin/v2">
-                <button className="p-2 hover:bg-lydian-bg-surface-raised rounded-lg transition-colors">
-                  <ArrowLeft className="w-5 h-5 text-lydian-text-secondary" />
+                <button className="p-2 hover:bg-white/5 backdrop-blur-xl rounded-lg transition-colors">
+                  <ArrowLeft className="w-5 h-5 text-gray-300" />
                 </button>
               </Link>
               <div>
-                <h1 className="text-2xl font-bold text-lydian-text">B2B Partner Yönetimi</h1>
-                <p className="text-sm text-lydian-text-secondary">Tüm iş ortaklarını yönetin</p>
+                <h1 className="text-2xl font-bold text-white">B2B Partner Yönetimi</h1>
+                <p className="text-sm text-gray-300">Tüm iş ortaklarını yönetin</p>
               </div>
             </div>
             <div className="flex items-center gap-3">
-              <button className="flex items-center gap-2 px-4 py-2 border border-lydian-border-medium rounded-lg hover:bg-lydian-bg-surface transition-colors">
+              <button className="flex items-center gap-2 px-4 py-2 border border-white/20 rounded-lg hover:bg-white/5 transition-colors">
                 <Download className="w-4 h-4" />
                 <span className="text-sm font-medium">Export</span>
               </button>
-              <button className="flex items-center gap-2 px-4 py-2 bg-lydian-primary text-lydian-text-inverse rounded-lg hover:bg-lydian-primary-dark transition-colors">
+              <button className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:bg-gradient-to-r from-blue-600 to-purple-600 transition-colors">
                 <Plus className="w-4 h-4" />
                 <span className="text-sm font-medium">Yeni Partner</span>
               </button>
@@ -250,43 +250,43 @@ const B2BPartnersPage = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-lydian-glass-dark rounded-xl p-6 border border-lydian-border">
+            className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl p-6 border border-white/20">
 
             <div className="flex items-center justify-between mb-2">
-              <p className="text-sm font-medium text-lydian-text-secondary">Toplam Gelir</p>
-              <DollarSign className="w-5 h-5 text-lydian-success" />
+              <p className="text-sm font-medium text-gray-300">Toplam Gelir</p>
+              <DollarSign className="w-5 h-5 text-purple-400" />
             </div>
-            <p className="text-2xl font-bold text-lydian-text">
+            <p className="text-2xl font-bold text-white">
               ₺{totalRevenue.toLocaleString('tr-TR')}
             </p>
-            <p className="text-xs text-lydian-success mt-1">+18.5% bu ay</p>
+            <p className="text-xs text-purple-400 mt-1">+18.5% bu ay</p>
           </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="bg-lydian-glass-dark rounded-xl p-6 border border-lydian-border">
+            className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl p-6 border border-white/20">
 
             <div className="flex items-center justify-between mb-2">
-              <p className="text-sm font-medium text-lydian-text-secondary">Toplam Rezervasyon</p>
-              <Calendar className="w-5 h-5 text-lydian-primary" />
+              <p className="text-sm font-medium text-gray-300">Toplam Rezervasyon</p>
+              <Calendar className="w-5 h-5 text-blue-400" />
             </div>
-            <p className="text-2xl font-bold text-lydian-text">{totalBookings}</p>
-            <p className="text-xs text-lydian-primary mt-1">+12.3% bu ay</p>
+            <p className="text-2xl font-bold text-white">{totalBookings}</p>
+            <p className="text-xs text-blue-400 mt-1">+12.3% bu ay</p>
           </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="bg-lydian-glass-dark rounded-xl p-6 border border-lydian-border">
+            className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl p-6 border border-white/20">
 
             <div className="flex items-center justify-between mb-2">
-              <p className="text-sm font-medium text-lydian-text-secondary">Aktif Partnerler</p>
+              <p className="text-sm font-medium text-gray-300">Aktif Partnerler</p>
               <Users className="w-5 h-5 text-purple-600" />
             </div>
-            <p className="text-2xl font-bold text-lydian-text">{activePartners}</p>
+            <p className="text-2xl font-bold text-white">{activePartners}</p>
             <p className="text-xs text-purple-600 mt-1">{partners.length} toplam</p>
           </motion.div>
 
@@ -294,35 +294,35 @@ const B2BPartnersPage = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="bg-lydian-glass-dark rounded-xl p-6 border border-lydian-border">
+            className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl p-6 border border-white/20">
 
             <div className="flex items-center justify-between mb-2">
-              <p className="text-sm font-medium text-lydian-text-secondary">Ort. Komisyon</p>
+              <p className="text-sm font-medium text-gray-300">Ort. Komisyon</p>
               <Percent className="w-5 h-5 text-amber-600" />
             </div>
-            <p className="text-2xl font-bold text-lydian-text">{avgCommission.toFixed(1)}%</p>
+            <p className="text-2xl font-bold text-white">{avgCommission.toFixed(1)}%</p>
             <p className="text-xs text-amber-600 mt-1">Ortalama oran</p>
           </motion.div>
         </div>
 
         {/* Filters */}
-        <div className="bg-lydian-glass-dark rounded-xl p-6 border border-lydian-border mb-6">
+        <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl p-6 border border-white/20 mb-6">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <div className="relative">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-lydian-text-muted" />
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-300" />
               <input
                 type="text"
                 placeholder="Partner ara..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 border border-lydian-border rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-primary outline-none" />
+                className="w-full pl-10 pr-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-blue-500 outline-none" />
 
             </div>
 
             <select
               value={filterType}
               onChange={(e) => setFilterType(e.target.value)}
-              className="px-4 py-2 border border-lydian-border rounded-lg focus:ring-2 focus:ring-lydian-border-focus outline-none">
+              className="px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-purple-500 outline-none">
 
               <option value="all">Tüm Tipler</option>
               <option value="hotel">Otel</option>
@@ -334,7 +334,7 @@ const B2BPartnersPage = () => {
             <select
               value={filterStatus}
               onChange={(e) => setFilterStatus(e.target.value)}
-              className="px-4 py-2 border border-lydian-border rounded-lg focus:ring-2 focus:ring-lydian-border-focus outline-none">
+              className="px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-purple-500 outline-none">
 
               <option value="all">Tüm Durumlar</option>
               <option value="active">Aktif</option>
@@ -343,7 +343,7 @@ const B2BPartnersPage = () => {
               <option value="suspended">Askıya Alınmış</option>
             </select>
 
-            <button className="flex items-center justify-center gap-2 px-4 py-2 bg-lydian-bg-surface-raised hover:bg-slate-200 rounded-lg transition-colors">
+            <button className="flex items-center justify-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-xl hover:bg-slate-200 rounded-lg transition-colors">
               <RefreshCw className="w-4 h-4" />
               Yenile
             </button>
@@ -351,33 +351,33 @@ const B2BPartnersPage = () => {
         </div>
 
         {/* Partners Table */}
-        <div className="bg-lydian-glass-dark rounded-xl border border-lydian-border overflow-hidden">
+        <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl border border-white/20 overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full">
-              <thead className="bg-lydian-bg-surface border-b border-lydian-border">
+              <thead className="bg-white/5 border-b border-white/20">
                 <tr>
-                  <th className="px-6 py-4 text-left text-xs font-semibold text-lydian-text-secondary uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
                     Partner
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-semibold text-lydian-text-secondary uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
                     Tip
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-semibold text-lydian-text-secondary uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
                     Durum
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-semibold text-lydian-text-secondary uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
                     Gelir
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-semibold text-lydian-text-secondary uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
                     Rezervasyon
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-semibold text-lydian-text-secondary uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
                     Komisyon
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-semibold text-lydian-text-secondary uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
                     Performans
                   </th>
-                  <th className="px-6 py-4 text-left text-xs font-semibold text-lydian-text-secondary uppercase tracking-wider">
+                  <th className="px-6 py-4 text-left text-xs font-semibold text-gray-300 uppercase tracking-wider">
                     İşlemler
                   </th>
                 </tr>
@@ -386,7 +386,7 @@ const B2BPartnersPage = () => {
                 {loading ?
                 <tr>
                     <td colSpan={8} className="px-6 py-12 text-center">
-                      <div className="flex items-center justify-center gap-2 text-lydian-text-tertiary">
+                      <div className="flex items-center justify-center gap-2 text-white-tertiary">
                         <RefreshCw className="w-5 h-5 animate-spin" />
                         <span>Yükleniyor...</span>
                       </div>
@@ -394,7 +394,7 @@ const B2BPartnersPage = () => {
                   </tr> :
                 filteredPartners.length === 0 ?
                 <tr>
-                    <td colSpan={8} className="px-6 py-12 text-center text-lydian-text-tertiary">
+                    <td colSpan={8} className="px-6 py-12 text-center text-white-tertiary">
                       Partner bulunamadı
                     </td>
                   </tr> :
@@ -405,19 +405,19 @@ const B2BPartnersPage = () => {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: index * 0.05 }}
-                  className="hover:bg-lydian-bg-surface transition-colors">
+                  className="hover:bg-white/5 transition-colors">
 
                       <td className="px-6 py-4">
                         <div>
-                          <p className="font-semibold text-lydian-text">{partner.companyName}</p>
-                          <p className="text-sm text-lydian-text-tertiary">{partner.name}</p>
-                          <p className="text-xs text-lydian-text-muted mt-1">{partner.email}</p>
+                          <p className="font-semibold text-white">{partner.companyName}</p>
+                          <p className="text-sm text-white-tertiary">{partner.name}</p>
+                          <p className="text-xs text-gray-300 mt-1">{partner.email}</p>
                         </div>
                       </td>
                       <td className="px-6 py-4">
                         <div className="flex items-center gap-2">
                           {getTypeIcon(partner.type)}
-                          <span className="text-sm text-lydian-text-secondary capitalize">{partner.type}</span>
+                          <span className="text-sm text-gray-300 capitalize">{partner.type}</span>
                         </div>
                       </td>
                       <td className="px-6 py-4">
@@ -426,39 +426,39 @@ const B2BPartnersPage = () => {
                         </span>
                       </td>
                       <td className="px-6 py-4">
-                        <p className="font-semibold text-lydian-text">
+                        <p className="font-semibold text-white">
                           ₺{partner.revenue.toLocaleString('tr-TR')}
                         </p>
                       </td>
                       <td className="px-6 py-4">
-                        <p className="font-semibold text-lydian-text">{partner.bookings}</p>
+                        <p className="font-semibold text-white">{partner.bookings}</p>
                       </td>
                       <td className="px-6 py-4">
-                        <p className="font-semibold text-lydian-primary">{partner.commission}%</p>
+                        <p className="font-semibold text-blue-400">{partner.commission}%</p>
                       </td>
                       <td className="px-6 py-4">
                         <div className="flex items-center gap-2">
                           <div className="flex-1 bg-slate-200 rounded-full h-2">
                             <div
-                          className="bg-lydian-success h-2 rounded-full"
+                          className="bg-purple-500 h-2 rounded-full"
                           style={{ width: `${partner.performanceScore}%` }} />
 
                           </div>
-                          <span className="text-sm font-semibold text-lydian-text-secondary">
+                          <span className="text-sm font-semibold text-gray-300">
                             {partner.performanceScore}
                           </span>
                         </div>
                       </td>
                       <td className="px-6 py-4">
                         <div className="flex items-center gap-2">
-                          <button className="p-2 hover:bg-lydian-primary-lighter rounded-lg transition-colors group">
-                            <Eye className="w-4 h-4 text-lydian-text-secondary group-hover:text-lydian-primary" />
+                          <button className="p-2 hover:bg-gradient-to-r from-blue-600 to-purple-600-lighter rounded-lg transition-colors group">
+                            <Eye className="w-4 h-4 text-gray-300 group-hover:text-blue-400" />
                           </button>
-                          <button className="p-2 hover:bg-lydian-success-lighter rounded-lg transition-colors group">
-                            <Edit className="w-4 h-4 text-lydian-text-secondary group-hover:text-lydian-success" />
+                          <button className="p-2 hover:bg-purple-500-lighter rounded-lg transition-colors group">
+                            <Edit className="w-4 h-4 text-gray-300 group-hover:text-purple-400" />
                           </button>
-                          <button className="p-2 hover:bg-lydian-error-lighter rounded-lg transition-colors group">
-                            <Trash2 className="w-4 h-4 text-lydian-text-secondary group-hover:text-lydian-primary" />
+                          <button className="p-2 hover:bg-white/5 rounded-lg transition-colors group">
+                            <Trash2 className="w-4 h-4 text-gray-300 group-hover:text-blue-400" />
                           </button>
                         </div>
                       </td>
@@ -472,20 +472,20 @@ const B2BPartnersPage = () => {
 
         {/* Pagination */}
         <div className="mt-6 flex items-center justify-between">
-          <p className="text-sm text-lydian-text-secondary">
+          <p className="text-sm text-gray-300">
             {filteredPartners.length} partner gösteriliyor
           </p>
           <div className="flex items-center gap-2">
-            <button className="px-4 py-2 border border-lydian-border-medium rounded-lg hover:bg-lydian-bg-surface transition-colors text-sm font-medium">
+            <button className="px-4 py-2 border border-white/20 rounded-lg hover:bg-white/5 transition-colors text-sm font-medium">
               Önceki
             </button>
-            <button className="px-4 py-2 bg-lydian-primary text-lydian-text-inverse rounded-lg hover:bg-lydian-primary-dark transition-colors text-sm font-medium">
+            <button className="px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:bg-gradient-to-r from-blue-600 to-purple-600 transition-colors text-sm font-medium">
               1
             </button>
-            <button className="px-4 py-2 border border-lydian-border-medium rounded-lg hover:bg-lydian-bg-surface transition-colors text-sm font-medium">
+            <button className="px-4 py-2 border border-white/20 rounded-lg hover:bg-white/5 transition-colors text-sm font-medium">
               2
             </button>
-            <button className="px-4 py-2 border border-lydian-border-medium rounded-lg hover:bg-lydian-bg-surface transition-colors text-sm font-medium">
+            <button className="px-4 py-2 border border-white/20 rounded-lg hover:bg-white/5 transition-colors text-sm font-medium">
               Sonraki
             </button>
           </div>

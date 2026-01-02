@@ -124,7 +124,7 @@ const Cart: React.FC = () => {
 
       <ModernHeader />
 
-      <main className="min-h-screen bg-lydian-glass-dark pt-8">
+      <main className="min-h-screen bg-gradient-to-br from-slate-900 via-black to-slate-800 pt-8">
         <div className="max-w-7xl mx-auto px-3 sm:px-4 py-4 sm:py-8">
           {/* Header */}
           <motion.div
@@ -132,10 +132,10 @@ const Cart: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             className="text-center mb-4 sm:mb-8"
           >
-            <h1 className="text-2xl sm:text-3xl font-bold text-lydian-text-inverse mb-2">
+            <h1 className="text-2xl sm:text-3xl font-bold text-white mb-2">
               Sepetim
             </h1>
-            <p className="text-sm sm:text-base text-lydian-text-dim">
+            <p className="text-sm sm:text-base text-gray-400">
               Rezervasyonlarınızı gözden geçirin ve ödemeyi tamamlayın
             </p>
           </motion.div>
@@ -147,11 +147,11 @@ const Cart: React.FC = () => {
               animate={{ opacity: 1, scale: 1 }}
               className="text-center py-8 sm:py-16"
             >
-              <ShoppingCart className="w-16 h-16 sm:w-24 sm:h-24 text-lydian-text-dim mx-auto mb-4 sm:mb-8" />
-              <h2 className="text-xl sm:text-2xl font-bold text-lydian-text-inverse mb-3 sm:mb-4">
+              <ShoppingCart className="w-16 h-16 sm:w-24 sm:h-24 text-gray-400 mx-auto mb-4 sm:mb-8" />
+              <h2 className="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4">
                 Sepetiniz Boş
               </h2>
-              <p className="text-sm sm:text-base text-lydian-text-dim mb-6 sm:mb-8 px-4">
+              <p className="text-sm sm:text-base text-gray-400 mb-6 sm:mb-8 px-4">
                 Harika deneyimler keşfetmek için alışverişe başlayın!
               </p>
               <Link href="/">
@@ -171,7 +171,7 @@ const Cart: React.FC = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.1 }}
                   >
-                    <div className="bg-lydian-glass-dark backdrop-blur-xl rounded-2xl shadow-lg border border-white/10 p-3 sm:p-4 lg:p-6 relative overflow-hidden group">
+                    <div className="bg-gradient-to-br from-slate-900 via-black to-slate-800 backdrop-blur-xl rounded-2xl shadow-lg border border-white/10 p-3 sm:p-4 lg:p-6 relative overflow-hidden group">
                       {/* Gradient Background Animation */}
                       <motion.div
                         className="absolute inset-0 opacity-20 group-hover:opacity-40 transition-opacity duration-700"
@@ -193,7 +193,7 @@ const Cart: React.FC = () => {
                             alt={item.title}
                             className="w-full h-32 sm:h-20 md:h-22 lg:h-24 object-cover rounded-xl"
                           />
-                          <div className="absolute -top-2 -left-2 w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-r from-[#667EEA] to-[#00BAFF] rounded-full flex items-center justify-center text-lydian-text-inverse text-base sm:text-lg shadow-lg">
+                          <div className="absolute -top-2 -left-2 w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-r from-[#667EEA] to-[#00BAFF] rounded-full flex items-center justify-center text-white text-base sm:text-lg shadow-lg">
                             {getTypeIcon(item.type)}
                           </div>
                         </div>
@@ -202,10 +202,10 @@ const Cart: React.FC = () => {
                         <div className="flex-1 min-w-0">
                           <div className="flex justify-between items-start mb-2 sm:mb-3">
                             <div className="flex-1 min-w-0 pr-2">
-                              <h3 className="font-bold text-base sm:text-lg text-lydian-text-inverse mb-1 line-clamp-2">
+                              <h3 className="font-bold text-base sm:text-lg text-white mb-1 line-clamp-2">
                                 {item.title}
                               </h3>
-                              <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4 text-xs sm:text-sm text-lydian-text-dim">
+                              <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4 text-xs sm:text-sm text-gray-400">
                                 <div className="flex items-center gap-1">
                                   <MapPin className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
                                   <span className="truncate">{item.location}</span>
@@ -237,14 +237,14 @@ const Cart: React.FC = () => {
                             {item.badges.map((badge) => (
                               <span
                                 key={badge}
-                                className="px-2 py-0.5 sm:py-1 bg-gradient-to-r from-lydian-primary/20 to-cyan-500/20 text-cyan-300 border border-lydian-border-focus/30 rounded-full text-[10px] sm:text-xs font-medium"
+                                className="px-2 py-0.5 sm:py-1 bg-gradient-to-r from-blue-600/20 to-cyan-500/20 text-cyan-300 border border-blue-500/30 rounded-full text-[10px] sm:text-xs font-medium"
                               >
                                 {badge}
                               </span>
                             ))}
                             <div className="flex items-center gap-1">
                               <Star className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-400 fill-current" />
-                              <span className="text-xs sm:text-sm font-medium text-lydian-text-inverse">
+                              <span className="text-xs sm:text-sm font-medium text-white">
                                 {item.rating}
                               </span>
                             </div>
@@ -253,7 +253,7 @@ const Cart: React.FC = () => {
                           {/* Quantity & Price */}
                           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                             <div className="flex items-center gap-2 sm:gap-3">
-                              <span className="text-xs sm:text-sm text-lydian-text-dim">Kişi:</span>
+                              <span className="text-xs sm:text-sm text-gray-400">Kişi:</span>
                               <div className="flex items-center gap-1.5 sm:gap-2">
                                 <motion.button
                                   onClick={() => updateGuestCount(item.id, item.guests - 1)}
@@ -261,9 +261,9 @@ const Cart: React.FC = () => {
                                   whileTap={{ scale: 0.9 }}
                                   className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center bg-lydian-bg/10 backdrop-blur-xl border border-white/20 rounded-lg hover:bg-lydian-bg/20 transition-colors"
                                 >
-                                  <Minus className="w-3 h-3 sm:w-4 sm:h-4 text-lydian-text-inverse" />
+                                  <Minus className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
                                 </motion.button>
-                                <span className="w-7 sm:w-8 text-center text-sm sm:text-base font-semibold text-lydian-text-inverse">
+                                <span className="w-7 sm:w-8 text-center text-sm sm:text-base font-semibold text-white">
                                   {item.guests}
                                 </span>
                                 <motion.button
@@ -272,7 +272,7 @@ const Cart: React.FC = () => {
                                   whileTap={{ scale: 0.9 }}
                                   className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center bg-lydian-bg/10 backdrop-blur-xl border border-white/20 rounded-lg hover:bg-lydian-bg/20 transition-colors"
                                 >
-                                  <Plus className="w-3 h-3 sm:w-4 sm:h-4 text-lydian-text-inverse" />
+                                  <Plus className="w-3 h-3 sm:w-4 sm:h-4 text-white" />
                                 </motion.button>
                               </div>
                             </div>
@@ -283,12 +283,12 @@ const Cart: React.FC = () => {
                                   ₺{item.price * item.guests}
                                 </span>
                                 {item.originalPrice && (
-                                  <span className="text-xs sm:text-sm text-lydian-text-muted line-through">
+                                  <span className="text-xs sm:text-sm text-gray-300 line-through">
                                     ₺{item.originalPrice * item.guests}
                                   </span>
                                 )}
                               </div>
-                              <p className="text-xs sm:text-sm text-lydian-text-dim">
+                              <p className="text-xs sm:text-sm text-gray-400">
                                 ₺{item.price} x {item.guests} kişi
                               </p>
                             </div>
@@ -306,9 +306,9 @@ const Cart: React.FC = () => {
                 <motion.div
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  className="bg-lydian-glass-dark backdrop-blur-xl rounded-2xl shadow-lg border border-white/10 p-4 sm:p-5 lg:p-6"
+                  className="bg-gradient-to-br from-slate-900 via-black to-slate-800 backdrop-blur-xl rounded-2xl shadow-lg border border-white/10 p-4 sm:p-5 lg:p-6"
                 >
-                  <h3 className="font-bold text-base sm:text-lg text-lydian-text-inverse mb-3 sm:mb-4">
+                  <h3 className="font-bold text-base sm:text-lg text-white mb-3 sm:mb-4">
                     Promosyon Kodu
                   </h3>
                   {appliedPromo ? (
@@ -328,7 +328,7 @@ const Cart: React.FC = () => {
                         value={promoCode}
                         onChange={(e) => setPromoCode(e.target.value)}
                         placeholder="Promosyon kodu"
-                        className="flex-1 px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base bg-lydian-bg/5 backdrop-blur-xl border border-white/10 rounded-lg text-lydian-text-inverse placeholder-gray-500 focus:ring-2 focus:ring-[#00BAFF] focus:border-[#00BAFF]/50 outline-none transition-all"
+                        className="flex-1 px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base bg-white/5 backdrop-blur-xl border border-white/10 rounded-lg text-white placeholder-gray-500 focus:ring-2 focus:ring-[#00BAFF] focus:border-[#00BAFF]/50 outline-none transition-all"
                       />
                       <FuturisticButton variant="gradient" size="md" onClick={applyPromoCode}>
                         Uygula
@@ -336,7 +336,7 @@ const Cart: React.FC = () => {
                     </div>
                   )}
                   <div className="mt-3 sm:mt-4 space-y-1 sm:space-y-2 text-xs sm:text-sm">
-                    <p className="text-lydian-text-dim font-medium">Mevcut kodlar:</p>
+                    <p className="text-gray-400 font-medium">Mevcut kodlar:</p>
                     <p className="text-cyan-400">• LYDIAN10 (%10 indirim)</p>
                     <p className="text-cyan-400">• BLOCKCHAIN20 (%20 indirim)</p>
                   </div>
@@ -347,22 +347,22 @@ const Cart: React.FC = () => {
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.1 }}
-                  className="bg-lydian-glass-dark backdrop-blur-xl rounded-2xl shadow-lg border border-white/10 p-4 sm:p-5 lg:p-6"
+                  className="bg-gradient-to-br from-slate-900 via-black to-slate-800 backdrop-blur-xl rounded-2xl shadow-lg border border-white/10 p-4 sm:p-5 lg:p-6"
                 >
-                  <h3 className="font-bold text-base sm:text-lg text-lydian-text-inverse mb-4 sm:mb-6">
+                  <h3 className="font-bold text-base sm:text-lg text-white mb-4 sm:mb-6">
                     Sipariş Özeti
                   </h3>
 
                   <div className="space-y-3 sm:space-y-4 mb-4 sm:mb-6">
                     <div className="flex justify-between text-sm sm:text-base">
-                      <span className="text-lydian-text-dim">Ara Toplam</span>
-                      <span className="font-semibold text-lydian-text-inverse">
+                      <span className="text-gray-400">Ara Toplam</span>
+                      <span className="font-semibold text-white">
                         ₺{subtotal.toFixed(2)}
                       </span>
                     </div>
                     <div className="flex justify-between text-sm sm:text-base">
-                      <span className="text-lydian-text-dim">KDV (%18)</span>
-                      <span className="font-semibold text-lydian-text-inverse">
+                      <span className="text-gray-400">KDV (%18)</span>
+                      <span className="font-semibold text-white">
                         ₺{tax.toFixed(2)}
                       </span>
                     </div>
@@ -372,9 +372,9 @@ const Cart: React.FC = () => {
                         <span className="font-semibold">-₺{discount.toFixed(2)}</span>
                       </div>
                     )}
-                    <div className="border-t border-lydian-border pt-3 sm:pt-4">
+                    <div className="border-t border-white/20 pt-3 sm:pt-4">
                       <div className="flex justify-between items-center">
-                        <span className="text-base sm:text-lg font-bold text-lydian-text-inverse">
+                        <span className="text-base sm:text-lg font-bold text-white">
                           Toplam
                         </span>
                         <span className="text-xl sm:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-400 to-orange-400">
@@ -385,18 +385,18 @@ const Cart: React.FC = () => {
                   </div>
 
                   {/* Security Features */}
-                  <div className="space-y-2 sm:space-y-3 mb-4 sm:mb-6 p-3 sm:p-4 bg-lydian-bg/5 backdrop-blur-xl rounded-xl border border-white/10">
+                  <div className="space-y-2 sm:space-y-3 mb-4 sm:mb-6 p-3 sm:p-4 bg-white/5 backdrop-blur-xl rounded-xl border border-white/10">
                     <div className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm">
                       <Shield className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-green-400 flex-shrink-0" />
-                      <span className="text-lydian-text-dim">SSL Güvenli Ödeme</span>
+                      <span className="text-gray-400">SSL Güvenli Ödeme</span>
                     </div>
                     <div className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm">
                       <CheckCircle className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-cyan-400 flex-shrink-0" />
-                      <span className="text-lydian-text-dim">Blockchain Doğrulama</span>
+                      <span className="text-gray-400">Blockchain Doğrulama</span>
                     </div>
                     <div className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm">
                       <CreditCard className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-purple-400 flex-shrink-0" />
-                      <span className="text-lydian-text-dim">Anında Rezervasyon</span>
+                      <span className="text-gray-400">Anında Rezervasyon</span>
                     </div>
                   </div>
 

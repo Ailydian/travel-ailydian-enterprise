@@ -45,7 +45,7 @@ const DashboardShell: React.FC<DashboardShellProps> = ({
   };
 
   return (
-    <div className="flex h-screen overflow-hidden bg-lydian-glass-dark">
+    <div className="flex h-screen overflow-hidden bg-gradient-to-br from-slate-900 via-black to-slate-800">
       {/* Sidebar for desktop and mobile */}
       <DashboardSidebar
         isOpen={sidebarOpen}

@@ -190,18 +190,18 @@ export const LocationAutocompleteAdvanced: React.FC<LocationAutocompleteAdvanced
   const getLocationIcon = (locationType: string) => {
     switch (locationType) {
       case 'airport':
-        return <Plane className="w-4 h-4 text-lydian-primary" />;
+        return <Plane className="w-4 h-4 text-blue-500" />;
       case 'hotel':
       case 'hotel_zone':
         return <Building2 className="w-4 h-4 text-lydian-accent-purple" />;
       case 'region':
-        return <MapIcon className="w-4 h-4 text-lydian-success" />;
+        return <MapIcon className="w-4 h-4 text-green-500" />;
       case 'district':
       case 'town':
         return <MapIcon className="w-4 h-4 text-orange-500" />;
       case 'city':
       default:
-        return <MapPin className="w-4 h-4 text-lydian-text-dim" />;
+        return <MapPin className="w-4 h-4 text-gray-400" />;
     }
   };
 
@@ -227,7 +227,7 @@ export const LocationAutocompleteAdvanced: React.FC<LocationAutocompleteAdvanced
   return (
     <div ref={wrapperRef} className={`relative ${className}`}>
       {label &&
-      <label className="block text-sm font-semibold text-lydian-text-muted mb-2">
+      <label className="block text-sm font-semibold text-gray-300 mb-2">
           {label}
         </label>
       }
@@ -235,7 +235,7 @@ export const LocationAutocompleteAdvanced: React.FC<LocationAutocompleteAdvanced
       <div className="relative group">
         <div className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 pointer-events-none">
           {icon ||
-          <MapPin className="text-lydian-text-muted w-5 h-5 group-hover:scale-110 group-focus-within:scale-110 group-focus-within:text-lydian-primary transition-all duration-200" />
+          <MapPin className="text-gray-300 w-5 h-5 group-hover:scale-110 group-focus-within:scale-110 group-focus-within:text-blue-500 transition-all duration-200" />
           }
         </div>
 
@@ -251,13 +251,13 @@ export const LocationAutocompleteAdvanced: React.FC<LocationAutocompleteAdvanced
             }
           }}
           placeholder={placeholder}
-          className="w-full pl-12 pr-12 py-4 text-base bg-lydian-glass-dark border-2 border-lydian-border-light/10 rounded-xl focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-primary outline-none text-lydian-text-inverse placeholder-lydian-text-tertiary font-medium shadow-sm hover:shadow-md hover:border-lydian-border-focus transition-all duration-200"
+          className="w-full pl-12 pr-12 py-4 text-base bg-gradient-to-br from-slate-900 via-black to-slate-800 border-2 border-white/20/10 rounded-xl focus:ring-2 focus:ring-lydian-border-focus focus:border-blue-500 outline-none text-white placeholder-lydian-text-tertiary font-medium shadow-sm hover:shadow-md hover:border-blue-500 transition-all duration-200"
           autoComplete="off" />
 
 
         <div className="absolute right-4 top-1/2 transform -translate-y-1/2 flex items-center gap-2">
           {isLoading &&
-          <Loader2 className="text-lydian-primary w-5 h-5 animate-spin" />
+          <Loader2 className="text-blue-500 w-5 h-5 animate-spin" />
           }
           {!isLoading && value.length === 0 && showNearby &&
           <button
@@ -276,10 +276,10 @@ export const LocationAutocompleteAdvanced: React.FC<LocationAutocompleteAdvanced
                 catch(() => showToast({ type: 'info', title: 'Konum bilgisi alınamadı' }));
               }
             }}
-            className="p-1 hover:bg-lydian-glass-dark-medium rounded-lg transition-colors"
+            className="p-1 hover:bg-white/10 backdrop-blur-xl border border-white/20 rounded-lg transition-colors"
             title="Yakınımdakiler">
 
-              <Target className="w-5 h-5 text-lydian-primary" />
+              <Target className="w-5 h-5 text-blue-500" />
             </button>
           }
         </div>
@@ -293,25 +293,25 @@ export const LocationAutocompleteAdvanced: React.FC<LocationAutocompleteAdvanced
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
           transition={{ duration: 0.2 }}
-          className="absolute z-50 w-full mt-2 bg-lydian-glass-dark rounded-xl shadow-2xl border border-lydian-border-light/10 overflow-hidden max-h-[500px] overflow-y-auto">
+          className="absolute z-50 w-full mt-2 bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-xl shadow-2xl border border-white/20/10 overflow-hidden max-h-[500px] overflow-y-auto">
 
             {/* Recent Searches */}
             {value.length < 2 && showRecentSearches && recentSearches.length > 0 &&
-          <div className="border-b border-lydian-border-light">
-                <div className="px-4 py-3 bg-lydian-glass-dark flex items-center gap-2">
-                  <Clock className="w-4 h-4 text-lydian-text-dim" />
-                  <span className="text-sm font-semibold text-lydian-text-muted">Son Aramalar</span>
+          <div className="border-b border-white/20">
+                <div className="px-4 py-3 bg-gradient-to-br from-slate-900 via-black to-slate-800 flex items-center gap-2">
+                  <Clock className="w-4 h-4 text-gray-400" />
+                  <span className="text-sm font-semibold text-gray-300">Son Aramalar</span>
                 </div>
                 {recentSearches.map((location, index) =>
             <button
               key={`recent-${location.id}`}
               onClick={() => handleSelectSuggestion(location)}
-              className="w-full px-4 py-3 flex items-center gap-3 hover:bg-lydian-primary-lighter transition-colors text-left border-b border-gray-50 last:border-b-0">
+              className="w-full px-4 py-3 flex items-center gap-3 hover:bg-blue-500/10er transition-colors text-left border-b border-gray-50 last:border-b-0">
 
                     {getLocationIcon(location.type)}
                     <div className="flex-1">
-                      <div className="font-medium text-lydian-text-inverse">{location.name}</div>
-                      <div className="text-xs text-lydian-text-dim">
+                      <div className="font-medium text-white">{location.name}</div>
+                      <div className="text-xs text-gray-400">
                         {location.city} • {location.country}
                       </div>
                     </div>
@@ -322,24 +322,24 @@ export const LocationAutocompleteAdvanced: React.FC<LocationAutocompleteAdvanced
 
             {/* Nearby Locations */}
             {value.length < 2 && nearbyLocations.length > 0 &&
-          <div className="border-b border-lydian-border-light">
+          <div className="border-b border-white/20">
                 <div className="px-4 py-3 bg-gradient-to-r from-blue-50 to-purple-50 flex items-center gap-2">
-                  <Target className="w-4 h-4 text-lydian-primary" />
-                  <span className="text-sm font-semibold text-lydian-text-muted">Yakınınızda</span>
+                  <Target className="w-4 h-4 text-blue-500" />
+                  <span className="text-sm font-semibold text-gray-300">Yakınınızda</span>
                 </div>
                 {nearbyLocations.map((location) =>
             <button
               key={`nearby-${location.id}`}
               onClick={() => handleSelectSuggestion(location)}
-              className="w-full px-4 py-3 flex items-center gap-3 hover:bg-lydian-primary-lighter transition-colors text-left border-b border-gray-50 last:border-b-0">
+              className="w-full px-4 py-3 flex items-center gap-3 hover:bg-blue-500/10er transition-colors text-left border-b border-gray-50 last:border-b-0">
 
                     {getLocationIcon(location.type)}
                     <div className="flex-1">
-                      <div className="font-medium text-lydian-text-inverse">{location.name}</div>
-                      <div className="text-xs text-lydian-text-dim flex items-center gap-2">
+                      <div className="font-medium text-white">{location.name}</div>
+                      <div className="text-xs text-gray-400 flex items-center gap-2">
                         <span>{location.city} • {location.country}</span>
                         {location.distance &&
-                  <span className="px-2 py-0.5 bg-lydian-primary-light text-lydian-primary-dark rounded-full text-xs font-semibold">
+                  <span className="px-2 py-0.5 bg-blue-500/10 text-blue-600 rounded-full text-xs font-semibold">
                             {formatDistance(location.distance)}
                           </span>
                   }
@@ -355,7 +355,7 @@ export const LocationAutocompleteAdvanced: React.FC<LocationAutocompleteAdvanced
           <div>
                 <div className="px-4 py-3 bg-gradient-to-r from-yellow-50 to-orange-50 flex items-center gap-2">
                   <TrendingUp className="w-4 h-4 text-orange-600" />
-                  <span className="text-sm font-semibold text-lydian-text-muted">Popüler Destinasyonlar</span>
+                  <span className="text-sm font-semibold text-gray-300">Popüler Destinasyonlar</span>
                 </div>
                 {popularLocations.map((location) =>
             <button
@@ -366,12 +366,12 @@ export const LocationAutocompleteAdvanced: React.FC<LocationAutocompleteAdvanced
                     {getLocationIcon(location.type)}
                     <div className="flex-1">
                       <div className="flex items-center gap-2">
-                        <span className="font-medium text-lydian-text-inverse">{location.name}</span>
+                        <span className="font-medium text-white">{location.name}</span>
                         {location.popular &&
-                  <Star className="w-3 h-3 text-lydian-warning fill-yellow-500" />
+                  <Star className="w-3 h-3 text-yellow-500 fill-yellow-500" />
                   }
                       </div>
-                      <div className="text-xs text-lydian-text-dim">
+                      <div className="text-xs text-gray-400">
                         {location.city} • {location.country}
                         {location.hotelCount &&
                   <span className="ml-2 text-orange-600 font-semibold">
@@ -390,7 +390,7 @@ export const LocationAutocompleteAdvanced: React.FC<LocationAutocompleteAdvanced
           <div>
                 <div className="px-4 py-3 bg-gradient-to-r from-blue-50 to-indigo-50 flex items-center gap-2">
                   <Search className="w-4 h-4 text-indigo-600" />
-                  <span className="text-sm font-semibold text-lydian-text-muted">
+                  <span className="text-sm font-semibold text-gray-300">
                     Arama Sonuçları ({suggestions.length})
                   </span>
                 </div>
@@ -413,17 +413,17 @@ export const LocationAutocompleteAdvanced: React.FC<LocationAutocompleteAdvanced
 
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2">
-                        <span className="font-semibold text-lydian-text-inverse truncate">
+                        <span className="font-semibold text-white truncate">
                           {suggestion.name}
                         </span>
                         {suggestion.code &&
-                  <span className="px-2 py-0.5 bg-gradient-to-r from-lydian-primary to-lydian-primary text-lydian-text-inverse rounded text-xs font-mono font-bold flex-shrink-0">
+                  <span className="px-2 py-0.5 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded text-xs font-mono font-bold flex-shrink-0">
                             {suggestion.code}
                           </span>
                   }
                       </div>
 
-                      <div className="text-xs text-lydian-text-dim mt-0.5 flex items-center gap-2 flex-wrap">
+                      <div className="text-xs text-gray-400 mt-0.5 flex items-center gap-2 flex-wrap">
                         <span className="flex items-center gap-1">
                           <Globe className="w-3 h-3 flex-shrink-0" />
                           {suggestion.city}
@@ -432,12 +432,12 @@ export const LocationAutocompleteAdvanced: React.FC<LocationAutocompleteAdvanced
                           {suggestion.country}
                         </span>
 
-                        <span className="px-2 py-0.5 bg-lydian-glass-dark-medium text-lydian-text-muted rounded-full text-xs">
+                        <span className="px-2 py-0.5 bg-white/10 backdrop-blur-xl border border-white/20 text-gray-300 rounded-full text-xs">
                           {getTypeLabel(suggestion.type)}
                         </span>
 
                         {suggestion.distance &&
-                  <span className="px-2 py-0.5 bg-lydian-primary-light text-lydian-primary-dark rounded-full text-xs font-semibold">
+                  <span className="px-2 py-0.5 bg-blue-500/10 text-blue-600 rounded-full text-xs font-semibold">
                             {formatDistance(suggestion.distance)}
                           </span>
                   }
@@ -451,7 +451,7 @@ export const LocationAutocompleteAdvanced: React.FC<LocationAutocompleteAdvanced
                     </div>
 
                     {suggestion.type === 'airport' &&
-              <Navigation className="w-5 h-5 text-lydian-primary flex-shrink-0" />
+              <Navigation className="w-5 h-5 text-blue-500 flex-shrink-0" />
               }
                   </motion.button>
             )}
@@ -462,10 +462,10 @@ export const LocationAutocompleteAdvanced: React.FC<LocationAutocompleteAdvanced
             {value.length >= 2 && !isLoading && suggestions.length === 0 &&
           <div className="px-6 py-8 text-center">
                 <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r from-gray-100 to-gray-200 flex items-center justify-center">
-                  <Search className="w-8 h-8 text-lydian-text-muted" />
+                  <Search className="w-8 h-8 text-gray-300" />
                 </div>
-                <div className="font-semibold text-lydian-text-inverse mb-2">Sonuç bulunamadı</div>
-                <div className="text-sm text-lydian-text-muted">
+                <div className="font-semibold text-white mb-2">Sonuç bulunamadı</div>
+                <div className="text-sm text-gray-300">
                   "{value}" için sonuç bulunamadı
                   <br />
                   Farklı bir arama terimi deneyin

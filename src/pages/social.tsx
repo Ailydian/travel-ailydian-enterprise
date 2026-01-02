@@ -191,17 +191,17 @@ const SocialPage: NextPage = () => {
         <meta name="description" content="Seyahat topluluğumuza katılın, deneyimlerinizi paylaşın ve yeni seyahat arkadaşları bulun. Türkiye'nin en büyük travel topluluğu." />
       </Head>
 
-      <div className="min-h-screen bg-lydian-glass-dark">
+      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-black to-slate-800">
         {/* Header */}
-        <div className="bg-lydian-bg-hover shadow-sm border-b sticky top-0 z-40">
+        <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl shadow-sm border-b sticky top-0 z-40">
           <div className="max-w-7xl mx-auto px-4">
             <div className="flex items-center justify-between h-16">
               <div className="flex items-center gap-8">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-gradient-to-r from-lydian-primary to-lydian-secondary rounded-full flex items-center justify-center">
-                    <Users className="w-6 h-6 text-lydian-text-inverse" />
+                  <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-purple-700 rounded-full flex items-center justify-center">
+                    <Users className="w-6 h-6 text-white" />
                   </div>
-                  <h1 className="text-2xl font-bold text-lydian-text-inverse">Sosyal Ağ</h1>
+                  <h1 className="text-2xl font-bold text-white">Sosyal Ağ</h1>
                 </div>
 
                 {/* Navigation Tabs */}
@@ -220,7 +220,7 @@ const SocialPage: NextPage = () => {
                         className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-colors ${
                         activeTab === tab.id ?
                         'bg-blue-50 text-lydian-primary' :
-                        'text-lydian-text-dim hover:bg-lydian-bg/10'}`
+                        'text-gray-400 hover:bg-lydian-bg/10'}`
                         }>
 
                         <Icon className="w-4 h-4" />
@@ -232,15 +232,15 @@ const SocialPage: NextPage = () => {
               </div>
 
               <div className="flex items-center gap-3">
-                <button className="p-2 text-lydian-text-dim hover:bg-lydian-glass-dark-medium rounded-lg">
+                <button className="p-2 text-gray-400 hover:bg-white/10 backdrop-blur-xl border border-white/20 rounded-lg">
                   <Search className="w-5 h-5" />
                 </button>
-                <button className="p-2 text-lydian-text-dim hover:bg-lydian-glass-dark-medium rounded-lg">
+                <button className="p-2 text-gray-400 hover:bg-white/10 backdrop-blur-xl border border-white/20 rounded-lg">
                   <Bell className="w-5 h-5" />
                 </button>
                 <button
                   onClick={() => setShowNewPost(!showNewPost)}
-                  className="flex items-center gap-2 bg-lydian-primary text-lydian-text-inverse px-4 py-2 rounded-lg hover:bg-lydian-primary-dark transition-colors">
+                  className="flex items-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-2 rounded-lg hover:bg-gradient-to-r from-blue-700 to-purple-700 transition-colors">
 
                   <Plus className="w-4 h-4" />
                   <span className="hidden sm:inline">Paylaş</span>
@@ -255,37 +255,37 @@ const SocialPage: NextPage = () => {
             {/* Left Sidebar */}
             <div className="lg:col-span-1 space-y-6">
               {/* Trending Topics */}
-              <div className="bg-lydian-bg-hover rounded-2xl p-6 shadow-sm">
-                <h3 className="font-bold text-lydian-text-inverse mb-4 flex items-center gap-2">
+              <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-2xl p-6 shadow-sm">
+                <h3 className="font-bold text-white mb-4 flex items-center gap-2">
                   <TrendingUp className="w-5 h-5 text-orange-500" />
                   Trend Konular
                 </h3>
                 <div className="space-y-3">
                   {trendingTopics.map((topic, index) =>
                   <div key={index} className="flex items-center justify-between">
-                      <span className="text-lydian-primary font-medium cursor-pointer hover:underline">
+                      <span className="text-blue-500 font-medium cursor-pointer hover:underline">
                         {topic.tag}
                       </span>
-                      <span className="text-sm text-lydian-text-muted">{topic.posts}</span>
+                      <span className="text-sm text-gray-300">{topic.posts}</span>
                     </div>
                   )}
                 </div>
               </div>
 
               {/* Quick Stats */}
-              <div className="bg-lydian-bg-hover rounded-2xl p-6 shadow-sm">
-                <h3 className="font-bold text-lydian-text-inverse mb-4">Topluluk İstatistikleri</h3>
+              <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-2xl p-6 shadow-sm">
+                <h3 className="font-bold text-white mb-4">Topluluk İstatistikleri</h3>
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <span className="text-lydian-text-dim">Aktif Üyeler</span>
-                    <span className="font-bold text-lydian-success">24,567</span>
+                    <span className="text-gray-400">Aktif Üyeler</span>
+                    <span className="font-bold text-green-500">24,567</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-lydian-text-dim">Bu Ay Paylaşım</span>
-                    <span className="font-bold text-lydian-primary">8,923</span>
+                    <span className="text-gray-400">Bu Ay Paylaşım</span>
+                    <span className="font-bold text-blue-500">8,923</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-lydian-text-dim">Seyahat Planı</span>
+                    <span className="text-gray-400">Seyahat Planı</span>
                     <span className="font-bold text-purple-600">1,456</span>
                   </div>
                 </div>
@@ -299,25 +299,25 @@ const SocialPage: NextPage = () => {
               <motion.div
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="bg-lydian-bg-hover rounded-2xl p-6 shadow-sm">
+                className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-2xl p-6 shadow-sm">
 
-                  <h3 className="font-bold text-lydian-text-inverse mb-4">Seyahat Deneyimini Paylaş</h3>
+                  <h3 className="font-bold text-white mb-4">Seyahat Deneyimini Paylaş</h3>
                   <textarea
                   placeholder="Hangi harika yerleri keşfettin?"
-                  className="w-full p-4 border border-lydian-border-medium rounded-xl resize-none h-24 focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-border" />
+                  className="w-full p-4 border border-white/30 rounded-xl resize-none h-24 focus:ring-2 focus:ring-lydian-border-focus focus:border-white/20" />
 
                   <div className="flex items-center justify-between mt-4">
                     <div className="flex items-center gap-4">
-                      <button className="flex items-center gap-2 text-lydian-text-dim hover:text-lydian-primary">
+                      <button className="flex items-center gap-2 text-gray-400 hover:text-blue-500">
                         <Camera className="w-5 h-5" />
                         <span>Fotoğraf</span>
                       </button>
-                      <button className="flex items-center gap-2 text-lydian-text-dim hover:text-lydian-primary">
+                      <button className="flex items-center gap-2 text-gray-400 hover:text-blue-500">
                         <MapPin className="w-5 h-5" />
                         <span>Konum</span>
                       </button>
                     </div>
-                    <button className="bg-lydian-primary text-lydian-text-inverse px-6 py-2 rounded-lg hover:bg-lydian-primary-dark transition-colors">
+                    <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-lg hover:bg-gradient-to-r from-blue-700 to-purple-700 transition-colors">
                       Paylaş
                     </button>
                   </div>
@@ -333,7 +333,7 @@ const SocialPage: NextPage = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
-                  className="bg-lydian-bg-hover rounded-2xl shadow-sm overflow-hidden">
+                  className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-2xl shadow-sm overflow-hidden">
 
                       {/* Post Header */}
                       <div className="p-6 pb-4">
@@ -342,25 +342,25 @@ const SocialPage: NextPage = () => {
                             <div className="w-12 h-12 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full"></div>
                             <div>
                               <div className="flex items-center gap-2">
-                                <h4 className="font-semibold text-lydian-text-inverse">{post.user.name}</h4>
+                                <h4 className="font-semibold text-white">{post.user.name}</h4>
                                 {post.user.verified &&
-                            <div className="w-5 h-5 bg-lydian-primary rounded-full flex items-center justify-center">
-                                    <Award className="w-3 h-3 text-lydian-text-inverse" />
+                            <div className="w-5 h-5 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center">
+                                    <Award className="w-3 h-3 text-white" />
                                   </div>
                             }
                               </div>
-                              <p className="text-sm text-lydian-text-muted">@{post.user.username} • {post.timestamp}</p>
+                              <p className="text-sm text-gray-300">@{post.user.username} • {post.timestamp}</p>
                             </div>
                           </div>
-                          <button className="p-2 text-lydian-text-muted hover:text-lydian-text-dim">
+                          <button className="p-2 text-gray-300 hover:text-gray-400">
                             <Settings className="w-5 h-5" />
                           </button>
                         </div>
 
-                        <p className="text-lydian-text-inverse mb-4">{post.content}</p>
+                        <p className="text-white mb-4">{post.content}</p>
 
                         {/* Location */}
-                        <div className="flex items-center gap-2 text-lydian-primary mb-4">
+                        <div className="flex items-center gap-2 text-blue-500 mb-4">
                           <MapPin className="w-4 h-4" />
                           <span className="text-sm font-medium">{post.location}</span>
                         </div>
@@ -368,7 +368,7 @@ const SocialPage: NextPage = () => {
                         {/* Tags */}
                         <div className="flex flex-wrap gap-2 mb-4">
                           {post.tags.map((tag, idx) =>
-                      <span key={idx} className="text-lydian-primary text-sm hover:underline cursor-pointer">
+                      <span key={idx} className="text-blue-500 text-sm hover:underline cursor-pointer">
                               {tag}
                             </span>
                       )}
@@ -391,17 +391,17 @@ const SocialPage: NextPage = () => {
                             <button
                           onClick={() => handleLike(post.id)}
                           className={`flex items-center gap-2 transition-colors ${
-                          post.liked ? 'text-red-500' : 'text-lydian-text-muted hover:text-red-500'}`
+                          post.liked ? 'text-red-500' : 'text-gray-300 hover:text-red-500'}`
                           }>
 
                               <Heart className={`w-5 h-5 ${post.liked ? 'fill-current' : ''}`} />
                               <span className="text-sm">{post.likes}</span>
                             </button>
-                            <button className="flex items-center gap-2 text-lydian-text-muted hover:text-lydian-primary transition-colors">
+                            <button className="flex items-center gap-2 text-gray-300 hover:text-blue-500 transition-colors">
                               <MessageCircle className="w-5 h-5" />
                               <span className="text-sm">{post.comments}</span>
                             </button>
-                            <button className="flex items-center gap-2 text-lydian-text-muted hover:text-green-500 transition-colors">
+                            <button className="flex items-center gap-2 text-gray-300 hover:text-green-500 transition-colors">
                               <Share2 className="w-5 h-5" />
                               <span className="text-sm">{post.shares}</span>
                             </button>
@@ -409,7 +409,7 @@ const SocialPage: NextPage = () => {
                           <button
                         onClick={() => handleBookmark(post.id)}
                         className={`p-2 transition-colors ${
-                        post.bookmarked ? 'text-blue-500' : 'text-lydian-text-muted hover:text-blue-500'}`
+                        post.bookmarked ? 'text-blue-500' : 'text-gray-300 hover:text-blue-500'}`
                         }>
 
                             <Bookmark className={`w-5 h-5 ${post.bookmarked ? 'fill-current' : ''}`} />
@@ -424,49 +424,49 @@ const SocialPage: NextPage = () => {
               {/* Travel Buddies */}
               {activeTab === 'buddies' &&
               <div className="space-y-6">
-                  <div className="bg-lydian-bg-hover rounded-2xl p-6 shadow-sm">
-                    <h3 className="text-xl font-bold text-lydian-text-inverse mb-4">Seyahat Arkadaşları Bul</h3>
-                    <p className="text-lydian-text-dim mb-6">Size uygun seyahat arkadaşları bulun ve unutulmaz deneyimler yaşayın.</p>
+                  <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-2xl p-6 shadow-sm">
+                    <h3 className="text-xl font-bold text-white mb-4">Seyahat Arkadaşları Bul</h3>
+                    <p className="text-gray-400 mb-6">Size uygun seyahat arkadaşları bulun ve unutulmaz deneyimler yaşayın.</p>
                     
                     <div className="grid grid-cols-1 gap-4">
                       {travelBuddies.map((buddy) =>
-                    <div key={buddy.id} className="border border-lydian-border rounded-xl p-4">
+                    <div key={buddy.id} className="border border-white/20 rounded-xl p-4">
                           <div className="flex items-center justify-between mb-4">
                             <div className="flex items-center gap-4">
                               <div className="relative">
                                 <div className="w-16 h-16 bg-gradient-to-r from-green-400 to-blue-500 rounded-full"></div>
                                 {buddy.online &&
-                            <div className="absolute -top-1 -right-1 w-5 h-5 bg-lydian-success rounded-full border-2 border-lydian-border-light"></div>
+                            <div className="absolute -top-1 -right-1 w-5 h-5 bg-green-600 rounded-full border-2 border-white/20"></div>
                             }
                               </div>
                               <div>
                                 <div className="flex items-center gap-2">
-                                  <h4 className="font-semibold text-lydian-text-inverse">{buddy.name}</h4>
+                                  <h4 className="font-semibold text-white">{buddy.name}</h4>
                                   {buddy.verified &&
-                              <div className="w-5 h-5 bg-lydian-primary rounded-full flex items-center justify-center">
-                                      <Award className="w-3 h-3 text-lydian-text-inverse" />
+                              <div className="w-5 h-5 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center">
+                                      <Award className="w-3 h-3 text-white" />
                                     </div>
                               }
                                 </div>
-                                <p className="text-sm text-lydian-text-muted">{buddy.location}</p>
+                                <p className="text-sm text-gray-300">{buddy.location}</p>
                                 <div className="flex items-center gap-1 mt-1">
                                   <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
                                   <span className="text-sm font-medium">{buddy.rating}</span>
-                                  <span className="text-sm text-lydian-text-muted">({buddy.reviews} değerlendirme)</span>
+                                  <span className="text-sm text-gray-300">({buddy.reviews} değerlendirme)</span>
                                 </div>
                               </div>
                             </div>
-                            <button className="bg-lydian-primary text-lydian-text-inverse px-4 py-2 rounded-lg hover:bg-lydian-primary-dark transition-colors">
+                            <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-2 rounded-lg hover:bg-gradient-to-r from-blue-700 to-purple-700 transition-colors">
                               Bağlan
                             </button>
                           </div>
 
                           <div className="space-y-3">
                             <div>
-                              <h5 className="text-sm font-medium text-lydian-text-muted mb-2">Diller</h5>
+                              <h5 className="text-sm font-medium text-gray-300 mb-2">Diller</h5>
                               <div className="flex flex-wrap gap-2">
                                 {buddy.languages.map((lang, idx) =>
-                            <span key={idx} className="bg-lydian-primary-light text-lydian-primary-dark px-2 py-1 rounded text-xs">
+                            <span key={idx} className="bg-blue-500/10 text-blue-600 px-2 py-1 rounded text-xs">
                                     {lang}
                                   </span>
                             )}
@@ -474,10 +474,10 @@ const SocialPage: NextPage = () => {
                             </div>
 
                             <div>
-                              <h5 className="text-sm font-medium text-lydian-text-muted mb-2">İlgi Alanları</h5>
+                              <h5 className="text-sm font-medium text-gray-300 mb-2">İlgi Alanları</h5>
                               <div className="flex flex-wrap gap-2">
                                 {buddy.interests.map((interest, idx) =>
-                            <span key={idx} className="bg-lydian-glass-dark-medium text-lydian-text-muted px-2 py-1 rounded text-xs">
+                            <span key={idx} className="bg-white/10 backdrop-blur-xl border border-white/20 text-gray-300 px-2 py-1 rounded text-xs">
                                     {interest}
                                   </span>
                             )}
@@ -495,8 +495,8 @@ const SocialPage: NextPage = () => {
             {/* Right Sidebar */}
             <div className="lg:col-span-1 space-y-6">
               {/* Suggested People */}
-              <div className="bg-lydian-bg-hover rounded-2xl p-6 shadow-sm">
-                <h3 className="font-bold text-lydian-text-inverse mb-4">Takip Edilecekler</h3>
+              <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-2xl p-6 shadow-sm">
+                <h3 className="font-bold text-white mb-4">Takip Edilecekler</h3>
                 <div className="space-y-4">
                   {[
                   { name: "Travel Turkey", username: "travelturkey", followers: "45.2K" },
@@ -507,12 +507,12 @@ const SocialPage: NextPage = () => {
                       <div className="flex items-center gap-3">
                         <div className="w-10 h-10 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full"></div>
                         <div>
-                          <h4 className="font-medium text-lydian-text-inverse text-sm">{suggestion.name}</h4>
-                          <p className="text-xs text-lydian-text-muted">@{suggestion.username}</p>
-                          <p className="text-xs text-lydian-text-muted">{suggestion.followers} takipçi</p>
+                          <h4 className="font-medium text-white text-sm">{suggestion.name}</h4>
+                          <p className="text-xs text-gray-300">@{suggestion.username}</p>
+                          <p className="text-xs text-gray-300">{suggestion.followers} takipçi</p>
                         </div>
                       </div>
-                      <button className="text-lydian-primary hover:text-lydian-primary-dark font-medium text-sm">
+                      <button className="text-blue-500 hover:text-blue-600 font-medium text-sm">
                         Takip Et
                       </button>
                     </div>
@@ -521,8 +521,8 @@ const SocialPage: NextPage = () => {
               </div>
 
               {/* Upcoming Events */}
-              <div className="bg-lydian-bg-hover rounded-2xl p-6 shadow-sm">
-                <h3 className="font-bold text-lydian-text-inverse mb-4">Yaklaşan Etkinlikler</h3>
+              <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-2xl p-6 shadow-sm">
+                <h3 className="font-bold text-white mb-4">Yaklaşan Etkinlikler</h3>
                 <div className="space-y-4">
                   {[
                   {
@@ -541,9 +541,9 @@ const SocialPage: NextPage = () => {
                     participants: 32
                   }].
                   map((event, index) =>
-                  <div key={index} className="border border-lydian-border rounded-lg p-3">
-                      <h4 className="font-medium text-lydian-text-inverse text-sm mb-1">{event.title}</h4>
-                      <div className="flex items-center gap-4 text-xs text-lydian-text-muted">
+                  <div key={index} className="border border-white/20 rounded-lg p-3">
+                      <h4 className="font-medium text-white text-sm mb-1">{event.title}</h4>
+                      <div className="flex items-center gap-4 text-xs text-gray-300">
                         <div className="flex items-center gap-1">
                           <Calendar className="w-3 h-3" />
                           {event.date}

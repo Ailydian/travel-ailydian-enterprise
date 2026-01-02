@@ -240,7 +240,7 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
 
       <ModernHeader />
 
-      <main className="min-h-screen bg-lydian-glass-dark">
+      <main className="min-h-screen bg-gradient-to-br from-slate-900 via-black to-slate-800">
         {/* ProductHero Component */}
         <ProductHero
           title={`${getLocalizedText(transfer.from, selectedLanguage)} → ${getLocalizedText(transfer.to, selectedLanguage)}`}
@@ -288,13 +288,13 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.3 }}
-                className="bg-lydian-glass-dark/95 backdrop-blur-xl rounded-2xl p-6 sm:p-8 shadow-lg border border-lydian-border-light/20"
+                className="bg-lydian-glass-dark/95 backdrop-blur-xl rounded-2xl p-6 sm:p-8 shadow-lg border border-white/20/20"
               >
-                <h2 className="text-2xl font-bold text-lydian-text-inverse mb-4">
+                <h2 className="text-2xl font-bold text-white mb-4">
                   {selectedLanguage === 'tr' ? 'Transfer Hakkında' : 'About This Transfer'}
                 </h2>
                 <div className="prose prose-gray dark:prose-invert max-w-none">
-                  <p className="text-lydian-text-muted leading-relaxed whitespace-pre-line">
+                  <p className="text-gray-300 leading-relaxed whitespace-pre-line">
                     {getLocalizedText(transfer.longDescription, selectedLanguage)}
                   </p>
                 </div>
@@ -306,7 +306,7 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.4 }}
-                className="bg-lydian-glass-dark/95 backdrop-blur-xl rounded-2xl p-6 sm:p-8 shadow-lg border border-lydian-border-light/20"
+                className="bg-lydian-glass-dark/95 backdrop-blur-xl rounded-2xl p-6 sm:p-8 shadow-lg border border-white/20/20"
               >
                 <FeatureGrid
                   title={selectedLanguage === 'tr' ? 'Öne Çıkan Özellikler' : 'Key Features'}
@@ -325,9 +325,9 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.5 }}
-                className="bg-lydian-glass-dark/95 backdrop-blur-xl rounded-2xl p-6 sm:p-8 shadow-lg border border-lydian-border-light/20"
+                className="bg-lydian-glass-dark/95 backdrop-blur-xl rounded-2xl p-6 sm:p-8 shadow-lg border border-white/20/20"
               >
-                <h2 className="text-2xl font-bold text-lydian-text-inverse mb-6">
+                <h2 className="text-2xl font-bold text-white mb-6">
                   {selectedLanguage === 'tr' ? 'Rota Haritası' : 'Route Map'}
                 </h2>
                 <div className="relative w-full h-64 sm:h-96 bg-white/5 rounded-xl overflow-hidden">
@@ -410,7 +410,7 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
               transition={{ delay: 0.6 }}
               className="mt-12 sm:mt-16"
             >
-              <h2 className="text-2xl sm:text-3xl font-bold text-lydian-text-inverse mb-6 sm:mb-8">
+              <h2 className="text-2xl sm:text-3xl font-bold text-white mb-6 sm:mb-8">
                 {selectedLanguage === 'tr' ? 'Benzer Transferler' : 'Related Transfers'}
               </h2>
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
@@ -424,7 +424,7 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
                     whileHover={{ y: -8 }}
                   >
                     <Link href={`/transfers/${relatedTransfer.seo.slug[selectedLanguage]}`} className="group block">
-                      <div className="bg-lydian-glass-dark/95 backdrop-blur-xl rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all border border-lydian-border-light/20">
+                      <div className="bg-lydian-glass-dark/95 backdrop-blur-xl rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all border border-white/20/20">
                         <div className="relative h-40 sm:h-48">
                           <Image
                             src={relatedTransfer.images[0]}
@@ -438,15 +438,15 @@ export default function TransferDetailPage({ transfer, relatedTransfers }: Trans
                           />
                         </div>
                         <div className="p-4 sm:p-6">
-                          <h3 className="text-base sm:text-lg font-bold text-lydian-text-inverse mb-2 group-hover:text-blue-400 transition-colors">
+                          <h3 className="text-base sm:text-lg font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">
                             {getLocalizedText(relatedTransfer.from, selectedLanguage)} →{' '}
                             {getLocalizedText(relatedTransfer.to, selectedLanguage)}
                           </h3>
-                          <p className="text-sm text-lydian-text-muted mb-4 line-clamp-2">
+                          <p className="text-sm text-gray-300 mb-4 line-clamp-2">
                             {getLocalizedText(relatedTransfer.description, selectedLanguage)}
                           </p>
                           <div className="flex items-center justify-between">
-                            <div className="flex items-center gap-3 sm:gap-4 text-xs sm:text-sm text-lydian-text-muted">
+                            <div className="flex items-center gap-3 sm:gap-4 text-xs sm:text-sm text-gray-300">
                               <span className="flex items-center gap-1">
                                 <Navigation className="w-4 h-4" />
                                 {relatedTransfer.distance} km

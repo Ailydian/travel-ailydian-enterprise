@@ -197,7 +197,7 @@ export default function VehicleOwnerRegisterPage() {
   };
 
   return (
-    <div className="min-h-screen bg-lydian-glass-dark">
+    <div className="min-h-screen bg-white/10 backdrop-blur-xl border border-white/20">
       <div className="flex min-h-screen">
         {/* Left Column - Benefits & Info */}
         <motion.div
@@ -216,15 +216,15 @@ export default function VehicleOwnerRegisterPage() {
           <div className="relative z-10">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2 mb-12">
-              <div className="w-10 h-10 bg-lydian-glass-dark rounded-lg flex items-center justify-center">
-                <Car className="w-6 h-6 text-lydian-success" />
+              <div className="w-10 h-10 bg-white/10 backdrop-blur-xl border border-white/20 rounded-lg flex items-center justify-center">
+                <Car className="w-6 h-6 text-purple-400" />
               </div>
-              <span className="text-2xl font-bold text-lydian-text-inverse">LyDian</span>
+              <span className="text-2xl font-bold text-white">LyDian</span>
             </Link>
 
             {/* Header */}
             <div className="mb-8">
-              <h1 className="text-4xl font-bold text-lydian-text-inverse mb-4">
+              <h1 className="text-4xl font-bold text-white mb-4">
                 Araç Sahibi
                 <br />
                 <span className="text-green-100">
@@ -246,11 +246,11 @@ export default function VehicleOwnerRegisterPage() {
                 transition={{ delay: 0.3 + index * 0.1 }}
                 className="flex gap-4">
 
-                  <div className="w-12 h-12 bg-lydian-glass-dark rounded-lg flex items-center justify-center flex-shrink-0">
-                    <benefit.icon className="w-6 h-6 text-lydian-success" />
+                  <div className="w-12 h-12 bg-white/10 backdrop-blur-xl border border-white/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <benefit.icon className="w-6 h-6 text-purple-400" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-lydian-text-inverse mb-1">{benefit.title}</h3>
+                    <h3 className="font-semibold text-white mb-1">{benefit.title}</h3>
                     <p className="text-green-50 text-sm">{benefit.description}</p>
                   </div>
                 </motion.div>
@@ -263,15 +263,15 @@ export default function VehicleOwnerRegisterPage() {
             <div className="text-sm text-green-100 mb-4">Güvenilir Platform</div>
             <div className="grid grid-cols-3 gap-6">
               <div>
-                <div className="text-2xl font-bold text-lydian-text-inverse">2000+</div>
+                <div className="text-2xl font-bold text-white">2000+</div>
                 <div className="text-green-100 text-sm">Araç Sahibi</div>
               </div>
               <div>
-                <div className="text-2xl font-bold text-lydian-text-inverse">25K+</div>
+                <div className="text-2xl font-bold text-white">25K+</div>
                 <div className="text-green-100 text-sm">Kiralama</div>
               </div>
               <div>
-                <div className="text-2xl font-bold text-lydian-text-inverse">97%</div>
+                <div className="text-2xl font-bold text-white">97%</div>
                 <div className="text-green-100 text-sm">Memnuniyet</div>
               </div>
             </div>
@@ -289,9 +289,9 @@ export default function VehicleOwnerRegisterPage() {
             {/* Mobile Logo */}
             <div className="lg:hidden flex items-center gap-2 mb-8">
               <div className="w-10 h-10 bg-gradient-to-r from-lydian-success to-lydian-success rounded-lg flex items-center justify-center">
-                <Car className="w-6 h-6 text-lydian-text-inverse" />
+                <Car className="w-6 h-6 text-white" />
               </div>
-              <span className="text-2xl font-bold text-lydian-text-inverse">LyDian</span>
+              <span className="text-2xl font-bold text-white">LyDian</span>
             </div>
 
             {/* Progress Steps */}
@@ -303,8 +303,8 @@ export default function VehicleOwnerRegisterPage() {
                       <div
                       className={`w-10 h-10 rounded-full flex items-center justify-center font-semibold transition-all ${
                       currentStep >= step ?
-                      'bg-gradient-to-r from-green-600 to-emerald-600 text-white' :
-                      'bg-lydian-bg-surface-raised text-lydian-text-muted'}`
+                      'bg-gradient-to-r from-blue-600 to-emerald-600 text-white' :
+                      'bg-white/5 backdrop-blur-xl text-gray-300'}`
                       }>
 
                         {currentStep > step ?
@@ -316,7 +316,7 @@ export default function VehicleOwnerRegisterPage() {
                       {step < 3 &&
                     <div
                       className={`h-1 w-full ml-2 transition-all ${
-                      currentStep > step ? 'bg-gradient-to-r from-green-600 to-emerald-600' : 'bg-lydian-bg-surface-raised'}`
+                      currentStep > step ? 'bg-gradient-to-r from-blue-600 to-emerald-600' : 'bg-white/5 backdrop-blur-xl'}`
                       }
                       style={{ width: 'calc(100% - 40px)' }} />
 
@@ -326,13 +326,13 @@ export default function VehicleOwnerRegisterPage() {
                 )}
               </div>
               <div className="flex justify-between text-sm">
-                <span className={currentStep >= 1 ? 'text-white font-medium' : 'text-lydian-text-muted'}>
+                <span className={currentStep >= 1 ? 'text-white font-medium' : 'text-gray-300'}>
                   Kişisel Bilgiler
                 </span>
-                <span className={currentStep >= 2 ? 'text-white font-medium' : 'text-lydian-text-muted'}>
+                <span className={currentStep >= 2 ? 'text-white font-medium' : 'text-gray-300'}>
                   İşletme Bilgileri
                 </span>
-                <span className={currentStep >= 3 ? 'text-white font-medium' : 'text-lydian-text-muted'}>
+                <span className={currentStep >= 3 ? 'text-white font-medium' : 'text-gray-300'}>
                   Onay
                 </span>
               </div>
@@ -340,12 +340,12 @@ export default function VehicleOwnerRegisterPage() {
 
             {/* Header */}
             <div className="mb-6">
-              <h2 className="text-3xl font-bold text-lydian-text-inverse mb-2">
+              <h2 className="text-3xl font-bold text-white mb-2">
                 {currentStep === 1 && 'Hesap Oluştur'}
                 {currentStep === 2 && 'İşletme Bilgileriniz'}
                 {currentStep === 3 && 'Son Adım'}
               </h2>
-              <p className="text-lydian-text-dim">
+              <p className="text-gray-400">
                 {currentStep === 1 && 'Kişisel bilgilerinizi girerek başlayın'}
                 {currentStep === 2 && 'İşletmeniz hakkında bilgi verin'}
                 {currentStep === 3 && 'Koşulları onaylayarak kaydı tamamlayın'}
@@ -366,12 +366,12 @@ export default function VehicleOwnerRegisterPage() {
 
                     {/* Full Name */}
                     <div>
-                      <label htmlFor="fullName" className="block text-sm font-medium text-lydian-text-inverse mb-2">
+                      <label htmlFor="fullName" className="block text-sm font-medium text-white mb-2">
                         Ad Soyad
                       </label>
                       <div className="relative">
                         <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                          <User className="h-5 w-5 text-lydian-text-muted" />
+                          <User className="h-5 w-5 text-gray-300" />
                         </div>
                         <input
                         type="text"
@@ -380,24 +380,24 @@ export default function VehicleOwnerRegisterPage() {
                         value={formData.fullName}
                         onChange={handleInputChange}
                         className={`block w-full pl-10 pr-3 py-3 border ${
-                        errors.fullName ? 'border-red-500' : 'border-lydian-border-medium'} rounded-lg focus:ring-2 focus:ring-green-600 focus:border-lydian-border outline-none transition-all bg-lydian-glass-dark text-lydian-text-inverse`
+                        errors.fullName ? 'border-purple-500' : 'border-white/20'} rounded-lg focus:ring-2 focus:ring-green-600 focus:border-white/20 outline-none transition-all bg-white/10 backdrop-blur-xl border border-white/20 text-white`
                         }
                         placeholder="Ahmet Yılmaz" />
 
                       </div>
                       {errors.fullName &&
-                    <p className="mt-1 text-sm text-lydian-error">{errors.fullName}</p>
+                    <p className="mt-1 text-sm text-gray-400">{errors.fullName}</p>
                     }
                     </div>
 
                     {/* Email */}
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-lydian-text-inverse mb-2">
+                      <label htmlFor="email" className="block text-sm font-medium text-white mb-2">
                         E-posta Adresi
                       </label>
                       <div className="relative">
                         <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                          <Mail className="h-5 w-5 text-lydian-text-muted" />
+                          <Mail className="h-5 w-5 text-gray-300" />
                         </div>
                         <input
                         type="email"
@@ -406,24 +406,24 @@ export default function VehicleOwnerRegisterPage() {
                         value={formData.email}
                         onChange={handleInputChange}
                         className={`block w-full pl-10 pr-3 py-3 border ${
-                        errors.email ? 'border-red-500' : 'border-lydian-border-medium'} rounded-lg focus:ring-2 focus:ring-green-600 focus:border-lydian-border outline-none transition-all bg-lydian-glass-dark text-lydian-text-inverse`
+                        errors.email ? 'border-purple-500' : 'border-white/20'} rounded-lg focus:ring-2 focus:ring-green-600 focus:border-white/20 outline-none transition-all bg-white/10 backdrop-blur-xl border border-white/20 text-white`
                         }
                         placeholder="ornek@email.com" />
 
                       </div>
                       {errors.email &&
-                    <p className="mt-1 text-sm text-lydian-error">{errors.email}</p>
+                    <p className="mt-1 text-sm text-gray-400">{errors.email}</p>
                     }
                     </div>
 
                     {/* Phone */}
                     <div>
-                      <label htmlFor="phone" className="block text-sm font-medium text-lydian-text-inverse mb-2">
+                      <label htmlFor="phone" className="block text-sm font-medium text-white mb-2">
                         Telefon Numarası
                       </label>
                       <div className="relative">
                         <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                          <Phone className="h-5 w-5 text-lydian-text-muted" />
+                          <Phone className="h-5 w-5 text-gray-300" />
                         </div>
                         <input
                         type="tel"
@@ -432,13 +432,13 @@ export default function VehicleOwnerRegisterPage() {
                         value={formData.phone}
                         onChange={handleInputChange}
                         className={`block w-full pl-10 pr-3 py-3 border ${
-                        errors.phone ? 'border-red-500' : 'border-lydian-border-medium'} rounded-lg focus:ring-2 focus:ring-green-600 focus:border-lydian-border outline-none transition-all bg-lydian-glass-dark text-lydian-text-inverse`
+                        errors.phone ? 'border-purple-500' : 'border-white/20'} rounded-lg focus:ring-2 focus:ring-green-600 focus:border-white/20 outline-none transition-all bg-white/10 backdrop-blur-xl border border-white/20 text-white`
                         }
                         placeholder="0555 123 4567" />
 
                       </div>
                       {errors.phone &&
-                    <p className="mt-1 text-sm text-lydian-error">{errors.phone}</p>
+                    <p className="mt-1 text-sm text-gray-400">{errors.phone}</p>
                     }
                     </div>
 
@@ -446,7 +446,7 @@ export default function VehicleOwnerRegisterPage() {
                     <button
                     type="button"
                     onClick={handleNext}
-                    className="w-full bg-gradient-to-r from-lydian-success to-lydian-success text-lydian-text-inverse py-3 px-4 rounded-lg font-semibold hover:shadow-lg transform hover:scale-[1.02] transition-all duration-200 flex items-center justify-center gap-2 mt-6">
+                    className="w-full bg-gradient-to-r from-lydian-success to-lydian-success text-white py-3 px-4 rounded-lg font-semibold hover:shadow-lg transform hover:scale-[1.02] transition-all duration-200 flex items-center justify-center gap-2 mt-6">
 
                       <span>Devam Et</span>
                       <ArrowRight className="w-5 h-5" />
@@ -466,12 +466,12 @@ export default function VehicleOwnerRegisterPage() {
 
                     {/* Password */}
                     <div>
-                      <label htmlFor="password" className="block text-sm font-medium text-lydian-text-inverse mb-2">
+                      <label htmlFor="password" className="block text-sm font-medium text-white mb-2">
                         Şifre
                       </label>
                       <div className="relative">
                         <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                          <Lock className="h-5 w-5 text-lydian-text-muted" />
+                          <Lock className="h-5 w-5 text-gray-300" />
                         </div>
                         <input
                         type={showPassword ? 'text' : 'password'}
@@ -480,7 +480,7 @@ export default function VehicleOwnerRegisterPage() {
                         value={formData.password}
                         onChange={handleInputChange}
                         className={`block w-full pl-10 pr-10 py-3 border ${
-                        errors.password ? 'border-red-500' : 'border-lydian-border-medium'} rounded-lg focus:ring-2 focus:ring-green-600 focus:border-lydian-border outline-none transition-all bg-lydian-glass-dark text-lydian-text-inverse`
+                        errors.password ? 'border-purple-500' : 'border-white/20'} rounded-lg focus:ring-2 focus:ring-green-600 focus:border-white/20 outline-none transition-all bg-white/10 backdrop-blur-xl border border-white/20 text-white`
                         }
                         placeholder="••••••••" />
 
@@ -490,28 +490,28 @@ export default function VehicleOwnerRegisterPage() {
                         className="absolute inset-y-0 right-0 pr-3 flex items-center">
 
                           {showPassword ?
-                        <EyeOff className="h-5 w-5 text-lydian-text-muted hover:text-lydian-text-dim" /> :
+                        <EyeOff className="h-5 w-5 text-gray-300 hover:text-gray-400" /> :
 
-                        <Eye className="h-5 w-5 text-lydian-text-muted hover:text-lydian-text-dim" />
+                        <Eye className="h-5 w-5 text-gray-300 hover:text-gray-400" />
                         }
                         </button>
                       </div>
                       {errors.password &&
-                    <p className="mt-1 text-sm text-lydian-error">{errors.password}</p>
+                    <p className="mt-1 text-sm text-gray-400">{errors.password}</p>
                     }
-                      <p className="mt-1 text-xs text-lydian-text-muted">
+                      <p className="mt-1 text-xs text-gray-300">
                         En az 8 karakter, bir büyük harf, bir küçük harf ve bir rakam içermelidir
                       </p>
                     </div>
 
                     {/* Confirm Password */}
                     <div>
-                      <label htmlFor="confirmPassword" className="block text-sm font-medium text-lydian-text-inverse mb-2">
+                      <label htmlFor="confirmPassword" className="block text-sm font-medium text-white mb-2">
                         Şifre Tekrar
                       </label>
                       <div className="relative">
                         <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                          <Lock className="h-5 w-5 text-lydian-text-muted" />
+                          <Lock className="h-5 w-5 text-gray-300" />
                         </div>
                         <input
                         type={showConfirmPassword ? 'text' : 'password'}
@@ -520,7 +520,7 @@ export default function VehicleOwnerRegisterPage() {
                         value={formData.confirmPassword}
                         onChange={handleInputChange}
                         className={`block w-full pl-10 pr-10 py-3 border ${
-                        errors.confirmPassword ? 'border-red-500' : 'border-lydian-border-medium'} rounded-lg focus:ring-2 focus:ring-green-600 focus:border-lydian-border outline-none transition-all bg-lydian-glass-dark text-lydian-text-inverse`
+                        errors.confirmPassword ? 'border-purple-500' : 'border-white/20'} rounded-lg focus:ring-2 focus:ring-green-600 focus:border-white/20 outline-none transition-all bg-white/10 backdrop-blur-xl border border-white/20 text-white`
                         }
                         placeholder="••••••••" />
 
@@ -530,20 +530,20 @@ export default function VehicleOwnerRegisterPage() {
                         className="absolute inset-y-0 right-0 pr-3 flex items-center">
 
                           {showConfirmPassword ?
-                        <EyeOff className="h-5 w-5 text-lydian-text-muted hover:text-lydian-text-dim" /> :
+                        <EyeOff className="h-5 w-5 text-gray-300 hover:text-gray-400" /> :
 
-                        <Eye className="h-5 w-5 text-lydian-text-muted hover:text-lydian-text-dim" />
+                        <Eye className="h-5 w-5 text-gray-300 hover:text-gray-400" />
                         }
                         </button>
                       </div>
                       {errors.confirmPassword &&
-                    <p className="mt-1 text-sm text-lydian-error">{errors.confirmPassword}</p>
+                    <p className="mt-1 text-sm text-gray-400">{errors.confirmPassword}</p>
                     }
                     </div>
 
                     {/* Business Type */}
                     <div>
-                      <label className="block text-sm font-medium text-lydian-text-inverse mb-3">
+                      <label className="block text-sm font-medium text-white mb-3">
                         İşletme Tipi
                       </label>
                       <div className="grid grid-cols-2 gap-4">
@@ -552,19 +552,19 @@ export default function VehicleOwnerRegisterPage() {
                         onClick={() => handleBusinessTypeChange('individual')}
                         className={`p-4 border-2 rounded-lg flex flex-col items-center gap-2 transition-all ${
                         formData.businessType === 'individual' ?
-                        'border-green-600 bg-green-50' :
-                        'border-lydian-border hover:border-lydian-border-medium'}`
+                        'border-green-600 bg-purple-500/20' :
+                        'border-white/20 hover:border-white/20'}`
                         }>
 
                           <User className={`w-8 h-8 ${
-                        formData.businessType === 'individual' ? 'text-lydian-success' : 'text-lydian-text-muted'}`
+                        formData.businessType === 'individual' ? 'text-purple-400' : 'text-gray-300'}`
                         } />
                           <span className={`text-sm font-medium ${
-                        formData.businessType === 'individual' ? 'text-lydian-success' : 'text-gray-200'}`
+                        formData.businessType === 'individual' ? 'text-purple-400' : 'text-gray-200'}`
                         }>
                             Bireysel
                           </span>
-                          <span className="text-xs text-lydian-text-muted text-center">
+                          <span className="text-xs text-gray-300 text-center">
                             Kişisel araç sahibi
                           </span>
                         </button>
@@ -573,36 +573,36 @@ export default function VehicleOwnerRegisterPage() {
                         onClick={() => handleBusinessTypeChange('company')}
                         className={`p-4 border-2 rounded-lg flex flex-col items-center gap-2 transition-all ${
                         formData.businessType === 'company' ?
-                        'border-green-600 bg-green-50' :
-                        'border-lydian-border hover:border-lydian-border-medium'}`
+                        'border-green-600 bg-purple-500/20' :
+                        'border-white/20 hover:border-white/20'}`
                         }>
 
                           <Building2 className={`w-8 h-8 ${
-                        formData.businessType === 'company' ? 'text-lydian-success' : 'text-lydian-text-muted'}`
+                        formData.businessType === 'company' ? 'text-purple-400' : 'text-gray-300'}`
                         } />
                           <span className={`text-sm font-medium ${
-                        formData.businessType === 'company' ? 'text-lydian-success' : 'text-gray-200'}`
+                        formData.businessType === 'company' ? 'text-purple-400' : 'text-gray-200'}`
                         }>
                             Şirket
                           </span>
-                          <span className="text-xs text-lydian-text-muted text-center">
+                          <span className="text-xs text-gray-300 text-center">
                             Kurumsal işletme
                           </span>
                         </button>
                       </div>
                       {errors.businessType &&
-                    <p className="mt-2 text-sm text-lydian-error">{errors.businessType}</p>
+                    <p className="mt-2 text-sm text-gray-400">{errors.businessType}</p>
                     }
                     </div>
 
                     {/* Business Name (Optional) */}
                     <div>
-                      <label htmlFor="businessName" className="block text-sm font-medium text-lydian-text-inverse mb-2">
+                      <label htmlFor="businessName" className="block text-sm font-medium text-white mb-2">
                         İşletme Adı (Opsiyonel)
                       </label>
                       <div className="relative">
                         <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                          <Building2 className="h-5 w-5 text-lydian-text-muted" />
+                          <Building2 className="h-5 w-5 text-gray-300" />
                         </div>
                         <input
                         type="text"
@@ -610,11 +610,11 @@ export default function VehicleOwnerRegisterPage() {
                         name="businessName"
                         value={formData.businessName}
                         onChange={handleInputChange}
-                        className="block w-full pl-10 pr-3 py-3 border border-lydian-border-medium rounded-lg focus:ring-2 focus:ring-green-600 focus:border-lydian-border outline-none transition-all bg-lydian-glass-dark text-lydian-text-inverse"
+                        className="block w-full pl-10 pr-3 py-3 border border-white/20 rounded-lg focus:ring-2 focus:ring-green-600 focus:border-white/20 outline-none transition-all bg-white/10 backdrop-blur-xl border border-white/20 text-white"
                         placeholder="Örn: Yılmaz Rent A Car" />
 
                       </div>
-                      <p className="mt-1 text-xs text-lydian-text-muted">
+                      <p className="mt-1 text-xs text-gray-300">
                         İşletme adınız varsa girebilirsiniz
                       </p>
                     </div>
@@ -624,7 +624,7 @@ export default function VehicleOwnerRegisterPage() {
                       <button
                       type="button"
                       onClick={handleBack}
-                      className="flex-1 border-2 border-lydian-border-medium text-lydian-text-muted py-3 px-4 rounded-lg font-semibold hover:bg-lydian-glass-dark transition-all duration-200 flex items-center justify-center gap-2">
+                      className="flex-1 border border-white/20 text-gray-300 py-3 px-4 rounded-lg font-semibold hover:bg-white/10 transition-all duration-200 flex items-center justify-center gap-2">
 
                         <ArrowLeft className="w-5 h-5" />
                         <span>Geri</span>
@@ -632,7 +632,7 @@ export default function VehicleOwnerRegisterPage() {
                       <button
                       type="button"
                       onClick={handleNext}
-                      className="flex-1 bg-gradient-to-r from-lydian-success to-lydian-success text-lydian-text-inverse py-3 px-4 rounded-lg font-semibold hover:shadow-lg transform hover:scale-[1.02] transition-all duration-200 flex items-center justify-center gap-2">
+                      className="flex-1 bg-gradient-to-r from-lydian-success to-lydian-success text-white py-3 px-4 rounded-lg font-semibold hover:shadow-lg transform hover:scale-[1.02] transition-all duration-200 flex items-center justify-center gap-2">
 
                         <span>Devam Et</span>
                         <ArrowRight className="w-5 h-5" />
@@ -652,30 +652,30 @@ export default function VehicleOwnerRegisterPage() {
                   className="space-y-5">
 
                     {/* Summary */}
-                    <div className="bg-lydian-glass-dark rounded-lg p-6 space-y-3">
-                      <h3 className="font-semibold text-lydian-text-inverse mb-4">Kayıt Özeti</h3>
+                    <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-lg p-6 space-y-3">
+                      <h3 className="font-semibold text-white mb-4">Kayıt Özeti</h3>
                       <div className="flex justify-between text-sm">
-                        <span className="text-lydian-text-dim">Ad Soyad:</span>
-                        <span className="font-medium text-lydian-text-inverse">{formData.fullName}</span>
+                        <span className="text-gray-400">Ad Soyad:</span>
+                        <span className="font-medium text-white">{formData.fullName}</span>
                       </div>
                       <div className="flex justify-between text-sm">
-                        <span className="text-lydian-text-dim">E-posta:</span>
-                        <span className="font-medium text-lydian-text-inverse">{formData.email}</span>
+                        <span className="text-gray-400">E-posta:</span>
+                        <span className="font-medium text-white">{formData.email}</span>
                       </div>
                       <div className="flex justify-between text-sm">
-                        <span className="text-lydian-text-dim">Telefon:</span>
-                        <span className="font-medium text-lydian-text-inverse">{formData.phone}</span>
+                        <span className="text-gray-400">Telefon:</span>
+                        <span className="font-medium text-white">{formData.phone}</span>
                       </div>
                       <div className="flex justify-between text-sm">
-                        <span className="text-lydian-text-dim">İşletme Tipi:</span>
-                        <span className="font-medium text-lydian-text-inverse">
+                        <span className="text-gray-400">İşletme Tipi:</span>
+                        <span className="font-medium text-white">
                           {formData.businessType === 'individual' ? 'Bireysel' : 'Şirket'}
                         </span>
                       </div>
                       {formData.businessName &&
                     <div className="flex justify-between text-sm">
-                          <span className="text-lydian-text-dim">İşletme Adı:</span>
-                          <span className="font-medium text-lydian-text-inverse">{formData.businessName}</span>
+                          <span className="text-gray-400">İşletme Adı:</span>
+                          <span className="font-medium text-white">{formData.businessName}</span>
                         </div>
                     }
                     </div>
@@ -683,7 +683,7 @@ export default function VehicleOwnerRegisterPage() {
                     {/* Terms Acceptance */}
                     <div className="space-y-4">
                       <div className={`border-2 rounded-lg p-4 ${
-                    errors.termsAccepted ? 'border-red-500 bg-red-50' : 'border-lydian-border'}`
+                    errors.termsAccepted ? 'border-purple-500 bg-purple-500/20' : 'border-white/20'}`
                     }>
                         <label className="flex items-start gap-3 cursor-pointer">
                           <input
@@ -691,14 +691,14 @@ export default function VehicleOwnerRegisterPage() {
                           name="termsAccepted"
                           checked={formData.termsAccepted}
                           onChange={handleInputChange}
-                          className="mt-1 h-5 w-5 text-lydian-success focus:ring-green-600 border-lydian-border-medium rounded cursor-pointer" />
+                          className="mt-1 h-5 w-5 text-purple-400 focus:ring-green-600 border-white/20 rounded cursor-pointer" />
 
                           <div className="flex-1">
-                            <span className="text-lydian-text-inverse">
+                            <span className="text-white">
                               <Link
                               href="/vehicle-owner/auth/terms"
                               target="_blank"
-                              className="font-medium text-lydian-success hover:text-emerald-600 underline">
+                              className="font-medium text-purple-400 hover:text-emerald-600 underline">
 
                                 Kullanım Koşulları
                               </Link>
@@ -706,7 +706,7 @@ export default function VehicleOwnerRegisterPage() {
                               <Link
                               href="/vehicle-owner/auth/terms"
                               target="_blank"
-                              className="font-medium text-lydian-success hover:text-emerald-600 underline">
+                              className="font-medium text-purple-400 hover:text-emerald-600 underline">
 
                                 Araç Sahibi Sözleşmesi
                               </Link>
@@ -715,12 +715,12 @@ export default function VehicleOwnerRegisterPage() {
                           </div>
                         </label>
                         {errors.termsAccepted &&
-                      <p className="mt-2 text-sm text-lydian-error ml-8">{errors.termsAccepted}</p>
+                      <p className="mt-2 text-sm text-gray-400 ml-8">{errors.termsAccepted}</p>
                       }
                       </div>
 
                       <div className={`border-2 rounded-lg p-4 ${
-                    errors.privacyAccepted ? 'border-red-500 bg-red-50' : 'border-lydian-border'}`
+                    errors.privacyAccepted ? 'border-purple-500 bg-purple-500/20' : 'border-white/20'}`
                     }>
                         <label className="flex items-start gap-3 cursor-pointer">
                           <input
@@ -728,15 +728,15 @@ export default function VehicleOwnerRegisterPage() {
                           name="privacyAccepted"
                           checked={formData.privacyAccepted}
                           onChange={handleInputChange}
-                          className="mt-1 h-5 w-5 text-lydian-success focus:ring-green-600 border-lydian-border-medium rounded cursor-pointer" />
+                          className="mt-1 h-5 w-5 text-purple-400 focus:ring-green-600 border-white/20 rounded cursor-pointer" />
 
                           <div className="flex-1">
-                            <span className="text-lydian-text-inverse">
+                            <span className="text-white">
                               Kişisel verilerimin işlenmesine ilişkin{' '}
                               <Link
                               href="/vehicle-owner/auth/terms#privacy"
                               target="_blank"
-                              className="font-medium text-lydian-success hover:text-emerald-600 underline">
+                              className="font-medium text-purple-400 hover:text-emerald-600 underline">
 
                                 Gizlilik Politikası
                               </Link>
@@ -745,12 +745,12 @@ export default function VehicleOwnerRegisterPage() {
                           </div>
                         </label>
                         {errors.privacyAccepted &&
-                      <p className="mt-2 text-sm text-lydian-error ml-8">{errors.privacyAccepted}</p>
+                      <p className="mt-2 text-sm text-gray-400 ml-8">{errors.privacyAccepted}</p>
                       }
                       </div>
 
                       <div className={`border-2 rounded-lg p-4 ${
-                    errors.rentalAgreementAccepted ? 'border-red-500 bg-red-50' : 'border-lydian-border'}`
+                    errors.rentalAgreementAccepted ? 'border-purple-500 bg-purple-500/20' : 'border-white/20'}`
                     }>
                         <label className="flex items-start gap-3 cursor-pointer">
                           <input
@@ -758,14 +758,14 @@ export default function VehicleOwnerRegisterPage() {
                           name="rentalAgreementAccepted"
                           checked={formData.rentalAgreementAccepted}
                           onChange={handleInputChange}
-                          className="mt-1 h-5 w-5 text-lydian-success focus:ring-green-600 border-lydian-border-medium rounded cursor-pointer" />
+                          className="mt-1 h-5 w-5 text-purple-400 focus:ring-green-600 border-white/20 rounded cursor-pointer" />
 
                           <div className="flex-1">
-                            <span className="text-lydian-text-inverse">
+                            <span className="text-white">
                               <Link
                               href="/vehicle-owner/auth/terms#rental-agreement"
                               target="_blank"
-                              className="font-medium text-lydian-success hover:text-emerald-600 underline">
+                              className="font-medium text-purple-400 hover:text-emerald-600 underline">
 
                                 Araç Kiralama Hizmet Sözleşmesi
                               </Link>
@@ -774,7 +774,7 @@ export default function VehicleOwnerRegisterPage() {
                           </div>
                         </label>
                         {errors.rentalAgreementAccepted &&
-                      <p className="mt-2 text-sm text-lydian-error ml-8">{errors.rentalAgreementAccepted}</p>
+                      <p className="mt-2 text-sm text-gray-400 ml-8">{errors.rentalAgreementAccepted}</p>
                       }
                       </div>
                     </div>
@@ -784,7 +784,7 @@ export default function VehicleOwnerRegisterPage() {
                       <button
                       type="button"
                       onClick={handleBack}
-                      className="flex-1 border-2 border-lydian-border-medium text-lydian-text-muted py-3 px-4 rounded-lg font-semibold hover:bg-lydian-glass-dark transition-all duration-200 flex items-center justify-center gap-2">
+                      className="flex-1 border border-white/20 text-gray-300 py-3 px-4 rounded-lg font-semibold hover:bg-white/10 transition-all duration-200 flex items-center justify-center gap-2">
 
                         <ArrowLeft className="w-5 h-5" />
                         <span>Geri</span>
@@ -792,11 +792,11 @@ export default function VehicleOwnerRegisterPage() {
                       <button
                       type="submit"
                       disabled={isLoading}
-                      className="flex-1 bg-gradient-to-r from-lydian-success to-lydian-success text-lydian-text-inverse py-3 px-4 rounded-lg font-semibold hover:shadow-lg transform hover:scale-[1.02] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center gap-2">
+                      className="flex-1 bg-gradient-to-r from-lydian-success to-lydian-success text-white py-3 px-4 rounded-lg font-semibold hover:shadow-lg transform hover:scale-[1.02] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none flex items-center justify-center gap-2">
 
                         {isLoading ?
                       <>
-                            <div className="w-5 h-5 border-2 border-lydian-border-light border-t-transparent rounded-full animate-spin" />
+                            <div className="w-5 h-5 border border-white/20 border-t-transparent rounded-full animate-spin" />
                             <span>Kaydediliyor...</span>
                           </> :
 
@@ -814,11 +814,11 @@ export default function VehicleOwnerRegisterPage() {
 
             {/* Login Link */}
             <div className="mt-8 text-center">
-              <p className="text-lydian-text-dim">
+              <p className="text-gray-400">
                 Zaten hesabınız var mı?{' '}
                 <Link
                   href="/vehicle-owner/auth/login"
-                  className="font-medium text-lydian-success hover:text-emerald-600 transition-colors">
+                  className="font-medium text-purple-400 hover:text-emerald-600 transition-colors">
 
                   Giriş yapın
                 </Link>
@@ -829,7 +829,7 @@ export default function VehicleOwnerRegisterPage() {
             <div className="mt-4 text-center">
               <Link
                 href="/"
-                className="text-sm text-lydian-text-dim hover:text-lydian-text-inverse transition-colors">
+                className="text-sm text-gray-400 hover:text-white transition-colors">
 
                 ← Ana sayfaya dön
               </Link>

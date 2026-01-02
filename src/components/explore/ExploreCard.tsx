@@ -23,18 +23,18 @@ export const ExploreCard: React.FC<ExploreCardProps> = ({
     <Link href={href}>
       <motion.div
         whileHover={{ y: -4 }}
-        className="group bg-lydian-glass-dark rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all">
+        className="group bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all">
 
         {/* Image */}
         <div className="relative h-56 overflow-hidden">
           <img src={image} alt={title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
           <div className="absolute top-3 right-3">
-            <button className="w-10 h-10 bg-lydian-bg/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-lydian-glass-dark transition-colors">
-              <Heart className="w-5 h-5 text-lydian-text-muted hover:text-lydian-error" />
+            <button className="w-10 h-10 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-gradient-to-br from-slate-900 via-black to-slate-800 transition-colors">
+              <Heart className="w-5 h-5 text-gray-300 hover:text-lydian-error" />
             </button>
           </div>
           <div className="absolute bottom-3 left-3">
-            <span className="px-3 py-1 bg-lydian-bg/90 backdrop-blur-sm rounded-full text-xs font-semibold text-lydian-text-inverse">
+            <span className="px-3 py-1 bg-white/10 backdrop-blur-sm rounded-full text-xs font-semibold text-white">
               {category}
             </span>
           </div>
@@ -43,12 +43,12 @@ export const ExploreCard: React.FC<ExploreCardProps> = ({
         {/* Content */}
         <div className="p-4 space-y-3">
           {/* Title */}
-          <h3 className="font-bold text-lg text-lydian-text-inverse group-hover:text-lydian-primary transition-colors line-clamp-2">
+          <h3 className="font-bold text-lg text-white group-hover:text-blue-500 transition-colors line-clamp-2">
             {title}
           </h3>
 
           {/* Meta Info */}
-          <div className="flex flex-wrap gap-3 text-sm text-lydian-text-dim">
+          <div className="flex flex-wrap gap-3 text-sm text-gray-400">
             {location &&
             <div className="flex items-center gap-1">
                 <MapPin className="w-4 h-4" />
@@ -65,20 +65,20 @@ export const ExploreCard: React.FC<ExploreCardProps> = ({
 
           {/* Rating */}
           <div className="flex items-center gap-2">
-            <div className="flex items-center gap-1 bg-lydian-primary text-lydian-text-inverse px-2 py-1 rounded-lg">
+            <div className="flex items-center gap-1 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-2 py-1 rounded-lg">
               <Star className="w-4 h-4 fill-current" />
               <span className="font-bold text-sm">{rating.toFixed(1)}</span>
             </div>
-            <span className="text-sm text-lydian-text-dim">({reviewCount} {reviewCount === 1 ? 'review' : 'reviews'})</span>
+            <span className="text-sm text-gray-400">({reviewCount} {reviewCount === 1 ? 'review' : 'reviews'})</span>
           </div>
 
           {/* Price */}
-          <div className="flex items-end justify-between pt-3 border-t border-lydian-border-light/10">
+          <div className="flex items-end justify-between pt-3 border-t border-white/20/10">
             <div>
-              <span className="text-sm text-lydian-text-dim">From</span>
+              <span className="text-sm text-gray-400">From</span>
               <div className="flex items-baseline gap-1">
-                <span className="text-2xl font-black text-lydian-primary">₺{price}</span>
-                <span className="text-sm text-lydian-text-dim">/person</span>
+                <span className="text-2xl font-black text-blue-500">₺{price}</span>
+                <span className="text-sm text-gray-400">/person</span>
               </div>
             </div>
           </div>

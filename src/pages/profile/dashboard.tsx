@@ -128,8 +128,8 @@ const Dashboard: React.FC = () => {
 
   const getMembershipBadge = (type: string) => {
     const badges = {
-      BASIC: { color: 'bg-lydian-bg/10 text-gray-200', text: 'Temel Üye' },
-      PREMIUM: { color: 'bg-blue-100 text-lydian-primary-hover', text: 'Premium Üye' },
+      BASIC: { color: 'bg-gray-500/10 text-gray-200', text: 'Temel Üye' },
+      PREMIUM: { color: 'bg-blue-100 text-blue-800', text: 'Premium Üye' },
       VIP: { color: 'bg-purple-100 text-purple-700', text: 'VIP Üye' },
       ENTERPRISE: { color: 'bg-yellow-100 text-yellow-700', text: 'Kurumsal Üye' }
     };
@@ -139,13 +139,13 @@ const Dashboard: React.FC = () => {
   const getStatusIcon = (status: string) => {
     switch (status) {
       case 'confirmed':
-        return <CheckCircle className="w-4 h-4 text-lydian-success" />;
+        return <CheckCircle className="w-4 h-4 text-green-500" />;
       case 'pending':
-        return <Clock className="w-4 h-4 text-lydian-warning" />;
+        return <Clock className="w-4 h-4 text-yellow-500" />;
       case 'completed':
-        return <Award className="w-4 h-4 text-lydian-primary" />;
+        return <Award className="w-4 h-4 text-blue-500" />;
       default:
-        return <AlertTriangle className="w-4 h-4 text-lydian-text-muted" />;
+        return <AlertTriangle className="w-4 h-4 text-gray-400" />;
     }
   };
 
@@ -177,14 +177,14 @@ const Dashboard: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
             {/* Sidebar */}
             <div className="lg:col-span-1">
-              <div className="bg-lydian-bg-hover rounded-2xl shadow-sm border border-lydian-border-light p-6">
+              <div className="bg-white/5 backdrop-blur-xl rounded-2xl shadow-sm border border-white/10 p-6">
                 {/* User Profile Card */}
                 <div className="text-center mb-6">
-                  <div className="w-20 h-20 bg-gradient-to-r from-lydian-primary to-lydian-secondary rounded-full flex items-center justify-center mx-auto mb-4">
-                    <User className="w-10 h-10 text-lydian-text-inverse" />
+                  <div className="w-20 h-20 bg-gradient-to-r from-[#667EEA] to-[#764BA2] rounded-full flex items-center justify-center mx-auto mb-4">
+                    <User className="w-10 h-10 text-white" />
                   </div>
-                  <h3 className="font-bold text-lg text-lydian-text-inverse">{user.name}</h3>
-                  <p className="text-lydian-text-muted text-sm mb-3">{user.email}</p>
+                  <h3 className="font-bold text-lg text-white">{user.name}</h3>
+                  <p className="text-gray-400 text-sm mb-3">{user.email}</p>
                   <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium ${membershipBadge.color}`}>
                     <Award className="w-3 h-3 mr-1" />
                     {membershipBadge.text}
@@ -201,8 +201,8 @@ const Dashboard: React.FC = () => {
                         href={item.href}
                         className={`flex items-center space-x-3 px-4 py-3 rounded-xl transition-colors duration-200 ${
                         item.active ?
-                        'bg-blue-50 text-lydian-primary border border-blue-200' :
-                        'text-gray-200 hover:bg-lydian-bg/5'}`
+                        'bg-blue-50 text-blue-600 border border-blue-200' :
+                        'text-gray-200 hover:bg-white/5'}`
                         }>
 
                         <Icon className="w-5 h-5" />
@@ -215,7 +215,7 @@ const Dashboard: React.FC = () => {
                 {/* Logout Button */}
                 <button
                   onClick={() => signOut({ callbackUrl: '/' })}
-                  className="w-full flex items-center space-x-3 px-4 py-3 text-lydian-primary hover:bg-lydian-error-lighter rounded-xl transition-colors duration-200 mt-4 border-t border-lydian-border-light pt-6">
+                  className="w-full flex items-center space-x-3 px-4 py-3 text-red-500 hover:bg-red-50 rounded-xl transition-colors duration-200 mt-4 border-t border-white/10 pt-6">
 
                   <LogOut className="w-5 h-5" />
                   <span className="font-medium">Çıkış Yap</span>
@@ -229,7 +229,7 @@ const Dashboard: React.FC = () => {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="bg-gradient-to-r from-lydian-primary to-lydian-secondary rounded-2xl p-8 text-lydian-text-inverse">
+                className="bg-gradient-to-r from-[#667EEA] to-[#764BA2] rounded-2xl p-8 text-white">
 
                 <div className="flex items-center justify-between">
                   <div>
@@ -247,7 +247,7 @@ const Dashboard: React.FC = () => {
                     </div>
                   </div>
                   <div className="hidden sm:block">
-                    <Sparkles className="w-24 h-24 text-lydian-text-inverse/20" />
+                    <Sparkles className="w-24 h-24 text-white/20" />
                   </div>
                 </div>
               </motion.div>
@@ -255,10 +255,10 @@ const Dashboard: React.FC = () => {
               {/* Stats Grid */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {[
-                { title: 'Toplam Rezervasyon', value: stats.totalBookings, icon: Calendar, color: 'text-lydian-primary', bg: 'bg-blue-50' },
-                { title: 'Tamamlanan Seyahat', value: stats.completedTrips, icon: CheckCircle, color: 'text-lydian-success', bg: 'bg-green-50' },
+                { title: 'Toplam Rezervasyon', value: stats.totalBookings, icon: Calendar, color: 'text-blue-600', bg: 'bg-blue-50' },
+                { title: 'Tamamlanan Seyahat', value: stats.completedTrips, icon: CheckCircle, color: 'text-green-600', bg: 'bg-green-50' },
                 { title: 'Tasarruf Edilen', value: `₺${stats.savedMoney}`, icon: DollarSign, color: 'text-purple-600', bg: 'bg-purple-50' },
-                { title: 'Loyalty Puanı', value: stats.loyaltyPoints, icon: Star, color: 'text-lydian-warning', bg: 'bg-yellow-50' }].
+                { title: 'Loyalty Puanı', value: stats.loyaltyPoints, icon: Star, color: 'text-yellow-600', bg: 'bg-yellow-50' }].
                 map((stat) => {
                   const Icon = stat.icon;
                   return (
@@ -266,12 +266,12 @@ const Dashboard: React.FC = () => {
                       key={stat.title}
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
-                      className="bg-lydian-bg-hover rounded-2xl p-6 shadow-sm border border-lydian-border-light">
+                      className="bg-white/5 backdrop-blur-xl rounded-2xl p-6 shadow-sm border border-white/10">
 
                       <div className="flex items-center justify-between">
                         <div>
-                          <p className="text-lydian-text-muted text-sm font-medium">{stat.title}</p>
-                          <p className="text-2xl font-bold text-lydian-text-inverse mt-1">{stat.value}</p>
+                          <p className="text-gray-400 text-sm font-medium">{stat.title}</p>
+                          <p className="text-2xl font-bold text-white mt-1">{stat.value}</p>
                         </div>
                         <div className={`p-3 rounded-xl ${stat.bg}`}>
                           <Icon className={`w-6 h-6 ${stat.color}`} />
@@ -283,13 +283,13 @@ const Dashboard: React.FC = () => {
               </div>
 
               {/* Quick Actions */}
-              <div className="bg-lydian-bg-hover rounded-2xl shadow-sm border border-lydian-border-light p-6">
-                <h3 className="text-lg font-bold text-lydian-text-inverse mb-4">Hızlı İşlemler</h3>
+              <div className="bg-white/5 backdrop-blur-xl rounded-2xl shadow-sm border border-white/10 p-6">
+                <h3 className="text-lg font-bold text-white mb-4">Hızlı İşlemler</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                   {[
-                  { title: 'Yeni Rezervasyon', href: '/', icon: Plus, color: 'bg-blue-500 hover:bg-lydian-primary' },
+                  { title: 'Yeni Rezervasyon', href: '/', icon: Plus, color: 'bg-blue-500 hover:bg-blue-600' },
                   { title: 'AI Asistan', href: '/ai-assistant', icon: Sparkles, color: 'bg-purple-500 hover:bg-purple-600' },
-                  { title: 'VR Turlar', href: '/virtual-tours', icon: Globe, color: 'bg-green-500 hover:bg-lydian-success' },
+                  { title: 'VR Turlar', href: '/virtual-tours', icon: Globe, color: 'bg-green-500 hover:bg-green-600' },
                   { title: 'Cüzdanım', href: '/profile/wallet', icon: Bitcoin, color: 'bg-orange-500 hover:bg-orange-600' }].
                   map((action) => {
                     const Icon = action.icon;
@@ -298,7 +298,7 @@ const Dashboard: React.FC = () => {
                         <motion.div
                           whileHover={{ scale: 1.02 }}
                           whileTap={{ scale: 0.98 }}
-                          className={`${action.color} text-lydian-text-inverse p-4 rounded-xl transition-colors duration-200 text-center`}>
+                          className={`${action.color} text-white p-4 rounded-xl transition-colors duration-200 text-center`}>
 
                           <Icon className="w-8 h-8 mx-auto mb-2" />
                           <span className="text-sm font-medium">{action.title}</span>
@@ -312,31 +312,31 @@ const Dashboard: React.FC = () => {
               {/* Recent Bookings & Upcoming Trips */}
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 {/* Recent Bookings */}
-                <div className="bg-lydian-bg-hover rounded-2xl shadow-sm border border-lydian-border-light p-6">
+                <div className="bg-white/5 backdrop-blur-xl rounded-2xl shadow-sm border border-white/10 p-6">
                   <div className="flex items-center justify-between mb-6">
-                    <h3 className="text-lg font-bold text-lydian-text-inverse">Son Rezervasyonlar</h3>
-                    <Link href="/profile/bookings" className="text-lydian-primary hover:text-lydian-primary-dark text-sm font-medium flex items-center gap-1">
+                    <h3 className="text-lg font-bold text-white">Son Rezervasyonlar</h3>
+                    <Link href="/profile/bookings" className="text-blue-500 hover:text-blue-600 text-sm font-medium flex items-center gap-1">
                       Tümü
                       <ArrowRight className="w-4 h-4" />
                     </Link>
                   </div>
                   <div className="space-y-4">
                     {recentBookings.map((booking) =>
-                    <div key={booking.id} className="flex items-center space-x-4 p-4 bg-lydian-glass-dark rounded-xl">
-                        <div className="w-16 h-16 bg-lydian-bg-active rounded-lg overflow-hidden flex-shrink-0">
+                    <div key={booking.id} className="flex items-center space-x-4 p-4 bg-white/5 rounded-xl">
+                        <div className="w-16 h-16 bg-gray-700 rounded-lg overflow-hidden flex-shrink-0">
                           <img src={booking.image} alt={booking.title} className="w-full h-full object-cover" />
                         </div>
                         <div className="flex-1 min-w-0">
-                          <h4 className="font-medium text-lydian-text-inverse truncate">{booking.title}</h4>
-                          <p className="text-sm text-lydian-text-muted">{booking.location}</p>
+                          <h4 className="font-medium text-white truncate">{booking.title}</h4>
+                          <p className="text-sm text-gray-400">{booking.location}</p>
                           <div className="flex items-center space-x-2 mt-1">
                             {getStatusIcon(booking.status)}
-                            <span className="text-xs text-lydian-text-dim">{getStatusText(booking.status)}</span>
+                            <span className="text-xs text-gray-500">{getStatusText(booking.status)}</span>
                           </div>
                         </div>
                         <div className="text-right">
-                          <p className="font-bold text-lydian-text-inverse">₺{booking.amount}</p>
-                          <p className="text-xs text-lydian-text-muted">{booking.date}</p>
+                          <p className="font-bold text-white">₺{booking.amount}</p>
+                          <p className="text-xs text-gray-400">{booking.date}</p>
                         </div>
                       </div>
                     )}
@@ -344,24 +344,24 @@ const Dashboard: React.FC = () => {
                 </div>
 
                 {/* Upcoming Trips */}
-                <div className="bg-lydian-bg-hover rounded-2xl shadow-sm border border-lydian-border-light p-6">
+                <div className="bg-white/5 backdrop-blur-xl rounded-2xl shadow-sm border border-white/10 p-6">
                   <div className="flex items-center justify-between mb-6">
-                    <h3 className="text-lg font-bold text-lydian-text-inverse">Yaklaşan Seyahatler</h3>
-                    <span className="bg-lydian-success-light text-lydian-success-text px-3 py-1 rounded-full text-xs font-medium">
+                    <h3 className="text-lg font-bold text-white">Yaklaşan Seyahatler</h3>
+                    <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs font-medium">
                       {upcomingTrips.length} Seyahat
                     </span>
                   </div>
                   <div className="space-y-4">
                     {upcomingTrips.map((trip) =>
-                    <div key={trip.id} className="border border-lydian-border-light/10 rounded-xl p-4 hover:border-lydian-border-focus transition-colors">
+                    <div key={trip.id} className="border border-white/10 rounded-xl p-4 hover:border-white/20 transition-colors">
                         <div className="flex items-start space-x-4">
-                          <div className="w-20 h-20 bg-lydian-bg-active rounded-lg overflow-hidden flex-shrink-0">
+                          <div className="w-20 h-20 bg-gray-700 rounded-lg overflow-hidden flex-shrink-0">
                             <img src={trip.image} alt={trip.destination} className="w-full h-full object-cover" />
                           </div>
                           <div className="flex-1">
-                            <h4 className="font-bold text-lydian-text-inverse mb-1">{trip.destination}</h4>
-                            <p className="text-sm text-lydian-primary font-medium">{trip.type}</p>
-                            <div className="flex items-center space-x-4 mt-2 text-sm text-lydian-text-muted">
+                            <h4 className="font-bold text-white mb-1">{trip.destination}</h4>
+                            <p className="text-sm text-blue-500 font-medium">{trip.type}</p>
+                            <div className="flex items-center space-x-4 mt-2 text-sm text-gray-400">
                               <div className="flex items-center space-x-1">
                                 <Calendar className="w-4 h-4" />
                                 <span>{trip.date}</span>

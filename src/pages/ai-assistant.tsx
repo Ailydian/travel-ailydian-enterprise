@@ -222,16 +222,16 @@ const AIAssistantPage: NextPage = () => {
         </div>
 
         {/* Header */}
-        <div className="bg-lydian-bg-hover shadow-sm border-b">
+        <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl shadow-sm border-b">
           <div className="max-w-7xl mx-auto px-4 py-6">
             <div className="text-center">
               <div className="flex items-center justify-center gap-3 mb-4">
                 <div className="w-12 h-12 bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] rounded-full flex items-center justify-center">
-                  <Brain className="w-6 h-6 text-lydian-text-inverse" />
+                  <Brain className="w-6 h-6 text-white" />
                 </div>
-                <h1 className="text-3xl font-bold text-lydian-text-inverse">AI Seyahat Asistanı</h1>
+                <h1 className="text-3xl font-bold text-white">AI Seyahat Asistanı</h1>
               </div>
-              <p className="text-lg text-lydian-text-dim max-w-2xl mx-auto">
+              <p className="text-lg text-gray-400 max-w-2xl mx-auto">
                 Yapay zeka destekli asistanınız ile mükemmel seyahat planları oluşturun.
                 Size özel öneriler alın ve hayalinizdeki tatili planlayın.
               </p>
@@ -242,10 +242,10 @@ const AIAssistantPage: NextPage = () => {
         <div className="max-w-7xl mx-auto px-4 py-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Chat Interface */}
-            <div className="lg:col-span-2 bg-lydian-bg-hover rounded-2xl shadow-lg overflow-hidden">
-              <div className="bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] text-lydian-text-inverse p-4">
+            <div className="lg:col-span-2 bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-2xl shadow-lg overflow-hidden">
+              <div className="bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] text-white p-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-lydian-glass-dark-heavy rounded-full flex items-center justify-center">
+                  <div className="w-10 h-10 bg-white/10 backdrop-blur-xl border border-white/20 rounded-full flex items-center justify-center">
                     <Sparkles className="w-5 h-5" />
                   </div>
                   <div>
@@ -268,12 +268,12 @@ const AIAssistantPage: NextPage = () => {
                       <div className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
                       <div className={`max-w-xs lg:max-w-md px-4 py-3 rounded-2xl ${
                       message.sender === 'user' ?
-                      'bg-lydian-primary text-white' :
+                      'bg-gradient-to-r from-blue-600 to-purple-600 text-white' :
                       'bg-lydian-bg/10 text-white'}`
                       }>
                         <p className="text-sm">{message.text}</p>
                         <p className={`text-xs mt-2 ${
-                        message.sender === 'user' ? 'text-blue-100' : 'text-lydian-text-muted'}`
+                        message.sender === 'user' ? 'text-blue-100' : 'text-gray-300'}`
                         }>
                           {message.timestamp.toLocaleTimeString('tr-TR', {
                             hour: '2-digit',
@@ -298,7 +298,7 @@ const AIAssistantPage: NextPage = () => {
                     <button
                       key={index}
                       onClick={() => handleSuggestionClick(suggestion)}
-                      className="px-3 py-2 bg-lydian-primary-lighter hover:bg-lydian-primary-light text-lydian-primary-dark rounded-xl text-sm transition-colors">
+                      className="px-3 py-2 bg-blue-500/10er hover:bg-blue-500/10 text-blue-600 rounded-xl text-sm transition-colors">
 
                         {suggestion}
                       </button>
@@ -313,7 +313,7 @@ const AIAssistantPage: NextPage = () => {
                   animate={{ opacity: 1 }}>
 
                     <div className="flex justify-start">
-                    <div className="bg-lydian-glass-dark-medium px-4 py-3 rounded-2xl">
+                    <div className="bg-white/10 backdrop-blur-xl border border-white/20 px-4 py-3 rounded-2xl">
                       <div className="flex space-x-1">
                         <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
                         <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
@@ -336,7 +336,7 @@ const AIAssistantPage: NextPage = () => {
                       onChange={(e) => setNewMessage(e.target.value)}
                       onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
                       placeholder="Seyahat planınız için bir şeyler yazın..."
-                      className="w-full px-4 py-3 rounded-xl border border-lydian-border-medium focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-border outline-none" />
+                      className="w-full px-4 py-3 rounded-xl border border-white/30 focus:ring-2 focus:ring-lydian-border-focus focus:border-white/20 outline-none" />
 
                   </div>
                   <button
@@ -344,7 +344,7 @@ const AIAssistantPage: NextPage = () => {
                     className={`p-3 rounded-xl transition-colors ${
                     isListening ?
                     'bg-red-500 text-white' :
-                    'bg-lydian-bg/10 hover:bg-lydian-bg-surface-raised text-lydian-text-dim'}`
+                    'bg-lydian-bg/10 hover:bg-lydian-bg-surface-raised text-gray-400'}`
                     }>
 
                     <Mic className="w-5 h-5" />
@@ -352,7 +352,7 @@ const AIAssistantPage: NextPage = () => {
                   <button
                     onClick={handleSendMessage}
                     disabled={!newMessage.trim()}
-                    className="p-3 bg-lydian-primary hover:bg-lydian-primary-dark disabled:bg-gray-300 text-lydian-text-inverse rounded-xl transition-colors">
+                    className="p-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:bg-gradient-to-r from-blue-700 to-purple-700 disabled:bg-gray-300 text-white rounded-xl transition-colors">
 
                     <Send className="w-5 h-5" />
                   </button>
@@ -360,7 +360,7 @@ const AIAssistantPage: NextPage = () => {
 
                 {/* Quick Actions */}
                 <div className="mt-4">
-                  <p className="text-sm text-lydian-text-dim mb-2">Hızlı Eylemler:</p>
+                  <p className="text-sm text-gray-400 mb-2">Hızlı Eylemler:</p>
                   <div className="flex flex-wrap gap-2">
                     {quickActions.map((action, index) => {
                       const Icon = action.icon;
@@ -368,7 +368,7 @@ const AIAssistantPage: NextPage = () => {
                         <button
                           key={index}
                           onClick={() => handleSuggestionClick(action.query)}
-                          className="flex items-center gap-2 px-3 py-2 bg-lydian-glass-dark hover:bg-lydian-glass-dark-medium rounded-lg text-sm transition-colors">
+                          className="flex items-center gap-2 px-3 py-2 bg-gradient-to-br from-slate-900 via-black to-slate-800 hover:bg-white/10 backdrop-blur-xl border border-white/20 rounded-lg text-sm transition-colors">
 
                           <Icon className="w-4 h-4" />
                           {action.label}
@@ -383,9 +383,9 @@ const AIAssistantPage: NextPage = () => {
             {/* Sidebar */}
             <div className="space-y-6">
               {/* AI Features */}
-              <div className="bg-lydian-bg-hover rounded-2xl p-6 shadow-lg">
-                <h3 className="text-lg font-bold text-lydian-text-inverse mb-4 flex items-center gap-2">
-                  <Zap className="w-5 h-5 text-lydian-warning" />
+              <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-2xl p-6 shadow-lg">
+                <h3 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                  <Zap className="w-5 h-5 text-yellow-500" />
                   AI Özellikleri
                 </h3>
                 <div className="space-y-4">
@@ -393,12 +393,12 @@ const AIAssistantPage: NextPage = () => {
                     const Icon = feature.icon;
                     return (
                       <div key={index} className="flex items-start gap-3">
-                        <div className="w-10 h-10 bg-lydian-primary-light rounded-lg flex items-center justify-center">
-                          <Icon className="w-5 h-5 text-lydian-primary" />
+                        <div className="w-10 h-10 bg-blue-500/10 rounded-lg flex items-center justify-center">
+                          <Icon className="w-5 h-5 text-blue-500" />
                         </div>
                         <div>
-                          <h4 className="font-medium text-lydian-text-inverse">{feature.title}</h4>
-                          <p className="text-sm text-lydian-text-dim">{feature.description}</p>
+                          <h4 className="font-medium text-white">{feature.title}</h4>
+                          <p className="text-sm text-gray-400">{feature.description}</p>
                         </div>
                       </div>);
 
@@ -407,11 +407,11 @@ const AIAssistantPage: NextPage = () => {
               </div>
 
               {/* AI Suggestions */}
-              <div className="bg-lydian-bg-hover rounded-2xl p-6 shadow-lg">
-                <h3 className="text-lg font-bold text-lydian-text-inverse mb-4">AI Önerileri</h3>
+              <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl rounded-2xl p-6 shadow-lg">
+                <h3 className="text-lg font-bold text-white mb-4">AI Önerileri</h3>
                 <div className="space-y-4">
                   {travelSuggestions.map((suggestion, index) =>
-                  <div key={index} className="border border-lydian-border rounded-lg overflow-hidden hover:shadow-md transition-shadow">
+                  <div key={index} className="border border-white/20 rounded-lg overflow-hidden hover:shadow-md transition-shadow">
                       <div className="aspect-[3/2] bg-gradient-to-r from-blue-400 to-purple-500"></div>
                       <div className="p-3">
                         <div className="flex items-center justify-between mb-2">
@@ -423,13 +423,13 @@ const AIAssistantPage: NextPage = () => {
                             </div>
                         }
                         </div>
-                        <p className="text-xs text-lydian-text-dim mb-2">{suggestion.subtitle}</p>
+                        <p className="text-xs text-gray-400 mb-2">{suggestion.subtitle}</p>
                         {suggestion.price &&
-                      <p className="font-bold text-lydian-primary text-sm">{suggestion.price}</p>
+                      <p className="font-bold text-blue-500 text-sm">{suggestion.price}</p>
                       }
                         <div className="flex flex-wrap gap-1 mt-2">
                           {suggestion.highlights.slice(0, 2).map((highlight, idx) =>
-                        <span key={idx} className="bg-lydian-glass-dark-medium text-lydian-text-dim px-2 py-1 rounded text-xs">
+                        <span key={idx} className="bg-white/10 backdrop-blur-xl border border-white/20 text-gray-400 px-2 py-1 rounded text-xs">
                               {highlight}
                             </span>
                         )}

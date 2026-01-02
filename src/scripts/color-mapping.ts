@@ -30,31 +30,31 @@ export const COLOR_MAPPING: Record<string, string> = {
   // Light grays → Tertiary/Muted text
   'text-gray-500': 'text-lydian-text-tertiary',
   'text-slate-500': 'text-lydian-text-tertiary',
-  'text-gray-400': 'text-lydian-text-muted',
-  'text-slate-400': 'text-lydian-text-muted',
+  'text-gray-400': 'text-gray-300',
+  'text-slate-400': 'text-gray-300',
 
   // Very light grays → Dim text
-  'text-gray-300': 'text-lydian-text-dim',
-  'text-gray-200': 'text-lydian-text-muted',
-  'text-gray-100': 'text-lydian-text-dim',
-  'text-slate-300': 'text-lydian-text-dim',
-  'text-slate-200': 'text-lydian-text-muted',
+  'text-gray-300': 'text-gray-400',
+  'text-gray-200': 'text-gray-300',
+  'text-gray-100': 'text-gray-400',
+  'text-slate-300': 'text-gray-400',
+  'text-slate-200': 'text-gray-300',
 
   // White → Inverse text (on dark backgrounds)
-  'text-white': 'text-lydian-text-inverse',
+  'text-white': 'text-white',
 
   // Primary colors
   'text-blue-600': 'text-lydian-primary',
-  'text-blue-700': 'text-lydian-primary-dark',
+  'text-blue-700': 'text-blue-600',
   'text-blue-500': 'text-lydian-primary',
   'text-red-600': 'text-lydian-primary',
-  'text-red-700': 'text-lydian-primary-dark',
+  'text-red-700': 'text-blue-600',
 
   // Semantic colors
-  'text-green-600': 'text-lydian-success',
-  'text-green-700': 'text-lydian-success-text',
-  'text-yellow-600': 'text-lydian-warning',
-  'text-yellow-700': 'text-lydian-warning-text',
+  'text-green-600': 'text-green-500',
+  'text-green-700': 'text-green-500-text',
+  'text-yellow-600': 'text-yellow-500',
+  'text-yellow-700': 'text-yellow-500-text',
   'text-red-500': 'text-lydian-error',
   'text-red-400': 'text-lydian-error',
 
@@ -70,36 +70,36 @@ export const COLOR_MAPPING: Record<string, string> = {
   'bg-slate-100': 'bg-lydian-bg-surface-raised',
 
   // Transparent/Glass effects
-  'bg-transparent': 'bg-lydian-bg-hover',
+  'bg-transparent': 'bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl',
   'bg-white\\/5': 'bg-lydian-glass-dark',
-  'bg-white\\/10': 'bg-lydian-glass-dark-medium',
-  'bg-white\\/20': 'bg-lydian-glass-dark-heavy',
+  'bg-white\\/10': 'bg-white/10 backdrop-blur-xl border border-white/20',
+  'bg-white\\/20': 'bg-white/10 backdrop-blur-xl border border-white/20',
   'bg-black\\/5': 'bg-lydian-glass-light',
   'bg-black\\/10': 'bg-lydian-glass-medium',
 
   // Primary backgrounds
   'bg-blue-600': 'bg-lydian-primary',
-  'bg-blue-700': 'bg-lydian-primary-dark',
+  'bg-blue-700': 'bg-gradient-to-r from-blue-700 to-purple-700',
   'bg-blue-500': 'bg-lydian-primary',
-  'bg-blue-50': 'bg-lydian-primary-lighter',
-  'bg-blue-100': 'bg-lydian-primary-light',
+  'bg-blue-50': 'bg-blue-500/10er',
+  'bg-blue-100': 'bg-blue-500/10',
   'bg-red-600': 'bg-lydian-primary',
-  'bg-red-700': 'bg-lydian-primary-dark',
+  'bg-red-700': 'bg-gradient-to-r from-blue-700 to-purple-700',
   // Note: bg-red-50 mapped to error-lighter below (red serves dual purpose as primary and error)
 
   // Semantic backgrounds
-  'bg-green-600': 'bg-lydian-success',
-  'bg-green-50': 'bg-lydian-success-lighter',
-  'bg-green-100': 'bg-lydian-success-light',
-  'bg-yellow-600': 'bg-lydian-warning',
-  'bg-yellow-50': 'bg-lydian-warning-lighter',
-  'bg-yellow-100': 'bg-lydian-warning-light',
+  'bg-green-600': 'bg-green-600',
+  'bg-green-50': 'bg-green-600-lighter',
+  'bg-green-100': 'bg-green-600-light',
+  'bg-yellow-600': 'bg-yellow-500',
+  'bg-yellow-50': 'bg-yellow-500-lighter',
+  'bg-yellow-100': 'bg-yellow-500-light',
   'bg-red-500': 'bg-lydian-error',
   'bg-red-50': 'bg-lydian-error-lighter',
   'bg-red-100': 'bg-lydian-error-light',
 
   // Hover/Active states (bg-gray-100 already defined above as surface-raised)
-  'bg-gray-200': 'bg-lydian-bg-active',
+  'bg-gray-200': 'bg-white/10 backdrop-blur-xl border border-white/20',
 
   // ============================================
   // BORDER COLORS
@@ -107,26 +107,26 @@ export const COLOR_MAPPING: Record<string, string> = {
 
   // Default borders
   'border-gray-200': 'border-lydian-border',
-  'border-gray-300': 'border-lydian-border-medium',
-  'border-gray-100': 'border-lydian-border-light',
+  'border-gray-300': 'border-white/30',
+  'border-gray-100': 'border-white/20',
   'border-gray-400': 'border-lydian-border-heavy',
   'border-slate-200': 'border-lydian-border',
-  'border-slate-300': 'border-lydian-border-medium',
+  'border-slate-300': 'border-white/30',
 
   // Transparent borders
   'border-transparent': 'border-lydian-border',
-  'border-white': 'border-lydian-border-light',
-  'border-white\\/30': 'border-lydian-border-light',
-  'border-white\\/20': 'border-lydian-border-light',
+  'border-white': 'border-white/20',
+  'border-white\\/30': 'border-white/20',
+  'border-white\\/20': 'border-white/20',
 
   // Primary borders
-  'border-blue-600': 'border-lydian-primary',
-  'border-blue-500': 'border-lydian-primary',
-  'border-red-600': 'border-lydian-primary',
+  'border-blue-600': 'border-blue-500',
+  'border-blue-500': 'border-blue-500',
+  'border-red-600': 'border-blue-500',
 
   // Focus borders
-  'border-blue-300': 'border-lydian-border-focus',
-  'border-blue-400': 'border-lydian-border-focus',
+  'border-blue-300': 'border-blue-500',
+  'border-blue-400': 'border-blue-500',
 
   // ============================================
   // HOVER STATES - TEXT
@@ -135,30 +135,30 @@ export const COLOR_MAPPING: Record<string, string> = {
   'hover:text-gray-900': 'hover:text-lydian-text',
   'hover:text-gray-800': 'hover:text-lydian-text',
   'hover:text-blue-600': 'hover:text-lydian-primary',
-  'hover:text-blue-700': 'hover:text-lydian-primary-dark',
+  'hover:text-blue-700': 'hover:text-blue-600',
   'hover:text-red-600': 'hover:text-lydian-primary',
-  'hover:text-white': 'hover:text-lydian-text-inverse',
+  'hover:text-white': 'hover:text-white',
 
   // ============================================
   // HOVER STATES - BACKGROUND
   // ============================================
 
   'hover:bg-gray-50': 'hover:bg-lydian-bg-surface',
-  'hover:bg-gray-100': 'hover:bg-lydian-bg-hover',
-  'hover:bg-gray-200': 'hover:bg-lydian-bg-active',
+  'hover:bg-gray-100': 'hover:bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl',
+  'hover:bg-gray-200': 'hover:bg-white/10 backdrop-blur-xl border border-white/20',
   'hover:bg-blue-700': 'hover:bg-lydian-primary-hover',
   'hover:bg-blue-800': 'hover:bg-lydian-primary-active',
   'hover:bg-red-700': 'hover:bg-lydian-primary-hover',
   'hover:bg-white\\/5': 'hover:bg-lydian-glass-dark',
-  'hover:bg-white\\/10': 'hover:bg-lydian-glass-dark-medium',
+  'hover:bg-white\\/10': 'hover:bg-white/10 backdrop-blur-xl border border-white/20',
 
   // ============================================
   // HOVER STATES - BORDER
   // ============================================
 
-  'hover:border-gray-300': 'hover:border-lydian-border-medium',
-  'hover:border-blue-600': 'hover:border-lydian-primary',
-  'hover:border-red-600': 'hover:border-lydian-primary',
+  'hover:border-gray-300': 'hover:border-white/30',
+  'hover:border-blue-600': 'hover:border-blue-500',
+  'hover:border-red-600': 'hover:border-blue-500',
 
   // ============================================
   // ACTIVE/FOCUS STATES
@@ -166,7 +166,7 @@ export const COLOR_MAPPING: Record<string, string> = {
 
   'active:bg-blue-900': 'active:bg-lydian-primary-active',
   'active:bg-red-900': 'active:bg-lydian-primary-active',
-  'focus:border-blue-500': 'focus:border-lydian-border-focus',
+  'focus:border-blue-500': 'focus:border-blue-500',
   'focus:ring-blue-500': 'focus:ring-lydian-border-focus',
 
   // ============================================
@@ -181,37 +181,37 @@ export const COLOR_MAPPING: Record<string, string> = {
   // GRADIENT COLORS (FROM)
   // ============================================
 
-  'from-blue-600': 'from-lydian-primary',
-  'from-blue-500': 'from-lydian-primary',
-  'from-blue-700': 'from-lydian-primary-dark',
-  'from-red-600': 'from-lydian-primary',
-  'from-red-500': 'from-lydian-primary',
-  'from-purple-600': 'from-lydian-secondary',
-  'from-pink-500': 'from-lydian-primary',
-  'from-red-50': 'from-lydian-primary-lighter',
+  'from-blue-600': 'from-blue-600',
+  'from-blue-500': 'from-blue-600',
+  'from-blue-700': 'from-blue-600',
+  'from-red-600': 'from-blue-600',
+  'from-red-500': 'from-blue-600',
+  'from-purple-600': 'from-purple-600',
+  'from-pink-500': 'from-blue-600',
+  'from-red-50': 'from-blue-600-lighter',
   'from-green-600': 'from-lydian-success',
 
   // ============================================
   // GRADIENT COLORS (TO)
   // ============================================
 
-  'to-blue-600': 'to-lydian-primary',
-  'to-blue-700': 'to-lydian-primary-dark',
-  'to-indigo-600': 'to-lydian-primary-dark',
-  'to-indigo-700': 'to-lydian-primary-darker',
-  'to-purple-600': 'to-lydian-secondary',
-  'to-red-600': 'to-lydian-primary',
-  'to-red-500': 'to-lydian-primary',
-  'to-red-100': 'to-lydian-primary-light',
+  'to-blue-600': 'to-purple-600',
+  'to-blue-700': 'to-purple-600',
+  'to-indigo-600': 'to-purple-600',
+  'to-indigo-700': 'to-purple-600er',
+  'to-purple-600': 'to-purple-700',
+  'to-red-600': 'to-purple-600',
+  'to-red-500': 'to-purple-600',
+  'to-red-100': 'to-purple-600-light',
   'to-emerald-600': 'to-lydian-success',
 
   // ============================================
   // VIA COLORS (Gradient middle)
   // ============================================
 
-  'via-blue-600': 'via-lydian-primary',
-  'via-purple-600': 'via-lydian-secondary',
-  'via-red-600': 'via-lydian-primary',
+  'via-blue-600': 'via-purple-600',
+  'via-purple-600': 'via-purple-600',
+  'via-red-600': 'via-purple-600',
 
   // ============================================
   // PLACEHOLDER COLORS
@@ -235,10 +235,10 @@ export const COLOR_MAPPING: Record<string, string> = {
 export const OPACITY_PATTERNS: Array<{pattern: RegExp, replacement: string}> = [
   // bg-white/* → bg-lydian-glass-*
   { pattern: /\bbg-white\/5\b/g, replacement: 'bg-lydian-glass-dark' },
-  { pattern: /\bbg-white\/10\b/g, replacement: 'bg-lydian-glass-dark-medium' },
-  { pattern: /\bbg-white\/15\b/g, replacement: 'bg-lydian-glass-dark-medium' },
-  { pattern: /\bbg-white\/20\b/g, replacement: 'bg-lydian-glass-dark-heavy' },
-  { pattern: /\bbg-white\/25\b/g, replacement: 'bg-lydian-glass-dark-heavy' },
+  { pattern: /\bbg-white\/10\b/g, replacement: 'bg-white/10 backdrop-blur-xl border border-white/20' },
+  { pattern: /\bbg-white\/15\b/g, replacement: 'bg-white/10 backdrop-blur-xl border border-white/20' },
+  { pattern: /\bbg-white\/20\b/g, replacement: 'bg-white/10 backdrop-blur-xl border border-white/20' },
+  { pattern: /\bbg-white\/25\b/g, replacement: 'bg-white/10 backdrop-blur-xl border border-white/20' },
 
   // bg-black/* → bg-lydian-glass-*
   { pattern: /\bbg-black\/5\b/g, replacement: 'bg-lydian-glass-light' },
@@ -248,11 +248,11 @@ export const OPACITY_PATTERNS: Array<{pattern: RegExp, replacement: string}> = [
 
   // hover:bg-white/* → hover:bg-lydian-glass-*
   { pattern: /\bhover:bg-white\/5\b/g, replacement: 'hover:bg-lydian-glass-dark' },
-  { pattern: /\bhover:bg-white\/10\b/g, replacement: 'hover:bg-lydian-glass-dark-medium' },
+  { pattern: /\bhover:bg-white\/10\b/g, replacement: 'hover:bg-white/10 backdrop-blur-xl border border-white/20' },
 
-  // border-white/* → border-lydian-border-light
-  { pattern: /\bborder-white\/30\b/g, replacement: 'border-lydian-border-light' },
-  { pattern: /\bborder-white\/20\b/g, replacement: 'border-lydian-border-light' },
+  // border-white/* → border-white/20
+  { pattern: /\bborder-white\/30\b/g, replacement: 'border-white/20' },
+  { pattern: /\bborder-white\/20\b/g, replacement: 'border-white/20' },
 ];
 
 /**

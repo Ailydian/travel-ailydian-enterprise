@@ -160,24 +160,24 @@ export const FilterBar: React.FC<FilterBarProps> = ({
   };
 
   return (
-    <div className={`bg-lydian-glass-dark rounded-lg border border-lydian-border p-4 ${className}`}>
+    <div className={`bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-lg border border-white/20 p-4 ${className}`}>
       <div className="flex flex-col lg:flex-row gap-4">
         {/* Search Input */}
         {showSearch &&
         <div className="flex-1 min-w-0">
             <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-lydian-text-muted" />
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-300" />
               <input
               type="text"
               placeholder={searchPlaceholder}
               value={filters.search || ''}
               onChange={(e) => handleFilterChange('search', e.target.value)}
-              className="w-full pl-10 pr-4 py-2 border border-lydian-border-medium rounded-lg focus:outline-none focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-border" />
+              className="w-full pl-10 pr-4 py-2 border border-white/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-lydian-border-focus focus:border-white/20" />
 
               {filters.search &&
             <button
               onClick={() => handleFilterChange('search', '')}
-              className="absolute right-3 top-1/2 transform -translate-y-1/2 text-lydian-text-muted hover:text-lydian-text-dim"
+              className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-300 hover:text-gray-400"
               aria-label="Clear search">
 
                   <X className="h-4 w-4" />
@@ -191,23 +191,23 @@ export const FilterBar: React.FC<FilterBarProps> = ({
         {showDateRange &&
         <div className="flex gap-2 flex-wrap sm:flex-nowrap">
             <div className="relative flex-1 min-w-[140px]">
-              <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-lydian-text-muted pointer-events-none" />
+              <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-300 pointer-events-none" />
               <input
               type="date"
               value={filters.startDate || ''}
               onChange={(e) => handleFilterChange('startDate', e.target.value)}
-              className="w-full pl-9 pr-3 py-2 border border-lydian-border-medium rounded-lg focus:outline-none focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-border text-sm"
+              className="w-full pl-9 pr-3 py-2 border border-white/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-lydian-border-focus focus:border-white/20 text-sm"
               placeholder="Start date" />
 
             </div>
             <div className="relative flex-1 min-w-[140px]">
-              <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-lydian-text-muted pointer-events-none" />
+              <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-300 pointer-events-none" />
               <input
               type="date"
               value={filters.endDate || ''}
               onChange={(e) => handleFilterChange('endDate', e.target.value)}
               min={filters.startDate}
-              className="w-full pl-9 pr-3 py-2 border border-lydian-border-medium rounded-lg focus:outline-none focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-border text-sm"
+              className="w-full pl-9 pr-3 py-2 border border-white/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-lydian-border-focus focus:border-white/20 text-sm"
               placeholder="End date" />
 
             </div>
@@ -221,8 +221,8 @@ export const FilterBar: React.FC<FilterBarProps> = ({
             onClick={() => setIsStatusOpen(!isStatusOpen)}
             className={`w-full sm:w-auto px-4 py-2 border rounded-lg text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-lydian-border-focus flex items-center justify-between gap-2 min-w-[140px] ${
             filters.status ?
-            'border-lydian-primary bg-blue-50 text-lydian-primary-hover' :
-            'border-lydian-border-medium bg-lydian-bg/5 text-gray-200 hover:bg-lydian-bg/5'}`
+            'border-blue-500 bg-blue-50 text-lydian-primary-hover' :
+            'border-white/30 bg-white/5 text-gray-200 hover:bg-white/5'}`
             }>
 
               <div className="flex items-center gap-2">
@@ -235,7 +235,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
             </button>
 
             {isStatusOpen &&
-          <div className="absolute top-full left-0 mt-2 w-full sm:w-56 bg-lydian-glass-dark rounded-lg shadow-lg border border-lydian-border py-1 z-20 max-h-64 overflow-y-auto">
+          <div className="absolute top-full left-0 mt-2 w-full sm:w-56 bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-lg shadow-lg border border-white/20 py-1 z-20 max-h-64 overflow-y-auto">
                 {statusOptions.map((option) =>
             <button
               key={option.value}
@@ -243,7 +243,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
                 handleFilterChange('status', option.value);
                 setIsStatusOpen(false);
               }}
-              className={`w-full px-4 py-2 text-left text-sm hover:bg-lydian-glass-dark-medium transition-colors ${
+              className={`w-full px-4 py-2 text-left text-sm hover:bg-white/10 backdrop-blur-xl border border-white/20 transition-colors ${
               filters.status === option.value ?
               'bg-blue-50 text-lydian-primary-hover font-medium' :
               'text-gray-200'}`
@@ -264,8 +264,8 @@ export const FilterBar: React.FC<FilterBarProps> = ({
             onClick={() => setIsPropertyOpen(!isPropertyOpen)}
             className={`w-full sm:w-auto px-4 py-2 border rounded-lg text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-lydian-border-focus flex items-center justify-between gap-2 min-w-[140px] ${
             filters.propertyId ?
-            'border-lydian-primary bg-blue-50 text-lydian-primary-hover' :
-            'border-lydian-border-medium bg-lydian-bg/5 text-gray-200 hover:bg-lydian-bg/5'}`
+            'border-blue-500 bg-blue-50 text-lydian-primary-hover' :
+            'border-white/30 bg-white/5 text-gray-200 hover:bg-white/5'}`
             }>
 
               <div className="flex items-center gap-2">
@@ -278,7 +278,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
             </button>
 
             {isPropertyOpen &&
-          <div className="absolute top-full left-0 mt-2 w-full sm:w-64 bg-lydian-glass-dark rounded-lg shadow-lg border border-lydian-border py-1 z-20 max-h-64 overflow-y-auto">
+          <div className="absolute top-full left-0 mt-2 w-full sm:w-64 bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-lg shadow-lg border border-white/20 py-1 z-20 max-h-64 overflow-y-auto">
                 {propertyOptions.map((option) =>
             <button
               key={option.value}
@@ -286,7 +286,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
                 handleFilterChange('propertyId', option.value);
                 setIsPropertyOpen(false);
               }}
-              className={`w-full px-4 py-2 text-left text-sm hover:bg-lydian-glass-dark-medium transition-colors ${
+              className={`w-full px-4 py-2 text-left text-sm hover:bg-white/10 backdrop-blur-xl border border-white/20 transition-colors ${
               filters.propertyId === option.value ?
               'bg-blue-50 text-lydian-primary-hover font-medium' :
               'text-gray-200'}`
@@ -308,7 +308,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
         <button
           onClick={handleClearFilters}
           disabled={activeFilterCount === 0}
-          className="px-4 py-2 border border-lydian-border-medium rounded-lg text-sm font-medium text-lydian-text-muted hover:bg-lydian-glass-dark disabled:opacity-50 disabled:cursor-not-allowed transition-colors focus:outline-none focus:ring-2 focus:ring-lydian-border-focus flex items-center gap-2 whitespace-nowrap">
+          className="px-4 py-2 border border-white/30 rounded-lg text-sm font-medium text-gray-300 hover:bg-gradient-to-br from-slate-900 via-black to-slate-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors focus:outline-none focus:ring-2 focus:ring-lydian-border-focus flex items-center gap-2 whitespace-nowrap">
 
             <X className="h-4 w-4" />
             <span>Clear {activeFilterCount > 0 && `(${activeFilterCount})`}</span>
@@ -318,14 +318,14 @@ export const FilterBar: React.FC<FilterBarProps> = ({
 
       {/* Active Filters Display */}
       {activeFilterCount > 0 &&
-      <div className="mt-4 pt-4 border-t border-lydian-border">
+      <div className="mt-4 pt-4 border-t border-white/20">
           <div className="flex items-center gap-2 flex-wrap">
-            <span className="text-xs font-medium text-lydian-text-muted">
+            <span className="text-xs font-medium text-gray-300">
               Active filters:
             </span>
 
             {filters.search &&
-          <div className="inline-flex items-center gap-1 px-3 py-1 bg-lydian-primary-light text-blue-800 rounded-full text-xs font-medium">
+          <div className="inline-flex items-center gap-1 px-3 py-1 bg-blue-500/10 text-blue-800 rounded-full text-xs font-medium">
                 <span>Search: {filters.search}</span>
                 <button
               onClick={() => handleFilterChange('search', '')}
@@ -338,7 +338,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
           }
 
             {filters.startDate &&
-          <div className="inline-flex items-center gap-1 px-3 py-1 bg-lydian-primary-light text-blue-800 rounded-full text-xs font-medium">
+          <div className="inline-flex items-center gap-1 px-3 py-1 bg-blue-500/10 text-blue-800 rounded-full text-xs font-medium">
                 <span>From: {new Date(filters.startDate).toLocaleDateString()}</span>
                 <button
               onClick={() => handleFilterChange('startDate', '')}
@@ -351,7 +351,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
           }
 
             {filters.endDate &&
-          <div className="inline-flex items-center gap-1 px-3 py-1 bg-lydian-primary-light text-blue-800 rounded-full text-xs font-medium">
+          <div className="inline-flex items-center gap-1 px-3 py-1 bg-blue-500/10 text-blue-800 rounded-full text-xs font-medium">
                 <span>To: {new Date(filters.endDate).toLocaleDateString()}</span>
                 <button
               onClick={() => handleFilterChange('endDate', '')}
@@ -364,7 +364,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
           }
 
             {filters.status &&
-          <div className="inline-flex items-center gap-1 px-3 py-1 bg-lydian-primary-light text-blue-800 rounded-full text-xs font-medium">
+          <div className="inline-flex items-center gap-1 px-3 py-1 bg-blue-500/10 text-blue-800 rounded-full text-xs font-medium">
                 <span>Status: {getStatusLabel()}</span>
                 <button
               onClick={() => handleFilterChange('status', '')}
@@ -377,7 +377,7 @@ export const FilterBar: React.FC<FilterBarProps> = ({
           }
 
             {filters.propertyId &&
-          <div className="inline-flex items-center gap-1 px-3 py-1 bg-lydian-primary-light text-blue-800 rounded-full text-xs font-medium">
+          <div className="inline-flex items-center gap-1 px-3 py-1 bg-blue-500/10 text-blue-800 rounded-full text-xs font-medium">
                 <span>Property: {getPropertyLabel()}</span>
                 <button
               onClick={() => handleFilterChange('propertyId', '')}

@@ -68,20 +68,20 @@ export default function AdminExport() {
           {/* Sidebar */}
           <aside className="w-64 bg-gray-800 border-r border-gray-700 min-h-screen p-6">
             <div className="mb-8">
-              <h2 className="text-2xl font-bold text-lydian-text-inverse mb-2">LyDian Admin</h2>
-              <p className="text-sm text-lydian-text-muted">{adminData?.email}</p>
+              <h2 className="text-2xl font-bold text-white mb-2">LyDian Admin</h2>
+              <p className="text-sm text-gray-300">{adminData?.email}</p>
             </div>
             <nav className="space-y-2">
-              <Link href="/admin/dashboard" className="flex items-center space-x-3 text-lydian-text-dim hover:text-lydian-text-inverse hover:bg-gray-700/80 rounded-lg px-3 py-2">
+              <Link href="/admin/dashboard" className="flex items-center space-x-3 text-gray-300 hover:text-white hover:bg-gray-700/80 rounded-lg px-3 py-2">
                 Dashboard
               </Link>
-              <Link href="/admin/locations" className="flex items-center space-x-3 text-lydian-text-dim hover:text-lydian-text-inverse hover:bg-gray-700/80 rounded-lg px-3 py-2">
+              <Link href="/admin/locations" className="flex items-center space-x-3 text-gray-300 hover:text-white hover:bg-gray-700/80 rounded-lg px-3 py-2">
                 Lokasyonlar
               </Link>
-              <Link href="/admin/users" className="flex items-center space-x-3 text-lydian-text-dim hover:text-lydian-text-inverse hover:bg-gray-700/80 rounded-lg px-3 py-2">
+              <Link href="/admin/users" className="flex items-center space-x-3 text-gray-300 hover:text-white hover:bg-gray-700/80 rounded-lg px-3 py-2">
                 Kullanıcılar
               </Link>
-              <Link href="/admin/export" className="flex items-center space-x-3 text-lydian-text-inverse rounded-lg px-3 py-2" style={{ background: `linear-gradient(45deg, ${AILYDIAN_COLORS.primary}40, ${AILYDIAN_COLORS.secondary}40)`, border: `1px solid ${AILYDIAN_COLORS.primary}60` }}>
+              <Link href="/admin/export" className="flex items-center space-x-3 text-white rounded-lg px-3 py-2" style={{ background: `linear-gradient(45deg, ${AILYDIAN_COLORS.primary}40, ${AILYDIAN_COLORS.secondary}40)`, border: `1px solid ${AILYDIAN_COLORS.primary}60` }}>
                 Veri Dışa Aktarma
               </Link>
             </nav>
@@ -90,11 +90,11 @@ export default function AdminExport() {
           {/* Main Content */}
           <main className="flex-1 p-8">
             <div className="max-w-5xl mx-auto">
-              <h1 className="text-3xl font-bold text-lydian-text-inverse mb-8">Veri Dışa Aktarma</h1>
+              <h1 className="text-3xl font-bold text-white mb-8">Veri Dışa Aktarma</h1>
 
               {/* Export Type Selection */}
               <div className="bg-gray-800 rounded-lg p-6 mb-6">
-                <h2 className="text-xl font-semibold text-lydian-text-inverse mb-4">Veri Tipi Seçin</h2>
+                <h2 className="text-xl font-semibold text-white mb-4">Veri Tipi Seçin</h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   {exportTypes.map((type) => {
                     const Icon = type.icon;
@@ -104,13 +104,13 @@ export default function AdminExport() {
                         onClick={() => setSelectedType(type.id)}
                         className={`p-4 rounded-lg border-2 transition-all ${
                         selectedType === type.id ?
-                        'border-lydian-primary bg-blue-900/30' :
+                        'border-blue-500 bg-blue-900/30' :
                         'border-gray-700 bg-gray-700/30 hover:border-gray-600'}`
                         }>
 
                         <Icon className="w-8 h-8 text-blue-400 mb-2" />
-                        <h3 className="text-lydian-text-inverse font-semibold mb-1">{type.name}</h3>
-                        <p className="text-lydian-text-muted text-sm">{type.count.toLocaleString()} kayıt</p>
+                        <h3 className="text-white font-semibold mb-1">{type.name}</h3>
+                        <p className="text-gray-400 text-sm">{type.count.toLocaleString()} kayıt</p>
                       </button>);
 
                   })}
@@ -119,7 +119,7 @@ export default function AdminExport() {
 
               {/* Format Selection */}
               <div className="bg-gray-800 rounded-lg p-6 mb-6">
-                <h2 className="text-xl font-semibold text-lydian-text-inverse mb-4">Format Seçin</h2>
+                <h2 className="text-xl font-semibold text-white mb-4">Format Seçin</h2>
                 <div className="flex gap-4">
                   {['csv', 'json', 'xlsx', 'pdf'].map((format) =>
                   <button
@@ -127,8 +127,8 @@ export default function AdminExport() {
                     onClick={() => setSelectedFormat(format)}
                     className={`px-6 py-3 rounded-lg font-medium uppercase transition-colors ${
                     selectedFormat === format ?
-                    'bg-lydian-primary text-white' :
-                    'bg-gray-700 text-lydian-text-dim hover:bg-gray-600'}`
+                    'bg-gradient-to-r from-blue-600 to-purple-600 text-white' :
+                    'bg-gray-700 text-gray-300 hover:bg-gray-600'}`
                     }>
 
                       {format}
@@ -141,15 +141,15 @@ export default function AdminExport() {
               <div className="bg-gray-800 rounded-lg p-6">
                 <div className="flex items-center justify-between mb-4">
                   <div>
-                    <h3 className="text-lg font-semibold text-lydian-text-inverse">Dışa Aktarma Özeti</h3>
-                    <p className="text-lydian-text-muted text-sm">
+                    <h3 className="text-lg font-semibold text-white">Dışa Aktarma Özeti</h3>
+                    <p className="text-gray-400 text-sm">
                       {exportTypes.find((t) => t.id === selectedType)?.name} - {selectedFormat.toUpperCase()} formatında
                     </p>
                   </div>
                   <button
                     onClick={handleExport}
                     disabled={isExporting}
-                    className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] text-lydian-text-inverse rounded-lg hover:shadow-lg transition-all disabled:opacity-50">
+                    className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] text-white rounded-lg hover:shadow-lg transition-all disabled:opacity-50">
 
                     <Download className={`w-5 h-5 ${isExporting ? 'animate-bounce' : ''}`} />
                     {isExporting ? 'Dışa Aktarılıyor...' : 'Dışa Aktar'}
@@ -159,7 +159,7 @@ export default function AdminExport() {
 
               {/* Recent Exports */}
               <div className="mt-8 bg-gray-800 rounded-lg p-6">
-                <h2 className="text-2xl font-bold text-lydian-text-inverse mb-4">Son Dışa Aktarımlar</h2>
+                <h2 className="text-2xl font-bold text-white mb-4">Son Dışa Aktarımlar</h2>
                 <div className="space-y-3">
                   {[
                   { type: 'Tüm Veriler', format: 'CSV', date: '2 saat önce', size: '45 MB' },
@@ -168,15 +168,15 @@ export default function AdminExport() {
                   map((exp, index) =>
                   <div key={index} className="flex items-center justify-between p-4 bg-gray-700/50 rounded-lg">
                       <div className="flex items-center gap-4">
-                        <CheckCircle className="w-5 h-5 text-lydian-success" />
+                        <CheckCircle className="w-5 h-5 text-green-500" />
                         <div>
-                          <p className="text-lydian-text-inverse font-medium">{exp.type}</p>
-                          <p className="text-lydian-text-muted text-sm">{exp.format} - {exp.size}</p>
+                          <p className="text-white font-medium">{exp.type}</p>
+                          <p className="text-gray-400 text-sm">{exp.format} - {exp.size}</p>
                         </div>
                       </div>
                       <div className="flex items-center gap-4">
-                        <span className="text-lydian-text-muted text-sm">{exp.date}</span>
-                        <button className="p-2 bg-lydian-primary text-lydian-text-inverse rounded hover:bg-lydian-primary-dark">
+                        <span className="text-gray-400 text-sm">{exp.date}</span>
+                        <button className="p-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded hover:from-blue-700 hover:to-purple-700">
                           <Download className="w-4 h-4" />
                         </button>
                       </div>

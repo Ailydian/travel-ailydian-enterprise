@@ -293,9 +293,9 @@ const TransfersPage: React.FC = () => {
 
       <ModernHeader />
 
-      <main className="min-h-screen bg-lydian-glass-dark">
+      <main className="min-h-screen bg-gradient-to-br from-slate-900 via-black to-slate-800">
         {/* Hero Section - Full Width Search */}
-        <section className="relative bg-gradient-to-br from-lydian-primary via-lydian-accent-cyan to-lydian-primary-dark text-lydian-text-inverse py-24">
+        <section className="relative bg-gradient-to-br from-blue-600 via-purple-600 to-blue-800 text-white py-24">
           <div className="max-w-7xl mx-auto px-4">
             <motion.div
               initial={{ opacity: 0, y: -20 }}
@@ -303,7 +303,7 @@ const TransfersPage: React.FC = () => {
               transition={{ duration: 0.6 }}
               className="text-center mb-12">
 
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-lydian-glass-dark-heavy rounded-full mb-6">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-xl rounded-full mb-6">
                 <Bus className="w-5 h-5" />
                 <span className="text-sm font-medium">Transfer Hizmetleri</span>
               </div>
@@ -348,34 +348,34 @@ const TransfersPage: React.FC = () => {
         </section>
 
         {/* Popüler Rotalar */}
-        <section className="bg-lydian-glass-dark py-12">
+        <section className="bg-gradient-to-br from-slate-900 via-black to-slate-800 py-12">
           <div className="max-w-7xl mx-auto px-4">
-            <h2 className="text-3xl font-bold text-lydian-text-inverse mb-8">Popüler Rotalar</h2>
+            <h2 className="text-3xl font-bold text-white mb-8">Popüler Rotalar</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {POPULAR_ROUTES.map((route) =>
               <div
                 key={route.id}
-                className="bg-gradient-to-br from-gray-50 to-white border border-lydian-border-light/10 rounded-2xl p-6 hover:shadow-lg transition-all cursor-pointer group">
+                className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-6 hover:shadow-lg transition-all cursor-pointer group">
 
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex-1">
-                      <div className="flex items-center gap-2 text-lydian-text-muted text-sm mb-2">
+                      <div className="flex items-center gap-2 text-gray-300 text-sm mb-2">
                         <Plane className="w-4 h-4" />
                         <span>{route.from}</span>
                       </div>
                       <div className="flex items-center gap-2 my-3">
-                        <div className="h-px flex-1 bg-gradient-to-r from-lydian-info to-lydian-accent-cyan"></div>
-                        <ArrowRight className="w-5 h-5 text-lydian-primary group-hover:translate-x-1 transition-transform" />
-                        <div className="h-px flex-1 bg-gradient-to-r from-lydian-accent-cyan to-lydian-info"></div>
+                        <div className="h-px flex-1 bg-gradient-to-r from-blue-500 to-purple-500"></div>
+                        <ArrowRight className="w-5 h-5 text-blue-500 group-hover:translate-x-1 transition-transform" />
+                        <div className="h-px flex-1 bg-gradient-to-r from-purple-500 to-blue-500"></div>
                       </div>
-                      <div className="flex items-center gap-2 text-lydian-text-muted text-sm">
+                      <div className="flex items-center gap-2 text-gray-300 text-sm">
                         <Hotel className="w-4 h-4" />
                         <span>{route.to}</span>
                       </div>
                     </div>
                   </div>
 
-                  <div className="flex items-center justify-between text-sm text-lydian-text-dim mb-4">
+                  <div className="flex items-center justify-between text-sm text-gray-400 mb-4">
                     <span>{route.distance}</span>
                     <span>•</span>
                     <span>{route.duration}</span>
@@ -383,12 +383,12 @@ const TransfersPage: React.FC = () => {
                     <span>{route.vehicles} araç</span>
                   </div>
 
-                  <div className="flex items-center justify-between pt-4 border-t border-lydian-border-light/10">
+                  <div className="flex items-center justify-between pt-4 border-t border-white/10">
                     <div>
-                      <div className="text-sm text-lydian-text-muted">Başlangıç</div>
-                      <div className="text-2xl font-bold text-lydian-text-inverse">₺{route.price}</div>
+                      <div className="text-sm text-gray-300">Başlangıç</div>
+                      <div className="text-2xl font-bold text-white">₺{route.price}</div>
                     </div>
-                    <button className="px-4 py-2 bg-lydian-primary text-lydian-text-inverse rounded-lg font-medium hover:bg-lydian-primary-dark transition-colors">
+                    <button className="px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-medium hover:shadow-lg hover:shadow-blue-500/30 transition-all">
                       Ara Bul
                     </button>
                   </div>
@@ -399,11 +399,11 @@ const TransfersPage: React.FC = () => {
         </section>
 
         {/* Filters Bar */}
-        <section className="bg-lydian-bg-hover border-b border-lydian-border-light/10 sticky top-20 z-40 py-4">
+        <section className="bg-white/5 backdrop-blur-xl border-b border-white/10 sticky top-20 z-40 py-4">
           <div className="max-w-7xl mx-auto px-4">
             <button
               onClick={() => setShowFilters(!showFilters)}
-              className="flex items-center gap-2 px-4 py-2 border border-lydian-border-light rounded-lg hover:bg-lydian-glass-dark transition-colors">
+              className="flex items-center gap-2 px-4 py-2 border border-white/20 rounded-lg hover:bg-white/10 transition-colors text-white">
 
               <Filter className="w-5 h-5" />
               Filtrele
@@ -412,13 +412,13 @@ const TransfersPage: React.FC = () => {
         </section>
 
         {/* Transfer Listings - Always show, not conditional */}
-        <section className="bg-lydian-bg-hover py-12">
+        <section className="bg-gradient-to-br from-slate-900 via-black to-slate-800 py-12">
           <div className="max-w-7xl mx-auto px-4">
             <div className="mb-8">
-              <h2 className="text-3xl font-bold text-lydian-text-inverse">
+              <h2 className="text-3xl font-bold text-white">
                 Mevcut Transferler ({filteredTransfers.length})
               </h2>
-              <p className="text-lydian-text-dim mt-2">
+              <p className="text-gray-400 mt-2">
                 {filteredTransfers.length === allTransfers.length ?
                 'Tüm transfer seçenekleri gösteriliyor' :
                 'Filtrelenmiş transfer seçenekleri'}
@@ -431,24 +431,24 @@ const TransfersPage: React.FC = () => {
                 key={transfer.id}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="bg-lydian-bg-hover border border-lydian-border-light/10 rounded-2xl overflow-hidden hover:shadow-xl transition-all group">
+                className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl overflow-hidden hover:shadow-xl transition-all group">
 
                   <div className="relative h-48 bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center">
                     <AnimatedCarSVG className="w-48 h-32" />
                     <button
                     onClick={() => toggleFavorite(transfer.id)}
-                    className="absolute top-3 right-3 w-10 h-10 bg-lydian-bg/90 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-lydian-glass-dark transition-colors">
+                    className="absolute top-3 right-3 w-10 h-10 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center hover:bg-white/20 transition-colors">
 
                       <Heart
                       className={`w-5 h-5 ${
                       favorites.has(transfer.id) ?
-                      'fill-red-500 text-red-500' :
-                      'text-lydian-text-dim'}`
+                      'fill-blue-500 text-blue-500' :
+                      'text-gray-400'}`
                       } />
 
                     </button>
                     {transfer.instantBook &&
-                  <div className="absolute top-3 left-3 px-3 py-1 bg-lydian-primary text-lydian-text-inverse text-sm font-semibold rounded-full flex items-center gap-1">
+                  <div className="absolute top-3 left-3 px-3 py-1 bg-blue-500/10 text-blue-400 text-sm font-semibold rounded-full flex items-center gap-1 border border-blue-500/20">
                         <Zap className="w-4 h-4" />
                         Anında Rezervasyon
                       </div>
@@ -457,16 +457,16 @@ const TransfersPage: React.FC = () => {
 
                   <div className="p-5">
                     {/* Route Info */}
-                    <div className="mb-3 pb-3 border-b border-lydian-border-light">
-                      <div className="flex items-center gap-2 text-sm text-lydian-text-dim mb-1">
-                        <MapPin className="w-4 h-4 text-lydian-primary" />
+                    <div className="mb-3 pb-3 border-b border-white/10">
+                      <div className="flex items-center gap-2 text-sm text-gray-400 mb-1">
+                        <MapPin className="w-4 h-4 text-blue-500" />
                         <span className="font-medium">{transfer.transferData.from.tr}</span>
                       </div>
                       <div className="flex items-center gap-2 ml-6">
-                        <ArrowRight className="w-4 h-4 text-lydian-text-muted" />
-                        <span className="text-sm text-lydian-text-dim">{transfer.transferData.to.tr}</span>
+                        <ArrowRight className="w-4 h-4 text-gray-300" />
+                        <span className="text-sm text-gray-400">{transfer.transferData.to.tr}</span>
                       </div>
-                      <div className="flex items-center gap-3 mt-2 text-xs text-lydian-text-muted ml-6">
+                      <div className="flex items-center gap-3 mt-2 text-xs text-gray-300 ml-6">
                         <span className="flex items-center gap-1">
                           <Clock className="w-3 h-3" />
                           {transfer.transferData.duration} dk
@@ -478,17 +478,17 @@ const TransfersPage: React.FC = () => {
 
                     <div className="flex items-center justify-between mb-3">
                       <div>
-                        <h3 className="font-bold text-lg text-lydian-text-inverse">{transfer.company}</h3>
-                        <p className="text-sm text-lydian-text-dim">{transfer.vehicle}</p>
+                        <h3 className="font-bold text-lg text-white">{transfer.company}</h3>
+                        <p className="text-sm text-gray-400">{transfer.vehicle}</p>
                       </div>
                       <div className="flex items-center gap-1">
                         <Star className="w-5 h-5 fill-yellow-400 text-yellow-400" />
-                        <span className="font-semibold text-lydian-text-inverse">{transfer.rating}</span>
-                        <span className="text-sm text-lydian-text-muted">({transfer.reviews})</span>
+                        <span className="font-semibold text-white">{transfer.rating}</span>
+                        <span className="text-sm text-gray-300">({transfer.reviews})</span>
                       </div>
                     </div>
 
-                    <div className="flex items-center gap-4 text-sm text-lydian-text-dim mb-4">
+                    <div className="flex items-center gap-4 text-sm text-gray-400 mb-4">
                       <div className="flex items-center gap-1">
                         <Users className="w-4 h-4" />
                         <span>{transfer.capacity} kişi</span>
@@ -503,22 +503,22 @@ const TransfersPage: React.FC = () => {
                       {transfer.features.slice(0, 3).map((feature, index) =>
                     <span
                       key={index}
-                      className="px-2 py-1 bg-lydian-glass-dark-medium text-lydian-text-muted text-xs rounded-full">
+                      className="px-2 py-1 bg-white/5 text-gray-300 text-xs rounded-full">
 
                           {feature}
                         </span>
                     )}
                     </div>
 
-                    <div className="pt-4 border-t border-lydian-border-light/10">
+                    <div className="pt-4 border-t border-white/10">
                       <div className="flex items-center justify-between mb-3">
                         <div>
-                          <div className="text-sm text-lydian-text-muted">Başlangıç</div>
-                          <div className="text-2xl font-bold text-lydian-text-inverse">₺{transfer.price}</div>
+                          <div className="text-sm text-gray-300">Başlangıç</div>
+                          <div className="text-2xl font-bold text-white">₺{transfer.price}</div>
                         </div>
                         <div className="text-right">
-                          <div className="text-xs text-lydian-text-muted">Zamanında Gelme</div>
-                          <div className="text-sm font-semibold text-lydian-success">%{transfer.onTimeRate}</div>
+                          <div className="text-xs text-gray-300">Zamanında Gelme</div>
+                          <div className="text-sm font-semibold text-green-400">%{transfer.onTimeRate}</div>
                         </div>
                       </div>
 
@@ -526,13 +526,13 @@ const TransfersPage: React.FC = () => {
                       <div className="grid grid-cols-2 gap-2">
                         <Link
                         href={`/transfers/${transfer.transferData.seo.slug.tr}`}
-                        className="px-4 py-2 border border-lydian-primary text-lydian-primary rounded-lg font-semibold hover:bg-lydian-primary-lighter transition-colors text-center text-sm">
+                        className="px-4 py-2 border border-blue-500 text-blue-400 rounded-lg font-semibold hover:bg-blue-500/10 transition-colors text-center text-sm">
 
                           Detayları Gör
                         </Link>
                         <Link
                         href={`/transfers/${transfer.transferData.seo.slug.tr}?book=true`}
-                        className="px-4 py-2 bg-lydian-primary text-lydian-text-inverse rounded-lg font-semibold hover:bg-lydian-primary-dark transition-colors text-center text-sm">
+                        className="px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-semibold hover:shadow-lg hover:shadow-blue-500/30 transition-all text-center text-sm">
 
                           Rezervasyon
                         </Link>
@@ -545,7 +545,7 @@ const TransfersPage: React.FC = () => {
 
             {filteredTransfers.length === 0 &&
             <div className="text-center py-12">
-                <p className="text-lydian-text-muted text-lg">Aradığınız kriterlere uygun transfer bulunamadı.</p>
+                <p className="text-gray-300 text-lg">Aradığınız kriterlere uygun transfer bulunamadı.</p>
                 <button
                 onClick={() => {
                   setFilters({
@@ -559,7 +559,7 @@ const TransfersPage: React.FC = () => {
                   });
                   setSearchQuery('');
                 }}
-                className="mt-4 px-6 py-2 bg-lydian-primary text-lydian-text-inverse rounded-lg font-semibold hover:bg-lydian-primary-dark transition-colors">
+                className="mt-4 px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-semibold hover:shadow-lg hover:shadow-blue-500/30 transition-all">
 
                   Filtreleri Temizle
                 </button>
@@ -569,7 +569,7 @@ const TransfersPage: React.FC = () => {
         </section>
 
         {/* Partner Program Section */}
-        <section className="py-20 bg-gradient-to-br from-lydian-primary via-lydian-accent-purple to-lydian-secondary relative overflow-hidden">
+        <section className="py-20 bg-gradient-to-br from-blue-600 via-purple-600 to-blue-800 relative overflow-hidden">
           {/* Background Pattern */}
           <div className="absolute inset-0 opacity-10">
             <div className="absolute inset-0" style={{
@@ -583,7 +583,7 @@ const TransfersPage: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="inline-flex items-center gap-2 px-4 py-2 bg-lydian-glass-dark-heavy backdrop-blur-sm rounded-full text-lydian-text-inverse mb-6">
+                className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-white mb-6">
 
                 <Sparkles className="w-5 h-5" />
                 <span className="font-semibold">Transfer Ortağı Olun</span>
@@ -594,7 +594,7 @@ const TransfersPage: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.1 }}
-                className="text-4xl md:text-5xl font-bold text-lydian-text-inverse mb-6">
+                className="text-4xl md:text-5xl font-bold text-white mb-6">
 
                 Transfer Hizmetinizi{' '}
                 <span className="bg-clip-text text-transparent bg-gradient-to-r from-yellow-300 to-orange-300">
@@ -608,7 +608,7 @@ const TransfersPage: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.2 }}
-                className="text-xl text-lydian-text-inverse/90 max-w-3xl mx-auto">
+                className="text-xl text-white/90 max-w-3xl mx-auto">
 
                 LyDian ile dünyanın dört bir yanından müşterilere ulaşın. %0 komisyon ile başlayın,
                 kazancınızı maksimuma çıkarın.
@@ -621,19 +621,19 @@ const TransfersPage: React.FC = () => {
                 icon: <TrendingUp className="w-8 h-8" />,
                 title: 'Yüksek Gelir',
                 description: 'Aylık ortalama ₺35,000 - ₺95,000 kazanç fırsatı',
-                color: 'from-lydian-warning to-lydian-warning-hover'
+                color: 'from-yellow-400 to-orange-400'
               },
               {
                 icon: <Shield className="w-8 h-8" />,
                 title: 'Güvenli Ödeme',
                 description: 'Otomatik ödeme sistemi ile garantili kazanç',
-                color: 'from-lydian-success to-lydian-success-hover'
+                color: 'from-green-400 to-emerald-500'
               },
               {
                 icon: <Users className="w-8 h-8" />,
                 title: 'Geniş Müşteri Ağı',
                 description: '50+ ülkeden binlerce potansiyel müşteri',
-                color: 'from-lydian-info to-lydian-accent-cyan'
+                color: 'from-blue-400 to-cyan-400'
               }].
               map((feature, index) =>
               <motion.div
@@ -642,13 +642,13 @@ const TransfersPage: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.1 * index }}
-                className="bg-lydian-glass-dark-medium backdrop-blur-md rounded-2xl p-6 border border-lydian-border-light hover:bg-lydian-glass-dark-medium transition-all group">
+                className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:bg-white/15 transition-all group">
 
-                  <div className={`inline-flex p-3 rounded-xl bg-gradient-to-r ${feature.color} text-lydian-text-inverse mb-4 group-hover:scale-110 transition-transform`}>
+                  <div className={`inline-flex p-3 rounded-xl bg-gradient-to-r ${feature.color} text-white mb-4 group-hover:scale-110 transition-transform`}>
                     {feature.icon}
                   </div>
-                  <h3 className="text-xl font-bold text-lydian-text-inverse mb-2">{feature.title}</h3>
-                  <p className="text-lydian-text-inverse/80">{feature.description}</p>
+                  <h3 className="text-xl font-bold text-white mb-2">{feature.title}</h3>
+                  <p className="text-white/80">{feature.description}</p>
                 </motion.div>
               )}
             </div>
@@ -662,7 +662,7 @@ const TransfersPage: React.FC = () => {
 
               <Link
                 href="/transfer-owner/dashboard"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-lydian-bg-hover text-lydian-primary rounded-xl font-bold text-lg hover:bg-lydian-glass-dark transition-all hover:scale-105 shadow-2xl group">
+                className="inline-flex items-center gap-2 px-8 py-4 bg-white text-blue-600 rounded-xl font-bold text-lg hover:bg-white/90 transition-all hover:scale-105 shadow-2xl group">
 
                 <span>Partner Paneline Git</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -670,14 +670,14 @@ const TransfersPage: React.FC = () => {
 
               <Link
                 href="/transfer-owner/auth/login"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-lydian-glass-dark-medium backdrop-blur-sm text-lydian-text-inverse rounded-xl font-bold text-lg hover:bg-lydian-glass-dark-heavy transition-all border-2 border-lydian-border-light">
+                className="inline-flex items-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm text-white rounded-xl font-bold text-lg hover:bg-white/20 transition-all border-2 border-white/20">
 
                 Giriş Yap
               </Link>
 
               <Link
                 href="/transfer-owner/auth/register"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-yellow-400 to-orange-400 text-lydian-text-inverse rounded-xl font-bold text-lg hover:from-yellow-300 hover:to-orange-300 transition-all shadow-2xl">
+                className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-yellow-400 to-orange-400 text-white rounded-xl font-bold text-lg hover:from-yellow-300 hover:to-orange-300 transition-all shadow-2xl">
 
                 Ücretsiz Kayıt Ol
               </Link>
@@ -690,7 +690,7 @@ const TransfersPage: React.FC = () => {
               transition={{ delay: 0.5 }}
               className="mt-12 text-center">
 
-              <p className="text-lydian-text-inverse/70 text-sm">
+              <p className="text-white/70 text-sm">
                 ✨ İlk 3 ay %0 komisyon | 🎁 Ücretsiz profesyonel fotoğraf | 📱 7/24 destek
               </p>
             </motion.div>

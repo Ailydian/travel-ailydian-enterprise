@@ -216,26 +216,26 @@ const EnhancedTripPlanner: React.FC = () => {
               <motion.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
-              className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-lydian-secondary to-lydian-primary rounded-full mb-4">
+              className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-purple-600 to-purple-600 rounded-full mb-4">
 
-                <Sparkles className="w-10 h-10 text-lydian-text-inverse" />
+                <Sparkles className="w-10 h-10 text-white" />
               </motion.div>
-              <h1 className="text-4xl font-bold text-lydian-text-inverse">
+              <h1 className="text-4xl font-bold text-white">
                 AI-Powered Trip Planner
               </h1>
-              <p className="text-xl text-lydian-text-dim">
+              <p className="text-xl text-gray-400">
                 Tell us what you want, and we&apos;ll create the perfect itinerary
               </p>
             </div>
 
             {/* Natural Language Input */}
-            <div className="bg-lydian-glass-dark rounded-2xl shadow-xl p-8 space-y-6">
+            <div className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-2xl shadow-xl p-8 space-y-6">
               <div>
-                <label className="block text-sm font-medium text-lydian-text-muted mb-2">
+                <label className="block text-sm font-medium text-gray-300 mb-2">
                   Describe Your Dream Trip
                 </label>
                 <textarea
-                className="w-full px-4 py-3 border border-lydian-border-light rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-lydian-border resize-none"
+                className="w-full px-4 py-3 border border-white/20 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-white/20 resize-none"
                 rows={4}
                 placeholder="e.g., 5-day Istanbul trip for 2 people, budget $2000, love history and food"
                 onChange={(e) => {
@@ -257,13 +257,13 @@ const EnhancedTripPlanner: React.FC = () => {
               {/* Destination */}
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-medium text-lydian-text-muted mb-2">
+                  <label className="block text-sm font-medium text-gray-300 mb-2">
                     <MapPin className="inline w-4 h-4 mr-1" />
                     Destination
                   </label>
                   <input
                   type="text"
-                  className="w-full px-4 py-3 border border-lydian-border-light rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-lydian-border"
+                  className="w-full px-4 py-3 border border-white/20 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-white/20"
                   placeholder="e.g., Istanbul, Turkey"
                   value={preferences.destination}
                   onChange={(e) => setPreferences({ ...preferences, destination: e.target.value })} />
@@ -271,14 +271,14 @@ const EnhancedTripPlanner: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-lydian-text-muted mb-2">
+                  <label className="block text-sm font-medium text-gray-300 mb-2">
                     <Users className="inline w-4 h-4 mr-1" />
                     Travelers
                   </label>
                   <input
                   type="number"
                   min="1"
-                  className="w-full px-4 py-3 border border-lydian-border-light rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-lydian-border"
+                  className="w-full px-4 py-3 border border-white/20 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-white/20"
                   value={preferences.travelers}
                   onChange={(e) => setPreferences({ ...preferences, travelers: parseInt(e.target.value) })} />
 
@@ -288,26 +288,26 @@ const EnhancedTripPlanner: React.FC = () => {
               {/* Dates */}
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-medium text-lydian-text-muted mb-2">
+                  <label className="block text-sm font-medium text-gray-300 mb-2">
                     <Calendar className="inline w-4 h-4 mr-1" />
                     Start Date
                   </label>
                   <input
                   type="date"
-                  className="w-full px-4 py-3 border border-lydian-border-light rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-lydian-border text-lydian-text-inverse [color-scheme:light]"
+                  className="w-full px-4 py-3 border border-white/20 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-white/20 text-white [color-scheme:light]"
                   style={{ colorScheme: 'light' }}
                   onChange={(e) => setPreferences({ ...preferences, startDate: new Date(e.target.value) })} />
 
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-lydian-text-muted mb-2">
+                  <label className="block text-sm font-medium text-gray-300 mb-2">
                     <Calendar className="inline w-4 h-4 mr-1" />
                     End Date
                   </label>
                   <input
                   type="date"
-                  className="w-full px-4 py-3 border border-lydian-border-light rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-lydian-border text-lydian-text-inverse [color-scheme:light]"
+                  className="w-full px-4 py-3 border border-white/20 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-white/20 text-white [color-scheme:light]"
                   style={{ colorScheme: 'light' }}
                   onChange={(e) => setPreferences({ ...preferences, endDate: new Date(e.target.value) })} />
 
@@ -316,7 +316,7 @@ const EnhancedTripPlanner: React.FC = () => {
 
               {/* Budget */}
               <div>
-                <label className="block text-sm font-medium text-lydian-text-muted mb-2">
+                <label className="block text-sm font-medium text-gray-300 mb-2">
                   <DollarSign className="inline w-4 h-4 mr-1" />
                   Total Budget: ${preferences.budget}
                 </label>
@@ -329,7 +329,7 @@ const EnhancedTripPlanner: React.FC = () => {
                 value={preferences.budget}
                 onChange={(e) => setPreferences({ ...preferences, budget: parseInt(e.target.value) })} />
 
-                <div className="flex justify-between text-xs text-lydian-text-muted mt-1">
+                <div className="flex justify-between text-xs text-gray-300 mt-1">
                   <span>$500</span>
                   <span>$10,000</span>
                 </div>
@@ -337,7 +337,7 @@ const EnhancedTripPlanner: React.FC = () => {
 
               {/* Travel Style */}
               <div>
-                <label className="block text-sm font-medium text-lydian-text-muted mb-3">
+                <label className="block text-sm font-medium text-gray-300 mb-3">
                   Travel Style
                 </label>
                 <div className="grid grid-cols-3 gap-4">
@@ -354,7 +354,7 @@ const EnhancedTripPlanner: React.FC = () => {
                       }>
 
                         <Icon className={`w-6 h-6 mx-auto mb-2 ${
-                      preferences.travelStyle === style.value ? 'text-purple-600' : 'text-lydian-text-muted'}`
+                      preferences.travelStyle === style.value ? 'text-purple-600' : 'text-gray-300'}`
                       } />
                         <div className="text-sm font-medium">{style.label}</div>
                       </button>);
@@ -365,7 +365,7 @@ const EnhancedTripPlanner: React.FC = () => {
 
               {/* Interests */}
               <div>
-                <label className="block text-sm font-medium text-lydian-text-muted mb-3">
+                <label className="block text-sm font-medium text-gray-300 mb-3">
                   What interests you?
                 </label>
                 <div className="flex flex-wrap gap-2">
@@ -387,7 +387,7 @@ const EnhancedTripPlanner: React.FC = () => {
 
               {error &&
             <div className="bg-lydian-error-lighter border border-red-200 rounded-lg p-4 flex items-start gap-3">
-                  <AlertCircle className="w-5 h-5 text-lydian-primary flex-shrink-0 mt-0.5" />
+                  <AlertCircle className="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" />
                   <p className="text-sm text-lydian-primary-active">{error}</p>
                 </div>
             }
@@ -396,7 +396,7 @@ const EnhancedTripPlanner: React.FC = () => {
               <button
               onClick={handleGenerateItinerary}
               disabled={loading}
-              className="w-full py-4 bg-gradient-to-r from-lydian-secondary to-lydian-primary text-lydian-text-inverse rounded-lg font-semibold text-lg hover:shadow-lg transition-all disabled:opacity-50 flex items-center justify-center gap-2">
+              className="w-full py-4 bg-gradient-to-r from-purple-600 to-purple-600 text-white rounded-lg font-semibold text-lg hover:shadow-lg transition-all disabled:opacity-50 flex items-center justify-center gap-2">
 
                 <Sparkles className="w-5 h-5" />
                 Generate AI Itinerary
@@ -416,23 +416,23 @@ const EnhancedTripPlanner: React.FC = () => {
             <motion.div
             animate={{ rotate: 360 }}
             transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
-            className="w-20 h-20 bg-gradient-to-br from-lydian-secondary to-lydian-primary rounded-full flex items-center justify-center">
+            className="w-20 h-20 bg-gradient-to-br from-purple-600 to-purple-600 rounded-full flex items-center justify-center">
 
-              <Sparkles className="w-10 h-10 text-lydian-text-inverse" />
+              <Sparkles className="w-10 h-10 text-white" />
             </motion.div>
-            <h2 className="text-2xl font-bold text-lydian-text-inverse">Creating Your Perfect Itinerary</h2>
+            <h2 className="text-2xl font-bold text-white">Creating Your Perfect Itinerary</h2>
             <div className="space-y-2 text-center">
-              <p className="text-lydian-text-dim">Analyzing {preferences.destination}...</p>
-              <p className="text-lydian-text-dim">Finding best attractions and activities...</p>
-              <p className="text-lydian-text-dim">Optimizing routes and timing...</p>
-              <p className="text-lydian-text-dim">Checking weather and availability...</p>
+              <p className="text-gray-400">Analyzing {preferences.destination}...</p>
+              <p className="text-gray-400">Finding best attractions and activities...</p>
+              <p className="text-gray-400">Optimizing routes and timing...</p>
+              <p className="text-gray-400">Checking weather and availability...</p>
             </div>
-            <div className="w-64 h-2 bg-lydian-bg-active rounded-full overflow-hidden">
+            <div className="w-64 h-2 bg-white/10 backdrop-blur-xl border border-white/20 rounded-full overflow-hidden">
               <motion.div
               initial={{ width: '0%' }}
               animate={{ width: '100%' }}
               transition={{ duration: 3, ease: 'easeInOut' }}
-              className="h-full bg-gradient-to-r from-lydian-secondary to-lydian-primary" />
+              className="h-full bg-gradient-to-r from-purple-600 to-purple-600" />
 
             </div>
           </motion.div>
@@ -445,13 +445,13 @@ const EnhancedTripPlanner: React.FC = () => {
           className="space-y-6">
 
             {/* Header */}
-            <div className="bg-lydian-glass-dark rounded-2xl shadow-xl p-6">
+            <div className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-2xl shadow-xl p-6">
               <div className="flex items-start justify-between">
                 <div>
-                  <h1 className="text-3xl font-bold text-lydian-text-inverse mb-2">
+                  <h1 className="text-3xl font-bold text-white mb-2">
                     {preferences.destination} Trip Itinerary
                   </h1>
-                  <div className="flex items-center gap-4 text-lydian-text-dim">
+                  <div className="flex items-center gap-4 text-gray-400">
                     <div className="flex items-center gap-1">
                       <Calendar className="w-4 h-4" />
                       <span>{itinerary.length} days</span>
@@ -470,21 +470,21 @@ const EnhancedTripPlanner: React.FC = () => {
                 <div className="flex gap-2">
                   <button
                   onClick={exportToPDF}
-                  className="px-4 py-2 bg-lydian-glass-dark-medium hover:bg-lydian-bg-active rounded-lg flex items-center gap-2 transition-colors">
+                  className="px-4 py-2 bg-white/10 backdrop-blur-xl border border-white/20 hover:bg-white/10 backdrop-blur-xl border border-white/20 rounded-lg flex items-center gap-2 transition-colors">
 
                     <Download className="w-4 h-4" />
                     PDF
                   </button>
                   <button
                   onClick={exportToCalendar}
-                  className="px-4 py-2 bg-lydian-glass-dark-medium hover:bg-lydian-bg-active rounded-lg flex items-center gap-2 transition-colors">
+                  className="px-4 py-2 bg-white/10 backdrop-blur-xl border border-white/20 hover:bg-white/10 backdrop-blur-xl border border-white/20 rounded-lg flex items-center gap-2 transition-colors">
 
                     <Calendar className="w-4 h-4" />
                     Calendar
                   </button>
                   <button
                   onClick={shareItinerary}
-                  className="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-lydian-text-inverse rounded-lg flex items-center gap-2 transition-colors">
+                  className="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg flex items-center gap-2 transition-colors">
 
                     <Share2 className="w-4 h-4" />
                     Share
@@ -495,19 +495,19 @@ const EnhancedTripPlanner: React.FC = () => {
 
             {/* Budget Breakdown */}
             {budgetBreakdown &&
-          <div className="bg-lydian-glass-dark rounded-2xl shadow-xl p-6">
-                <h3 className="text-lg font-semibold text-lydian-text-inverse mb-4">Budget Breakdown</h3>
+          <div className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-2xl shadow-xl p-6">
+                <h3 className="text-lg font-semibold text-white mb-4">Budget Breakdown</h3>
                 <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
                   {Object.entries(budgetBreakdown).map(([key, value]) =>
               key !== 'total' &&
-              <div key={key} className="text-center p-4 bg-lydian-glass-dark rounded-lg">
+              <div key={key} className="text-center p-4 bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-lg">
                         <div className="text-2xl font-bold text-purple-600">${value}</div>
-                        <div className="text-sm text-lydian-text-dim capitalize">{key}</div>
+                        <div className="text-sm text-gray-400 capitalize">{key}</div>
                       </div>
 
               )}
                 </div>
-                <div className="mt-4 pt-4 border-t border-lydian-border-light/10">
+                <div className="mt-4 pt-4 border-t border-white/20/10">
                   <div className="flex justify-between items-center">
                     <span className="text-lg font-semibold">Total</span>
                     <span className="text-2xl font-bold text-purple-600">
@@ -519,7 +519,7 @@ const EnhancedTripPlanner: React.FC = () => {
           }
 
             {/* Day Tabs */}
-            <div className="bg-lydian-glass-dark rounded-2xl shadow-xl p-6">
+            <div className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-2xl shadow-xl p-6">
               <div className="flex gap-2 overflow-x-auto pb-2">
                 {itinerary.map((day, index) =>
               <button
@@ -550,19 +550,19 @@ const EnhancedTripPlanner: React.FC = () => {
                   {/* Day Header */}
                   <div className="flex items-start justify-between">
                     <div>
-                      <h3 className="text-2xl font-bold text-lydian-text-inverse">
+                      <h3 className="text-2xl font-bold text-white">
                         {itinerary[selectedDay].title}
                       </h3>
-                      <p className="text-lydian-text-dim mt-1">
+                      <p className="text-gray-400 mt-1">
                         {format(itinerary[selectedDay].date, 'EEEE, MMMM dd, yyyy')}
                       </p>
                     </div>
                     {itinerary[selectedDay].weather &&
-                <div className="flex items-center gap-2 bg-lydian-primary-lighter px-4 py-2 rounded-lg">
-                        <Sun className="w-5 h-5 text-lydian-primary" />
+                <div className="flex items-center gap-2 bg-blue-500/10er px-4 py-2 rounded-lg">
+                        <Sun className="w-5 h-5 text-blue-500" />
                         <div>
                           <div className="font-semibold">{itinerary[selectedDay].weather.temp}°C</div>
-                          <div className="text-xs text-lydian-text-dim">{itinerary[selectedDay].weather.condition}</div>
+                          <div className="text-xs text-gray-400">{itinerary[selectedDay].weather.condition}</div>
                         </div>
                       </div>
                 }
@@ -575,33 +575,33 @@ const EnhancedTripPlanner: React.FC = () => {
                   return (
                     <div key={activity.id} className="relative pl-8">
                           {idx < itinerary[selectedDay].activities.length - 1 &&
-                      <div className="absolute left-3 top-8 bottom-0 w-0.5 bg-lydian-bg-active" />
+                      <div className="absolute left-3 top-8 bottom-0 w-0.5 bg-white/10 backdrop-blur-xl border border-white/20" />
                       }
                           <div className="absolute left-0 top-2 w-6 h-6 bg-purple-600 rounded-full flex items-center justify-center">
-                            <Icon className="w-3 h-3 text-lydian-text-inverse" />
+                            <Icon className="w-3 h-3 text-white" />
                           </div>
 
-                          <div className="bg-lydian-glass-dark rounded-lg p-4 hover:shadow-md transition-shadow">
+                          <div className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-lg p-4 hover:shadow-md transition-shadow">
                             <div className="flex items-start justify-between mb-2">
                               <div>
                                 <div className="flex items-center gap-2">
                                   <span className="text-sm font-medium text-purple-600">
                                     {activity.time}
                                   </span>
-                                  <span className="text-xs text-lydian-text-muted">
+                                  <span className="text-xs text-gray-300">
                                     {activity.duration} min
                                   </span>
                                 </div>
-                                <h4 className="text-lg font-semibold text-lydian-text-inverse mt-1">
+                                <h4 className="text-lg font-semibold text-white mt-1">
                                   {activity.title}
                                 </h4>
                               </div>
                               <div className="text-right">
-                                <div className="text-lg font-bold text-lydian-text-inverse">
+                                <div className="text-lg font-bold text-white">
                                   ${activity.cost}
                                 </div>
                                 {activity.rating &&
-                            <div className="flex items-center gap-1 text-xs text-lydian-text-dim">
+                            <div className="flex items-center gap-1 text-xs text-gray-400">
                                     <ThumbsUp className="w-3 h-3" />
                                     {activity.rating}/5
                                   </div>
@@ -609,27 +609,27 @@ const EnhancedTripPlanner: React.FC = () => {
                               </div>
                             </div>
 
-                            <p className="text-sm text-lydian-text-dim mb-2">{activity.description}</p>
+                            <p className="text-sm text-gray-400 mb-2">{activity.description}</p>
 
                             <div className="flex items-center justify-between">
-                              <div className="flex items-center gap-2 text-xs text-lydian-text-muted">
+                              <div className="flex items-center gap-2 text-xs text-gray-300">
                                 <MapPin className="w-3 h-3" />
                                 {activity.location}
                               </div>
 
                               <div className="flex items-center gap-2">
                                 {activity.availability === 'available' ?
-                            <span className="flex items-center gap-1 text-xs text-lydian-success">
+                            <span className="flex items-center gap-1 text-xs text-green-500">
                                     <CheckCircle className="w-3 h-3" />
                                     Available
                                   </span> :
                             activity.availability === 'limited' ?
-                            <span className="flex items-center gap-1 text-xs text-lydian-warning">
+                            <span className="flex items-center gap-1 text-xs text-yellow-500">
                                     <AlertCircle className="w-3 h-3" />
                                     Limited
                                   </span> :
 
-                            <span className="flex items-center gap-1 text-xs text-lydian-primary">
+                            <span className="flex items-center gap-1 text-xs text-blue-500">
                                     <XCircle className="w-3 h-3" />
                                     Unavailable
                                   </span>
@@ -644,8 +644,8 @@ const EnhancedTripPlanner: React.FC = () => {
                             </div>
 
                             {activity.aiConfidence < 0.8 &&
-                        <div className="mt-2 pt-2 border-t border-lydian-border-light/10">
-                                <button className="text-xs text-lydian-text-dim hover:text-lydian-text-inverse flex items-center gap-1">
+                        <div className="mt-2 pt-2 border-t border-white/20/10">
+                                <button className="text-xs text-gray-400 hover:text-white flex items-center gap-1">
                                   <RefreshCw className="w-3 h-3" />
                                   View alternatives
                                 </button>
@@ -680,17 +680,17 @@ const EnhancedTripPlanner: React.FC = () => {
             </div>
 
             {/* Action Buttons */}
-            <div className="bg-lydian-glass-dark rounded-2xl shadow-xl p-6">
+            <div className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-2xl shadow-xl p-6">
               <div className="flex flex-col md:flex-row gap-4">
-                <button className="flex-1 py-3 bg-purple-600 hover:bg-purple-700 text-lydian-text-inverse rounded-lg font-semibold transition-colors">
+                <button className="flex-1 py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-lg font-semibold transition-colors">
                   Book All Activities
                 </button>
-                <button className="flex-1 py-3 bg-lydian-glass-dark hover:bg-lydian-glass-dark text-purple-600 border-2 border-purple-600 rounded-lg font-semibold transition-colors">
+                <button className="flex-1 py-3 bg-gradient-to-br from-slate-900 via-black to-slate-800 hover:bg-gradient-to-br from-slate-900 via-black to-slate-800 text-purple-600 border-2 border-purple-600 rounded-lg font-semibold transition-colors">
                   Invite Collaborators
                 </button>
                 <button
                 onClick={() => setStep('input')}
-                className="flex-1 py-3 bg-lydian-glass-dark-medium hover:bg-lydian-bg-active text-lydian-text-muted rounded-lg font-semibold transition-colors">
+                className="flex-1 py-3 bg-white/10 backdrop-blur-xl border border-white/20 hover:bg-white/10 backdrop-blur-xl border border-white/20 text-gray-300 rounded-lg font-semibold transition-colors">
 
                   Create New Trip
                 </button>

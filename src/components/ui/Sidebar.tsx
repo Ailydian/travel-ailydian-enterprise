@@ -312,7 +312,7 @@ export const SidebarHeader: React.FC<{
   className?: string;
 }> = ({ children, className = '' }) => {
   return (
-    <div className={`flex items-center justify-between px-6 py-4 border-b border-lydian-border ${className}`}>
+    <div className={`flex items-center justify-between px-6 py-4 border-b border-white/20 ${className}`}>
       {children}
     </div>
   );
@@ -378,7 +378,7 @@ export const SidebarNavItem: React.FC<SidebarNavItemProps> = ({
   const content = (
     <>
       {icon && (
-        <span className={`flex-shrink-0 ${active ? 'text-lydian-primary' : 'text-lydian-text-muted'}`}>
+        <span className={`flex-shrink-0 ${active ? 'text-lydian-primary' : 'text-gray-300'}`}>
           {icon}
         </span>
       )}
@@ -418,7 +418,7 @@ export const SidebarFooter: React.FC<{
   className?: string;
 }> = ({ children, className = '' }) => {
   return (
-    <div className={`absolute bottom-0 left-0 right-0 px-6 py-4 border-t border-lydian-border bg-lydian-bg ${className}`}>
+    <div className={`absolute bottom-0 left-0 right-0 px-6 py-4 border-t border-white/20 bg-lydian-bg ${className}`}>
       {children}
     </div>
   );

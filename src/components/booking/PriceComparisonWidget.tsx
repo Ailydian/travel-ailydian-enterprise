@@ -59,19 +59,19 @@ export const PriceComparisonWidget: React.FC<PriceComparisonWidgetProps> = ({
         <div className="flex items-start justify-between mb-4">
           <div className="flex items-center gap-3">
             <div className="bg-gradient-to-br from-green-500 to-lydian-success p-3 rounded-xl shadow-lg">
-              <TrendingDown className="w-6 h-6 text-lydian-text-inverse" />
+              <TrendingDown className="w-6 h-6 text-white" />
             </div>
             <div>
-              <h3 className="text-xl font-bold text-lydian-text-inverse">
+              <h3 className="text-xl font-bold text-white">
                 En İyi Fiyat Garantisi
               </h3>
-              <p className="text-sm text-lydian-text-dim">
+              <p className="text-sm text-gray-400">
                 Rakiplerimizden %{savingsPercent} daha ucuz
               </p>
             </div>
           </div>
           <div className="text-right">
-            <div className="text-sm text-lydian-text-dim line-through">
+            <div className="text-sm text-gray-400 line-through">
               {currency}{avgCompetitorPrice.toFixed(0)}
             </div>
             <div className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-lydian-success to-lydian-success">
@@ -84,7 +84,7 @@ export const PriceComparisonWidget: React.FC<PriceComparisonWidgetProps> = ({
         <motion.div
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
-          className="bg-gradient-to-r from-lydian-success to-lydian-success text-lydian-text-inverse px-6 py-3 rounded-xl flex items-center justify-between mb-4">
+          className="bg-gradient-to-r from-lydian-success to-lydian-success text-white px-6 py-3 rounded-xl flex items-center justify-between mb-4">
 
           <div className="flex items-center gap-2">
             <Award className="w-5 h-5" />
@@ -92,39 +92,39 @@ export const PriceComparisonWidget: React.FC<PriceComparisonWidgetProps> = ({
               {currency}{actualSavings.toFixed(0)} Tasarruf Ediyorsunuz!
             </span>
           </div>
-          <span className="bg-lydian-glass-dark-heavy px-3 py-1 rounded-full text-sm font-bold">
+          <span className="bg-white/10 backdrop-blur-xl border border-white/20 px-3 py-1 rounded-full text-sm font-bold">
             %{savingsPercent} İNDİRİM
           </span>
         </motion.div>
 
         {/* Our Features */}
         <div className="grid grid-cols-3 gap-3 mb-4">
-          <div className="bg-lydian-bg/80 backdrop-blur-sm rounded-lg p-3 text-center">
-            <Shield className="w-5 h-5 text-lydian-success mx-auto mb-1" />
-            <div className="text-xs font-semibold text-lydian-text-muted">Ücretsiz İptal</div>
+          <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3 text-center">
+            <Shield className="w-5 h-5 text-green-500 mx-auto mb-1" />
+            <div className="text-xs font-semibold text-gray-300">Ücretsiz İptal</div>
           </div>
-          <div className="bg-lydian-bg/80 backdrop-blur-sm rounded-lg p-3 text-center">
-            <Zap className="w-5 h-5 text-lydian-success mx-auto mb-1" />
-            <div className="text-xs font-semibold text-lydian-text-muted">Anında Onay</div>
+          <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3 text-center">
+            <Zap className="w-5 h-5 text-green-500 mx-auto mb-1" />
+            <div className="text-xs font-semibold text-gray-300">Anında Onay</div>
           </div>
-          <div className="bg-lydian-bg/80 backdrop-blur-sm rounded-lg p-3 text-center">
-            <Star className="w-5 h-5 text-lydian-success mx-auto mb-1" />
-            <div className="text-xs font-semibold text-lydian-text-muted">4.9★ Puan</div>
+          <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3 text-center">
+            <Star className="w-5 h-5 text-green-500 mx-auto mb-1" />
+            <div className="text-xs font-semibold text-gray-300">4.9★ Puan</div>
           </div>
         </div>
 
         {/* Expand/Collapse Button */}
         <button
           onClick={() => setIsExpanded(!isExpanded)}
-          className="w-full bg-lydian-bg/60 hover:bg-lydian-bg/80 backdrop-blur-sm rounded-lg px-4 py-3 flex items-center justify-between transition-all group">
+          className="w-full bg-lydian-bg/60 hover:bg-white/10 backdrop-blur-sm rounded-lg px-4 py-3 flex items-center justify-between transition-all group">
 
-          <span className="text-sm font-semibold text-lydian-text-muted">
+          <span className="text-sm font-semibold text-gray-300">
             Tüm Rakipleri Karşılaştır ({competitors.length} firma)
           </span>
           {isExpanded ?
-          <ChevronUp className="w-5 h-5 text-lydian-text-dim group-hover:text-lydian-success transition-colors" /> :
+          <ChevronUp className="w-5 h-5 text-gray-400 group-hover:text-green-500 transition-colors" /> :
 
-          <ChevronDown className="w-5 h-5 text-lydian-text-dim group-hover:text-lydian-success transition-colors" />
+          <ChevronDown className="w-5 h-5 text-gray-400 group-hover:text-green-500 transition-colors" />
           }
         </button>
       </div>
@@ -137,18 +137,18 @@ export const PriceComparisonWidget: React.FC<PriceComparisonWidgetProps> = ({
           animate={{ height: 'auto', opacity: 1 }}
           exit={{ height: 0, opacity: 0 }}
           transition={{ duration: 0.3 }}
-          className="border-t-2 border-green-200 bg-lydian-bg/50 backdrop-blur-sm">
+          className="border-t-2 border-green-200 bg-white/50 backdrop-blur-sm">
 
             <div className="p-6 space-y-3">
               {/* Our Price Row - Highlighted */}
               <motion.div
               initial={{ x: -20, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
-              className="bg-gradient-to-r from-lydian-success to-lydian-success text-lydian-text-inverse rounded-xl p-4 shadow-lg">
+              className="bg-gradient-to-r from-lydian-success to-lydian-success text-white rounded-xl p-4 shadow-lg">
 
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <div className="bg-lydian-glass-dark-heavy p-2 rounded-lg">
+                    <div className="bg-white/10 backdrop-blur-xl border border-white/20 p-2 rounded-lg">
                       <Award className="w-5 h-5" />
                     </div>
                     <div>
@@ -173,23 +173,23 @@ export const PriceComparisonWidget: React.FC<PriceComparisonWidgetProps> = ({
               initial={{ x: -20, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ delay: index * 0.1 }}
-              className="bg-lydian-glass-dark rounded-xl p-4 border border-lydian-border-light/10 hover:border-lydian-border-light transition-all">
+              className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-xl p-4 border border-white/20/10 hover:border-white/20 transition-all">
 
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
-                      <div className="w-12 h-12 bg-lydian-glass-dark-medium rounded-lg flex items-center justify-center">
+                      <div className="w-12 h-12 bg-white/10 backdrop-blur-xl border border-white/20 rounded-lg flex items-center justify-center">
                         {competitor.logo ?
                     <img src={competitor.logo} alt={competitor.provider} className="w-8 h-8 object-contain" /> :
 
-                    <span className="text-xs font-bold text-lydian-text-muted">
+                    <span className="text-xs font-bold text-gray-300">
                             {competitor.provider.substring(0, 2).toUpperCase()}
                           </span>
                     }
                       </div>
                       <div>
-                        <div className="font-semibold text-lydian-text-inverse">{competitor.provider}</div>
+                        <div className="font-semibold text-white">{competitor.provider}</div>
                         {competitor.rating &&
-                    <div className="text-xs text-lydian-text-muted flex items-center gap-1">
+                    <div className="text-xs text-gray-300 flex items-center gap-1">
                             <Star className="w-3 h-3 fill-yellow-400 text-yellow-400" />
                             <span>{competitor.rating}/5</span>
                           </div>
@@ -197,10 +197,10 @@ export const PriceComparisonWidget: React.FC<PriceComparisonWidgetProps> = ({
                       </div>
                     </div>
                     <div className="text-right">
-                      <div className="text-xl font-bold text-lydian-text-inverse">
+                      <div className="text-xl font-bold text-white">
                         {currency}{competitor.price}
                       </div>
-                      <div className="text-xs text-lydian-primary font-semibold">
+                      <div className="text-xs text-blue-500 font-semibold">
                         +{currency}{(competitor.price - ourPrice).toFixed(0)} daha pahalı
                       </div>
                     </div>
@@ -208,11 +208,11 @@ export const PriceComparisonWidget: React.FC<PriceComparisonWidgetProps> = ({
 
                   {/* Features Comparison */}
                   {competitor.features &&
-              <div className="mt-3 pt-3 border-t border-lydian-border-light grid grid-cols-2 gap-2">
+              <div className="mt-3 pt-3 border-t border-white/20 grid grid-cols-2 gap-2">
                       {competitor.features.map((feature, idx) =>
                 <div key={idx} className="flex items-center gap-1 text-xs">
-                          <Check className="w-3 h-3 text-lydian-success flex-shrink-0" />
-                          <span className="text-lydian-text-dim">{feature}</span>
+                          <Check className="w-3 h-3 text-green-500 flex-shrink-0" />
+                          <span className="text-gray-400">{feature}</span>
                         </div>
                 )}
                     </div>
@@ -224,7 +224,7 @@ export const PriceComparisonWidget: React.FC<PriceComparisonWidgetProps> = ({
                 href={competitor.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-3 flex items-center justify-center gap-2 text-xs text-lydian-text-muted hover:text-lydian-primary transition-colors">
+                className="mt-3 flex items-center justify-center gap-2 text-xs text-gray-300 hover:text-blue-500 transition-colors">
 
                       <span>Siteyi Ziyaret Et</span>
                       <ExternalLink className="w-3 h-3" />
@@ -236,9 +236,9 @@ export const PriceComparisonWidget: React.FC<PriceComparisonWidgetProps> = ({
 
             {/* Footer Note */}
             <div className="px-6 pb-6">
-              <div className="bg-lydian-primary-lighter border border-blue-200 rounded-lg p-4">
-                <p className="text-xs text-lydian-text-dim text-center">
-                  <span className="font-semibold text-lydian-primary">💡 Fiyat Garantisi:</span>
+              <div className="bg-blue-500/10er border border-blue-200 rounded-lg p-4">
+                <p className="text-xs text-gray-400 text-center">
+                  <span className="font-semibold text-blue-500">💡 Fiyat Garantisi:</span>
                   {' '}Aynı tur için daha ucuz fiyat bulursanız, farkı iade ediyoruz!
                   <br />
                   Son güncelleme: {new Date().toLocaleDateString('tr-TR')}

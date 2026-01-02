@@ -62,39 +62,39 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
   const getThemeColors = (themeType: NavigationTheme) => {
     const themes = {
       default: {
-        logo: 'from-lydian-primary to-lydian-secondary',
-        aiButton: 'from-lydian-primary to-lydian-secondary hover:from-lydian-primary-hover hover:to-lydian-secondary-hover',
-        activeLink: 'bg-lydian-primary-lighter text-lydian-primary'
+        logo: 'from-blue-600 to-purple-700',
+        aiButton: 'from-blue-600 to-purple-700 hover:from-blue-600-hover hover:to-purple-700-hover',
+        activeLink: 'bg-blue-500/10er text-lydian-primary'
       },
       blue: {
-        logo: 'from-lydian-info to-lydian-accent-cyan',
-        aiButton: 'from-lydian-info to-lydian-accent-cyan hover:from-lydian-info-hover hover:to-lydian-accent-cyan-hover',
-        activeLink: 'bg-lydian-info-lighter text-lydian-info'
+        logo: 'from-lydian-info to-cyan-700',
+        aiButton: 'from-lydian-info to-cyan-700 hover:from-lydian-info-hover hover:to-cyan-700-hover',
+        activeLink: 'bg-blue-500-lighter text-lydian-info'
       },
       cyan: {
-        logo: 'from-lydian-accent-cyan to-lydian-info',
-        aiButton: 'from-lydian-accent-cyan to-lydian-info hover:from-lydian-accent-cyan-hover hover:to-lydian-info-hover',
-        activeLink: 'bg-lydian-accent-cyan-lighter text-lydian-accent-cyan'
+        logo: 'from-cyan-600 to-lydian-info',
+        aiButton: 'from-cyan-600 to-lydian-info hover:from-cyan-600-hover hover:to-lydian-info-hover',
+        activeLink: 'bg-cyan-600-lighter text-lydian-accent-cyan'
       },
       green: {
         logo: 'from-lydian-success to-lydian-success-hover',
         aiButton: 'from-lydian-success to-lydian-success-hover hover:from-lydian-success-hover hover:to-lydian-success-darker',
-        activeLink: 'bg-lydian-success-lighter text-lydian-success'
+        activeLink: 'bg-green-600-lighter text-green-500'
       },
       purple: {
-        logo: 'from-lydian-accent-purple to-lydian-primary',
-        aiButton: 'from-lydian-accent-purple to-lydian-primary hover:from-lydian-accent-purple-hover hover:to-lydian-primary-hover',
-        activeLink: 'bg-lydian-accent-purple-lighter text-lydian-accent-purple'
+        logo: 'from-lydian-accent-purple to-purple-600',
+        aiButton: 'from-lydian-accent-purple to-purple-600 hover:from-lydian-accent-purple-hover hover:to-purple-600-hover',
+        activeLink: 'bg-purple-600-lighter text-lydian-accent-purple'
       },
       orange: {
-        logo: 'from-lydian-warning to-lydian-primary',
-        aiButton: 'from-lydian-warning to-lydian-primary hover:from-lydian-warning-hover hover:to-lydian-primary-hover',
-        activeLink: 'bg-lydian-warning-lighter text-lydian-warning'
+        logo: 'from-lydian-warning to-purple-600',
+        aiButton: 'from-lydian-warning to-purple-600 hover:from-lydian-warning-hover hover:to-purple-600-hover',
+        activeLink: 'bg-yellow-500-lighter text-yellow-500'
       },
       pink: {
-        logo: 'from-lydian-primary to-lydian-error',
-        aiButton: 'from-lydian-primary to-lydian-error hover:from-lydian-primary-hover hover:to-lydian-error-hover',
-        activeLink: 'bg-lydian-primary-lighter text-lydian-primary'
+        logo: 'from-blue-600 to-lydian-error',
+        aiButton: 'from-blue-600 to-lydian-error hover:from-blue-600-hover hover:to-lydian-error-hover',
+        activeLink: 'bg-blue-500/10er text-lydian-primary'
       }
     };
     return themes[themeType];
@@ -529,7 +529,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
   const isActive = (path: string) => router.pathname === path;
 
   return (
-    <header className={`booking-header sticky top-0 ${LAYOUT_CONSTANTS.header.zIndex} bg-white dark:bg-gray-900 border-b border-lydian-border-light/10 dark:border-gray-800 transition-colors duration-300`}>
+    <header className={`booking-header sticky top-0 ${LAYOUT_CONSTANTS.header.zIndex} bg-white dark:bg-gray-900 border-b border-white/20/10 dark:border-gray-800 transition-colors duration-300`}>
       <div className={getHeaderContainerClasses()}>
         <div className={`flex items-center justify-between ${getHeaderHeightClasses()}`}>
           {/* Logo */}
@@ -539,11 +539,11 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                 <span className={`text-xl md:text-2xl font-black bg-gradient-to-r ${themeColors.logo} bg-clip-text text-transparent`}>
                   Travel
                 </span>
-                <span className="text-xl md:text-2xl font-black text-lydian-text-inverse">
+                <span className="text-xl md:text-2xl font-black text-white">
                   LyDian
                 </span>
               </div>
-              <p className="text-xs font-medium text-lydian-text-muted -mt-1 tracking-wide hidden sm:block">
+              <p className="text-xs font-medium text-gray-300 -mt-1 tracking-wide hidden sm:block">
                 AI-Powered Enterprise
               </p>
             </div>
@@ -552,7 +552,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
           {/* Search Bar - Desktop */}
           <div className="hidden lg:flex flex-1 max-w-2xl mx-8">
             <div className="relative w-full">
-              <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-lydian-text-muted w-5 h-5" />
+              <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-300 w-5 h-5" />
               <input
                 ref={searchInputRef}
                 type="text"
@@ -562,7 +562,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                 onBlur={handleSearchBlur}
                 onKeyDown={handleKeyDown}
                 placeholder={isClient ? t('common:searchPlaceholder', 'Destinasyon, deneyim, otel arayın...') : 'Destinasyon, deneyim, otel arayın...'}
-                className="header-search w-full pl-12 pr-4 py-3 outline-none text-lydian-text-inverse placeholder-lydian-text-tertiary font-medium"
+                className="header-search w-full pl-12 pr-4 py-3 outline-none text-white placeholder-lydian-text-tertiary font-medium"
                 autoComplete="off" />
 
               
@@ -571,7 +571,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                 {isSearchFocused && (searchResults.length > 0 || searchQuery.trim() === '' || searchHistory.length > 0) &&
                 <div
                   ref={searchDropdownRef}
-                  className="absolute top-full left-0 right-0 mt-2 bg-lydian-glass-dark rounded-xl shadow-2xl border border-lydian-border-light/10 z-50 max-h-96 overflow-y-auto">
+                  className="absolute top-full left-0 right-0 mt-2 bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-xl shadow-2xl border border-white/20/10 z-50 max-h-96 overflow-y-auto">
 
                     <motion.div
                     initial={{ opacity: 0, y: 10, scale: 0.95 }}
@@ -582,7 +582,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                     {/* Search Results */}
                     {searchResults.length > 0 &&
                     <div className="py-2">
-                        <div className="px-4 py-2 text-xs font-semibold text-lydian-text-muted uppercase tracking-wider border-b border-lydian-border-light">
+                        <div className="px-4 py-2 text-xs font-semibold text-gray-300 uppercase tracking-wider border-b border-white/20">
                           Arama Sonuçları
                         </div>
                         {searchResults.map((result, index) => {
@@ -591,8 +591,8 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                           <button
                             key={result.id}
                             onClick={() => handleSearchSelect(result)}
-                            className={`w-full px-4 py-3 text-left hover:bg-lydian-primary-lighter dark:hover:bg-lydian-glass-dark transition-colors flex items-center gap-3 ${
-                            selectedResultIndex === index ? 'bg-lydian-primary-lighter dark:bg-lydian-glass-dark' : ''}`
+                            className={`w-full px-4 py-3 text-left hover:bg-blue-500/10er dark:hover:bg-gradient-to-br from-slate-900 via-black to-slate-800 transition-colors flex items-center gap-3 ${
+                            selectedResultIndex === index ? 'bg-blue-500/10er dark:bg-lydian-glass-dark' : ''}`
                             }>
 
                               {result.image &&
@@ -609,18 +609,18 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                             }
                               <div className="flex-1 min-w-0">
                                 <div className="flex items-center gap-2">
-                                  <span className="font-medium text-lydian-text-inverse truncate">{result.title}</span>
+                                  <span className="font-medium text-white truncate">{result.title}</span>
                                   {result.rating &&
                                 <div className="flex items-center gap-1 text-xs">
-                                      <Star className="w-3 h-3 text-lydian-warning fill-current" />
-                                      <span className="text-lydian-text-dim">{result.rating}</span>
+                                      <Star className="w-3 h-3 text-yellow-500 fill-current" />
+                                      <span className="text-gray-400">{result.rating}</span>
                                     </div>
                                 }
                                 </div>
-                                <p className="text-sm text-lydian-text-muted truncate">{result.subtitle}</p>
+                                <p className="text-sm text-gray-300 truncate">{result.subtitle}</p>
                               </div>
                               {result.price &&
-                            <span className="text-sm font-semibold text-lydian-primary">{result.price}</span>
+                            <span className="text-sm font-semibold text-blue-500">{result.price}</span>
                             }
                             </button>);
 
@@ -634,17 +634,17 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                         {/* Recent Searches */}
                         {searchHistory.length > 0 &&
                       <div className="mb-4">
-                            <div className="px-4 py-2 text-xs font-semibold text-lydian-text-muted uppercase tracking-wider border-b border-lydian-border-light">
+                            <div className="px-4 py-2 text-xs font-semibold text-gray-300 uppercase tracking-wider border-b border-white/20">
                               Son Aramalar
                             </div>
                             {searchHistory.map((query, index) =>
                         <button
                           key={index}
                           onClick={() => handlePopularSearchClick(query)}
-                          className="w-full px-4 py-2 text-left hover:bg-lydian-glass-dark transition-colors flex items-center gap-3">
+                          className="w-full px-4 py-2 text-left hover:bg-gradient-to-br from-slate-900 via-black to-slate-800 transition-colors flex items-center gap-3">
 
-                                <Clock className="w-4 h-4 text-lydian-text-muted" />
-                                <span className="text-lydian-text-muted">{query}</span>
+                                <Clock className="w-4 h-4 text-gray-300" />
+                                <span className="text-gray-300">{query}</span>
                               </button>
                         )}
                           </div>
@@ -652,17 +652,17 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                         
                         {/* Popular Searches */}
                         <div>
-                          <div className="px-4 py-2 text-xs font-semibold text-lydian-text-muted uppercase tracking-wider border-b border-lydian-border-light">
+                          <div className="px-4 py-2 text-xs font-semibold text-gray-300 uppercase tracking-wider border-b border-white/20">
                             Popüler Aramalar
                           </div>
                           {popularSearches.slice(0, 6).map((query, index) =>
                         <button
                           key={index}
                           onClick={() => handlePopularSearchClick(query)}
-                          className="w-full px-4 py-2 text-left hover:bg-lydian-glass-dark transition-colors flex items-center gap-3">
+                          className="w-full px-4 py-2 text-left hover:bg-gradient-to-br from-slate-900 via-black to-slate-800 transition-colors flex items-center gap-3">
 
-                              <TrendingUp className="w-4 h-4 text-lydian-text-muted" />
-                              <span className="text-lydian-text-muted">{query}</span>
+                              <TrendingUp className="w-4 h-4 text-gray-300" />
+                              <span className="text-gray-300">{query}</span>
                             </button>
                         )}
                         </div>
@@ -672,11 +672,11 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                     {/* No Results */}
                     {searchQuery.trim() !== '' && searchResults.length === 0 &&
                     <div className="px-4 py-8 text-center">
-                        <Search className="w-8 h-8 text-lydian-text-dim mx-auto mb-2" />
-                        <p className="text-lydian-text-muted">Arama sonucu bulunamadı</p>
+                        <Search className="w-8 h-8 text-gray-400 mx-auto mb-2" />
+                        <p className="text-gray-300">Arama sonucu bulunamadı</p>
                         <button
                         onClick={handleSearchSubmit}
-                        className="mt-2 text-lydian-primary hover:text-lydian-primary-dark text-sm flex items-center gap-1 mx-auto">
+                        className="mt-2 text-blue-500 hover:text-blue-600 text-sm flex items-center gap-1 mx-auto">
 
                           <span>&quot;{searchQuery}&quot; için tüm sonuçları görüntüle</span>
                           <ArrowRight className="w-3 h-3" />
@@ -724,26 +724,26 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                         transition={{ duration: 0.2 }}
                         onMouseEnter={() => setIsToursMenuOpen(true)}
                         onMouseLeave={() => setIsToursMenuOpen(false)}
-                        className="absolute top-full left-0 mt-2 w-80 bg-lydian-glass-dark rounded-xl shadow-2xl border border-lydian-border-light/10 z-50 overflow-hidden">
+                        className="absolute top-full left-0 mt-2 w-80 bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-xl shadow-2xl border border-white/20/10 z-50 overflow-hidden">
 
                           <div className="p-2">
                             {toursItems.map((tour) =>
                           <Link
                             key={tour.href}
                             href={tour.href}
-                            className="flex items-start gap-3 p-3 rounded-lg hover:bg-lydian-glass-dark transition-colors group">
+                            className="flex items-start gap-3 p-3 rounded-lg hover:bg-gradient-to-br from-slate-900 via-black to-slate-800 transition-colors group">
 
                                 <span className="text-2xl">{tour.icon}</span>
                                 <div className="flex-1">
                                   <div className="flex items-center justify-between mb-1">
-                                    <h4 className="font-semibold text-lydian-text-inverse group-hover:text-lydian-primary transition-colors">
+                                    <h4 className="font-semibold text-white group-hover:text-blue-500 transition-colors">
                                       {tour.title}
                                     </h4>
-                                    <span className="text-xs font-medium px-2 py-0.5 rounded-full bg-gradient-to-r from-lydian-primary to-lydian-secondary text-lydian-text-inverse">
+                                    <span className="text-xs font-medium px-2 py-0.5 rounded-full bg-gradient-to-r from-blue-600 to-purple-700 text-white">
                                       {tour.badge}
                                     </span>
                                   </div>
-                                  <p className="text-xs text-lydian-text-dim">{tour.description}</p>
+                                  <p className="text-xs text-gray-400">{tour.description}</p>
                                 </div>
                               </Link>
                           )}
@@ -779,9 +779,9 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                         ease: "easeInOut"
                       }}
                       className="relative">
-                      <Icon className="w-4 h-4 text-lydian-primary group-hover:scale-110 transition-transform" />
+                      <Icon className="w-4 h-4 text-blue-500 group-hover:scale-110 transition-transform" />
                       <motion.div
-                        className="absolute -right-0.5 -top-0.5 w-1 h-1 bg-lydian-primary rounded-full"
+                        className="absolute -right-0.5 -top-0.5 w-1 h-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full"
                         animate={{ scale: [1, 1.5, 1], opacity: [1, 0.5, 1] }}
                         transition={{ duration: 1.5, repeat: Infinity }}
                       />
@@ -791,7 +791,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                   )}
                   <span className="font-medium">{item.title}</span>
                   {item.badge &&
-                  <span className="absolute -top-1 -right-1 text-xs bg-gradient-to-r from-green-500 to-emerald-500 text-lydian-text-inverse px-2 py-0.5 rounded-full font-semibold shadow-sm">
+                  <span className="absolute -top-1 -right-1 text-xs bg-gradient-to-r from-green-500 to-emerald-500 text-white px-2 py-0.5 rounded-full font-semibold shadow-sm">
                       {item.badge}
                     </span>
                   }
@@ -808,20 +808,20 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
             {/* Search Icon - Mobile & Tablet */}
             <button
               onClick={() => setIsSliderSearchOpen(true)}
-              className="lg:hidden p-2 text-lydian-text-muted hover:bg-lydian-glass-dark rounded-lg transition-colors group">
+              className="lg:hidden p-2 text-gray-300 hover:bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-lg transition-colors group">
 
-              <Search className="w-5 h-5 group-hover:text-lydian-primary transition-colors" />
+              <Search className="w-5 h-5 group-hover:text-blue-500 transition-colors" />
             </button>
 
             {/* Partner Button */}
             <Link href="/partner">
               <button
-                className="relative flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-lydian-primary to-lydian-secondary hover:from-lydian-primary-hover hover:to-lydian-secondary-hover text-lydian-text-inverse rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl group overflow-hidden">
+                className="relative flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-700 hover:from-blue-600-hover hover:to-purple-700-hover text-white rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl group overflow-hidden">
 
-                <div className="absolute inset-0 bg-gradient-to-r from-lydian-secondary to-lydian-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <Building2 className="w-4 h-4 relative z-10 group-hover:scale-110 transition-transform duration-300" />
                 <span className="hidden lg:inline font-semibold relative z-10">Partner Ol</span>
-                <div className="absolute top-0 right-0 w-2 h-2 bg-lydian-warning rounded-full animate-ping"></div>
+                <div className="absolute top-0 right-0 w-2 h-2 bg-yellow-500 rounded-full animate-ping"></div>
               </button>
             </Link>
 
@@ -831,7 +831,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                 // AI Asistan'ı hero section üstünde aç
                 window.dispatchEvent(new CustomEvent('openAIAssistant'));
               }}
-              className={`relative flex items-center space-x-2 px-4 py-2 bg-gradient-to-r ${themeColors.aiButton} text-lydian-text-inverse rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl group`}>
+              className={`relative flex items-center space-x-2 px-4 py-2 bg-gradient-to-r ${themeColors.aiButton} text-white rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl group`}>
 
               <motion.div
                 whileHover={{ scale: 1.05 }}
@@ -842,7 +842,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                   <span className="text-sm font-semibold hidden lg:inline">AI Asistan</span>
                 </div>
               </motion.div>
-              <div className="absolute -top-1 -right-1 w-3 h-3 bg-lydian-success rounded-full border-2 border-white dark:border-gray-900 animate-pulse shadow-sm"></div>
+              <div className="absolute -top-1 -right-1 w-3 h-3 bg-green-600 rounded-full border-2 border-white dark:border-gray-900 animate-pulse shadow-sm"></div>
             </button>
 
             {/* Language Selector */}
@@ -857,7 +857,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
 
               <AnimatePresence>
                 {isLanguageMenuOpen &&
-                <div className="absolute right-0 mt-2 w-48 bg-lydian-glass-dark rounded-xl shadow-lg border border-lydian-border-light/10 py-2 z-50">
+                <div className="absolute right-0 mt-2 w-48 bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-xl shadow-lg border border-white/20/10 py-2 z-50">
                     <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -869,8 +869,8 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                       onClick={() => handleLanguageChange(language.code)}
                       className={`w-full flex items-center space-x-3 px-4 py-2 text-left transition-colors ${
                       currentLanguage.code === language.code ?
-                      'bg-lydian-primary-lighter dark:bg-lydian-glass-dark text-lydian-primary' :
-                      'text-lydian-text-secondary dark:text-lydian-text-dim hover:bg-lydian-glass-dark'}`
+                      'bg-blue-500/10er dark:bg-gradient-to-br from-slate-900 via-black to-slate-800 text-lydian-primary' :
+                      'text-lydian-text-secondary dark:text-gray-400 hover:bg-lydian-glass-dark'}`
                       }>
 
                           <span className="text-xl">{language.flag}</span>
@@ -884,10 +884,10 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
             </div>
 
             {/* Cart */}
-            <Link href="/cart-new" className="relative p-2 text-lydian-text-muted hover:bg-lydian-glass-dark rounded-lg transition-colors group">
-              <ShoppingCart className="w-5 h-5 group-hover:text-lydian-primary transition-colors" />
+            <Link href="/cart-new" className="relative p-2 text-gray-300 hover:bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-lg transition-colors group">
+              <ShoppingCart className="w-5 h-5 group-hover:text-blue-500 transition-colors" />
               {getItemCount() > 0 &&
-              <span className="absolute -top-1 -right-1 bg-lydian-primary text-lydian-text-inverse text-xs rounded-full min-w-5 h-5 flex items-center justify-center px-1 font-medium animate-pulse">
+              <span className="absolute -top-1 -right-1 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-xs rounded-full min-w-5 h-5 flex items-center justify-center px-1 font-medium animate-pulse">
                   {getItemCount()}
                 </span>
               }
@@ -900,16 +900,16 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
             <div className="relative">
               <button
                 onClick={() => setIsUserMenuOpen(!isUserMenuOpen)}
-                className="flex items-center space-x-2 p-2 text-lydian-text-muted hover:bg-lydian-glass-dark rounded-lg transition-colors">
+                className="flex items-center space-x-2 p-2 text-gray-300 hover:bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-lg transition-colors">
 
-                <div className="w-8 h-8 bg-gradient-to-r from-lydian-primary to-lydian-secondary rounded-full flex items-center justify-center">
-                  <User className="w-4 h-4 text-lydian-text-inverse" />
+                <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-700 rounded-full flex items-center justify-center">
+                  <User className="w-4 h-4 text-white" />
                 </div>
               </button>
 
               <AnimatePresence>
                 {isUserMenuOpen &&
-                <div className="absolute right-0 mt-2 w-64 bg-lydian-glass-dark rounded-xl shadow-lg border border-lydian-border-light/10 py-2">
+                <div className="absolute right-0 mt-2 w-64 bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-xl shadow-lg border border-white/20/10 py-2">
                     <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -917,17 +917,17 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
 
                     {session ?
                     <>
-                        <div className="px-4 py-3 border-b border-lydian-border-light">
-                          <p className="text-sm font-medium text-lydian-text-inverse">{session.user?.name || 'Kullanıcı'}</p>
-                          <p className="text-xs text-lydian-text-muted">{session.user?.email}</p>
-                          <span className="inline-flex items-center px-2 py-1 mt-2 rounded-full text-xs bg-lydian-primary-light text-lydian-primary-dark">
+                        <div className="px-4 py-3 border-b border-white/20">
+                          <p className="text-sm font-medium text-white">{session.user?.name || 'Kullanıcı'}</p>
+                          <p className="text-xs text-gray-300">{session.user?.email}</p>
+                          <span className="inline-flex items-center px-2 py-1 mt-2 rounded-full text-xs bg-blue-500/10 text-blue-600">
                             {(session.user as any)?.membershipType || 'BASIC'} Üye
                           </span>
                         </div>
                         
                         <Link
                         href="/profile/dashboard"
-                        className="flex items-center space-x-3 px-4 py-2 text-lydian-text-muted hover:bg-lydian-glass-dark transition-colors"
+                        className="flex items-center space-x-3 px-4 py-2 text-gray-300 hover:bg-gradient-to-br from-slate-900 via-black to-slate-800 transition-colors"
                         onClick={() => setIsUserMenuOpen(false)}>
 
                           <TrendingUp className="w-4 h-4" />
@@ -938,8 +938,8 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                         const Icon = item.icon;
                         if ((item as any).isHeader) {
                           return (
-                            <div key={index} className="px-4 py-2 mt-2 border-t border-lydian-border-light">
-                                <p className="text-xs font-semibold text-lydian-text-muted uppercase tracking-wider flex items-center gap-2">
+                            <div key={index} className="px-4 py-2 mt-2 border-t border-white/20">
+                                <p className="text-xs font-semibold text-gray-300 uppercase tracking-wider flex items-center gap-2">
                                   <Icon className="w-3 h-3" />
                                   {item.title}
                                 </p>
@@ -950,7 +950,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                           <Link
                             key={item.href}
                             href={item.href}
-                            className="flex items-center space-x-3 px-4 py-2 text-lydian-text-muted hover:bg-lydian-glass-dark transition-colors"
+                            className="flex items-center space-x-3 px-4 py-2 text-gray-300 hover:bg-gradient-to-br from-slate-900 via-black to-slate-800 transition-colors"
                             onClick={() => setIsUserMenuOpen(false)}>
 
                               <Icon className="w-4 h-4" />
@@ -959,10 +959,10 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
 
                       })}
                         
-                        <div className="border-t border-lydian-border-light mt-2 pt-2">
+                        <div className="border-t border-white/20 mt-2 pt-2">
                           <button
                           onClick={() => signOut({ callbackUrl: '/' })}
-                          className="flex items-center space-x-3 px-4 py-2 text-lydian-primary hover:bg-lydian-error-lighter transition-colors w-full">
+                          className="flex items-center space-x-3 px-4 py-2 text-blue-500 hover:bg-lydian-error-lighter transition-colors w-full">
 
                             <LogOut className="w-4 h-4" />
                             <span className="text-sm">{isClient ? t('navigation:logout', 'Çıkış Yap') : 'Çıkış Yap'}</span>
@@ -971,14 +971,14 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                       </> :
 
                     <>
-                        <div className="px-4 py-3 border-b border-lydian-border-light">
-                          <p className="text-sm font-medium text-lydian-text-inverse">Merhaba! 👋</p>
-                          <p className="text-xs text-lydian-text-muted">Seyahat maceranıza başlayın</p>
+                        <div className="px-4 py-3 border-b border-white/20">
+                          <p className="text-sm font-medium text-white">Merhaba! 👋</p>
+                          <p className="text-xs text-gray-300">Seyahat maceranıza başlayın</p>
                         </div>
                         
                         <Link
                         href="/auth/signin"
-                        className="flex items-center space-x-3 px-4 py-2 text-lydian-primary hover:bg-lydian-primary-lighter transition-colors"
+                        className="flex items-center space-x-3 px-4 py-2 text-blue-500 hover:bg-blue-500/10er transition-colors"
                         onClick={() => setIsUserMenuOpen(false)}>
 
                           <User className="w-4 h-4" />
@@ -987,7 +987,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                         
                         <Link
                         href="/auth/signup"
-                        className="flex items-center space-x-3 px-4 py-2 text-lydian-success hover:bg-lydian-success-lighter transition-colors"
+                        className="flex items-center space-x-3 px-4 py-2 text-green-500 hover:bg-green-600-lighter transition-colors"
                         onClick={() => setIsUserMenuOpen(false)}>
 
                           <User className="w-4 h-4" />
@@ -1004,7 +1004,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
             {/* Mobile menu button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="lg:hidden p-2 text-lydian-text-muted hover:bg-lydian-glass-dark rounded-lg transition-colors">
+              className="lg:hidden p-2 text-gray-300 hover:bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-lg transition-colors">
 
               {isMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -1024,14 +1024,14 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
             <div className="px-4 py-4 space-y-4">
               {/* Mobile Search */}
               <div className="relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-lydian-text-muted w-4 h-4" />
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-300 w-4 h-4" />
                 <input
                   type="text"
                   value={searchQuery}
                   onChange={handleSearchChange}
                   onFocus={handleSearchFocus}
                   placeholder={isClient ? t('common:searchDestinations', 'Destinasyon ara...') : 'Destinasyon ara...'}
-                  className="w-full pl-10 pr-4 py-3 border border-lydian-border-light rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-border font-medium text-lydian-text-dim placeholder-lydian-text-tertiary"
+                  className="w-full pl-10 pr-4 py-3 border border-white/20 rounded-lg focus:ring-2 focus:ring-lydian-border-focus focus:border-white/20 font-medium text-gray-400 placeholder-lydian-text-tertiary"
                   autoComplete="off" />
 
               </div>
@@ -1056,7 +1056,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                               {item.title}
                               <ChevronDown className={`w-4 h-4 transition-transform ${isMobileToursOpen ? 'rotate-180' : ''}`} />
                             </div>
-                            <div className="text-xs text-lydian-text-muted">{item.description}</div>
+                            <div className="text-xs text-gray-300">{item.description}</div>
                           </div>
                         </button>
 
@@ -1073,7 +1073,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                             <Link
                               key={tour.href}
                               href={tour.href}
-                              className="flex items-start gap-2 p-2 rounded-lg hover:bg-lydian-glass-dark transition-colors"
+                              className="flex items-start gap-2 p-2 rounded-lg hover:bg-gradient-to-br from-slate-900 via-black to-slate-800 transition-colors"
                               onClick={() => {
                                 setIsMenuOpen(false);
                                 setIsMobileToursOpen(false);
@@ -1082,12 +1082,12 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                                   <span className="text-lg">{tour.icon}</span>
                                   <div className="flex-1">
                                     <div className="flex items-center gap-2">
-                                      <span className="text-sm font-medium text-lydian-text-inverse">{tour.title}</span>
-                                      <span className="text-xs px-1.5 py-0.5 rounded bg-lydian-primary-light text-lydian-primary-dark">
+                                      <span className="text-sm font-medium text-white">{tour.title}</span>
+                                      <span className="text-xs px-1.5 py-0.5 rounded bg-blue-500/10 text-blue-600">
                                         {tour.badge}
                                       </span>
                                     </div>
-                                    <p className="text-xs text-lydian-text-dim mt-0.5">{tour.description}</p>
+                                    <p className="text-xs text-gray-400 mt-0.5">{tour.description}</p>
                                   </div>
                                 </Link>
                             )}
@@ -1119,9 +1119,9 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                             ease: "easeInOut"
                           }}
                           className="relative">
-                          <Icon className="w-5 h-5 text-lydian-primary group-hover:scale-110 transition-transform" />
+                          <Icon className="w-5 h-5 text-blue-500 group-hover:scale-110 transition-transform" />
                           <motion.div
-                            className="absolute -right-1 -top-1 w-1.5 h-1.5 bg-lydian-primary rounded-full"
+                            className="absolute -right-1 -top-1 w-1.5 h-1.5 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full"
                             animate={{ scale: [1, 1.5, 1], opacity: [1, 0.5, 1] }}
                             transition={{ duration: 1.5, repeat: Infinity }}
                           />
@@ -1133,12 +1133,12 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                         <div className="font-medium flex items-center gap-2">
                           {item.title}
                           {item.badge &&
-                          <span className="text-xs bg-gradient-to-r from-green-500 to-emerald-500 text-lydian-text-inverse px-2 py-0.5 rounded-full font-semibold">
+                          <span className="text-xs bg-gradient-to-r from-green-500 to-emerald-500 text-white px-2 py-0.5 rounded-full font-semibold">
                               {item.badge}
                             </span>
                           }
                         </div>
-                        <div className="text-xs text-lydian-text-muted">{item.description}</div>
+                        <div className="text-xs text-gray-300">{item.description}</div>
                       </div>
                     </Link>);
 
@@ -1170,20 +1170,20 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
               transition={{ type: "spring", damping: 25, stiffness: 300 }}>
 
               <div
-                className="bg-lydian-glass-dark rounded-xl shadow-2xl w-full max-w-2xl mx-4 overflow-hidden"
+                className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-xl shadow-2xl w-full max-w-2xl mx-4 overflow-hidden"
                 onClick={(e) => e.stopPropagation()}>
 
               {/* Header */}
-              <div className="flex items-center justify-between p-4 border-b border-lydian-border-light/10">
-                <h3 className="text-lg font-semibold text-lydian-text-inverse flex items-center gap-2">
-                  <Search className="w-5 h-5 text-lydian-primary" />
+              <div className="flex items-center justify-between p-4 border-b border-white/20/10">
+                <h3 className="text-lg font-semibold text-white flex items-center gap-2">
+                  <Search className="w-5 h-5 text-blue-500" />
                   Arama Yap
                 </h3>
                 <button
                     onClick={() => setIsSliderSearchOpen(false)}
-                    className="p-2 hover:bg-lydian-glass-dark-medium rounded-lg transition-colors">
+                    className="p-2 hover:bg-white/10 backdrop-blur-xl border border-white/20 rounded-lg transition-colors">
 
-                  <X className="w-5 h-5 text-lydian-text-muted" />
+                  <X className="w-5 h-5 text-gray-300" />
                 </button>
               </div>
 
@@ -1191,7 +1191,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
               <div className="p-6">
                 {/* Search Input */}
                 <div className="relative mb-6">
-                  <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-lydian-text-muted w-5 h-5" />
+                  <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-300 w-5 h-5" />
                   <input
                       type="text"
                       value={searchQuery}
@@ -1204,7 +1204,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                         }
                       }}
                       placeholder="Destinasyon, deneyim, otel arayın..."
-                      className="w-full pl-12 pr-4 py-4 border-2 border-lydian-border-light rounded-xl focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-primary outline-none text-lydian-text-inverse placeholder-lydian-text-tertiary font-medium text-lg"
+                      className="w-full pl-12 pr-4 py-4 border-2 border-white/20 rounded-xl focus:ring-2 focus:ring-lydian-border-focus focus:border-blue-500 outline-none text-white placeholder-lydian-text-tertiary font-medium text-lg"
                       autoComplete="off"
                       autoFocus />
 
@@ -1212,7 +1212,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
 
                 {/* Quick Search Categories */}
                 <div className="mb-6">
-                  <h4 className="text-sm font-semibold text-lydian-text-muted mb-3">Hızlı Arama</h4>
+                  <h4 className="text-sm font-semibold text-gray-300 mb-3">Hızlı Arama</h4>
                   <div className="grid grid-cols-2 gap-3">
                     {[
                       { title: 'İstanbul Turları', icon: '🏛️', query: 'istanbul' },
@@ -1228,10 +1228,10 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                           setSearchResults(results);
                           setIsSearchFocused(true);
                         }}
-                        className="flex items-center gap-3 p-3 rounded-lg border border-lydian-border-light/10 hover:border-lydian-border-focus hover:bg-lydian-primary-lighter transition-all">
+                        className="flex items-center gap-3 p-3 rounded-lg border border-white/20/10 hover:border-blue-500 hover:bg-blue-500/10er transition-all">
 
                         <span className="text-xl">{item.icon}</span>
-                        <span className="font-medium text-lydian-text-muted">{item.title}</span>
+                        <span className="font-medium text-gray-300">{item.title}</span>
                       </button>
                       )}
                   </div>
@@ -1240,7 +1240,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                 {/* Search Results in Slider */}
                 {searchResults.length > 0 &&
                   <div className="mb-4">
-                    <h4 className="text-sm font-semibold text-lydian-text-muted mb-3">Arama Sonuçları</h4>
+                    <h4 className="text-sm font-semibold text-gray-300 mb-3">Arama Sonuçları</h4>
                     <div className="max-h-60 overflow-y-auto space-y-2">
                       {searchResults.map((result, index) => {
                         const categoryInfo = categoryConfig[result.category];
@@ -1251,8 +1251,8 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                               handleSearchSelect(result);
                               setIsSliderSearchOpen(false);
                             }}
-                            className={`w-full p-3 rounded-lg hover:bg-lydian-primary-lighter dark:hover:bg-lydian-glass-dark transition-colors flex items-center gap-3 text-left ${
-                            selectedResultIndex === index ? 'bg-lydian-primary-lighter dark:bg-lydian-glass-dark border border-lydian-primary' : 'border border-lydian-border-light'}`
+                            className={`w-full p-3 rounded-lg hover:bg-blue-500/10er dark:hover:bg-gradient-to-br from-slate-900 via-black to-slate-800 transition-colors flex items-center gap-3 text-left ${
+                            selectedResultIndex === index ? 'bg-blue-500/10er dark:bg-gradient-to-br from-slate-900 via-black to-slate-800 border border-blue-500' : 'border border-white/20'}`
                             }>
 
                             {result.image ?
@@ -1268,18 +1268,18 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                             }
                             <div className="flex-1 min-w-0">
                               <div className="flex items-center gap-2">
-                                <span className="font-medium text-lydian-text-inverse truncate">{result.title}</span>
+                                <span className="font-medium text-white truncate">{result.title}</span>
                                 {result.rating &&
                                 <div className="flex items-center gap-1 text-xs">
-                                    <Star className="w-3 h-3 text-lydian-warning fill-current" />
-                                    <span className="text-lydian-text-dim">{result.rating}</span>
+                                    <Star className="w-3 h-3 text-yellow-500 fill-current" />
+                                    <span className="text-gray-400">{result.rating}</span>
                                   </div>
                                 }
                               </div>
-                              <p className="text-sm text-lydian-text-muted truncate">{result.subtitle}</p>
+                              <p className="text-sm text-gray-300 truncate">{result.subtitle}</p>
                             </div>
                             {result.price &&
-                            <span className="text-sm font-semibold text-lydian-primary">{result.price}</span>
+                            <span className="text-sm font-semibold text-blue-500">{result.price}</span>
                             }
                           </button>);
 
@@ -1291,7 +1291,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                 {/* Recent Searches in Slider */}
                 {searchHistory.length > 0 && searchQuery.trim() === '' &&
                   <div className="mb-4">
-                    <h4 className="text-sm font-semibold text-lydian-text-muted mb-3">Son Aramalar</h4>
+                    <h4 className="text-sm font-semibold text-gray-300 mb-3">Son Aramalar</h4>
                     <div className="flex flex-wrap gap-2">
                       {searchHistory.map((query, index) =>
                       <button
@@ -1302,7 +1302,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                           setSearchResults(results);
                           setIsSearchFocused(true);
                         }}
-                        className="px-3 py-2 bg-lydian-glass-dark-medium hover:bg-lydian-bg-active rounded-lg text-sm font-medium text-lydian-text-muted transition-colors">
+                        className="px-3 py-2 bg-white/10 backdrop-blur-xl border border-white/20 hover:bg-white/10 backdrop-blur-xl border border-white/20 rounded-lg text-sm font-medium text-gray-300 transition-colors">
 
                           {query}
                         </button>
@@ -1314,7 +1314,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                 {/* Popular Searches in Slider */}
                 {searchQuery.trim() === '' &&
                   <div>
-                    <h4 className="text-sm font-semibold text-lydian-text-muted mb-3">Popüler Aramalar</h4>
+                    <h4 className="text-sm font-semibold text-gray-300 mb-3">Popüler Aramalar</h4>
                     <div className="flex flex-wrap gap-2">
                       {popularSearches.slice(0, 8).map((query, index) =>
                       <button
@@ -1325,7 +1325,7 @@ const NavigationHeader: React.FC<NavigationHeaderProps> = ({ theme = 'default' }
                           setSearchResults(results);
                           setIsSearchFocused(true);
                         }}
-                        className="px-3 py-2 bg-lydian-primary-lighter hover:bg-lydian-primary-light text-lydian-primary-dark rounded-lg text-sm font-medium transition-colors">
+                        className="px-3 py-2 bg-blue-500/10er hover:bg-blue-500/10 text-blue-600 rounded-lg text-sm font-medium transition-colors">
 
                           {query}
                         </button>

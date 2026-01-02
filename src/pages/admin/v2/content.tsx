@@ -80,22 +80,22 @@ const ContentManagement = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-purple-50 to-blue-50">
       {/* Header */}
-      <div className="bg-lydian-glass-dark border-b border-lydian-border sticky top-0 z-40 backdrop-blur-xl bg-lydian-bg/80">
+      <div className="bg-white/10 backdrop-blur-xl border border-b border-white/20 sticky top-0 z-40 backdrop-blur-xl bg-white/10 backdrop-blur-xl">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <Link href="/admin/v2">
-                <button className="flex items-center gap-2 px-4 py-2 text-lydian-text-secondary hover:text-lydian-text hover:bg-lydian-bg-surface-raised rounded-lg transition-all">
+                <button className="flex items-center gap-2 px-4 py-2 text-gray-300 hover:text-white hover:bg-white/5 backdrop-blur-xl rounded-lg transition-all">
                   <ArrowLeft className="w-5 h-5" />
                   <span className="font-medium">Dashboard'a Dön</span>
                 </button>
               </Link>
               <div className="h-8 w-px bg-slate-300" />
               <div>
-                <h1 className="text-2xl font-bold text-lydian-text">
+                <h1 className="text-2xl font-bold text-white">
                   Frontend İçerik Yönetimi
                 </h1>
-                <p className="text-sm text-lydian-text-secondary">
+                <p className="text-sm text-gray-300">
                   Tüm frontend içeriklerini buradan yönetin
                 </p>
               </div>
@@ -106,7 +106,7 @@ const ContentManagement = () => {
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
-                className="flex items-center gap-2 px-4 py-2 bg-lydian-success-lighter text-lydian-success-text rounded-lg">
+                className="flex items-center gap-2 px-4 py-2 bg-purple-500-lighter text-purple-400-text rounded-lg">
 
                   <CheckCircle className="w-5 h-5" />
                   <span className="font-medium">{successMessage}</span>
@@ -114,7 +114,7 @@ const ContentManagement = () => {
               }
               <button
                 onClick={fetchContent}
-                className="p-2 text-lydian-text-secondary hover:text-lydian-primary hover:bg-lydian-primary-lighter rounded-lg transition-all">
+                className="p-2 text-gray-300 hover:text-blue-400 hover:bg-gradient-to-r from-blue-600 to-purple-600-lighter rounded-lg transition-all">
 
                 <RefreshCw className="w-5 h-5" />
               </button>
@@ -122,7 +122,7 @@ const ContentManagement = () => {
                 href="/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-lydian-secondary to-lydian-primary text-lydian-text-inverse rounded-lg hover:shadow-lg transition-all">
+                className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-600 to-purple-600 text-white rounded-lg hover:shadow-lg transition-all">
 
                 <Eye className="w-5 h-5" />
                 Önizleme
@@ -137,8 +137,8 @@ const ContentManagement = () => {
         <div className="grid grid-cols-12 gap-6">
           {/* Sidebar */}
           <div className="col-span-3">
-            <div className="bg-lydian-glass-dark rounded-xl shadow-sm p-4 sticky top-24">
-              <h3 className="font-bold text-lydian-text mb-4 px-2">İçerik Bölümleri</h3>
+            <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl shadow-sm p-4 sticky top-24">
+              <h3 className="font-bold text-white mb-4 px-2">İçerik Bölümleri</h3>
               <div className="space-y-2">
                 {sections.map((section) => {
                   const Icon = section.icon;
@@ -169,7 +169,7 @@ const ContentManagement = () => {
           <div className="col-span-9">
             {loading ?
             <div className="flex items-center justify-center py-12">
-                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-lydian-primary" />
+                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500" />
               </div> :
 
             <>
@@ -235,13 +235,13 @@ const HeroEditor = ({ data, onSave, saving }: any) => {
   }, [data]);
 
   return (
-    <div className="bg-lydian-glass-dark rounded-xl shadow-sm p-6">
+    <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl shadow-sm p-6">
       <div className="flex items-center justify-between mb-6">
-        <h2 className="text-xl font-bold text-lydian-text">Hero Section</h2>
+        <h2 className="text-xl font-bold text-white">Hero Section</h2>
         <button
           onClick={() => onSave(formData)}
           disabled={saving}
-          className="flex items-center gap-2 px-4 py-2 bg-lydian-primary text-lydian-text-inverse rounded-lg hover:bg-lydian-primary-dark transition-all disabled:opacity-50">
+          className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:bg-gradient-to-r from-blue-600 to-purple-600 transition-all disabled:opacity-50">
 
           <Save className="w-4 h-4" />
           {saving ? 'Kaydediliyor...' : 'Kaydet'}
@@ -250,64 +250,64 @@ const HeroEditor = ({ data, onSave, saving }: any) => {
 
       <div className="space-y-4">
         <div>
-          <label className="block text-sm font-medium text-lydian-text-secondary mb-2">
+          <label className="block text-sm font-medium text-gray-300 mb-2">
             Ana Başlık
           </label>
           <input
             type="text"
             value={formData.title || ''}
             onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-            className="w-full px-4 py-2 border border-lydian-border-medium rounded-lg focus:outline-none focus:ring-2 focus:ring-lydian-border-focus" />
+            className="w-full px-4 py-2 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" />
 
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-lydian-text-secondary mb-2">
+          <label className="block text-sm font-medium text-gray-300 mb-2">
             Alt Başlık
           </label>
           <textarea
             rows={3}
             value={formData.subtitle || ''}
             onChange={(e) => setFormData({ ...formData, subtitle: e.target.value })}
-            className="w-full px-4 py-2 border border-lydian-border-medium rounded-lg focus:outline-none focus:ring-2 focus:ring-lydian-border-focus" />
+            className="w-full px-4 py-2 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" />
 
         </div>
 
         <div className="grid grid-cols-2 gap-4">
           <div>
-            <label className="block text-sm font-medium text-lydian-text-secondary mb-2">
+            <label className="block text-sm font-medium text-gray-300 mb-2">
               CTA Buton Metni
             </label>
             <input
               type="text"
               value={formData.ctaText || ''}
               onChange={(e) => setFormData({ ...formData, ctaText: e.target.value })}
-              className="w-full px-4 py-2 border border-lydian-border-medium rounded-lg focus:outline-none focus:ring-2 focus:ring-lydian-border-focus" />
+              className="w-full px-4 py-2 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" />
 
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-lydian-text-secondary mb-2">
+            <label className="block text-sm font-medium text-gray-300 mb-2">
               CTA Link
             </label>
             <input
               type="text"
               value={formData.ctaLink || ''}
               onChange={(e) => setFormData({ ...formData, ctaLink: e.target.value })}
-              className="w-full px-4 py-2 border border-lydian-border-medium rounded-lg focus:outline-none focus:ring-2 focus:ring-lydian-border-focus" />
+              className="w-full px-4 py-2 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" />
 
           </div>
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-lydian-text-secondary mb-2">
+          <label className="block text-sm font-medium text-gray-300 mb-2">
             Arka Plan Görseli URL
           </label>
           <input
             type="text"
             value={formData.backgroundImage || ''}
             onChange={(e) => setFormData({ ...formData, backgroundImage: e.target.value })}
-            className="w-full px-4 py-2 border border-lydian-border-medium rounded-lg focus:outline-none focus:ring-2 focus:ring-lydian-border-focus" />
+            className="w-full px-4 py-2 border border-white/20 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500" />
 
         </div>
       </div>
@@ -318,13 +318,13 @@ const HeroEditor = ({ data, onSave, saving }: any) => {
 // Menu Editor Component
 const MenuEditor = ({ data, onSave, saving }: any) => {
   return (
-    <div className="bg-lydian-glass-dark rounded-xl shadow-sm p-6">
+    <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl shadow-sm p-6">
       <div className="flex items-center justify-between mb-6">
-        <h2 className="text-xl font-bold text-lydian-text">Menü Yönetimi</h2>
+        <h2 className="text-xl font-bold text-white">Menü Yönetimi</h2>
         <button
           onClick={() => onSave(data)}
           disabled={saving}
-          className="flex items-center gap-2 px-4 py-2 bg-lydian-primary text-lydian-text-inverse rounded-lg hover:bg-lydian-primary-dark transition-all disabled:opacity-50">
+          className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:bg-gradient-to-r from-blue-600 to-purple-600 transition-all disabled:opacity-50">
 
           <Save className="w-4 h-4" />
           {saving ? 'Kaydediliyor...' : 'Kaydet'}
@@ -333,8 +333,8 @@ const MenuEditor = ({ data, onSave, saving }: any) => {
 
       <div className="space-y-6">
         <div>
-          <h3 className="font-semibold text-lydian-text mb-3">Header Menüsü</h3>
-          <div className="bg-lydian-bg-surface rounded-lg p-4">
+          <h3 className="font-semibold text-white mb-3">Header Menüsü</h3>
+          <div className="bg-white/5 rounded-lg p-4">
             <pre className="text-sm overflow-x-auto">
               {JSON.stringify(data?.header || [], null, 2)}
             </pre>
@@ -342,8 +342,8 @@ const MenuEditor = ({ data, onSave, saving }: any) => {
         </div>
 
         <div>
-          <h3 className="font-semibold text-lydian-text mb-3">Footer Menüsü</h3>
-          <div className="bg-lydian-bg-surface rounded-lg p-4">
+          <h3 className="font-semibold text-white mb-3">Footer Menüsü</h3>
+          <div className="bg-white/5 rounded-lg p-4">
             <pre className="text-sm overflow-x-auto">
               {JSON.stringify(data?.footer || [], null, 2)}
             </pre>
@@ -357,10 +357,10 @@ const MenuEditor = ({ data, onSave, saving }: any) => {
 // Sections Editor
 const SectionsEditor = ({ data, onSave, saving }: any) => {
   return (
-    <div className="bg-lydian-glass-dark rounded-xl shadow-sm p-6">
+    <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl shadow-sm p-6">
       <div className="flex items-center justify-between mb-6">
-        <h2 className="text-xl font-bold text-lydian-text">Sayfa Bölümleri</h2>
-        <button className="flex items-center gap-2 px-4 py-2 bg-lydian-success text-lydian-text-inverse rounded-lg hover:bg-lydian-success-hover transition-all">
+        <h2 className="text-xl font-bold text-white">Sayfa Bölümleri</h2>
+        <button className="flex items-center gap-2 px-4 py-2 bg-purple-500 text-white rounded-lg hover:bg-purple-500-hover transition-all">
           <Plus className="w-4 h-4" />
           Yeni Bölüm Ekle
         </button>
@@ -368,19 +368,19 @@ const SectionsEditor = ({ data, onSave, saving }: any) => {
 
       <div className="space-y-4">
         {data && data.map((section: any, index: number) =>
-        <div key={index} className="border border-lydian-border rounded-lg p-4">
+        <div key={index} className="border border-white/20 rounded-lg p-4">
             <div className="flex items-center justify-between mb-2">
-              <h3 className="font-semibold text-lydian-text">{section.title}</h3>
+              <h3 className="font-semibold text-white">{section.title}</h3>
               <div className="flex gap-2">
-                <button className="p-2 text-lydian-primary hover:bg-lydian-primary-lighter rounded-lg">
+                <button className="p-2 text-blue-400 hover:bg-gradient-to-r from-blue-600 to-purple-600-lighter rounded-lg">
                   <Edit className="w-4 h-4" />
                 </button>
-                <button className="p-2 text-lydian-primary hover:bg-lydian-error-lighter rounded-lg">
+                <button className="p-2 text-blue-400 hover:bg-white/5 rounded-lg">
                   <Trash2 className="w-4 h-4" />
                 </button>
               </div>
             </div>
-            <p className="text-sm text-lydian-text-secondary">Tip: {section.type}</p>
+            <p className="text-sm text-gray-300">Tip: {section.type}</p>
           </div>
         )}
       </div>
@@ -391,20 +391,20 @@ const SectionsEditor = ({ data, onSave, saving }: any) => {
 // Footer Editor
 const FooterEditor = ({ data, onSave, saving }: any) => {
   return (
-    <div className="bg-lydian-glass-dark rounded-xl shadow-sm p-6">
+    <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl shadow-sm p-6">
       <div className="flex items-center justify-between mb-6">
-        <h2 className="text-xl font-bold text-lydian-text">Footer İçeriği</h2>
+        <h2 className="text-xl font-bold text-white">Footer İçeriği</h2>
         <button
           onClick={() => onSave(data)}
           disabled={saving}
-          className="flex items-center gap-2 px-4 py-2 bg-lydian-primary text-lydian-text-inverse rounded-lg hover:bg-lydian-primary-dark transition-all disabled:opacity-50">
+          className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:bg-gradient-to-r from-blue-600 to-purple-600 transition-all disabled:opacity-50">
 
           <Save className="w-4 h-4" />
           {saving ? 'Kaydediliyor...' : 'Kaydet'}
         </button>
       </div>
 
-      <div className="text-center py-12 text-lydian-text-tertiary">
+      <div className="text-center py-12 text-white-tertiary">
         Footer içeriği yönetimi yakında eklenecek
       </div>
     </div>);
@@ -414,20 +414,20 @@ const FooterEditor = ({ data, onSave, saving }: any) => {
 // SEO Editor
 const SEOEditor = ({ data, onSave, saving }: any) => {
   return (
-    <div className="bg-lydian-glass-dark rounded-xl shadow-sm p-6">
+    <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl shadow-sm p-6">
       <div className="flex items-center justify-between mb-6">
-        <h2 className="text-xl font-bold text-lydian-text">SEO Ayarları</h2>
+        <h2 className="text-xl font-bold text-white">SEO Ayarları</h2>
         <button
           onClick={() => onSave(data)}
           disabled={saving}
-          className="flex items-center gap-2 px-4 py-2 bg-lydian-primary text-lydian-text-inverse rounded-lg hover:bg-lydian-primary-dark transition-all disabled:opacity-50">
+          className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:bg-gradient-to-r from-blue-600 to-purple-600 transition-all disabled:opacity-50">
 
           <Save className="w-4 h-4" />
           {saving ? 'Kaydediliyor...' : 'Kaydet'}
         </button>
       </div>
 
-      <div className="text-center py-12 text-lydian-text-tertiary">
+      <div className="text-center py-12 text-white-tertiary">
         SEO ayarları yakında eklenecek
       </div>
     </div>);

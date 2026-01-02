@@ -150,7 +150,7 @@ export const NeoCard: React.FC<NeoCardProps> = ({
               {allBadges.map((badgeText, index) =>
           <motion.span
             key={index}
-            className="px-3 py-1 bg-lydian-bg/90 backdrop-blur-md rounded-full text-xs font-semibold text-lydian-text-inverse shadow-lg"
+            className="px-3 py-1 bg-white/10 backdrop-blur-md rounded-full text-xs font-semibold text-white shadow-lg"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: index * 0.1 }}>
@@ -169,7 +169,7 @@ export const NeoCard: React.FC<NeoCardProps> = ({
           animate={{ opacity: 1, x: 0 }}>
 
               <div className="px-4 py-2 bg-gradient-to-br from-[#00BAFF] to-[#0088BD] rounded-2xl shadow-xl">
-                <p className="text-lydian-text-inverse font-bold text-lg">{price}</p>
+                <p className="text-white font-bold text-lg">{price}</p>
               </div>
             </motion.div>
         }
@@ -193,7 +193,7 @@ export const NeoCard: React.FC<NeoCardProps> = ({
       <div className="p-6 space-y-4">
         {/* Title */}
         <motion.h3
-          className="text-xl md:text-2xl font-bold text-lydian-text-inverse leading-tight"
+          className="text-xl md:text-2xl font-bold text-white leading-tight"
           style={hover3D ? { transform: 'translateZ(30px)' } : undefined}>
 
           {title}
@@ -202,7 +202,7 @@ export const NeoCard: React.FC<NeoCardProps> = ({
         {/* Description */}
         {description &&
         <motion.p
-          className="text-lydian-text-dim leading-relaxed line-clamp-2"
+          className="text-gray-400 leading-relaxed line-clamp-2"
           style={hover3D ? { transform: 'translateZ(20px)' } : undefined}>
 
             {description}
@@ -216,7 +216,7 @@ export const NeoCard: React.FC<NeoCardProps> = ({
           style={hover3D ? { transform: 'translateZ(15px)' } : undefined}>
 
             {metadata.map((item, index) =>
-          <div key={index} className="flex items-center gap-1.5 text-sm text-lydian-text-muted">
+          <div key={index} className="flex items-center gap-1.5 text-sm text-gray-300">
                 {item.icon && <span className="text-[#00BAFF]">{item.icon}</span>}
                 <span>{item.label}</span>
               </div>

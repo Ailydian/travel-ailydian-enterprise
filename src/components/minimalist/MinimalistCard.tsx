@@ -45,7 +45,7 @@ export const MinimalistCard: React.FC<MinimalistCardProps> = ({
       transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}>
 
       {/* Image Container */}
-      <div className={`relative w-full ${aspectRatios[imageRatio]} overflow-hidden bg-lydian-glass-dark-medium mb-4`}>
+      <div className={`relative w-full ${aspectRatios[imageRatio]} overflow-hidden bg-white/10 backdrop-blur-xl border border-white/20 mb-4`}>
         <motion.div
           className="w-full h-full"
           {...hoverAnimations.imageHover}>
@@ -63,13 +63,13 @@ export const MinimalistCard: React.FC<MinimalistCardProps> = ({
       {/* Content */}
       <div className="space-y-2">
         {/* Title */}
-        <h3 className="text-xl md:text-2xl font-light text-lydian-text-inverse leading-tight">
+        <h3 className="text-xl md:text-2xl font-light text-white leading-tight">
           {title}
         </h3>
 
         {/* Description */}
         {description &&
-        <p className="text-base text-lydian-text-dim leading-relaxed line-clamp-2">
+        <p className="text-base text-gray-400 leading-relaxed line-clamp-2">
             {description}
           </p>
         }
@@ -80,7 +80,7 @@ export const MinimalistCard: React.FC<MinimalistCardProps> = ({
             {metadata.map((item, index) =>
           <span
             key={index}
-            className="text-sm text-lydian-text-muted">
+            className="text-sm text-gray-300">
 
                 {item}
                 {index < metadata.length - 1 && <span className="mx-2">•</span>}

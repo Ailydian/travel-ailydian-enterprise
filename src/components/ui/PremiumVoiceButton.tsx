@@ -57,7 +57,7 @@ const PremiumVoiceButton: React.FC = () => {
             animate={{ scale: 2, opacity: 0 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 1.5, ease: 'easeOut', delay: 0.2 }}
-            className="absolute inset-0 rounded-full bg-gradient-to-r from-lydian-primary to-purple-500 pointer-events-none" />
+            className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-600 to-purple-500 pointer-events-none" />
 
             <motion.div
             initial={{ scale: 1, opacity: 0.4 }}
@@ -135,7 +135,7 @@ const PremiumVoiceButton: React.FC = () => {
                     repeat: Infinity,
                     ease: 'easeInOut'
                   }}
-                  className="absolute left-1 top-1/2 -translate-y-1/2 w-1 h-3 bg-lydian-glass-dark rounded-full" />
+                  className="absolute left-1 top-1/2 -translate-y-1/2 w-1 h-3 bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-full" />
 
                   <motion.div
                   animate={{
@@ -147,7 +147,7 @@ const PremiumVoiceButton: React.FC = () => {
                     ease: 'easeInOut',
                     delay: 0.1
                   }}
-                  className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-1 h-5 bg-lydian-glass-dark rounded-full" />
+                  className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-1 h-5 bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-full" />
 
                   <motion.div
                   animate={{
@@ -159,7 +159,7 @@ const PremiumVoiceButton: React.FC = () => {
                     ease: 'easeInOut',
                     delay: 0.2
                   }}
-                  className="absolute right-1 top-1/2 -translate-y-1/2 w-1 h-3 bg-lydian-glass-dark rounded-full" />
+                  className="absolute right-1 top-1/2 -translate-y-1/2 w-1 h-3 bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-full" />
 
                 </div>
               </motion.div> :
@@ -171,7 +171,7 @@ const PremiumVoiceButton: React.FC = () => {
               exit={{ scale: 0, rotate: 180 }}
               transition={{ duration: 0.3 }}>
 
-                <Mic className="w-6 h-6 md:w-7 md:h-7 text-lydian-text-inverse drop-shadow-lg" />
+                <Mic className="w-6 h-6 md:w-7 md:h-7 text-white drop-shadow-lg" />
               </motion.div>
             }
           </AnimatePresence>
@@ -190,7 +190,7 @@ const PremiumVoiceButton: React.FC = () => {
             repeat: Infinity,
             ease: 'easeInOut'
           }}
-          className="absolute inset-0 rounded-full border-2 border-lydian-border-light pointer-events-none" />
+          className="absolute inset-0 rounded-full border-2 border-white/20 pointer-events-none" />
 
         }
       </motion.button>
@@ -202,7 +202,7 @@ const PremiumVoiceButton: React.FC = () => {
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           exit={{ scale: 0 }}
-          className="absolute -top-1 -right-1 w-4 h-4 bg-lydian-glass-dark rounded-full border-2 border-lydian-secondary shadow-lg z-20">
+          className="absolute -top-1 -right-1 w-4 h-4 bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-full border-2 border-lydian-secondary shadow-lg z-20">
 
             <motion.div
             animate={{
@@ -228,7 +228,7 @@ const PremiumVoiceButton: React.FC = () => {
           exit={{ opacity: 0, y: 10 }}
           className="hidden sm:block absolute top-full mt-2 left-1/2 -translate-x-1/2 whitespace-nowrap pointer-events-none">
 
-            <div className="px-3 py-1.5 rounded-lg text-xs font-medium shadow-lg bg-lydian-error text-lydian-text-inverse">
+            <div className="px-3 py-1.5 rounded-lg text-xs font-medium shadow-lg bg-lydian-error text-white">
               <div className="flex items-center gap-1.5">
                 <Mic className="w-3 h-3" />
                 <span>Dinliyorum...</span>
@@ -248,11 +248,11 @@ const PremiumVoiceButton: React.FC = () => {
           exit={{ opacity: 0, x: -10 }}
           className="lg:hidden absolute left-full ml-3 top-1/2 -translate-y-1/2 whitespace-nowrap">
 
-            <div className="bg-lydian-error text-lydian-text-inverse px-3 py-1 rounded-full text-xs font-bold shadow-lg flex items-center gap-1.5">
+            <div className="bg-lydian-error text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg flex items-center gap-1.5">
               <motion.div
               animate={{ scale: [1, 1.2, 1] }}
               transition={{ duration: 1, repeat: Infinity }}
-              className="w-2 h-2 bg-lydian-glass-dark rounded-full" />
+              className="w-2 h-2 bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-full" />
 
               <span>Dinliyorum...</span>
             </div>

@@ -42,7 +42,7 @@ export const PremiumCard: React.FC<PremiumCardProps> = ({
   return (
     <div
       ref={cardRef}
-      className={`relative overflow-hidden rounded-2xl backdrop-blur-xl border border-lydian-border-light ${className}`}
+      className={`relative overflow-hidden rounded-2xl backdrop-blur-xl border border-white/20 ${className}`}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}>
 

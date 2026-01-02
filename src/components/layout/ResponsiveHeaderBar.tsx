@@ -594,7 +594,7 @@ const ResponsiveHeaderBar: React.FC = () => {
         className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-300 ${
         isScrolled ?
         'bg-lydian-bg/95 backdrop-blur-xl shadow-lg' :
-        'bg-lydian-bg/80 backdrop-blur-md'}`
+        'bg-white/10 backdrop-blur-md'}`
         }>
 
         <div className="mobile-nav-safe">
@@ -609,13 +609,13 @@ const ResponsiveHeaderBar: React.FC = () => {
                   aria-label="Menüyü Aç"
                   title="Menü">
 
-                  <Menu className="w-5 h-5 text-lydian-success" />
+                  <Menu className="w-5 h-5 text-green-500" />
                 </button>
 
                 {/* Logo */}
                 <Link href="/" className="flex items-center gap-2 group">
                   <motion.div
-                    className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-lydian-primary to-lydian-secondary rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all"
+                    className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-blue-600 to-purple-700 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all"
                     whileHover={{ scale: 1.05, rotate: 5 }}
                     whileTap={{ scale: 0.95 }}>
 
@@ -630,14 +630,14 @@ const ResponsiveHeaderBar: React.FC = () => {
                         ease: "easeInOut"
                       }}>
 
-                      <Plane className="w-5 h-5 md:w-6 md:h-6 text-lydian-text-inverse" />
+                      <Plane className="w-5 h-5 md:w-6 md:h-6 text-white" />
                     </motion.div>
                   </motion.div>
                   <div className="hidden sm:block">
-                    <h1 className="text-lg md:text-xl font-bold bg-gradient-to-r from-lydian-primary to-lydian-secondary bg-clip-text text-transparent">
+                    <h1 className="text-lg md:text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-700 bg-clip-text text-transparent">
                       LyDian
                     </h1>
-                    <p className="text-xs text-lydian-text-muted -mt-1">Travel AI</p>
+                    <p className="text-xs text-gray-300 -mt-1">Travel AI</p>
                   </div>
                 </Link>
               </div>
@@ -737,8 +737,8 @@ const ResponsiveHeaderBar: React.FC = () => {
                     }}
                     className="absolute inset-0">
 
-                    <Sparkles className="absolute top-0.5 right-0.5 sm:top-1 sm:right-1 w-2 h-2 sm:w-3 sm:h-3 text-lydian-text-inverse/50" />
-                    <Sparkles className="absolute bottom-0.5 left-0.5 sm:bottom-1 sm:left-1 w-1.5 h-1.5 sm:w-2 sm:h-2 text-lydian-text-inverse/30" />
+                    <Sparkles className="absolute top-0.5 right-0.5 sm:top-1 sm:right-1 w-2 h-2 sm:w-3 sm:h-3 text-white/50" />
+                    <Sparkles className="absolute bottom-0.5 left-0.5 sm:bottom-1 sm:left-1 w-1.5 h-1.5 sm:w-2 sm:h-2 text-white/30" />
                   </motion.div>
 
                   {/* Search Icon */}
@@ -753,7 +753,7 @@ const ResponsiveHeaderBar: React.FC = () => {
                     }}
                     className="relative z-10">
 
-                    <Search className="w-5 h-5 sm:w-5.5 sm:h-5.5 md:w-6 md:h-6 lg:w-7 lg:h-7 text-lydian-text-inverse drop-shadow-lg" />
+                    <Search className="w-5 h-5 sm:w-5.5 sm:h-5.5 md:w-6 md:h-6 lg:w-7 lg:h-7 text-white drop-shadow-lg" />
                   </motion.div>
 
                   {/* Pulse Ring */}
@@ -767,31 +767,31 @@ const ResponsiveHeaderBar: React.FC = () => {
                       repeat: Infinity,
                       ease: "easeOut"
                     }}
-                    className="absolute inset-0 rounded-xl sm:rounded-2xl border-2 border-lydian-border-light pointer-events-none" />
+                    className="absolute inset-0 rounded-xl sm:rounded-2xl border-2 border-white/20 pointer-events-none" />
 
                 </motion.button>
 
                 {/* Favorites (Desktop) */}
                 <Link
                   href="/favorites"
-                  className="hidden md:flex w-9 h-9 rounded-lg bg-lydian-glass-dark-medium hover:bg-lydian-error-lighter items-center justify-center transition-all active:scale-95 touch-target group"
+                  className="hidden md:flex w-9 h-9 rounded-lg bg-white/10 backdrop-blur-xl border border-white/20 hover:bg-lydian-error-lighter items-center justify-center transition-all active:scale-95 touch-target group"
                   aria-label="Favoriler">
 
-                  <Heart className="w-4 h-4 text-lydian-text-muted group-hover:text-lydian-error group-hover:scale-110 transition-all" />
+                  <Heart className="w-4 h-4 text-gray-300 group-hover:text-lydian-error group-hover:scale-110 transition-all" />
                 </Link>
 
                 {/* Cart */}
                 <Link
                   href="/cart"
-                  className="relative w-9 h-9 sm:w-9 sm:h-9 md:w-9 md:h-9 rounded-lg bg-lydian-glass-dark-medium hover:bg-lydian-success-lighter flex items-center justify-center transition-all active:scale-95 touch-target group"
+                  className="relative w-9 h-9 sm:w-9 sm:h-9 md:w-9 md:h-9 rounded-lg bg-white/10 backdrop-blur-xl border border-white/20 hover:bg-green-600-lighter flex items-center justify-center transition-all active:scale-95 touch-target group"
                   aria-label="Sepet">
 
-                  <ShoppingCart className="w-4 h-4 sm:w-4 sm:h-4 text-lydian-text-muted group-hover:text-lydian-success group-hover:scale-110 transition-all" />
+                  <ShoppingCart className="w-4 h-4 sm:w-4 sm:h-4 text-gray-300 group-hover:text-green-500 group-hover:scale-110 transition-all" />
                   {cartItemCount > 0 &&
                   <motion.span
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
-                    className="absolute -top-1 -right-1 min-w-[18px] h-[18px] sm:min-w-[20px] sm:h-5 bg-gradient-to-br from-lydian-success to-lydian-success text-lydian-text-inverse text-[10px] sm:text-xs font-bold rounded-full flex items-center justify-center shadow-lg px-1">
+                    className="absolute -top-1 -right-1 min-w-[18px] h-[18px] sm:min-w-[20px] sm:h-5 bg-gradient-to-br from-lydian-success to-lydian-success text-white text-[10px] sm:text-xs font-bold rounded-full flex items-center justify-center shadow-lg px-1">
 
                       {cartItemCount > 9 ? '9+' : cartItemCount}
                     </motion.span>
@@ -807,15 +807,15 @@ const ResponsiveHeaderBar: React.FC = () => {
                 {session ?
                 <Link
                   href="/profile/dashboard"
-                  className="w-9 h-9 sm:w-9 sm:h-9 rounded-lg bg-gradient-to-br from-lydian-primary/10 to-lydian-secondary/10 hover:from-lydian-primary/20 hover:to-lydian-secondary/20 flex items-center justify-center transition-all active:scale-95 touch-target"
+                  className="w-9 h-9 sm:w-9 sm:h-9 rounded-lg bg-gradient-to-br from-blue-600/10 to-purple-700/10 hover:from-blue-600/20 hover:to-purple-700/20 flex items-center justify-center transition-all active:scale-95 touch-target"
                   aria-label="Profil">
 
-                    <User className="w-4 h-4 sm:w-4 sm:h-4 text-lydian-primary" />
+                    <User className="w-4 h-4 sm:w-4 sm:h-4 text-blue-500" />
                   </Link> :
 
                 <Link
                   href="/auth/signin"
-                  className="flex items-center justify-center px-2 py-1.5 sm:px-3 sm:py-1.5 md:px-4 md:py-2 bg-gradient-to-r from-lydian-primary to-lydian-secondary text-lydian-text-inverse rounded-lg font-medium hover:shadow-lg active:scale-95 transition-all touch-target text-[11px] sm:text-xs md:text-sm whitespace-nowrap">
+                  className="flex items-center justify-center px-2 py-1.5 sm:px-3 sm:py-1.5 md:px-4 md:py-2 bg-gradient-to-r from-blue-600 to-purple-700 text-white rounded-lg font-medium hover:shadow-lg active:scale-95 transition-all touch-target text-[11px] sm:text-xs md:text-sm whitespace-nowrap">
 
                     Giriş
                   </Link>
@@ -874,19 +874,19 @@ const NavLinkWithSubmenu: React.FC<{
     <div className="relative">
       <button
         onClick={handleClick}
-        className={`relative flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg font-medium transition-all hover:bg-lydian-glass-dark group ${
+        className={`relative flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg font-medium transition-all hover:bg-gradient-to-br from-slate-900 via-black to-slate-800 group ${
         isActive ?
-        'bg-gradient-to-r from-lydian-primary/10 to-lydian-secondary/10 text-lydian-primary' :
+        'bg-gradient-to-r from-blue-600/10 to-purple-700/10 text-lydian-primary' :
         'text-gray-200'}`
         }>
 
-        <Icon className={`w-4 h-4 ${isActive ? 'text-lydian-primary' : 'text-lydian-text-dim'}`} />
+        <Icon className={`w-4 h-4 ${isActive ? 'text-lydian-primary' : 'text-gray-400'}`} />
         <span className="text-sm font-semibold">{label}</span>
         <ChevronDown
           className={`w-3 h-3 transition-transform ${isSubmenuOpen ? 'rotate-180' : ''}`} />
 
         {badge &&
-        <span className="absolute -top-1 -right-1 px-1.5 py-0.5 bg-gradient-to-r from-green-500 to-emerald-500 text-lydian-text-inverse text-xs font-bold rounded-full">
+        <span className="absolute -top-1 -right-1 px-1.5 py-0.5 bg-gradient-to-r from-green-500 to-emerald-500 text-white text-xs font-bold rounded-full">
             {badge}
           </span>
         }
@@ -903,12 +903,12 @@ const NavLinkWithSubmenu: React.FC<{
           className="absolute left-1/2 -translate-x-1/2 top-full mt-2 z-50 pointer-events-auto"
           onClick={(e) => e.stopPropagation()}>
 
-            <div className="w-[280px] bg-lydian-glass-dark shadow-2xl border border-lydian-border-light/10 rounded-2xl overflow-hidden">
+            <div className="w-[280px] bg-gradient-to-br from-slate-900 via-black to-slate-800 shadow-2xl border border-white/20/10 rounded-2xl overflow-hidden">
               <div className="p-4">
                 <div className="space-y-3">
                   {submenuContent.map((category, idx) =>
                 <div key={idx} className={idx > 0 ? 'pt-3 mt-3 border-t border-gray-100' : ''}>
-                      <h3 className="text-xs font-semibold text-lydian-text-muted uppercase tracking-wide mb-2 px-1">
+                      <h3 className="text-xs font-semibold text-gray-300 uppercase tracking-wide mb-2 px-1">
                         {category.title}
                       </h3>
                       <div className="space-y-0.5">
@@ -917,21 +917,21 @@ const NavLinkWithSubmenu: React.FC<{
                       key={itemIdx}
                       href={item.href}
                       onClick={() => setActiveSubmenu(null)}
-                      className="flex items-center gap-2.5 px-2 py-2 rounded-xl hover:bg-lydian-primary-lighter transition-all duration-200 group">
+                      className="flex items-center gap-2.5 px-2 py-2 rounded-xl hover:bg-blue-500/10er transition-all duration-200 group">
 
-                            <div className="w-8 h-8 rounded-lg bg-lydian-primary-lighter flex items-center justify-center flex-shrink-0 group-hover:bg-lydian-primary-light transition-colors">
-                              <item.icon className="w-4 h-4 text-lydian-primary" />
+                            <div className="w-8 h-8 rounded-lg bg-blue-500/10er flex items-center justify-center flex-shrink-0 group-hover:bg-blue-500/10 transition-colors">
+                              <item.icon className="w-4 h-4 text-blue-500" />
                             </div>
                             <div className="flex-1 min-w-0">
                               <div className="flex items-center gap-1.5">
-                                <span className="font-medium text-lydian-text-muted text-sm group-hover:text-lydian-primary transition-colors truncate">
+                                <span className="font-medium text-gray-300 text-sm group-hover:text-blue-500 transition-colors truncate">
                                   {item.title}
                                 </span>
                                 {item.popular &&
                           <span className="w-1.5 h-1.5 rounded-full bg-orange-500 flex-shrink-0"></span>
                           }
                                 {item.badge &&
-                          <span className="px-1.5 py-0.5 bg-lydian-success text-lydian-text-inverse text-[10px] font-bold rounded">
+                          <span className="px-1.5 py-0.5 bg-green-600 text-white text-[10px] font-bold rounded">
                                     {item.badge}
                                   </span>
                           }
@@ -946,11 +946,11 @@ const NavLinkWithSubmenu: React.FC<{
               </div>
 
               {/* Compact Footer */}
-              <div className="px-4 py-3 border-t border-lydian-border-light bg-lydian-glass-dark">
+              <div className="px-4 py-3 border-t border-white/20 bg-gradient-to-br from-slate-900 via-black to-slate-800">
                 <Link
                 href={href}
                 onClick={() => setActiveSubmenu(null)}
-                className="text-xs font-semibold text-lydian-primary hover:text-lydian-secondary transition-colors flex items-center justify-center gap-1">
+                className="text-xs font-semibold text-blue-500 hover:text-purple-500 transition-colors flex items-center justify-center gap-1">
 
                   Tümünü Gör
                   <ChevronDown className="w-3.5 h-3.5 -rotate-90" />

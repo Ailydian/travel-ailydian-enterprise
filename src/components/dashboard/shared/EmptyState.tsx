@@ -48,7 +48,7 @@ const variantConfig: Record<
 {
   'no-data': {
     icon: Inbox,
-    iconColor: 'text-lydian-text-muted',
+    iconColor: 'text-gray-300',
     bgColor: 'bg-lydian-bg/10'
   },
   search: {
@@ -63,7 +63,7 @@ const variantConfig: Record<
   },
   'not-found': {
     icon: FileQuestion,
-    iconColor: 'text-lydian-text-muted',
+    iconColor: 'text-gray-300',
     bgColor: 'bg-lydian-bg/10'
   }
 };
@@ -153,13 +153,13 @@ export const EmptyState: React.FC<EmptyStateProps> = ({
       </div>
 
       {/* Title */}
-      <h3 className={`font-semibold text-lydian-text-inverse mb-2 ${sizeStyle.title}`}>
+      <h3 className={`font-semibold text-white mb-2 ${sizeStyle.title}`}>
         {title}
       </h3>
 
       {/* Description */}
       {description &&
-      <p className={`text-lydian-text-dim mb-6 max-w-md ${sizeStyle.description}`}>
+      <p className={`text-gray-400 mb-6 max-w-md ${sizeStyle.description}`}>
           {description}
         </p>
       }
@@ -173,7 +173,7 @@ export const EmptyState: React.FC<EmptyStateProps> = ({
           {actionLabel && onAction &&
         <button
           onClick={onAction}
-          className="inline-flex items-center justify-center px-6 py-3 bg-lydian-primary text-lydian-text-inverse rounded-lg hover:bg-lydian-primary-dark transition-colors font-medium focus:outline-none focus:ring-2 focus:ring-lydian-border-focus focus:ring-offset-2">
+          className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:bg-gradient-to-r from-blue-700 to-purple-700 transition-colors font-medium focus:outline-none focus:ring-2 focus:ring-lydian-border-focus focus:ring-offset-2">
 
               <Plus className="h-5 w-5 mr-2" />
               {actionLabel}
@@ -183,7 +183,7 @@ export const EmptyState: React.FC<EmptyStateProps> = ({
           {secondaryActionLabel && onSecondaryAction &&
         <button
           onClick={onSecondaryAction}
-          className="inline-flex items-center justify-center px-6 py-3 bg-lydian-glass-dark border border-lydian-border-medium text-lydian-text-muted rounded-lg hover:bg-lydian-glass-dark transition-colors font-medium focus:outline-none focus:ring-2 focus:ring-lydian-border-focus focus:ring-offset-2">
+          className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-br from-slate-900 via-black to-slate-800 border border-white/30 text-gray-300 rounded-lg hover:bg-gradient-to-br from-slate-900 via-black to-slate-800 transition-colors font-medium focus:outline-none focus:ring-2 focus:ring-lydian-border-focus focus:ring-offset-2">
 
               {secondaryActionLabel}
             </button>

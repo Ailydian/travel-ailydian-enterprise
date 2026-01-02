@@ -123,11 +123,11 @@ export default function WatchPriceButton({
       <>
         <button
           onClick={handleWatchPrice}
-          className={`p-2 rounded-full hover:bg-lydian-glass-dark-medium dark:hover:bg-gray-800 transition-colors ${className}`}
+          className={`p-2 rounded-full hover:bg-white/10 backdrop-blur-xl border border-white/20 dark:hover:bg-gray-800 transition-colors ${className}`}
           title={isWatching ? 'Watching price' : 'Watch price'}>
 
           <svg
-            className={`w-6 h-6 ${isWatching ? 'text-yellow-500 fill-current' : 'text-lydian-text-dim'}`}
+            className={`w-6 h-6 ${isWatching ? 'text-yellow-500 fill-current' : 'text-gray-400'}`}
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24">
@@ -160,7 +160,7 @@ export default function WatchPriceButton({
           className={`flex items-center gap-2 px-3 py-1.5 rounded-lg border ${
           isWatching ?
           'bg-yellow-50 border-yellow-300 text-yellow-700' :
-          'bg-lydian-bg/5 border-white/20 text-gray-200 hover:bg-lydian-bg/5'} transition-colors ${
+          'bg-white/5 border-white/20 text-gray-200 hover:bg-white/5'} transition-colors ${
           className}`}>
 
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -189,14 +189,14 @@ export default function WatchPriceButton({
   // Default variant
   const WatchPriceModal = () =>
   <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-      <div className="bg-lydian-glass-dark dark:bg-gray-800 rounded-2xl shadow-2xl max-w-md w-full mx-4 p-6">
+      <div className="bg-gradient-to-br from-slate-900 via-black to-slate-800 dark:bg-gray-800 rounded-2xl shadow-2xl max-w-md w-full mx-4 p-6">
         <div className="flex items-center justify-between mb-6">
-          <h2 className="text-2xl font-bold text-lydian-text-inverse dark:text-lydian-text-inverse">
+          <h2 className="text-2xl font-bold text-white dark:text-white">
             Set Price Alert
           </h2>
           <button
           onClick={() => setShowModal(false)}
-          className="text-lydian-text-muted hover:text-lydian-text-dim dark:hover:text-lydian-text-dim">
+          className="text-gray-300 hover:text-gray-400 dark:hover:text-gray-400">
 
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path
@@ -211,17 +211,17 @@ export default function WatchPriceButton({
 
         <div className="space-y-4">
           <div>
-            <label className="block text-sm font-medium text-lydian-text-muted dark:text-lydian-text-dim mb-2">
+            <label className="block text-sm font-medium text-gray-300 dark:text-gray-400 mb-2">
               Item
             </label>
-            <p className="text-lydian-text-inverse dark:text-lydian-text-inverse font-semibold">{entityName}</p>
-            <p className="text-sm text-lydian-text-dim dark:text-lydian-text-muted">
+            <p className="text-white dark:text-white font-semibold">{entityName}</p>
+            <p className="text-sm text-gray-400 dark:text-gray-300">
               Current Price: {currency} {currentPrice.toFixed(2)}
             </p>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-lydian-text-muted dark:text-lydian-text-dim mb-2">
+            <label className="block text-sm font-medium text-gray-300 dark:text-gray-400 mb-2">
               Target Price
             </label>
             <div className="relative">
@@ -231,20 +231,20 @@ export default function WatchPriceButton({
               onChange={(e) =>
               setAlertSettings({ ...alertSettings, targetPrice: parseFloat(e.target.value) })
               }
-              className="w-full px-4 py-2 border border-lydian-border-light dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-lydian-border-focus dark:bg-gray-700 dark:text-lydian-text-inverse"
+              className="w-full px-4 py-2 border border-white/20 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-lydian-border-focus dark:bg-gray-700 dark:text-white"
               step="0.01"
               min="0" />
 
-              <span className="absolute right-3 top-2.5 text-lydian-text-muted">{currency}</span>
+              <span className="absolute right-3 top-2.5 text-gray-300">{currency}</span>
             </div>
-            <p className="text-xs text-lydian-text-muted mt-1">
+            <p className="text-xs text-gray-300 mt-1">
               {((currentPrice - alertSettings.targetPrice) / currentPrice * 100).toFixed(1)}%
               discount from current price
             </p>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-lydian-text-muted dark:text-lydian-text-dim mb-2">
+            <label className="block text-sm font-medium text-gray-300 dark:text-gray-400 mb-2">
               Or notify when price drops by
             </label>
             <div className="relative">
@@ -257,17 +257,17 @@ export default function WatchPriceButton({
                 priceDropPercentage: parseFloat(e.target.value)
               })
               }
-              className="w-full px-4 py-2 border border-lydian-border-light dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-lydian-border-focus dark:bg-gray-700 dark:text-lydian-text-inverse"
+              className="w-full px-4 py-2 border border-white/20 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-lydian-border-focus dark:bg-gray-700 dark:text-white"
               step="1"
               min="1"
               max="50" />
 
-              <span className="absolute right-3 top-2.5 text-lydian-text-muted">%</span>
+              <span className="absolute right-3 top-2.5 text-gray-300">%</span>
             </div>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-lydian-text-muted dark:text-lydian-text-dim mb-2">
+            <label className="block text-sm font-medium text-gray-300 dark:text-gray-400 mb-2">
               Alert Duration
             </label>
             <select
@@ -275,7 +275,7 @@ export default function WatchPriceButton({
             onChange={(e) =>
             setAlertSettings({ ...alertSettings, expiresInDays: parseInt(e.target.value) })
             }
-            className="w-full px-4 py-2 border border-lydian-border-light dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-lydian-border-focus dark:bg-gray-700 dark:text-lydian-text-inverse">
+            className="w-full px-4 py-2 border border-white/20 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-lydian-border-focus dark:bg-gray-700 dark:text-white">
 
               <option value={7}>7 days</option>
               <option value={14}>14 days</option>
@@ -285,10 +285,10 @@ export default function WatchPriceButton({
             </select>
           </div>
 
-          <div className="bg-lydian-primary-lighter dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4">
+          <div className="bg-blue-500/10er dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4">
             <div className="flex items-start">
               <svg
-              className="w-5 h-5 text-lydian-primary dark:text-blue-400 mr-2 flex-shrink-0 mt-0.5"
+              className="w-5 h-5 text-blue-500 dark:text-blue-400 mr-2 flex-shrink-0 mt-0.5"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24">
@@ -315,14 +315,14 @@ export default function WatchPriceButton({
         <div className="flex gap-3 mt-6">
           <button
           onClick={() => setShowModal(false)}
-          className="flex-1 px-4 py-2 border border-lydian-border-light dark:border-gray-600 text-lydian-text-muted dark:text-lydian-text-dim rounded-lg hover:bg-lydian-glass-dark dark:hover:bg-gray-700 transition-colors">
+          className="flex-1 px-4 py-2 border border-white/20 dark:border-gray-600 text-gray-300 dark:text-gray-400 rounded-lg hover:bg-gradient-to-br from-slate-900 via-black to-slate-800 dark:hover:bg-gray-700 transition-colors">
 
             Cancel
           </button>
           <button
           onClick={handleConfirmWatch}
           disabled={loading}
-          className="flex-1 px-4 py-2 bg-lydian-primary text-lydian-text-inverse rounded-lg hover:bg-lydian-primary-dark disabled:opacity-50 disabled:cursor-not-allowed transition-colors font-medium">
+          className="flex-1 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:bg-gradient-to-r from-blue-700 to-purple-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors font-medium">
 
             {loading ?
           <span className="flex items-center justify-center">
@@ -363,7 +363,7 @@ export default function WatchPriceButton({
         className={`flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all ${
         isWatching ?
         'bg-yellow-100 text-yellow-700 border-2 border-yellow-300 hover:bg-yellow-200' :
-        'bg-lydian-primary text-white hover:bg-lydian-primary-hover shadow-lg hover:shadow-xl'} ${
+        'bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:bg-lydian-primary-hover shadow-lg hover:shadow-xl'} ${
         className}`}>
 
         <svg

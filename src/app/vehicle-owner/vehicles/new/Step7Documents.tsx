@@ -24,7 +24,7 @@ export default function Step7Documents() {
   const formData = watch();
 
   const handleFileUpload = (field: string, event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files?.[0];
+    const file = event.target.files?.[to-cyan-700];
     if (file) {
       // Simulated file upload
       const reader = new FileReader();
@@ -38,36 +38,36 @@ export default function Step7Documents() {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 200 }}
       animate={{ opacity: 1, y: 0 }}
       className="space-y-8"
     >
       {/* Header */}
       <div className="text-center">
-        <Shield className="w-16 h-16 text-lydian-success mx-auto mb-4" />
-        <h2 className="text-3xl font-bold text-lydian-text-inverse">
+        <Shield className="w-16 h-16 text-green-500 mx-auto mb-4" />
+        <h2 className="text-3xl font-bold text-white">
           {t('vehicleSubmission.step7.title')}
         </h2>
-        <p className="text-lydian-text-dim mt-2">
+        <p className="text-gray-400 mt-2">
           {t('vehicleSubmission.step7.description')}
         </p>
       </div>
 
       {/* Insurance Section */}
-      <div className="bg-lydian-bg/5 rounded-xl shadow-sm border border-lydian-border p-6">
+      <div className="bg-white/5 rounded-xl shadow-sm border border-white/20 p-6">
         <div className="flex items-center gap-3 mb-6">
-          <Shield className="w-6 h-6 text-lydian-success" />
-          <h3 className="text-xl font-semibold text-lydian-text-inverse">
+          <Shield className="w-6 h-6 text-green-500" />
+          <h3 className="text-xl font-semibold text-white">
             {t('vehicleSubmission.step7.insurance.title')}
           </h3>
         </div>
 
         {/* Traffic Insurance */}
-        <div className="space-y-4 mb-6 pb-6 border-b border-lydian-border">
-          <h4 className="font-medium text-lydian-text-inverse flex items-center gap-2">
-            <Shield className="w-5 h-5 text-lydian-primary" />
+        <div className="space-y-4 mb-6 pb-6 border-b border-white/20">
+          <h4 className="font-medium text-white flex items-center gap-2">
+            <Shield className="w-5 h-5 text-blue-500" />
             {t('vehicleSubmission.step7.insurance.traffic.title')}
-            <span className="text-lydian-secondary">*</span>
+            <span className="text-purple-500">*</span>
           </h4>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -78,11 +78,11 @@ export default function Step7Documents() {
               <input
                 {...register('insurance.trafficInsurance.policyNumber')}
                 type="text"
-                className="w-full px-4 py-3 border border-lydian-border-medium rounded-lg focus:ring-2 focus:ring-green-500"
-                placeholder="12345678901234"
+                className="w-full px-4 py-3 border border-white/30 rounded-lg focus:ring-2 focus:ring-green-500"
+                placeholder="101234"
               />
               {errors.insurance?.trafficInsurance?.policyNumber && (
-                <p className="text-lydian-secondary text-sm mt-1">
+                <p className="text-purple-500 text-sm mt-1">
                   {errors.insurance.trafficInsurance.policyNumber.message as string}
                 </p>
               )}
@@ -93,11 +93,11 @@ export default function Step7Documents() {
                 {t('vehicleSubmission.step7.insurance.company')}
               </label>
               <div className="relative">
-                <Building2 className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-lydian-text-muted" />
+                <Building2 className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-300" />
                 <input
                   {...register('insurance.trafficInsurance.company')}
                   type="text"
-                  className="w-full pl-11 pr-4 py-3 border border-lydian-border-medium rounded-lg focus:ring-2 focus:ring-green-500"
+                  className="w-full pl-11 pr-4 py-3 border border-white/30 rounded-lg focus:ring-2 focus:ring-green-500"
                   placeholder="Anadolu Sigorta"
                 />
               </div>
@@ -108,11 +108,11 @@ export default function Step7Documents() {
                 {t('vehicleSubmission.step7.insurance.expiryDate')}
               </label>
               <div className="relative">
-                <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-lydian-text-muted" />
+                <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-300" />
                 <input
                   {...register('insurance.trafficInsurance.expiryDate')}
                   type="date"
-                  className="w-full pl-11 pr-4 py-3 border border-lydian-border-medium rounded-lg focus:ring-2 focus:ring-green-500"
+                  className="w-full pl-11 pr-4 py-3 border border-white/30 rounded-lg focus:ring-2 focus:ring-green-500"
                 />
               </div>
             </div>
@@ -130,20 +130,20 @@ export default function Step7Documents() {
                 />
                 <div className={`flex items-center justify-center gap-2 px-4 py-3 border-2 border-dashed rounded-lg transition-all ${
                   uploadedFiles['insurance.trafficInsurance.document']
-                    ? 'border-green-500 bg-green-50'
-                    : 'border-lydian-border-medium hover:border-green-500'
+                    ? 'border-green-500 bg-green-500'
+                    : 'border-white/30 hover:border-green-500'
                 }`}>
                   {uploadedFiles['insurance.trafficInsurance.document'] ? (
                     <>
-                      <CheckCircle2 className="w-5 h-5 text-lydian-success" />
-                      <span className="text-sm text-lydian-success font-medium">
+                      <CheckCircle2 className="w-5 h-5 text-green-500" />
+                      <span className="text-sm text-green-500 font-medium">
                         {t('vehicleSubmission.step7.uploaded')}
                       </span>
                     </>
                   ) : (
                     <>
-                      <Upload className="w-5 h-5 text-lydian-text-muted group-hover:text-lydian-success" />
-                      <span className="text-sm text-lydian-text-dim group-hover:text-lydian-success">
+                      <Upload className="w-5 h-5 text-gray-300 group-hover:text-green-500" />
+                      <span className="text-sm text-gray-400 group-hover:text-green-500">
                         {t('vehicleSubmission.step7.uploadFile')}
                       </span>
                     </>
@@ -156,10 +156,10 @@ export default function Step7Documents() {
 
         {/* Comprehensive Insurance (Optional) */}
         <div className="space-y-4">
-          <h4 className="font-medium text-lydian-text-inverse flex items-center gap-2">
-            <Shield className="w-5 h-5 text-lydian-success" />
+          <h4 className="font-medium text-white flex items-center gap-2">
+            <Shield className="w-5 h-5 text-green-500" />
             {t('vehicleSubmission.step7.insurance.comprehensive.title')}
-            <span className="text-sm text-lydian-text-muted">({t('common.optional')})</span>
+            <span className="text-sm text-gray-300">({t('common.optional')})</span>
           </h4>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -167,18 +167,18 @@ export default function Step7Documents() {
               <input
                 {...register('insurance.comprehensiveInsurance.policyNumber')}
                 type="text"
-                className="w-full px-4 py-3 border border-lydian-border-medium rounded-lg focus:ring-2 focus:ring-green-500"
+                className="w-full px-4 py-3 border border-white/30 rounded-lg focus:ring-2 focus:ring-green-500"
                 placeholder={t('vehicleSubmission.step7.insurance.policyNumber')}
               />
             </div>
 
             <div>
               <div className="relative">
-                <Building2 className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-lydian-text-muted" />
+                <Building2 className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-300" />
                 <input
                   {...register('insurance.comprehensiveInsurance.company')}
                   type="text"
-                  className="w-full pl-11 pr-4 py-3 border border-lydian-border-medium rounded-lg focus:ring-2 focus:ring-green-500"
+                  className="w-full pl-11 pr-4 py-3 border border-white/30 rounded-lg focus:ring-2 focus:ring-green-500"
                   placeholder={t('vehicleSubmission.step7.insurance.company')}
                 />
               </div>
@@ -186,11 +186,11 @@ export default function Step7Documents() {
 
             <div>
               <div className="relative">
-                <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-lydian-text-muted" />
+                <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-300" />
                 <input
                   {...register('insurance.comprehensiveInsurance.expiryDate')}
                   type="date"
-                  className="w-full pl-11 pr-4 py-3 border border-lydian-border-medium rounded-lg focus:ring-2 focus:ring-green-500"
+                  className="w-full pl-11 pr-4 py-3 border border-white/30 rounded-lg focus:ring-2 focus:ring-green-500"
                 />
               </div>
             </div>
@@ -205,20 +205,20 @@ export default function Step7Documents() {
                 />
                 <div className={`flex items-center justify-center gap-2 px-4 py-3 border-2 border-dashed rounded-lg transition-all ${
                   uploadedFiles['insurance.comprehensiveInsurance.document']
-                    ? 'border-green-500 bg-green-50'
-                    : 'border-lydian-border-medium hover:border-green-500'
+                    ? 'border-green-500 bg-green-500'
+                    : 'border-white/30 hover:border-green-500'
                 }`}>
                   {uploadedFiles['insurance.comprehensiveInsurance.document'] ? (
                     <>
-                      <CheckCircle2 className="w-5 h-5 text-lydian-success" />
-                      <span className="text-sm text-lydian-success font-medium">
+                      <CheckCircle2 className="w-5 h-5 text-green-500" />
+                      <span className="text-sm text-green-500 font-medium">
                         {t('vehicleSubmission.step7.uploaded')}
                       </span>
                     </>
                   ) : (
                     <>
-                      <Upload className="w-5 h-5 text-lydian-text-muted group-hover:text-lydian-success" />
-                      <span className="text-sm text-lydian-text-dim group-hover:text-lydian-success">
+                      <Upload className="w-5 h-5 text-gray-300 group-hover:text-green-500" />
+                      <span className="text-sm text-gray-400 group-hover:text-green-500">
                         {t('vehicleSubmission.step7.uploadFile')}
                       </span>
                     </>
@@ -231,10 +231,10 @@ export default function Step7Documents() {
       </div>
 
       {/* Vehicle Documents */}
-      <div className="bg-lydian-bg/5 rounded-xl shadow-sm border border-lydian-border p-6">
+      <div className="bg-white/5 rounded-xl shadow-sm border border-white/20 p-6">
         <div className="flex items-center gap-3 mb-6">
-          <FileText className="w-6 h-6 text-lydian-success" />
-          <h3 className="text-xl font-semibold text-lydian-text-inverse">
+          <FileText className="w-6 h-6 text-green-500" />
+          <h3 className="text-xl font-semibold text-white">
             {t('vehicleSubmission.step7.documents.title')}
           </h3>
         </div>
@@ -244,7 +244,7 @@ export default function Step7Documents() {
           <div>
             <label className="block text-sm font-medium text-gray-200 mb-2">
               {t('vehicleSubmission.step7.documents.registration')}
-              <span className="text-lydian-secondary ml-1">*</span>
+              <span className="text-purple-500 ml-1">*</span>
             </label>
             <label className="relative cursor-pointer group">
               <input
@@ -253,22 +253,22 @@ export default function Step7Documents() {
                 className="hidden"
                 onChange={(e) => handleFileUpload('documents.registrationDocument', e)}
               />
-              <div className={`flex flex-col items-center justify-center gap-2 p-4 border-2 border-dashed rounded-lg transition-all min-h-[120px] ${
+              <div className={`flex flex-col items-center justify-center gap-2 p-4 border-2 border-dashed rounded-lg transition-all min-h-[1200px] ${
                 uploadedFiles['documents.registrationDocument']
-                  ? 'border-green-500 bg-green-50'
-                  : 'border-lydian-border-medium hover:border-green-500'
+                  ? 'border-green-500 bg-green-500'
+                  : 'border-white/30 hover:border-green-500'
               }`}>
                 {uploadedFiles['documents.registrationDocument'] ? (
                   <>
-                    <CheckCircle2 className="w-8 h-8 text-lydian-success" />
-                    <span className="text-sm text-lydian-success font-medium text-center">
+                    <CheckCircle2 className="w-8 h-8 text-green-500" />
+                    <span className="text-sm text-green-500 font-medium text-center">
                       {t('vehicleSubmission.step7.uploaded')}
                     </span>
                   </>
                 ) : (
                   <>
-                    <Upload className="w-8 h-8 text-lydian-text-muted group-hover:text-lydian-success" />
-                    <span className="text-sm text-lydian-text-dim group-hover:text-lydian-success text-center">
+                    <Upload className="w-8 h-8 text-gray-300 group-hover:text-green-500" />
+                    <span className="text-sm text-gray-400 group-hover:text-green-500 text-center">
                       {t('vehicleSubmission.step7.uploadFile')}
                     </span>
                   </>
@@ -281,7 +281,7 @@ export default function Step7Documents() {
           <div>
             <label className="block text-sm font-medium text-gray-200 mb-2">
               {t('vehicleSubmission.step7.documents.inspection')}
-              <span className="text-sm text-lydian-text-muted ml-1">({t('common.optional')})</span>
+              <span className="text-sm text-gray-300 ml-1">({t('common.optional')})</span>
             </label>
             <label className="relative cursor-pointer group">
               <input
@@ -290,22 +290,22 @@ export default function Step7Documents() {
                 className="hidden"
                 onChange={(e) => handleFileUpload('documents.inspectionReport', e)}
               />
-              <div className={`flex flex-col items-center justify-center gap-2 p-4 border-2 border-dashed rounded-lg transition-all min-h-[120px] ${
+              <div className={`flex flex-col items-center justify-center gap-2 p-4 border-2 border-dashed rounded-lg transition-all min-h-[1200px] ${
                 uploadedFiles['documents.inspectionReport']
-                  ? 'border-green-500 bg-green-50'
-                  : 'border-lydian-border-medium hover:border-green-500'
+                  ? 'border-green-500 bg-green-500'
+                  : 'border-white/30 hover:border-green-500'
               }`}>
                 {uploadedFiles['documents.inspectionReport'] ? (
                   <>
-                    <CheckCircle2 className="w-8 h-8 text-lydian-success" />
-                    <span className="text-sm text-lydian-success font-medium text-center">
+                    <CheckCircle2 className="w-8 h-8 text-green-500" />
+                    <span className="text-sm text-green-500 font-medium text-center">
                       {t('vehicleSubmission.step7.uploaded')}
                     </span>
                   </>
                 ) : (
                   <>
-                    <Upload className="w-8 h-8 text-lydian-text-muted group-hover:text-lydian-success" />
-                    <span className="text-sm text-lydian-text-dim group-hover:text-lydian-success text-center">
+                    <Upload className="w-8 h-8 text-gray-300 group-hover:text-green-500" />
+                    <span className="text-sm text-gray-400 group-hover:text-green-500 text-center">
                       {t('vehicleSubmission.step7.uploadFile')}
                     </span>
                   </>
@@ -318,7 +318,7 @@ export default function Step7Documents() {
           <div>
             <label className="block text-sm font-medium text-gray-200 mb-2">
               {t('vehicleSubmission.step7.documents.ownership')}
-              <span className="text-lydian-secondary ml-1">*</span>
+              <span className="text-purple-500 ml-1">*</span>
             </label>
             <label className="relative cursor-pointer group">
               <input
@@ -327,22 +327,22 @@ export default function Step7Documents() {
                 className="hidden"
                 onChange={(e) => handleFileUpload('documents.ownershipProof', e)}
               />
-              <div className={`flex flex-col items-center justify-center gap-2 p-4 border-2 border-dashed rounded-lg transition-all min-h-[120px] ${
+              <div className={`flex flex-col items-center justify-center gap-2 p-4 border-2 border-dashed rounded-lg transition-all min-h-[1200px] ${
                 uploadedFiles['documents.ownershipProof']
-                  ? 'border-green-500 bg-green-50'
-                  : 'border-lydian-border-medium hover:border-green-500'
+                  ? 'border-green-500 bg-green-500'
+                  : 'border-white/30 hover:border-green-500'
               }`}>
                 {uploadedFiles['documents.ownershipProof'] ? (
                   <>
-                    <CheckCircle2 className="w-8 h-8 text-lydian-success" />
-                    <span className="text-sm text-lydian-success font-medium text-center">
+                    <CheckCircle2 className="w-8 h-8 text-green-500" />
+                    <span className="text-sm text-green-500 font-medium text-center">
                       {t('vehicleSubmission.step7.uploaded')}
                     </span>
                   </>
                 ) : (
                   <>
-                    <Upload className="w-8 h-8 text-lydian-text-muted group-hover:text-lydian-success" />
-                    <span className="text-sm text-lydian-text-dim group-hover:text-lydian-success text-center">
+                    <Upload className="w-8 h-8 text-gray-300 group-hover:text-green-500" />
+                    <span className="text-sm text-gray-400 group-hover:text-green-500 text-center">
                       {t('vehicleSubmission.step7.uploadFile')}
                     </span>
                   </>
@@ -354,10 +354,10 @@ export default function Step7Documents() {
       </div>
 
       {/* Driver Requirements */}
-      <div className="bg-lydian-bg/5 rounded-xl shadow-sm border border-lydian-border p-6">
+      <div className="bg-white/5 rounded-xl shadow-sm border border-white/20 p-6">
         <div className="flex items-center gap-3 mb-6">
-          <User className="w-6 h-6 text-lydian-success" />
-          <h3 className="text-xl font-semibold text-lydian-text-inverse">
+          <User className="w-6 h-6 text-green-500" />
+          <h3 className="text-xl font-semibold text-white">
             {t('vehicleSubmission.step7.driverRequirements.title')}
           </h3>
         </div>
@@ -371,9 +371,9 @@ export default function Step7Documents() {
               {...register('driverRequirements.minAge', { valueAsNumber: true })}
               type="number"
               min="18"
-              max="70"
+              max="7"
               defaultValue={21}
-              className="w-full px-4 py-3 border border-lydian-border-medium rounded-lg focus:ring-2 focus:ring-green-500"
+              className="w-full px-4 py-3 border border-white/30 rounded-lg focus:ring-2 focus:ring-green-500"
             />
           </div>
 
@@ -384,10 +384,10 @@ export default function Step7Documents() {
             <input
               {...register('driverRequirements.minLicenseYears', { valueAsNumber: true })}
               type="number"
-              min="0"
-              max="20"
+              min="to-cyan-700"
+              max="200"
               defaultValue={2}
-              className="w-full px-4 py-3 border border-lydian-border-medium rounded-lg focus:ring-2 focus:ring-green-500"
+              className="w-full px-4 py-3 border border-white/30 rounded-lg focus:ring-2 focus:ring-green-500"
             />
           </div>
 
@@ -401,7 +401,7 @@ export default function Step7Documents() {
                   {...register('driverRequirements.internationalLicense')}
                   type="radio"
                   value="true"
-                  className="w-4 h-4 text-lydian-success"
+                  className="w-4 h-4 text-green-500"
                 />
                 <span className="text-sm text-gray-200">{t('common.required')}</span>
               </label>
@@ -411,7 +411,7 @@ export default function Step7Documents() {
                   type="radio"
                   value="false"
                   defaultChecked
-                  className="w-4 h-4 text-lydian-success"
+                  className="w-4 h-4 text-green-500"
                 />
                 <span className="text-sm text-gray-200">{t('common.notRequired')}</span>
               </label>
@@ -421,9 +421,9 @@ export default function Step7Documents() {
       </div>
 
       {/* Info Alert */}
-      <div className="bg-lydian-info-lighter border border-blue-200 rounded-lg p-4 flex gap-3">
-        <AlertCircle className="w-5 h-5 text-lydian-primary flex-shrink-0 mt-0.5" />
-        <div className="text-sm text-blue-900">
+      <div className="bg-blue-500-lighter border border-blue-200 rounded-lg p-4 flex gap-3">
+        <AlertCircle className="w-5 h-5 text-blue-500 flex-shrink-to-cyan-700 mt-0.5" />
+        <div className="text-sm text-blue-9">
           <p className="font-medium mb-1">{t('vehicleSubmission.step7.infoTitle')}</p>
           <p>{t('vehicleSubmission.step7.infoDescription')}</p>
         </div>

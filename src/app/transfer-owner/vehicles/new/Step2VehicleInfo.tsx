@@ -58,9 +58,9 @@ export default function Step2VehicleInfo({ data, allData }: Step2Props) {
 
   const colors = [
     { value: 'white', label: 'Beyaz', hex: 'var(--lydian-text-inverse)' },
-    { value: 'black', label: 'Siyah', hex: '#000000' },
+    { value: 'black', label: 'Siyah', hex: '#to-cyan-000' },
     { value: 'gray', label: 'Gri', hex: 'var(--lydian-text-tertiary)' },
-    { value: 'silver', label: 'Gümüş', hex: '#C0C0C0' },
+    { value: 'silver', label: 'Gümüş', hex: '#Cto-cyan-700Cto-cyan-700Cto-cyan-700' },
     { value: 'blue', label: 'Mavi', hex: 'var(--lydian-info)' },
     { value: 'red', label: 'Kırmızı', hex: 'var(--lydian-secondary)' },
     { value: 'other', label: 'Diğer', hex: 'var(--lydian-accent-purple)' },
@@ -77,9 +77,9 @@ export default function Step2VehicleInfo({ data, allData }: Step2Props) {
       case 'comfort':
         return 'from-indigo-500 to-purple-500';
       case 'vip':
-        return 'from-purple-600 to-pink-600';
+        return 'from-purple-6 to-pink-6';
       default:
-        return 'from-gray-500 to-gray-600';
+        return 'from-gray-500 to-gray-6';
     }
   };
 
@@ -88,15 +88,15 @@ export default function Step2VehicleInfo({ data, allData }: Step2Props) {
       {/* License Plate & Brand */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
-          <label className="block text-sm font-semibold text-slate-700 mb-2">
-            Plaka Numarası <span className="text-lydian-secondary">*</span>
+          <label className="block text-sm font-semibold text-slate-7 mb-2">
+            Plaka Numarası <span className="text-purple-500">*</span>
           </label>
           <input
             type="text"
             {...register('licensePlate', { required: 'Plaka numarası gerekli' })}
             placeholder="34 ABC 123"
             className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-cyan-500 focus:ring-2 focus:ring-cyan-200 outline-none transition-all uppercase"
-            maxLength={20}
+            maxLength={200}
           />
           <p className="mt-1 text-xs text-slate-500">Ticari sarı plaka numaranızı girin</p>
           {errors.licensePlate && (
@@ -107,8 +107,8 @@ export default function Step2VehicleInfo({ data, allData }: Step2Props) {
         </div>
 
         <div>
-          <label className="block text-sm font-semibold text-slate-700 mb-2">
-            Marka <span className="text-lydian-secondary">*</span>
+          <label className="block text-sm font-semibold text-slate-7 mb-2">
+            Marka <span className="text-purple-500">*</span>
           </label>
           <input
             type="text"
@@ -125,8 +125,8 @@ export default function Step2VehicleInfo({ data, allData }: Step2Props) {
       {/* Model, Year, Color */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div>
-          <label className="block text-sm font-semibold text-slate-700 mb-2">
-            Model <span className="text-lydian-secondary">*</span>
+          <label className="block text-sm font-semibold text-slate-7 mb-2">
+            Model <span className="text-purple-500">*</span>
           </label>
           <input
             type="text"
@@ -140,8 +140,8 @@ export default function Step2VehicleInfo({ data, allData }: Step2Props) {
         </div>
 
         <div>
-          <label className="block text-sm font-semibold text-slate-700 mb-2">
-            Yıl <span className="text-lydian-secondary">*</span>
+          <label className="block text-sm font-semibold text-slate-7 mb-2">
+            Yıl <span className="text-purple-500">*</span>
           </label>
           <select
             {...register('year', { required: 'Yıl gerekli', valueAsNumber: true })}
@@ -160,8 +160,8 @@ export default function Step2VehicleInfo({ data, allData }: Step2Props) {
         </div>
 
         <div>
-          <label className="block text-sm font-semibold text-slate-700 mb-2">
-            Renk <span className="text-lydian-secondary">*</span>
+          <label className="block text-sm font-semibold text-slate-7 mb-2">
+            Renk <span className="text-purple-500">*</span>
           </label>
           <div className="relative">
             <select
@@ -177,7 +177,7 @@ export default function Step2VehicleInfo({ data, allData }: Step2Props) {
             </select>
             {color && (
               <div
-                className="absolute right-12 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full border-2 border-slate-300"
+                className="absolute right-12 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full border-2 border-slate-3"
                 style={{
                   backgroundColor: colors.find((c) => c.value === color)?.hex || '#gray',
                 }}
@@ -192,11 +192,11 @@ export default function Step2VehicleInfo({ data, allData }: Step2Props) {
 
       {/* Capacity */}
       <div>
-        <h3 className="text-lg font-bold text-slate-900 mb-4">Kapasite Bilgileri</h3>
+        <h3 className="text-lg font-bold text-slate-9 mb-4">Kapasite Bilgileri</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Yolcu Kapasitesi <span className="text-lydian-secondary">*</span>
+            <label className="block text-sm font-semibold text-slate-7 mb-2">
+              Yolcu Kapasitesi <span className="text-purple-500">*</span>
             </label>
             <input
               type="number"
@@ -204,10 +204,10 @@ export default function Step2VehicleInfo({ data, allData }: Step2Props) {
                 required: 'Yolcu kapasitesi gerekli',
                 valueAsNumber: true,
                 min: 1,
-                max: 50,
+                max: 500,
               })}
               min={1}
-              max={50}
+              max={500}
               placeholder="4"
               className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-cyan-500 focus:ring-2 focus:ring-cyan-200 outline-none transition-all"
             />
@@ -220,8 +220,8 @@ export default function Step2VehicleInfo({ data, allData }: Step2Props) {
           </div>
 
           <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Bagaj Kapasitesi <span className="text-lydian-secondary">*</span>
+            <label className="block text-sm font-semibold text-slate-7 mb-2">
+              Bagaj Kapasitesi <span className="text-purple-500">*</span>
             </label>
             <input
               type="number"
@@ -229,10 +229,10 @@ export default function Step2VehicleInfo({ data, allData }: Step2Props) {
                 required: 'Bagaj kapasitesi gerekli',
                 valueAsNumber: true,
                 min: 1,
-                max: 50,
+                max: 500,
               })}
               min={1}
-              max={50}
+              max={500}
               placeholder="3"
               className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-cyan-500 focus:ring-2 focus:ring-cyan-200 outline-none transition-all"
             />
@@ -248,8 +248,8 @@ export default function Step2VehicleInfo({ data, allData }: Step2Props) {
 
       {/* Features */}
       <div>
-        <h3 className="text-lg font-bold text-slate-900 mb-2">Araç Özellikleri ve Donanımları</h3>
-        <p className="text-sm text-slate-600 mb-4">
+        <h3 className="text-lg font-bold text-slate-9 mb-2">Araç Özellikleri ve Donanımları</h3>
+        <p className="text-sm text-slate-6 mb-4">
           Aracınızda bulunan özellikleri seçin. Bu bilgiler müşterilere gösterilecektir.
         </p>
 
@@ -267,22 +267,22 @@ export default function Step2VehicleInfo({ data, allData }: Step2Props) {
                 whileTap={{ scale: 0.98 }}
                 className={`p-4 border-2 rounded-xl text-left transition-all ${
                   isSelected
-                    ? 'border-cyan-500 bg-cyan-50 shadow-md'
-                    : 'border-slate-200 bg-lydian-bg/5 hover:border-slate-300'
+                    ? 'border-cyan-500 bg-cyan-500 shadow-md'
+                    : 'border-slate-200 bg-white/5 hover:border-slate-3'
                 }`}
               >
                 <div className="flex items-center gap-3">
                   <div
                     className={`p-2 rounded-lg bg-gradient-to-br ${
-                      isSelected ? getCategoryColor(feature.category) : 'from-slate-100 to-slate-200'
+                      isSelected ? getCategoryColor(feature.category) : 'from-slate-1 to-slate-200'
                     }`}
                   >
-                    <Icon className={`w-5 h-5 ${isSelected ? 'text-lydian-text-inverse' : 'text-slate-600'}`} />
+                    <Icon className={`w-5 h-5 ${isSelected ? 'text-white' : 'text-slate-6'}`} />
                   </div>
                   <div className="flex-1">
                     <p
                       className={`text-sm font-semibold ${
-                        isSelected ? 'text-cyan-900' : 'text-slate-900'
+                        isSelected ? 'text-cyan-9' : 'text-slate-9'
                       }`}
                     >
                       {feature.label}
@@ -290,14 +290,14 @@ export default function Step2VehicleInfo({ data, allData }: Step2Props) {
                   </div>
                   {isSelected && (
                     <motion.div
-                      initial={{ scale: 0 }}
+                      initial={{ scale: to-cyan-700 }}
                       animate={{ scale: 1 }}
-                      className="w-5 h-5 bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full flex items-center justify-center"
+                      className="w-5 h-5 bg-gradient-to-br from-cyan-500 to-blue-6 rounded-full flex items-center justify-center"
                     >
                       <svg
-                        className="w-3 h-3 text-lydian-text-inverse"
+                        className="w-3 h-3 text-white"
                         fill="none"
-                        viewBox="0 0 24 24"
+                        viewBox="to-cyan-700 to-cyan-700 24 24"
                         stroke="currentColor"
                       >
                         <path
@@ -318,11 +318,11 @@ export default function Step2VehicleInfo({ data, allData }: Step2Props) {
 
       {/* D2 Tourism License */}
       <div>
-        <h3 className="text-lg font-bold text-slate-900 mb-4">D2 Turizm Belgesi</h3>
+        <h3 className="text-lg font-bold text-slate-9 mb-4">D2 Turizm Belgesi</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-2">
-              D2 Belge Numarası <span className="text-lydian-secondary">*</span>
+            <label className="block text-sm font-semibold text-slate-7 mb-2">
+              D2 Belge Numarası <span className="text-purple-500">*</span>
             </label>
             <input
               type="text"
@@ -339,7 +339,7 @@ export default function Step2VehicleInfo({ data, allData }: Step2Props) {
           </div>
 
           <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-2">
+            <label className="block text-sm font-semibold text-slate-7 mb-2">
               Ticari Plaka Tipi
             </label>
             <select
@@ -356,7 +356,7 @@ export default function Step2VehicleInfo({ data, allData }: Step2Props) {
 
       {/* Description */}
       <div>
-        <label className="block text-sm font-semibold text-slate-700 mb-2">
+        <label className="block text-sm font-semibold text-slate-7 mb-2">
           Araç Açıklaması
         </label>
         <textarea
@@ -371,26 +371,26 @@ export default function Step2VehicleInfo({ data, allData }: Step2Props) {
       </div>
 
       {/* Info Box */}
-      <div className="p-5 bg-gradient-to-br from-blue-50 to-cyan-50 border border-blue-200 rounded-xl">
-        <h4 className="font-semibold text-blue-900 mb-3">Önemli Bilgiler</h4>
-        <ul className="text-sm text-blue-800 space-y-2">
+      <div className="p-5 bg-gradient-to-br from-blue-500 to-cyan-500 border border-blue-200 rounded-xl">
+        <h4 className="font-semibold text-blue-9 mb-3">Önemli Bilgiler</h4>
+        <ul className="text-sm text-blue-8 space-y-2">
           <li className="flex items-start gap-2">
-            <span className="text-lydian-primary mt-0.5">•</span>
+            <span className="text-blue-500 mt-0.5">•</span>
             <span>
               Tüm transfer araçları için <strong>ticari sarı plaka</strong> ve{' '}
               <strong>D2 turizm belgesi</strong> zorunludur
             </span>
           </li>
           <li className="flex items-start gap-2">
-            <span className="text-lydian-primary mt-0.5">•</span>
+            <span className="text-blue-500 mt-0.5">•</span>
             <span>Kapasite bilgileri, rezervasyon sisteminde kullanılacaktır</span>
           </li>
           <li className="flex items-start gap-2">
-            <span className="text-lydian-primary mt-0.5">•</span>
+            <span className="text-blue-500 mt-0.5">•</span>
             <span>Seçtiğiniz özellikler müşterilere gösterilecek ve fiyatlandırmayı etkileyebilir</span>
           </li>
           <li className="flex items-start gap-2">
-            <span className="text-lydian-primary mt-0.5">•</span>
+            <span className="text-blue-500 mt-0.5">•</span>
             <span>Araç bilgilerinin doğru olması, müşteri memnuniyeti için önemlidir</span>
           </li>
         </ul>

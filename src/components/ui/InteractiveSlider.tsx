@@ -174,7 +174,7 @@ export const InteractiveSlider: React.FC<InteractiveSliderProps> = ({
         <>
           {showPrevArrow && (
             <motion.button
-              className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-lydian-bg-card/80 backdrop-blur-md border border-lydian-primary/30 rounded-full p-2 text-lydian-primary hover:bg-lydian-primary/20 transition-all shadow-neon"
+              className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-lydian-bg-card/80 backdrop-blur-md border border-blue-500/30 rounded-full p-2 text-blue-500 hover:bg-lydian-primary/20 transition-all shadow-neon"
               onClick={goToPrevious}
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -188,7 +188,7 @@ export const InteractiveSlider: React.FC<InteractiveSliderProps> = ({
 
           {showNextArrow && (
             <motion.button
-              className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-lydian-bg-card/80 backdrop-blur-md border border-lydian-primary/30 rounded-full p-2 text-lydian-primary hover:bg-lydian-primary/20 transition-all shadow-neon"
+              className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-lydian-bg-card/80 backdrop-blur-md border border-blue-500/30 rounded-full p-2 text-blue-500 hover:bg-lydian-primary/20 transition-all shadow-neon"
               onClick={goToNext}
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -210,7 +210,7 @@ export const InteractiveSlider: React.FC<InteractiveSliderProps> = ({
               key={index}
               className={`rounded-full transition-all ${
                 index === currentIndex
-                  ? 'bg-lydian-primary shadow-neon'
+                  ? 'bg-gradient-to-r from-blue-600 to-purple-600 shadow-neon'
                   : 'bg-lydian-text-muted/30 hover:bg-lydian-text-muted/50'
               }`}
               style={{
@@ -229,7 +229,7 @@ export const InteractiveSlider: React.FC<InteractiveSliderProps> = ({
       {/* Progress bar (optional) */}
       {autoPlay && !isPaused && !isDragging && (
         <motion.div
-          className="absolute bottom-0 left-0 h-1 bg-lydian-primary shadow-neon"
+          className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-blue-600 to-purple-600 shadow-neon"
           initial={{ width: '0%' }}
           animate={{ width: '100%' }}
           transition={{ duration: autoPlayInterval / 1000, ease: 'linear' }}
@@ -373,7 +373,7 @@ export const TestimonialSlider: React.FC<TestimonialSliderProps> = ({
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
           transition={{ duration: 0.5 }}
-          className="bg-glass-dark rounded-2xl p-8 border border-lydian-primary/20"
+          className="bg-glass-dark rounded-2xl p-8 border border-blue-500/20"
         >
           {/* Rating stars */}
           {current.rating && (
@@ -407,7 +407,7 @@ export const TestimonialSlider: React.FC<TestimonialSliderProps> = ({
           <div className="flex items-center gap-4">
             {current.avatar && (
               <motion.div
-                className="w-12 h-12 rounded-full bg-gradient-to-br from-lydian-primary to-lydian-secondary overflow-hidden"
+                className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-600 to-purple-700 overflow-hidden"
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ delay: 0.3 }}
@@ -417,7 +417,7 @@ export const TestimonialSlider: React.FC<TestimonialSliderProps> = ({
             )}
             <div>
               <p className="text-lydian-text font-semibold">{current.name}</p>
-              {current.role && <p className="text-lydian-text-muted text-sm">{current.role}</p>}
+              {current.role && <p className="text-gray-300 text-sm">{current.role}</p>}
             </div>
           </div>
         </motion.div>
@@ -430,7 +430,7 @@ export const TestimonialSlider: React.FC<TestimonialSliderProps> = ({
             key={index}
             className={`w-2 h-2 rounded-full transition-all ${
               index === currentIndex
-                ? 'bg-lydian-primary w-8'
+                ? 'bg-gradient-to-r from-blue-600 to-purple-600 w-8'
                 : 'bg-lydian-text-muted/30'
             }`}
             onClick={() => setCurrentIndex(index)}
@@ -531,14 +531,14 @@ export const ImageGallerySlider: React.FC<ImageGallerySliderProps> = ({
 
       {/* Navigation */}
       <button
-        className="absolute left-4 top-1/2 -translate-y-1/2 bg-lydian-bg-card/80 backdrop-blur-md border border-lydian-primary/30 rounded-full p-3 text-lydian-primary hover:bg-lydian-primary/20 transition-all shadow-neon"
+        className="absolute left-4 top-1/2 -translate-y-1/2 bg-lydian-bg-card/80 backdrop-blur-md border border-blue-500/30 rounded-full p-3 text-blue-500 hover:bg-lydian-primary/20 transition-all shadow-neon"
         onClick={() => paginate(-1)}
       >
         <ChevronLeft className="w-6 h-6" />
       </button>
 
       <button
-        className="absolute right-4 top-1/2 -translate-y-1/2 bg-lydian-bg-card/80 backdrop-blur-md border border-lydian-primary/30 rounded-full p-3 text-lydian-primary hover:bg-lydian-primary/20 transition-all shadow-neon"
+        className="absolute right-4 top-1/2 -translate-y-1/2 bg-lydian-bg-card/80 backdrop-blur-md border border-blue-500/30 rounded-full p-3 text-blue-500 hover:bg-lydian-primary/20 transition-all shadow-neon"
         onClick={() => paginate(1)}
       >
         <ChevronRight className="w-6 h-6" />
@@ -551,7 +551,7 @@ export const ImageGallerySlider: React.FC<ImageGallerySliderProps> = ({
             key={index}
             className={`w-2 h-2 rounded-full transition-all ${
               index === currentIndex
-                ? 'bg-lydian-primary w-8 shadow-neon'
+                ? 'bg-gradient-to-r from-blue-600 to-purple-600 w-8 shadow-neon'
                 : 'bg-lydian-text-muted/30 hover:bg-lydian-text-muted/50'
             }`}
             onClick={() => {
@@ -563,7 +563,7 @@ export const ImageGallerySlider: React.FC<ImageGallerySliderProps> = ({
       </div>
 
       {/* Counter */}
-      <div className="absolute top-4 right-4 bg-lydian-bg-card/80 backdrop-blur-md rounded-full px-4 py-2 text-lydian-text text-sm font-medium border border-lydian-primary/20">
+      <div className="absolute top-4 right-4 bg-lydian-bg-card/80 backdrop-blur-md rounded-full px-4 py-2 text-lydian-text text-sm font-medium border border-blue-500/20">
         {currentIndex + 1} / {images.length}
       </div>
     </div>

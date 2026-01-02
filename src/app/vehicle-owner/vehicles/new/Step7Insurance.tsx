@@ -78,9 +78,9 @@ export default function Step7Insurance({ data }: Step7Props) {
 
   const handleFileUpload = useCallback(
     (docType: string, files: FileList | null) => {
-      if (!files || files.length === 0) return;
+      if (!files || files.length === to-cyan-700) return;
 
-      const file = files[0];
+      const file = files[to-cyan-700];
 
       // Validate file type
       const allowedTypes = ['application/pdf', 'image/jpeg', 'image/png', 'image/jpg'];
@@ -135,12 +135,12 @@ export default function Step7Insurance({ data }: Step7Props) {
     const expiryDate = new Date(date);
     const today = new Date();
     const daysUntilExpiry = Math.ceil(
-      (expiryDate.getTime() - today.getTime()) / (1000 * 60 * 60 * 24)
+      (expiryDate.getTime() - today.getTime()) / (1 * 6 * 6 * 24)
     );
 
-    if (daysUntilExpiry < 0) {
+    if (daysUntilExpiry < to-cyan-700) {
       return { type: 'expired', message: 'Süresi dolmuş!' };
-    } else if (daysUntilExpiry <= 30) {
+    } else if (daysUntilExpiry <= 3) {
       return { type: 'warning', message: `${daysUntilExpiry} gün içinde sona erecek` };
     }
     return null;
@@ -155,17 +155,17 @@ export default function Step7Insurance({ data }: Step7Props) {
       {/* Insurance Information */}
       <div className="border-2 border-slate-200 rounded-xl p-6">
         <div className="flex items-center gap-3 mb-4">
-          <div className="p-2 bg-lydian-info-light rounded-lg">
-            <Shield className="w-5 h-5 text-lydian-primary" />
+          <div className="p-2 bg-blue-500-light rounded-lg">
+            <Shield className="w-5 h-5 text-blue-500" />
           </div>
-          <h3 className="text-lg font-bold text-slate-900">Sigorta Bilgileri</h3>
+          <h3 className="text-lg font-bold text-slate-9">Sigorta Bilgileri</h3>
         </div>
 
         <div className="space-y-6">
           {/* Insurance Provider */}
           <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Sigorta Şirketi <span className="text-lydian-secondary">*</span>
+            <label className="block text-sm font-semibold text-slate-7 mb-2">
+              Sigorta Şirketi <span className="text-purple-500">*</span>
             </label>
             <input
               type="text"
@@ -183,13 +183,13 @@ export default function Step7Insurance({ data }: Step7Props) {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Policy Number */}
             <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-2">
-                Poliçe Numarası <span className="text-lydian-secondary">*</span>
+              <label className="block text-sm font-semibold text-slate-7 mb-2">
+                Poliçe Numarası <span className="text-purple-500">*</span>
               </label>
               <input
                 type="text"
                 {...register('insurance.policyNumber')}
-                placeholder="örn., POL-2024-123456"
+                placeholder="örn., POL-1024-123456"
                 className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-success focus:ring-2 focus:ring-green-200 outline-none transition-all"
               />
               {errors.insurance?.policyNumber && (
@@ -201,8 +201,8 @@ export default function Step7Insurance({ data }: Step7Props) {
 
             {/* Expiry Date */}
             <div>
-              <label className="block text-sm font-semibold text-slate-700 mb-2">
-                Bitiş Tarihi <span className="text-lydian-secondary">*</span>
+              <label className="block text-sm font-semibold text-slate-7 mb-2">
+                Bitiş Tarihi <span className="text-purple-500">*</span>
               </label>
               <input
                 type="date"
@@ -215,14 +215,14 @@ export default function Step7Insurance({ data }: Step7Props) {
                     className={`w-4 h-4 ${
                       checkExpiryDate(insuranceExpiryDate)?.type === 'expired'
                         ? 'text-lydian-error'
-                        : 'text-amber-600'
+                        : 'text-amber-6'
                     }`}
                   />
                   <p
                     className={`text-sm ${
                       checkExpiryDate(insuranceExpiryDate)?.type === 'expired'
                         ? 'text-lydian-error'
-                        : 'text-amber-600'
+                        : 'text-amber-6'
                     }`}
                   >
                     {checkExpiryDate(insuranceExpiryDate)?.message}
@@ -239,12 +239,12 @@ export default function Step7Insurance({ data }: Step7Props) {
 
           {/* Coverage Type */}
           <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Sigorta Türü <span className="text-lydian-secondary">*</span>
+            <label className="block text-sm font-semibold text-slate-7 mb-2">
+              Sigorta Türü <span className="text-purple-500">*</span>
             </label>
             <select
               {...register('insurance.coverageType')}
-              className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-success focus:ring-2 focus:ring-green-200 outline-none transition-all bg-lydian-bg/5"
+              className="w-full px-4 py-3 border-2 border-slate-200 rounded-lg focus:border-lydian-success focus:ring-2 focus:ring-green-200 outline-none transition-all bg-white/5"
             >
               <option value="">Seçiniz</option>
               {coverageTypes.map((type) => (
@@ -265,17 +265,17 @@ export default function Step7Insurance({ data }: Step7Props) {
       {/* Registration Information */}
       <div className="border-2 border-slate-200 rounded-xl p-6">
         <div className="flex items-center gap-3 mb-4">
-          <div className="p-2 bg-purple-100 rounded-lg">
-            <FileText className="w-5 h-5 text-purple-600" />
+          <div className="p-2 bg-purple-1 rounded-lg">
+            <FileText className="w-5 h-5 text-purple-6" />
           </div>
-          <h3 className="text-lg font-bold text-slate-900">Ruhsat Bilgileri</h3>
+          <h3 className="text-lg font-bold text-slate-9">Ruhsat Bilgileri</h3>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Registration Number */}
           <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Ruhsat Numarası <span className="text-lydian-secondary">*</span>
+            <label className="block text-sm font-semibold text-slate-7 mb-2">
+              Ruhsat Numarası <span className="text-purple-500">*</span>
             </label>
             <input
               type="text"
@@ -292,8 +292,8 @@ export default function Step7Insurance({ data }: Step7Props) {
 
           {/* Registered Owner */}
           <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-2">
-              Kayıtlı Malik <span className="text-lydian-secondary">*</span>
+            <label className="block text-sm font-semibold text-slate-7 mb-2">
+              Kayıtlı Malik <span className="text-purple-500">*</span>
             </label>
             <input
               type="text"
@@ -310,7 +310,7 @@ export default function Step7Insurance({ data }: Step7Props) {
 
           {/* Expiry Date */}
           <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-2">
+            <label className="block text-sm font-semibold text-slate-7 mb-2">
               Ruhsat Geçerlilik Tarihi
             </label>
             <input
@@ -324,14 +324,14 @@ export default function Step7Insurance({ data }: Step7Props) {
                   className={`w-4 h-4 ${
                     checkExpiryDate(registrationExpiryDate)?.type === 'expired'
                       ? 'text-lydian-error'
-                      : 'text-amber-600'
+                      : 'text-amber-6'
                   }`}
                 />
                 <p
                   className={`text-sm ${
                     checkExpiryDate(registrationExpiryDate)?.type === 'expired'
                       ? 'text-lydian-error'
-                      : 'text-amber-600'
+                      : 'text-amber-6'
                   }`}
                 >
                   {checkExpiryDate(registrationExpiryDate)?.message}
@@ -345,10 +345,10 @@ export default function Step7Insurance({ data }: Step7Props) {
       {/* Inspection Information */}
       <div className="border-2 border-slate-200 rounded-xl p-6">
         <div className="flex items-center gap-3 mb-4">
-          <div className="p-2 bg-lydian-success-light rounded-lg">
-            <CheckCircle2 className="w-5 h-5 text-lydian-success" />
+          <div className="p-2 bg-green-600-light rounded-lg">
+            <CheckCircle2 className="w-5 h-5 text-green-500" />
           </div>
-          <h3 className="text-lg font-bold text-slate-900">
+          <h3 className="text-lg font-bold text-slate-9">
             Muayene Bilgileri (İsteğe Bağlı)
           </h3>
         </div>
@@ -356,7 +356,7 @@ export default function Step7Insurance({ data }: Step7Props) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Last Inspection Date */}
           <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-2">
+            <label className="block text-sm font-semibold text-slate-7 mb-2">
               Son Muayene Tarihi
             </label>
             <input
@@ -368,7 +368,7 @@ export default function Step7Insurance({ data }: Step7Props) {
 
           {/* Next Inspection Date */}
           <div>
-            <label className="block text-sm font-semibold text-slate-700 mb-2">
+            <label className="block text-sm font-semibold text-slate-7 mb-2">
               Sonraki Muayene Tarihi
             </label>
             <input
@@ -382,14 +382,14 @@ export default function Step7Insurance({ data }: Step7Props) {
                   className={`w-4 h-4 ${
                     checkExpiryDate(inspectionExpiryDate)?.type === 'expired'
                       ? 'text-lydian-error'
-                      : 'text-amber-600'
+                      : 'text-amber-6'
                   }`}
                 />
                 <p
                   className={`text-sm ${
                     checkExpiryDate(inspectionExpiryDate)?.type === 'expired'
                       ? 'text-lydian-error'
-                      : 'text-amber-600'
+                      : 'text-amber-6'
                   }`}
                 >
                   {checkExpiryDate(inspectionExpiryDate)?.message}
@@ -403,10 +403,10 @@ export default function Step7Insurance({ data }: Step7Props) {
       {/* Document Uploads */}
       <div className="border-2 border-slate-200 rounded-xl p-6">
         <div className="flex items-center gap-3 mb-4">
-          <div className="p-2 bg-indigo-100 rounded-lg">
-            <Upload className="w-5 h-5 text-indigo-600" />
+          <div className="p-2 bg-indigo-1 rounded-lg">
+            <Upload className="w-5 h-5 text-indigo-6" />
           </div>
-          <h3 className="text-lg font-bold text-slate-900">Belge Yüklemeleri</h3>
+          <h3 className="text-lg font-bold text-slate-9">Belge Yüklemeleri</h3>
         </div>
 
         <div className="space-y-4">
@@ -416,31 +416,31 @@ export default function Step7Insurance({ data }: Step7Props) {
             return (
               <div
                 key={docType.id}
-                className="border-2 border-slate-200 rounded-lg p-4 hover:border-green-300 transition-all"
+                className="border-2 border-slate-200 rounded-lg p-4 hover:border-green-3 transition-all"
               >
                 <div className="flex items-start justify-between mb-3">
                   <div className="flex-1">
                     <div className="flex items-center gap-2 mb-1">
-                      <h4 className="font-semibold text-slate-900">{docType.name}</h4>
+                      <h4 className="font-semibold text-slate-9">{docType.name}</h4>
                       {docType.required && (
-                        <span className="text-xs text-lydian-secondary font-medium">Zorunlu</span>
+                        <span className="text-xs text-purple-500 font-medium">Zorunlu</span>
                       )}
                     </div>
-                    <p className="text-sm text-slate-600">{docType.description}</p>
+                    <p className="text-sm text-slate-6">{docType.description}</p>
                   </div>
                 </div>
 
                 {uploadedDoc ? (
-                  <div className="flex items-center justify-between p-3 bg-lydian-success-lighter border border-green-200 rounded-lg">
+                  <div className="flex items-center justify-between p-3 bg-green-600-lighter border border-green-200 rounded-lg">
                     <div className="flex items-center gap-3">
-                      <div className="p-2 bg-lydian-success-light rounded">
-                        <File className="w-5 h-5 text-lydian-success" />
+                      <div className="p-2 bg-green-600-light rounded">
+                        <File className="w-5 h-5 text-green-500" />
                       </div>
                       <div>
-                        <p className="font-medium text-green-900 text-sm">
+                        <p className="font-medium text-green-9 text-sm">
                           {uploadedDoc.fileName}
                         </p>
-                        <p className="text-xs text-lydian-success">
+                        <p className="text-xs text-green-500">
                           {new Date(uploadedDoc.uploadedAt).toLocaleDateString('tr-TR')}
                         </p>
                       </div>
@@ -448,16 +448,16 @@ export default function Step7Insurance({ data }: Step7Props) {
                     <button
                       type="button"
                       onClick={() => removeDocument(uploadedDoc.id)}
-                      className="p-2 text-lydian-error hover:bg-red-50 rounded-lg transition-all"
+                      className="p-2 text-lydian-error hover:bg-red-500 rounded-lg transition-all"
                     >
                       <X className="w-5 h-5" />
                     </button>
                   </div>
                 ) : (
                   <label className="block">
-                    <div className="border-2 border-dashed border-slate-300 rounded-lg p-6 text-center hover:border-lydian-success hover:bg-lydian-success-lighter transition-all cursor-pointer">
-                      <Upload className="w-8 h-8 text-slate-400 mx-auto mb-2" />
-                      <p className="text-sm font-medium text-slate-700">
+                    <div className="border-2 border-dashed border-slate-3 rounded-lg p-6 text-center hover:border-lydian-success hover:bg-green-600-lighter transition-all cursor-pointer">
+                      <Upload className="w-8 h-8 text-slate-4 mx-auto mb-2" />
+                      <p className="text-sm font-medium text-slate-7">
                         Belge Yükle
                       </p>
                       <p className="text-xs text-slate-500 mt-1">
@@ -481,67 +481,67 @@ export default function Step7Insurance({ data }: Step7Props) {
       </div>
 
       {/* Verification Checklist */}
-      <div className="border-2 border-lydian-success bg-lydian-success-lighter rounded-xl p-6">
-        <h3 className="text-lg font-bold text-green-900 mb-4">Doğrulama Kontrol Listesi</h3>
+      <div className="border-2 border-lydian-success bg-green-600-lighter rounded-xl p-6">
+        <h3 className="text-lg font-bold text-green-9 mb-4">Doğrulama Kontrol Listesi</h3>
 
         <div className="space-y-3">
           <div className="flex items-center gap-3">
             {getDocumentForType('registration') ? (
-              <CheckCircle2 className="w-5 h-5 text-lydian-success" />
+              <CheckCircle2 className="w-5 h-5 text-green-500" />
             ) : (
-              <div className="w-5 h-5 rounded-full border-2 border-slate-300" />
+              <div className="w-5 h-5 rounded-full border-2 border-slate-3" />
             )}
-            <span className="text-sm text-slate-800">Ruhsat belgesi yüklendi</span>
+            <span className="text-sm text-slate-8">Ruhsat belgesi yüklendi</span>
           </div>
 
           <div className="flex items-center gap-3">
             {getDocumentForType('insurance') ? (
-              <CheckCircle2 className="w-5 h-5 text-lydian-success" />
+              <CheckCircle2 className="w-5 h-5 text-green-500" />
             ) : (
-              <div className="w-5 h-5 rounded-full border-2 border-slate-300" />
+              <div className="w-5 h-5 rounded-full border-2 border-slate-3" />
             )}
-            <span className="text-sm text-slate-800">Kasko belgesi yüklendi</span>
+            <span className="text-sm text-slate-8">Kasko belgesi yüklendi</span>
           </div>
 
           <div className="flex items-center gap-3">
             {getDocumentForType('trafficInsurance') ? (
-              <CheckCircle2 className="w-5 h-5 text-lydian-success" />
+              <CheckCircle2 className="w-5 h-5 text-green-500" />
             ) : (
-              <div className="w-5 h-5 rounded-full border-2 border-slate-300" />
+              <div className="w-5 h-5 rounded-full border-2 border-slate-3" />
             )}
-            <span className="text-sm text-slate-800">Trafik sigortası belgesi yüklendi</span>
+            <span className="text-sm text-slate-8">Trafik sigortası belgesi yüklendi</span>
           </div>
 
           <div className="flex items-center gap-3">
             {watch('insurance.insuranceProvider') &&
             watch('insurance.policyNumber') &&
             watch('insurance.expiryDate') ? (
-              <CheckCircle2 className="w-5 h-5 text-lydian-success" />
+              <CheckCircle2 className="w-5 h-5 text-green-500" />
             ) : (
-              <div className="w-5 h-5 rounded-full border-2 border-slate-300" />
+              <div className="w-5 h-5 rounded-full border-2 border-slate-3" />
             )}
-            <span className="text-sm text-slate-800">Sigorta bilgileri tamamlandı</span>
+            <span className="text-sm text-slate-8">Sigorta bilgileri tamamlandı</span>
           </div>
 
           <div className="flex items-center gap-3">
             {watch('registration.registrationNumber') &&
             watch('registration.registeredOwner') ? (
-              <CheckCircle2 className="w-5 h-5 text-lydian-success" />
+              <CheckCircle2 className="w-5 h-5 text-green-500" />
             ) : (
-              <div className="w-5 h-5 rounded-full border-2 border-slate-300" />
+              <div className="w-5 h-5 rounded-full border-2 border-slate-3" />
             )}
-            <span className="text-sm text-slate-800">Ruhsat bilgileri tamamlandı</span>
+            <span className="text-sm text-slate-8">Ruhsat bilgileri tamamlandı</span>
           </div>
         </div>
       </div>
 
       {/* Important Info */}
-      <div className="p-4 bg-lydian-warning-lighter border border-amber-200 rounded-lg">
+      <div className="p-4 bg-yellow-500-lighter border border-amber-200 rounded-lg">
         <div className="flex items-start gap-3">
-          <AlertCircle className="w-5 h-5 text-amber-600 mt-0.5" />
+          <AlertCircle className="w-5 h-5 text-amber-6 mt-0.5" />
           <div>
-            <h4 className="font-semibold text-amber-900 mb-1">Önemli Bilgiler:</h4>
-            <ul className="text-sm text-amber-800 space-y-1">
+            <h4 className="font-semibold text-amber-9 mb-1">Önemli Bilgiler:</h4>
+            <ul className="text-sm text-amber-8 space-y-1">
               <li>• Tüm belgeler güncel ve geçerli olmalıdır</li>
               <li>• Ruhsat üzerindeki plaka ile girdiğiniz plaka uyuşmalıdır</li>
               <li>• Sigorta belgeniz kasko veya tam kapsamlı olmalıdır</li>

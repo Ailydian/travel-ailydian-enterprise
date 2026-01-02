@@ -242,7 +242,7 @@ export default function Favorites() {
 
   const getBadgeColor = (badge: string) => {
     const colors: any = {
-      'Popüler': 'from-lydian-primary to-lydian-secondary',
+      'Popüler': 'from-blue-600 to-purple-700',
       'Trend': 'from-lydian-neon-purple to-lydian-neon-blue',
       'Lüks': 'from-yellow-500 to-yellow-600',
       'Premium': 'from-purple-500 to-pink-500',
@@ -266,7 +266,7 @@ export default function Favorites() {
       {/* Back Button */}
       <Link
         href="/"
-        className="fixed top-24 left-6 z-[60] flex items-center gap-2 px-4 py-2.5 bg-lydian-bg/95 backdrop-blur-md rounded-xl shadow-lg border border-lydian-border text-lydian-text-muted hover:bg-gradient-to-r hover:from-lydian-primary hover:to-lydian-secondary hover:text-lydian-text-inverse hover:border-lydian-border transition-all duration-300 group">
+        className="fixed top-24 left-6 z-[60] flex items-center gap-2 px-4 py-2.5 bg-gray-900/95 backdrop-blur-md rounded-xl shadow-lg border border-white/10 text-gray-400 hover:bg-gradient-to-r hover:from-[#667EEA] hover:to-[#764BA2] hover:text-white hover:border-white/20 transition-all duration-300 group">
 
         <ArrowLeft className="w-4 h-4 group-hover:animate-pulse" />
         <span className="font-semibold">Ana Sayfa</span>
@@ -274,18 +274,18 @@ export default function Favorites() {
 
       <main className="pt-8 min-h-screen bg-gradient-to-b from-gray-50 via-white to-gray-50">
         {/* Hero Section - Premium LyDian Design */}
-        <section className="relative bg-gradient-to-br from-lydian-primary via-lydian-secondary to-pink-600 py-20 overflow-hidden">
+        <section className="relative bg-gradient-to-br from-[#667EEA] via-[#764BA2] to-pink-600 py-20 overflow-hidden">
           {/* Animated Background Pattern */}
           <div className="absolute inset-0 opacity-10">
-            <div className="absolute top-0 left-0 w-96 h-96 bg-lydian-bg-hover rounded-full blur-3xl animate-pulse" />
-            <div className="absolute bottom-0 right-0 w-96 h-96 bg-lydian-bg-hover rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+            <div className="absolute top-0 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl animate-pulse" />
+            <div className="absolute bottom-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
           </div>
 
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="text-center text-lydian-text-inverse">
+              className="text-center text-white">
 
               <motion.div
                 initial={{ scale: 0 }}
@@ -299,7 +299,7 @@ export default function Favorites() {
               <h1 className="text-5xl md:text-6xl font-bold mb-4 drop-shadow-lg">
                 Favorilerim
               </h1>
-              <p className="text-xl md:text-2xl text-lydian-text-inverse/90 mb-8 max-w-2xl mx-auto">
+              <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl mx-auto">
                 Beğendiğiniz deneyimleri kaydedin, hayallerini gerçeğe dönüştürün
               </p>
 
@@ -307,7 +307,7 @@ export default function Favorites() {
               <div className="flex flex-wrap justify-center gap-6">
                 <motion.div
                   whileHover={{ scale: 1.05 }}
-                  className="bg-lydian-glass-dark-heavy backdrop-blur-md border-2 border-lydian-border-light rounded-2xl px-8 py-4">
+                  className="bg-white/10 backdrop-blur-xl border border-white/20 backdrop-blur-md border-2 border-white/20 rounded-2xl px-8 py-4">
 
                   <div className="text-4xl font-bold">{favorites.length}</div>
                   <div className="text-sm uppercase tracking-wider">Favori Öğe</div>
@@ -315,7 +315,7 @@ export default function Favorites() {
 
                 <motion.div
                   whileHover={{ scale: 1.05 }}
-                  className="bg-lydian-glass-dark-heavy backdrop-blur-md border-2 border-lydian-border-light rounded-2xl px-8 py-4">
+                  className="bg-white/10 backdrop-blur-xl border border-white/20 backdrop-blur-md border-2 border-white/20 rounded-2xl px-8 py-4">
 
                   <div className="text-4xl font-bold">
                     {favorites.reduce((sum, item) => sum + (item.originalPrice - item.price), 0).toLocaleString('tr-TR')} ₺
@@ -325,7 +325,7 @@ export default function Favorites() {
 
                 <motion.div
                   whileHover={{ scale: 1.05 }}
-                  className="bg-lydian-glass-dark-heavy backdrop-blur-md border-2 border-lydian-border-light rounded-2xl px-8 py-4">
+                  className="bg-white/10 backdrop-blur-xl border border-white/20 backdrop-blur-md border-2 border-white/20 rounded-2xl px-8 py-4">
 
                   <div className="text-4xl font-bold">
                     {(favorites.reduce((sum, item) => sum + item.rating, 0) / favorites.length).toFixed(1)}
@@ -353,8 +353,8 @@ export default function Favorites() {
                     whileTap={{ scale: 0.95 }}
                     className={`flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all shadow-lg ${
                     isActive ?
-                    'bg-gradient-to-r from-lydian-primary to-lydian-secondary text-white shadow-neon' :
-                    'bg-lydian-bg/5 text-gray-200 hover:shadow-xl border border-lydian-border'}`
+                    'bg-gradient-to-r from-[#667EEA] to-[#764BA2] text-white shadow-neon' :
+                    'bg-gray-900/5 text-gray-200 hover:shadow-xl border border-white/10'}`
                     }>
 
                     <Icon className="w-5 h-5" />
@@ -371,11 +371,11 @@ export default function Favorites() {
 
             {/* Sort Dropdown */}
             <div className="flex items-center gap-3">
-              <span className="text-sm font-medium text-lydian-text-dim">Sırala:</span>
+              <span className="text-sm font-medium text-gray-500">Sırala:</span>
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
-                className="px-4 py-3 bg-lydian-bg-hover border-2 border-lydian-border rounded-xl text-sm font-medium focus:ring-2 focus:ring-lydian-primary focus:border-lydian-border shadow-sm hover:shadow-md transition-all">
+                className="px-4 py-3 bg-white/5 backdrop-blur-xl border-2 border-white/10 rounded-xl text-sm font-medium focus:ring-2 focus:ring-blue-500 focus:border-white/20 shadow-sm hover:shadow-md transition-all">
 
                 <option value="date">Eklenme Tarihi</option>
                 <option value="name">İsim</option>
@@ -394,7 +394,7 @@ export default function Favorites() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              className="bg-lydian-bg-hover rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group relative">
+              className="bg-white/5 backdrop-blur-xl rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group relative">
 
                   {/* Image */}
                   <div className="relative h-56 overflow-hidden">
@@ -409,14 +409,14 @@ export default function Favorites() {
 
                     {/* Badge */}
                     {item.badge &&
-                <div className={`absolute top-3 left-3 px-3 py-1.5 rounded-full text-xs font-bold text-lydian-text-inverse bg-gradient-to-r ${getBadgeColor(item.badge)} shadow-lg flex items-center gap-1`}>
+                <div className={`absolute top-3 left-3 px-3 py-1.5 rounded-full text-xs font-bold text-white bg-gradient-to-r ${getBadgeColor(item.badge)} shadow-lg flex items-center gap-1`}>
                         <Sparkles className="w-3 h-3" />
                         {item.badge}
                       </div>
                 }
 
                     {/* Type Badge */}
-                    <div className="absolute top-3 right-3 px-3 py-1.5 rounded-full text-xs font-bold text-lydian-text-inverse bg-black/50 backdrop-blur-sm">
+                    <div className="absolute top-3 right-3 px-3 py-1.5 rounded-full text-xs font-bold text-white bg-black/50 backdrop-blur-sm">
                       {getItemTypeLabel(item.type)}
                     </div>
 
@@ -426,32 +426,32 @@ export default function Favorites() {
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                     onClick={() => shareFavorite(item)}
-                    className="p-2.5 bg-lydian-bg/95 backdrop-blur-sm rounded-full hover:bg-lydian-glass-dark transition-colors shadow-lg"
+                    className="p-2.5 bg-gray-900/95 backdrop-blur-sm rounded-full hover:bg-white/10 transition-colors shadow-lg"
                     title="Paylaş">
 
-                        <Share className="w-4 h-4 text-lydian-primary" />
+                        <Share className="w-4 h-4 text-blue-500" />
                       </motion.button>
                       <motion.button
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                     onClick={() => removeFavorite(item.id)}
-                    className="p-2.5 bg-lydian-bg/95 backdrop-blur-sm rounded-full hover:bg-lydian-glass-dark transition-colors shadow-lg"
+                    className="p-2.5 bg-gray-900/95 backdrop-blur-sm rounded-full hover:bg-white/10 transition-colors shadow-lg"
                     title="Favorilerden Çıkar">
 
-                        <Trash2 className="w-4 h-4 text-lydian-primary" />
+                        <Trash2 className="w-4 h-4 text-red-500" />
                       </motion.button>
                     </div>
 
                     {/* Price */}
                     <div className="absolute bottom-3 left-3 flex items-center gap-2">
-                      <div className="bg-lydian-bg/95 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-lg">
+                      <div className="bg-gray-900/95 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-lg">
                         <div className="flex items-center gap-2">
                           {item.originalPrice &&
-                      <span className="text-xs text-lydian-text-muted line-through">
+                      <span className="text-xs text-gray-400 line-through">
                               {item.originalPrice.toLocaleString('tr-TR')} ₺
                             </span>
                       }
-                          <span className="text-sm font-bold text-lydian-primary">
+                          <span className="text-sm font-bold text-blue-500">
                             {item.price.toLocaleString('tr-TR')} ₺
                           </span>
                         </div>
@@ -462,26 +462,26 @@ export default function Favorites() {
                   {/* Content */}
                   <div className="p-5">
                     <div className="flex items-start justify-between mb-2">
-                      <h3 className="text-lg font-bold text-lydian-text-inverse line-clamp-1 flex-1">
+                      <h3 className="text-lg font-bold text-white line-clamp-1 flex-1">
                         {item.name}
                       </h3>
                       {item.rating &&
-                  <div className="flex items-center gap-1 ml-2 bg-lydian-warning-lighter px-2 py-1 rounded-lg">
-                          <Star className="w-4 h-4 text-lydian-warning fill-current" />
-                          <span className="text-sm font-bold text-lydian-text-inverse">{item.rating}</span>
+                  <div className="flex items-center gap-1 ml-2 bg-yellow-100 px-2 py-1 rounded-lg">
+                          <Star className="w-4 h-4 text-yellow-600 fill-current" />
+                          <span className="text-sm font-bold text-gray-900">{item.rating}</span>
                         </div>
                   }
                     </div>
 
                     {/* Location/Country */}
-                    <div className="flex items-center gap-1.5 text-lydian-text-dim mb-3">
+                    <div className="flex items-center gap-1.5 text-gray-500 mb-3">
                       <MapPin className="w-4 h-4" />
                       <span className="text-sm">{item.location || item.country}</span>
                     </div>
 
                     {/* Description */}
                     {item.description &&
-                <p className="text-sm text-lydian-text-dim mb-4 line-clamp-2">
+                <p className="text-sm text-gray-400 mb-4 line-clamp-2">
                         {item.description}
                       </p>
                 }
@@ -492,7 +492,7 @@ export default function Favorites() {
                         {item.amenities.slice(0, 3).map((amenity) =>
                   <span
                     key={amenity}
-                    className="px-2.5 py-1 bg-gradient-to-r from-blue-50 to-cyan-50 text-lydian-primary-dark text-xs font-medium rounded-lg">
+                    className="px-2.5 py-1 bg-gradient-to-r from-blue-50 to-cyan-50 text-blue-900 text-xs font-medium rounded-lg">
 
                             {amenity}
                           </span>
@@ -501,8 +501,8 @@ export default function Favorites() {
                 }
 
                     {/* Bottom Actions */}
-                    <div className="flex items-center justify-between pt-4 border-t border-lydian-border-light">
-                      <div className="flex items-center gap-1 text-xs text-lydian-text-muted">
+                    <div className="flex items-center justify-between pt-4 border-t border-white/10">
+                      <div className="flex items-center gap-1 text-xs text-gray-400">
                         <Calendar className="w-3 h-3" />
                         {new Date(item.savedDate).toLocaleDateString('tr-TR')}
                       </div>
@@ -511,7 +511,7 @@ export default function Favorites() {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     onClick={() => handleAddToCart(item)}
-                    className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-lydian-primary to-lydian-secondary text-lydian-text-inverse rounded-lg font-semibold hover:shadow-lg transition-all text-sm">
+                    className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#667EEA] to-[#764BA2] text-white rounded-lg font-semibold hover:shadow-lg transition-all text-sm">
 
                         <ShoppingCart className="w-4 h-4" />
                         Sepete Ekle
@@ -527,17 +527,17 @@ export default function Favorites() {
             animate={{ opacity: 1, y: 0 }}
             className="text-center py-20">
 
-              <Heart className="w-32 h-32 text-lydian-text-dim mx-auto mb-6" />
-              <h2 className="text-3xl font-bold text-lydian-text-inverse mb-4">
+              <Heart className="w-32 h-32 text-gray-500 mx-auto mb-6" />
+              <h2 className="text-3xl font-bold text-white mb-4">
                 {selectedFilter === 'all' ? 'Henüz favori eklemediniz' : 'Bu kategoride favori bulunamadı'}
               </h2>
-              <p className="text-lydian-text-dim mb-8 max-w-md mx-auto text-lg">
+              <p className="text-gray-400 mb-8 max-w-md mx-auto text-lg">
                 Beğendiğiniz destinasyonları ve otelleri favorilerinize ekleyerek
                 daha sonra kolayca erişebilirsiniz.
               </p>
               <Link
               href="/"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-lydian-primary to-lydian-secondary text-lydian-text-inverse rounded-xl font-bold hover:shadow-xl transition-all text-lg">
+              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#667EEA] to-[#764BA2] text-white rounded-xl font-bold hover:shadow-xl transition-all text-lg">
 
                 Keşfetmeye Başla
                 <ArrowRight className="w-5 h-5" />
@@ -554,7 +554,7 @@ export default function Favorites() {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 50 }}
-          className="fixed bottom-8 right-8 z-[100] bg-gradient-to-r from-emerald-500 to-green-600 text-lydian-text-inverse px-6 py-4 rounded-xl shadow-2xl flex items-center gap-3">
+          className="fixed bottom-8 right-8 z-[100] bg-gradient-to-r from-emerald-500 to-green-600 text-white px-6 py-4 rounded-xl shadow-2xl flex items-center gap-3">
 
             <CheckCircle className="w-6 h-6" />
             <span className="font-semibold">{toastMessage}</span>

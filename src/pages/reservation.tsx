@@ -28,7 +28,7 @@ import {
 const MapWithNoSSR = dynamic(() => import('@/components/booking/MapSelector'), {
   ssr: false,
   loading: () => (
-    <div className="w-full h-[400px] bg-lydian-bg/5 backdrop-blur-xl rounded-lg border border-white/10 flex items-center justify-center">
+    <div className="w-full h-[400px] bg-white/5 backdrop-blur-xl rounded-lg border border-white/10 flex items-center justify-center">
       <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#00BAFF]"></div>
     </div>
   ),
@@ -217,7 +217,7 @@ export default function ReservationPage() {
   };
 
   return (
-    <div className="min-h-screen bg-lydian-glass-dark">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-black to-slate-800">
       <ModernHeader />
 
       <div className="container mx-auto px-4 py-12">
@@ -229,8 +229,8 @@ export default function ReservationPage() {
         >
           {/* Header */}
           <div className="text-center mb-8">
-            <h1 className="text-4xl font-bold text-lydian-text-inverse mb-2">Rezervasyon Formu</h1>
-            <p className="text-lydian-text-dim">Lütfen bilgilerinizi eksiksiz doldurun</p>
+            <h1 className="text-4xl font-bold text-white mb-2">Rezervasyon Formu</h1>
+            <p className="text-gray-400">Lütfen bilgilerinizi eksiksiz doldurun</p>
           </div>
 
           {/* Selected Product Card */}
@@ -239,11 +239,11 @@ export default function ReservationPage() {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="mb-8 bg-lydian-bg/5 backdrop-blur-xl rounded-2xl shadow-xl border border-white/10 p-6"
+              className="mb-8 bg-white/5 backdrop-blur-xl rounded-2xl shadow-xl border border-white/10 p-6"
             >
               <div className="flex items-center gap-4 mb-4">
                 <Package className="w-6 h-6 text-[#667EEA]" />
-                <h2 className="text-xl font-bold text-lydian-text-inverse">Seçtiğiniz Ürün</h2>
+                <h2 className="text-xl font-bold text-white">Seçtiğiniz Ürün</h2>
               </div>
 
               <div className="flex flex-col md:flex-row gap-6">
@@ -258,13 +258,13 @@ export default function ReservationPage() {
                 )}
 
                 <div className="flex-1">
-                  <h3 className="text-2xl font-bold text-lydian-text-inverse mb-2">
+                  <h3 className="text-2xl font-bold text-white mb-2">
                     {selectedProduct.name}
                   </h3>
 
                   <div className="flex flex-wrap gap-4 mb-3">
                     {selectedProduct.location && (
-                      <div className="flex items-center gap-1 text-lydian-text-dim">
+                      <div className="flex items-center gap-1 text-gray-400">
                         <MapPin className="w-4 h-4" />
                         <span className="text-sm">{selectedProduct.location}</span>
                       </div>
@@ -275,7 +275,7 @@ export default function ReservationPage() {
                         <Star className="w-4 h-4 fill-current" />
                         <span className="text-sm font-medium">{selectedProduct.rating}</span>
                         {selectedProduct.reviews && (
-                          <span className="text-sm text-lydian-text-muted">
+                          <span className="text-sm text-gray-300">
                             ({selectedProduct.reviews})
                           </span>
                         )}
@@ -292,7 +292,7 @@ export default function ReservationPage() {
                   </div>
 
                   {selectedProduct.description && (
-                    <p className="text-lydian-text-dim text-sm mb-3 line-clamp-2">
+                    <p className="text-gray-400 text-sm mb-3 line-clamp-2">
                       {selectedProduct.description}
                     </p>
                   )}
@@ -303,7 +303,7 @@ export default function ReservationPage() {
                     </span>
                     {selectedProduct.originalPrice &&
                       selectedProduct.originalPrice !== selectedProduct.price && (
-                        <span className="text-lg text-lydian-text-muted line-through">
+                        <span className="text-lg text-gray-300 line-through">
                           {selectedProduct.originalPrice}
                         </span>
                       )}
@@ -323,12 +323,12 @@ export default function ReservationPage() {
                       className={`w-12 h-12 rounded-full flex items-center justify-center font-bold transition-all ${
                         currentStep >= step
                           ? 'bg-gradient-to-r from-[#667EEA] to-[#00BAFF] text-white shadow-lg shadow-[#667EEA]/50'
-                          : 'bg-lydian-bg/10 backdrop-blur-xl border border-white/20 text-lydian-text-muted'
+                          : 'bg-lydian-bg/10 backdrop-blur-xl border border-white/20 text-gray-300'
                       }`}
                     >
                       {step}
                     </div>
-                    <span className="text-xs mt-2 text-lydian-text-dim">
+                    <span className="text-xs mt-2 text-gray-400">
                       {step === 1 && 'Konum & Tarih'}
                       {step === 2 && 'Yolcu Bilgileri'}
                       {step === 3 && 'Acenta Gereksinimleri'}
@@ -355,19 +355,19 @@ export default function ReservationPage() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -20 }}
             transition={{ duration: 0.3 }}
-            className="bg-lydian-bg/5 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/10 p-8"
+            className="bg-white/5 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/10 p-8"
           >
             {/* Step 1: Location & Time */}
             {currentStep === 1 && (
               <div className="space-y-6">
-                <h2 className="text-2xl font-bold text-lydian-text-inverse flex items-center gap-2">
+                <h2 className="text-2xl font-bold text-white flex items-center gap-2">
                   <MapPin className="text-[#00BAFF]" />
                   Alınacak Konum ve Zaman
                 </h2>
 
                 {/* Map */}
                 <div>
-                  <label className="block text-sm font-medium text-lydian-text-dim mb-2">
+                  <label className="block text-sm font-medium text-gray-400 mb-2">
                     Haritadan Alınacak Konumu Seçin *
                   </label>
                   <MapWithNoSSR
@@ -379,7 +379,7 @@ export default function ReservationPage() {
                   )}
                   {formData.pickupLocation && (
                     <div className="mt-2 p-3 bg-[#00BAFF]/10 border border-[#00BAFF]/30 rounded-lg">
-                      <p className="text-sm text-lydian-text-dim">
+                      <p className="text-sm text-gray-400">
                         <strong>Seçilen Konum:</strong>{' '}
                         {formData.pickupLocation.address ||
                           `Lat: ${formData.pickupLocation.lat.toFixed(4)}, Lng: ${formData.pickupLocation.lng.toFixed(4)}`}
@@ -391,7 +391,7 @@ export default function ReservationPage() {
                 {/* Date & Time */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-lydian-text-dim mb-2">
+                    <label className="block text-sm font-medium text-gray-400 mb-2">
                       <Calendar className="inline w-4 h-4 mr-1" />
                       Alınacak Tarih *
                     </label>
@@ -405,7 +405,7 @@ export default function ReservationPage() {
                         }))
                       }
                       min={new Date().toISOString().split('T')[0]}
-                      className={`w-full px-4 py-3 bg-lydian-bg/10 backdrop-blur-xl border-2 rounded-2xl text-lydian-text-inverse outline-none transition-all focus:ring-2 focus:ring-[#00BAFF] focus:border-[#00BAFF]/50 [color-scheme:dark] ${
+                      className={`w-full px-4 py-3 bg-lydian-bg/10 backdrop-blur-xl border-2 rounded-2xl text-white outline-none transition-all focus:ring-2 focus:ring-[#00BAFF] focus:border-[#00BAFF]/50 [color-scheme:dark] ${
                         errors.pickupDate ? 'border-red-500' : 'border-white/30'
                       }`}
                     />
@@ -415,7 +415,7 @@ export default function ReservationPage() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-lydian-text-dim mb-2">
+                    <label className="block text-sm font-medium text-gray-400 mb-2">
                       <Clock className="inline w-4 h-4 mr-1" />
                       Alınacak Saat *
                     </label>
@@ -428,7 +428,7 @@ export default function ReservationPage() {
                           pickupTime: e.target.value,
                         }))
                       }
-                      className={`w-full px-4 py-3 bg-lydian-bg/10 backdrop-blur-xl border-2 rounded-2xl text-lydian-text-inverse outline-none transition-all focus:ring-2 focus:ring-[#00BAFF] focus:border-[#00BAFF]/50 ${
+                      className={`w-full px-4 py-3 bg-lydian-bg/10 backdrop-blur-xl border-2 rounded-2xl text-white outline-none transition-all focus:ring-2 focus:ring-[#00BAFF] focus:border-[#00BAFF]/50 ${
                         errors.pickupTime ? 'border-red-500' : 'border-white/30'
                       }`}
                     />
@@ -443,7 +443,7 @@ export default function ReservationPage() {
             {/* Step 2: Passenger Information */}
             {currentStep === 2 && (
               <div className="space-y-6">
-                <h2 className="text-2xl font-bold text-lydian-text-inverse flex items-center gap-2">
+                <h2 className="text-2xl font-bold text-white flex items-center gap-2">
                   <User className="text-[#00BAFF]" />
                   Yolcu Bilgileri
                 </h2>
@@ -506,7 +506,7 @@ export default function ReservationPage() {
                   />
 
                   <div>
-                    <label className="block text-sm font-medium text-lydian-text-dim mb-2">
+                    <label className="block text-sm font-medium text-gray-400 mb-2">
                       <Users className="inline w-4 h-4 mr-1" />
                       Yolcu Sayısı *
                     </label>
@@ -524,7 +524,7 @@ export default function ReservationPage() {
                           },
                         }))
                       }
-                      className={`w-full px-4 py-3 bg-lydian-bg/10 backdrop-blur-xl border-2 rounded-2xl text-lydian-text-inverse outline-none transition-all focus:ring-2 focus:ring-[#00BAFF] focus:border-[#00BAFF]/50 ${
+                      className={`w-full px-4 py-3 bg-lydian-bg/10 backdrop-blur-xl border-2 rounded-2xl text-white outline-none transition-all focus:ring-2 focus:ring-[#00BAFF] focus:border-[#00BAFF]/50 ${
                         errors.passengerCount ? 'border-red-500' : 'border-white/30'
                       }`}
                     />
@@ -534,7 +534,7 @@ export default function ReservationPage() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-lydian-text-dim mb-2">
+                    <label className="block text-sm font-medium text-gray-400 mb-2">
                       <Calendar className="inline w-4 h-4 mr-1" />
                       Doğum Tarihi *
                     </label>
@@ -551,7 +551,7 @@ export default function ReservationPage() {
                         }))
                       }
                       max={new Date().toISOString().split('T')[0]}
-                      className={`w-full px-4 py-3 bg-lydian-bg/10 backdrop-blur-xl border-2 rounded-2xl text-lydian-text-inverse outline-none transition-all focus:ring-2 focus:ring-[#00BAFF] focus:border-[#00BAFF]/50 [color-scheme:dark] ${
+                      className={`w-full px-4 py-3 bg-lydian-bg/10 backdrop-blur-xl border-2 rounded-2xl text-white outline-none transition-all focus:ring-2 focus:ring-[#00BAFF] focus:border-[#00BAFF]/50 [color-scheme:dark] ${
                         errors.dateOfBirth ? 'border-red-500' : 'border-white/30'
                       }`}
                     />
@@ -566,7 +566,7 @@ export default function ReservationPage() {
             {/* Step 3: Agency Requirements */}
             {currentStep === 3 && (
               <div className="space-y-6">
-                <h2 className="text-2xl font-bold text-lydian-text-inverse flex items-center gap-2">
+                <h2 className="text-2xl font-bold text-white flex items-center gap-2">
                   <Shield className="text-[#00BAFF]" />
                   Acenta Gereksinimleri
                 </h2>
@@ -591,7 +591,7 @@ export default function ReservationPage() {
                   />
 
                   <div>
-                    <label className="block text-sm font-medium text-lydian-text-dim mb-2">
+                    <label className="block text-sm font-medium text-gray-400 mb-2">
                       Pasaport Son Kullanma *
                     </label>
                     <input
@@ -607,7 +607,7 @@ export default function ReservationPage() {
                         }))
                       }
                       min={new Date().toISOString().split('T')[0]}
-                      className={`w-full px-4 py-3 bg-lydian-bg/10 backdrop-blur-xl border-2 rounded-2xl text-lydian-text-inverse outline-none transition-all focus:ring-2 focus:ring-[#667EEA] focus:border-[#667EEA]/50 [color-scheme:dark] ${
+                      className={`w-full px-4 py-3 bg-lydian-bg/10 backdrop-blur-xl border-2 rounded-2xl text-white outline-none transition-all focus:ring-2 focus:ring-[#667EEA] focus:border-[#667EEA]/50 [color-scheme:dark] ${
                         errors.passportExpiry ? 'border-red-500' : 'border-white/30'
                       }`}
                     />
@@ -633,7 +633,7 @@ export default function ReservationPage() {
                   />
 
                   <div>
-                    <label className="block text-sm font-medium text-lydian-text-dim mb-2">
+                    <label className="block text-sm font-medium text-gray-400 mb-2">
                       Belge Son Kullanma (Opsiyonel)
                     </label>
                     <input
@@ -649,7 +649,7 @@ export default function ReservationPage() {
                         }))
                       }
                       min={new Date().toISOString().split('T')[0]}
-                      className="w-full px-4 py-3 bg-lydian-bg/10 backdrop-blur-xl border-2 border-white/30 rounded-2xl text-lydian-text-inverse outline-none transition-all focus:ring-2 focus:ring-[#00BAFF] focus:border-[#00BAFF]/50 [color-scheme:dark]"
+                      className="w-full px-4 py-3 bg-lydian-bg/10 backdrop-blur-xl border-2 border-white/30 rounded-2xl text-white outline-none transition-all focus:ring-2 focus:ring-[#00BAFF] focus:border-[#00BAFF]/50 [color-scheme:dark]"
                     />
                   </div>
 
@@ -690,7 +690,7 @@ export default function ReservationPage() {
                   />
 
                   <div className="md:col-span-2">
-                    <label className="block text-sm font-medium text-lydian-text-dim mb-2">
+                    <label className="block text-sm font-medium text-gray-400 mb-2">
                       Özel İstekler (Opsiyonel)
                     </label>
                     <textarea
@@ -706,7 +706,7 @@ export default function ReservationPage() {
                       }
                       rows={4}
                       placeholder="Özel isteklerinizi buraya yazın..."
-                      className="w-full px-4 py-3 bg-lydian-bg/10 backdrop-blur-xl border-2 border-white/30 rounded-2xl text-lydian-text-inverse placeholder-gray-500 outline-none transition-all focus:ring-2 focus:ring-[#00BAFF] focus:border-[#00BAFF]/50"
+                      className="w-full px-4 py-3 bg-lydian-bg/10 backdrop-blur-xl border-2 border-white/30 rounded-2xl text-white placeholder-gray-500 outline-none transition-all focus:ring-2 focus:ring-[#00BAFF] focus:border-[#00BAFF]/50"
                     />
                   </div>
                 </div>

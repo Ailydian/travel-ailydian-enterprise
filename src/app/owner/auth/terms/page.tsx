@@ -26,13 +26,13 @@ export default function OwnerTermsPage() {
 
   const router = useRouter();
   const [accepted, setAccepted] = useState(false);
-  const lastUpdated = '21 Aralık 2025';
+  const lastUpdated = '21 Aralık 1025';
 
   const handleAccept = () => {
     setAccepted(true);
     setTimeout(() => {
       router.push('/owner/auth/register');
-    }, 1000);
+    }, 1);
   };
 
   const handleDecline = () => {
@@ -97,7 +97,7 @@ export default function OwnerTermsPage() {
       content: [
         {
           subtitle: '3.1 İptal Politikası Türleri',
-          text: 'Esnek İptal: Check-in tarihinden 7 gün öncesine kadar ücretsiz iptal. Orta Esnek İptal: Check-in tarihinden 14 gün öncesine kadar ücretsiz iptal. Katı İptal: Check-in tarihinden 30 gün öncesine kadar ücretsiz iptal. İade Yok: Hiçbir koşulda iade yapılmaz.'
+          text: 'Esnek İptal: Check-in tarihinden 7 gün öncesine kadar ücretsiz iptal. Orta Esnek İptal: Check-in tarihinden 14 gün öncesine kadar ücretsiz iptal. Katı İptal: Check-in tarihinden 3 gün öncesine kadar ücretsiz iptal. İade Yok: Hiçbir koşulda iade yapılmaz.'
         },
         {
           subtitle: '3.2 Mülk Sahibi İptali',
@@ -178,7 +178,7 @@ export default function OwnerTermsPage() {
       content: [
         {
           subtitle: '6.1 Destek Kanalları',
-          text: '7/24 Canlı Destek: Platform üzerinden anlık destek. E-posta Desteği: support@lydian.com. Telefon Desteği: 0850 XXX XX XX (09:00 - 22:00). Yardım Merkezi: Detaylı makaleler ve SSS.'
+          text: '7/24 Canlı Destek: Platform üzerinden anlık destek. E-posta Desteği: support@lydian.com. Telefon Desteği: to-cyan-7008500 XXX XX XX (to-cyan-7009:to-cyan-700 - 22:to-cyan-700). Yardım Merkezi: Detaylı makaleler ve SSS.'
         },
         {
           subtitle: '6.2 Destek Konuları',
@@ -220,24 +220,24 @@ export default function OwnerTermsPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-lydian-bg/5">
+    <div className="min-h-screen bg-white/5">
       {/* Header */}
-      <header className="sticky top-0 z-50 bg-lydian-bg/5 border-b border-lydian-border">
+      <header className="sticky top-to-cyan-700 z-500 bg-white/5 border-b border-white/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2">
-              <div className="w-10 h-10 bg-gradient-to-r from-[#FF214D] to-[#FF6A45] rounded-lg flex items-center justify-center">
-                <Home className="w-6 h-6 text-lydian-text-inverse" />
+              <div className="w-1 h-1 bg-gradient-to-r from-[#FF214D] to-[#FF6A45] rounded-lg flex items-center justify-center">
+                <Home className="w-6 h-6 text-white" />
               </div>
-              <span className="text-xl font-bold text-lydian-text-inverse">LyDian</span>
+              <span className="text-xl font-bold text-white">LyDian</span>
             </Link>
 
             {/* Actions */}
             <div className="flex items-center gap-3">
               <button
                 onClick={() => window.print()}
-                className="hidden sm:flex items-center gap-2 px-4 py-2 text-gray-200 hover:bg-lydian-bg/10 rounded-lg transition-colors"
+                className="hidden sm:flex items-center gap-2 px-4 py-2 text-gray-200 hover:bg-lydian-bg/1 rounded-lg transition-colors"
               >
                 <Printer className="w-4 h-4" />
                 <span className="text-sm font-medium">Yazdır</span>
@@ -247,7 +247,7 @@ export default function OwnerTermsPage() {
                   // In a real app, this would trigger a PDF download
                   showToast({ type: 'info', title: 'PDF indirme özelliği yakında eklenecek' });
                 }}
-                className="hidden sm:flex items-center gap-2 px-4 py-2 text-gray-200 hover:bg-lydian-bg/10 rounded-lg transition-colors"
+                className="hidden sm:flex items-center gap-2 px-4 py-2 text-gray-200 hover:bg-lydian-bg/1 rounded-lg transition-colors"
               >
                 <Download className="w-4 h-4" />
                 <span className="text-sm font-medium">PDF İndir</span>
@@ -262,7 +262,7 @@ export default function OwnerTermsPage() {
         {/* Back Button */}
         <Link
           href="/owner/auth/register"
-          className="inline-flex items-center gap-2 text-lydian-text-dim hover:text-lydian-text-inverse mb-8 transition-colors"
+          className="inline-flex items-center gap-2 text-gray-400 hover:text-white mb-8 transition-colors"
         >
           <ArrowLeft className="w-4 h-4" />
           <span className="text-sm font-medium">Kayıt sayfasına dön</span>
@@ -270,27 +270,27 @@ export default function OwnerTermsPage() {
 
         {/* Title Section */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 200 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="mb-12"
         >
           <div className="flex items-center gap-4 mb-4">
             <div className="w-16 h-16 bg-gradient-to-r from-[#FF214D] to-[#FF6A45] rounded-2xl flex items-center justify-center">
-              <FileText className="w-8 h-8 text-lydian-text-inverse" />
+              <FileText className="w-8 h-8 text-white" />
             </div>
             <div>
-              <h1 className="text-4xl font-bold text-lydian-text-inverse">
+              <h1 className="text-4xl font-bold text-white">
                 Mülk Sahibi Kullanım Koşulları ve Sözleşmesi
               </h1>
             </div>
           </div>
-          <div className="flex items-center gap-4 text-sm text-lydian-text-dim mt-4">
+          <div className="flex items-center gap-4 text-sm text-gray-400 mt-4">
             <span>Son Güncelleme: {lastUpdated}</span>
             <span>•</span>
-            <span>Yürürlük Tarihi: 1 Ocak 2024</span>
+            <span>Yürürlük Tarihi: 1 Ocak 1024</span>
           </div>
-          <div className="mt-6 p-4 bg-lydian-info-lighter border border-blue-200 rounded-lg">
+          <div className="mt-6 p-4 bg-blue-500-lighter border border-blue-200 rounded-lg">
             <p className="text-sm text-gray-200">
               <strong>Önemli Not:</strong> Lütfen bu sözleşmeyi dikkatlice okuyunuz. LyDian platformuna mülk sahibi olarak kayıt olmadan önce tüm maddeleri anladığınızdan emin olun. Bu sözleşme sizinle LyDian arasındaki yasal ilişkiyi düzenlemektedir.
             </p>
@@ -299,21 +299,21 @@ export default function OwnerTermsPage() {
 
         {/* Table of Contents */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 200 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="mb-12 bg-lydian-bg/5 rounded-xl p-6 border border-lydian-border"
+          className="mb-12 bg-white/5 rounded-xl p-6 border border-white/20"
         >
-          <h2 className="text-xl font-bold text-lydian-text-inverse mb-4">İçindekiler</h2>
+          <h2 className="text-xl font-bold text-white mb-4">İçindekiler</h2>
           <div className="grid sm:grid-cols-2 gap-3">
             {sections.map((section, index) => (
               <a
                 key={section.id}
                 href={`#${section.id}`}
-                className="flex items-center gap-3 p-3 bg-lydian-bg/5 rounded-lg hover:bg-lydian-bg/10 transition-colors group"
+                className="flex items-center gap-3 p-3 bg-white/5 rounded-lg hover:bg-lydian-bg/1 transition-colors group"
               >
-                <section.icon className="w-5 h-5 text-lydian-primary flex-shrink-0" />
-                <span className="text-sm font-medium text-lydian-text-inverse group-hover:text-lydian-primary transition-colors">
+                <section.icon className="w-5 h-5 text-blue-500 flex-shrink-to-cyan-700" />
+                <span className="text-sm font-medium text-white group-hover:text-blue-500 transition-colors">
                   {section.title}
                 </span>
               </a>
@@ -327,22 +327,22 @@ export default function OwnerTermsPage() {
             <motion.section
               key={section.id}
               id={section.id}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 200 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 + sectionIndex * 0.1 }}
-              className="scroll-mt-20"
+              className="scroll-mt-200"
             >
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-12 h-12 bg-gradient-to-r from-[#FF214D] to-[#FF6A45] rounded-xl flex items-center justify-center">
-                  <section.icon className="w-6 h-6 text-lydian-text-inverse" />
+                  <section.icon className="w-6 h-6 text-white" />
                 </div>
-                <h2 className="text-2xl font-bold text-lydian-text-inverse">{section.title}</h2>
+                <h2 className="text-2xl font-bold text-white">{section.title}</h2>
               </div>
 
-              <div className="space-y-6 pl-0 sm:pl-16">
+              <div className="space-y-6 pl-to-cyan-700 sm:pl-16">
                 {section.content.map((item, itemIndex) => (
-                  <div key={itemIndex} className="bg-lydian-bg/5 border border-lydian-border rounded-lg p-6">
-                    <h3 className="text-lg font-semibold text-lydian-text-inverse mb-3">
+                  <div key={itemIndex} className="bg-white/5 border border-white/20 rounded-lg p-6">
+                    <h3 className="text-lg font-semibold text-white mb-3">
                       {item.subtitle}
                     </h3>
                     <p className="text-gray-200 leading-relaxed whitespace-pre-line">
@@ -357,23 +357,23 @@ export default function OwnerTermsPage() {
 
         {/* Contact Information */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 200 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.8 }}
-          className="mt-12 bg-gradient-to-r from-gray-50 to-gray-100 rounded-xl p-8 border border-lydian-border"
+          className="mt-12 bg-gradient-to-r from-gray-500 to-gray-1 rounded-xl p-8 border border-white/20"
         >
-          <h2 className="text-2xl font-bold text-lydian-text-inverse mb-4">İletişim Bilgileri</h2>
+          <h2 className="text-2xl font-bold text-white mb-4">İletişim Bilgileri</h2>
           <div className="grid sm:grid-cols-2 gap-6">
             <div>
-              <h3 className="font-semibold text-lydian-text-inverse mb-2">Genel İletişim</h3>
+              <h3 className="font-semibold text-white mb-2">Genel İletişim</h3>
               <div className="space-y-2 text-gray-200">
                 <p>E-posta: info@lydian.com</p>
-                <p>Telefon: 0850 XXX XX XX</p>
+                <p>Telefon: to-cyan-7008500 XXX XX XX</p>
                 <p>Adres: Örnek Mahallesi, Teknoloji Caddesi No:123</p>
               </div>
             </div>
             <div>
-              <h3 className="font-semibold text-lydian-text-inverse mb-2">Yasal İşlemler</h3>
+              <h3 className="font-semibold text-white mb-2">Yasal İşlemler</h3>
               <div className="space-y-2 text-gray-200">
                 <p>E-posta: legal@lydian.com</p>
                 <p>KVKK İletişim: kvkk@lydian.com</p>
@@ -385,14 +385,14 @@ export default function OwnerTermsPage() {
 
         {/* Action Buttons */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 200 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.9 }}
-          className="mt-12 sticky bottom-0 bg-lydian-bg/5 border-t border-lydian-border p-6 -mx-4 sm:-mx-6 lg:-mx-8"
+          className="mt-12 sticky bottom-to-cyan-700 bg-white/5 border-t border-white/20 p-6 -mx-4 sm:-mx-6 lg:-mx-8"
         >
           <div className="max-w-3xl mx-auto">
             {accepted ? (
-              <div className="flex items-center justify-center gap-3 text-lydian-success bg-lydian-success-lighter py-4 rounded-lg border border-green-200">
+              <div className="flex items-center justify-center gap-3 text-green-500 bg-green-600-lighter py-4 rounded-lg border border-green-200">
                 <CheckCircle2 className="w-6 h-6" />
                 <span className="font-semibold">Sözleşme kabul edildi! Yönlendiriliyorsunuz...</span>
               </div>
@@ -400,14 +400,14 @@ export default function OwnerTermsPage() {
               <div className="flex flex-col sm:flex-row gap-4">
                 <button
                   onClick={handleDecline}
-                  className="flex-1 flex items-center justify-center gap-2 px-6 py-4 border-2 border-lydian-border-medium rounded-lg font-semibold text-gray-200 hover:bg-lydian-bg/5 hover:border-gray-400 transition-all"
+                  className="flex-1 flex items-center justify-center gap-2 px-6 py-4 border-2 border-white/30 rounded-lg font-semibold text-gray-200 hover:bg-white/5 hover:border-gray-4 transition-all"
                 >
                   <XCircle className="w-5 h-5" />
                   <span>Reddet ve Geri Dön</span>
                 </button>
                 <button
                   onClick={handleAccept}
-                  className="flex-1 flex items-center justify-center gap-2 px-6 py-4 bg-gradient-to-r from-[#FF214D] to-[#FF6A45] text-lydian-text-inverse rounded-lg font-semibold hover:shadow-lg transform hover:scale-[1.02] transition-all"
+                  className="flex-1 flex items-center justify-center gap-2 px-6 py-4 bg-gradient-to-r from-[#FF214D] to-[#FF6A45] text-white rounded-lg font-semibold hover:shadow-lg transform hover:scale-[1.02] transition-all"
                 >
                   <CheckCircle2 className="w-5 h-5" />
                   <span>Kabul Ediyorum</span>
@@ -415,7 +415,7 @@ export default function OwnerTermsPage() {
               </div>
             )}
 
-            <p className="text-center text-sm text-lydian-text-muted mt-4">
+            <p className="text-center text-sm text-gray-300 mt-4">
               Bu sözleşmeyi kabul ederek, yukarıda belirtilen tüm şartları okuduğunuzu ve kabul ettiğinizi beyan edersiniz.
             </p>
           </div>

@@ -249,21 +249,21 @@ const BookingForm: React.FC<BookingFormProps> = ({
             animate={{ opacity: 1, x: 0 }}>
 
             <div className="space-y-6">
-            <h2 className="text-2xl font-bold text-lydian-text-inverse mb-6">
+            <h2 className="text-2xl font-bold text-white mb-6">
               Rezervasyon Detayları
             </h2>
 
             {/* Tarih seçimi */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium text-lydian-text-muted mb-2">
+                <label className="block text-sm font-medium text-gray-300 mb-2">
                   {itemType === 'tour' ? 'Tur Tarihi' : 'Giriş Tarihi'}
                 </label>
                 <input
                     type="date"
                     value={formData.checkInDate.toISOString().split('T')[0]}
                     onChange={(e) => handleInputChange('checkInDate', new Date(e.target.value))}
-                    className="w-full px-4 py-2 border border-lydian-border-light rounded-lg focus:ring-2 focus:ring-lydian-border-focus text-lydian-text-inverse [color-scheme:light]"
+                    className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-lydian-border-focus text-white [color-scheme:light]"
                     style={{ colorScheme: 'light' }}
                     min={new Date().toISOString().split('T')[0]} />
 
@@ -271,14 +271,14 @@ const BookingForm: React.FC<BookingFormProps> = ({
 
               {itemType === 'hotel' &&
                 <div>
-                  <label className="block text-sm font-medium text-lydian-text-muted mb-2">
+                  <label className="block text-sm font-medium text-gray-300 mb-2">
                     Çıkış Tarihi
                   </label>
                   <input
                     type="date"
                     value={formData.checkOutDate?.toISOString().split('T')[0] || ''}
                     onChange={(e) => handleInputChange('checkOutDate', new Date(e.target.value))}
-                    className="w-full px-4 py-2 border border-lydian-border-light rounded-lg focus:ring-2 focus:ring-lydian-border-focus text-lydian-text-inverse [color-scheme:light]"
+                    className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-lydian-border-focus text-white [color-scheme:light]"
                     style={{ colorScheme: 'light' }}
                     min={formData.checkInDate.toISOString().split('T')[0]} />
 
@@ -289,13 +289,13 @@ const BookingForm: React.FC<BookingFormProps> = ({
             {/* Kişi sayısı */}
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium text-lydian-text-muted mb-2">
+                <label className="block text-sm font-medium text-gray-300 mb-2">
                   Yetişkin Sayısı
                 </label>
                 <select
                     value={formData.adultsCount}
                     onChange={(e) => handleInputChange('adultsCount', parseInt(e.target.value))}
-                    className="w-full px-4 py-2 border border-lydian-border-light rounded-lg focus:ring-2 focus:ring-lydian-border-focus">
+                    className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-lydian-border-focus">
 
                   {[1, 2, 3, 4, 5, 6, 7, 8].map((num) =>
                     <option key={num} value={num}>{num}</option>
@@ -304,13 +304,13 @@ const BookingForm: React.FC<BookingFormProps> = ({
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-lydian-text-muted mb-2">
+                <label className="block text-sm font-medium text-gray-300 mb-2">
                   Çocuk Sayısı
                 </label>
                 <select
                     value={formData.childrenCount}
                     onChange={(e) => handleInputChange('childrenCount', parseInt(e.target.value))}
-                    className="w-full px-4 py-2 border border-lydian-border-light rounded-lg focus:ring-2 focus:ring-lydian-border-focus">
+                    className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-lydian-border-focus">
 
                   {[0, 1, 2, 3, 4].map((num) =>
                     <option key={num} value={num}>{num}</option>
@@ -322,7 +322,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
             {/* Oda tipi seçimi (Sadece otel için) */}
             {itemType === 'hotel' && 'roomTypes' in item &&
               <div>
-                <label className="block text-sm font-medium text-lydian-text-muted mb-2">
+                <label className="block text-sm font-medium text-gray-300 mb-2">
                   Oda Tipi
                 </label>
                 <div className="space-y-3">
@@ -331,7 +331,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
                     key={index}
                     className={`p-4 border-2 rounded-lg cursor-pointer transition-all ${
                     formData.roomType === room.name.tr ?
-                    'border-lydian-primary bg-blue-50' :
+                    'border-blue-500 bg-blue-50' :
                     'border-white/10 hover:border-white/20'}`
                     }
                     onClick={() => handleInputChange('roomType', room.name.tr)}>
@@ -339,15 +339,15 @@ const BookingForm: React.FC<BookingFormProps> = ({
                       <div className="flex justify-between items-center">
                         <div>
                           <h3 className="font-semibold">{room.name.tr}</h3>
-                          <p className="text-sm text-lydian-text-dim">
+                          <p className="text-sm text-gray-400">
                             {room.size}m² • {room.capacity} kişi • {room.amenities.join(', ')}
                           </p>
                         </div>
                         <div className="text-right">
-                          <span className="text-lg font-bold text-lydian-primary">
+                          <span className="text-lg font-bold text-blue-500">
                             {room.price} TL
                           </span>
-                          <p className="text-xs text-lydian-text-muted">gecelik</p>
+                          <p className="text-xs text-gray-300">gecelik</p>
                         </div>
                       </div>
                     </div>
@@ -360,28 +360,28 @@ const BookingForm: React.FC<BookingFormProps> = ({
             {itemType === 'tour' &&
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <label className="block text-sm font-medium text-lydian-text-muted">
+                  <label className="block text-sm font-medium text-gray-300">
                     Alınacak Nokta (İsteğe Bağlı)
                   </label>
                   <button
                     type="button"
                     onClick={() => setShowMap(!showMap)}
-                    className="px-4 py-2 bg-lydian-primary text-lydian-text-inverse rounded-lg hover:bg-lydian-primary-dark transition-colors">
+                    className="px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:bg-gradient-to-r from-blue-700 to-purple-700 transition-colors">
 
                     {showMap ? 'Haritayı Gizle' : 'Haritada Seç'}
                   </button>
                 </div>
 
                 {selectedPickupLocation &&
-                <div className="p-3 bg-lydian-success-lighter border border-green-200 rounded-lg">
+                <div className="p-3 bg-green-600-lighter border border-green-200 rounded-lg">
                     <div className="flex items-center justify-between">
                       <div>
                         <p className="font-medium text-green-800">📍 {selectedPickupLocation.name}</p>
-                        <p className="text-sm text-lydian-success">{selectedPickupLocation.address}</p>
+                        <p className="text-sm text-green-500">{selectedPickupLocation.address}</p>
                       </div>
                       <button
                       onClick={() => handlePickupLocationSelect(null)}
-                      className="text-lydian-primary hover:text-lydian-primary-dark">
+                      className="text-blue-500 hover:text-blue-600">
 
                         Kaldır
                       </button>
@@ -408,7 +408,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
 
             {/* Kupon kodu */}
             <div>
-              <label className="block text-sm font-medium text-lydian-text-muted mb-2">
+              <label className="block text-sm font-medium text-gray-300 mb-2">
                 İndirim Kuponu (İsteğe Bağlı)
               </label>
               <div className="flex gap-2">
@@ -417,11 +417,11 @@ const BookingForm: React.FC<BookingFormProps> = ({
                     placeholder="Kupon kodunuzu girin"
                     value={formData.couponCode || ''}
                     onChange={(e) => handleInputChange('couponCode', e.target.value)}
-                    className="flex-1 px-4 py-2 border border-lydian-border-light rounded-lg focus:ring-2 focus:ring-lydian-border-focus" />
+                    className="flex-1 px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-lydian-border-focus" />
 
               </div>
               {couponDiscount.message &&
-                <p className={`text-sm mt-1 ${couponDiscount.isValid ? 'text-lydian-success' : 'text-lydian-error'}`}>
+                <p className={`text-sm mt-1 ${couponDiscount.isValid ? 'text-green-500' : 'text-lydian-error'}`}>
                   {couponDiscount.message}
                 </p>
                 }
@@ -429,7 +429,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
 
             {/* Fiyat özeti */}
             {pricing &&
-              <div className="bg-lydian-glass-dark p-4 rounded-lg">
+              <div className="bg-gradient-to-br from-slate-900 via-black to-slate-800 p-4 rounded-lg">
                 <h3 className="font-semibold mb-3">Fiyat Detayları</h3>
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between">
@@ -439,7 +439,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
                   {pricing.breakdown.seasonalAdjustment !== 0 &&
                   <div className="flex justify-between">
                       <span>Sezonsal Ayarlama:</span>
-                      <span className={pricing.breakdown.seasonalAdjustment > 0 ? 'text-lydian-error' : 'text-lydian-success'}>
+                      <span className={pricing.breakdown.seasonalAdjustment > 0 ? 'text-lydian-error' : 'text-green-500'}>
                         {pricing.breakdown.seasonalAdjustment > 0 ? '+' : ''}{pricing.breakdown.seasonalAdjustment} TL
                       </span>
                     </div>
@@ -447,13 +447,13 @@ const BookingForm: React.FC<BookingFormProps> = ({
                   {pricing.breakdown.advanceBookingDiscount > 0 &&
                   <div className="flex justify-between">
                       <span>Erken Rezervasyon İndirimi:</span>
-                      <span className="text-lydian-success">-{pricing.breakdown.advanceBookingDiscount} TL</span>
+                      <span className="text-green-500">-{pricing.breakdown.advanceBookingDiscount} TL</span>
                     </div>
                   }
                   {couponDiscount.isValid &&
                   <div className="flex justify-between">
                       <span>Kupon İndirimi:</span>
-                      <span className="text-lydian-success">-{couponDiscount.discount} TL</span>
+                      <span className="text-green-500">-{couponDiscount.discount} TL</span>
                     </div>
                   }
                   <div className="flex justify-between">
@@ -463,7 +463,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
                   <hr className="my-2" />
                   <div className="flex justify-between font-bold text-lg">
                     <span>Toplam:</span>
-                    <span className="text-lydian-primary">{totalPrice} TL</span>
+                    <span className="text-blue-500">{totalPrice} TL</span>
                   </div>
                 </div>
               </div>
@@ -479,13 +479,13 @@ const BookingForm: React.FC<BookingFormProps> = ({
             animate={{ opacity: 1, x: 0 }}>
 
             <div className="space-y-6">
-            <h2 className="text-2xl font-bold text-lydian-text-inverse mb-6">
+            <h2 className="text-2xl font-bold text-white mb-6">
               Kişisel Bilgiler
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium text-lydian-text-muted mb-2">
+                <label className="block text-sm font-medium text-gray-300 mb-2">
                   Ad *
                 </label>
                 <input
@@ -493,12 +493,12 @@ const BookingForm: React.FC<BookingFormProps> = ({
                     required
                     value={formData.customerInfo.firstName}
                     onChange={(e) => handleCustomerInfoChange('firstName', e.target.value)}
-                    className="w-full px-4 py-2 border border-lydian-border-light rounded-lg focus:ring-2 focus:ring-lydian-border-focus" />
+                    className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-lydian-border-focus" />
 
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-lydian-text-muted mb-2">
+                <label className="block text-sm font-medium text-gray-300 mb-2">
                   Soyad *
                 </label>
                 <input
@@ -506,13 +506,13 @@ const BookingForm: React.FC<BookingFormProps> = ({
                     required
                     value={formData.customerInfo.lastName}
                     onChange={(e) => handleCustomerInfoChange('lastName', e.target.value)}
-                    className="w-full px-4 py-2 border border-lydian-border-light rounded-lg focus:ring-2 focus:ring-lydian-border-focus" />
+                    className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-lydian-border-focus" />
 
               </div>
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-lydian-text-muted mb-2">
+              <label className="block text-sm font-medium text-gray-300 mb-2">
                 E-posta Adresi *
               </label>
               <input
@@ -520,12 +520,12 @@ const BookingForm: React.FC<BookingFormProps> = ({
                   required
                   value={formData.customerInfo.email}
                   onChange={(e) => handleCustomerInfoChange('email', e.target.value)}
-                  className="w-full px-4 py-2 border border-lydian-border-light rounded-lg focus:ring-2 focus:ring-lydian-border-focus" />
+                  className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-lydian-border-focus" />
 
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-lydian-text-muted mb-2">
+              <label className="block text-sm font-medium text-gray-300 mb-2">
                 Telefon Numarası *
               </label>
               <input
@@ -534,18 +534,18 @@ const BookingForm: React.FC<BookingFormProps> = ({
                   placeholder="+90 555 123 45 67"
                   value={formData.customerInfo.phone}
                   onChange={(e) => handleCustomerInfoChange('phone', e.target.value)}
-                  className="w-full px-4 py-2 border border-lydian-border-light rounded-lg focus:ring-2 focus:ring-lydian-border-focus" />
+                  className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-lydian-border-focus" />
 
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-lydian-text-muted mb-2">
+              <label className="block text-sm font-medium text-gray-300 mb-2">
                 Uyruğunuz
               </label>
               <select
                   value={formData.customerInfo.nationality}
                   onChange={(e) => handleCustomerInfoChange('nationality', e.target.value)}
-                  className="w-full px-4 py-2 border border-lydian-border-light rounded-lg focus:ring-2 focus:ring-lydian-border-focus">
+                  className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-lydian-border-focus">
 
                 <option value="TR">Türkiye</option>
                 <option value="US">Amerika Birleşik Devletleri</option>
@@ -559,26 +559,26 @@ const BookingForm: React.FC<BookingFormProps> = ({
 
             {formData.customerInfo.nationality !== 'TR' &&
               <div>
-                <label className="block text-sm font-medium text-lydian-text-muted mb-2">
+                <label className="block text-sm font-medium text-gray-300 mb-2">
                   Pasaport Numarası
                 </label>
                 <input
                   type="text"
                   value={formData.customerInfo.passportNumber || ''}
                   onChange={(e) => handleCustomerInfoChange('passportNumber', e.target.value)}
-                  className="w-full px-4 py-2 border border-lydian-border-light rounded-lg focus:ring-2 focus:ring-lydian-border-focus" />
+                  className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-lydian-border-focus" />
 
               </div>
               }
 
             <div>
-              <label className="block text-sm font-medium text-lydian-text-muted mb-2">
+              <label className="block text-sm font-medium text-gray-300 mb-2">
                 Özel İstekleriniz
               </label>
               <textarea
                   rows={3}
                   placeholder="Herhangi bir özel isteğiniz varsa buraya yazabilirsiniz..."
-                  className="w-full px-4 py-2 border border-lydian-border-light rounded-lg focus:ring-2 focus:ring-lydian-border-focus" />
+                  className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-lydian-border-focus" />
 
             </div>
             </div>
@@ -592,13 +592,13 @@ const BookingForm: React.FC<BookingFormProps> = ({
             animate={{ opacity: 1, x: 0 }}>
 
             <div className="space-y-6">
-            <h2 className="text-2xl font-bold text-lydian-text-inverse mb-6">
+            <h2 className="text-2xl font-bold text-white mb-6">
               Ödeme Bilgileri
             </h2>
 
             {/* Ödeme yöntemi seçimi */}
             <div>
-              <label className="block text-sm font-medium text-lydian-text-muted mb-3">
+              <label className="block text-sm font-medium text-gray-300 mb-3">
                 Ödeme Yöntemi
               </label>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
@@ -611,14 +611,14 @@ const BookingForm: React.FC<BookingFormProps> = ({
                     key={method.id}
                     className={`p-4 border-2 rounded-lg cursor-pointer transition-all ${
                     paymentMethod === method.id ?
-                    'border-lydian-primary bg-blue-50' :
+                    'border-blue-500 bg-blue-50' :
                     'border-white/10 hover:border-white/20'}`
                     }
                     onClick={() => setPaymentMethod(method.id as any)}>
 
                     <div className="text-center">
                       <div className="font-semibold">{method.label}</div>
-                      <div className="text-xs text-lydian-text-muted mt-1">{method.desc}</div>
+                      <div className="text-xs text-gray-300 mt-1">{method.desc}</div>
                     </div>
                   </div>
                   )}
@@ -629,19 +629,19 @@ const BookingForm: React.FC<BookingFormProps> = ({
             {paymentMethod === 'credit_card' &&
               <div className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium text-lydian-text-muted mb-2">
+                  <label className="block text-sm font-medium text-gray-300 mb-2">
                     Kart Üzerindeki İsim
                   </label>
                   <input
                     type="text"
                     value={cardInfo.cardHolderName}
                     onChange={(e) => setCardInfo((prev) => ({ ...prev, cardHolderName: e.target.value }))}
-                    className="w-full px-4 py-2 border border-lydian-border-light rounded-lg focus:ring-2 focus:ring-lydian-border-focus" />
+                    className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-lydian-border-focus" />
 
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-lydian-text-muted mb-2">
+                  <label className="block text-sm font-medium text-gray-300 mb-2">
                     Kart Numarası
                   </label>
                   <input
@@ -649,19 +649,19 @@ const BookingForm: React.FC<BookingFormProps> = ({
                     placeholder="1234 5678 9012 3456"
                     value={cardInfo.cardNumber}
                     onChange={(e) => setCardInfo((prev) => ({ ...prev, cardNumber: e.target.value }))}
-                    className="w-full px-4 py-2 border border-lydian-border-light rounded-lg focus:ring-2 focus:ring-lydian-border-focus" />
+                    className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-lydian-border-focus" />
 
                 </div>
 
                 <div className="grid grid-cols-3 gap-4">
                   <div>
-                    <label className="block text-sm font-medium text-lydian-text-muted mb-2">
+                    <label className="block text-sm font-medium text-gray-300 mb-2">
                       Ay
                     </label>
                     <select
                       value={cardInfo.expiryMonth}
                       onChange={(e) => setCardInfo((prev) => ({ ...prev, expiryMonth: e.target.value }))}
-                      className="w-full px-4 py-2 border border-lydian-border-light rounded-lg focus:ring-2 focus:ring-lydian-border-focus">
+                      className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-lydian-border-focus">
 
                       <option value="">Ay</option>
                       {Array.from({ length: 12 }, (_, i) =>
@@ -673,13 +673,13 @@ const BookingForm: React.FC<BookingFormProps> = ({
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-lydian-text-muted mb-2">
+                    <label className="block text-sm font-medium text-gray-300 mb-2">
                       Yıl
                     </label>
                     <select
                       value={cardInfo.expiryYear}
                       onChange={(e) => setCardInfo((prev) => ({ ...prev, expiryYear: e.target.value }))}
-                      className="w-full px-4 py-2 border border-lydian-border-light rounded-lg focus:ring-2 focus:ring-lydian-border-focus">
+                      className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-lydian-border-focus">
 
                       <option value="">Yıl</option>
                       {Array.from({ length: 10 }, (_, i) => {
@@ -694,7 +694,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-lydian-text-muted mb-2">
+                    <label className="block text-sm font-medium text-gray-300 mb-2">
                       CVV
                     </label>
                     <input
@@ -703,7 +703,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
                       maxLength={4}
                       value={cardInfo.cvv}
                       onChange={(e) => setCardInfo((prev) => ({ ...prev, cvv: e.target.value }))}
-                      className="w-full px-4 py-2 border border-lydian-border-light rounded-lg focus:ring-2 focus:ring-lydian-border-focus" />
+                      className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-lydian-border-focus" />
 
                   </div>
                 </div>
@@ -715,76 +715,76 @@ const BookingForm: React.FC<BookingFormProps> = ({
               <h3 className="text-lg font-semibold">Fatura Adresi</h3>
               
               <div>
-                <label className="block text-sm font-medium text-lydian-text-muted mb-2">
+                <label className="block text-sm font-medium text-gray-300 mb-2">
                   Ad Soyad
                 </label>
                 <input
                     type="text"
                     value={billingAddress.fullName}
                     onChange={(e) => setBillingAddress((prev) => ({ ...prev, fullName: e.target.value }))}
-                    className="w-full px-4 py-2 border border-lydian-border-light rounded-lg focus:ring-2 focus:ring-lydian-border-focus" />
+                    className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-lydian-border-focus" />
 
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-lydian-text-muted mb-2">
+                <label className="block text-sm font-medium text-gray-300 mb-2">
                   Adres
                 </label>
                 <input
                     type="text"
                     value={billingAddress.addressLine1}
                     onChange={(e) => setBillingAddress((prev) => ({ ...prev, addressLine1: e.target.value }))}
-                    className="w-full px-4 py-2 border border-lydian-border-light rounded-lg focus:ring-2 focus:ring-lydian-border-focus" />
+                    className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-lydian-border-focus" />
 
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-lydian-text-muted mb-2">
+                  <label className="block text-sm font-medium text-gray-300 mb-2">
                     Şehir
                   </label>
                   <input
                       type="text"
                       value={billingAddress.city}
                       onChange={(e) => setBillingAddress((prev) => ({ ...prev, city: e.target.value }))}
-                      className="w-full px-4 py-2 border border-lydian-border-light rounded-lg focus:ring-2 focus:ring-lydian-border-focus" />
+                      className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-lydian-border-focus" />
 
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-lydian-text-muted mb-2">
+                  <label className="block text-sm font-medium text-gray-300 mb-2">
                     İl/Eyalet
                   </label>
                   <input
                       type="text"
                       value={billingAddress.state}
                       onChange={(e) => setBillingAddress((prev) => ({ ...prev, state: e.target.value }))}
-                      className="w-full px-4 py-2 border border-lydian-border-light rounded-lg focus:ring-2 focus:ring-lydian-border-focus" />
+                      className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-lydian-border-focus" />
 
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-lydian-text-muted mb-2">
+                  <label className="block text-sm font-medium text-gray-300 mb-2">
                     Posta Kodu
                   </label>
                   <input
                       type="text"
                       value={billingAddress.postalCode}
                       onChange={(e) => setBillingAddress((prev) => ({ ...prev, postalCode: e.target.value }))}
-                      className="w-full px-4 py-2 border border-lydian-border-light rounded-lg focus:ring-2 focus:ring-lydian-border-focus" />
+                      className="w-full px-4 py-2 border border-white/20 rounded-lg focus:ring-2 focus:ring-lydian-border-focus" />
 
                 </div>
               </div>
             </div>
 
             {/* Sipariş özeti */}
-            <div className="bg-lydian-glass-dark p-6 rounded-lg">
+            <div className="bg-gradient-to-br from-slate-900 via-black to-slate-800 p-6 rounded-lg">
               <h3 className="text-lg font-semibold mb-4">Sipariş Özeti</h3>
               <div className="space-y-3">
                 <div className="flex justify-between">
                   <span className="font-medium">{typeof item.name === 'string' ? item.name : item.name.tr}</span>
                 </div>
-                <div className="flex justify-between text-sm text-lydian-text-dim">
+                <div className="flex justify-between text-sm text-gray-400">
                   <span>
                     {formData.adultsCount} yetişkin
                     {formData.childrenCount > 0 && `, ${formData.childrenCount} çocuk`}
@@ -792,13 +792,13 @@ const BookingForm: React.FC<BookingFormProps> = ({
                   <span>{formData.checkInDate.toLocaleDateString('tr-TR')}</span>
                 </div>
                 {selectedPickupLocation &&
-                  <div className="flex justify-between text-sm text-lydian-text-dim">
+                  <div className="flex justify-between text-sm text-gray-400">
                     <span>📍 Alınacak Nokta:</span>
                     <span>{selectedPickupLocation.name}</span>
                   </div>
                   }
                 <hr />
-                <div className="flex justify-between text-xl font-bold text-lydian-primary">
+                <div className="flex justify-between text-xl font-bold text-blue-500">
                   <span>Toplam Tutar:</span>
                   <span>{totalPrice} TL</span>
                 </div>
@@ -815,23 +815,23 @@ const BookingForm: React.FC<BookingFormProps> = ({
             animate={{ opacity: 1, scale: 1 }}>
 
             <div className="text-center space-y-6">
-            <div className="w-20 h-20 bg-lydian-success-light rounded-full flex items-center justify-center mx-auto">
-              <svg className="w-10 h-10 text-lydian-success" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="w-20 h-20 bg-green-600-light rounded-full flex items-center justify-center mx-auto">
+              <svg className="w-10 h-10 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
               </svg>
             </div>
 
             <div>
-              <h2 className="text-3xl font-bold text-lydian-text-inverse mb-2">
+              <h2 className="text-3xl font-bold text-white mb-2">
                 Rezervasyon Tamamlandı!
               </h2>
-              <p className="text-lydian-text-dim mb-6">
+              <p className="text-gray-400 mb-6">
                 Rezervasyonunuz başarıyla oluşturuldu. Onay e-postası gönderildi.
               </p>
             </div>
 
             {reservation &&
-              <div className="bg-lydian-primary-lighter p-6 rounded-lg max-w-md mx-auto">
+              <div className="bg-blue-500/10er p-6 rounded-lg max-w-md mx-auto">
                 <h3 className="font-semibold mb-4">Rezervasyon Detayları</h3>
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between">
@@ -857,13 +857,13 @@ const BookingForm: React.FC<BookingFormProps> = ({
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <button
                   onClick={() => window.print()}
-                  className="px-6 py-3 bg-lydian-primary text-lydian-text-inverse rounded-lg hover:bg-lydian-primary-dark transition-colors">
+                  className="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:bg-gradient-to-r from-blue-700 to-purple-700 transition-colors">
 
                 📄 Yazdır
               </button>
               <button
                   onClick={onClose}
-                  className="px-6 py-3 bg-gray-600 text-lydian-text-inverse rounded-lg hover:bg-gray-700 transition-colors">
+                  className="px-6 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors">
 
                 Kapat
               </button>
@@ -912,16 +912,16 @@ const BookingForm: React.FC<BookingFormProps> = ({
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.95, opacity: 0 }}>
 
-            <div className={`bg-lydian-glass-dark rounded-xl shadow-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto ${className}`} onClick={(e) => e.stopPropagation()}>
+            <div className={`bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-xl shadow-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto ${className}`} onClick={(e) => e.stopPropagation()}>
             {/* Header */}
-            <div className="flex items-center justify-between p-6 border-b border-lydian-border-light/10">
+            <div className="flex items-center justify-between p-6 border-b border-white/20/10">
               <div>
                 <h1 className="text-xl font-bold">Rezervasyon</h1>
-                <p className="text-sm text-lydian-text-muted">{typeof item.name === 'string' ? item.name : item.name.tr}</p>
+                <p className="text-sm text-gray-300">{typeof item.name === 'string' ? item.name : item.name.tr}</p>
               </div>
               <button
                   onClick={onClose}
-                  className="w-10 h-10 rounded-full hover:bg-lydian-glass-dark-medium flex items-center justify-center">
+                  className="w-10 h-10 rounded-full hover:bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center">
 
                 ✕
               </button>
@@ -929,7 +929,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
 
             {/* Progress steps */}
             {currentStep < 4 &&
-              <div className="px-6 py-4 bg-lydian-glass-dark border-b border-lydian-border-light/10">
+              <div className="px-6 py-4 bg-gradient-to-br from-slate-900 via-black to-slate-800 border-b border-white/20/10">
                 <div className="flex items-center justify-between">
                   {[
                   { step: 1, label: 'Detaylar' },
@@ -945,15 +945,15 @@ const BookingForm: React.FC<BookingFormProps> = ({
                       <div
                       className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-medium ${
                       currentStep >= step ?
-                      'bg-lydian-primary text-white' :
-                      'bg-lydian-bg-surface-raised text-lydian-text-muted'}`
+                      'bg-gradient-to-r from-blue-600 to-purple-600 text-white' :
+                      'bg-lydian-bg-surface-raised text-gray-300'}`
                       }>
 
                         {step}
                       </div>
                       <div className="ml-3">
                         <p className={`text-sm font-medium ${
-                      currentStep >= step ? 'text-lydian-primary' : 'text-lydian-text-muted'}`
+                      currentStep >= step ? 'text-lydian-primary' : 'text-gray-300'}`
                       }>
                           {label}
                         </p>
@@ -976,18 +976,18 @@ const BookingForm: React.FC<BookingFormProps> = ({
 
             {/* Footer */}
             {currentStep < 4 &&
-              <div className="flex items-center justify-between p-6 border-t border-lydian-border-light/10">
+              <div className="flex items-center justify-between p-6 border-t border-white/20/10">
                 <button
                   onClick={handlePrevStep}
                   disabled={currentStep === 1}
-                  className="px-6 py-2 border border-lydian-border-light rounded-lg hover:bg-lydian-glass-dark disabled:opacity-50 disabled:cursor-not-allowed">
+                  className="px-6 py-2 border border-white/20 rounded-lg hover:bg-gradient-to-br from-slate-900 via-black to-slate-800 disabled:opacity-50 disabled:cursor-not-allowed">
 
                   ← Geri
                 </button>
 
                 <div className="flex-1 text-center">
                   {pricing &&
-                  <span className="text-lg font-bold text-lydian-primary">
+                  <span className="text-lg font-bold text-blue-500">
                       Toplam: {totalPrice} TL
                     </span>
                   }
@@ -997,11 +997,11 @@ const BookingForm: React.FC<BookingFormProps> = ({
                 <button
                   onClick={handlePayment}
                   disabled={!canProceedToNext() || isProcessingPayment}
-                  className="px-8 py-2 bg-lydian-success text-lydian-text-inverse rounded-lg hover:bg-lydian-success-hover disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2">
+                  className="px-8 py-2 bg-green-600 text-white rounded-lg hover:bg-green-600-hover disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2">
 
                     {isProcessingPayment ?
                   <>
-                        <div className="animate-spin w-4 h-4 border-2 border-lydian-border-light border-t-transparent rounded-full"></div>
+                        <div className="animate-spin w-4 h-4 border-2 border-white/20 border-t-transparent rounded-full"></div>
                         İşleniyor...
                       </> :
 
@@ -1012,7 +1012,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
                 <button
                   onClick={handleNextStep}
                   disabled={!canProceedToNext()}
-                  className="px-6 py-2 bg-lydian-primary text-lydian-text-inverse rounded-lg hover:bg-lydian-primary-dark disabled:opacity-50 disabled:cursor-not-allowed">
+                  className="px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:bg-gradient-to-r from-blue-700 to-purple-700 disabled:opacity-50 disabled:cursor-not-allowed">
 
                     Devam Et →
                   </button>

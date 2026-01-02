@@ -123,7 +123,7 @@ export const FuturisticButton: React.FC<FuturisticButtonProps> = ({
         ${fullWidth ? 'w-full' : ''}
         ${disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}
         font-bold rounded-2xl
-        text-lydian-text-inverse
+        text-white
         overflow-hidden
         transition-all duration-300
         ${className}

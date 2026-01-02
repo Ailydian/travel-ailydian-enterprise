@@ -164,16 +164,14 @@ const SignIn: React.FC = () => {
             transition={{ duration: 0.5 }}
             className="text-center mb-8"
           >
-            <Link href="/">
-              <a className="inline-flex items-center gap-3 mb-6 group">
-                <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center shadow-xl group-hover:shadow-2xl transition-shadow">
-                  <span className="text-white font-bold text-2xl">A</span>
-                </div>
-                <div className="text-left">
-                  <h1 className="text-2xl font-bold text-white">AILYDIAN Holiday</h1>
-                  <p className="text-sm text-white/70">AI-Powered Travel</p>
-                </div>
-              </a>
+            <Link href="/" className="inline-flex items-center gap-3 mb-6 group">
+              <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-purple-600 rounded-2xl flex items-center justify-center shadow-xl group-hover:shadow-2xl transition-shadow">
+                <span className="text-white font-bold text-2xl">A</span>
+              </div>
+              <div className="text-left">
+                <h1 className="text-2xl font-bold text-white">AILYDIAN Holiday</h1>
+                <p className="text-sm text-white/70">AI-Powered Travel</p>
+              </div>
             </Link>
 
             <h2 className="text-3xl font-bold text-white mb-2">Tekrar Hoş Geldiniz!</h2>
@@ -287,10 +285,8 @@ const SignIn: React.FC = () => {
                     Beni hatırla
                   </span>
                 </label>
-                <Link href="/auth/forgot-password">
-                  <a className="text-sm text-blue-400 hover:text-blue-300 transition-colors">
-                    Şifremi unuttum
-                  </a>
+                <Link href="/auth/forgot-password" className="text-sm text-blue-400 hover:text-blue-300 transition-colors">
+                  Şifremi unuttum
                 </Link>
               </div>
 
@@ -318,10 +314,8 @@ const SignIn: React.FC = () => {
             <div className="mt-6 text-center">
               <p className="text-white/70">
                 Henüz hesabınız yok mu?{' '}
-                <Link href="/auth/signup">
-                  <a className="text-blue-400 hover:text-blue-300 font-semibold transition-colors">
-                    Ücretsiz kayıt ol
-                  </a>
+                <Link href="/auth/signup" className="text-blue-400 hover:text-blue-300 font-semibold transition-colors">
+                  Ücretsiz kayıt ol
                 </Link>
               </p>
             </div>
@@ -334,10 +328,8 @@ const SignIn: React.FC = () => {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="mt-8 text-center"
           >
-            <Link href="/">
-              <a className="text-white/60 hover:text-white/90 text-sm transition-colors">
-                Ana Sayfaya Dön
-              </a>
+            <Link href="/" className="text-white/60 hover:text-white/90 text-sm transition-colors">
+              Ana Sayfaya Dön
             </Link>
           </motion.div>
         </div>

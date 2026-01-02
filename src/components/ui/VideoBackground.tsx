@@ -139,7 +139,7 @@ export const VideoBackground: React.FC<VideoBackgroundProps> = ({
         <div className="bg-lydian-bg/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20">
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></div>
-            <span className="text-lydian-text-inverse text-sm font-medium">{currentVideo.title}</span>
+            <span className="text-white text-sm font-medium">{currentVideo.title}</span>
           </div>
         </div>
       </motion.div>
@@ -152,7 +152,7 @@ export const VideoBackground: React.FC<VideoBackgroundProps> = ({
         transition={{ duration: changeInterval / 1000, ease: 'linear' }}
         style={{ transformOrigin: 'left' }}
       >
-        <div className="h-full bg-gradient-to-r from-lydian-primary to-lydian-secondary" />
+        <div className="h-full bg-gradient-to-r from-blue-600 to-purple-700" />
       </motion.div>
 
       {/* Animated Particles for Premium Effect */}
@@ -160,7 +160,7 @@ export const VideoBackground: React.FC<VideoBackgroundProps> = ({
         {[...Array(20)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-1 h-1 bg-lydian-bg/5 rounded-full"
+            className="absolute w-1 h-1 bg-white/5 rounded-full"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,

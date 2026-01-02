@@ -130,8 +130,8 @@ export const GlassmorphismCard: React.FC<GlassmorphismCardProps> = ({
             transition={{ delay: 0.4 + index * 0.1 }}>
 
               <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-              <span className="text-lydian-text-inverse font-semibold text-sm">{rating.toFixed(1)}</span>
-              {reviews > 0 && <span className="text-lydian-text-inverse/80 text-xs">({reviews})</span>}
+              <span className="text-white font-semibold text-sm">{rating.toFixed(1)}</span>
+              {reviews > 0 && <span className="text-white/80 text-xs">({reviews})</span>}
             </motion.div>
           }
         </div>
@@ -140,39 +140,39 @@ export const GlassmorphismCard: React.FC<GlassmorphismCardProps> = ({
         <div className="p-5 space-y-4">
           {/* Location */}
           {location &&
-          <div className="flex items-center gap-2 text-lydian-text-inverse/70">
+          <div className="flex items-center gap-2 text-white/70">
               <MapPin className="w-4 h-4" />
               <span className="text-sm">{location}</span>
             </div>
           }
 
           {/* Title */}
-          <h3 className="text-xl font-bold text-lydian-text-inverse group-hover:text-cyan-300 transition-colors duration-300 line-clamp-2">
+          <h3 className="text-xl font-bold text-white group-hover:text-cyan-300 transition-colors duration-300 line-clamp-2">
             {title}
           </h3>
 
           {/* Description */}
           {description &&
-          <p className="text-lydian-text-inverse/70 text-sm line-clamp-2 leading-relaxed">{description}</p>
+          <p className="text-white/70 text-sm line-clamp-2 leading-relaxed">{description}</p>
           }
 
           {/* Duration */}
           {duration &&
-          <div className="flex items-center gap-2 text-lydian-text-inverse/60">
+          <div className="flex items-center gap-2 text-white/60">
               <Calendar className="w-4 h-4" />
               <span className="text-sm">{duration}</span>
             </div>
           }
 
           {/* Price & Action */}
-          <div className="flex items-end justify-between pt-4 border-t border-lydian-border-light/10">
+          <div className="flex items-end justify-between pt-4 border-t border-white/20/10">
             <div className="flex flex-col">
               {formattedOriginalPrice &&
-              <span className="text-lydian-text-inverse/50 text-sm line-through">{formattedOriginalPrice}</span>
+              <span className="text-white/50 text-sm line-through">{formattedOriginalPrice}</span>
               }
               <div className="flex items-baseline gap-2">
-                <span className="text-2xl font-bold text-lydian-text-inverse">{formattedPrice}</span>
-                <span className="text-lydian-text-inverse/60 text-sm">/ kişi</span>
+                <span className="text-2xl font-bold text-white">{formattedPrice}</span>
+                <span className="text-white/60 text-sm">/ kişi</span>
               </div>
             </div>
 
@@ -196,7 +196,7 @@ export const GlassmorphismCard: React.FC<GlassmorphismCardProps> = ({
               }}
               whileTap={{ scale: 0.95 }}>
 
-                <ShoppingCart className="w-5 h-5 text-lydian-text-inverse" />
+                <ShoppingCart className="w-5 h-5 text-white" />
               </motion.button>
             }
           </div>

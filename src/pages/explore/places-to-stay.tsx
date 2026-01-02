@@ -92,14 +92,14 @@ const PlacesToStayPage: NextPage = () => {
 
       <ModernHeader />
 
-      <main className="min-h-screen bg-lydian-glass-dark">
+      <main className="min-h-screen bg-gradient-to-br from-slate-900 via-black to-slate-800">
         {/* Page Header */}
-        <div className="bg-gradient-to-r from-lydian-secondary to-pink-600 py-12">
+        <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 py-12">
           <div className="max-w-7xl mx-auto px-4">
-            <h1 className="text-4xl font-black text-lydian-text-inverse mb-3">
+            <h1 className="text-4xl font-black text-white mb-3">
               {currentLang === 'tr' ? 'Konaklama' : 'Places to Stay'}
             </h1>
-            <p className="text-lydian-text-inverse/90 text-lg">
+            <p className="text-white/90 text-lg">
               {currentLang === 'tr' ?
               'Oteller, villalar ve kiralık evler ile mükemmel tatilin keyfini çıkarın' :
               'Enjoy the perfect vacation with hotels, villas and rental homes'}
@@ -108,18 +108,18 @@ const PlacesToStayPage: NextPage = () => {
         </div>
 
         {/* Breadcrumbs */}
-        <div className="bg-lydian-bg-hover border-b border-lydian-border-light/10">
+        <div className="bg-slate-900/50 border-b border-white/10">
           <div className="max-w-7xl mx-auto px-4 py-3">
-            <div className="flex items-center gap-2 text-sm text-lydian-text-dim">
-              <Link href="/" className="hover:text-lydian-primary">
+            <div className="flex items-center gap-2 text-sm text-gray-300">
+              <Link href="/" className="hover:text-blue-400">
                 {currentLang === 'tr' ? 'Ana Sayfa' : 'Home'}
               </Link>
               <span>/</span>
-              <Link href="/explore" className="hover:text-lydian-primary">
+              <Link href="/explore" className="hover:text-blue-400">
                 {currentLang === 'tr' ? 'Keşfet' : 'Explore'}
               </Link>
               <span>/</span>
-              <span className="text-lydian-text-inverse font-semibold">
+              <span className="text-white font-semibold">
                 {currentLang === 'tr' ? 'Konaklama' : 'Places to Stay'}
               </span>
             </div>
@@ -127,7 +127,7 @@ const PlacesToStayPage: NextPage = () => {
         </div>
 
         {/* Category Filter Tabs */}
-        <div className="bg-lydian-bg-hover border-b border-lydian-border-light/10">
+        <div className="bg-slate-900/50 border-b border-white/10">
           <div className="max-w-7xl mx-auto px-4">
             <div className="flex items-center gap-2 overflow-x-auto py-4">
               {categories.map((category) => {
@@ -138,8 +138,8 @@ const PlacesToStayPage: NextPage = () => {
                     onClick={() => setSelectedCategory(category.id)}
                     className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium whitespace-nowrap transition-all ${
                     selectedCategory === category.id ?
-                    'bg-lydian-primary text-white' :
-                    'bg-lydian-bg/10 text-gray-200 hover:bg-lydian-bg-surface-raised'}`
+                    'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg shadow-blue-500/30' :
+                    'bg-white/10 backdrop-blur-xl border border-white/20 text-gray-300 hover:bg-white/20'}`
                     }>
 
                     <Icon className="w-4 h-4" />
@@ -155,8 +155,8 @@ const PlacesToStayPage: NextPage = () => {
         <div className="max-w-7xl mx-auto px-4 py-8">
           {/* Toolbar */}
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
-            <div className="text-lydian-text-dim">
-              <span className="font-semibold text-lydian-text-inverse">{sortedAccommodations.length}</span>{' '}
+            <div className="text-gray-300">
+              <span className="font-semibold text-white">{sortedAccommodations.length}</span>{' '}
               {currentLang === 'tr' ? 'konaklama bulundu' : 'accommodations found'}
             </div>
 
@@ -166,27 +166,27 @@ const PlacesToStayPage: NextPage = () => {
                 <select
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value)}
-                  className="px-4 py-2 pr-10 border border-lydian-border-light rounded-lg focus:ring-2 focus:ring-lydian-primary appearance-none bg-lydian-glass-dark">
+                  className="px-4 py-2 pr-10 border border-white/20 rounded-lg focus:ring-2 focus:ring-blue-500 appearance-none bg-white/10 backdrop-blur-xl text-white">
 
                   <option value="popular">{currentLang === 'tr' ? 'Popüler' : 'Popular'}</option>
                   <option value="rating">{currentLang === 'tr' ? 'En Yüksek Puan' : 'Highest Rated'}</option>
                   <option value="price-low">{currentLang === 'tr' ? 'Fiyat (Düşük-Yüksek)' : 'Price (Low-High)'}</option>
                   <option value="price-high">{currentLang === 'tr' ? 'Fiyat (Yüksek-Düşük)' : 'Price (High-Low)'}</option>
                 </select>
-                <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-lydian-text-muted pointer-events-none" />
+                <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" />
               </div>
 
               {/* View Toggle */}
-              <div className="hidden sm:flex items-center gap-2 bg-lydian-bg-hover border border-lydian-border-light rounded-lg p-1">
+              <div className="hidden sm:flex items-center gap-2 bg-white/10 backdrop-blur-xl border border-white/20 rounded-lg p-1">
                 <button
                   onClick={() => setViewMode('grid')}
-                  className={`p-2 rounded ${viewMode === 'grid' ? 'bg-lydian-primary text-white' : 'text-lydian-text-dim'}`}>
+                  className={`p-2 rounded ${viewMode === 'grid' ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white' : 'text-gray-400'}`}>
 
                   <Grid className="w-4 h-4" />
                 </button>
                 <button
                   onClick={() => setViewMode('list')}
-                  className={`p-2 rounded ${viewMode === 'list' ? 'bg-lydian-primary text-white' : 'text-lydian-text-dim'}`}>
+                  className={`p-2 rounded ${viewMode === 'list' ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white' : 'text-gray-400'}`}>
 
                   <List className="w-4 h-4" />
                 </button>
@@ -200,7 +200,7 @@ const PlacesToStayPage: NextPage = () => {
             <motion.div
               key={accommodation.id}
               whileHover={{ y: -4 }}
-              className="bg-lydian-bg-hover rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all">
+              className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl overflow-hidden shadow-md hover:shadow-xl hover:shadow-blue-500/20 transition-all">
 
                 <Link href={`/hotels/${accommodation.id}`}>
                   <div className="relative h-56">
@@ -209,39 +209,39 @@ const PlacesToStayPage: NextPage = () => {
                     alt={accommodation.name}
                     className="w-full h-full object-cover" />
 
-                    <div className="absolute top-3 right-3 bg-lydian-bg-hover px-3 py-1 rounded-full flex items-center gap-1 shadow-lg">
+                    <div className="absolute top-3 right-3 bg-white/20 backdrop-blur-xl px-3 py-1 rounded-full flex items-center gap-1 shadow-lg border border-white/30">
                       <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                      <span className="font-bold text-lydian-text-inverse">{accommodation.rating}</span>
+                      <span className="font-bold text-white">{accommodation.rating}</span>
                     </div>
                   </div>
                   <div className="p-4">
-                    <h3 className="font-bold text-lg mb-1 line-clamp-1">{accommodation.name}</h3>
-                    <div className="flex items-center gap-1 text-lydian-text-dim text-sm mb-2">
+                    <h3 className="font-bold text-lg mb-1 line-clamp-1 text-white">{accommodation.name}</h3>
+                    <div className="flex items-center gap-1 text-gray-300 text-sm mb-2">
                       <MapPin className="w-4 h-4" />
                       <span>{accommodation.location}</span>
                     </div>
-                    <p className="text-sm text-lydian-text-dim mb-3 line-clamp-2">
+                    <p className="text-sm text-gray-400 mb-3 line-clamp-2">
                       {accommodation.description}
                     </p>
                     <div className="flex flex-wrap gap-2 mb-4">
                       {accommodation.features.map((feature, idx) =>
                     <span
                       key={idx}
-                      className="text-xs bg-lydian-glass-dark-medium text-lydian-text-muted px-2 py-1 rounded">
+                      className="text-xs bg-blue-500/10 text-blue-400 px-3 py-1 rounded-full border border-blue-500/20">
 
                           {feature}
                         </span>
                     )}
                     </div>
-                    <div className="flex items-end justify-between border-t border-lydian-border-light pt-3">
-                      <div className="text-sm text-lydian-text-dim">
+                    <div className="flex items-end justify-between border-t border-white/10 pt-3">
+                      <div className="text-sm text-gray-400">
                         {accommodation.reviews} {currentLang === 'tr' ? 'değerlendirme' : 'reviews'}
                       </div>
                       <div className="text-right">
-                        <div className="text-xs text-lydian-text-muted">
+                        <div className="text-xs text-gray-400">
                           {currentLang === 'tr' ? 'Gecelik' : 'Per night'}
                         </div>
-                        <div className="text-2xl font-black text-lydian-primary">
+                        <div className="text-2xl font-black bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                           ₺{accommodation.price.toLocaleString()}
                         </div>
                       </div>

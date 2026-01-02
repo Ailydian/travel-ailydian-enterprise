@@ -277,7 +277,7 @@ export const PRESET_CLASSES = {
   sidebarMenuItemActive: `${getMenuItemClasses('sidebar')} bg-blue-50 text-lydian-primary`,
 
   // Dropdown presets
-  dropdown: `absolute ${LAYOUT_CONSTANTS.header.dropdown.zIndex} ${LAYOUT_CONSTANTS.header.dropdown.minWidth} ${LAYOUT_CONSTANTS.header.dropdown.maxHeight} ${LAYOUT_CONSTANTS.header.dropdown.padding} bg-white dark:bg-gray-900 rounded-xl shadow-2xl border border-lydian-border overflow-y-auto`,
+  dropdown: `absolute ${LAYOUT_CONSTANTS.header.dropdown.zIndex} ${LAYOUT_CONSTANTS.header.dropdown.minWidth} ${LAYOUT_CONSTANTS.header.dropdown.maxHeight} ${LAYOUT_CONSTANTS.header.dropdown.padding} bg-white dark:bg-gray-900 rounded-xl shadow-2xl border border-white/20 overflow-y-auto`,
 } as const;
 
 // ============================================================================

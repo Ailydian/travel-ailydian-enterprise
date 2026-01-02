@@ -42,7 +42,7 @@ const ExperiencesPage: React.FC = () => {
   const [toastMessage, setToastMessage] = useState('');
 
   const categories = [
-  { id: 'all', name: 'Tümü', icon: Globe, count: `${EXPERIENCES_TURKEY.length}`, color: 'from-lydian-primary to-lydian-secondary' },
+  { id: 'all', name: 'Tümü', icon: Globe, count: `${EXPERIENCES_TURKEY.length}`, color: 'from-blue-600 to-purple-700' },
   { id: 'cultural', name: 'Kültürel', icon: Building, count: `${EXPERIENCES_TURKEY.filter((e) => e.category === 'cultural').length}`, color: 'from-blue-500 to-cyan-500' },
   { id: 'adventure', name: 'Macera', icon: Mountain, count: `${EXPERIENCES_TURKEY.filter((e) => e.category === 'adventure').length}`, color: 'from-orange-500 to-red-600' },
   { id: 'nature', name: 'Doğa', icon: TreePine, count: `${EXPERIENCES_TURKEY.filter((e) => e.category === 'nature').length}`, color: 'from-green-500 to-emerald-600' },
@@ -171,31 +171,31 @@ const ExperiencesPage: React.FC = () => {
           {/* Stats Cards with Glassmorphism */}
           <div className="flex flex-wrap justify-center gap-6 mt-12">
             <motion.div
-              className="bg-lydian-glass-dark backdrop-blur-xl border border-lydian-border-light rounded-3xl px-8 py-6 shadow-[0_8px_32px_0_rgba(31,38,135,0.2)]"
+              className="bg-gradient-to-br from-slate-900 via-black to-slate-800 backdrop-blur-xl border border-white/20 rounded-3xl px-8 py-6 shadow-[0_8px_32px_0_rgba(31,38,135,0.2)]"
               whileHover={{ scale: 1.05, y: -5 }}>
 
-              <div className="text-5xl font-black text-lydian-text-inverse mb-2">{experiences.length}</div>
-              <div className="text-sm uppercase tracking-widest text-lydian-text-inverse/80">Benzersiz Deneyim</div>
+              <div className="text-5xl font-black text-white mb-2">{experiences.length}</div>
+              <div className="text-sm uppercase tracking-widest text-white/80">Benzersiz Deneyim</div>
             </motion.div>
 
             <motion.div
-              className="bg-lydian-glass-dark backdrop-blur-xl border border-lydian-border-light rounded-3xl px-8 py-6 shadow-[0_8px_32px_0_rgba(31,38,135,0.2)]"
+              className="bg-gradient-to-br from-slate-900 via-black to-slate-800 backdrop-blur-xl border border-white/20 rounded-3xl px-8 py-6 shadow-[0_8px_32px_0_rgba(31,38,135,0.2)]"
               whileHover={{ scale: 1.05, y: -5 }}>
 
-              <div className="text-5xl font-black text-lydian-text-inverse mb-2">
+              <div className="text-5xl font-black text-white mb-2">
                 {(experiences.reduce((sum, exp) => sum + exp.rating, 0) / experiences.length).toFixed(1)}
               </div>
-              <div className="text-sm uppercase tracking-widest text-lydian-text-inverse/80">Ortalama Puan</div>
+              <div className="text-sm uppercase tracking-widest text-white/80">Ortalama Puan</div>
             </motion.div>
 
             <motion.div
-              className="bg-lydian-glass-dark backdrop-blur-xl border border-lydian-border-light rounded-3xl px-8 py-6 shadow-[0_8px_32px_0_rgba(31,38,135,0.2)]"
+              className="bg-gradient-to-br from-slate-900 via-black to-slate-800 backdrop-blur-xl border border-white/20 rounded-3xl px-8 py-6 shadow-[0_8px_32px_0_rgba(31,38,135,0.2)]"
               whileHover={{ scale: 1.05, y: -5 }}>
 
-              <div className="text-5xl font-black text-lydian-text-inverse mb-2">
+              <div className="text-5xl font-black text-white mb-2">
                 {experiences.reduce((sum, exp) => sum + exp.reviewCount, 0).toLocaleString('tr-TR')}
               </div>
-              <div className="text-sm uppercase tracking-widest text-lydian-text-inverse/80">Mutlu Misafir</div>
+              <div className="text-sm uppercase tracking-widest text-white/80">Mutlu Misafir</div>
             </motion.div>
           </div>
         </NeoHero>
@@ -205,13 +205,13 @@ const ExperiencesPage: React.FC = () => {
           {/* Search Bar */}
           <div className="mb-8">
             <div className="relative max-w-2xl mx-auto">
-              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-6 h-6 text-lydian-text-muted" />
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-6 h-6 text-gray-300" />
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Deneyim, destinasyon veya aktivite ara..."
-                className="w-full pl-14 pr-4 py-4 bg-lydian-glass-dark backdrop-blur-xl border-2 border-lydian-border-light rounded-2xl text-lg text-lydian-text-inverse placeholder-lydian-text-muted focus:ring-2 focus:ring-lydian-primary focus:border-lydian-border shadow-lg hover:shadow-xl transition-all" />
+                className="w-full pl-14 pr-4 py-4 bg-gradient-to-br from-slate-900 via-black to-slate-800 backdrop-blur-xl border-2 border-white/20 rounded-2xl text-lg text-white placeholder-lydian-text-muted focus:ring-2 focus:ring-lydian-primary focus:border-white/20 shadow-lg hover:shadow-xl transition-all" />
 
             </div>
           </div>
@@ -229,8 +229,8 @@ const ExperiencesPage: React.FC = () => {
                   whileTap={{ scale: 0.95 }}
                   className={`flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all shadow-lg ${
                   isActive ?
-                  `bg-gradient-to-r ${category.color} text-lydian-text-inverse shadow-neon` :
-                  'bg-lydian-glass-dark backdrop-blur-xl text-lydian-text-dim hover:shadow-xl border border-lydian-border-light'}`
+                  `bg-gradient-to-r ${category.color} text-white shadow-neon` :
+                  'bg-gradient-to-br from-slate-900 via-black to-slate-800 backdrop-blur-xl text-gray-400 hover:shadow-xl border border-white/20'}`
                   }>
 
                   <Icon className="w-5 h-5" />
@@ -247,7 +247,7 @@ const ExperiencesPage: React.FC = () => {
               <select
                 value={selectedDuration}
                 onChange={(e) => setSelectedDuration(e.target.value)}
-                className="px-4 py-2.5 bg-lydian-glass-dark backdrop-blur-xl border-2 border-lydian-border-light rounded-xl text-sm font-medium text-lydian-text-inverse focus:ring-2 focus:ring-lydian-primary focus:border-lydian-border shadow-sm hover:shadow-md transition-all">
+                className="px-4 py-2.5 bg-gradient-to-br from-slate-900 via-black to-slate-800 backdrop-blur-xl border-2 border-white/20 rounded-xl text-sm font-medium text-white focus:ring-2 focus:ring-lydian-primary focus:border-white/20 shadow-sm hover:shadow-md transition-all">
 
                 {durations.map((dur) =>
                 <option key={dur.id} value={dur.id}>{dur.name}</option>
@@ -258,7 +258,7 @@ const ExperiencesPage: React.FC = () => {
               <select
                 value={priceRange}
                 onChange={(e) => setPriceRange(e.target.value)}
-                className="px-4 py-2.5 bg-lydian-glass-dark backdrop-blur-xl border-2 border-lydian-border-light rounded-xl text-sm font-medium text-lydian-text-inverse focus:ring-2 focus:ring-lydian-primary focus:border-lydian-border shadow-sm hover:shadow-md transition-all">
+                className="px-4 py-2.5 bg-gradient-to-br from-slate-900 via-black to-slate-800 backdrop-blur-xl border-2 border-white/20 rounded-xl text-sm font-medium text-white focus:ring-2 focus:ring-lydian-primary focus:border-white/20 shadow-sm hover:shadow-md transition-all">
 
                 {priceRanges.map((range) =>
                 <option key={range.id} value={range.id}>{range.name}</option>
@@ -268,8 +268,8 @@ const ExperiencesPage: React.FC = () => {
 
             {/* Results Count */}
             <div className="text-center lg:text-right">
-              <p className="text-lg text-lydian-text-dim">
-                <span className="font-bold text-lydian-primary">{filteredExperiences.length}</span> deneyim bulundu
+              <p className="text-lg text-gray-400">
+                <span className="font-bold text-blue-500">{filteredExperiences.length}</span> deneyim bulundu
               </p>
             </div>
           </div>
@@ -322,11 +322,11 @@ const ExperiencesPage: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             className="text-center py-20">
 
-              <Camera className="w-32 h-32 text-lydian-text-dim mx-auto mb-6" />
-              <h2 className="text-3xl font-bold text-lydian-text-inverse mb-4">
+              <Camera className="w-32 h-32 text-gray-400 mx-auto mb-6" />
+              <h2 className="text-3xl font-bold text-white mb-4">
                 Aradığınız kriterlerde deneyim bulunamadı
               </h2>
-              <p className="text-lydian-text-dim mb-8 max-w-md mx-auto text-lg">
+              <p className="text-gray-400 mb-8 max-w-md mx-auto text-lg">
                 Arama kriterlerinizi değiştirerek tekrar deneyin
               </p>
               <motion.button
@@ -338,7 +338,7 @@ const ExperiencesPage: React.FC = () => {
               }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-lydian-primary to-lydian-secondary text-lydian-text-inverse rounded-xl font-bold hover:shadow-xl transition-all text-lg">
+              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-700 text-white rounded-xl font-bold hover:shadow-xl transition-all text-lg">
 
                 Filtreleri Temizle
                 <Filter className="w-5 h-5" />
@@ -356,7 +356,7 @@ const ExperiencesPage: React.FC = () => {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 50 }}
-          className="fixed bottom-8 right-8 z-[100] bg-gradient-to-r from-emerald-500 to-green-600 text-lydian-text-inverse px-6 py-4 rounded-xl shadow-2xl flex items-center gap-4">
+          className="fixed bottom-8 right-8 z-[100] bg-gradient-to-r from-emerald-500 to-green-600 text-white px-6 py-4 rounded-xl shadow-2xl flex items-center gap-4">
 
             <CheckCircle className="w-6 h-6" />
             <span className="font-semibold">{toastMessage}</span>
@@ -365,7 +365,7 @@ const ExperiencesPage: React.FC = () => {
             onClick={() => router.push('/cart')}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="flex items-center gap-2 px-4 py-2 bg-lydian-glass-dark backdrop-blur-xl text-emerald-400 rounded-lg font-semibold hover:bg-lydian-bg-hover transition-colors ml-2">
+            className="flex items-center gap-2 px-4 py-2 bg-gradient-to-br from-slate-900 via-black to-slate-800 backdrop-blur-xl text-emerald-400 rounded-lg font-semibold hover:bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl transition-colors ml-2">
 
                 <Eye className="w-4 h-4" />
                 Sepeti Gör

@@ -148,7 +148,7 @@ export const GradientNeonText: React.FC<NeonTextProps> = ({
   className = ''
 }) => {
   return (
-    <span className={`font-display font-bold tracking-wide bg-gradient-to-r from-lydian-primary via-lydian-secondary to-lydian-neon-blue bg-clip-text text-transparent ${sizeClasses[size]} ${className} animate-gradient-shift`}>
+    <span className={`font-display font-bold tracking-wide bg-gradient-to-r from-blue-600 via-purple-600 to-lydian-neon-blue bg-clip-text text-transparent ${sizeClasses[size]} ${className} animate-gradient-shift`}>
       <motion.span
         style={{
           backgroundSize: '200% 200%',

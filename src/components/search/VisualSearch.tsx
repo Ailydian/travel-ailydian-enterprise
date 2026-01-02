@@ -227,7 +227,7 @@ const VisualSearch: React.FC<VisualSearchProps> = ({
           {...getRootProps()}
           className={`relative border-2 border-dashed rounded-2xl p-12 text-center cursor-pointer transition-all duration-300 ${
           isDragActive ?
-          'border-lydian-primary bg-blue-50' :
+          'border-blue-500 bg-blue-50' :
           'border-white/20 hover:border-blue-400 bg-lydian-bg'}`
           }>
 
@@ -235,16 +235,16 @@ const VisualSearch: React.FC<VisualSearchProps> = ({
 
             {/* Upload Icon */}
             <div className="mb-6">
-              <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-lydian-primary to-lydian-secondary">
-                <PhotoIcon className="w-10 h-10 text-lydian-text-inverse" />
+              <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-blue-600 to-purple-700">
+                <PhotoIcon className="w-10 h-10 text-white" />
               </div>
             </div>
 
             {/* Upload Text */}
-            <h3 className="text-2xl font-bold text-lydian-text-inverse mb-2">
+            <h3 className="text-2xl font-bold text-white mb-2">
               {isDragActive ? 'Drop your image here' : 'Upload an image to search'}
             </h3>
-            <p className="text-lydian-text-dim mb-6">
+            <p className="text-gray-400 mb-6">
               Drag & drop or click to browse • Max {maxFileSize}MB
             </p>
 
@@ -256,7 +256,7 @@ const VisualSearch: React.FC<VisualSearchProps> = ({
                 e.stopPropagation();
                 fileInputRef.current?.click();
               }}
-              className="px-6 py-3 bg-lydian-primary hover:bg-lydian-primary-dark text-lydian-text-inverse rounded-xl font-semibold transition-colors duration-200 flex items-center space-x-2">
+              className="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:bg-gradient-to-r from-blue-700 to-purple-700 text-white rounded-xl font-semibold transition-colors duration-200 flex items-center space-x-2">
 
                 <ArrowUpTrayIcon className="w-5 h-5" />
                 <span>Browse Files</span>
@@ -268,7 +268,7 @@ const VisualSearch: React.FC<VisualSearchProps> = ({
                 e.stopPropagation();
                 setShowCamera(true);
               }}
-              className="px-6 py-3 bg-purple-600 hover:bg-purple-700 text-lydian-text-inverse rounded-xl font-semibold transition-colors duration-200 flex items-center space-x-2">
+              className="px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-xl font-semibold transition-colors duration-200 flex items-center space-x-2">
 
                 <CameraIcon className="w-5 h-5" />
                 <span>Use Camera</span>
@@ -280,7 +280,7 @@ const VisualSearch: React.FC<VisualSearchProps> = ({
                 e.stopPropagation();
                 setShowUrlInput(true);
               }}
-              className="px-6 py-3 bg-lydian-glass-dark-medium hover:bg-lydian-bg-active text-lydian-text-muted rounded-xl font-semibold transition-colors duration-200 flex items-center space-x-2">
+              className="px-6 py-3 bg-white/10 backdrop-blur-xl border border-white/20 hover:bg-white/10 backdrop-blur-xl border border-white/20 text-gray-300 rounded-xl font-semibold transition-colors duration-200 flex items-center space-x-2">
 
                 <SparklesIcon className="w-5 h-5" />
                 <span>Paste URL</span>
@@ -288,7 +288,7 @@ const VisualSearch: React.FC<VisualSearchProps> = ({
             </div>
 
             {/* Supported Formats */}
-            <p className="text-sm text-lydian-text-muted mt-6">
+            <p className="text-sm text-gray-300 mt-6">
               Supported formats: JPG, PNG, WebP
             </p>
           </div>
@@ -307,10 +307,10 @@ const VisualSearch: React.FC<VisualSearchProps> = ({
               initial={{ scale: 0.9, y: 20 }}
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.9, y: 20 }}
-              className="bg-lydian-glass-dark rounded-2xl p-8 max-w-lg w-full"
+              className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-2xl p-8 max-w-lg w-full"
               onClick={(e) => e.stopPropagation()}>
 
-                  <h3 className="text-2xl font-bold text-lydian-text-inverse mb-4">
+                  <h3 className="text-2xl font-bold text-white mb-4">
                     Enter Image URL
                   </h3>
                   <input
@@ -318,19 +318,19 @@ const VisualSearch: React.FC<VisualSearchProps> = ({
                 value={imageUrl}
                 onChange={(e) => setImageUrl(e.target.value)}
                 placeholder="https://example.com/image.jpg"
-                className="w-full px-4 py-3 border border-lydian-border-light rounded-xl focus:outline-none focus:border-lydian-primary focus:ring-2 focus:ring-blue-200 mb-4"
+                className="w-full px-4 py-3 border border-white/20 rounded-xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 mb-4"
                 onKeyPress={(e) => e.key === 'Enter' && handleUrlSubmit()} />
 
                   <div className="flex space-x-3">
                     <button
                   onClick={handleUrlSubmit}
-                  className="flex-1 px-6 py-3 bg-lydian-primary hover:bg-lydian-primary-dark text-lydian-text-inverse rounded-xl font-semibold transition-colors duration-200">
+                  className="flex-1 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:bg-gradient-to-r from-blue-700 to-purple-700 text-white rounded-xl font-semibold transition-colors duration-200">
 
                       Search
                     </button>
                     <button
                   onClick={() => setShowUrlInput(false)}
-                  className="px-6 py-3 bg-lydian-glass-dark-medium hover:bg-lydian-bg-active text-lydian-text-muted rounded-xl font-semibold transition-colors duration-200">
+                  className="px-6 py-3 bg-white/10 backdrop-blur-xl border border-white/20 hover:bg-white/10 backdrop-blur-xl border border-white/20 text-gray-300 rounded-xl font-semibold transition-colors duration-200">
 
                       Cancel
                     </button>
@@ -365,13 +365,13 @@ const VisualSearch: React.FC<VisualSearchProps> = ({
           <div className="p-6 bg-black/80 flex items-center justify-center space-x-4">
             <button
             onClick={() => setShowCamera(false)}
-            className="px-6 py-3 bg-gray-700 hover:bg-gray-600 text-lydian-text-inverse rounded-xl font-semibold transition-colors duration-200">
+            className="px-6 py-3 bg-gray-700 hover:bg-gray-600 text-white rounded-xl font-semibold transition-colors duration-200">
 
               Cancel
             </button>
             <button
             onClick={capturePhoto}
-            className="px-8 py-4 bg-lydian-primary hover:bg-lydian-primary-dark text-lydian-text-inverse rounded-full font-semibold transition-colors duration-200 flex items-center space-x-2">
+            className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:bg-gradient-to-r from-blue-700 to-purple-700 text-white rounded-full font-semibold transition-colors duration-200 flex items-center space-x-2">
 
               <CameraIcon className="w-6 h-6" />
               <span>Capture</span>
@@ -385,7 +385,7 @@ const VisualSearch: React.FC<VisualSearchProps> = ({
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
-        className="bg-lydian-glass-dark rounded-2xl border border-lydian-border-light/10 overflow-hidden">
+        className="bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-2xl border border-white/20/10 overflow-hidden">
 
           <div className="relative">
             <img
@@ -397,18 +397,18 @@ const VisualSearch: React.FC<VisualSearchProps> = ({
             {/* Clear Button */}
             <button
             onClick={clearImage}
-            className="absolute top-4 right-4 p-2 bg-lydian-bg/90 hover:bg-lydian-glass-dark rounded-full transition-colors duration-200 shadow-lg">
+            className="absolute top-4 right-4 p-2 bg-white/10 hover:bg-gradient-to-br from-slate-900 via-black to-slate-800 rounded-full transition-colors duration-200 shadow-lg">
 
-              <XMarkIcon className="w-5 h-5 text-lydian-text-muted" />
+              <XMarkIcon className="w-5 h-5 text-gray-300" />
             </button>
 
             {/* Progress Bar */}
             {progress > 0 && progress < 100 &&
-          <div className="absolute bottom-0 left-0 right-0 h-1 bg-lydian-bg-active">
+          <div className="absolute bottom-0 left-0 right-0 h-1 bg-white/10 backdrop-blur-xl border border-white/20">
                 <motion.div
               initial={{ width: 0 }}
               animate={{ width: `${progress}%` }}
-              className="h-full bg-gradient-to-r from-lydian-primary to-lydian-secondary" />
+              className="h-full bg-gradient-to-r from-blue-600 to-purple-700" />
 
               </div>
           }
@@ -420,11 +420,11 @@ const VisualSearch: React.FC<VisualSearchProps> = ({
               <button
             onClick={() => handleSearch()}
             disabled={isProcessing}
-            className="w-full px-6 py-4 bg-gradient-to-r from-lydian-primary to-lydian-secondary hover:from-lydian-primary-dark hover:to-purple-700 text-lydian-text-inverse rounded-xl font-semibold transition-all duration-200 flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed">
+            className="w-full px-6 py-4 bg-gradient-to-r from-blue-600 to-purple-700 hover:from-blue-600 hover:to-purple-700 text-white rounded-xl font-semibold transition-all duration-200 flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed">
 
                 {isProcessing ?
             <>
-                    <div className="w-5 h-5 border-2 border-lydian-border-light border-t-transparent rounded-full animate-spin" />
+                    <div className="w-5 h-5 border-2 border-white/20 border-t-transparent rounded-full animate-spin" />
                     <span>Searching...</span>
                   </> :
 
@@ -447,13 +447,13 @@ const VisualSearch: React.FC<VisualSearchProps> = ({
             className="px-6 pb-6">
 
                 {error &&
-            <div className="flex items-center space-x-2 text-lydian-primary bg-lydian-error-lighter px-4 py-3 rounded-xl">
+            <div className="flex items-center space-x-2 text-blue-500 bg-lydian-error-lighter px-4 py-3 rounded-xl">
                     <ExclamationCircleIcon className="w-5 h-5 flex-shrink-0" />
                     <span className="text-sm font-medium">{error}</span>
                   </div>
             }
                 {success &&
-            <div className="flex items-center space-x-2 text-lydian-success bg-lydian-success-lighter px-4 py-3 rounded-xl">
+            <div className="flex items-center space-x-2 text-green-500 bg-green-600-lighter px-4 py-3 rounded-xl">
                     <CheckCircleIcon className="w-5 h-5 flex-shrink-0" />
                     <span className="text-sm font-medium">Image processed successfully!</span>
                   </div>

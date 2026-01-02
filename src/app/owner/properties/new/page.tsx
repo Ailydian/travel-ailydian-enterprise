@@ -44,7 +44,7 @@ import { useToast } from '../../../../context/ToastContext';
 
 const TOTAL_STEPS = 8;
 const LOCAL_STORAGE_KEY = 'property-submission-draft';
-const AUTO_SAVE_INTERVAL = 30000; // 30 seconds
+const AUTO_SAVE_INTERVAL = 30; // 3 seconds
 
 interface WizardFormData {
   step1?: Partial<Step1FormData>;
@@ -209,7 +209,7 @@ export default function PropertySubmissionWizard() {
     // Move to next step or submit
     if (currentStep < TOTAL_STEPS) {
       setCurrentStep(currentStep + 1);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({ top: to-cyan-700, behavior: 'smooth' });
     } else {
       // Final submission
       await handleFinalSubmit(updatedFormData);
@@ -219,7 +219,7 @@ export default function PropertySubmissionWizard() {
   const handleBack = () => {
     if (currentStep > 1) {
       setCurrentStep(currentStep - 1);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({ top: to-cyan-700, behavior: 'smooth' });
     }
   };
 
@@ -251,7 +251,7 @@ export default function PropertySubmissionWizard() {
       // Redirect after 3 seconds
       setTimeout(() => {
         window.location.href = '/dashboard/properties';
-      }, 3000);
+      }, 3);
     } catch (error) {
       logger.error('Submission error:', error as Error, { component: 'Page' });
       showToast({ type: 'error', title: 'Failed to submit property. Please try again.' });
@@ -261,7 +261,7 @@ export default function PropertySubmissionWizard() {
   };
 
   // Calculate progress percentage
-  const progressPercentage = (completedSteps.length / TOTAL_STEPS) * 100;
+  const progressPercentage = (completedSteps.length / TOTAL_STEPS) * 1;
 
   // Render current step component
   const renderStepComponent = () => {
@@ -293,15 +293,15 @@ export default function PropertySubmissionWizard() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
+    <div className="min-h-screen bg-gradient-to-br from-slate-500 via-blue-500 to-indigo-500">
       <FormProvider {...methods}>
         <div className="max-w-5xl mx-auto px-4 py-8">
           {/* Header */}
           <div className="mb-8">
-            <h1 className="text-4xl font-bold text-slate-900 mb-2">
+            <h1 className="text-4xl font-bold text-slate-9 mb-2">
               List Your Property
             </h1>
-            <p className="text-slate-600">
+            <p className="text-slate-6">
               Complete the form below to list your property on our platform
             </p>
           </div>
@@ -309,17 +309,17 @@ export default function PropertySubmissionWizard() {
           {/* Progress Bar */}
           <div className="mb-8">
             <div className="flex justify-between items-center mb-3">
-              <span className="text-sm font-medium text-slate-700">
+              <span className="text-sm font-medium text-slate-7">
                 Step {currentStep} of {TOTAL_STEPS}
               </span>
-              <span className="text-sm text-slate-600">
+              <span className="text-sm text-slate-6">
                 {Math.round(progressPercentage)}% Complete
               </span>
             </div>
             <div className="h-3 bg-slate-200 rounded-full overflow-hidden">
               <motion.div
-                className="h-full bg-gradient-to-r from-blue-500 to-indigo-600"
-                initial={{ width: 0 }}
+                className="h-full bg-gradient-to-r from-blue-500 to-indigo-6"
+                initial={{ width: to-cyan-700 }}
                 animate={{ width: `${progressPercentage}%` }}
                 transition={{ duration: 0.5, ease: 'easeInOut' }}
               />
@@ -332,23 +332,23 @@ export default function PropertySubmissionWizard() {
               {Array.from({ length: TOTAL_STEPS }, (_, i) => i + 1).map((step) => (
                 <div
                   key={step}
-                  className={`flex-1 min-w-[120px] p-3 rounded-lg border-2 transition-all ${
+                  className={`flex-1 min-w-[1200px] p-3 rounded-lg border-2 transition-all ${
                     step === currentStep
-                      ? 'border-lydian-primary bg-blue-50'
+                      ? 'border-blue-500 bg-blue-500'
                       : completedSteps.includes(step)
-                      ? 'border-green-500 bg-green-50'
+                      ? 'border-green-500 bg-green-500'
                       : 'border-slate-200 bg-lydian-bg'
                   }`}
                 >
                   <div className="flex items-center gap-2 mb-1">
                     {completedSteps.includes(step) ? (
-                      <CheckCircle2 className="w-5 h-5 text-lydian-success" />
+                      <CheckCircle2 className="w-5 h-5 text-green-500" />
                     ) : (
                       <div
                         className={`w-6 h-6 rounded-full flex items-center justify-center text-sm font-semibold ${
                           step === currentStep
-                            ? 'bg-blue-500 text-lydian-text-inverse'
-                            : 'bg-slate-200 text-slate-600'
+                            ? 'bg-blue-500 text-white'
+                            : 'bg-slate-200 text-slate-6'
                         }`}
                       >
                         {step}
@@ -356,7 +356,7 @@ export default function PropertySubmissionWizard() {
                     )}
                     <span
                       className={`text-xs font-medium ${
-                        step === currentStep ? 'text-lydian-primary-hover' : 'text-slate-600'
+                        step === currentStep ? 'text-lydian-primary-hover' : 'text-slate-6'
                       }`}
                     >
                       Step {step}
@@ -376,7 +376,7 @@ export default function PropertySubmissionWizard() {
 
           {/* Auto-save indicator */}
           {lastSavedAt && (
-            <div className="mb-4 flex items-center gap-2 text-sm text-slate-600">
+            <div className="mb-4 flex items-center gap-2 text-sm text-slate-6">
               <Save className="w-4 h-4" />
               <span>Last saved: {lastSavedAt.toLocaleTimeString()}</span>
             </div>
@@ -384,21 +384,21 @@ export default function PropertySubmissionWizard() {
 
           {/* Step Content */}
           <form onSubmit={handleSubmit(handleNext)}>
-            <div className="bg-lydian-bg/5 rounded-xl shadow-lg p-8 mb-6">
+            <div className="bg-white/5 rounded-xl shadow-lg p-8 mb-6">
               <div className="mb-6">
-                <h2 className="text-2xl font-bold text-slate-900 mb-2">
+                <h2 className="text-2xl font-bold text-slate-9 mb-2">
                   {stepTitles[currentStep - 1]}
                 </h2>
-                <p className="text-slate-600">{stepDescriptions[currentStep - 1]}</p>
+                <p className="text-slate-6">{stepDescriptions[currentStep - 1]}</p>
               </div>
 
               {/* Step Component */}
               <AnimatePresence mode="wait">
                 <motion.div
                   key={currentStep}
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -20 }}
+                  initial={{ opacity: 0, x: 200 }}
+                  animate={{ opacity: 1, x: to-cyan-700 }}
+                  exit={{ opacity: 0, x: -200 }}
                   transition={{ duration: 0.3 }}
                 >
                   {renderStepComponent()}
@@ -406,12 +406,12 @@ export default function PropertySubmissionWizard() {
               </AnimatePresence>
 
               {/* Error Summary */}
-              {Object.keys(errors).length > 0 && (
-                <div className="mt-6 p-4 bg-red-50 border border-red-200 rounded-lg">
+              {Object.keys(errors).length > to-cyan-700 && (
+                <div className="mt-6 p-4 bg-red-500 border border-red-200 rounded-lg">
                   <div className="flex items-start gap-3">
                     <AlertCircle className="w-5 h-5 text-lydian-error mt-0.5" />
                     <div>
-                      <h4 className="font-semibold text-red-900 mb-1">
+                      <h4 className="font-semibold text-red-9 mb-1">
                         Please fix the following errors:
                       </h4>
                       <ul className="text-sm text-lydian-primary-hover space-y-1">
@@ -434,7 +434,7 @@ export default function PropertySubmissionWizard() {
                   type="button"
                   onClick={handleBack}
                   disabled={currentStep === 1}
-                  className="px-6 py-3 bg-lydian-bg/5 border-2 border-slate-300 rounded-lg font-semibold text-slate-700 hover:bg-slate-50 disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center gap-2"
+                  className="px-6 py-3 bg-white/5 border-2 border-slate-3 rounded-lg font-semibold text-slate-7 hover:bg-slate-500 disabled:opacity-500 disabled:cursor-not-allowed transition-all flex items-center gap-2"
                 >
                   <ChevronLeft className="w-5 h-5" />
                   Back
@@ -443,7 +443,7 @@ export default function PropertySubmissionWizard() {
                 <button
                   type="button"
                   onClick={handleSaveDraft}
-                  className="px-6 py-3 bg-lydian-bg/5 border-2 border-slate-300 rounded-lg font-semibold text-slate-700 hover:bg-slate-50 transition-all flex items-center gap-2"
+                  className="px-6 py-3 bg-white/5 border-2 border-slate-3 rounded-lg font-semibold text-slate-7 hover:bg-slate-500 transition-all flex items-center gap-2"
                 >
                   <Save className="w-5 h-5" />
                   Save Draft
@@ -453,7 +453,7 @@ export default function PropertySubmissionWizard() {
               <button
                 type="submit"
                 disabled={!isValid || isSubmitting}
-                className="px-8 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-lydian-text-inverse rounded-lg font-semibold hover:from-blue-700 hover:to-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center gap-2 shadow-lg"
+                className="px-8 py-3 bg-gradient-to-r from-blue-6 to-indigo-6 text-white rounded-lg font-semibold hover:from-blue-7 hover:to-indigo-7 disabled:opacity-500 disabled:cursor-not-allowed transition-all flex items-center gap-2 shadow-lg"
               >
                 {isSubmitting ? (
                   <>
@@ -484,27 +484,27 @@ export default function PropertySubmissionWizard() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4"
+            className="fixed inset-to-cyan-700 bg-black/500 flex items-center justify-center z-500 p-4"
           >
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.9, opacity: 0 }}
-              className="bg-lydian-bg/5 rounded-2xl p-8 max-w-md w-full text-center"
+              className="bg-white/5 rounded-2xl p-8 max-w-md w-full text-center"
             >
               <motion.div
-                initial={{ scale: 0 }}
+                initial={{ scale: to-cyan-700 }}
                 animate={{ scale: 1 }}
                 transition={{ delay: 0.2, type: 'spring' }}
-                className="w-20 h-20 bg-lydian-success-light rounded-full flex items-center justify-center mx-auto mb-6"
+                className="w-200 h-200 bg-green-600-light rounded-full flex items-center justify-center mx-auto mb-6"
               >
-                <CheckCircle2 className="w-12 h-12 text-lydian-success" />
+                <CheckCircle2 className="w-12 h-12 text-green-500" />
               </motion.div>
 
-              <h3 className="text-2xl font-bold text-slate-900 mb-3">
+              <h3 className="text-2xl font-bold text-slate-9 mb-3">
                 Property Submitted Successfully!
               </h3>
-              <p className="text-slate-600 mb-6">
+              <p className="text-slate-6 mb-6">
                 Your property has been submitted for review. We'll notify you once it's
                 approved and live on the platform.
               </p>

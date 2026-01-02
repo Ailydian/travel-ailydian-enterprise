@@ -68,7 +68,7 @@ const MaintenancePage: React.FC = () => {
                     background: 'linear-gradient(135deg, var(--ac-1), var(--ac-2))',
                     boxShadow: '0 0 20px var(--ac-1)'
                   }}>
-                    <Globe className="w-6 h-6 text-lydian-text-inverse" />
+                    <Globe className="w-6 h-6 text-white" />
                   </div>
                   <span className="text-2xl font-bold neon-text-strong" style={{
                     color: 'var(--tx-1)',

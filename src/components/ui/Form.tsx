@@ -334,7 +334,7 @@ export const Form: React.FC<FormProps> = ({
               transition-all duration-200
               ${isSubmitting || isValidating
                 ? 'bg-gray-400 cursor-not-allowed'
-                : 'bg-lydian-primary hover:bg-lydian-primary-hover active:scale-95'
+                : 'bg-gradient-to-r from-blue-600 to-purple-600 hover:bg-lydian-primary-hover active:scale-95'
               }
             `}
           >
@@ -394,7 +394,7 @@ export const FormField: React.FC<FormFieldProps> = ({
     w-full px-4 py-2 rounded-lg border transition-all duration-200
     focus:outline-none focus:ring-2 focus:ring-lydian-primary focus:ring-opacity-50
     disabled:bg-lydian-bg-surface-raised disabled:cursor-not-allowed
-    ${error ? 'border-red-500' : 'border-lydian-border-medium'}
+    ${error ? 'border-red-500' : 'border-white/30'}
     ${inputClassName}
   `;
 
@@ -403,7 +403,7 @@ export const FormField: React.FC<FormFieldProps> = ({
       {label && (
         <label htmlFor={inputId} className="text-sm font-medium text-lydian-text-secondary">
           {label}
-          {required && <span className="text-lydian-secondary ml-1">*</span>}
+          {required && <span className="text-purple-500 ml-1">*</span>}
         </label>
       )}
 

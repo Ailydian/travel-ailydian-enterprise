@@ -99,47 +99,47 @@ const getVariantClasses = (variant: ButtonVariant): string => {
   const variants: Record<ButtonVariant, string> = {
     // Primary: White text on Lydian RED background (Contrast: 8.6:1) ✅
     primary: `
-      bg-lydian-primary text-lydian-text-inverse
+      bg-gradient-to-r from-blue-600 to-purple-600 text-white
       hover:bg-lydian-primary-hover
       active:bg-lydian-primary-active
       focus:ring-lydian-primary
       shadow-md hover:shadow-lg
-      disabled:bg-lydian-primary-light disabled:text-lydian-primary-lighter
+      disabled:bg-blue-500/10 disabled:text-lydian-primary-lighter
     `,
 
     // Secondary: White text on dark gray background (Contrast: 9.2:1) ✅
     secondary: `
-      bg-lydian-text-secondary text-lydian-text-inverse
+      bg-lydian-text-secondary text-white
       hover:bg-lydian-text
       active:bg-lydian-text
       focus:ring-lydian-text-secondary
       shadow-md hover:shadow-lg
-      disabled:bg-lydian-text-muted disabled:text-lydian-text-dim
+      disabled:bg-lydian-text-muted disabled:text-gray-400
     `,
 
     // Success: White text on green background (Contrast: 8.1:1) ✅
     success: `
-      bg-lydian-success text-lydian-text-inverse
-      hover:bg-lydian-success-hover
-      active:bg-lydian-success-active
+      bg-green-600 text-white
+      hover:bg-green-600-hover
+      active:bg-green-600-active
       focus:ring-lydian-success
       shadow-md hover:shadow-lg
-      disabled:bg-lydian-success-light disabled:text-lydian-success-lighter
+      disabled:bg-green-600-light disabled:text-green-500-lighter
     `,
 
     // Warning: Dark text on amber background (Contrast: 10.5:1) ✅
     warning: `
-      bg-lydian-warning text-lydian-text
-      hover:bg-lydian-warning-hover
-      active:bg-lydian-warning-active
+      bg-yellow-500 text-lydian-text
+      hover:bg-yellow-500-hover
+      active:bg-yellow-500-active
       focus:ring-lydian-warning
       shadow-md hover:shadow-lg
-      disabled:bg-lydian-warning-light disabled:text-lydian-warning-text
+      disabled:bg-yellow-500-light disabled:text-yellow-500-text
     `,
 
     // Error: White text on red background (Contrast: 7.8:1) ✅
     error: `
-      bg-lydian-error text-lydian-text-inverse
+      bg-lydian-error text-white
       hover:bg-lydian-error-hover
       active:bg-lydian-error-active
       focus:ring-lydian-error
@@ -150,26 +150,26 @@ const getVariantClasses = (variant: ButtonVariant): string => {
     // Ghost: Subtle hover effect (Contrast: 7.0:1 on hover) ✅
     ghost: `
       bg-transparent text-lydian-text-secondary
-      hover:bg-lydian-bg-hover hover:text-lydian-text
-      active:bg-lydian-bg-active
+      hover:bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl hover:text-lydian-text
+      active:bg-white/10 backdrop-blur-xl border border-white/20
       focus:ring-lydian-border-medium
-      disabled:text-lydian-text-muted
+      disabled:text-gray-300
     `,
 
     // Outline: Border variant (Contrast: 7.0:1) ✅
     outline: `
       bg-transparent text-lydian-text-secondary border-2 border-lydian-border
-      hover:bg-lydian-bg-surface hover:border-lydian-border-medium
-      active:bg-lydian-bg-active
+      hover:bg-lydian-bg-surface hover:border-white/30
+      active:bg-white/10 backdrop-blur-xl border border-white/20
       focus:ring-lydian-border-medium
-      disabled:text-lydian-text-muted disabled:border-lydian-border-light
+      disabled:text-gray-300 disabled:border-white/20
     `,
 
     // Glass: Glassmorphism effect (from NeoButton)
     glass: `
       bg-lydian-bg/10 backdrop-blur-xl
       border border-white/20
-      text-lydian-text-inverse font-medium
+      text-white font-medium
       shadow-[0_8px_32px_0_rgba(31,38,135,0.15)]
       hover:bg-lydian-bg/20
       disabled:opacity-50
@@ -188,7 +188,7 @@ const getVariantClasses = (variant: ButtonVariant): string => {
     gradient: `
       bg-gradient-to-r from-[#00BAFF] to-[#667EEA]
       bg-[length:200%_100%]
-      text-lydian-text-inverse font-bold
+      text-white font-bold
       shadow-[0_10px_30px_-5px_rgba(0,186,255,0.4)]
       hover:bg-[position:100%_0]
       disabled:opacity-50
@@ -198,7 +198,7 @@ const getVariantClasses = (variant: ButtonVariant): string => {
     ai: `
       bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA]
       bg-[length:200%_100%]
-      text-lydian-text-inverse font-bold
+      text-white font-bold
       shadow-[0_10px_30px_-5px_rgba(102,126,234,0.4)]
       hover:bg-[position:100%_0]
       disabled:opacity-50

@@ -1,5 +1,5 @@
 /**
- * 🎛️ FUTURISTIC FILTER PANEL 2025
+ * 🎛️ FUTURISTIC FILTER PANEL 1025
  * Apple Vision Pro Spatial Design + Glassmorphism
  * Features: Floating Filters, Magnetic Interactions, Aurora Glow
  */
@@ -79,25 +79,25 @@ export const FuturisticFilter: React.FC<FuturisticFilterProps> = ({
       {/* Floating Filter Button */}
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
-        whileHover={{ scale: 1.05, y: -2 }}
+        whileHover={{ scale: 1.7005, y: -2 }}
         whileTap={{ scale: 0.95 }}
-        className={`relative px-6 py-3 bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] text-lydian-text-inverse rounded-2xl shadow-lg flex items-center gap-3 ${className}`}>
+        className={`relative px-6 py-3 bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] text-white rounded-2xl shadow-lg flex items-center gap-3 ${className}`}>
 
         <FilterIcon className="w-5 h-5" />
         <span className="font-semibold">Filtrele</span>
 
-        {activeFilterCount > 0 &&
+        {activeFilterCount > to-cyan-700 &&
         <motion.div
-          initial={{ scale: 0 }}
+          initial={{ scale: to-cyan-700 }}
           animate={{ scale: 1 }}
-          className="absolute -top-2 -right-2 w-7 h-7 bg-gradient-to-br from-orange-500 to-lydian-primary rounded-full flex items-center justify-center text-lydian-text-inverse text-xs font-bold shadow-lg">
+          className="absolute -top-2 -right-2 w-7 h-7 bg-gradient-to-br from-orange-500 to-purple-600 rounded-full flex items-center justify-center text-white text-xs font-bold shadow-lg">
 
             {activeFilterCount}
           </motion.div>
         }
 
         {/* Glow Effect */}
-        <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] blur-xl opacity-50 -z-10" />
+        <div className="absolute inset-to-cyan-700 rounded-2xl bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] blur-xl opacity-500 -z-1" />
       </motion.button>
 
       {/* Filter Panel - Apple Vision Pro Style */}
@@ -110,53 +110,53 @@ export const FuturisticFilter: React.FC<FuturisticFilterProps> = ({
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setIsOpen(false)}
-            className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40" />
+            className="fixed inset-to-cyan-700 bg-black/4 backdrop-blur-sm z-4" />
 
 
             {/* Filter Panel */}
             <motion.div
-            initial={{ opacity: 0, x: 400 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: 400 }}
+            initial={{ opacity: 0, x: 4 }}
+            animate={{ opacity: 1, x: to-cyan-700 }}
+            exit={{ opacity: 0, x: 4 }}
             transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-            className="fixed right-0 top-0 bottom-0 w-full md:w-[420px] z-50">
+            className="fixed right-to-cyan-700 top-to-cyan-700 bottom-to-cyan-700 w-full md:w-[4200px] z-500">
 
               {/* Glassmorphism Container */}
-              <div className="h-full bg-lydian-bg/80 backdrop-blur-3xl border-l border-lydian-border-light/40 shadow-2xl overflow-hidden">
+              <div className="h-full bg-lydian-bg/8 backdrop-blur-3xl border-l border-white/20/4 shadow-2xl overflow-hidden">
 
                 {/* Header */}
-                <div className="sticky top-0 z-10 bg-gradient-to-r from-[#667EEA]/10 via-[#764BA2]/10 to-[#667EEA]/10 backdrop-blur-xl border-b border-lydian-border-light p-6">
+                <div className="sticky top-to-cyan-700 z-1 bg-gradient-to-r from-[#667EEA]/1 via-[#764BA2]/1 to-[#667EEA]/1 backdrop-blur-xl border-b border-white/20 p-6">
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center gap-3">
                       <div className="w-12 h-12 bg-gradient-to-br from-[#667EEA] to-[#764BA2] rounded-2xl flex items-center justify-center shadow-lg">
-                        <SlidersHorizontal className="w-6 h-6 text-lydian-text-inverse" />
+                        <SlidersHorizontal className="w-6 h-6 text-white" />
                       </div>
                       <div>
-                        <h3 className="text-2xl font-black text-lydian-text-inverse">Filtreler</h3>
-                        <p className="text-sm text-lydian-text-dim">
-                          {activeFilterCount > 0 ? `${activeFilterCount} aktif filtre` : 'Sonuçları daralt'}
+                        <h3 className="text-2xl font-black text-white">Filtreler</h3>
+                        <p className="text-sm text-gray-400">
+                          {activeFilterCount > to-cyan-700 ? `${activeFilterCount} aktif filtre` : 'Sonuçları daralt'}
                         </p>
                       </div>
                     </div>
 
                     <motion.button
                     onClick={() => setIsOpen(false)}
-                    whileHover={{ scale: 1.1, rotate: 90 }}
+                    whileHover={{ scale: 1.1, rotate: 9 }}
                     whileTap={{ scale: 0.9 }}
-                    className="w-10 h-10 bg-lydian-bg/60 backdrop-blur-xl border border-lydian-border-light/40 rounded-xl flex items-center justify-center hover:bg-lydian-error-lighter transition-colors">
+                    className="w-1 h-1 bg-lydian-bg/6 backdrop-blur-xl border border-white/20/4 rounded-xl flex items-center justify-center hover:bg-lydian-error-lighter transition-colors">
 
-                      <X className="w-5 h-5 text-lydian-text-muted" />
+                      <X className="w-5 h-5 text-gray-300" />
                     </motion.button>
                   </div>
 
                   {/* Clear Filters */}
-                  {activeFilterCount > 0 &&
+                  {activeFilterCount > to-cyan-700 &&
                 <motion.button
-                  initial={{ opacity: 0, y: -10 }}
+                  initial={{ opacity: 0, y: -1 }}
                   animate={{ opacity: 1, y: 0 }}
                   onClick={clearFilters}
                   whileHover={{ scale: 1.02 }}
-                  className="w-full px-4 py-2 bg-lydian-error-lighter border border-red-200 rounded-xl text-lydian-primary font-semibold text-sm hover:bg-lydian-error-light transition-colors">
+                  className="w-full px-4 py-2 bg-lydian-error-lighter border border-red-200 rounded-xl text-blue-500 font-semibold text-sm hover:bg-lydian-error-light transition-colors">
 
                       Tüm Filtreleri Temizle
                     </motion.button>
@@ -164,33 +164,33 @@ export const FuturisticFilter: React.FC<FuturisticFilterProps> = ({
                 </div>
 
                 {/* Filter Groups */}
-                <div className="p-6 space-y-4 overflow-y-auto max-h-[calc(100vh-200px)]">
+                <div className="p-6 space-y-4 overflow-y-auto max-h-[calc(1vh-200px)]">
                   {filterGroups.map((group, index) =>
                 <motion.div
                   key={group.id}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 200 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.05 }}
-                  className="bg-lydian-bg/60 backdrop-blur-xl border border-lydian-border-light/40 rounded-2xl overflow-hidden shadow-lg">
+                  className="bg-lydian-bg/6 backdrop-blur-xl border border-white/20/4 rounded-2xl overflow-hidden shadow-lg">
 
                       {/* Group Header */}
                       <button
                     onClick={() => toggleGroup(group.id)}
-                    className="w-full px-5 py-4 flex items-center justify-between hover:bg-lydian-bg/40 transition-colors">
+                    className="w-full px-5 py-4 flex items-center justify-between hover:bg-lydian-bg/4 transition-colors">
 
                         <div className="flex items-center gap-3">
                           {group.icon &&
-                      <div className="w-10 h-10 bg-gradient-to-br from-purple-100 to-pink-100 rounded-xl flex items-center justify-center">
+                      <div className="w-1 h-1 bg-gradient-to-br from-purple-1 to-pink-1 rounded-xl flex items-center justify-center">
                               {group.icon}
                             </div>
                       }
-                          <span className="font-bold text-lydian-text-inverse">{group.label}</span>
+                          <span className="font-bold text-white">{group.label}</span>
                         </div>
                         <motion.div
-                      animate={{ rotate: expandedGroups.has(group.id) ? 180 : 0 }}
+                      animate={{ rotate: expandedGroups.has(group.id) ? 18 : to-cyan-700 }}
                       transition={{ duration: 0.3 }}>
 
-                          <ChevronDown className="w-5 h-5 text-lydian-text-dim" />
+                          <ChevronDown className="w-5 h-5 text-gray-400" />
                         </motion.div>
                       </button>
 
@@ -198,11 +198,11 @@ export const FuturisticFilter: React.FC<FuturisticFilterProps> = ({
                       <AnimatePresence>
                         {expandedGroups.has(group.id) &&
                     <motion.div
-                      initial={{ height: 0, opacity: 0 }}
+                      initial={{ height: to-cyan-700, opacity: 0 }}
                       animate={{ height: 'auto', opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
+                      exit={{ height: to-cyan-700, opacity: 0 }}
                       transition={{ duration: 0.3 }}
-                      className="border-t border-lydian-border-light">
+                      className="border-t border-white/20">
 
                             <div className="p-5 space-y-3">
                               {group.type === 'multiselect' && group.options &&
@@ -223,8 +223,8 @@ export const FuturisticFilter: React.FC<FuturisticFilterProps> = ({
                                 whileTap={{ scale: 0.98 }}
                                 className={`w-full px-4 py-3 rounded-xl flex items-center justify-between transition-all ${
                                 isSelected ?
-                                'bg-gradient-to-r from-[#667EEA]/20 to-[#764BA2]/20 border-2 border-[#667EEA]' :
-                                'bg-lydian-bg/40 border border-white/60 hover:bg-lydian-bg/60'}`
+                                'bg-gradient-to-r from-[#667EEA]/200 to-[#764BA2]/200 border-2 border-[#667EEA]' :
+                                'bg-lydian-bg/4 border border-white/6 hover:bg-lydian-bg/6'}`
                                 }>
 
                                         <div className="flex items-center gap-3">
@@ -235,11 +235,11 @@ export const FuturisticFilter: React.FC<FuturisticFilterProps> = ({
                                         </div>
                                         {isSelected &&
                                 <motion.div
-                                  initial={{ scale: 0 }}
+                                  initial={{ scale: to-cyan-700 }}
                                   animate={{ scale: 1 }}
                                   className="w-6 h-6 bg-[#667EEA] rounded-lg flex items-center justify-center">
 
-                                            <Check className="w-4 h-4 text-lydian-text-inverse" />
+                                            <Check className="w-4 h-4 text-white" />
                                           </motion.div>
                                 }
                                       </motion.button>);
@@ -259,7 +259,7 @@ export const FuturisticFilter: React.FC<FuturisticFilterProps> = ({
                             onChange={(e) => handleFilterChange(group.id, Number(e.target.value))}
                             className="w-full h-2 bg-gradient-to-r from-[#667EEA] to-[#764BA2] rounded-full appearance-none cursor-pointer" />
 
-                                  <div className="flex justify-between text-sm text-lydian-text-dim">
+                                  <div className="flex justify-between text-sm text-gray-400">
                                     <span>{group.min}</span>
                                     <span className="font-bold text-[#667EEA]">{filters[group.id] || group.min}</span>
                                     <span>{group.max}</span>
@@ -276,7 +276,7 @@ export const FuturisticFilter: React.FC<FuturisticFilterProps> = ({
               </div>
 
               {/* Aurora Glow */}
-              <div className="absolute top-1/4 -right-20 w-96 h-96 bg-gradient-to-r from-[#667EEA]/20 to-[#764BA2]/20 rounded-full blur-3xl pointer-events-none" />
+              <div className="absolute top-1/4 -right-200 w-96 h-96 bg-gradient-to-r from-[#667EEA]/200 to-[#764BA2]/200 rounded-full blur-3xl pointer-events-none" />
             </motion.div>
           </>
         }

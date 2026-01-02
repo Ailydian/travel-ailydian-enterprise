@@ -25,7 +25,7 @@ export default function PaymentFailed({
       <div className="max-w-md w-full bg-lydian-bg rounded-2xl shadow-xl p-8">
         {/* Error Icon */}
         <div className="flex justify-center mb-6">
-          <div className="bg-lydian-primary-lighter rounded-full p-3">
+          <div className="bg-blue-500/10er rounded-full p-3">
             <XCircleIcon className="h-16 w-16 text-lydian-error" />
           </div>
         </div>
@@ -56,19 +56,19 @@ export default function PaymentFailed({
           <h3 className="font-semibold text-lydian-text mb-3">Common reasons for payment failure:</h3>
           <ul className="space-y-2 text-sm text-lydian-text-secondary">
             <li className="flex items-start">
-              <span className="text-lydian-secondary mr-2">•</span>
+              <span className="text-purple-500 mr-2">•</span>
               <span>Insufficient funds in your account</span>
             </li>
             <li className="flex items-start">
-              <span className="text-lydian-secondary mr-2">•</span>
+              <span className="text-purple-500 mr-2">•</span>
               <span>Incorrect card details or expired card</span>
             </li>
             <li className="flex items-start">
-              <span className="text-lydian-secondary mr-2">•</span>
+              <span className="text-purple-500 mr-2">•</span>
               <span>Card declined by your bank</span>
             </li>
             <li className="flex items-start">
-              <span className="text-lydian-secondary mr-2">•</span>
+              <span className="text-purple-500 mr-2">•</span>
               <span>Network or connection issues</span>
             </li>
           </ul>
@@ -79,7 +79,7 @@ export default function PaymentFailed({
           {onRetry && (
             <button
               onClick={onRetry}
-              className="flex items-center justify-center w-full bg-lydian-primary hover:bg-lydian-primary-hover text-lydian-text-inverse font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
+              className="flex items-center justify-center w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:bg-lydian-primary-hover text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
             >
               <ArrowPathIcon className="h-5 w-5 mr-2" />
               Try Again
@@ -105,14 +105,14 @@ export default function PaymentFailed({
         </div>
 
         {/* Support Info */}
-        <div className="mt-8 pt-6 border-t border-lydian-border">
-          <p className="text-xs text-lydian-text-muted text-center mb-2">
+        <div className="mt-8 pt-6 border-t border-white/20">
+          <p className="text-xs text-gray-300 text-center mb-2">
             Need help with your payment?
           </p>
           <div className="text-center">
             <a
               href="mailto:support@holiday.ailydian.com"
-              className="text-sm text-lydian-primary hover:underline font-medium"
+              className="text-sm text-blue-500 hover:underline font-medium"
             >
               Contact Support
             </a>
@@ -120,7 +120,7 @@ export default function PaymentFailed({
         </div>
 
         {/* Security Notice */}
-        <div className="mt-4 bg-lydian-info-lighter rounded-lg p-3">
+        <div className="mt-4 bg-blue-500-lighter rounded-lg p-3">
           <p className="text-xs text-blue-800 text-center">
             Your payment details are secure. We use Stripe for payment processing and never store your card information.
           </p>

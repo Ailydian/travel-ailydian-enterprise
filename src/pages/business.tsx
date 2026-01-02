@@ -39,7 +39,7 @@ export default function BusinessPage() {
         <Star
           key={star}
           className={`h-4 w-4 ${
-          star <= rating ? 'text-yellow-400 fill-yellow-400' : 'text-lydian-text-dim'}`
+          star <= rating ? 'text-yellow-400 fill-yellow-400' : 'text-gray-400'}`
           } />
 
         )}
@@ -87,16 +87,16 @@ export default function BusinessPage() {
           <div className="bg-lydian-bg/95 backdrop-blur-20 rounded-2xl p-6 shadow-2xl neon-glow">
             <div className="flex flex-col lg:flex-row gap-4 items-center">
               <div className="flex-1 relative">
-                <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-lydian-text-muted" />
+                <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-300" />
                 <input
                   type="text"
                   placeholder="İşletme adı, kategori veya lokasyon ara..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-12 pr-4 py-3 border border-lydian-border-medium rounded-xl focus:ring-2 focus:ring-lydian-border-focus focus:border-lydian-border" />
+                  className="w-full pl-12 pr-4 py-3 border border-white/30 rounded-xl focus:ring-2 focus:ring-lydian-border-focus focus:border-white/20" />
 
               </div>
-              <button className="ocean-button px-6 py-3 rounded-xl">
+              <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-xl">
                 Ara
               </button>
             </div>
@@ -119,7 +119,7 @@ export default function BusinessPage() {
                   className="w-full h-48 object-cover" />
 
                   {business.verified &&
-                <div className="absolute top-2 left-2 bg-lydian-primary text-lydian-text-inverse px-2 py-1 rounded-full text-xs flex items-center">
+                <div className="absolute top-2 left-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-2 py-1 rounded-full text-xs flex items-center">
                       <CheckCircle className="h-3 w-3 mr-1" />
                       Verified
                     </div>
@@ -127,15 +127,15 @@ export default function BusinessPage() {
                 </div>
                 <div className="p-4">
                   <h3 className="font-semibold text-lg mb-1">{business.name}</h3>
-                  <p className="text-lydian-text-dim text-sm mb-2">{business.category}</p>
-                  <div className="flex items-center text-sm text-lydian-text-dim mb-2">
+                  <p className="text-gray-400 text-sm mb-2">{business.category}</p>
+                  <div className="flex items-center text-sm text-gray-400 mb-2">
                     <MapPin className="h-4 w-4 mr-1" />
                     {business.location}
                   </div>
                   <div className="flex items-center space-x-2">
                     {renderStars(Math.floor(business.rating))}
                     <span className="text-sm font-medium">{business.rating}</span>
-                    <span className="text-xs text-lydian-text-muted">({business.reviewCount})</span>
+                    <span className="text-xs text-gray-300">({business.reviewCount})</span>
                   </div>
                 </div>
               </div>

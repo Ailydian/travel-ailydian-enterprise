@@ -42,7 +42,7 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}>
 
-          <div className="absolute inset-0 bg-gradient-to-br from-lydian-primary/20 to-lydian-secondary/20 animate-pulse">
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-purple-700/20 animate-pulse">
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-shimmer" />
           </div>
         </motion.div>
@@ -70,8 +70,8 @@ const OptimizedImage: React.FC<OptimizedImageProps> = ({
 
       {/* Error State */}
       {hasError && imageSrc === fallbackSrc &&
-      <div className="absolute inset-0 flex items-center justify-center bg-lydian-glass-dark-medium">
-          <div className="text-center text-lydian-text-muted">
+      <div className="absolute inset-0 flex items-center justify-center bg-white/10 backdrop-blur-xl border border-white/20">
+          <div className="text-center text-gray-300">
             <svg
             className="w-12 h-12 mx-auto mb-2"
             fill="none"
