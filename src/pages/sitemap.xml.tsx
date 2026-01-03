@@ -194,7 +194,10 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
       { path: '/tours', changefreq: 'daily', priority: '0.9' },
       { path: '/hotels', changefreq: 'daily', priority: '0.9' },
       { path: '/car-rental', changefreq: 'weekly', priority: '0.8' },
+      { path: '/rentals', changefreq: 'weekly', priority: '0.8' },
       { path: '/transfers', changefreq: 'weekly', priority: '0.7' },
+      { path: '/explore', changefreq: 'daily', priority: '0.9' },
+      { path: '/explore/transportation', changefreq: 'weekly', priority: '0.8' },
       { path: '/about', changefreq: 'monthly', priority: '0.5' },
       { path: '/contact', changefreq: 'monthly', priority: '0.5' },
       { path: '/blog', changefreq: 'daily', priority: '0.7' },
@@ -291,6 +294,16 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
           new Date().toISOString(),
           'weekly',
           '0.8'
+        )
+      );
+
+      // City destination pages (new explore pages)
+      urls.push(
+        ...generateURLWithAlternates(
+          `/explore/destinations/${city}`,
+          new Date().toISOString(),
+          'weekly',
+          '0.9'
         )
       );
     });

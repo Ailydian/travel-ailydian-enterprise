@@ -86,59 +86,8 @@ const POPULAR_ROUTES = [
 }];
 
 
-// Mock transfer data
-const MOCK_TRANSFERS = [
-{
-  id: 't1',
-  company: 'VIP Transfer İstanbul',
-  vehicleType: 'vip-sedan',
-  vehicle: 'Mercedes E-Class',
-  capacity: 3,
-  luggage: 3,
-  image: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?w=800',
-  price: 280,
-  rating: 4.9,
-  reviews: 234,
-  city: 'İstanbul',
-  features: ['WiFi', 'Su', 'Klima', 'Profesyonel Şoför'],
-  instantBook: true,
-  d2License: true,
-  onTimeRate: 98
-},
-{
-  id: 't2',
-  company: 'Antalya Premium Transfer',
-  vehicleType: 'minivan',
-  vehicle: 'Mercedes Vito',
-  capacity: 7,
-  luggage: 7,
-  image: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=800',
-  price: 350,
-  rating: 4.8,
-  reviews: 189,
-  city: 'Antalya',
-  features: ['WiFi', 'Soğuk İçecek', 'Çocuk Koltuğu', 'Klima'],
-  instantBook: true,
-  d2License: true,
-  onTimeRate: 96
-},
-{
-  id: 't3',
-  company: 'Bodrum Airport Transfer',
-  vehicleType: 'vip-minivan',
-  vehicle: 'Mercedes Vito VIP',
-  capacity: 6,
-  luggage: 6,
-  image: 'https://images.unsplash.com/photo-1600054800747-be294a6a0d26?w=800',
-  price: 450,
-  rating: 5.0,
-  reviews: 156,
-  city: 'Bodrum',
-  features: ['Deri Koltuk', 'WiFi', 'Tablet', 'Premium Su'],
-  instantBook: true,
-  d2License: true,
-  onTimeRate: 99
-}];
+// ✅ Real transfer data loaded from @/data/antalya-transfers
+// MOCK_TRANSFERS removed - using antalyaTransfers directly
 
 
 interface Filters {

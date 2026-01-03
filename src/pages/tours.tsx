@@ -37,6 +37,37 @@ import { NeoHero, FuturisticCard, FuturisticButton, NeoSection } from '../compon
 import { HorizontalScrollSection } from '../components/scroll/HorizontalScrollSection';
 import { AntalyaToursAIAnswer } from '../components/seo/AIAnswerBlock';
 
+// ==================== TYPE DEFINITIONS ====================
+/**
+ * Tour Item Interface - Type-safe tour data structure
+ * Used throughout the tours page for proper TypeScript validation
+ */
+interface TourItem {
+  id: number;
+  name: string;
+  slug: string;
+  location: string;
+  image: string;
+  price: number;
+  originalPrice: number;
+  rating: number;
+  reviews: number;
+  duration: string;
+  groupSize: string;
+  category: string;
+  type: string;
+  highlights: string[];
+  includes: string[];
+  description: string;
+  difficulty: string;
+  languages: string[];
+  badge?: string;
+  region: {
+    city: string;
+    country: string;
+  };
+}
+
 // Antalya Tours (16 tours with competitive pricing)
 const antalyaToursFormatted = antalyaTours.map((tour) => ({
   id: tour.id,
@@ -269,7 +300,7 @@ export default function Tours() {
     setTimeout(() => setShowToast(false), 2000);
   };
 
-  const handleAddToCart = (tour: any) => {
+  const handleAddToCart = (tour: TourItem) => {
     addItem({
       id: `tour-${tour.id}`,
       type: 'tour',
@@ -303,8 +334,8 @@ export default function Tours() {
     }
   };
 
-  const getBadgeColor = (badge: string) => {
-    const colors: any = {
+  const getBadgeColor = (badge: string): string => {
+    const colors: Record<string, string> = {
       'Popüler': 'from-blue-600 to-purple-700',
       'En Çok Satan': 'from-lydian-warning to-lydian-warning-hover',
       'Kültür': 'from-lydian-info to-lydian-info-hover',

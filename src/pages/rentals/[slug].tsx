@@ -12,6 +12,14 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+
+// ==================== TYPE DEFINITIONS ====================
+/**
+ * Booking Data Interface - Type-safe booking parameters
+ */
+interface BookingData {
+  [key: string]: string | number | boolean | undefined;
+}
 import { motion } from 'framer-motion';
 import {
   Heart,
@@ -222,7 +230,7 @@ export default function PropertyDetailPage({ property }: PropertyDetailPageProps
   };
 
   // Handle booking
-  const handleBook = (bookingData: any) => {
+  const handleBook = (bookingData: BookingData = {}) => {
     router.push({
       pathname: '/checkout',
       query: {

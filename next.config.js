@@ -351,7 +351,22 @@ const nextConfig = {
   // Redirects for SEO
   async redirects() {
     return [
-      // Add your redirects here
+      // Consolidate /car-rentals → /rentals (SEO duplicate content fix)
+      {
+        source: '/car-rentals',
+        destination: '/rentals',
+        permanent: true, // 301 permanent redirect
+      },
+      {
+        source: '/car-rentals/:slug',
+        destination: '/rentals/:slug',
+        permanent: true,
+      },
+      {
+        source: '/car-rentals/book',
+        destination: '/rentals/book',
+        permanent: true,
+      },
     ];
   },
 
