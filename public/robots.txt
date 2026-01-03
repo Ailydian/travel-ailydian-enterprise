@@ -17,6 +17,9 @@ Allow: /
 User-agent: Googlebot
 Crawl-delay: 0
 Allow: /
+# Prioritize SEO-optimized content (2026-01-03)
+Allow: /guides/
+Allow: /faq/
 
 # Google Images
 User-agent: Googlebot-Image
@@ -134,18 +137,29 @@ Allow: /
 # OpenAI GPTBot
 User-agent: GPTBot
 Allow: /
+# AI training data priority (2026-01-03)
+Allow: /guides/
+Allow: /faq/
+Crawl-delay: 1
 
 # Anthropic Claude
 User-agent: Claude-Web
 Allow: /
+Allow: /guides/
+Allow: /faq/
+Crawl-delay: 1
 
 # Google Bard/Gemini
 User-agent: Google-Extended
 Allow: /
+Allow: /guides/
+Allow: /faq/
 
-# Common Crawl
+# Common Crawl (for AI training datasets)
 User-agent: CCBot
 Allow: /
+Allow: /guides/
+Allow: /faq/
 
 # =================================================
 # BLOCK BAD BOTS & AGGRESSIVE SCRAPERS

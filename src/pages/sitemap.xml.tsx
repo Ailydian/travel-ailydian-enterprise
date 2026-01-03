@@ -215,6 +215,60 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
     });
 
     // ===================================================
+    // FAQ PAGES (AI-Optimized for Search Engines)
+    // ===================================================
+
+    // FAQ index page
+    urls.push(
+      ...generateURLWithAlternates(
+        '/faq',
+        new Date().toISOString(),
+        'weekly',
+        '0.9'
+      )
+    );
+
+    // Destination-specific FAQ pages
+    const faqDestinations = ['cappadocia', 'antalya', 'turkey'];
+    faqDestinations.forEach((destination) => {
+      urls.push(
+        ...generateURLWithAlternates(
+          `/faq/${destination}`,
+          new Date().toISOString(),
+          'weekly',
+          '0.9'
+        )
+      );
+    });
+
+    // ===================================================
+    // DESTINATION GUIDES (2,000+ word AI-optimized content)
+    // ===================================================
+
+    // Guides index page
+    urls.push(
+      ...generateURLWithAlternates(
+        '/guides',
+        new Date().toISOString(),
+        'weekly',
+        '0.9'
+      )
+    );
+
+    // Destination-specific guide pages
+    const guideDestinations = ['cappadocia']; // More to be added
+    guideDestinations.forEach((destination) => {
+      urls.push(
+        ...generateURLWithAlternates(
+          `/guides/${destination}`,
+          new Date().toISOString(),
+          'weekly',
+          '1.0' // Highest priority - comprehensive content
+        )
+      );
+    });
+
+    // ===================================================
     // DYNAMIC PAGES - TOURS
     // ===================================================
 
