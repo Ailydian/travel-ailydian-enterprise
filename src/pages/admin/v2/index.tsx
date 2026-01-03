@@ -746,7 +746,7 @@ const AdminDashboardV2 = () => {
                   <h1 className="text-xl font-bold bg-gradient-to-r from-[#667EEA] via-[#764BA2] to-[#667EEA] bg-clip-text text-transparent">
                     Travel LyDian
                   </h1>
-                  <p className="text-xs text-white-tertiary font-medium">Admin Control Center v2</p>
+                  <p className="text-xs text-gray-400 font-medium">Admin Control Center v2</p>
                 </div>
               </Link>
 
@@ -955,7 +955,7 @@ const AdminDashboardV2 = () => {
               <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-6 border border-blue-200 shadow-lg hover:shadow-xl transition-all">
+              className="bg-gradient-to-br from-slate-800 to-blue-900 rounded-2xl p-6 border border-blue-700/30 shadow-lg hover:shadow-xl transition-all">
 
                 <div className="flex items-center justify-between mb-6">
                   <div className="flex items-center gap-3">
@@ -968,7 +968,7 @@ const AdminDashboardV2 = () => {
                     </div>
                   </div>
                   <Link href="/admin/v2/car-rentals">
-                    <button className="text-blue-400 hover:text-blue-900 font-medium text-sm flex items-center gap-1">
+                    <button className="text-blue-300 hover:text-blue-100 font-medium text-sm flex items-center gap-1 transition-colors">
                       Yönet
                       <ArrowUpRight className="w-4 h-4" />
                     </button>
@@ -986,8 +986,8 @@ const AdminDashboardV2 = () => {
                   </div>
                   <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl p-4">
                     <p className="text-xs text-gray-300 mb-1">Aktif</p>
-                    <p className="text-2xl font-bold text-purple-400-text">{Math.floor((productCategories.find((p) => p.id === 'car-rental')?.active || 0) * 0.85)}</p>
-                    <p className="text-xs text-white-tertiary mt-1">Müsait</p>
+                    <p className="text-2xl font-bold text-white">{Math.floor((productCategories.find((p) => p.id === 'car-rental')?.active || 0) * 0.85)}</p>
+                    <p className="text-xs text-gray-400 mt-1">Müsait</p>
                   </div>
                   <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl p-4">
                     <p className="text-xs text-gray-300 mb-1">Bu Ay Gelir</p>
@@ -996,13 +996,13 @@ const AdminDashboardV2 = () => {
                     </p>
                     <div className="flex items-center gap-1 mt-1">
                       <ArrowUpRight className="w-3 h-3 text-blue-400" />
-                      <span className="text-xs text-white-tertiary">Aylık</span>
+                      <span className="text-xs text-gray-400">Aylık</span>
                     </div>
                   </div>
                   <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl p-4">
                     <p className="text-xs text-gray-300 mb-1">Rezervasyonlar</p>
-                    <p className="text-xl font-bold text-purple-700">{productCategories.find((p) => p.id === 'car-rental')?.bookings || 0}</p>
-                    <p className="text-xs text-white-tertiary mt-1">Bu ay</p>
+                    <p className="text-xl font-bold text-white">{productCategories.find((p) => p.id === 'car-rental')?.bookings || 0}</p>
+                    <p className="text-xs text-gray-400 mt-1">Bu ay</p>
                   </div>
                 </div>
 
@@ -1030,7 +1030,7 @@ const AdminDashboardV2 = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-6 border border-purple-200 shadow-lg hover:shadow-xl transition-all">
+              className="bg-gradient-to-br from-slate-800 to-purple-900 rounded-2xl p-6 border border-purple-700/30 shadow-lg hover:shadow-xl transition-all">
 
                 <div className="flex items-center justify-between mb-6">
                   <div className="flex items-center gap-3">
@@ -1039,11 +1039,11 @@ const AdminDashboardV2 = () => {
                     </div>
                     <div>
                       <h2 className="text-lg font-bold text-white">Kiralık Mülkler</h2>
-                      <p className="text-sm text-purple-700">Rental Properties Performance</p>
+                      <p className="text-sm text-purple-300">Rental Properties Performance</p>
                     </div>
                   </div>
                   <Link href="/admin/v2/rental-properties">
-                    <button className="text-purple-700 hover:text-purple-900 font-medium text-sm flex items-center gap-1">
+                    <button className="text-purple-300 hover:text-purple-100 font-medium text-sm flex items-center gap-1 transition-colors">
                       Yönet
                       <ArrowUpRight className="w-4 h-4" />
                     </button>
@@ -1061,23 +1061,23 @@ const AdminDashboardV2 = () => {
                   </div>
                   <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl p-4">
                     <p className="text-xs text-gray-300 mb-1">Doluluk Oranı</p>
-                    <p className="text-2xl font-bold text-purple-400-text">78%</p>
-                    <p className="text-xs text-white-tertiary mt-1">Ortalama</p>
+                    <p className="text-2xl font-bold text-white">78%</p>
+                    <p className="text-xs text-gray-400 mt-1">Ortalama</p>
                   </div>
                   <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl p-4">
                     <p className="text-xs text-gray-300 mb-1">Bu Ay Gelir</p>
-                    <p className="text-xl font-bold text-purple-700">
+                    <p className="text-xl font-bold text-white">
                       {formatCurrency(productCategories.find((p) => p.id === 'rental')?.revenue || 0)}
                     </p>
                     <div className="flex items-center gap-1 mt-1">
                       <ArrowUpRight className="w-3 h-3 text-purple-600" />
-                      <span className="text-xs text-white-tertiary">Aylık</span>
+                      <span className="text-xs text-gray-400">Aylık</span>
                     </div>
                   </div>
                   <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl p-4">
                     <p className="text-xs text-gray-300 mb-1">Superhost</p>
                     <p className="text-xl font-bold text-amber-600">2</p>
-                    <p className="text-xs text-white-tertiary mt-1">Aktif</p>
+                    <p className="text-xs text-gray-400 mt-1">Aktif</p>
                   </div>
                 </div>
 
@@ -1111,7 +1111,7 @@ const AdminDashboardV2 = () => {
                 <div className="flex items-center justify-between mb-6">
                   <div>
                     <h2 className="text-lg font-bold text-white">Ürün Kategorileri</h2>
-                    <p className="text-sm text-white-tertiary">Tüm ürünlerin performans özeti</p>
+                    <p className="text-sm text-gray-400">Tüm ürünlerin performans özeti</p>
                   </div>
                   <Link href="/admin/v2/products">
                     <button className="text-blue-400 hover:text-blue-400 font-medium text-sm flex items-center gap-1">
@@ -1154,21 +1154,21 @@ const AdminDashboardV2 = () => {
                           </div>
                           <div className="grid grid-cols-4 gap-4 text-sm">
                             <div>
-                              <span className="text-white-tertiary block text-xs mb-1">Gelir</span>
+                              <span className="text-gray-400 block text-xs mb-1">Gelir</span>
                               <p className="font-semibold text-white">
                                 {formatCurrency(product.revenue)}
                               </p>
                             </div>
                             <div>
-                              <span className="text-white-tertiary block text-xs mb-1">Rezervasyon</span>
+                              <span className="text-gray-400 block text-xs mb-1">Rezervasyon</span>
                               <p className="font-semibold text-white">{product.bookings}</p>
                             </div>
                             <div>
-                              <span className="text-white-tertiary block text-xs mb-1">Aktif</span>
+                              <span className="text-gray-400 block text-xs mb-1">Aktif</span>
                               <p className="font-semibold text-white">{product.active}</p>
                             </div>
                             <div>
-                              <span className="text-white-tertiary block text-xs mb-1">Büyüme</span>
+                              <span className="text-gray-400 block text-xs mb-1">Büyüme</span>
                               <p className={`font-semibold ${product.growth >= 0 ? 'text-purple-400' : 'text-gray-400'}`}>
                                 {product.growth >= 0 ? '+' : ''}{product.growth}%
                               </p>
@@ -1187,7 +1187,7 @@ const AdminDashboardV2 = () => {
                 <div className="flex items-center justify-between mb-6">
                   <div>
                     <h2 className="text-lg font-bold text-white">Canlı Rezervasyonlar</h2>
-                    <p className="text-sm text-white-tertiary">Gerçek zamanlı işlemler</p>
+                    <p className="text-sm text-gray-400">Gerçek zamanlı işlemler</p>
                   </div>
                   {isRealtimeEnabled &&
                 <div className="flex items-center gap-1">
@@ -1243,7 +1243,7 @@ const AdminDashboardV2 = () => {
                 <div className="flex items-center justify-between mb-6">
                   <div>
                     <h2 className="text-lg font-bold text-white">B2B Partnerler</h2>
-                    <p className="text-sm text-white-tertiary">Aktif iş ortaklıkları</p>
+                    <p className="text-sm text-gray-400">Aktif iş ortaklıkları</p>
                   </div>
                   <Link href="/admin/v2/b2b">
                     <button className="text-blue-400 hover:text-blue-400 font-medium text-sm flex items-center gap-1">
@@ -1272,18 +1272,18 @@ const AdminDashboardV2 = () => {
                             {partner.status.toUpperCase()}
                           </span>
                         </div>
-                        <p className="text-sm text-white-tertiary mb-2">{partner.type.toUpperCase()} • {partner.lastActivity}</p>
+                        <p className="text-sm text-gray-400 mb-2">{partner.type.toUpperCase()} • {partner.lastActivity}</p>
                         <div className="grid grid-cols-3 gap-4 text-sm">
                           <div>
-                            <span className="text-white-tertiary block text-xs">Gelir</span>
+                            <span className="text-gray-400 block text-xs">Gelir</span>
                             <p className="font-semibold text-white">{formatCurrency(partner.revenue)}</p>
                           </div>
                           <div>
-                            <span className="text-white-tertiary block text-xs">Rezervasyon</span>
+                            <span className="text-gray-400 block text-xs">Rezervasyon</span>
                             <p className="font-semibold text-white">{partner.bookings}</p>
                           </div>
                           <div>
-                            <span className="text-white-tertiary block text-xs">Komisyon</span>
+                            <span className="text-gray-400 block text-xs">Komisyon</span>
                             <p className="font-semibold text-white">{partner.commission}%</p>
                           </div>
                         </div>
@@ -1297,7 +1297,7 @@ const AdminDashboardV2 = () => {
               <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-6 border border-white/20">
                 <div className="mb-6">
                   <h2 className="text-lg font-bold text-white">Sistem Sağlığı</h2>
-                  <p className="text-sm text-white-tertiary">Son kontrol: {systemHealth.lastCheck}</p>
+                  <p className="text-sm text-gray-400">Son kontrol: {systemHealth.lastCheck}</p>
                 </div>
 
                 <div className="space-y-4">
@@ -1390,16 +1390,16 @@ const AdminDashboardV2 = () => {
                       </div>
                       <div className="flex-1">
                         <h3 className="font-bold text-white text-lg">{product.name}</h3>
-                        <p className="text-sm text-white-tertiary">{product.active} aktif ürün</p>
+                        <p className="text-sm text-gray-400">{product.active} aktif ürün</p>
                       </div>
                     </div>
                     <div className="grid grid-cols-2 gap-4 mb-4">
                       <div>
-                        <p className="text-xs text-white-tertiary">Gelir</p>
+                        <p className="text-xs text-gray-400">Gelir</p>
                         <p className="text-lg font-bold text-white">{formatCurrency(product.revenue)}</p>
                       </div>
                       <div>
-                        <p className="text-xs text-white-tertiary">Rezervasyon</p>
+                        <p className="text-xs text-gray-400">Rezervasyon</p>
                         <p className="text-lg font-bold text-white">{product.bookings}</p>
                       </div>
                     </div>
