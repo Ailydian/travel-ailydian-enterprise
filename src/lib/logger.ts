@@ -104,21 +104,21 @@ class Logger {
       switch (entry.level) {
         case LogLevel.DEBUG:
         case LogLevel.INFO:
-          logger.info(formatted);
+          console.info(formatted);
           break;
         case LogLevel.WARN:
-          logger.warn(formatted);
+          console.warn(formatted);
           break;
         case LogLevel.ERROR:
         case LogLevel.FATAL:
-          logger.error(formatted, entry.error);
+          console.error(formatted, entry.error);
           break;
       }
     } else {
       if (entry.level >= LogLevel.ERROR) {
-        logger.error(formatted, entry.error);
+        console.error(formatted, entry.error);
       } else if (entry.level === LogLevel.WARN) {
-        logger.warn(formatted);
+        console.warn(formatted);
       }
     }
   }
