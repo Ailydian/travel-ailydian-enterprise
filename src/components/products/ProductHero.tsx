@@ -93,11 +93,11 @@ export const ProductHero: React.FC<ProductHeroProps> = ({
   const handleShare = async () => {
     if (onShare) {
       onShare();
-    } else if (navigator.share) {
+    } else if (typeof navigator !== 'undefined' && navigator.share) {
       try {
         await navigator.share({
           title,
-          url: window.location.href
+          url: typeof window !== 'undefined' ? window.location.href : ''
         });
       } catch (err) {
         // User cancelled

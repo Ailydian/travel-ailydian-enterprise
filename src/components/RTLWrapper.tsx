@@ -17,6 +17,9 @@ export const RTLWrapper: React.FC<RTLWrapperProps> = ({ children }) => {
   const isRTL = RTL_LANGUAGES.includes(currentLocale);
 
   useEffect(() => {
+    // Check if running in browser (not SSR)
+    if (typeof document === 'undefined') return;
+
     // Set direction attribute on document
     document.documentElement.dir = isRTL ? 'rtl' : 'ltr';
     document.documentElement.lang = currentLocale;
