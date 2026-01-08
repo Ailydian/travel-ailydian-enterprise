@@ -235,10 +235,12 @@ const B2BPartnersPage = () => {
                 <Download className="w-4 h-4" />
                 <span className="text-sm font-medium">Export</span>
               </button>
-              <button className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white rounded-lg transition-all">
-                <Plus className="w-4 h-4" />
-                <span className="text-sm font-medium">Yeni Partner</span>
-              </button>
+              <Link href="/admin/v2/partners/new">
+                <button className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white rounded-lg transition-all">
+                  <Plus className="w-4 h-4" />
+                  <span className="text-sm font-medium">Yeni Partner</span>
+                </button>
+              </Link>
             </div>
           </div>
         </div>
