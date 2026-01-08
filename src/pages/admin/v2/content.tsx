@@ -78,7 +78,7 @@ const ContentManagement = () => {
 
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-purple-50 to-blue-50">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
       {/* Header */}
       <div className="bg-slate-900/80 backdrop-blur-xl border-b border-white/10 sticky top-0 z-40 backdrop-blur-xl bg-white/10 backdrop-blur-xl">
         <div className="max-w-7xl mx-auto px-6 py-4">

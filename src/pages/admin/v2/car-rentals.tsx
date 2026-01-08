@@ -202,25 +202,25 @@ export default function CarRentalsManagement() {
 
           {/* Stats */}
           <div className="grid grid-cols-1 md:grid-cols-5 gap-4 mt-6">
-            <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-lg">
+            <div className="bg-gradient-to-br from-blue-500/20 to-blue-500/30 p-4 rounded-lg border border-blue-500/20">
               <p className="text-sm text-blue-400 font-medium">Toplam Araç</p>
-              <p className="text-2xl font-bold text-blue-900 mt-1">{stats.total}</p>
+              <p className="text-2xl font-bold text-blue-300 mt-1">{stats.total}</p>
             </div>
-            <div className="bg-gradient-to-br from-green-50 to-green-100 p-4 rounded-lg">
-              <p className="text-sm text-purple-400 font-medium">Aktif</p>
-              <p className="text-2xl font-bold text-green-900 mt-1">{stats.active}</p>
+            <div className="bg-gradient-to-br from-green-500/20 to-green-500/30 p-4 rounded-lg border border-green-500/20">
+              <p className="text-sm text-green-400 font-medium">Aktif</p>
+              <p className="text-2xl font-bold text-green-300 mt-1">{stats.active}</p>
             </div>
-            <div className="bg-gradient-to-br from-amber-50 to-amber-100 p-4 rounded-lg">
-              <p className="text-sm text-amber-600 font-medium">Öne Çıkan</p>
-              <p className="text-2xl font-bold text-amber-900 mt-1">{stats.featured}</p>
+            <div className="bg-gradient-to-br from-amber-500/20 to-amber-500/30 p-4 rounded-lg border border-amber-500/20">
+              <p className="text-sm text-amber-400 font-medium">Öne Çıkan</p>
+              <p className="text-2xl font-bold text-amber-300 mt-1">{stats.featured}</p>
             </div>
-            <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-4 rounded-lg">
-              <p className="text-sm text-purple-600 font-medium">Toplam Rezervasyon</p>
-              <p className="text-2xl font-bold text-purple-900 mt-1">{stats.totalBookings}</p>
+            <div className="bg-gradient-to-br from-purple-500/20 to-purple-500/30 p-4 rounded-lg border border-purple-500/20">
+              <p className="text-sm text-purple-400 font-medium">Toplam Rezervasyon</p>
+              <p className="text-2xl font-bold text-purple-300 mt-1">{stats.totalBookings}</p>
             </div>
-            <div className="bg-gradient-to-br from-emerald-50 to-emerald-100 p-4 rounded-lg">
-              <p className="text-sm text-emerald-600 font-medium">Müsait Araç</p>
-              <p className="text-2xl font-bold text-emerald-900 mt-1">
+            <div className="bg-gradient-to-br from-emerald-500/20 to-emerald-500/30 p-4 rounded-lg border border-emerald-500/20">
+              <p className="text-sm text-emerald-400 font-medium">Müsait Araç</p>
+              <p className="text-2xl font-bold text-emerald-300 mt-1">
                 {cars.filter((c) => c.availableCount > 0).length}
               </p>
             </div>

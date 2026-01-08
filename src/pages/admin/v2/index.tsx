@@ -725,7 +725,7 @@ const AdminDashboardV2 = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
       {/* Live Notifications */}
       <LiveNotifications
         notifications={notifications}
@@ -1206,7 +1206,7 @@ const AdminDashboardV2 = () => {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, x: -20 }}
                     transition={{ delay: index * 0.05 }}
-                    className="flex items-start gap-3 p-3 rounded-xl bg-gradient-to-r from-slate-50 to-blue-50 hover:from-blue-50 hover:to-purple-50 transition-all cursor-pointer group border border-slate-100">
+                    className="flex items-start gap-3 p-3 rounded-xl bg-gradient-to-r from-slate-800/50 to-blue-900/50 hover:from-blue-900/60 hover:to-purple-900/60 transition-all cursor-pointer group border border-white/10">
 
                         <div className="mt-1 p-2 bg-white/10 backdrop-blur-xl border border-white/20 rounded-lg shadow-sm group-hover:shadow-md transition-shadow">
                           {getProductIcon(booking.type)}
@@ -1418,7 +1418,7 @@ const AdminDashboardV2 = () => {
             </div>
 
             <Link href="/admin/v2/products">
-              <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8 text-center border-2 border-dashed border-blue-200 hover:border-white/20-focus transition-all cursor-pointer group">
+              <div className="bg-gradient-to-r from-blue-900/30 to-purple-900/30 rounded-2xl p-8 text-center border-2 border-dashed border-blue-500/30 hover:border-purple-500/50 transition-all cursor-pointer group">
                 <Package className="w-12 h-12 text-blue-400 mx-auto mb-4 group-hover:scale-110 transition-transform" />
                 <h3 className="text-lg font-bold text-white mb-2">Detaylı Ürün Yönetimi</h3>
                 <p className="text-gray-300">Tüm ürünleri görüntülemek ve düzenlemek için tıklayın</p>
