@@ -77,24 +77,24 @@ const AdvancedAnalytics = () => {
 
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
       {/* Header */}
-      <div className="bg-white/10 backdrop-blur-xl border border-b border-white/20 sticky top-0 z-40 backdrop-blur-xl bg-white/10 backdrop-blur-xl">
+      <div className="bg-slate-900/80 backdrop-blur-xl border-b border-white/10 sticky top-0 z-40">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <Link href="/admin/v2">
-                <button className="flex items-center gap-2 px-4 py-2 text-gray-300 hover:text-white hover:bg-white/5 backdrop-blur-xl rounded-lg transition-all">
+                <button className="flex items-center gap-2 px-4 py-2 text-gray-300 hover:text-white hover:bg-white/10 rounded-lg transition-all">
                   <ArrowLeft className="w-5 h-5" />
                   <span className="font-medium">Dashboard'a Dön</span>
                 </button>
               </Link>
-              <div className="h-8 w-px bg-slate-300" />
+              <div className="h-8 w-px bg-white/20" />
               <div>
                 <h1 className="text-2xl font-bold text-white">
                   Detaylı Analytics
                 </h1>
-                <p className="text-sm text-gray-300">
+                <p className="text-sm text-gray-400">
                   Gerçek zamanlı iş analitiği
                 </p>
               </div>
@@ -253,7 +253,7 @@ const AdvancedAnalytics = () => {
               </thead>
               <tbody>
                 {stats.topProducts?.map((product: any, index: number) =>
-                <tr key={index} className="border-b border-slate-100 hover:bg-white/5">
+                <tr key={index} className="border-b border-white/10 hover:bg-white/5">
                     <td className="py-4 px-4">
                       <div className="flex items-center gap-3">
                         <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-purple-500 rounded-lg flex items-center justify-center text-white font-bold text-sm">
@@ -287,9 +287,9 @@ const MetricCard = ({ title, value, change, icon: Icon, color }: any) => {
   const isPositive = change >= 0;
   const colorClasses = {
     green: 'bg-purple-500/20 text-purple-400',
-    blue: 'bg-blue-50 text-blue-400',
-    purple: 'bg-purple-50 text-purple-600',
-    orange: 'bg-orange-50 text-orange-600'
+    blue: 'bg-blue-500/20 text-blue-400',
+    purple: 'bg-purple-500/20 text-purple-400',
+    orange: 'bg-orange-500/20 text-orange-400'
   };
 
   return (

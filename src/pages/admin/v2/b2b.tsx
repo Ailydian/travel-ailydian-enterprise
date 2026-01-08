@@ -214,28 +214,28 @@ const B2BPartnersPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
       {/* Header */}
-      <header className="bg-white/10 backdrop-blur-xl border border-b border-white/20 sticky top-0 z-50 shadow-sm">
+      <header className="bg-slate-900/80 backdrop-blur-xl border-b border-white/10 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <Link href="/admin/v2">
-                <button className="p-2 hover:bg-white/5 backdrop-blur-xl rounded-lg transition-colors">
+                <button className="p-2 hover:bg-white/10 rounded-lg transition-colors">
                   <ArrowLeft className="w-5 h-5 text-gray-300" />
                 </button>
               </Link>
               <div>
                 <h1 className="text-2xl font-bold text-white">B2B Partner Yönetimi</h1>
-                <p className="text-sm text-gray-300">Tüm iş ortaklarını yönetin</p>
+                <p className="text-sm text-gray-400">Tüm iş ortaklarını yönetin</p>
               </div>
             </div>
             <div className="flex items-center gap-3">
-              <button className="flex items-center gap-2 px-4 py-2 border border-white/20 rounded-lg hover:bg-white/5 transition-colors">
+              <button className="flex items-center gap-2 px-4 py-2 border border-white/20 rounded-lg hover:bg-white/10 transition-colors text-gray-300">
                 <Download className="w-4 h-4" />
                 <span className="text-sm font-medium">Export</span>
               </button>
-              <button className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:bg-gradient-to-r from-blue-600 to-purple-600 transition-colors">
+              <button className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white rounded-lg transition-all">
                 <Plus className="w-4 h-4" />
                 <span className="text-sm font-medium">Yeni Partner</span>
               </button>
@@ -284,10 +284,10 @@ const B2BPartnersPage = () => {
 
             <div className="flex items-center justify-between mb-2">
               <p className="text-sm font-medium text-gray-300">Aktif Partnerler</p>
-              <Users className="w-5 h-5 text-purple-600" />
+              <Users className="w-5 h-5 text-green-400" />
             </div>
             <p className="text-2xl font-bold text-white">{activePartners}</p>
-            <p className="text-xs text-purple-600 mt-1">{partners.length} toplam</p>
+            <p className="text-xs text-green-400 mt-1">{partners.length} toplam</p>
           </motion.div>
 
           <motion.div
