@@ -229,7 +229,7 @@ const ToursManagementPage = () => {
   const getCategoryColor = (category: string) => {
     const colors: Record<string, string> = {
       adventure: 'bg-orange-50 text-orange-700 border-orange-200',
-      cultural: 'bg-purple-50 text-purple-700 border-purple-200',
+      cultural: 'bg-purple-50 text-purple-300 border-purple-200',
       nature: 'bg-purple-500/20 text-green-700 border-purple-400',
       water: 'bg-blue-50 text-blue-400-hover border-blue-200',
       food: 'bg-amber-50 text-amber-700 border-amber-200',
@@ -285,7 +285,7 @@ const ToursManagementPage = () => {
                 className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-lg font-medium transition-all ${
                 activeView === tab.id ?
                 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg' :
-                'text-slate-700 hover:bg-slate-50'}`
+                'text-gray-300 hover:bg-white/5'}`
                 }>
 
                 <Icon className="w-5 h-5" />
@@ -362,7 +362,7 @@ const ToursManagementPage = () => {
                   <option value="inactive">Pasif</option>
                   <option value="seasonal">Sezonluk</option>
                 </select>
-                <button onClick={fetchData} className="flex items-center justify-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-xl hover:bg-slate-200 rounded-lg transition-colors">
+                <button onClick={fetchData} className="flex items-center justify-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-xl hover:bg-white/20 rounded-lg transition-colors">
                   <RefreshCw className="w-4 h-4" />
                   Yenile
                 </button>

@@ -164,7 +164,7 @@ export default function CarRentalsManagement() {
       LUXURY: 'bg-blue-500-light text-amber-800',
       SPORTS: 'bg-purple-500/30 text-purple-300',
       VAN: 'bg-white/5 text-white',
-      MINIVAN: 'bg-slate-100 text-slate-800',
+      MINIVAN: 'bg-white/10 text-slate-800',
       COMPACT: 'bg-cyan-100 text-cyan-800',
       FULLSIZE: 'bg-indigo-100 text-indigo-800'
     };

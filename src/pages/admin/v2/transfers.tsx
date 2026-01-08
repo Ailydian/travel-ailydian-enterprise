@@ -374,7 +374,7 @@ const TransfersManagementPage = () => {
               <option value="maintenance">Bakımda</option>
             </select>
 
-            <button className="flex items-center justify-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-xl hover:bg-slate-200 rounded-lg transition-colors">
+            <button className="flex items-center justify-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-xl hover:bg-white/20 rounded-lg transition-colors">
               <RefreshCw className="w-4 h-4" />
               Yenile
             </button>

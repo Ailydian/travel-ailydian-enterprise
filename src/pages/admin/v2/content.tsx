@@ -152,7 +152,7 @@ const ContentManagement = () => {
                         ${
                       isActive ?
                       `bg-gradient-to-r from-${section.color}-500 to-${section.color}-600 text-white shadow-md` :
-                      'text-slate-700 hover:bg-slate-50'}
+                      'text-gray-300 hover:bg-white/5'}
                       `
                       }>
 

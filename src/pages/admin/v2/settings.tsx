@@ -148,7 +148,7 @@ const SystemSettings = () => {
                         ${
                       isActive ?
                       `bg-gradient-to-r from-${section.color}-500 to-${section.color}-600 text-white shadow-md` :
-                      'text-slate-700 hover:bg-slate-50'}
+                      'text-gray-300 hover:bg-white/5'}
                       `
                       }>
 
@@ -413,7 +413,7 @@ const IntegrationSettings = ({ onSave, saving }: any) => {
             <Zap className="w-5 h-5 text-purple-600 mt-0.5" />
             <div>
               <h3 className="font-semibold text-purple-900 mb-1">Üçüncü Parti Entegrasyonlar</h3>
-              <p className="text-sm text-purple-700">
+              <p className="text-sm text-purple-300">
                 Google Analytics, Facebook Pixel, Amadeus, Booking.com API ve diğer entegrasyonlar.
               </p>
             </div>

@@ -859,7 +859,7 @@ const AdminDashboardV2 = () => {
             className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-sm transition-all whitespace-nowrap ${
             activeTab === 'overview' ?
             'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg shadow-blue-600/30' :
-            'bg-white/5 text-slate-700 hover:bg-slate-50'}`
+            'bg-white/5 text-gray-300 hover:bg-white/5'}`
             }>
             <LayoutDashboard className="w-4 h-4" />
             Genel Bakış
@@ -870,28 +870,28 @@ const AdminDashboardV2 = () => {
             className={`flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-sm transition-all whitespace-nowrap ${
             activeTab === 'products' ?
             'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg shadow-blue-600/30' :
-            'bg-white/5 text-slate-700 hover:bg-slate-50'}`
+            'bg-white/5 text-gray-300 hover:bg-white/5'}`
             }>
             <Package className="w-4 h-4" />
             Ürün Yönetimi
           </button>
 
           <Link href="/admin/v2/b2b">
-            <button className="flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-sm transition-all whitespace-nowrap bg-white/5 text-slate-700 hover:bg-slate-50">
+            <button className="flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-sm transition-all whitespace-nowrap bg-white/5 text-gray-300 hover:bg-white/5">
               <Briefcase className="w-4 h-4" />
               B2B Partnerler
             </button>
           </Link>
 
           <Link href="/admin/v2/analytics">
-            <button className="flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-sm transition-all whitespace-nowrap bg-white/5 text-slate-700 hover:bg-slate-50">
+            <button className="flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-sm transition-all whitespace-nowrap bg-white/5 text-gray-300 hover:bg-white/5">
               <BarChart3 className="w-4 h-4" />
               Analytics
             </button>
           </Link>
 
           <Link href="/admin/v2/settings">
-            <button className="flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-sm transition-all whitespace-nowrap bg-white/5 text-slate-700 hover:bg-slate-50">
+            <button className="flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-sm transition-all whitespace-nowrap bg-white/5 text-gray-300 hover:bg-white/5">
               <Settings className="w-4 h-4" />
               Ayarlar
             </button>

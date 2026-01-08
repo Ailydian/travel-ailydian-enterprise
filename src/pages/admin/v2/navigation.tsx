@@ -219,7 +219,7 @@ const NavigationManager = () => {
                         ${
                       isActive ?
                       `bg-gradient-to-r from-${type.color}-500 to-${type.color}-600 text-white shadow-md` :
-                      'text-slate-700 hover:bg-slate-50'}
+                      'text-gray-300 hover:bg-white/10 hover:text-white'}
                       `
                       }>
 
@@ -322,7 +322,7 @@ const MenuItemRow = ({ menu, onEdit, onDelete, onToggleActive }: any) => {
             <div className="flex items-center gap-3">
               <h3 className="font-semibold text-white">{menu.title}</h3>
               {menu.badge &&
-              <span className="px-2 py-1 text-xs font-semibold bg-purple-100 text-purple-700 rounded">
+              <span className="px-2 py-1 text-xs font-semibold bg-purple-500/20 text-purple-300 border border-purple-500/30 rounded">
                   {menu.badge}
                 </span>
               }
@@ -354,8 +354,8 @@ const MenuItemRow = ({ menu, onEdit, onDelete, onToggleActive }: any) => {
               onClick={() => onToggleActive(menu)}
               className={`p-2 rounded-lg transition-all ${
               menu.isActive ?
-              'bg-purple-500/30 text-green-700 hover:bg-green-200' :
-              'bg-slate-100 text-slate-400 hover:bg-slate-200'}`
+              'bg-green-500/20 text-green-400 border border-green-500/30 hover:bg-green-500/30' :
+              'bg-white/5 text-gray-400 border border-white/10 hover:bg-white/10 hover:text-gray-300'}`
               }>
 
               {menu.isActive ? <Eye className="w-5 h-5" /> : <EyeOff className="w-5 h-5" />}

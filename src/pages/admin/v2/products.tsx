@@ -285,7 +285,7 @@ const ProductManagement = () => {
                   <span className={`px-2 py-0.5 rounded-full text-xs font-semibold ${
                   selectedCategory === cat.id ?
                   'bg-white/10 text-white' :
-                  'bg-slate-100 text-slate-600'}`
+                  'bg-white/10 text-slate-600'}`
                   }>
                     {cat.count}
                   </span>

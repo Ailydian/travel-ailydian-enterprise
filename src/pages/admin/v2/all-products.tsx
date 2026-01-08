@@ -236,7 +236,7 @@ const AllProductsManagement = () => {
                   ${
                 isActive ?
                 `bg-gradient-to-r from-${cat.color}-500 to-${cat.color}-600 text-white shadow-lg scale-105` :
-                'bg-white/5 text-slate-700 hover:bg-slate-50'}
+                'bg-white/5 text-gray-300 hover:bg-white/5'}
                 `
                 }>
 
@@ -258,7 +258,7 @@ const AllProductsManagement = () => {
               onChange={(e) => setSearchQuery(e.target.value)}
               className="flex-1 outline-none text-white placeholder-slate-400" />
 
-            <button className="px-4 py-2 bg-white/5 backdrop-blur-xl hover:bg-slate-200 rounded-lg text-gray-300 transition-all">
+            <button className="px-4 py-2 bg-white/5 backdrop-blur-xl hover:bg-white/20 rounded-lg text-gray-300 transition-all">
               <Filter className="w-5 h-5" />
             </button>
           </div>
@@ -544,7 +544,7 @@ const AddProductModal = ({
               <button
                 type="button"
                 onClick={onClose}
-                className="flex-1 px-4 py-3 bg-white/5 backdrop-blur-xl text-gray-300 rounded-lg hover:bg-slate-200 transition-all font-medium">
+                className="flex-1 px-4 py-3 bg-white/5 backdrop-blur-xl text-gray-300 rounded-lg hover:bg-white/20 transition-all font-medium">
 
                 İptal
               </button>
