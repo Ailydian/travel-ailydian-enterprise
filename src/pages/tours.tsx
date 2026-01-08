@@ -34,12 +34,11 @@ import { antalyaTours } from '../data/antalya-tours';
 import { greeceTours } from '../data/greece-tours';
 import { cyprusTours } from '../data/cyprus-tours';
 import CountryFilterWidget from '../components/filters/CountryFilterWidget';
-// Dynamic imports to prevent SSR issues
-const NeoHero = dynamic(() => import('../components/neo-glass').then(mod => ({ default: mod.NeoHero })), { ssr: false });
-const FuturisticCard = dynamic(() => import('../components/neo-glass').then(mod => ({ default: mod.FuturisticCard })), { ssr: false });
-const FuturisticButton = dynamic(() => import('../components/neo-glass').then(mod => ({ default: mod.FuturisticButton })), { ssr: false });
-const NeoSection = dynamic(() => import('../components/neo-glass').then(mod => ({ default: mod.NeoSection })), { ssr: false });
-// HorizontalScrollSection has default export, import directly
+// Dynamic imports to prevent SSR issues - Import directly from component files
+const NeoHero = dynamic(() => import('../components/neo-glass/NeoHero'), { ssr: false });
+const FuturisticCard = dynamic(() => import('../components/neo-glass/FuturisticCard'), { ssr: false });
+const FuturisticButton = dynamic(() => import('../components/neo-glass/FuturisticButton'), { ssr: false });
+const NeoSection = dynamic(() => import('../components/neo-glass/NeoSection'), { ssr: false });
 const HorizontalScrollSection = dynamic(() => import('../components/scroll/HorizontalScrollSection'), { ssr: false });
 import { AntalyaToursAIAnswer } from '../components/seo/AIAnswerBlock';
 
