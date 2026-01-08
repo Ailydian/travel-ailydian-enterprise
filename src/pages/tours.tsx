@@ -39,7 +39,7 @@ const NeoHero = dynamic(() => import('../components/neo-glass').then(mod => ({ d
 const FuturisticCard = dynamic(() => import('../components/neo-glass').then(mod => ({ default: mod.FuturisticCard })), { ssr: false });
 const FuturisticButton = dynamic(() => import('../components/neo-glass').then(mod => ({ default: mod.FuturisticButton })), { ssr: false });
 const NeoSection = dynamic(() => import('../components/neo-glass').then(mod => ({ default: mod.NeoSection })), { ssr: false });
-import { HorizontalScrollSection } from '../components/scroll/HorizontalScrollSection';
+const HorizontalScrollSection = dynamic(() => import('../components/scroll/HorizontalScrollSection').then(mod => ({ default: mod.HorizontalScrollSection })), { ssr: false });
 import { AntalyaToursAIAnswer } from '../components/seo/AIAnswerBlock';
 
 // ==================== TYPE DEFINITIONS ====================

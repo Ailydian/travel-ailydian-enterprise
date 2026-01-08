@@ -33,6 +33,9 @@ export const ModernHeader: React.FC = () => {
 
   // Scroll detection - optimized for mobile, no jitter
   useEffect(() => {
+    // Check if running in browser (not SSR)
+    if (typeof window === 'undefined') return;
+
     let ticking = false;
     let lastScrollY = 0;
     const threshold = 30;
@@ -101,8 +104,10 @@ export const ModernHeader: React.FC = () => {
     setLangMenuOpen(false);
 
     // Hard navigate to switch language - ensures full page reload with new locale
-    const currentPath = router.asPath;
-    window.location.href = `/${lang.code}${currentPath}`;
+    if (typeof window !== 'undefined') {
+      const currentPath = router.asPath;
+      window.location.href = `/${lang.code}${currentPath}`;
+    }
   };
 
   return (
