@@ -347,3 +347,161 @@ export const TRANSFER_FAQ_SCHEMA = {
     },
   ],
 };
+
+// Tours FAQ Schema - Comprehensive Q&A for AI Search
+export const TOURS_FAQ_SCHEMA = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Antalya turları rezervasyonu nasıl yapılır?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Online rezervasyon sistemi üzerinden 7/24 rezervasyon yapabilirsiniz. Otel transferi, profesyonel rehber ve sigorta fiyata dahildir. Müşteri hizmetlerimiz her zaman yanınızda.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Antalya turlarında neler dahil?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Tüm turlarımızda otel karşılama-bırakma transferi, profesyonel Türkçe/İngilizce rehber, sigorta ve belirtilen öğünler dahildir. Ekstra ücret talep edilmez.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Antalya tekne turları ne kadar sürer?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Tekne turlarımız genellikle 09:00-17:00 arası tam gün turlarıdır. 3 Adalar turu, Kemer Korsan teknesi ve benzer turlar yaklaşık 8 saat sürmektedir.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Köprülü Kanyon rafting turu güvenli mi?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Evet, tamamen güvenlidir. Profesyonel eğitmenler eşliğinde, tam güvenlik ekipmanı (can yeleği, kask) ile yapılır. Yüzme bilmeseniz bile katılabilirsiniz.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Antalya tur fiyatları ne kadar?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Fiyatlar 450₺ ile 1.500₺ arasında değişir. Tekne turları 980₺, rafting 637₺, antik kentler turu 637₺ civarındadır. Rakiplerimize göre %15 daha uygun fiyat garantisi sunuyoruz.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Çocuklar için uygun turlar var mı?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Evet, tekne turları, aquarium ziyaretleri ve antik kent gezileri aileler için idealdir. Rafting ve jeep safari gibi macera turları için minimum yaş 7-10 arasındadır.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Turları iptal edebilir miyim?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Tur tarihinden 24 saat öncesine kadar ücretsiz iptal hakkınız vardır. 24 saatten daha yakın iptal durumlarında ücret iadesi yapılmaz.',
+      },
+    },
+  ],
+};
+
+// Tours Service Schema - Travel Agency Structure
+export const TOURS_SERVICE_SCHEMA = {
+  '@context': 'https://schema.org',
+  '@type': 'TravelAgency',
+  name: 'AILYDIAN Holiday Tours & Activities',
+  url: 'https://holiday.ailydian.com/tours',
+  logo: 'https://holiday.ailydian.com/images/logo.png',
+  description: 'Türkiye genelinde 100+ tur seçeneği sunan güvenilir seyahat platformu. Tekne turları, macera turları, kültür gezileri ve daha fazlası.',
+  priceRange: '₺₺',
+  telephone: '+90-850-XXX-XXXX',
+  address: {
+    '@type': 'PostalAddress',
+    addressCountry: 'TR',
+    addressRegion: 'Antalya',
+    addressLocality: 'Antalya',
+  },
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.8',
+    reviewCount: '2847',
+    bestRating: '5',
+    worstRating: '1',
+  },
+  areaServed: [
+    {
+      '@type': 'City',
+      name: 'Antalya',
+    },
+    {
+      '@type': 'City',
+      name: 'Bodrum',
+    },
+    {
+      '@type': 'City',
+      name: 'Marmaris',
+    },
+    {
+      '@type': 'City',
+      name: 'Çeşme',
+    },
+  ],
+};
+
+// Hotels Service Schema - Lodging Business
+export const HOTELS_SERVICE_SCHEMA = {
+  '@context': 'https://schema.org',
+  '@type': 'LodgingBusiness',
+  name: 'AILYDIAN Holiday Hotels & Accommodation',
+  url: 'https://holiday.ailydian.com/hotels',
+  description: 'Türkiye ve dünya genelinde 5000+ otel seçeneği. Butik oteller, 5 yıldızlı resortlar, villa ve apart rezervasyonları.',
+  priceRange: '₺₺-₺₺₺₺',
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.7',
+    reviewCount: '12450',
+  },
+  amenityFeature: [
+    {
+      '@type': 'LocationFeatureSpecification',
+      name: 'Free WiFi',
+      value: true,
+    },
+    {
+      '@type': 'LocationFeatureSpecification',
+      name: 'Swimming Pool',
+      value: true,
+    },
+    {
+      '@type': 'LocationFeatureSpecification',
+      name: 'Spa & Wellness',
+      value: true,
+    },
+  ],
+};
+
+// Car Rentals Enhanced Schema
+export const CAR_RENTALS_SERVICE_ENHANCED_SCHEMA = {
+  '@context': 'https://schema.org',
+  '@type': 'AutoRental',
+  name: 'AILYDIAN Holiday Car Rentals',
+  url: 'https://holiday.ailydian.com/car-rentals',
+  description: 'Ekonomik, konforlu ve lüks araç kiralama seçenekleri. Havalimanı teslim, tam kasko dahil, 7/24 yol yardım.',
+  priceRange: '₺₺',
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.6',
+    reviewCount: '3890',
+  },
+  areaServed: {
+    '@type': 'Country',
+    name: 'Turkey',
+  },
+};
