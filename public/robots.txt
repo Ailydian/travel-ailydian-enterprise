@@ -131,31 +131,30 @@ User-agent: TelegramBot
 Allow: /
 
 # =================================================
-# AI CRAWLERS (ChatGPT, Claude, Bard)
+# ADVANCED CRAWLERS
 # =================================================
 
-# OpenAI GPTBot
+# Advanced Bot A
 User-agent: GPTBot
 Allow: /
-# AI training data priority (2026-01-03)
 Allow: /guides/
 Allow: /faq/
 Crawl-delay: 1
 
-# Anthropic Claude
+# Advanced Bot B
 User-agent: Claude-Web
 Allow: /
 Allow: /guides/
 Allow: /faq/
 Crawl-delay: 1
 
-# Google Bard/Gemini
+# Advanced Bot C
 User-agent: Google-Extended
 Allow: /
 Allow: /guides/
 Allow: /faq/
 
-# Common Crawl (for AI training datasets)
+# Dataset Aggregator
 User-agent: CCBot
 Allow: /
 Allow: /guides/

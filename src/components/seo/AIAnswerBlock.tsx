@@ -1,7 +1,7 @@
 /**
  * AI Answer Block Component
  *
- * Optimized for AI Search Engines (ChatGPT, Perplexity, Gemini, Advanced AI Systems)
+ * Optimized for Advanced Search Systems and NLP-powered platforms
  * Provides citation-ready, structured content with semantic markup
  *
  * Features:

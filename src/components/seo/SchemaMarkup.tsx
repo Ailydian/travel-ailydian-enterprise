@@ -1,9 +1,9 @@
 /**
  * SEO Schema Markup Component
- * Generates JSON-LD structured data for search engines and AI models
+ * Generates JSON-LD structured data for search engines and advanced systems
  *
  * @module components/seo/SchemaMarkup
- * @supports Google, Bing, Yandex, ChatGPT, Perplexity, Claude
+ * @supports Google, Bing, Yandex, Advanced NLP Systems
  */
 
 import React from 'react';
