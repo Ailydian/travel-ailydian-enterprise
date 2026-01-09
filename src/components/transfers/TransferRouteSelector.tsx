@@ -228,11 +228,11 @@ export const TransferRouteSelector: React.FC<TransferRouteSelectorProps> = ({
         <motion.div
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: 'auto' }}
-          className="mt-4 p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl border border-blue-200">
+          className="mt-4 p-4 bg-blue-500/10 backdrop-blur-xl rounded-xl border border-blue-500/30">
 
             <div className="flex items-center justify-between flex-wrap gap-4">
               <div className="flex items-center gap-3">
-                <MapPin className="w-5 h-5 text-blue-500" />
+                <MapPin className="w-5 h-5 text-blue-400" />
                 <div>
                   <div className="text-sm font-medium text-gray-300">Rota</div>
                   <div className="text-lg font-bold text-white">
@@ -244,8 +244,8 @@ export const TransferRouteSelector: React.FC<TransferRouteSelectorProps> = ({
               {fromLocation.coordinates && toLocation.coordinates &&
             <div className="flex items-center gap-4">
                   <div className="text-sm">
-                    <span className="text-gray-400">Mesafe:</span>
-                    <span className="ml-2 font-semibold text-white">
+                    <span className="text-gray-300">Mesafe:</span>
+                    <span className="ml-2 font-semibold text-blue-400">
                       {Math.round(
                     calculateDistance(
                       fromLocation.coordinates.lat,
