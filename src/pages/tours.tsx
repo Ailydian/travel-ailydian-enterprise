@@ -477,11 +477,54 @@ export default function Tours() {
                 "worstRating": "1"
               },
               "areaServed": [
-                { "@type": "City", "name": "Antalya" },
-                { "@type": "City", "name": "Bodrum" },
-                { "@type": "City", "name": "Marmaris" },
-                { "@type": "City", "name": "Çeşme" }
-              ]
+                {
+                  "@type": "City",
+                  "name": "Antalya",
+                  "geo": {
+                    "@type": "GeoCoordinates",
+                    "latitude": "36.8969",
+                    "longitude": "30.7133"
+                  }
+                },
+                {
+                  "@type": "City",
+                  "name": "Bodrum",
+                  "geo": {
+                    "@type": "GeoCoordinates",
+                    "latitude": "37.0344",
+                    "longitude": "27.4305"
+                  }
+                },
+                {
+                  "@type": "City",
+                  "name": "Marmaris",
+                  "geo": {
+                    "@type": "GeoCoordinates",
+                    "latitude": "36.8555",
+                    "longitude": "28.2744"
+                  }
+                },
+                {
+                  "@type": "City",
+                  "name": "Çeşme",
+                  "geo": {
+                    "@type": "GeoCoordinates",
+                    "latitude": "38.3228",
+                    "longitude": "26.3061"
+                  }
+                }
+              ],
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Antalya",
+                "addressRegion": "Antalya",
+                "addressCountry": "TR"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": "36.8969",
+                "longitude": "30.7133"
+              }
             })
           }} />
 

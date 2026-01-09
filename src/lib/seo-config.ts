@@ -439,20 +439,51 @@ export const TOURS_SERVICE_SCHEMA = {
     {
       '@type': 'City',
       name: 'Antalya',
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: '36.8969',
+        longitude: '30.7133',
+      },
     },
     {
       '@type': 'City',
       name: 'Bodrum',
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: '37.0344',
+        longitude: '27.4305',
+      },
     },
     {
       '@type': 'City',
       name: 'Marmaris',
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: '36.8555',
+        longitude: '28.2744',
+      },
     },
     {
       '@type': 'City',
       name: 'Çeşme',
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: '38.3228',
+        longitude: '26.3061',
+      },
     },
   ],
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Antalya',
+    addressRegion: 'Antalya',
+    addressCountry: 'TR',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: '36.8969',
+    longitude: '30.7133',
+  },
 };
 
 // Hotels Service Schema - Lodging Business
@@ -485,6 +516,55 @@ export const HOTELS_SERVICE_SCHEMA = {
       value: true,
     },
   ],
+  areaServed: [
+    {
+      '@type': 'City',
+      name: 'Istanbul',
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: '41.0082',
+        longitude: '28.9784',
+      },
+    },
+    {
+      '@type': 'City',
+      name: 'Antalya',
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: '36.8969',
+        longitude: '30.7133',
+      },
+    },
+    {
+      '@type': 'City',
+      name: 'Bodrum',
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: '37.0344',
+        longitude: '27.4305',
+      },
+    },
+    {
+      '@type': 'City',
+      name: 'Izmir',
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: '38.4237',
+        longitude: '27.1428',
+      },
+    },
+  ],
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Istanbul',
+    addressRegion: 'Istanbul',
+    addressCountry: 'TR',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: '41.0082',
+    longitude: '28.9784',
+  },
 };
 
 // Car Rentals Enhanced Schema
@@ -500,9 +580,54 @@ export const CAR_RENTALS_SERVICE_ENHANCED_SCHEMA = {
     ratingValue: '4.6',
     reviewCount: '3890',
   },
-  areaServed: {
-    '@type': 'Country',
-    name: 'Turkey',
+  areaServed: [
+    {
+      '@type': 'City',
+      name: 'Istanbul',
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: '41.0082',
+        longitude: '28.9784',
+      },
+    },
+    {
+      '@type': 'City',
+      name: 'Antalya',
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: '36.8969',
+        longitude: '30.7133',
+      },
+    },
+    {
+      '@type': 'City',
+      name: 'Izmir',
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: '38.4237',
+        longitude: '27.1428',
+      },
+    },
+    {
+      '@type': 'City',
+      name: 'Bodrum',
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: '37.0344',
+        longitude: '27.4305',
+      },
+    },
+  ],
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Istanbul',
+    addressRegion: 'Istanbul',
+    addressCountry: 'TR',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: '41.0082',
+    longitude: '28.9784',
   },
 };
 

@@ -276,11 +276,56 @@ const HotelsNewPage: React.FC = () => {
                 { "@type": "LocationFeatureSpecification", "name": "Air Conditioning", "value": true }
               ],
               "areaServed": [
-                { "@type": "City", "name": "Istanbul" },
-                { "@type": "City", "name": "Antalya" },
-                { "@type": "City", "name": "Bodrum" },
-                { "@type": "City", "name": "Izmir" }
-              ]
+                {
+                  "@type": "City",
+                  "name": "Istanbul",
+                  "geo": {
+                    "@type": "GeoCoordinates",
+                    "latitude": "41.0082",
+                    "longitude": "28.9784"
+                  }
+                },
+                {
+                  "@type": "City",
+                  "name": "Antalya",
+                  "geo": {
+                    "@type": "GeoCoordinates",
+                    "latitude": "36.8969",
+                    "longitude": "30.7133"
+                  }
+                },
+                {
+                  "@type": "City",
+                  "name": "Bodrum",
+                  "geo": {
+                    "@type": "GeoCoordinates",
+                    "latitude": "37.0344",
+                    "longitude": "27.4305"
+                  }
+                },
+                {
+                  "@type": "City",
+                  "name": "Izmir",
+                  "geo": {
+                    "@type": "GeoCoordinates",
+                    "latitude": "38.4237",
+                    "longitude": "27.1428"
+                  }
+                }
+              ],
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Istanbul",
+                "addressRegion": "Istanbul",
+                "addressCountry": "TR"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": "41.0082",
+                "longitude": "28.9784"
+              },
+              "telephone": "+90-850-XXX-XXXX",
+              "email": "hotels@holiday.ailydian.com"
             })
           }} />
 
