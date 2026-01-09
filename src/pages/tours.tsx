@@ -34,12 +34,27 @@ import { antalyaTours } from '../data/antalya-tours';
 import { greeceTours } from '../data/greece-tours';
 import { cyprusTours } from '../data/cyprus-tours';
 import CountryFilterWidget from '../components/filters/CountryFilterWidget';
-// Dynamic imports to prevent SSR issues - Import directly from component files
-const NeoHero = dynamic(() => import('../components/neo-glass/NeoHero'), { ssr: false });
-const FuturisticCard = dynamic(() => import('../components/neo-glass/FuturisticCard'), { ssr: false });
-const FuturisticButton = dynamic(() => import('../components/neo-glass/FuturisticButton'), { ssr: false });
-const NeoSection = dynamic(() => import('../components/neo-glass/NeoSection'), { ssr: false });
-const HorizontalScrollSection = dynamic(() => import('../components/scroll/HorizontalScrollSection'), { ssr: false });
+// Dynamic imports to prevent SSR issues - Import directly from component files with loading fallbacks
+const NeoHero = dynamic(() => import('../components/neo-glass/NeoHero'), {
+  ssr: false,
+  loading: () => <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 animate-pulse" />
+});
+const FuturisticCard = dynamic(() => import('../components/neo-glass/FuturisticCard'), {
+  ssr: false,
+  loading: () => <div className="bg-white/5 rounded-2xl h-96 animate-pulse" />
+});
+const FuturisticButton = dynamic(() => import('../components/neo-glass/FuturisticButton'), {
+  ssr: false,
+  loading: () => <div className="h-12 w-32 bg-white/10 rounded-xl animate-pulse" />
+});
+const NeoSection = dynamic(() => import('../components/neo-glass/NeoSection'), {
+  ssr: false,
+  loading: () => <div className="min-h-screen bg-gradient-to-br from-slate-900 via-black to-slate-800 animate-pulse" />
+});
+const HorizontalScrollSection = dynamic(() => import('../components/scroll/HorizontalScrollSection'), {
+  ssr: false,
+  loading: () => <div className="h-64 bg-white/5 rounded-2xl animate-pulse" />
+});
 import { AntalyaToursAIAnswer } from '../components/seo/AIAnswerBlock';
 
 // ==================== TYPE DEFINITIONS ====================
