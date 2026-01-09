@@ -180,7 +180,7 @@ export const NeoHero: React.FC<NeoHeroProps> = ({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}>
 
-              <div className="bg-white/10 backdrop-blur-xl border border-white/20 backdrop-blur-xl border border-white/20 rounded-3xl p-6 shadow-[0_8px_32px_0_rgba(31,38,135,0.2)]">
+              <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-6 shadow-[0_8px_32px_0_rgba(31,38,135,0.2)]">
                 <p className="text-xl md:text-2xl lg:text-3xl text-white/90 font-light leading-relaxed">
                   {subtitle}
                 </p>
