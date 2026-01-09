@@ -505,3 +505,131 @@ export const CAR_RENTALS_SERVICE_ENHANCED_SCHEMA = {
     name: 'Turkey',
   },
 };
+
+// Hotels FAQ Schema - Comprehensive Q&A for AI Search
+export const HOTELS_FAQ_SCHEMA = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Otel rezervasyonu nasıl yapılır?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Sistemimizde otel seçtikten sonra tarih ve misafir sayısı belirleyerek anında rezervasyon yapabilirsiniz. Ödeme güvenli SSL şifrelemesi ile korunur. Rezervasyon onayı email ve SMS ile anında gönderilir.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Otel iptal koşulları nedir?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'İptal koşulları otelden otele değişir. Çoğu otel check-in tarihinden 48-72 saat öncesine kadar ücretsiz iptal imkanı sunar. Detaylı iptal koşulları rezervasyon sırasında gösterilir.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Otel fiyatlarına neler dahil?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Fiyatlara genellikle konaklama, kahvaltı (belirtilmişse), vergi ve hizmet bedeli dahildir. All-inclusive otellerde tüm yemekler ve içecekler fiyata dahildir. Ekstra hizmetler (spa, minibar vb.) ayrıca ücretlendirilir.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Check-in ve check-out saatleri nedir?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Standart check-in saati 14:00, check-out saati 12:00\'dir. Erken check-in veya geç check-out için otelle iletişime geçmeniz gerekmektedir. Ek ücret talep edilebilir.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Aileler için uygun oteller var mı?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Evet, çocuk havuzu, oyun parkı, mini kulüp gibi aile dostu imkanlar sunan yüzlerce otelimiz bulunmaktadır. Filtreleme seçeneklerinden "Aile Dostu" seçeneğini işaretleyerek bu otelleri listeleyebilirsiniz.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Otel ödemeleri güvenli mi?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Evet, tüm ödemeler 256-bit SSL şifrelemesi ve PCI-DSS standartlarına uygun güvenli ödeme altyapısı ile işlenir. Kredi kartı bilgileriniz saklanmaz.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Otelde çocuk için ek yatak/beşik talep edebilir miyim?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Evet, çoğu otel ek yatak ve bebek beşiği hizmeti sunmaktadır. Rezervasyon sırasında veya sonrasında özel talep bölümünden bildirmeniz gerekmektedir. Bazı oteller bu hizmet için ek ücret talep edebilir.',
+      },
+    },
+  ],
+};
+
+// Car Rentals FAQ Schema - Comprehensive Q&A
+export const CAR_RENTALS_FAQ_SCHEMA = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Araç kiralama için hangi belgeler gerekli?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Araç kiralamak için geçerli ehliyet (en az 1 yıllık), kimlik belgesi ve kredi kartı gerekmektedir. Yabancı uyruklular için uluslararası ehliyet ve pasaport zorunludur.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Araç kiralama yaş sınırı var mı?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Minimum yaş sınırı 21, bazı lüks araçlar için 25\'tir. 21-25 yaş arası genç sürücü ücreti uygulanabilir. Maksimum yaş sınırı yoktur.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Kiralık araçta kasko var mı?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Evet, tüm araçlarımızda zorunlu trafik sigortası ve kasko bulunmaktadır. Ek olarak tam kasko, cam hasarı ve lastik sigortası paketleri de sunulmaktadır.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Yakıt politikası nasıl?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Standart politika "Dolu Al - Dolu Getir"dir. Aracı dolu depo teslim alıp, dolu depo iade ediyorsunuz. Eksik yakıt için ek ücret talep edilir.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Sınır ötesi kullanım mümkün mü?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Belirli araç gruplarında Avrupa ülkelerine sınır ötesi kullanım mümkündür. Rezervasyon sırasında veya öncesinde bildirilmesi ve ek belgelerin hazırlanması gerekmektedir.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Havalimanı teslimat ücreti var mı?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Büyük havalimanlarında (İstanbul, Antalya, İzmir, Bodrum) havalimanı teslimat ücretsizdir. Diğer noktalarda ek ücret talep edilebilir.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Ek sürücü ekleyebilir miyim?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Evet, rezervasyon sırasında veya araç teslimatında ek sürücü eklenebilir. Ek sürücü için günlük sabit ücret uygulanır ve ek sürücünün de belge kontrolü yapılır.',
+      },
+    },
+  ],
+};

@@ -247,6 +247,111 @@ const HotelsNewPage: React.FC = () => {
         canonical={PAGE_SEO.hotels.canonical}
         type="website" />
 
+      {/* Hotels Service Schema - LodgingBusiness */}
+      <Head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "LodgingBusiness",
+              "name": "AILYDIAN Holiday Hotels & Accommodation",
+              "url": "https://holiday.ailydian.com/hotels",
+              "logo": "https://holiday.ailydian.com/images/logo.png",
+              "description": "Türkiye genelinde butik otel, resort, apart ve villa konaklama seçenekleri. Anında rezervasyon, en iyi fiyat garantisi, güvenli ödeme.",
+              "priceRange": "₺₺-₺₺₺",
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingValue": "4.7",
+                "reviewCount": "12450",
+                "bestRating": "5",
+                "worstRating": "1"
+              },
+              "amenityFeature": [
+                { "@type": "LocationFeatureSpecification", "name": "Free WiFi", "value": true },
+                { "@type": "LocationFeatureSpecification", "name": "Swimming Pool", "value": true },
+                { "@type": "LocationFeatureSpecification", "name": "Spa & Wellness", "value": true },
+                { "@type": "LocationFeatureSpecification", "name": "Restaurant", "value": true },
+                { "@type": "LocationFeatureSpecification", "name": "Parking", "value": true },
+                { "@type": "LocationFeatureSpecification", "name": "Air Conditioning", "value": true }
+              ],
+              "areaServed": [
+                { "@type": "City", "name": "Istanbul" },
+                { "@type": "City", "name": "Antalya" },
+                { "@type": "City", "name": "Bodrum" },
+                { "@type": "City", "name": "Izmir" }
+              ]
+            })
+          }} />
+
+        {/* Hotels FAQ Schema - AI Search Optimization */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "Otel rezervasyonu nasıl yapılır?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sistemimizde otel seçtikten sonra tarih ve misafir sayısı belirleyerek anında rezervasyon yapabilirsiniz. Ödeme güvenli SSL şifrelemesi ile korunur. Rezervasyon onayı email ve SMS ile anında gönderilir."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Otel iptal koşulları nedir?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "İptal koşulları otelden otele değişir. Çoğu otel check-in tarihinden 48-72 saat öncesine kadar ücretsiz iptal imkanı sunar. Detaylı iptal koşulları rezervasyon sırasında gösterilir."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Otel fiyatlarına neler dahil?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Fiyatlara genellikle konaklama, kahvaltı (belirtilmişse), vergi ve hizmet bedeli dahildir. All-inclusive otellerde tüm yemekler ve içecekler fiyata dahildir. Ekstra hizmetler (spa, minibar vb.) ayrıca ücretlendirilir."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Check-in ve check-out saatleri nedir?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Standart check-in saati 14:00, check-out saati 12:00'dir. Erken check-in veya geç check-out için otelle iletişime geçmeniz gerekmektedir. Ek ücret talep edilebilir."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Aileler için uygun oteller var mı?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Evet, çocuk havuzu, oyun parkı, mini kulüp gibi aile dostu imkanlar sunan yüzlerce otelimiz bulunmaktadır. Filtreleme seçeneklerinden \"Aile Dostu\" seçeneğini işaretleyerek bu otelleri listeleyebilirsiniz."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Otel ödemeleri güvenli mi?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Evet, tüm ödemeler 256-bit SSL şifrelemesi ve PCI-DSS standartlarına uygun güvenli ödeme altyapısı ile işlenir. Kredi kartı bilgileriniz saklanmaz."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Otelde çocuk için ek yatak/beşik talep edebilir miyim?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Evet, çoğu otel ek yatak ve bebek beşiği hizmeti sunmaktadır. Rezervasyon sırasında veya sonrasında özel talep bölümünden bildirmeniz gerekmektedir. Bazı oteller bu hizmet için ek ücret talep edebilir."
+                  }
+                }
+              ]
+            })
+          }} />
+      </Head>
 
       <ModernHeader />
 
