@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import Head from 'next/head';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 import {
   ArrowRight,
   MapPin,
@@ -34,13 +33,11 @@ import { antalyaTours } from '../data/antalya-tours';
 import { greeceTours } from '../data/greece-tours';
 import { cyprusTours } from '../data/cyprus-tours';
 import CountryFilterWidget from '../components/filters/CountryFilterWidget';
-// Client-side only imports - These components CANNOT render on server
-const NeoHero = dynamic(() => import('../components/neo-glass/NeoHero'), { ssr: false });
-const FuturisticCard = dynamic(() => import('../components/neo-glass/FuturisticCard'), { ssr: false });
-const FuturisticButton = dynamic(() => import('../components/neo-glass/FuturisticButton'), { ssr: false });
-const NeoSection = dynamic(() => import('../components/neo-glass/NeoSection'), { ssr: false });
-const HorizontalScrollSection = dynamic(() => import('../components/scroll/HorizontalScrollSection'), { ssr: false });
 import { AntalyaToursAIAnswer } from '../components/seo/AIAnswerBlock';
+
+// Client-side animation wrapper - loads after hydration
+const ToursClientWrapper = dynamic(() => import('../components/tours/ToursClientWrapper'), { ssr: false });
+const FuturisticCard = dynamic(() => import('../components/neo-glass/FuturisticCard'), { ssr: false });
 
 // ==================== TYPE DEFINITIONS ====================
 /**
@@ -586,46 +583,12 @@ export default function Tours() {
       <ModernHeader />
 
       <main className="min-h-screen">
-        {/* 🎬 NEO-GLASS TOURS HERO */}
-        <NeoHero
-          title="Unutulmaz Turlar"
-          subtitle="Türkiye'nin en güzel köşelerinde eşsiz deneyimler sizi bekliyor"
-          gradient="twilight"
-          height="70vh"
-          overlayOpacity={0.2}
-          showFloatingElements={true}>
-
-          {/* Stats Cards with Glassmorphism */}
-          <div className="flex flex-wrap justify-center gap-6 mt-12">
-            <motion.div
-              className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl px-8 py-6 shadow-[0_8px_32px_0_rgba(31,38,135,0.2)]"
-              whileHover={{ scale: 1.05, y: -5 }}>
-
-              <div className="text-5xl font-black text-white mb-2">{tours.length}</div>
-              <div className="text-sm uppercase tracking-widest text-white/80">Benzersiz Tur</div>
-            </motion.div>
-
-            <motion.div
-              className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl px-8 py-6 shadow-[0_8px_32px_0_rgba(31,38,135,0.2)]"
-              whileHover={{ scale: 1.05, y: -5 }}>
-
-              <div className="text-5xl font-black text-white mb-2">
-                {(tours.reduce((sum, tour) => sum + tour.rating, 0) / tours.length).toFixed(1)}
-              </div>
-              <div className="text-sm uppercase tracking-widest text-white/80">Ortalama Puan</div>
-            </motion.div>
-
-            <motion.div
-              className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl px-8 py-6 shadow-[0_8px_32px_0_rgba(31,38,135,0.2)]"
-              whileHover={{ scale: 1.05, y: -5 }}>
-
-              <div className="text-5xl font-black text-white mb-2">
-                {tours.reduce((sum, tour) => sum + tour.reviews, 0).toLocaleString('tr-TR')}
-              </div>
-              <div className="text-sm uppercase tracking-widest text-white/80">Mutlu Misafir</div>
-            </motion.div>
-          </div>
-        </NeoHero>
+        {/* 🎬 CLIENT-SIDE HERO (loads after hydration) */}
+        <ToursClientWrapper
+          tourCount={tours.length}
+          averageRating={tours.reduce((sum, tour) => sum + tour.rating, 0) / tours.length}
+          totalReviews={tours.reduce((sum, tour) => sum + tour.reviews, 0)}
+        />
 
         {/* AI Answer Block - Optimized for AI Search Engines */}
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -739,17 +702,11 @@ export default function Tours() {
             </p>
           </div>
 
-          {/* 🎪 NEO-GLASS TOURS GRID */}
+          {/* 🎪 TOURS GRID */}
           {sortedTours.length > 0 ?
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {sortedTours.map((tour, index) =>
-            <motion.div
-              key={tour.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.05 }}>
-
+              {sortedTours.map((tour) =>
+            <div key={tour.id} className="transform transition-all duration-300 hover:scale-105">
                   <FuturisticCard
                 image={tour.image}
                 title={tour.name}
@@ -782,15 +739,11 @@ export default function Tours() {
                 tour.category === 'culinary' ? 'var(--lydian-accent-purple)' :
                 'var(--lydian-primary)'
                 } />
-
-                </motion.div>
+                </div>
             )}
             </div> :
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-center py-20">
+          <div className="text-center py-20">
 
               <Camera className="w-32 h-32 text-gray-400 mx-auto mb-6" />
               <h2 className="text-3xl font-bold text-white mb-4">
@@ -812,7 +765,7 @@ export default function Tours() {
                 Filtreleri Temizle
                 <ArrowRight className="w-5 h-5" />
               </button>
-            </motion.div>
+            </div>
           }
         </section>
       </main>
