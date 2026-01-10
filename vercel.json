@@ -1,72 +1,35 @@
 {
-  "$schema": "https://openapi.vercel.sh/vercel.json",
   "version": 2,
   "framework": "nextjs",
-  "alias": ["holiday.ailydian.com"],
-  "name": "travel-ailydian-holiday",
-
+  "buildCommand": "prisma generate && next build",
+  "installCommand": "npm install --legacy-peer-deps",
+  "regions": ["iad1"],
+  "env": {
+    "NEXT_PUBLIC_SITE_URL": "https://median.ailydian.com",
+    "NEXT_PUBLIC_DEFAULT_LOCALE": "en"
+  },
   "build": {
     "env": {
-      "NODE_ENV": "production",
-      "NEXT_TELEMETRY_DISABLED": "1"
+      "NEXT_PUBLIC_SITE_URL": "https://median.ailydian.com"
     }
   },
-  
-  "functions": {
-    "src/pages/api/**/*.{js,ts}": {
-      "memory": 512,
-      "maxDuration": 15
-    }
-  },
-
-  "crons": [
-    {
-      "path": "/api/cron/nirvana-seo-orchestration",
-      "schedule": "0 */8 * * *"
-    },
-    {
-      "path": "/api/cron/update-seo",
-      "schedule": "0 */6 * * *"
-    },
-    {
-      "path": "/api/cron/check-price-alerts",
-      "schedule": "0 */2 * * *"
-    },
-    {
-      "path": "/api/cron/ping-search-engines",
-      "schedule": "0 */12 * * *"
-    },
-    {
-      "path": "/api/cron/multilingual-seo-ai",
-      "schedule": "0 */4 * * *"
-    },
-    {
-      "path": "/api/cron/seo-health-check",
-      "schedule": "0 */6 * * *"
-    }
-  ],
-
-  "regions": ["iad1"],
-  
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
         {
-          "key": "X-Robots-Tag",
-          "value": "index, follow, max-image-preview:large"
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
         },
         {
-          "key": "X-Enterprise-Grade",
-          "value": "LyDian-AI-Tourism"
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
         }
       ]
     }
-  ],
-  
-  
-  "env": {
-    "NEXT_PUBLIC_SITE_URL": "https://holiday.ailydian.com",
-    "NEXT_PUBLIC_API_URL": "https://holiday.ailydian.com/api"
-  }
+  ]
 }
