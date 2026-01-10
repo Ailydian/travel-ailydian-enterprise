@@ -34,12 +34,12 @@ import { antalyaTours } from '../data/antalya-tours';
 import { greeceTours } from '../data/greece-tours';
 import { cyprusTours } from '../data/cyprus-tours';
 import CountryFilterWidget from '../components/filters/CountryFilterWidget';
-// Direct imports - Components must handle SSR internally with typeof window checks
-import NeoHero from '../components/neo-glass/NeoHero';
-import FuturisticCard from '../components/neo-glass/FuturisticCard';
-import FuturisticButton from '../components/neo-glass/FuturisticButton';
-import NeoSection from '../components/neo-glass/NeoSection';
-import HorizontalScrollSection from '../components/scroll/HorizontalScrollSection';
+// Client-side only imports - These components CANNOT render on server
+const NeoHero = dynamic(() => import('../components/neo-glass/NeoHero'), { ssr: false });
+const FuturisticCard = dynamic(() => import('../components/neo-glass/FuturisticCard'), { ssr: false });
+const FuturisticButton = dynamic(() => import('../components/neo-glass/FuturisticButton'), { ssr: false });
+const NeoSection = dynamic(() => import('../components/neo-glass/NeoSection'), { ssr: false });
+const HorizontalScrollSection = dynamic(() => import('../components/scroll/HorizontalScrollSection'), { ssr: false });
 import { AntalyaToursAIAnswer } from '../components/seo/AIAnswerBlock';
 
 // ==================== TYPE DEFINITIONS ====================
