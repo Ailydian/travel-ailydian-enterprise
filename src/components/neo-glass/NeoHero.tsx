@@ -32,11 +32,13 @@ export const NeoHero: React.FC<NeoHeroProps> = ({
   children,
   showFloatingElements = true
 }) => {
-  const { scrollY } = useScroll();
+  // SSR-safe scroll hooks - only initialize on client
+  const isClient = typeof window !== 'undefined';
+  const { scrollY } = isClient ? useScroll() : { scrollY: { get: () => 0, set: () => {} } } as any;
 
   // Parallax effect
-  const y = useTransform(scrollY, [0, 500], [0, 150]);
-  const opacity = useTransform(scrollY, [0, 300], [1, 0]);
+  const y = isClient ? useTransform(scrollY, [0, 500], [0, 150]) : { get: () => 0 } as any;
+  const opacity = isClient ? useTransform(scrollY, [0, 300], [1, 0]) : { get: () => 1 } as any;
 
   // Gradient backgrounds
   const gradients = {

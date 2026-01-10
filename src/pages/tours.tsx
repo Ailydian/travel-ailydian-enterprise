@@ -34,27 +34,12 @@ import { antalyaTours } from '../data/antalya-tours';
 import { greeceTours } from '../data/greece-tours';
 import { cyprusTours } from '../data/cyprus-tours';
 import CountryFilterWidget from '../components/filters/CountryFilterWidget';
-// Dynamic imports with SSR enabled - Components will render on server
-const NeoHero = dynamic(() => import('../components/neo-glass/NeoHero'), {
-  ssr: true,
-  loading: () => <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 animate-pulse" />
-});
-const FuturisticCard = dynamic(() => import('../components/neo-glass/FuturisticCard'), {
-  ssr: true,
-  loading: () => <div className="bg-white/5 rounded-2xl h-96 animate-pulse" />
-});
-const FuturisticButton = dynamic(() => import('../components/neo-glass/FuturisticButton'), {
-  ssr: true,
-  loading: () => <div className="h-12 w-32 bg-white/10 rounded-xl animate-pulse" />
-});
-const NeoSection = dynamic(() => import('../components/neo-glass/NeoSection'), {
-  ssr: true,
-  loading: () => <div className="min-h-screen bg-gradient-to-br from-slate-900 via-black to-slate-800 animate-pulse" />
-});
-const HorizontalScrollSection = dynamic(() => import('../components/scroll/HorizontalScrollSection'), {
-  ssr: true,
-  loading: () => <div className="h-64 bg-white/5 rounded-2xl animate-pulse" />
-});
+// Direct imports - Components must handle SSR internally with typeof window checks
+import NeoHero from '../components/neo-glass/NeoHero';
+import FuturisticCard from '../components/neo-glass/FuturisticCard';
+import FuturisticButton from '../components/neo-glass/FuturisticButton';
+import NeoSection from '../components/neo-glass/NeoSection';
+import HorizontalScrollSection from '../components/scroll/HorizontalScrollSection';
 import { AntalyaToursAIAnswer } from '../components/seo/AIAnswerBlock';
 
 // ==================== TYPE DEFINITIONS ====================
